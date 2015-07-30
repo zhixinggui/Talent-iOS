@@ -1,0 +1,25 @@
+//
+//  Talent.pch
+//  TalentService
+//
+//  Created by zhizhen on 15/7/24.
+//  Copyright (c) 2015年 zhizhen. All rights reserved.
+//
+
+#ifndef TalentService_Talent_pch
+#define TalentService_Talent_pch
+
+#import "ZZCategory.h"
+// 自定义Log
+#ifdef DEBUG
+
+#define ZZLog(...) NSLog(@"%s %d \n %@\n\n",__func__,__LINE__,[NSString stringWithFormat:__VA_ARGS__])
+
+#else
+#define ZZLog(...)
+
+#endif
+
+#define NatiTitleColor  [UIColor colorWithRed:51.0/255 green:51.0/255 blue:51.0/255 alpha:1.0]
+
+#endif
