@@ -240,7 +240,6 @@ SHARED_SERVICE(UUAssetManager);
     for (UUAssetPhoto *obj in _selectdPhotos) {
         
         UIImage *image = [self getImageFromAsset:obj.asset type:type];
-        
         [sendArray addObject:image];
     }
     

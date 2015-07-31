@@ -19,6 +19,8 @@
     if (self) {
         self.exclusiveTouch = YES;
         [self setTitle:@"获取验证码" forState:UIControlStateNormal];
+        self.layer.cornerRadius = 5;
+        self.layer.masksToBounds = YES;
         self.backgroundColor = [UIColor  orangeColor];
     }
     return self;

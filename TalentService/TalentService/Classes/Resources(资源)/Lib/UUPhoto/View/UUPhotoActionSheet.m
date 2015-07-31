@@ -326,10 +326,15 @@
     if (animation) {
         time = .25f;
     }
-    [UIView animateWithDuration:time animations:^{
+    [UIView  animateWithDuration:time animations:^{
         _sheetView.frame = frame;
         self.alpha = 0;
+    } completion:^(BOOL finished) {
+        if (finished) {
+            [self  removeFromSuperview];
+        }
     }];
+ 
 }
 
 #pragma mark - Getters And Setters

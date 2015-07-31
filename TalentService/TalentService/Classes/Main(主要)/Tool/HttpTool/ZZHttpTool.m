@@ -5,10 +5,10 @@
 //  Created by zhizhen on 15/7/29.
 //  Copyright (c) 2015年 zhizhen. All rights reserved.
 //
-static  NSString * const baseUrl = @",,,,";
-static  NSTimeInterval const responseTime = 60;
+
 #import "ZZHttpTool.h"
 #import "AFNetworking.h"
+#import "ZZFileParam.h"
 @interface ZZHttpTool ()
 /**
  *  网络请求管理器
@@ -23,6 +23,7 @@ singleton_implementation(ZZHttpTool)
     if (_manager == nil) {
         AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc]initWithBaseURL:[NSURL  URLWithString:[baseUrl  copy]]];
         manager.requestSerializer.timeoutInterval = responseTime;
+       // self.manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
     }
     return _manager;
 }
@@ -93,7 +94,7 @@ singleton_implementation(ZZHttpTool)
         NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
             
             if (!error) {
-                NSString*  str = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+               // NSString*  str = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
           
                 id  jsonData = [NSJSONSerialization JSONObjectWithData:data options:0 error:Nil];
                 if ([jsonData  isKindOfClass:[NSArray  class]]) {
@@ -122,12 +123,12 @@ singleton_implementation(ZZHttpTool)
  *  @param success 成功block回调
  *  @param failure 失败block回调
  */
-- (void)AFGetByApiName:(NSString *)apiName
-                Params:(id)params
+- (void)afGetByApiName:(NSString *)apiName
+                Params:(NSDictionary *)params
                success:(SuccessBlock)success
                failure:(ErrorBlock)failure{
     
-    [self.manager GET:[NSString stringWithFormat:@"%@%@",baseUrl,apiName] parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [self.manager GET:apiName parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         //QQLog(@"JSON: %@", responseObject);
         success(responseObject);
         
@@ -145,12 +146,12 @@ singleton_implementation(ZZHttpTool)
  *  @param success 成功block回调
  *  @param failure 失败block回调
  */
--(void)AFPostByApiName:(NSString *)apiName
+-(void)afPostByApiName:(NSString *)apiName
                 Params:(NSDictionary *)params
                success:(SuccessBlock)success
                failure:(ErrorBlock)failure{
     
-    [self.manager POST:[NSString stringWithFormat:@"%@%@",baseUrl,apiName] parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [self.manager POST:apiName parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         //QQLog(@"JSON: %@", responseObject);
         success(responseObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -168,29 +169,22 @@ singleton_implementation(ZZHttpTool)
  *  @param success -
  *  @param failure -
  */
--(void)AFPostImageByApiName:(NSString *)apiName
-                     Params:(id)params
-                ImagesArray:(NSArray*)images
+-(void)afPostImageByApiName:(NSString *)apiName
+                     Params:(NSDictionary *)params
+                ImagesArray:(NSArray *)fileParams
                     success:(SuccessBlock)success
                     failure:(ErrorBlock)failure{
-//    
-//    [self.manager POST:apiName parameters:params constructingBodyWithBlock:^(id formData) {
-//        
-//        for (int i = 0; i<images.count; i++) {
-//            NSData*  imageData = UIImageJPEGRepresentation([self fixOrientation:images[i]], 0.8);
-//            NSString*  name =nil;
-//            if (images.count == 1) {
-//                name = @"imageFile";
-//            }else{
-//                name = [NSString   stringWithFormat:@"file%d",i+1];
-//            }
-//            [formData appendPartWithFileData:imageData name:name fileName:[NSString stringWithFormat:@"image.jpg"] mimeType:@"image/jpeg"];
-//        }
-//    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//        success(responseObject);
-//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//        failure(error);
-//    }];
+    
+    [self.manager POST:apiName parameters:params constructingBodyWithBlock:^(id formData) {
+        for (ZZFileParam *fileParam in fileParams) {
+            
+            [formData  appendPartWithFileData:fileParam.data name:fileParam.name fileName:fileParam.fileName mimeType:fileParam.mimeType];
+        }
+    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        success(responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        failure(error);
+    }];
 }
 /**
  *  第三方的post上传单张图片请求方式

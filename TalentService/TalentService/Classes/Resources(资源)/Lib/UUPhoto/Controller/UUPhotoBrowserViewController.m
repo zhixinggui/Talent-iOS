@@ -411,7 +411,7 @@
 -(void)setTitleString:(NSString *)titleString{
     _titleString = titleString;
     self.title = titleString;
- 
+#warning  继续完善
     [self  setNavTitleString:titleString];
 }
 

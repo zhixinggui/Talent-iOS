@@ -65,7 +65,7 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 	CGAffineTransform rotationTransform;
 }
 
-@property (atomic, MB_STRONG) UIView *indicator;
+
 @property (atomic, MB_STRONG) NSTimer *graceTimer;
 @property (atomic, MB_STRONG) NSTimer *minShowTimer;
 @property (atomic, MB_STRONG) NSDate *showStarted;
@@ -76,6 +76,7 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 @implementation MBProgressHUD
 
 #pragma mark - Properties
+@synthesize label;//自己改的
 
 @synthesize animationType;
 @synthesize delegate;

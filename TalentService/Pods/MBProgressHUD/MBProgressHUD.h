@@ -269,6 +269,15 @@ typedef void (^MBProgressHUDCompletionBlock)();
 - (void)showAnimated:(BOOL)animated whileExecutingBlock:(dispatch_block_t)block onQueue:(dispatch_queue_t)queue
 		  completionBlock:(MBProgressHUDCompletionBlock)completion;
 
+#warning self  把私有属性公开
+/**
+ *  <#Description#>
+ */
+@property(nonatomic,strong)UILabel *label;
+/**
+ *  <#Description#>
+ */
+@property (atomic, MB_STRONG) UIView *indicator;;
 /**
  * A block that gets called after the HUD was completely hidden.
  */

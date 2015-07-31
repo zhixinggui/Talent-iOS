@@ -92,7 +92,12 @@
 -(void)layoutSubviews{
     [super layoutSubviews];
     if (self.placeholder.length) {
-        self.placeholderLabel.frame = CGRectMake(5,8, self.frame.size.width-20, 15);
+        self.placeholderLabel.y = 8;
+        self.placeholderLabel.x = 5;
+        self.placeholderLabel.width = self.width - 2 * self.placeholderLabel.x;
+        // 根据文字计算label的高度
+        CGSize placehoderSize = [self.placeholder sizeWithFont:self.placeholderLabel.font maxW:self.placeholderLabel.width];
+        self.placeholderLabel.height = placehoderSize.height;
         [self  updatePlaceholderLabelStatus];
     }
 }

@@ -4,7 +4,7 @@
 //
 //  Created by zhangyu on 15/7/10.
 //  Copyright (c) 2015年 zhangyu. All rights reserved.
-//
+//  要作为 对象持有下.默认缩略图，原图是缩略图的三倍左右
 
 #import <UIKit/UIKit.h>
 
