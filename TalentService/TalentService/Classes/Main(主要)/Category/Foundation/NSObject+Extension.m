@@ -70,4 +70,12 @@ double MachTimeToSecs(uint64_t time)
     (double)timebase.denom /1e9;
 }
 
+- (CGSize)getiSizeWithAttString:(NSAttributedString *)attrStr size:(CGSize)size{
+    CGSize  backSize = [attrStr boundingRectWithSize:size options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading context:nil].size;
+    
+    return CGSizeMake(ceil(backSize.width)+1, ceil(backSize.height));
+    
+}
+
+
 @end

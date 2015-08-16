@@ -43,12 +43,25 @@
     if(font == nil){
         font = [UIFont  systemFontOfSize:16];
     }
+    
     NSMutableDictionary *attrs = [NSMutableDictionary dictionary];
     attrs[NSFontAttributeName] = font;
     CGSize maxSize = CGSizeMake(maxW, MAXFLOAT);
-    return [self boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:attrs context:nil].size;
+    CGSize  backSize = [self boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:attrs context:nil].size;
+    return CGSizeMake(ceil(backSize.width)+1, ceil(backSize.height));
 }
-
+- (CGSize)sizeWithFont:(UIFont *)font maxSize:(CGSize)size{
+    if(font == nil){
+        font = [UIFont  systemFontOfSize:16];
+    }
+    
+    NSMutableDictionary *attrs = [NSMutableDictionary dictionary];
+    attrs[NSFontAttributeName] = font;
+    
+    CGSize  backSize = [self boundingRectWithSize:size options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:attrs context:nil].size;
+    
+    return CGSizeMake(ceil(backSize.width)+1, ceil(backSize.height));
+}
 -(BOOL) isOlderVersionThan:(NSString*)otherVersion
 {
     return ([self compare:otherVersion options:NSNumericSearch] == NSOrderedAscending);
@@ -71,4 +84,47 @@
 //    }
     return asciiLength;
 }
+
+- (BOOL)isPhoneNumber{
+    NSString *telRegex = @"^1[34578]\\d{9}$";
+    NSPredicate *prediate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", telRegex];
+    return [prediate evaluateWithObject:self];
+}
+- (BOOL)isSecutityNumber{
+    NSString *telRegex = @"[0-9]{6}$";
+    NSPredicate *prediate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", telRegex];
+    return [prediate evaluateWithObject:self];
+}
+
+
+- (BOOL)isPassWordWithMin:(NSUInteger)min max:(NSUInteger)max{
+    NSString *telRegex = [NSString  stringWithFormat:@"[A-Za-z0-9]{%ld,%ld}$", min,max];
+    NSPredicate* emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",telRegex];
+    return [emailTest evaluateWithObject:self];
+}
+
+- (NSMutableAttributedString *)getReplyAttributedStringFont:(UIFont *)font  color:(UIColor *)color{
+    NSMutableAttributedString *attributedString = [[NSMutableAttributedString   alloc] initWithString:self];
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle  alloc] init];
+    paragraphStyle.alignment = NSTextAlignmentLeft;
+    paragraphStyle.lineBreakMode = NSLineBreakByWordWrapping;
+ 
+    NSRange range = NSMakeRange(0,attributedString.length);
+    [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:range];
+    //字体大小
+    if (font) {
+        [attributedString  addAttributes:@{NSFontAttributeName:font} range:range];
+    }
+    if (color) {
+        [attributedString  addAttributes:@{NSForegroundColorAttributeName :color} range:range];
+    }
+//    //字间距
+//    long number = ZZCharSpace;
+//    CFNumberRef num = CFNumberCreate(kCFAllocatorDefault,kCFNumberSInt8Type,&number);
+//    [attributedString addAttribute:NSKernAttributeName value:(__bridge id)num range:range];
+//    CFRelease(num);
+    
+    return attributedString;
+}
+
 @end

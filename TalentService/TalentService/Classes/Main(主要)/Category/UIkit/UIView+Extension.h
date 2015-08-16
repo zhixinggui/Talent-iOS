@@ -112,4 +112,6 @@
  *  @param repeatCount 重复次数，默认3次
  */
 - (void)shakeAnimation:(CGFloat)offsetX duration:(CGFloat)duration repeatCount:(NSUInteger)repeatCount;
+
+- (NSMutableAttributedString *)getAttributedStringWithText:(NSString *)text paragraphSpacing:(CGFloat)paragraphSpacing lineSpace:(CGFloat)lineSpace stringCharacterSpacing:(CGFloat)stringCharacterSpacing  textAlignment:(NSTextAlignment) textAlignment font:(UIFont *)font  color:(UIColor *)color;
 @end

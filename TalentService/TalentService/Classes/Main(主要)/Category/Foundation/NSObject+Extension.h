@@ -49,4 +49,6 @@
  *  @return 返回执行的时长，单位为s
  */
 -(double)codeBlockCostTime:(void (^)(void))block;
+
+- (CGSize)getiSizeWithAttString:(NSAttributedString *)attrStr size:(CGSize)size;
 @end

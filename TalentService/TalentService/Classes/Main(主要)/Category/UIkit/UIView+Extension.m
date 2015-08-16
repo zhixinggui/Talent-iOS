@@ -188,6 +188,40 @@ static NSUInteger const vRepeatCount = 3;
     }
     return NO;
 }
+- (NSMutableAttributedString *)getAttributedStringWithText:(NSString *)text paragraphSpacing:(CGFloat)paragraphSpacing lineSpace:(CGFloat)lineSpace stringCharacterSpacing:(CGFloat)stringCharacterSpacing  textAlignment:(NSTextAlignment) textAlignment font:(UIFont *)font  color:(UIColor *)color{
+    NSMutableAttributedString *attributedString = [[NSMutableAttributedString   alloc] initWithString:text];
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle  alloc] init];
+    paragraphStyle.alignment = textAlignment;
+    paragraphStyle.lineBreakMode = NSLineBreakByWordWrapping;
+    //    paragraphStyle.maximumLineHeight = 60;  //最大的行高
+    if (lineSpace<0) {
+        lineSpace = 0;
+    }
+    if (paragraphSpacing < 0) {
+        paragraphSpacing = 0;
+    }
+    paragraphStyle.lineSpacing = lineSpace;  //行自定义行高度
+    paragraphStyle.paragraphSpacing = paragraphSpacing;  //段间距
+    // [paragraphStyle setFirstLineHeadIndent:self.usernameLabel.frame.size.width + 5];//首行缩进 根据用户昵称宽度在加5个像素
+    NSRange range = NSMakeRange(0,attributedString.length);
+    [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:range];
+    //字体大小
+    if (font) {
+        [attributedString  addAttributes:@{NSFontAttributeName:font} range:range];
+    }
+    if (color) {
+        [attributedString  addAttributes:@{NSForegroundColorAttributeName :color} range:range];
+    }
+    //字间距
+    long number = stringCharacterSpacing;
+    CFNumberRef num = CFNumberCreate(kCFAllocatorDefault,kCFNumberSInt8Type,&number);
+    [attributedString addAttribute:NSKernAttributeName value:(__bridge id)num range:range];
+    CFRelease(num);
+    
+    
+    return attributedString;
+}
+
 
 - (void)shakeAnimation:(CGFloat)offsetX duration:(CGFloat)duration repeatCount:(NSUInteger)repeatCount
 

@@ -59,4 +59,36 @@
  *  @return <#return value description#>
  */
 - (NSUInteger)unicodeLength;
+
+
+
+- (CGSize)sizeWithFont:(UIFont *)font maxSize:(CGSize)size;
+
+
+/**
+ *  是否是电话号码
+ *
+ *  @return <#return value description#>
+ */
+- (BOOL)isPhoneNumber;
+
+/**
+ *  是否是验证码
+ *
+ *  @return <#return value description#>
+ */
+- (BOOL)isSecutityNumber;
+
+/**
+ *  符合密码的长度
+ *
+ *  @param min <#min description#>
+ *  @param max <#max description#>
+ *
+ *  @return <#return value description#>
+ */
+- (BOOL)isPassWordWithMin:(NSUInteger)min max:(NSUInteger)max;
+
+- (NSMutableAttributedString *)getReplyAttributedStringFont:(UIFont *)font  color:(UIColor *)color;
+
 @end

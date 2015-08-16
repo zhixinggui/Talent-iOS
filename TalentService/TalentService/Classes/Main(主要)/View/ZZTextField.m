@@ -37,13 +37,24 @@
     return [emailTest evaluateWithObject:candidate];
 }
 
-- (BOOL)isPassWordWithMin:(NSUInteger)min max:(NSUInteger)max{
-    NSPredicate* emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES ^[A-Za-z0-9]{%ld,%ld}$", min,max];
-    return [emailTest evaluateWithObject:self.text];
-}
 
 - (BOOL)isPhoneNumber{
-    NSPredicate* emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES ^[1][34578][0-9]{9}$"];
-    return [emailTest evaluateWithObject:self.text];
+    NSString *telRegex = @"^1[34578]\\d{9}$";
+    NSPredicate *prediate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", telRegex];
+    return [prediate evaluateWithObject:self];
 }
+- (BOOL)isSecutityNumber{
+    NSString *telRegex = @"[0-9]{6}$";
+    NSPredicate *prediate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", telRegex];
+    return [prediate evaluateWithObject:self];
+}
+
+
+- (BOOL)isPassWordWithMin:(NSUInteger)min max:(NSUInteger)max{
+    NSString *telRegex = [NSString  stringWithFormat:@"[A-Za-z0-9]{%ld,%ld}$", min,max];
+    NSPredicate* emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",telRegex];
+    return [emailTest evaluateWithObject:self];
+}
+
+
 @end

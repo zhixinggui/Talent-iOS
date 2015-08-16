@@ -7,14 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-@class ZZTextView;
-
-@protocol  ZZTextViewDelegate <UITextViewDelegate>
-
-@end
 
 
-@interface ZZTextView : UITextView
+
+@interface ZZTextView : UITextView<UITextViewDelegate>
 /**
  *  占位字符串
  */
@@ -24,7 +20,5 @@
  *  最多的输入内容，字符
  */
 @property(nonatomic) NSUInteger  textContentLength;
-
-@property (nonatomic, weak) id<ZZTextViewDelegate>  delegate;
 
 @end

@@ -9,16 +9,16 @@
 #import "ZZTextView.h"
 @interface ZZTextView ()
 @property (nonatomic, strong) UILabel*  placeholderLabel;
-@property(nonatomic) BOOL  showEdit;
+
 @end
 @implementation ZZTextView
 
 -(instancetype)initWithFrame:(CGRect)frame{
     self = [super  initWithFrame:frame];
     if (self) {
-        self.delegate = self;
+     
         self.scrollsToTop = NO;
-        self.layer.borderColor = [UIColor  colorWithRed:0 green:0 blue:0 alpha:0.8].CGColor;
+        self.layer.borderColor = [UIColor  colorWithRed:0 green:0 blue:0 alpha:0.2].CGColor;
         self.layer.borderWidth = 0.5;
         self.layer.masksToBounds = YES;
         self.layer.cornerRadius = 5;
@@ -28,7 +28,7 @@
         self.autocapitalizationType = UITextAutocapitalizationTypeNone;
         self.alwaysBounceVertical = YES;
         self.layoutManager.allowsNonContiguousLayout=NO;
-        self.showEdit = YES;
+      
         //self.textContainerInset = UIEdgeInsetsMake(7.5, 3, 7.5, 0);
         [[NSNotificationCenter   defaultCenter]addObserver:self selector:@selector(textViewDidChangeNoti:) name:UITextViewTextDidChangeNotification object:self];
     }
@@ -55,13 +55,8 @@
     }
 }
 
-- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
-    if (text.length == 0) {
-        self.showEdit = YES;
-        return YES;
-    }
-    return self.showEdit;
-}
+
+
 - (void)textViewDidChangeNoti:(NSNotification *)noti{
     if (self.placeholder.length) {
         [self  updatePlaceholderLabelStatus];
@@ -74,14 +69,13 @@
       
         NSInteger textLength = [text  unicodeLength] - offset;
         if (textLength <= self.textContentLength||textLength <0 ) {
-            self.showEdit = YES;
+           
             return;
         }else{
            
             for (NSUInteger lenth = self.textContentLength/2; lenth < textLength; lenth++) {
                 if ([[text  substringToIndex:lenth] unicodeLength] > self.textContentLength) {
                     self.text = [text  substringToIndex:lenth-1];
-                    self.showEdit = NO;
                     break;
                 }
             }

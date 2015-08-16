@@ -7,26 +7,19 @@
 //
 
 #import "ZZHttpTool.h"
+
 #import "AFNetworking.h"
-#import "ZZFileParam.h"
-@interface ZZHttpTool ()
-/**
- *  网络请求管理器
- */
-@property(nonatomic,strong)AFHTTPRequestOperationManager*  manager;
-@end
+
 @implementation ZZHttpTool
 
-singleton_implementation(ZZHttpTool)
+static AFHTTPRequestOperationManager  *_manager;
 
--(AFHTTPRequestOperationManager *)manager{
-    if (_manager == nil) {
-        AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc]initWithBaseURL:[NSURL  URLWithString:[baseUrl  copy]]];
-        manager.requestSerializer.timeoutInterval = responseTime;
-       // self.manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
-    }
-    return _manager;
++(void)load{//@"text/plain", @"text/html",
+    _manager = [[AFHTTPRequestOperationManager alloc]initWithBaseURL:[NSURL  URLWithString:[baseUrl  copy]]];
+
+    _manager.requestSerializer.timeoutInterval = responseTime;
 }
+
 
 #pragma mark - Http 请求网络数据方法
 /**
@@ -34,7 +27,7 @@ singleton_implementation(ZZHttpTool)
  *
  *  @return block
  */
-- (void)getByApiName:(NSString *)apiName
++ (void)getByApiName:(NSString *)apiName
               Params:(NSString *)params
              success:(SuccessBlock)success
              failure:(ErrorBlock)failure{
@@ -74,7 +67,7 @@ singleton_implementation(ZZHttpTool)
  *
  *  @return block
  */
-- (void)postByApiName:(NSString *)apiName
++ (void)postByApiName:(NSString *)apiName
                Params:(NSDictionary*)params
               success:(SuccessBlock)success
               failure:(ErrorBlock)failure{
@@ -123,12 +116,12 @@ singleton_implementation(ZZHttpTool)
  *  @param success 成功block回调
  *  @param failure 失败block回调
  */
-- (void)afGetByApiName:(NSString *)apiName
++ (void)afGetByApiName:(NSString *)apiName
                 Params:(NSDictionary *)params
                success:(SuccessBlock)success
                failure:(ErrorBlock)failure{
     
-    [self.manager GET:apiName parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [_manager GET:apiName parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         //QQLog(@"JSON: %@", responseObject);
         success(responseObject);
         
@@ -146,12 +139,12 @@ singleton_implementation(ZZHttpTool)
  *  @param success 成功block回调
  *  @param failure 失败block回调
  */
--(void)afPostByApiName:(NSString *)apiName
++(void)afPostByApiName:(NSString *)apiName
                 Params:(NSDictionary *)params
                success:(SuccessBlock)success
                failure:(ErrorBlock)failure{
     
-    [self.manager POST:apiName parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [_manager POST:apiName parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         //QQLog(@"JSON: %@", responseObject);
         success(responseObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -169,13 +162,13 @@ singleton_implementation(ZZHttpTool)
  *  @param success -
  *  @param failure -
  */
--(void)afPostImageByApiName:(NSString *)apiName
++(void)afPostImageByApiName:(NSString *)apiName
                      Params:(NSDictionary *)params
                 ImagesArray:(NSArray *)fileParams
                     success:(SuccessBlock)success
                     failure:(ErrorBlock)failure{
     
-    [self.manager POST:apiName parameters:params constructingBodyWithBlock:^(id formData) {
+    [_manager POST:apiName parameters:params constructingBodyWithBlock:^(id formData) {
         for (ZZFileParam *fileParam in fileParams) {
             
             [formData  appendPartWithFileData:fileParam.data name:fileParam.name fileName:fileParam.fileName mimeType:fileParam.mimeType];
@@ -195,7 +188,7 @@ singleton_implementation(ZZHttpTool)
  *  @param success -
  *  @param failure -
  */
--(void)AFPostImageByApiName:(NSString *)apiName
++(void)AFPostImageByApiName:(NSString *)apiName
                   ImageName:(NSString*)imageName
                      Params:(id)params
                       Image:(UIImage*)image

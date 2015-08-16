@@ -7,19 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Singleton.h"
 
+#import "ZZFileParam.h"
 typedef void(^SuccessBlock)(id json);
 typedef void(^ErrorBlock)(NSError *error);
 @interface ZZHttpTool : NSObject
-
-singleton_interface(ZZHttpTool)
 
 
 /**
  *  第三方的get请求方式
  */
--(void)afGetByApiName:(NSString *)apiName
++(void)afGetByApiName:(NSString *)apiName
                Params:(NSDictionary *)params
               success:(SuccessBlock)success
               failure:(ErrorBlock)failure;
@@ -27,7 +25,7 @@ singleton_interface(ZZHttpTool)
 /**
  *  第三方的post请求方式
  */
--(void)afPostByApiName:(NSString *)apiName
++(void)afPostByApiName:(NSString *)apiName
                 Params:(NSDictionary *)params
                success:(SuccessBlock)success
                failure:(ErrorBlock)failure;
@@ -35,7 +33,7 @@ singleton_interface(ZZHttpTool)
 /**
  *  第三方的post上传多张图片请求方式
  */
--(void)afPostImageByApiName:(NSString *)apiName
++(void)afPostImageByApiName:(NSString *)apiName
                      Params:(NSDictionary *)params
                 ImagesArray:(NSArray *)fileParams
                     success:(SuccessBlock)success

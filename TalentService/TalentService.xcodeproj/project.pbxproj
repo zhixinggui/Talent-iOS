@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		54B253871B80353300AC944E /* ZZTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54B253861B80353300AC944E /* ZZTextView.m */; };
 		6E00160C1B687CD500DEA540 /* ZZSIzeFitButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E00160B1B687CD500DEA540 /* ZZSIzeFitButton.m */; };
-		6E00160F1B687F5A00DEA540 /* ZZTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E00160E1B687F5A00DEA540 /* ZZTextView.m */; };
 		6E0016141B689DD300DEA540 /* ZZSecurityButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E0016131B689DD300DEA540 /* ZZSecurityButton.m */; };
 		6E00162E1B68B74A00DEA540 /* NSArray+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E00161A1B68B74A00DEA540 /* NSArray+Extension.m */; };
 		6E00162F1B68B74A00DEA540 /* NSDictionary+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E00161C1B68B74A00DEA540 /* NSDictionary+Extension.m */; };
@@ -65,10 +65,10 @@
 /* Begin PBXFileReference section */
 		39495CF280572C61DA542118 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		52C7B23BB58666F9989BCC8C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		54B253851B80353300AC944E /* ZZTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZTextView.h; sourceTree = "<group>"; };
+		54B253861B80353300AC944E /* ZZTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZTextView.m; sourceTree = "<group>"; };
 		6E00160A1B687CD500DEA540 /* ZZSIzeFitButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZSIzeFitButton.h; sourceTree = "<group>"; };
 		6E00160B1B687CD500DEA540 /* ZZSIzeFitButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZSIzeFitButton.m; sourceTree = "<group>"; };
-		6E00160D1B687F5A00DEA540 /* ZZTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZTextView.h; sourceTree = "<group>"; };
-		6E00160E1B687F5A00DEA540 /* ZZTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZTextView.m; sourceTree = "<group>"; };
 		6E0016121B689DD300DEA540 /* ZZSecurityButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZSecurityButton.h; sourceTree = "<group>"; };
 		6E0016131B689DD300DEA540 /* ZZSecurityButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZSecurityButton.m; sourceTree = "<group>"; };
 		6E0016191B68B74A00DEA540 /* NSArray+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Extension.h"; sourceTree = "<group>"; };
@@ -493,8 +493,8 @@
 		6E9E3EA61B62159F0097B194 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				6E00160D1B687F5A00DEA540 /* ZZTextView.h */,
-				6E00160E1B687F5A00DEA540 /* ZZTextView.m */,
+				54B253851B80353300AC944E /* ZZTextView.h */,
+				54B253861B80353300AC944E /* ZZTextView.m */,
 				6E00160A1B687CD500DEA540 /* ZZSIzeFitButton.h */,
 				6E00160B1B687CD500DEA540 /* ZZSIzeFitButton.m */,
 				6E0016121B689DD300DEA540 /* ZZSecurityButton.h */,
@@ -827,7 +827,6 @@
 				6E0016351B68B74A00DEA540 /* UIImageView+Extension.m in Sources */,
 				6EE0D0C91B69F2F700DC80AC /* UUPhotoGroupViewController.m in Sources */,
 				6EE0D0CE1B69F2F700DC80AC /* UUThumbnailView.m in Sources */,
-				6E00160F1B687F5A00DEA540 /* ZZTextView.m in Sources */,
 				6EE0D0AA1B69F1B200DC80AC /* UIViewController+Extension.m in Sources */,
 				6E0016141B689DD300DEA540 /* ZZSecurityButton.m in Sources */,
 				6EE0D0D31B69F6BA00DC80AC /* UIBarButtonItem+Extension.m in Sources */,
@@ -851,6 +850,7 @@
 				6E950F011B6B613300566E85 /* ZZNavigationConller.m in Sources */,
 				6EE0D0CD1B69F2F700DC80AC /* UUThumbnailCollectionCell.m in Sources */,
 				6E00163C1B68B79C00DEA540 /* ZZAppSystem.mm in Sources */,
+				54B253871B80353300AC944E /* ZZTextView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
