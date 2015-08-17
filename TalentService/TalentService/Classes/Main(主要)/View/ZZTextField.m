@@ -39,7 +39,7 @@
 
 
 - (BOOL)isPhoneNumber{
-<<<<<<< Updated upstream
+
     NSString *telRegex = @"^1[34578]\\d{9}$";
     NSPredicate *prediate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", telRegex];
     return [prediate evaluateWithObject:self];
@@ -48,10 +48,8 @@
     NSString *telRegex = @"[0-9]{6}$";
     NSPredicate *prediate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", telRegex];
     return [prediate evaluateWithObject:self];
-=======
-    NSPredicate* emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES ^1[34578]\\d{9}$"];
-    return [emailTest evaluateWithObject:self.text];
->>>>>>> Stashed changes
+
+
 }
 
 

@@ -21,9 +21,5 @@
  */
 @property(nonatomic) NSUInteger  textContentLength;
 
-<<<<<<< Updated upstream
-=======
-@property (nonatomic, weak) id<ZZTextViewDelegate>  textDelegate;
 
->>>>>>> Stashed changes
 @end

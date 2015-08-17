@@ -12,7 +12,7 @@
 #import "ZZTextView.h"
 #import "UUPhotoActionSheet.h"
 #import "UUPhotoBrowserViewController.h"
-@interface ViewController ()<ZZTextViewDelegate,UICollectionViewDataSource,UICollectionViewDelegate,UUPhotoBrowserDelegate,UUPhotoActionSheetDelegate>
+@interface ViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,UUPhotoBrowserDelegate,UUPhotoActionSheetDelegate>
 @property (nonatomic, strong) ZZSecurityButton *btn;
 @property (nonatomic, strong) UUPhotoActionSheet *sheet;
 
