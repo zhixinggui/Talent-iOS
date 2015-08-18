@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		54B253871B80353300AC944E /* ZZTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54B253861B80353300AC944E /* ZZTextView.m */; };
+		560F8FED1B81B28E0071A9E9 /* ZZLoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 560F8FEB1B81B28E0071A9E9 /* ZZLoginVC.m */; };
+		560F8FEE1B81B28E0071A9E9 /* ZZLoginVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 560F8FEC1B81B28E0071A9E9 /* ZZLoginVC.xib */; };
 		6E00160C1B687CD500DEA540 /* ZZSIzeFitButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E00160B1B687CD500DEA540 /* ZZSIzeFitButton.m */; };
 		6E0016141B689DD300DEA540 /* ZZSecurityButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E0016131B689DD300DEA540 /* ZZSecurityButton.m */; };
 		6E00162E1B68B74A00DEA540 /* NSArray+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E00161A1B68B74A00DEA540 /* NSArray+Extension.m */; };
@@ -67,6 +69,9 @@
 		52C7B23BB58666F9989BCC8C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		54B253851B80353300AC944E /* ZZTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZTextView.h; sourceTree = "<group>"; };
 		54B253861B80353300AC944E /* ZZTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZTextView.m; sourceTree = "<group>"; };
+		560F8FEA1B81B28E0071A9E9 /* ZZLoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZZLoginVC.h; path = "TalentService/Classes/login(注册登录)/Controller/ZZLoginVC.h"; sourceTree = SOURCE_ROOT; };
+		560F8FEB1B81B28E0071A9E9 /* ZZLoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZZLoginVC.m; path = "TalentService/Classes/login(注册登录)/Controller/ZZLoginVC.m"; sourceTree = SOURCE_ROOT; };
+		560F8FEC1B81B28E0071A9E9 /* ZZLoginVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ZZLoginVC.xib; path = "TalentService/Classes/login(注册登录)/Controller/ZZLoginVC.xib"; sourceTree = SOURCE_ROOT; };
 		6E00160A1B687CD500DEA540 /* ZZSIzeFitButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZSIzeFitButton.h; sourceTree = "<group>"; };
 		6E00160B1B687CD500DEA540 /* ZZSIzeFitButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZSIzeFitButton.m; sourceTree = "<group>"; };
 		6E0016121B689DD300DEA540 /* ZZSecurityButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZSecurityButton.h; sourceTree = "<group>"; };
@@ -410,12 +415,16 @@
 				6E9E3E9D1B62159F0097B194 /* Model */,
 				6E9E3E9E1B62159F0097B194 /* View */,
 			);
-			path = "login(注册登录)";
+			name = "login(注册登录)";
+			path = "login(注册登录)/Controller";
 			sourceTree = "<group>";
 		};
 		6E9E3E9C1B62159F0097B194 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				560F8FEA1B81B28E0071A9E9 /* ZZLoginVC.h */,
+				560F8FEB1B81B28E0071A9E9 /* ZZLoginVC.m */,
+				560F8FEC1B81B28E0071A9E9 /* ZZLoginVC.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -462,10 +471,17 @@
 		6E9E3EA11B62159F0097B194 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< Updated upstream
 				6E950F021B6B616900566E85 /* ZZTabBarController.h */,
 				6E950F031B6B616900566E85 /* ZZTabBarController.m */,
 				6E98074C1B82D4AB00527EB2 /* ZZNaviController.h */,
 				6E98074D1B82D4AB00527EB2 /* ZZNaviController.m */,
+=======
+				6E950EFF1B6B613300566E85 /* ZZNavigationConller.h */,
+				6E950F001B6B613300566E85 /* ZZNavigationConller.m */,
+				6E950F021B6B616900566E85 /* ZZTabBarController.h */,
+				6E950F031B6B616900566E85 /* ZZTabBarController.m */,
+>>>>>>> Stashed changes
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -762,6 +778,7 @@
 			files = (
 				6E950F0C1B6B68FC00566E85 /* zhizhen.strings in Resources */,
 				6EE0D0CB1B69F2F700DC80AC /* UUPhoto.Bundle in Resources */,
+				560F8FEE1B81B28E0071A9E9 /* ZZLoginVC.xib in Resources */,
 				6E97F5701B6B1241004E067A /* MBProgressHUD.bundle in Resources */,
 				6E9E3E771B620C860097B194 /* Main.storyboard in Resources */,
 				6E9E3E791B620C860097B194 /* Images.xcassets in Resources */,
@@ -833,6 +850,7 @@
 				6E98074E1B82D4AB00527EB2 /* ZZNaviController.m in Sources */,
 				6E0016311B68B74A00DEA540 /* NSString+Extension.m in Sources */,
 				6E9E3EB51B62159F0097B194 /* AppDelegate.m in Sources */,
+				560F8FED1B81B28E0071A9E9 /* ZZLoginVC.m in Sources */,
 				6E0016321B68B74A00DEA540 /* UIAlertView+Extension.m in Sources */,
 				6E00160C1B687CD500DEA540 /* ZZSIzeFitButton.m in Sources */,
 				6E97F5711B6B1241004E067A /* MBProgressHUD+MJ.m in Sources */,

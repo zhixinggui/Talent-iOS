@@ -7,7 +7,8 @@
 //
 
 #import "AppDelegate.h"
-
+#import "ZZLoginVC.h"
+#import "ZZNavigationConller.h"
 @interface AppDelegate ()
 
 @end
@@ -16,7 +17,16 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    /**
+     *  窗口初始化
+     */
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.backgroundColor = [UIColor whiteColor];
+    [self.window makeKeyAndVisible];
+    ZZLoginVC *loginVc = [[ZZLoginVC alloc]initWithNibName:@"ZZLoginVC" bundle:nil];
+    ZZNavigationConller *loginNavi = [[ZZNavigationConller alloc]initWithRootViewController:loginVc];
+    loginNavi.navigationBarHidden = YES;
+    self.window.rootViewController = loginNavi;
     return YES;
 }
 
