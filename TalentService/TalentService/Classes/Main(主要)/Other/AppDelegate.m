@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "ZZLoginVC.h"
-#import "ZZNavigationConller.h"
+#import "ZZNaviController.h"
 @interface AppDelegate ()
 
 @end
@@ -24,7 +24,7 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     ZZLoginVC *loginVc = [[ZZLoginVC alloc]initWithNibName:@"ZZLoginVC" bundle:nil];
-    ZZNavigationConller *loginNavi = [[ZZNavigationConller alloc]initWithRootViewController:loginVc];
+    ZZNaviController *loginNavi = [[ZZNaviController alloc]initWithRootViewController:loginVc];
     loginNavi.navigationBarHidden = YES;
     self.window.rootViewController = loginNavi;
     return YES;
