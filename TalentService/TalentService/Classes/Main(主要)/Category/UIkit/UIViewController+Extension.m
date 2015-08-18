@@ -24,7 +24,7 @@
         UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0 , 100, 44)];
         titleLabel.backgroundColor = [UIColor clearColor];
         titleLabel.font = [UIFont boldSystemFontOfSize:18];
-        titleLabel.textColor = NatiTitleColor;//设置文本颜色
+        titleLabel.textColor = ZZNatiTitleColor;//设置文本颜色
         titleLabel.textAlignment = NSTextAlignmentCenter;
         titleLabel.text = titleString;
         [titleLabel  sizeToFit];

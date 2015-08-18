@@ -17,6 +17,41 @@
 
 + (void)initialize
 {
+    
+    // 设置UINavigationBarTheme的主
+    [self setupNavigationBarTheme];
+    
+    // 设置UIBarButtonItem的主题
+    [self setupBarButtonItemTheme];
+
+}
+
+/**
+ *  设置UINavigationBarTheme的主题
+ */
++ (void)setupNavigationBarTheme
+{
+    UINavigationBar *appearance = [UINavigationBar appearance];
+    
+    [appearance setBarTintColor:ZZNatiBarColor];
+    // 设置文字属性
+    NSMutableDictionary *textAttrs = [NSMutableDictionary dictionary];
+    textAttrs[NSForegroundColorAttributeName] = ZZNatiTitleColor;
+    // UITextAttributeFont  --> NSFontAttributeName(iOS7)
+#warning 过期 : 并不代表不能用, 仅仅是有最新的方案可以取代它
+    
+    textAttrs[NSFontAttributeName] = ZZNaviTitleFont;
+    // UIOffsetZero是结构体, 只要包装成NSValue对象, 才能放进字典\数组中
+    textAttrs[NSShadowAttributeName] = [NSValue valueWithUIOffset:UIOffsetZero];
+    [appearance setTitleTextAttributes:textAttrs];
+}
+
+/**
+ *  设置UIBarButtonItem的主题
+ */
++ (void)setupBarButtonItemTheme
+{
+    
     // 设置整个项目所有item的主题样式
     UIBarButtonItem *item = [UIBarButtonItem appearance];
     
@@ -33,7 +68,6 @@
     disableTextAttrs[NSFontAttributeName] = textAttrs[NSFontAttributeName];
     [item setTitleTextAttributes:disableTextAttrs forState:UIControlStateDisabled];
 }
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -80,14 +114,5 @@
     }
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

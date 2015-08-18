@@ -113,17 +113,7 @@
             self.currentPage = nil;
            _rootScroller.contentSize = [self contentSizeForPagingScrollView];
             [self  updateVisiblePageView];
-//            CGPoint point = _rootScroller.contentOffset;
-//            NSUInteger count = [self numberOfPhotos];
-//            if (self.currentPage.tag == count-1) {
-//                 point.x -= _rootScroller.bounds.size.width;
-//            }else{
-//                 point.x += _rootScroller.bounds.size.width  ;
-//            }
-         
-          
-           // [_rootScroller  setContentOffset:point ];
-                           // [self  scrollViewDidScroll:_rootScroller];
+
         }
     }
 }
