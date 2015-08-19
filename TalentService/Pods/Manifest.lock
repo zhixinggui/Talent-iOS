@@ -25,6 +25,7 @@ PODS:
   - FMDB/common (2.5)
   - FMDB/standard (2.5):
     - FMDB/common
+  - IQKeyboardManager (3.2.4)
   - MBProgressHUD (0.9.1)
   - MJExtension (2.4.4)
   - MJRefresh (2.4.7)
@@ -35,6 +36,7 @@ PODS:
 DEPENDENCIES:
   - AFNetworking (~> 2.5.4)
   - FMDB (~> 2.5)
+  - IQKeyboardManager (~> 3.2.4)
   - MBProgressHUD (~> 0.9.1)
   - MJExtension (~> 2.4.1)
   - MJRefresh (~> 2.4.7)
@@ -43,6 +45,7 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
   FMDB: 96e8f1bcc1329e269330f99770ad4285d9003e52
+  IQKeyboardManager: 555b1231fefafb21b19278d7cca72986a27b748b
   MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
   MJExtension: fabc9e6084f14363ed6828490a98ee516c9cbbfe
   MJRefresh: 6eb2f61338f89f64fd628fd43debcf479381ff59
