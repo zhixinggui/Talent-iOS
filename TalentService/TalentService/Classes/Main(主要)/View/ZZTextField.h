@@ -7,13 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-@class ZZTextField ;
 
-@protocol ZZTextFieldDelegate <UITextFieldDelegate>
-
-
-
-@end
 @interface ZZTextField : UITextField
 
 /**
@@ -28,7 +22,7 @@
  */
 @property (nonatomic, strong) NSString *regexStr;
 
-@property (nonatomic, weak) id<UITextFieldDelegate> delegate;
+
 
 /**
  *  是否是密码  密码标准为：数字和26个英文字母加下划线
@@ -46,4 +40,10 @@
  *  @return <#return value description#>
  */
 - (BOOL)isPhoneNumber;
+
+/**
+ *  设置textView的leftView
+ */
+-(void)addLeftViewImageString:(NSString*)imageString;
+
 @end

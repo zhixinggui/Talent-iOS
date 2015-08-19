@@ -7,7 +7,7 @@
 //
 
 #import "ZZLoginVC.h"
-
+#import "ZZFirstLoginVC.h"
 @interface ZZLoginVC ()<UIScrollViewDelegate>
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollview;
 /**
@@ -20,8 +20,13 @@
 
 @implementation ZZLoginVC
 #pragma mark   life  cycle
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBarHidden = YES;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     [self addScrollview];
 }
 
@@ -29,11 +34,11 @@
     /**
      *  图片的宽
      */
-    CGFloat imageW = self.scrollview.width;
+    CGFloat imageW = [UIScreen mainScreen].bounds.size.width;
     /**
      *  图片的高
      */
-    CGFloat imageH = self.scrollview.height;
+    CGFloat imageH = [UIScreen mainScreen].bounds.size.height-117;
     /**
      *  图片的Y
      */
@@ -117,6 +122,8 @@
     CGFloat x = page* self.scrollview.width;
     self.scrollview.contentOffset = CGPointMake(x, 0);
 }
+
+#pragma mark  UIScrollViewDelegate
 /**
  *  scrollview滚动的时候调用
  */
@@ -151,7 +158,21 @@
     [self addTimer];
 }
 
-
+#pragma mark event response
+/**
+ *  登录入口
+ */
+- (IBAction)loginEvent:(UIButton *)sender {
+    ZZLog(@"登录");
+    ZZFirstLoginVC *firstLoginVc = [[ZZFirstLoginVC alloc]initWithNibName:@"ZZFirstLoginVC" bundle:nil];
+    [self.navigationController pushViewController:firstLoginVc animated:YES];
+}
+/**
+ *  注册入口
+ */
+- (IBAction)registEvent:(UIButton *)sender {
+    ZZLog(@"注册");
+}
 
 
 #pragma mark lazy load
@@ -173,14 +194,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
