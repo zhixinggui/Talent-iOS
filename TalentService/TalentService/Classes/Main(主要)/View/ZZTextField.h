@@ -46,4 +46,10 @@
  *  @return <#return value description#>
  */
 - (BOOL)isPhoneNumber;
+
+/**
+ *  设置textView的leftView
+ */
+-(void)addLeftViewImageString:(NSString*)imageString;
+
 @end

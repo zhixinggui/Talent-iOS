@@ -29,47 +29,53 @@
                     <color key="pageIndicatorTintColor" red="0.94509803920000002" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                     <color key="currentPageIndicatorTintColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                 </pageControl>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OQt-js-Ddd">
-                    <rect key="frame" x="15" y="592" width="140" height="38"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OQt-js-Ddd" customClass="ZZLayerButton">
+                    <rect key="frame" x="29" y="592" width="140" height="38"/>
                     <color key="backgroundColor" red="0.98431372549019602" green="0.27843137254901962" blue="0.33333333333333331" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="38" id="9cz-Z4-i9N"/>
-                        <constraint firstAttribute="width" constant="140" id="qp8-fc-WNE"/>
+                        <constraint firstAttribute="height" constant="38" id="dR8-NY-oRb"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <state key="normal" title="登录">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="loginEvent:" destination="-1" eventType="touchUpInside" id="J1d-vx-DZD"/>
+                    </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BdF-PR-zlR">
-                    <rect key="frame" x="219" y="592" width="140" height="38"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BdF-PR-zlR" customClass="ZZLayerButton">
+                    <rect key="frame" x="205" y="592" width="140" height="38"/>
                     <color key="backgroundColor" red="0.9882352941176471" green="0.51372549019607838" blue="0.54117647058823526" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="140" id="Wd7-89-Bw0"/>
-                        <constraint firstAttribute="height" constant="38" id="zW9-2f-DPD"/>
+                        <constraint firstAttribute="height" constant="38" id="3fA-mB-0Ra"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <state key="normal" title="注册">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="registEvent:" destination="-1" eventType="touchUpInside" id="rBZ-7s-mcI"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="0.99215686274509807" green="0.52156862745098043" blue="0.53725490196078429" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="OQt-js-Ddd" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="679-9U-4qX"/>
                 <constraint firstAttribute="centerX" secondItem="gzv-gw-8Vj" secondAttribute="centerX" id="7eX-g9-4f9"/>
-                <constraint firstItem="BdF-PR-zlR" firstAttribute="top" secondItem="UO5-lt-BbU" secondAttribute="bottom" constant="42" id="FoL-Ca-Q61"/>
+                <constraint firstItem="OQt-js-Ddd" firstAttribute="width" secondItem="BdF-PR-zlR" secondAttribute="width" id="Hk9-Rl-Rue"/>
                 <constraint firstAttribute="trailing" secondItem="UO5-lt-BbU" secondAttribute="trailing" id="IZq-ks-MNz"/>
+                <constraint firstItem="BdF-PR-zlR" firstAttribute="leading" secondItem="OQt-js-Ddd" secondAttribute="trailing" constant="36" id="Int-p0-taC"/>
                 <constraint firstAttribute="bottom" secondItem="UO5-lt-BbU" secondAttribute="bottom" constant="117" id="Kbf-SA-c8C"/>
                 <constraint firstItem="UO5-lt-BbU" firstAttribute="bottom" secondItem="gzv-gw-8Vj" secondAttribute="bottom" constant="8" id="VYy-bK-BWu"/>
-                <constraint firstAttribute="trailing" secondItem="BdF-PR-zlR" secondAttribute="trailing" constant="16" id="YRD-2T-AT6"/>
                 <constraint firstItem="UO5-lt-BbU" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Ygi-qd-Zti"/>
+                <constraint firstItem="OQt-js-Ddd" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="29" id="YvI-I2-jOM"/>
                 <constraint firstAttribute="centerX" secondItem="UO5-lt-BbU" secondAttribute="centerX" id="bPw-ht-q7u"/>
+                <constraint firstAttribute="bottom" secondItem="BdF-PR-zlR" secondAttribute="bottom" constant="37" id="dzf-Nm-Up7"/>
+                <constraint firstAttribute="trailing" secondItem="BdF-PR-zlR" secondAttribute="trailing" constant="30" id="ek2-4W-vTp"/>
                 <constraint firstItem="UO5-lt-BbU" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="izl-t8-J80"/>
-                <constraint firstItem="OQt-js-Ddd" firstAttribute="top" secondItem="UO5-lt-BbU" secondAttribute="bottom" constant="42" id="jUD-uG-VpG"/>
                 <constraint firstAttribute="centerY" secondItem="UO5-lt-BbU" secondAttribute="centerY" id="k5I-bW-NyH"/>
+                <constraint firstAttribute="bottom" secondItem="OQt-js-Ddd" secondAttribute="bottom" constant="37" id="t5i-Qp-DGA"/>
                 <constraint firstItem="UO5-lt-BbU" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="zic-D8-Ops"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>

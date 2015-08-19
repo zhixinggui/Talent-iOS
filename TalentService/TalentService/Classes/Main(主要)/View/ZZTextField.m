@@ -60,4 +60,12 @@
 }
 
 
+-(void)addLeftViewImageString:(NSString *)imageString{
+    UIImageView* phoneIV = [[UIImageView alloc]initWithImage:[UIImage imageNamed:imageString]];
+    phoneIV.contentMode = UIViewContentModeLeft;
+    [self setLeftView:phoneIV];
+    self.leftViewMode = UITextFieldViewModeAlways;
+}
+
+
 @end
