@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7531" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ZZNextRegistVC">
+            <connections>
+                <outlet property="againSecrectTF" destination="DI2-Of-XPg" id="Hdz-SL-cbb"/>
+                <outlet property="cityTF" destination="Ysn-jX-cOQ" id="RLs-IJ-2qr"/>
+                <outlet property="nameTF" destination="ghh-Dc-ph4" id="enT-TS-gR3"/>
+                <outlet property="secrectTF" destination="Dua-L7-c2p" id="16H-rf-Uuc"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="昵称" minimumFontSize="16" background="tfline" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ghh-Dc-ph4" customClass="ZZTextField">
+                    <rect key="frame" x="10" y="73" width="355" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="SEh-n7-XPm"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="城市" minimumFontSize="16" background="tfline" translatesAutoresizingMaskIntoConstraints="NO" id="Ysn-jX-cOQ" customClass="ZZTextField">
+                    <rect key="frame" x="10" y="125" width="355" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="nwJ-xH-Wl1"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="密码" minimumFontSize="16" background="tfline" translatesAutoresizingMaskIntoConstraints="NO" id="Dua-L7-c2p" customClass="ZZTextField">
+                    <rect key="frame" x="10" y="177" width="355" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="F7n-AU-7z3"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="确认密码" minimumFontSize="16" background="tfline" translatesAutoresizingMaskIntoConstraints="NO" id="DI2-Of-XPg" customClass="ZZTextField">
+                    <rect key="frame" x="10" y="229" width="355" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="pQw-k2-cpS"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Gy-LP-pY7" customClass="ZZLayerButton">
+                    <rect key="frame" x="37" y="316" width="300" height="40"/>
+                    <color key="backgroundColor" red="0.98039215690000003" green="0.2784313725" blue="0.33333333329999998" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="nvz-1E-BAb"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                    <state key="normal" title="完            成">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="Dua-L7-c2p" firstAttribute="top" secondItem="Ysn-jX-cOQ" secondAttribute="bottom" constant="8" id="5r2-7D-4bz"/>
+                <constraint firstItem="Ysn-jX-cOQ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="6Kw-4n-djl"/>
+                <constraint firstItem="ghh-Dc-ph4" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="73" id="94o-np-fR8"/>
+                <constraint firstItem="ghh-Dc-ph4" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="9wt-dP-Pcv"/>
+                <constraint firstAttribute="trailing" secondItem="0Gy-LP-pY7" secondAttribute="trailing" constant="38" id="A50-F7-rtM"/>
+                <constraint firstItem="DI2-Of-XPg" firstAttribute="top" secondItem="Dua-L7-c2p" secondAttribute="bottom" constant="8" id="ECo-sC-ckU"/>
+                <constraint firstItem="Ysn-jX-cOQ" firstAttribute="top" secondItem="ghh-Dc-ph4" secondAttribute="bottom" constant="8" id="F14-IL-HGI"/>
+                <constraint firstItem="0Gy-LP-pY7" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="37" id="TCx-ye-few"/>
+                <constraint firstItem="Dua-L7-c2p" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="Xc6-gf-c6E"/>
+                <constraint firstAttribute="trailing" secondItem="ghh-Dc-ph4" secondAttribute="trailing" constant="10" id="lSL-04-Wfi"/>
+                <constraint firstAttribute="trailing" secondItem="DI2-Of-XPg" secondAttribute="trailing" constant="10" id="mWT-Qh-LPv"/>
+                <constraint firstAttribute="trailing" secondItem="Dua-L7-c2p" secondAttribute="trailing" constant="10" id="sVg-UI-7Uz"/>
+                <constraint firstItem="DI2-Of-XPg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="sWY-r9-vbp"/>
+                <constraint firstAttribute="trailing" secondItem="Ysn-jX-cOQ" secondAttribute="trailing" constant="10" id="wmy-Mj-50j"/>
+                <constraint firstItem="0Gy-LP-pY7" firstAttribute="top" secondItem="DI2-Of-XPg" secondAttribute="bottom" constant="43" id="woe-eg-V7J"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="tfline" width="79" height="22"/>
+    </resources>
+</document>

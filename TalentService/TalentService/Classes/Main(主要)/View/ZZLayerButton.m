@@ -16,7 +16,12 @@
         self.layer.cornerRadius = self.height/2;
         self.layer.masksToBounds = YES;
         self.layer.borderWidth = 1;
-        self.layer.borderColor = [UIColor whiteColor].CGColor;
+        if (self.height == 24) {
+            self.layer.borderColor = [UIColor redColor].CGColor;
+        }else{
+            self.layer.borderColor = [UIColor whiteColor].CGColor;
+        }
+        
     }
     return self;
 }

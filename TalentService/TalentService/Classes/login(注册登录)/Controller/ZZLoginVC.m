@@ -8,6 +8,7 @@
 
 #import "ZZLoginVC.h"
 #import "ZZFirstLoginVC.h"
+#import "ZZRegistVC.h"
 @interface ZZLoginVC ()<UIScrollViewDelegate>
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollview;
 /**
@@ -172,6 +173,8 @@
  */
 - (IBAction)registEvent:(UIButton *)sender {
     ZZLog(@"注册");
+    ZZRegistVC *registVc = [[ZZRegistVC alloc]initWithNibName:@"ZZRegistVC" bundle:nil];
+    [self.navigationController pushViewController:registVc animated:YES];
 }
 
 

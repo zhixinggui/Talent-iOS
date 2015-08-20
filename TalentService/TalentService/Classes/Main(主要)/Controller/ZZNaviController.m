@@ -41,8 +41,7 @@
 #warning 过期 : 并不代表不能用, 仅仅是有最新的方案可以取代它
     
     textAttrs[NSFontAttributeName] = ZZNaviTitleFont;
-    // UIOffsetZero是结构体, 只要包装成NSValue对象, 才能放进字典\数组中
-    textAttrs[NSShadowAttributeName] = [NSValue valueWithUIOffset:UIOffsetZero];
+
     [appearance setTitleTextAttributes:textAttrs];
 }
 
@@ -58,7 +57,7 @@
     // 设置普通状态
     // key：NS****AttributeName
     NSMutableDictionary *textAttrs = [NSMutableDictionary dictionary];
-    textAttrs[NSForegroundColorAttributeName] = [UIColor orangeColor];
+    textAttrs[NSForegroundColorAttributeName] = [UIColor whiteColor];
     textAttrs[NSFontAttributeName] = [UIFont systemFontOfSize:15];
     [item setTitleTextAttributes:textAttrs forState:UIControlStateNormal];
     
