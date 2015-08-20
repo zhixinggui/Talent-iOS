@@ -9,8 +9,13 @@
 #import "ZZSecurityButton.h"
 @interface ZZSecurityButton ()
 @property (nonatomic) NSInteger changeSecond;
-
 @property (nonatomic, strong) NSTimer *timer;
+@property (nonatomic, strong) UIColor *customerColor;
+/**
+ *  验证持续时间
+ */
+@property (nonatomic) NSUInteger second;
+
 @end
 @implementation ZZSecurityButton
 
@@ -18,51 +23,41 @@
     self = [super  initWithFrame:frame];
     if (self) {
         self.exclusiveTouch = YES;
-        [self setTitle:@"获取验证码" forState:UIControlStateNormal];
+      
+        self.titleLabel.font = [UIFont systemFontOfSize:13];
         self.layer.cornerRadius = 5;
         self.layer.masksToBounds = YES;
-        self.backgroundColor = [UIColor  orangeColor];
+        [self setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [self setTitleColor:[UIColor whiteColor] forState:UIControlStateDisabled];
     }
     return self;
 }
 
+
 -(void)setSecond:(NSUInteger)second{
     _second = second;
     self.changeSecond = second;
-    [self  setButtonTitle];
 }
-//重写父类方法，加入title变换事件
--(void)addTarget:(id)target action:(SEL)action forControlEvents:(UIControlEvents)controlEvents{
-    [super addTarget:target action:action forControlEvents:controlEvents];
-    [super addTarget:self action:@selector(clicked:) forControlEvents:controlEvents];
-}
-//点击响应事件
-- (void)clicked:(UIButton *)btn{
-    btn.enabled = NO;
-    btn.backgroundColor = [UIColor  grayColor];
-    if (self.timer == nil) {//没有定时器，创建一个，创建后直接开始执行
-     self.timer =    [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(timerFireMethod:)  userInfo:nil repeats:YES];
-    }else{//开启定时器
-        [self.timer setFireDate:[NSDate distantPast]];
-    }
-    
-}
+
 //计时器方法
 -(void)timerFireMethod:(NSTimer *)theTimer {
     self.changeSecond--;
     if (self.changeSecond < 0) {
         [self.timer setFireDate:[NSDate distantFuture]];
-        self.enabled = YES;
+       self.enabled = YES;
         self.changeSecond = self.second;
-        [self  setButtonTitle];
-        self.backgroundColor = [UIColor orangeColor];
+        if (self.customerColor) {
+            self.backgroundColor = self.customerColor;
+        }
+       [self  setTitle:@"重新获取" forState:UIControlStateNormal];
     }else{
+     //  self.titleLabel.text =[NSString  stringWithFormat: @"还剩%ld秒",self.changeSecond];
+       
         [self  setButtonTitle];
     }
 }
-//更新title
 - (void)setButtonTitle{
-     [self  setTitle:[NSString  stringWithFormat:@"%ld秒后重新获取",self.changeSecond] forState:UIControlStateDisabled];
+     [self  setTitle:[NSString  stringWithFormat: @"还剩%ld秒",self.changeSecond] forState:UIControlStateDisabled];
 }
 //销毁当前按钮
 - (void) clearButton{
@@ -70,6 +65,23 @@
      self.timer = nil;
 }
 
+- (void) stop{
+    self.changeSecond = 0;
+}
+- (void) startWithSecond:(NSUInteger)second{
+    self.second = second;
+  self.enabled = NO;
+     [self  setButtonTitle];
+    if (self.backgroundColor) {
+        self.customerColor = self.backgroundColor;
+    }
+    self.backgroundColor = [UIColor  grayColor];
+    if (self.timer == nil) {//没有定时器，创建一个，创建后直接开始执行
+        self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(timerFireMethod:)  userInfo:nil repeats:YES];
+    }else{//开启定时器
+        [self.timer setFireDate:[NSDate distantPast]];
+    }
+}
 -(void)dealloc{
     ZZLog(@"%@",[self  class]);
 }

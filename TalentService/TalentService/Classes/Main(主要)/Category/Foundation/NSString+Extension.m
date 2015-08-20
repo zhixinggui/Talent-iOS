@@ -71,6 +71,10 @@
     return ([self compare:otherVersion options:NSNumericSearch] == NSOrderedDescending);
 }
 
++(NSString*)currentVersion{
+    return   [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+}
+
 -(NSUInteger) unicodeLength
 {
     NSUInteger asciiLength = 0;
@@ -118,11 +122,11 @@
     if (color) {
         [attributedString  addAttributes:@{NSForegroundColorAttributeName :color} range:range];
     }
-//    //字间距
-//    long number = ZZCharSpace;
-//    CFNumberRef num = CFNumberCreate(kCFAllocatorDefault,kCFNumberSInt8Type,&number);
-//    [attributedString addAttribute:NSKernAttributeName value:(__bridge id)num range:range];
-//    CFRelease(num);
+    //字间距
+    long number = ZZCharSpace;
+    CFNumberRef num = CFNumberCreate(kCFAllocatorDefault,kCFNumberSInt8Type,&number);
+    [attributedString addAttribute:NSKernAttributeName value:(__bridge id)num range:range];
+    CFRelease(num);
     
     return attributedString;
 }

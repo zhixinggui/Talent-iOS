@@ -19,4 +19,12 @@
  *
  */
 - (UIImage *)fixOrientation:(UIImage *)aImage;
+
+// 加载最原始的图片，没有渲染
++ (instancetype)imageWithOriginalName:(NSString *)imageName;
+
+
++ (UIImage *)resizedImage:(NSString *)name;
+
++ (UIImage*)imageWithStretchableName:(NSString *)imageName;
 @end

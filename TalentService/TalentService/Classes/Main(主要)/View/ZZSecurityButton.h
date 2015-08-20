@@ -10,13 +10,17 @@
 
 @interface ZZSecurityButton : UIButton
 
-/**
- *  验证持续时间
- */
-@property (nonatomic) NSUInteger second;
+
 
 /**
  *  验证完成后调用该方法，保证该对象销毁
  */
 - (void) clearButton;
+
+/**
+ *  停止及时
+ */
+- (void) stop;
+
+- (void) startWithSecond:(NSUInteger)second;
 @end

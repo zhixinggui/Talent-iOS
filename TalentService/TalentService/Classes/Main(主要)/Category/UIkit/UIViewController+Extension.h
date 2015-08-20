@@ -12,6 +12,10 @@
 
 @property (nonatomic, strong) NSString *navTitleString;
 @property (nonatomic, strong) UIView *navTitleView;
-
+/**
+ *  跳转到AppStore
+ *  params  appID 对应的app的id  ，默认为萌宝派的id
+ */
+-(void)jumpToAppStoreWithAppID:(long)appID;
 
 @end

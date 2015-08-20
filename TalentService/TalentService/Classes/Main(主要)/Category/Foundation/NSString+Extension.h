@@ -28,10 +28,10 @@
 /**
  *  计算字符串高度
  *
- *  @param font <#font description#>
- *  @param maxW <#maxW description#>
+ *  @param font 字体
+ *  @param maxW 最大宽度
  *
- *  @return <#return value description#>
+ *  @return 计算后的size
  */
 - (CGSize)sizeWithFont:(UIFont *)font maxW:(CGFloat)maxW;
 
@@ -54,6 +54,14 @@
 - (BOOL)isNewerVersionThan:(NSString*)otherVersion;
 
 /**
+ *  当前应用版本号
+ *
+ *  @return <#return value description#>
+ */
++(NSString*)currentVersion;
+
+
+/**
  *  计算字符长度，一个汉字为两个字符，两个英文字母为一个字符
  *
  *  @return <#return value description#>
@@ -61,34 +69,49 @@
 - (NSUInteger)unicodeLength;
 
 
-
+/**
+ *  计算字符串高度
+ *
+ *  @param font 字体
+ *  @param 最大size
+ *
+ *  @return 计算后的size
+ */
 - (CGSize)sizeWithFont:(UIFont *)font maxSize:(CGSize)size;
 
 
 /**
  *  是否是电话号码
  *
- *  @return <#return value description#>
+ *  @return yes是
  */
 - (BOOL)isPhoneNumber;
 
 /**
  *  是否是验证码
  *
- *  @return <#return value description#>
+ *  @return yes是
  */
 - (BOOL)isSecutityNumber;
 
 /**
  *  符合密码的长度
  *
- *  @param min <#min description#>
- *  @param max <#max description#>
- *
- *  @return <#return value description#>
+ *  @param min 密码最小长度
+ *  @param max 密码最大长度
+ *  英文字母大小写、数字、下划线可以为密码组成部分
+ *  @return 符合规则返回YES
  */
 - (BOOL)isPassWordWithMin:(NSUInteger)min max:(NSUInteger)max;
 
+
+/**
+ *  得到回复的自定义字符串
+ *
+ *  @param font  字体
+ *  @param color 颜色
+ 行、字、段间距调用统一定义的
+ */
 - (NSMutableAttributedString *)getReplyAttributedStringFont:(UIFont *)font  color:(UIColor *)color;
 
 @end

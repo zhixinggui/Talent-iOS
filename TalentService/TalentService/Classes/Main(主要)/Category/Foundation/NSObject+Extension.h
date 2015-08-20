@@ -50,5 +50,23 @@
  */
 -(double)codeBlockCostTime:(void (^)(void))block;
 
+/**
+ *  根据自定义字符串 和限定高度求出实际高度
+ *
+ *  @param attrStr <#attrStr description#>
+ *  @param size    <#size description#>
+ *
+ *  @return <#return value description#>
+ */
 - (CGSize)getiSizeWithAttString:(NSAttributedString *)attrStr size:(CGSize)size;
+
+/**
+ *  得到合适的大小 返回的数据不能超出限制的数据
+ *
+ *  @param limitSize  限制的size
+ *  @param originSize 原始的size
+ *
+ *  @return 返回的合适的数据
+ */
+- (CGSize)sizeWithLimitSize:(CGSize)limitSize originSize:(CGSize)originSize;
 @end

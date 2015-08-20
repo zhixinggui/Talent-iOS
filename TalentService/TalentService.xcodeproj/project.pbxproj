@@ -17,7 +17,6 @@
 		56C172ED1B846BB200EF55FF /* ZZNextRegistVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 56C172EB1B846BB200EF55FF /* ZZNextRegistVC.m */; };
 		56C172EE1B846BB200EF55FF /* ZZNextRegistVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56C172EC1B846BB200EF55FF /* ZZNextRegistVC.xib */; };
 		6E00160C1B687CD500DEA540 /* ZZSIzeFitButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E00160B1B687CD500DEA540 /* ZZSIzeFitButton.m */; };
-		6E0016141B689DD300DEA540 /* ZZSecurityButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E0016131B689DD300DEA540 /* ZZSecurityButton.m */; };
 		6E00162E1B68B74A00DEA540 /* NSArray+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E00161A1B68B74A00DEA540 /* NSArray+Extension.m */; };
 		6E00162F1B68B74A00DEA540 /* NSDictionary+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E00161C1B68B74A00DEA540 /* NSDictionary+Extension.m */; };
 		6E0016301B68B74A00DEA540 /* NSObject+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E00161E1B68B74A00DEA540 /* NSObject+Extension.m */; };
@@ -31,6 +30,8 @@
 		6E00163C1B68B79C00DEA540 /* ZZAppSystem.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6E00163B1B68B79C00DEA540 /* ZZAppSystem.mm */; };
 		6E00163F1B68B7F800DEA540 /* ZZHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E00163E1B68B7F800DEA540 /* ZZHttpTool.m */; };
 		6E0016431B68EB5000DEA540 /* ZZTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E0016421B68EB5000DEA540 /* ZZTextField.m */; };
+		6E8D722C1B8432000031C721 /* ZZSecurityButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8D722B1B8432000031C721 /* ZZSecurityButton.m */; };
+		6E8D722F1B84326D0031C721 /* ZZShowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8D722E1B84326D0031C721 /* ZZShowView.m */; };
 		6E9014081B82E2F10083F2B7 /* ZZLoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9014041B82E2F10083F2B7 /* ZZLoginVC.m */; };
 		6E9014091B82E2F10083F2B7 /* ZZLoginVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E9014051B82E2F10083F2B7 /* ZZLoginVC.xib */; };
 		6E90140B1B83052C0083F2B7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6E90140A1B83052C0083F2B7 /* InfoPlist.strings */; };
@@ -90,8 +91,6 @@
 		56C172EC1B846BB200EF55FF /* ZZNextRegistVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZZNextRegistVC.xib; sourceTree = "<group>"; };
 		6E00160A1B687CD500DEA540 /* ZZSIzeFitButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZSIzeFitButton.h; sourceTree = "<group>"; };
 		6E00160B1B687CD500DEA540 /* ZZSIzeFitButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZSIzeFitButton.m; sourceTree = "<group>"; };
-		6E0016121B689DD300DEA540 /* ZZSecurityButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZSecurityButton.h; sourceTree = "<group>"; };
-		6E0016131B689DD300DEA540 /* ZZSecurityButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZSecurityButton.m; sourceTree = "<group>"; };
 		6E0016191B68B74A00DEA540 /* NSArray+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Extension.h"; sourceTree = "<group>"; };
 		6E00161A1B68B74A00DEA540 /* NSArray+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Extension.m"; sourceTree = "<group>"; };
 		6E00161B1B68B74A00DEA540 /* NSDictionary+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Extension.h"; sourceTree = "<group>"; };
@@ -119,6 +118,10 @@
 		6E0016401B68BBB500DEA540 /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
 		6E0016411B68EB5000DEA540 /* ZZTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZTextField.h; sourceTree = "<group>"; };
 		6E0016421B68EB5000DEA540 /* ZZTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZTextField.m; sourceTree = "<group>"; };
+		6E8D722A1B8432000031C721 /* ZZSecurityButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZSecurityButton.h; sourceTree = "<group>"; };
+		6E8D722B1B8432000031C721 /* ZZSecurityButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZSecurityButton.m; sourceTree = "<group>"; };
+		6E8D722D1B84326D0031C721 /* ZZShowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZShowView.h; sourceTree = "<group>"; };
+		6E8D722E1B84326D0031C721 /* ZZShowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZShowView.m; sourceTree = "<group>"; };
 		6E9014031B82E2F10083F2B7 /* ZZLoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZLoginVC.h; sourceTree = "<group>"; };
 		6E9014041B82E2F10083F2B7 /* ZZLoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZLoginVC.m; sourceTree = "<group>"; };
 		6E9014051B82E2F10083F2B7 /* ZZLoginVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZZLoginVC.xib; sourceTree = "<group>"; };
@@ -595,12 +598,14 @@
 			children = (
 				5607DA741B82FC1800803EE5 /* ZZLayerButton.h */,
 				5607DA751B82FC1800803EE5 /* ZZLayerButton.m */,
+				6E8D722D1B84326D0031C721 /* ZZShowView.h */,
+				6E8D722E1B84326D0031C721 /* ZZShowView.m */,
+				6E8D722A1B8432000031C721 /* ZZSecurityButton.h */,
+				6E8D722B1B8432000031C721 /* ZZSecurityButton.m */,
 				54B253851B80353300AC944E /* ZZTextView.h */,
 				54B253861B80353300AC944E /* ZZTextView.m */,
 				6E00160A1B687CD500DEA540 /* ZZSIzeFitButton.h */,
 				6E00160B1B687CD500DEA540 /* ZZSIzeFitButton.m */,
-				6E0016121B689DD300DEA540 /* ZZSecurityButton.h */,
-				6E0016131B689DD300DEA540 /* ZZSecurityButton.m */,
 				6E0016411B68EB5000DEA540 /* ZZTextField.h */,
 				6E0016421B68EB5000DEA540 /* ZZTextField.m */,
 			);
@@ -874,11 +879,11 @@
 				6E0016361B68B74A00DEA540 /* UILabel+Extension.m in Sources */,
 				6EE0D0CF1B69F2F700DC80AC /* UUToolBarView.m in Sources */,
 				6E0016371B68B74A00DEA540 /* UIView+Extension.m in Sources */,
+				6E8D722F1B84326D0031C721 /* ZZShowView.m in Sources */,
 				6E0016351B68B74A00DEA540 /* UIImageView+Extension.m in Sources */,
 				6EE0D0C91B69F2F700DC80AC /* UUPhotoGroupViewController.m in Sources */,
 				6EE0D0CE1B69F2F700DC80AC /* UUThumbnailView.m in Sources */,
 				6EE0D0AA1B69F1B200DC80AC /* UIViewController+Extension.m in Sources */,
-				6E0016141B689DD300DEA540 /* ZZSecurityButton.m in Sources */,
 				6EE0D0D31B69F6BA00DC80AC /* UIBarButtonItem+Extension.m in Sources */,
 				6E0016311B68B74A00DEA540 /* NSString+Extension.m in Sources */,
 				6E9014081B82E2F10083F2B7 /* ZZLoginVC.m in Sources */,
@@ -905,6 +910,7 @@
 				56C172ED1B846BB200EF55FF /* ZZNextRegistVC.m in Sources */,
 				6E00163C1B68B79C00DEA540 /* ZZAppSystem.mm in Sources */,
 				54B253871B80353300AC944E /* ZZTextView.m in Sources */,
+				6E8D722C1B8432000031C721 /* ZZSecurityButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

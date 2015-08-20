@@ -7,7 +7,7 @@
 //
 
 #import "UIViewController+Extension.h"
-
+#define mengID (954281556)
 @implementation UIViewController (Extension)
 #pragma mark - Settings
 
@@ -70,5 +70,14 @@
             self.navigationItem.titleView = ((UIViewController *)content).view;
         }
     }
+}
+
+-(void)jumpToAppStoreWithAppID:(long)appID{
+    
+    if(appID <= 0){
+        appID = mengID;
+    }
+    NSString *string = [NSString stringWithFormat:@"itms-apps://itunes.apple.com/us/app/id%@?mt=8",@(appID)];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:string]];
 }
 @end
