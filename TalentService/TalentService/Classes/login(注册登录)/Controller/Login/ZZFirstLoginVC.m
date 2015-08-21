@@ -8,6 +8,7 @@
 
 #import "ZZFirstLoginVC.h"
 #import "ZZTextField.h"
+#import "ZZForgetVC.h"
 @interface ZZFirstLoginVC ()
 @property (strong, nonatomic) IBOutlet ZZTextField *phoneNumTF;
 @property (strong, nonatomic) IBOutlet ZZTextField *secrectTF;
@@ -34,6 +35,8 @@
  */
 - (void)didClickOnTestSelect:(id)sender {
     ZZLog(@"忘记密码");
+    ZZForgetVC *forgetVc = [[ZZForgetVC alloc]initWithNibName:@"ZZForgetVC" bundle:nil];
+    [self.navigationController pushViewController:forgetVc animated:YES];
 }
 /**
  *  navigation右button

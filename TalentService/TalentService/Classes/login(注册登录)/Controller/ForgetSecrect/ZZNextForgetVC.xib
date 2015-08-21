@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7531" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ZZNextForgetVC">
+            <connections>
+                <outlet property="PassWordTF" destination="8lE-4V-Dev" id="kLF-vo-VqA"/>
+                <outlet property="againSecrectTF" destination="1yC-zm-XMJ" id="w97-T6-UGN"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="密码" minimumFontSize="16" background="tfline" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="8lE-4V-Dev" customClass="ZZTextField">
+                    <rect key="frame" x="10" y="73" width="355" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="T7l-Rk-VIF"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="确认密码" minimumFontSize="16" background="tfline" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="1yC-zm-XMJ" customClass="ZZTextField">
+                    <rect key="frame" x="10" y="125" width="355" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="Rbn-Pe-dVg"/>
+                        <constraint firstAttribute="height" constant="44" id="y7p-Nb-NMP"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="Rbn-Pe-dVg"/>
+                        </mask>
+                    </variation>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ce0-ur-UVB" customClass="ZZLayerButton">
+                    <rect key="frame" x="37" y="212" width="300" height="40"/>
+                    <color key="backgroundColor" red="0.98039215690000003" green="0.2784313725" blue="0.33333333329999998" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="ZMs-74-bpd"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                    <state key="normal" title="完            成">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="8lE-4V-Dev" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="73" id="7yb-AL-d9Y"/>
+                <constraint firstAttribute="trailing" secondItem="1yC-zm-XMJ" secondAttribute="trailing" constant="10" id="8CE-NA-gpo"/>
+                <constraint firstItem="ce0-ur-UVB" firstAttribute="top" secondItem="1yC-zm-XMJ" secondAttribute="bottom" constant="43" id="8gP-1Z-zmj"/>
+                <constraint firstItem="1yC-zm-XMJ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="Lfr-rQ-TJE"/>
+                <constraint firstAttribute="trailing" secondItem="ce0-ur-UVB" secondAttribute="trailing" constant="38" id="QgA-2s-rXj"/>
+                <constraint firstItem="1yC-zm-XMJ" firstAttribute="top" secondItem="8lE-4V-Dev" secondAttribute="bottom" constant="8" id="ckV-g0-WPr"/>
+                <constraint firstAttribute="trailing" secondItem="8lE-4V-Dev" secondAttribute="trailing" constant="10" id="gqC-hn-8LI"/>
+                <constraint firstItem="8lE-4V-Dev" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="reC-jb-p1k"/>
+                <constraint firstItem="ce0-ur-UVB" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="37" id="zJq-uv-tsu"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="tfline" width="79" height="22"/>
+    </resources>
+</document>
