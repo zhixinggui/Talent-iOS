@@ -9,6 +9,7 @@
             <connections>
                 <outlet property="PassWordTF" destination="8lE-4V-Dev" id="kLF-vo-VqA"/>
                 <outlet property="againSecrectTF" destination="1yC-zm-XMJ" id="w97-T6-UGN"/>
+                <outlet property="finishButton" destination="ce0-ur-UVB" id="IJS-EF-X3I"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -41,7 +42,7 @@
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ce0-ur-UVB" customClass="ZZLayerButton">
                     <rect key="frame" x="37" y="212" width="300" height="40"/>
-                    <color key="backgroundColor" red="0.98039215690000003" green="0.2784313725" blue="0.33333333329999998" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="ZMs-74-bpd"/>
                     </constraints>

@@ -1,42 +1,41 @@
 //
-//  ZZForgetVC.m
+//  ZZThirdVC.m
 //  TalentService
 //
-//  Created by charles on 15/8/20.
+//  Created by charles on 15/8/21.
 //  Copyright (c) 2015年 zhizhen. All rights reserved.
 //
 
-#import "ZZForgetVC.h"
+#import "ZZThirdVC.h"
 #import "ZZTextField.h"
-#import "ZZNextForgetVC.h"
 #import "ZZLayerButton.h"
-@interface ZZForgetVC ()
+@interface ZZThirdVC ()
+@property (strong, nonatomic) IBOutlet UIImageView *headIV;
 @property (strong, nonatomic) IBOutlet ZZTextField *phoneTF;
 @property (strong, nonatomic) IBOutlet ZZTextField *messageTF;
-@property (strong, nonatomic) IBOutlet ZZLayerButton *nextButton;
+@property (strong, nonatomic) IBOutlet ZZLayerButton *finishButton;
 
 @end
 
-@implementation ZZForgetVC
+@implementation ZZThirdVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"忘记密码";
-    [self.phoneTF addLeftViewImageString:@"T3"];
-    [self.messageTF addLeftViewImageString:@"T3"];
+    self.title = @"登录";
+    self.headIV.layer.cornerRadius = 40;
+    self.headIV.layer.masksToBounds = YES;
+    [self.phoneTF addLeftViewImageString:@"T2"];
+    [self.messageTF addLeftViewImageString:@"T2"];
+    
     /**
      *  设置button颜色
      */
-    self.nextButton.backgroundColor = LoginButtonColor;
+    self.finishButton.backgroundColor = LoginButtonColor;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-- (IBAction)nextSecrectView:(UIButton *)sender {
-    ZZNextForgetVC *nextForVc = [[ZZNextForgetVC alloc]initWithNibName:@"ZZNextForgetVC" bundle:nil];
-    [self.navigationController pushViewController:nextForVc animated:YES];
 }
 
 /*

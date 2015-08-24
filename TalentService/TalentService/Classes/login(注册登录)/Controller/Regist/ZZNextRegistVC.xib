@@ -9,6 +9,7 @@
             <connections>
                 <outlet property="againSecrectTF" destination="DI2-Of-XPg" id="Hdz-SL-cbb"/>
                 <outlet property="cityTF" destination="Ysn-jX-cOQ" id="RLs-IJ-2qr"/>
+                <outlet property="finishButton" destination="0Gy-LP-pY7" id="F3Q-fJ-lzd"/>
                 <outlet property="nameTF" destination="ghh-Dc-ph4" id="enT-TS-gR3"/>
                 <outlet property="secrectTF" destination="Dua-L7-c2p" id="16H-rf-Uuc"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -53,7 +54,7 @@
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Gy-LP-pY7" customClass="ZZLayerButton">
                     <rect key="frame" x="37" y="316" width="300" height="40"/>
-                    <color key="backgroundColor" red="0.98039215690000003" green="0.2784313725" blue="0.33333333329999998" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="nvz-1E-BAb"/>
                     </constraints>

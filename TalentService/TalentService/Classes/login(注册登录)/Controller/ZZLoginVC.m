@@ -9,12 +9,14 @@
 #import "ZZLoginVC.h"
 #import "ZZFirstLoginVC.h"
 #import "ZZRegistVC.h"
+#import "ZZLayerButton.h"
 @interface ZZLoginVC ()<UIScrollViewDelegate>
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollview;
 /**
  *  页码
  */
 @property (strong, nonatomic) IBOutlet UIPageControl *pageControl;
+@property (strong, nonatomic) IBOutlet ZZLayerButton *loginButton;
 @property (nonatomic, strong) NSTimer *timer;
 @property (nonatomic,strong)NSArray *colorArray;
 @end
@@ -29,6 +31,11 @@
     [super viewDidLoad];
     
     [self addScrollview];
+    
+    /**
+     *  设置button颜色
+     */
+    self.loginButton.backgroundColor = LoginButtonColor;
 }
 
 -(void)addScrollview{
