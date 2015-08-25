@@ -9,9 +9,11 @@
 #import "ZZForgetVC.h"
 #import "ZZTextField.h"
 #import "ZZNextForgetVC.h"
+#import "ZZLayerButton.h"
 @interface ZZForgetVC ()
 @property (strong, nonatomic) IBOutlet ZZTextField *phoneTF;
 @property (strong, nonatomic) IBOutlet ZZTextField *messageTF;
+@property (strong, nonatomic) IBOutlet ZZLayerButton *nextButton;
 
 @end
 
@@ -22,6 +24,10 @@
     self.title = @"忘记密码";
     [self.phoneTF addLeftViewImageString:@"T3"];
     [self.messageTF addLeftViewImageString:@"T3"];
+    /**
+     *  设置button颜色
+     */
+    self.nextButton.backgroundColor = LoginButtonColor;
 }
 
 - (void)didReceiveMemoryWarning {

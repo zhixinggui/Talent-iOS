@@ -25,8 +25,13 @@
 #define ScreenWidth  [UIScreen mainScreen].bounds.size.width
 #define ScreenHeight [UIScreen mainScreen].bounds.size.height
 
+
 //color
 //定义颜色
 #define ZZGreenColor  [UIColor colorWithRed:0.1 green:0.63 blue:0.96 alpha:0.93] //蓝色
+
+//navigation的颜色
+#define LoginButtonColor [UIColor colorWithRed:251.0/255 green:90.0/255 blue:103.0/255 alpha:1]
+
 
 #endif

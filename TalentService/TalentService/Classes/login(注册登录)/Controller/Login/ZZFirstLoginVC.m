@@ -9,10 +9,13 @@
 #import "ZZFirstLoginVC.h"
 #import "ZZTextField.h"
 #import "ZZForgetVC.h"
+#import "ZZLayerButton.h"
+#import "ZZThirdVC.h"
 @interface ZZFirstLoginVC ()
 @property (strong, nonatomic) IBOutlet ZZTextField *phoneNumTF;
 @property (strong, nonatomic) IBOutlet ZZTextField *secrectTF;
 
+@property (strong, nonatomic) IBOutlet ZZLayerButton *loginButton;
 @end
 
 @implementation ZZFirstLoginVC
@@ -29,6 +32,11 @@
      *  设置右button
      */
     [self setNavRightItemWithName:@"忘记密码" target:self action:@selector(didClickOnTestSelect:)];
+    /**
+     *  设置button颜色
+     */
+    self.loginButton.backgroundColor = LoginButtonColor;
+    
 }
 /**
  *  跳转忘记密码界面
@@ -74,6 +82,15 @@
     {
         [self.navigationItem setRightBarButtonItem:rightBtn animated:NO];
     }
+}
+/**
+ *  三方登录
+ *
+ *  @param sender <#sender description#>
+ */
+- (IBAction)thirdButtonAction:(UIButton *)sender {
+    ZZThirdVC *thirdVc = [[ZZThirdVC alloc]initWithNibName:@"ZZThirdVC" bundle:nil];
+    [self.navigationController pushViewController:thirdVc animated:YES];
 }
 
 

@@ -9,9 +9,11 @@
 #import "ZZRegistVC.h"
 #import "ZZTextField.h"
 #import "ZZNextRegistVC.h"
+#import "ZZLayerButton.h"
 @interface ZZRegistVC ()
 @property (strong, nonatomic) IBOutlet ZZTextField *phoneTF;
 @property (strong, nonatomic) IBOutlet ZZTextField *messageTF;
+@property (strong, nonatomic) IBOutlet ZZLayerButton *nextButton;
 
 @end
 
@@ -22,6 +24,11 @@
     [self setTitle:@"注册"];
     [self.phoneTF addLeftViewImageString:@"T2"];
     [self.messageTF addLeftViewImageString:@"T2"];
+    
+    /**
+     *  设置button颜色
+     */
+    self.nextButton.backgroundColor = LoginButtonColor;
 }
 - (IBAction)gotoNextRegist:(UIButton *)sender {
     ZZNextRegistVC *nextRegistVc = [[ZZNextRegistVC alloc]initWithNibName:@"ZZNextRegistVC" bundle:nil];

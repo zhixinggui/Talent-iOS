@@ -8,11 +8,13 @@
 
 #import "ZZNextRegistVC.h"
 #import "ZZTextField.h"
+#import "ZZLayerButton.h"
 @interface ZZNextRegistVC ()
 @property (strong, nonatomic) IBOutlet ZZTextField *nameTF;
 @property (strong, nonatomic) IBOutlet ZZTextField *cityTF;
 @property (strong, nonatomic) IBOutlet ZZTextField *secrectTF;
 @property (strong, nonatomic) IBOutlet ZZTextField *againSecrectTF;
+@property (strong, nonatomic) IBOutlet ZZLayerButton *finishButton;
 
 @end
 
@@ -25,6 +27,11 @@
     [self.cityTF addLeftViewImageString:@"T2"];
     [self.secrectTF addLeftViewImageString:@"T2"];
     [self.againSecrectTF addLeftViewImageString:@"T2"];
+    
+    /**
+     *  设置button颜色
+     */
+    self.finishButton.backgroundColor = LoginButtonColor;
 }
 
 - (void)didReceiveMemoryWarning {
