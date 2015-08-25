@@ -77,11 +77,12 @@ extern const BOOL IS_SCREEN_35_INCH;
 + (BOOL)isJailBroken		NS_AVAILABLE_IOS(4_0);
 + (NSString *)jailBreaker	NS_AVAILABLE_IOS(4_0);
 
+/*
 + (BOOL)isDevicePhone;
 + (BOOL)isDevicePad;
 
 + (BOOL)requiresPhoneOS;
-
+*/
 /**
  *  跳转到AppStore
  *  params  appID 对应的app的id  ，默认为萌宝派的id

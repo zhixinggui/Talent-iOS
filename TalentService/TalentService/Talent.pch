@@ -25,6 +25,8 @@
 #define ScreenWidth  [UIScreen mainScreen].bounds.size.width
 #define ScreenHeight [UIScreen mainScreen].bounds.size.height
 
-
+//color
+//定义颜色
+#define ZZGreenColor  [UIColor colorWithRed:0.1 green:0.63 blue:0.96 alpha:0.93] //蓝色
 
 #endif
