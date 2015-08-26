@@ -8,6 +8,7 @@
 
 #import "ZZTabBarController.h"
 #import "ZZNaviController.h"
+#import "ZZInfoVC.h"
 @implementation ZZTabBarController
 -(void)viewDidLoad{
     [super  viewDidLoad];
@@ -28,13 +29,12 @@
     
     
     // 我的
-    UIViewController *me = [[UIViewController alloc] init];
-    me.view.backgroundColor = [UIColor  orangeColor];
+    ZZInfoVC *me = [[ZZInfoVC alloc] init];
     [self setUpOneChildViewController:me image:[UIImage imageNamed:@"tabbar_four_close_30x30"] selectedImage:[UIImage imageWithOriginalName:@"tabbar_four_open_30x30"] title:@"我的"];
     
     // 更多
     UIViewController *more = [[UIViewController alloc] init];
-     me.view.backgroundColor = [UIColor  yellowColor];
+     more.view.backgroundColor = [UIColor  yellowColor];
     [self setUpOneChildViewController:more image:[UIImage imageNamed:@"tabbar_five_close_30x30"] selectedImage:[UIImage imageWithOriginalName:@"tabbar_five_open_30x30"] title:@"更多"];
 }
 #pragma mark - 添加一个子控制器

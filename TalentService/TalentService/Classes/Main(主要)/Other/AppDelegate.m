@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "ZZLoginVC.h"
 #import "ZZNaviController.h"
+#import "ZZTabBarController.h"
 @interface AppDelegate ()
 
 @end
@@ -23,12 +24,34 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    /**
+     *  登录
+     */
+    //[self addLoginViewController];
+    /**
+     *  进入首页界面
+     */
+    [self presentMenuViewController];
+    
+    return YES;
+}
+/**
+ *  登录路口
+ */
+-(void)addLoginViewController{
     ZZLoginVC *loginVc = [[ZZLoginVC alloc]initWithNibName:@"ZZLoginVC" bundle:nil];
     ZZNaviController *loginNavi = [[ZZNaviController alloc]initWithRootViewController:loginVc];
     loginNavi.navigationBarHidden = YES;
     self.window.rootViewController = loginNavi;
-    return YES;
 }
+/**
+ *  进入首页等界面
+ */
+-(void)presentMenuViewController{
+    ZZTabBarController* tabBarc = [[ZZTabBarController alloc]init];
+    [self.window setRootViewController:tabBarc];
+}
+
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
