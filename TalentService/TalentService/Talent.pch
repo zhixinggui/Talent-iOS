@@ -28,7 +28,7 @@
 
 //color
 //定义颜色
-#define ZZGreenColor  [UIColor colorWithRed:0.1 green:0.63 blue:0.96 alpha:0.93] //蓝色
+#define ZZGreenColor  [UIColor colorWithRed:255.0/255 green:77.0/255 blue:85.0/255 alpha:1] //蓝色
 
 //navigation的颜色
 #define LoginButtonColor  [UIColor colorWithRed:251.0/255 green:90.0/255 blue:103.0/255 alpha:1]
