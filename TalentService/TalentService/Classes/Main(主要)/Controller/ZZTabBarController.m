@@ -49,9 +49,9 @@
     vc.title = title;
     vc.tabBarItem.image = image;
    vc.tabBarItem.selectedImage = selectedImage;
-    [vc.tabBarItem setTitlePositionAdjustment:UIOffsetMake(0, -15)];
+    [vc.tabBarItem setTitlePositionAdjustment:UIOffsetMake(0, -1)];
     NSMutableDictionary *selectedTextAttrs = [NSMutableDictionary dictionary];
-    selectedTextAttrs[NSForegroundColorAttributeName] = ZZGreenColor;
+    selectedTextAttrs[NSForegroundColorAttributeName] = ZZNatiBarColor;
     
     [vc.tabBarItem setTitleTextAttributes:selectedTextAttrs forState:UIControlStateSelected];
     ZZNaviController *nav = [[ZZNaviController alloc] initWithRootViewController:vc];
