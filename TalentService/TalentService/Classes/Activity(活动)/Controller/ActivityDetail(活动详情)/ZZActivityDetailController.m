@@ -11,7 +11,8 @@
 #import "ZZDetailRuleView.h"
 #import "ZZDetailsView.h"
 #import "ZZActivityBottomToolBar.h"
-@interface ZZActivityDetailController ()
+#import "ZZEnsureOrderController.h"
+@interface ZZActivityDetailController ()<ZZDetailImageViewDelegate>
 
 @end
 
@@ -34,6 +35,7 @@
     [self.view  addSubview:scrollView];
     //广告位滚动图片
     ZZDetailImageView *detailIV = [[ZZDetailImageView  alloc]init];
+    detailIV.delegate = self;
     detailIV.frame = CGRectMake(0, 0, ScreenWidth, detailIV.totalHeight);
     [scrollView addSubview:detailIV];
     //细则
@@ -51,4 +53,9 @@
     [self.view  addSubview:actiBottomTool];
 }
 
+#pragma mark -ZZDetailImageViewDelegate
+- (void)detailImageViewBooking:(ZZDetailImageView *)detalImageViewDelegate{
+    ZZEnsureOrderController *ensureOC = [[ZZEnsureOrderController  alloc]init];
+    [self.navigationController  pushViewController:ensureOC animated:YES];
+}
 @end

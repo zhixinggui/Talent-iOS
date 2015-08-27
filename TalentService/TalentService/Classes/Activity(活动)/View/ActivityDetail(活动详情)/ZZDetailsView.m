@@ -28,7 +28,7 @@
     ZZUnderLineLabel *underLabel = [[ZZUnderLineLabel  alloc]initWithFrame:CGRectMake(underX, underY, underW, underH)];
     underLabel.text = @"详情";
     underLabel.textColor = ZZNatiBarColor;
-    underLabel.font = ZZContentFont;
+    underLabel.font = ZZContentBoldFont;
     [self addSubview:underLabel];
     //
     CGFloat ivX = edgeMargin;

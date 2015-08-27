@@ -11,6 +11,7 @@
 #import "ZZMenuButton.h"
 #import "ZZTopMenuView.h"
 #import "ZZActivityDetailController.h"
+#import "ZZPopMenu.h"
 @interface ZZActivityController ()
 //活动请求到的数组
 @property (nonatomic, strong)NSMutableArray *activityArray;
@@ -30,7 +31,7 @@
 }
 //设置tableview的相关属性
 - (void)setUpTableView{
- 
+    self.tableView.rowHeight = 190;
     //一定要在tableview 分割线设置之前
     [self.tableView  registerNib:[UINib nibWithNibName:@"ZZActivityCell" bundle:nil] forCellReuseIdentifier:@"ActivityCell"];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -52,9 +53,32 @@
     
     //状态
     ZZMenuButton *status = [[ZZMenuButton alloc]init];
-    [status setTitle:@"类型" forState:UIControlStateNormal];
+    [status setTitle:@"状态" forState:UIControlStateNormal];
      [status  addTarget:self action:@selector(statusMenuBtnClick) forControlEvents:UIControlEventTouchUpInside];
     self.statusMenuBtn = status;
+}
+
+#pragma  event response
+//城市
+- (void)cityMenuBtnClick{
+    ZZPopMenu *menu = [[ZZPopMenu alloc ] initWithContentView:nil];
+    
+        menu.dimBackground = YES;
+    [menu showInRect:CGRectMake(100, 0, 200, 480)];
+}
+//类型
+- (void)typeMenuBtnClick{
+    ZZPopMenu *menu = [[ZZPopMenu alloc ] initWithContentView:nil];
+    
+        menu.dimBackground = YES;
+    [menu showInRect:CGRectMake(100, 0, 200, 480)];
+}
+//状态
+- (void)statusMenuBtnClick{
+    ZZPopMenu *menu = [[ZZPopMenu alloc ] initWithContentView:nil];
+    
+       menu.dimBackground = YES;
+    [menu showInRect:CGRectMake(100, 0, 200, 480)];
 }
 #pragma mark - Table view data source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -72,9 +96,7 @@
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     return self.topMenuView;
 }
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 190;
-}
+
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     return self.topMenuView.height;
 }
@@ -84,10 +106,7 @@
     [self.navigationController  pushViewController:actDetailVC animated:YES];
     [tableView  deselectRowAtIndexPath:indexPath animated:YES];
 }
-#pragma  event response
-- (void)cityMenuBtnClick{
-    
-}
+
 
 #pragma mark -lazy load
 -(ZZTopMenuView *)topMenuView{

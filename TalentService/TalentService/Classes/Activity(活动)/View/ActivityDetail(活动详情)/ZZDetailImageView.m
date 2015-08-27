@@ -58,6 +58,7 @@
     [button  setTitle:@"预  订" forState:UIControlStateNormal];
     [button setTitleColor:[UIColor  whiteColor] forState:UIControlStateNormal];
     [button  addTarget:self action:@selector(booking) forControlEvents:UIControlEventTouchUpInside];
+    button.titleLabel.font = ZZButtonFont;
     button.backgroundColor = ZZNatiBarColor;
     button.layer.cornerRadius = 5;
     button.layer.masksToBounds = YES;
@@ -76,6 +77,9 @@
 #pragma mark - UIAlertViewDelegate
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     if (buttonIndex ) {
+        if ([self.delegate  respondsToSelector:@selector(detailImageViewBooking:)]) {
+            [self.delegate  detailImageViewBooking:self];
+        }
         ZZLog(@"我要申请");
     }
 }

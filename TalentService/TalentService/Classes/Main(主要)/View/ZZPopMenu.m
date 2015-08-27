@@ -58,7 +58,12 @@
     return [[self alloc] initWithContentView:contentView];
 }
 
-
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    
+    self.cover.frame = self.bounds;
+}
 
 #pragma mark - 内部方法
 #pragma mark - 内部方法

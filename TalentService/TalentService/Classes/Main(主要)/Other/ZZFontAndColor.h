@@ -27,6 +27,9 @@
 
 //font
 #define ZZNaviTitleFont   [UIFont  boldSystemFontOfSize:16]
+#define ZZButtonFont   [UIFont  boldSystemFontOfSize:16]
 #define ZZNameFont         [UIFont  systemFontOfSize:14]
+#define ZZTitleFont         [UIFont  systemFontOfSize:16]
 #define ZZContentFont         [UIFont  systemFontOfSize:14]
+#define ZZContentBoldFont         [UIFont  boldSystemFontOfSize:14]
 #endif

@@ -30,9 +30,9 @@
     CGFloat underW = ScreenWidth;
     CGFloat underH = 44;
     ZZUnderLineLabel *underLabel = [[ZZUnderLineLabel  alloc]initWithFrame:CGRectMake(underX, underY, underW, underH)];
-    underLabel.text = @"细则";
+    underLabel.text = @"须知";
     underLabel.textColor = ZZNatiBarColor;
-    underLabel.font = ZZContentFont;
+    underLabel.font = ZZContentBoldFont;
     [self addSubview:underLabel];
     
     //头像
@@ -126,7 +126,7 @@
 -(void)drawRect:(CGRect)rect{
     [super  drawRect:rect];
     
-    [ZZLightGrayColor  set];
+    [ZZSeparGrayColor  set];
     UIRectFill(CGRectMake(0, 0, rect.size.width, 2));
 }
 @end
