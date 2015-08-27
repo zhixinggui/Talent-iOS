@@ -8,7 +8,12 @@
 
 #import "ZZTabBarController.h"
 #import "ZZNaviController.h"
+
 #import "ZZInfoVC.h"
+
+#import "ZZHomeViewController.h"
+#import "ZZActivityController.h"
+
 @implementation ZZTabBarController
 -(void)viewDidLoad{
     [super  viewDidLoad];
@@ -17,15 +22,16 @@
 }
 
 - (void)setUpAllChildViewController{
-    // 首页
-    UIViewController *home = [[UIViewController alloc] init];
-    home.view.backgroundColor = [UIColor redColor];
+
+    ZZHomeViewController *home = [[ZZHomeViewController alloc] init];
+    
     [self setUpOneChildViewController:home image:[UIImage imageNamed:@"home_close_30x30"] selectedImage:[UIImage imageWithOriginalName:@"home_open_30x30"] title:@"首页"];
     
     // 活动
-    UIViewController *activity = [[UIViewController alloc] init];
-    activity.view.backgroundColor = [UIColor  greenColor];
+    ZZActivityController *activity = [[ZZActivityController alloc] init];
+    
     [self setUpOneChildViewController:activity image:[UIImage imageNamed:@"event_close_30x30"] selectedImage:[UIImage imageWithOriginalName:@"event_open_30x30"] title:@"活动"];
+
     
     
     // 我的
@@ -41,11 +47,12 @@
 - (void)setUpOneChildViewController:(UIViewController *)vc image:(UIImage *)image selectedImage:(UIImage *)selectedImage title:(NSString *)title
 {
     vc.title = title;
-    
     vc.tabBarItem.image = image;
-    vc.tabBarItem.selectedImage = selectedImage;
+   vc.tabBarItem.selectedImage = selectedImage;
+    [vc.tabBarItem setTitlePositionAdjustment:UIOffsetMake(0, -15)];
     NSMutableDictionary *selectedTextAttrs = [NSMutableDictionary dictionary];
     selectedTextAttrs[NSForegroundColorAttributeName] = ZZGreenColor;
+    
     [vc.tabBarItem setTitleTextAttributes:selectedTextAttrs forState:UIControlStateSelected];
     ZZNaviController *nav = [[ZZNaviController alloc] initWithRootViewController:vc];
     [self addChildViewController:nav];

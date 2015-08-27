@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="Qsk-OQ-qYQ" customClass="ZZHeadView">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="54"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KBX-6L-D5B">
+                    <rect key="frame" x="0.0" y="8" width="320" height="34"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pDC-2c-eBb">
+                            <rect key="frame" x="8" y="0.0" width="120" height="34"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="120" id="P8W-sJ-DvB"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <state key="normal" title="热门推荐" image="T">
+                                <color key="titleColor" red="0.99215686270000003" green="0.52156862749999999" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="pDC-2c-eBb" firstAttribute="top" secondItem="KBX-6L-D5B" secondAttribute="top" id="CSC-83-zGG"/>
+                        <constraint firstItem="pDC-2c-eBb" firstAttribute="leading" secondItem="KBX-6L-D5B" secondAttribute="leading" constant="8" id="Ucl-xU-cbv"/>
+                        <constraint firstAttribute="bottom" secondItem="pDC-2c-eBb" secondAttribute="bottom" id="eVR-N6-UKx"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="KBX-6L-D5B" firstAttribute="top" secondItem="Qsk-OQ-qYQ" secondAttribute="top" id="0rV-sD-aAT"/>
+                <constraint firstAttribute="bottom" secondItem="KBX-6L-D5B" secondAttribute="bottom" constant="8" id="3oD-Kw-UXf"/>
+                <constraint firstItem="KBX-6L-D5B" firstAttribute="leading" secondItem="Qsk-OQ-qYQ" secondAttribute="leading" id="dET-mZ-VOD"/>
+                <constraint firstAttribute="trailing" secondItem="KBX-6L-D5B" secondAttribute="trailing" id="qSd-UP-zfR"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="showButton" destination="pDC-2c-eBb" id="Bkm-hA-3cB"/>
+            </connections>
+            <point key="canvasLocation" x="403" y="511"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="T" width="20" height="20"/>
+    </resources>
+</document>

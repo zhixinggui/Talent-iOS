@@ -24,6 +24,7 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+
     /**
      *  登录
      */
@@ -43,6 +44,13 @@
     ZZNaviController *loginNavi = [[ZZNaviController alloc]initWithRootViewController:loginVc];
     loginNavi.navigationBarHidden = YES;
     self.window.rootViewController = loginNavi;
+
+//    ZZLoginVC *loginVc = [[ZZLoginVC alloc]initWithNibName:@"ZZLoginVC" bundle:nil];
+//    ZZNaviController *loginNavi = [[ZZNaviController alloc]initWithRootViewController:loginVc];
+//    loginNavi.navigationBarHidden = YES;
+
+
+
 }
 /**
  *  进入首页等界面

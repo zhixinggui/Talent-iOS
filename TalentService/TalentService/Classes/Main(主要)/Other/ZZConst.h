@@ -13,3 +13,4 @@ extern  NSTimeInterval const responseTime ;//网络请求响应时常
 extern  CGFloat  const  ZZLineSpace ;//行间距
 extern  CGFloat  const  ZZCharSpace ;//字间距
 extern  CGFloat  const  ZZParagraphSpace ;//段间距
+extern  CGFloat  const  ZZEdgeMargin ;//边间距

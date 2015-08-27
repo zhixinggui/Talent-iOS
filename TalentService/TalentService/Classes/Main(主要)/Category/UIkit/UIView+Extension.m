@@ -221,7 +221,18 @@ static NSUInteger const vRepeatCount = 3;
     
     return attributedString;
 }
+- (NSMutableAttributedString *)getAttributedStringWithText:(NSString *)text  textFont:(UIFont *)textFont  textColor:(UIColor *)textColor   content:(NSString *)content  contentFont:(UIFont *)contentFont  contentColor:(UIColor *)contentColor {
+    NSMutableAttributedString *attributedString = [[NSMutableAttributedString   alloc] initWithString:[NSString  stringWithFormat:@"%@ %@",text,content]];
+ 
+    NSRange textRange = NSMakeRange(0,text.length);
+        [attributedString  addAttributes:@{NSFontAttributeName:textFont} range:textRange];
+        [attributedString  addAttributes:@{NSForegroundColorAttributeName :textColor} range:textRange];
 
+    NSRange contentRange = NSMakeRange(text.length+1,content.length);
+    [attributedString  addAttributes:@{NSFontAttributeName:contentFont} range:contentRange];
+    [attributedString  addAttributes:@{NSForegroundColorAttributeName :contentColor} range:contentRange];
+    return attributedString;
+}
 
 - (void)shakeAnimation:(CGFloat)offsetX duration:(CGFloat)duration repeatCount:(NSUInteger)repeatCount
 
