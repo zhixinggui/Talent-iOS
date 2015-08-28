@@ -1,26 +1,22 @@
 //
-//  ZZInfoVC.m
+//  ZZApplyVC.m
 //  TalentService
 //
-//  Created by charles on 15/8/25.
+//  Created by zhizhen on 15/8/28.
 //  Copyright (c) 2015年 zhizhen. All rights reserved.
 //
 
-#import "ZZInfoVC.h"
+#import "ZZApplyVC.h"
 
-@interface ZZInfoVC ()
-@property (strong, nonatomic) IBOutlet UIScrollView *infoScrollView;
-@property (strong, nonatomic) IBOutlet UIImageView *infoIV;
+@interface ZZApplyVC ()
 
 @end
 
-@implementation ZZInfoVC
+@implementation ZZApplyVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.infoScrollView.backgroundColor = backGroundColor;
-//    self.infoScrollView.contentSize = CGSizeMake(0, 400);
+    // Do any additional setup after loading the view from its nib.
 }
 
 - (void)didReceiveMemoryWarning {

@@ -40,7 +40,8 @@
         [self addSubview:container];
         self.container = container;
         
-    
+        // 默认箭头指向中间
+        self.arrowPosition = ZZTopMenuArrowPositionCenter;
     }
     return self;
 }
@@ -73,6 +74,26 @@
 }
 
 #pragma mark - 公共方法
+
+
+- (void)setArrowPosition:(ZZTopMenuArrowPosition)arrowPosition
+{
+    _arrowPosition = arrowPosition;
+    
+    switch (arrowPosition) {
+        case ZZTopMenuArrowPositionCenter:
+            self.container.image = [UIImage resizedImage:@"popover_background"];
+            break;
+            
+        case ZZTopMenuArrowPositionLeft:
+            self.container.image = [UIImage resizedImage:@"popover_background_left"];
+            break;
+            
+        case ZZTopMenuArrowPositionRight:
+            self.container.image = [UIImage resizedImage:@"popover_background_right"];
+            break;
+    }
+}
 - (void)setDimBackground:(BOOL)dimBackground
 {
     

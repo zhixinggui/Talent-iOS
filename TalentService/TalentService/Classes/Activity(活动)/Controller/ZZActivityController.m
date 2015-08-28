@@ -12,14 +12,20 @@
 #import "ZZTopMenuView.h"
 #import "ZZActivityDetailController.h"
 #import "ZZPopMenu.h"
-@interface ZZActivityController ()
-//活动请求到的数组
+@interface ZZActivityController ()<ZZPopMenuDelegate>
+/**活动请求到的数组*/
 @property (nonatomic, strong)NSMutableArray *activityArray;
+/** 城市选择*/
 @property (nonatomic, strong)ZZMenuButton *cityMenuBtn;
+/**城市选择*/
 @property (nonatomic, strong)ZZMenuButton *typeMenuBtn;
+/**状态选择  */
 @property (nonatomic, strong)ZZMenuButton *statusMenuBtn;
-
+/**顶部选择菜单  */
 @property (nonatomic, strong)ZZTopMenuView  *topMenuView;
+
+/**记录选中了那个选择菜单  */
+@property (nonatomic, strong)ZZMenuButton *selectMenuBtn;
 @end
 
 @implementation ZZActivityController
@@ -31,9 +37,9 @@
 }
 //设置tableview的相关属性
 - (void)setUpTableView{
-    self.tableView.rowHeight = 190;
+    self.tableView.rowHeight = [ZZActivityCell  cellHeight];
     //一定要在tableview 分割线设置之前
-    [self.tableView  registerNib:[UINib nibWithNibName:@"ZZActivityCell" bundle:nil] forCellReuseIdentifier:@"ActivityCell"];
+    [self.tableView  registerNib:[UINib nibWithNibName:@"ZZActivityCell" bundle:nil] forCellReuseIdentifier:[ZZActivityCell   cellXibIdentifier]];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
 }
@@ -42,43 +48,80 @@
     //城市
     ZZMenuButton *city = [[ZZMenuButton  alloc]init];
     [city setTitle:@"城市" forState:UIControlStateNormal];
-    [city  addTarget:self action:@selector(cityMenuBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    [city  addTarget:self action:@selector(cityMenuBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     self.cityMenuBtn = city;
     
     //类型
     ZZMenuButton *type = [[ZZMenuButton alloc]init];
     [type setTitle:@"类型" forState:UIControlStateNormal];
-     [type  addTarget:self action:@selector(typeMenuBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    [type  addTarget:self action:@selector(typeMenuBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     self.typeMenuBtn = type;
     
     //状态
     ZZMenuButton *status = [[ZZMenuButton alloc]init];
     [status setTitle:@"状态" forState:UIControlStateNormal];
-     [status  addTarget:self action:@selector(statusMenuBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    [status  addTarget:self action:@selector(statusMenuBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     self.statusMenuBtn = status;
 }
 
 #pragma  event response
 //城市
-- (void)cityMenuBtnClick{
-    ZZPopMenu *menu = [[ZZPopMenu alloc ] initWithContentView:nil];
+- (void)cityMenuBtnClick:(ZZMenuButton *)button{
+    self.selectMenuBtn.selected = NO;
+    button.selected = YES;
+    self.selectMenuBtn = button;
     
+    CGFloat menuW = 200;
+    CGFloat menuH = 300;
+    CGFloat menuX = 40;
+    CGFloat menuY =CGRectGetMaxY(button.frame)+64;
+    
+    ZZPopMenu *menu = [[ZZPopMenu alloc ] initWithContentView:nil];
         menu.dimBackground = YES;
-    [menu showInRect:CGRectMake(100, 0, 200, 480)];
+    menu.delegate = self;
+    menu.arrowPosition = ZZTopMenuArrowPositionLeft;
+    [menu showInRect:CGRectMake(menuX, menuY, menuW, menuH)];
 }
 //类型
-- (void)typeMenuBtnClick{
-    ZZPopMenu *menu = [[ZZPopMenu alloc ] initWithContentView:nil];
+- (void)typeMenuBtnClick:(ZZMenuButton *)button{
+    self.selectMenuBtn.selected = NO;
+    button.selected = YES;
+    self.selectMenuBtn = button;
     
+    CGFloat menuW = 200;
+    CGFloat menuH = 300;
+    CGFloat menuX = CGRectGetMidX(button.frame)- menuW/2;
+    CGFloat menuY =CGRectGetMaxY(button.frame)+64;
+    
+    ZZPopMenu *menu = [[ZZPopMenu alloc ] initWithContentView:nil];
+    menu.arrowPosition = ZZTopMenuArrowPositionCenter;
         menu.dimBackground = YES;
-    [menu showInRect:CGRectMake(100, 0, 200, 480)];
+     menu.delegate = self;
+    [menu showInRect:CGRectMake(menuX, menuY, menuW, menuH)];
 }
 //状态
-- (void)statusMenuBtnClick{
-    ZZPopMenu *menu = [[ZZPopMenu alloc ] initWithContentView:nil];
+- (void)statusMenuBtnClick:(ZZMenuButton *)button{
+    self.selectMenuBtn.selected = NO;
+    button.selected = YES;
+    self.selectMenuBtn = button;
+
+    CGFloat menuW = 200;
+    CGFloat menuH = 300;
+    CGFloat menuX = ScreenWidth - menuW - 40;
+    CGFloat menuY =CGRectGetMaxY(button.frame)+64;
     
+    ZZPopMenu *menu = [[ZZPopMenu alloc ] initWithContentView:nil];
+    menu.arrowPosition = ZZTopMenuArrowPositionRight;
        menu.dimBackground = YES;
-    [menu showInRect:CGRectMake(100, 0, 200, 480)];
+     menu.delegate = self;
+    [menu showInRect:CGRectMake(menuX, menuY, menuW, menuH)];
+}
+
+#pragma mark - ZZPopMenuDelegate
+
+-(void)popMenuDidDismissed:(ZZPopMenu *)popMenu{
+    self.selectMenuBtn.selected = NO;
+    self.selectMenuBtn = nil;
 }
 #pragma mark - Table view data source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -89,7 +132,7 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    ZZActivityCell *cell = [tableView  dequeueReusableCellWithIdentifier:@"ActivityCell"  ];
+    ZZActivityCell *cell = [tableView  dequeueReusableCellWithIdentifier:[ZZActivityCell   cellXibIdentifier]  ];
     return cell;
 }
 

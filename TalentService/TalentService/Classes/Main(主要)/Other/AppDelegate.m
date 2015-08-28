@@ -10,6 +10,7 @@
 #import "ZZLoginVC.h"
 #import "ZZNaviController.h"
 #import "ZZTabBarController.h"
+#import "ZZSdWebImageTool.h"
 @interface AppDelegate ()
 
 @end
@@ -85,5 +86,11 @@
    
 }
 
+/**
+ *  接受到内存警告，停止加载所有图片，并清除内存缓存
+ */
+-(void)applicationDidReceiveMemoryWarning:(UIApplication *)application{
+    [ZZSdWebImageTool  receiveMemoryWarningClearImageMemory];
+}
 
 @end

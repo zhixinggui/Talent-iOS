@@ -13,4 +13,8 @@
 -(void)setImageWithURL:(NSString*)url placeholderImageName:(NSString*)imageName{
     [self  sd_setImageWithURL:[NSURL URLWithString:url]  placeholderImage:[UIImage  imageWithContentsOfFile:[[NSBundle mainBundle]pathForResource:imageName ofType:nil]]options:SDWebImageRetryFailed | SDWebImageLowPriority ];
 }
+
+-(void)setHeadImageWithURL:(NSString*)url{
+     [self  sd_setImageWithURL:[NSURL URLWithString:url]  placeholderImage:[UIImage  imageWithContentsOfFile:[[NSBundle mainBundle]pathForResource:@"" ofType:nil]]options:SDWebImageRetryFailed | SDWebImageLowPriority |SDWebImageRefreshCached];
+}
 @end

@@ -17,4 +17,20 @@
 @end
 @implementation ZZActivityCell
 
++(ZZActivityCell *)dequeueReusableCellTableView:(UITableView *)tableView{
+    ZZActivityCell *cell = [tableView  dequeueReusableCellWithIdentifier:[ZZActivityCell  cellXibIdentifier]];
+    if (cell == nil) {
+        
+        NSArray *objs = [[NSBundle mainBundle] loadNibNamed:@"ZZActivityCell" owner:nil options:nil];
+        cell = [objs lastObject];
+    }
+    return cell;
+}
++ (NSString *)cellXibIdentifier{
+    return @"ActivityCell";
+}
+
++ (CGFloat)cellHeight{
+    return 190.0;
+}
 @end
