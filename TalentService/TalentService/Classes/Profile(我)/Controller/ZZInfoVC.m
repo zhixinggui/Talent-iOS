@@ -7,7 +7,8 @@
 //
 
 #import "ZZInfoVC.h"
-
+#import "ZZMyEventVC.h"
+#import "ZZCommunityTVC.h"
 @interface ZZInfoVC ()
 @property (strong, nonatomic) IBOutlet UIScrollView *infoScrollView;
 @property (strong, nonatomic) IBOutlet UIImageView *infoIV;
@@ -22,19 +23,28 @@
     self.infoScrollView.contentSize = CGSizeMake(ScreenWidth, 667);
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
+- (IBAction)gotoMydindan:(UIButton *)sender {
+    ZZLog(@"订单订单");
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+/**
+ *  活动跳转
+ */
+- (IBAction)gotoEvent:(UIButton *)sender {
+    ZZLog(@"活动活动");
+    ZZMyEventVC *myEventVc = [[ZZMyEventVC alloc]initWithNibName:@"ZZMyEventVC" bundle:nil];
+    [self.navigationController pushViewController:myEventVc animated:YES];
 }
-*/
+
+- (IBAction)gotoCommunity:(UIButton *)sender {
+    ZZLog(@"社区社区");
+    ZZCommunityTVC *communityTvc = [[ZZCommunityTVC alloc]initWithNibName:@"ZZCommunityTVC" bundle:nil];
+    [self.navigationController pushViewController:communityTvc animated:YES];
+}
+
+- (IBAction)gotoAttentionView:(UIButton *)sender {
+    ZZLog(@"关注关注");
+}
 
 @end
