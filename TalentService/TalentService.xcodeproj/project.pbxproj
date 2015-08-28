@@ -14,6 +14,16 @@
 		5607DA7D1B831DB000803EE5 /* ZZFirstLoginVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5607DA7B1B831DB000803EE5 /* ZZFirstLoginVC.xib */; };
 		563709251B8EA48B008B7765 /* ZZMoreVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 563709231B8EA48B008B7765 /* ZZMoreVC.m */; };
 		563709261B8EA48B008B7765 /* ZZMoreVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 563709241B8EA48B008B7765 /* ZZMoreVC.xib */; };
+		5637092A1B8EB33B008B7765 /* ZZMoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 563709281B8EB33B008B7765 /* ZZMoreCell.m */; };
+		5637092B1B8EB33B008B7765 /* ZZMoreCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 563709291B8EB33B008B7765 /* ZZMoreCell.xib */; };
+		5637092E1B8EDBEE008B7765 /* ZZMoreName.m in Sources */ = {isa = PBXBuildFile; fileRef = 5637092D1B8EDBEE008B7765 /* ZZMoreName.m */; };
+		5637093E1B8F04A5008B7765 /* ZZCommunityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5637093C1B8F04A5008B7765 /* ZZCommunityCell.m */; };
+		5637093F1B8F04A5008B7765 /* ZZCommunityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5637093D1B8F04A5008B7765 /* ZZCommunityCell.xib */; };
+		563709431B9028FB008B7765 /* ZZCommunityTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 563709411B9028FB008B7765 /* ZZCommunityTVC.m */; };
+		563709441B9028FB008B7765 /* ZZCommunityTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 563709421B9028FB008B7765 /* ZZCommunityTVC.xib */; };
+		563709481B902931008B7765 /* ZZMyEventVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 563709461B902931008B7765 /* ZZMyEventVC.m */; };
+		563709491B902931008B7765 /* ZZMyEventVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 563709471B902931008B7765 /* ZZMyEventVC.xib */; };
+		5637094D1B903153008B7765 /* ZZSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 5637094C1B903153008B7765 /* ZZSegmentedControl.m */; };
 		5652D31D1B859A7600A3FB09 /* ZZForgetVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5652D31B1B859A7600A3FB09 /* ZZForgetVC.m */; };
 		5652D31E1B859A7600A3FB09 /* ZZForgetVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5652D31C1B859A7600A3FB09 /* ZZForgetVC.xib */; };
 		5652D3221B859E6B00A3FB09 /* ZZNextForgetVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5652D3201B859E6B00A3FB09 /* ZZNextForgetVC.m */; };
@@ -128,6 +138,22 @@
 		563709221B8EA48B008B7765 /* ZZMoreVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZMoreVC.h; sourceTree = "<group>"; };
 		563709231B8EA48B008B7765 /* ZZMoreVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZMoreVC.m; sourceTree = "<group>"; };
 		563709241B8EA48B008B7765 /* ZZMoreVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZZMoreVC.xib; sourceTree = "<group>"; };
+		563709271B8EB33B008B7765 /* ZZMoreCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZMoreCell.h; sourceTree = "<group>"; };
+		563709281B8EB33B008B7765 /* ZZMoreCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZMoreCell.m; sourceTree = "<group>"; };
+		563709291B8EB33B008B7765 /* ZZMoreCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZZMoreCell.xib; sourceTree = "<group>"; };
+		5637092C1B8EDBEE008B7765 /* ZZMoreName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZMoreName.h; sourceTree = "<group>"; };
+		5637092D1B8EDBEE008B7765 /* ZZMoreName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZMoreName.m; sourceTree = "<group>"; };
+		5637093B1B8F04A5008B7765 /* ZZCommunityCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZCommunityCell.h; sourceTree = "<group>"; };
+		5637093C1B8F04A5008B7765 /* ZZCommunityCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZCommunityCell.m; sourceTree = "<group>"; };
+		5637093D1B8F04A5008B7765 /* ZZCommunityCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZZCommunityCell.xib; sourceTree = "<group>"; };
+		563709401B9028FB008B7765 /* ZZCommunityTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZCommunityTVC.h; sourceTree = "<group>"; };
+		563709411B9028FB008B7765 /* ZZCommunityTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZCommunityTVC.m; sourceTree = "<group>"; };
+		563709421B9028FB008B7765 /* ZZCommunityTVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZZCommunityTVC.xib; sourceTree = "<group>"; };
+		563709451B902931008B7765 /* ZZMyEventVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZMyEventVC.h; sourceTree = "<group>"; };
+		563709461B902931008B7765 /* ZZMyEventVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZMyEventVC.m; sourceTree = "<group>"; };
+		563709471B902931008B7765 /* ZZMyEventVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZZMyEventVC.xib; sourceTree = "<group>"; };
+		5637094B1B903153008B7765 /* ZZSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZSegmentedControl.h; sourceTree = "<group>"; };
+		5637094C1B903153008B7765 /* ZZSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZSegmentedControl.m; sourceTree = "<group>"; };
 		5652D31A1B859A7600A3FB09 /* ZZForgetVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZForgetVC.h; sourceTree = "<group>"; };
 		5652D31B1B859A7600A3FB09 /* ZZForgetVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZForgetVC.m; sourceTree = "<group>"; };
 		5652D31C1B859A7600A3FB09 /* ZZForgetVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZZForgetVC.xib; sourceTree = "<group>"; };
@@ -367,6 +393,9 @@
 		563709201B8EA411008B7765 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				563709271B8EB33B008B7765 /* ZZMoreCell.h */,
+				563709281B8EB33B008B7765 /* ZZMoreCell.m */,
+				563709291B8EB33B008B7765 /* ZZMoreCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -374,8 +403,29 @@
 		563709211B8EA420008B7765 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				5637092C1B8EDBEE008B7765 /* ZZMoreName.h */,
+				5637092D1B8EDBEE008B7765 /* ZZMoreName.m */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		563709351B8EFDB0008B7765 /* Community(社区) */ = {
+			isa = PBXGroup;
+			children = (
+				5637093B1B8F04A5008B7765 /* ZZCommunityCell.h */,
+				5637093C1B8F04A5008B7765 /* ZZCommunityCell.m */,
+				5637093D1B8F04A5008B7765 /* ZZCommunityCell.xib */,
+			);
+			path = "Community(社区)";
+			sourceTree = "<group>";
+		};
+		5637094A1B9030A8008B7765 /* segment(选择) */ = {
+			isa = PBXGroup;
+			children = (
+				5637094B1B903153008B7765 /* ZZSegmentedControl.h */,
+				5637094C1B903153008B7765 /* ZZSegmentedControl.m */,
+			);
+			path = "segment(选择)";
 			sourceTree = "<group>";
 		};
 		5652D3191B8599FF00A3FB09 /* ForgetSecrect */ = {
@@ -717,6 +767,12 @@
 				5669870A1B8C1880007D50F7 /* ZZInfoVC.h */,
 				5669870B1B8C1880007D50F7 /* ZZInfoVC.m */,
 				5669870C1B8C1880007D50F7 /* ZZInfoVC.xib */,
+				563709401B9028FB008B7765 /* ZZCommunityTVC.h */,
+				563709411B9028FB008B7765 /* ZZCommunityTVC.m */,
+				563709421B9028FB008B7765 /* ZZCommunityTVC.xib */,
+				563709451B902931008B7765 /* ZZMyEventVC.h */,
+				563709461B902931008B7765 /* ZZMyEventVC.m */,
+				563709471B902931008B7765 /* ZZMyEventVC.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -731,6 +787,8 @@
 		6E9807B31B82E0CE00527EB2 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5637094A1B9030A8008B7765 /* segment(选择) */,
+				563709351B8EFDB0008B7765 /* Community(社区) */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -846,6 +904,7 @@
 				6E9E3E971B62159F0097B194 /* Home(首页) */,
 				6E9E3E9F1B62159F0097B194 /* Main(主要) */,
 				6E9E3EA71B62159F0097B194 /* Profile(我) */,
+				5637091D1B8EA3D6008B7765 /* More(更多) */,
 				6E9E3EAB1B62159F0097B194 /* Resources(资源) */,
 				6E9E3EAF1B62159F0097B194 /* Topic(话题) */,
 			);
@@ -1151,6 +1210,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+
+				6E950F0C1B6B68FC00566E85 /* zhizhen.strings in Resources */,
+				563709491B902931008B7765 /* ZZMyEventVC.xib in Resources */,
+
 				6E90140B1B83052C0083F2B7 /* InfoPlist.strings in Resources */,
 				5652D32C1B86FA2B00A3FB09 /* ZZThirdVC.xib in Resources */,
 				56C172E91B845A9C00EF55FF /* ZZRegistVC.xib in Resources */,
@@ -1166,7 +1229,10 @@
 				56C172EE1B846BB200EF55FF /* ZZNextRegistVC.xib in Resources */,
 				6E97F5701B6B1241004E067A /* MBProgressHUD.bundle in Resources */,
 				5607DA7D1B831DB000803EE5 /* ZZFirstLoginVC.xib in Resources */,
+				5637092B1B8EB33B008B7765 /* ZZMoreCell.xib in Resources */,
+				5637093F1B8F04A5008B7765 /* ZZCommunityCell.xib in Resources */,
 				5652D3231B859E6B00A3FB09 /* ZZNextForgetVC.xib in Resources */,
+				563709441B9028FB008B7765 /* ZZCommunityTVC.xib in Resources */,
 				6E9E3E791B620C860097B194 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1230,6 +1296,9 @@
 				6E00163F1B68B7F800DEA540 /* ZZHttpTool.m in Sources */,
 				6E0016341B68B74A00DEA540 /* UIImage+Extension.m in Sources */,
 				6E00162F1B68B74A00DEA540 /* NSDictionary+Extension.m in Sources */,
+				5637093E1B8F04A5008B7765 /* ZZCommunityCell.m in Sources */,
+				563709481B902931008B7765 /* ZZMyEventVC.m in Sources */,
+				5637094D1B903153008B7765 /* ZZSegmentedControl.m in Sources */,
 				6E8D3A8E1B8C15DF006798A7 /* ZZHeadView.m in Sources */,
 				6E76839D1B8EF70900661770 /* ZZOrderInfoShowView.m in Sources */,
 				6EE0D0CA1B69F2F700DC80AC /* UUAssetManager.m in Sources */,
@@ -1262,7 +1331,9 @@
 				6E4C40D11B8FF96700937CB1 /* ZZSelectPayTypeVC.m in Sources */,
 				6E0016431B68EB5000DEA540 /* ZZTextField.m in Sources */,
 				6E950F071B6B61C400566E85 /* ZZConst.m in Sources */,
+				5637092E1B8EDBEE008B7765 /* ZZMoreName.m in Sources */,
 				6E950EFE1B6B604800566E85 /* ZZFileParam.m in Sources */,
+				5637092A1B8EB33B008B7765 /* ZZMoreCell.m in Sources */,
 				6E00162E1B68B74A00DEA540 /* NSArray+Extension.m in Sources */,
 				6EE0D0C81B69F2F700DC80AC /* UUPhotoCollectionViewController.m in Sources */,
 				6EA108841B8D61FD00F4215A /* ZZActivityController.m in Sources */,
@@ -1287,7 +1358,11 @@
 				6E76839C1B8EF70900661770 /* ZZDetailsView.m in Sources */,
 				6E87B3111B8C6052003BB6C0 /* AdScrollView.m in Sources */,
 				6E00163C1B68B79C00DEA540 /* ZZAppSystem.mm in Sources */,
+
 				6E4C40D51B8FF9FB00937CB1 /* ZZSdWebImageTool.m in Sources */,
+
+				563709431B9028FB008B7765 /* ZZCommunityTVC.m in Sources */,
+
 				54B253871B80353300AC944E /* ZZTextView.m in Sources */,
 				5669870D1B8C1880007D50F7 /* ZZInfoVC.m in Sources */,
 				6E8D722C1B8432000031C721 /* ZZSecurityButton.m in Sources */,

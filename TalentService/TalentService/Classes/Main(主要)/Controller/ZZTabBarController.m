@@ -10,10 +10,9 @@
 #import "ZZNaviController.h"
 
 #import "ZZInfoVC.h"
-
 #import "ZZHomeViewController.h"
 #import "ZZActivityController.h"
-
+#import "ZZMoreVC.h"
 @implementation ZZTabBarController
 -(void)viewDidLoad{
     [super  viewDidLoad];
@@ -38,8 +37,7 @@
     [self setUpOneChildViewController:me image:[UIImage imageNamed:@"mine_close_30x30"] selectedImage:[UIImage imageWithOriginalName:@"mine_open_30x30"] title:@"我的"];
     
     // 更多
-    UIViewController *more = [[UIViewController alloc] init];
-     more.view.backgroundColor = [UIColor  yellowColor];
+    ZZMoreVC *more = [[ZZMoreVC alloc] init];
     [self setUpOneChildViewController:more image:[UIImage imageNamed:@"more_close_30x30"] selectedImage:[UIImage imageWithOriginalName:@"more_open_30x30"] title:@"更多"];
 }
 #pragma mark - 添加一个子控制器
