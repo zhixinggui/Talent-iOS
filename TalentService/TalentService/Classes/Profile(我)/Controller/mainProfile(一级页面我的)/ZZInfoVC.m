@@ -9,6 +9,8 @@
 #import "ZZInfoVC.h"
 #import "ZZMyEventVC.h"
 #import "ZZCommunityTVC.h"
+#import "ZZAttentionVC.h"
+#import "ZZMessageTVC.h"
 @interface ZZInfoVC ()
 @property (strong, nonatomic) IBOutlet UIScrollView *infoScrollView;
 @property (strong, nonatomic) IBOutlet UIImageView *infoIV;
@@ -34,18 +36,29 @@
  */
 - (IBAction)gotoEvent:(UIButton *)sender {
     ZZLog(@"活动活动");
-    ZZMyEventVC *myEventVc = [[ZZMyEventVC alloc]initWithNibName:@"ZZMyEventVC" bundle:nil];
+    ZZMyEventVC *myEventVc = [[ZZMyEventVC alloc]initWithNib];
     [self.navigationController pushViewController:myEventVc animated:YES];
+}
+- (IBAction)gotoInformation:(UIButton *)sender {
+    ZZLog(@"个人信息");
+    
 }
 
 - (IBAction)gotoCommunity:(UIButton *)sender {
     ZZLog(@"社区社区");
-    ZZCommunityTVC *communityTvc = [[ZZCommunityTVC alloc]initWithNibName:@"ZZCommunityTVC" bundle:nil];
+    ZZCommunityTVC *communityTvc = [[ZZCommunityTVC alloc]initWithNib];
     [self.navigationController pushViewController:communityTvc animated:YES];
 }
 
 - (IBAction)gotoAttentionView:(UIButton *)sender {
     ZZLog(@"关注关注");
+    ZZAttentionVC *attentionVc = [[ZZAttentionVC alloc]initWithNib];
+    [self.navigationController pushViewController:attentionVc animated:YES];
+}
+- (IBAction)gotoMessage:(UIButton *)sender {
+    ZZLog(@"消息消息");
+    ZZMessageTVC *messageTvc = [[ZZMessageTVC alloc]initWithNib];
+    [self.navigationController pushViewController:messageTvc animated:YES];
 }
 
 @end

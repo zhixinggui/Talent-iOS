@@ -24,7 +24,6 @@
     self.eventTableView.rowHeight = 190;
     self.eventTableView.delegate = self;
     self.eventTableView.dataSource = self;
-//    self.eventTableView.tableHeaderView = self.mySegmentControl;
 }
 
 #pragma mark - UITableViewDatasourse

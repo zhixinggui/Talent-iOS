@@ -9,14 +9,14 @@
           "height" : 1
         },
         "capInsets" : {
-          "bottom" : 12,
-          "top" : 10,
-          "right" : 12,
-          "left" : 10
+          "bottom" : 5,
+          "top" : 3,
+          "right" : 5,
+          "left" : 3
         }
       },
       "idiom" : "universal",
-      "filename" : "border_43x47.png",
+      "filename" : "border_34x34.png",
       "scale" : "1x"
     },
     {
@@ -28,14 +28,14 @@
           "height" : 1
         },
         "capInsets" : {
-          "bottom" : 22,
-          "top" : 18,
-          "right" : 22,
-          "left" : 19
+          "bottom" : 8,
+          "top" : 4,
+          "right" : 7,
+          "left" : 4
         }
       },
       "idiom" : "universal",
-      "filename" : "border_43x47@2x.png",
+      "filename" : "border_34x34@2x.png",
       "scale" : "2x"
     },
     {
@@ -47,14 +47,14 @@
           "height" : 1
         },
         "capInsets" : {
-          "bottom" : 33,
-          "top" : 27,
-          "right" : 33,
-          "left" : 29
+          "bottom" : 14,
+          "top" : 5,
+          "right" : 14,
+          "left" : 5
         }
       },
       "idiom" : "universal",
-      "filename" : "border_43x47@3x.png",
+      "filename" : "border_34x34@3x.png",
       "scale" : "3x"
     }
   ],
