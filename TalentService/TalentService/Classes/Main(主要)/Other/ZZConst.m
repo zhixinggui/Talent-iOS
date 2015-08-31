@@ -14,3 +14,4 @@ CGFloat  const  ZZLineSpace = 4;//行间距
 CGFloat  const  ZZCharSpace = 1;//字间距
 CGFloat  const  ZZParagraphSpace = 3;//段间距
 CGFloat  const  ZZEdgeMargin = 8;//边间距
+NSUInteger  const  ZZSecerityTime = 60 ;//验证码时常
