@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ZZApplyVC">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="真实姓名" minimumFontSize="16" background="tfline" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="38o-dj-p46" userLabel="姓名" customClass="ZZTextField">
+                    <rect key="frame" x="8" y="70" width="304" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="304" id="ORC-ik-Iy0"/>
+                        <constraint firstAttribute="height" constant="44" id="QYY-V1-tBs"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <textInputTraits key="textInputTraits" spellCheckingType="no"/>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="身份证" minimumFontSize="16" background="tfline" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Y0L-uE-VPW" customClass="ZZTextField">
+                    <rect key="frame" x="8" y="122" width="304" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="304" id="xFX-PK-sLe"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <textInputTraits key="textInputTraits" spellCheckingType="no"/>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="验证码" minimumFontSize="16" background="tfline" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ewv-dr-rFp" customClass="ZZTextField">
+                    <rect key="frame" x="8" y="226" width="304" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="304" id="lps-py-t8Y"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <textInputTraits key="textInputTraits" spellCheckingType="no"/>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="达人类型" minimumFontSize="16" background="tfline" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="RQc-Er-tbH" customClass="ZZTextField">
+                    <rect key="frame" x="8" y="272" width="304" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="304" id="WCw-C4-1w3"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <textInputTraits key="textInputTraits" spellCheckingType="no"/>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="手机号" minimumFontSize="16" background="tfline" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="NQ9-bM-6XM" customClass="ZZTextField">
+                    <rect key="frame" x="8" y="174" width="304" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="304" id="wIH-33-Ern"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <textInputTraits key="textInputTraits" spellCheckingType="no"/>
+                </textField>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jUX-IW-6Ph" userLabel="个人简介">
+                    <rect key="frame" x="40" y="324" width="240" height="128"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="Y0L-uE-VPW" firstAttribute="height" secondItem="RQc-Er-tbH" secondAttribute="height" id="1AK-08-OjT"/>
+                <constraint firstItem="Y0L-uE-VPW" firstAttribute="leading" secondItem="RQc-Er-tbH" secondAttribute="leading" id="8ln-p9-Bo4"/>
+                <constraint firstItem="Y0L-uE-VPW" firstAttribute="height" secondItem="ewv-dr-rFp" secondAttribute="height" id="Adr-M6-fF1"/>
+                <constraint firstItem="NQ9-bM-6XM" firstAttribute="top" secondItem="Y0L-uE-VPW" secondAttribute="bottom" constant="8" id="CAp-2e-BU0"/>
+                <constraint firstItem="ewv-dr-rFp" firstAttribute="top" secondItem="NQ9-bM-6XM" secondAttribute="bottom" constant="8" id="Ew4-0d-S0b"/>
+                <constraint firstItem="RQc-Er-tbH" firstAttribute="top" secondItem="ewv-dr-rFp" secondAttribute="bottom" constant="2" id="FRn-mL-AoX"/>
+                <constraint firstItem="Y0L-uE-VPW" firstAttribute="height" secondItem="38o-dj-p46" secondAttribute="height" id="JRF-5b-dJX"/>
+                <constraint firstItem="Y0L-uE-VPW" firstAttribute="leading" secondItem="38o-dj-p46" secondAttribute="leading" id="P1c-e1-Kdy"/>
+                <constraint firstItem="Y0L-uE-VPW" firstAttribute="leading" secondItem="ewv-dr-rFp" secondAttribute="leading" id="QRb-iO-Rxd"/>
+                <constraint firstItem="Y0L-uE-VPW" firstAttribute="top" secondItem="38o-dj-p46" secondAttribute="bottom" constant="8" id="gK6-bJ-RJL"/>
+                <constraint firstItem="38o-dj-p46" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="70" id="jb1-Ax-2us"/>
+                <constraint firstItem="Y0L-uE-VPW" firstAttribute="leading" secondItem="NQ9-bM-6XM" secondAttribute="leading" id="mWd-wY-Vrk"/>
+                <constraint firstAttribute="trailing" secondItem="38o-dj-p46" secondAttribute="trailing" constant="8" id="p0w-UG-hVc"/>
+                <constraint firstItem="Y0L-uE-VPW" firstAttribute="height" secondItem="NQ9-bM-6XM" secondAttribute="height" id="sdu-dO-lwS"/>
+                <constraint firstItem="38o-dj-p46" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="to3-Aq-3tQ"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="369" y="377"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="tfline" width="79" height="22"/>
+    </resources>
+</document>

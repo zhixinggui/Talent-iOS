@@ -198,7 +198,9 @@
     return _colorArray;
 }
 
-
+-(void)dealloc{
+    [self removeTimer];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

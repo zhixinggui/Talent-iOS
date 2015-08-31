@@ -18,6 +18,7 @@
     return self;
 }
 - (void)setUpChild{
+    [super  setUpChild];
     [self setUpShowView:@"订单状态：" content:@"已支付"];
     
     UIButton *cancell = [[UIButton  alloc]initWithFrame:CGRectMake(edge,edge+self.toalheight, ScreenWidth - 2*edge, 40)];
@@ -28,7 +29,7 @@
     [cancell  setTitle:@"取消订单" forState:UIControlStateNormal];
     [cancell  setTitleColor:[UIColor  whiteColor] forState:UIControlStateNormal];
     [cancell  addTarget:self action:@selector(cancellPhone) forControlEvents:UIControlEventTouchUpInside];
-    [self.phoneShowView  addSubview:cancell];
+    [self  addSubview:cancell];
     
     self.toalheight = CGRectGetMaxY(cancell.frame)+edge;
     

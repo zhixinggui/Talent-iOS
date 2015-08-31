@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
+typedef enum {
+    ZZTopMenuArrowPositionCenter = 0,
+    ZZTopMenuArrowPositionLeft = 1,
+    ZZTopMenuArrowPositionRight = 2
+} ZZTopMenuArrowPosition;
 @class ZZPopMenu;
 @protocol ZZPopMenuDelegate <NSObject>
 
@@ -21,6 +25,8 @@
 @property (nonatomic, assign, getter = isDimBackground) BOOL dimBackground;
 
 @property (nonatomic, weak) id<ZZPopMenuDelegate> delegate;
+
+@property (nonatomic, assign) ZZTopMenuArrowPosition arrowPosition;
 /**
  *  初始化方法
  */
@@ -41,4 +47,5 @@
  *  关闭菜单
  */
 - (void)dismiss;
+
 @end

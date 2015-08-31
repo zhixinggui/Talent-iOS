@@ -8,7 +8,8 @@
 
 #import "ZZEnsureOrderController.h"
 #import "ZZEnsureOrderView.h"
-@interface ZZEnsureOrderController ()
+#import "ZZSelectPayTypeVC.h"
+@interface ZZEnsureOrderController ()<ZZBaseOrderViewDelegate>
 
 @end
 
@@ -25,7 +26,13 @@
 
 - (void)setUpChild{
     ZZEnsureOrderView *ensuewView =[[ ZZEnsureOrderView alloc]initWithFrame:self.view.bounds];
+    ensuewView .delegate = self;
     [self.view  addSubview:ensuewView];
 }
 
+#pragma mark -ZZBaseOrderViewDelegate
+- (void)baseOrderViewEnsueOrder:(ZZBaseOrderView *)baseprderView{
+    ZZSelectPayTypeVC *selectPayTypeVC = [[ZZSelectPayTypeVC  alloc]init];
+    [self.navigationController  pushViewController:selectPayTypeVC animated:YES];
+}
 @end

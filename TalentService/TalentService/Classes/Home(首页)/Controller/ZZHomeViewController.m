@@ -31,9 +31,9 @@
 - (void)setUpTableView{
     ZZTableHeadView *view = [[ZZTableHeadView  alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenWidth/2)];
     self.tableView.tableHeaderView = view;
-    self.tableView.rowHeight = 190;
+    self.tableView.rowHeight = [ZZActivityCell  cellHeight];
     //一定要在tableview 分割线设置之前
-     [self.tableView  registerNib:[UINib nibWithNibName:@"ZZActivityCell" bundle:nil] forCellReuseIdentifier:@"ActivityCell"];
+     [self.tableView  registerNib:[UINib nibWithNibName:@"ZZActivityCell" bundle:nil] forCellReuseIdentifier:[ZZActivityCell  cellXibIdentifier]];
      self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
    
 }
@@ -54,12 +54,13 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return self.activityArray.count+5;
+    return self.activityArray.count+10;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    ZZActivityCell *cell = [tableView  dequeueReusableCellWithIdentifier:@"ActivityCell"  ];
+    ZZActivityCell *cell = [tableView  dequeueReusableCellWithIdentifier:[ZZActivityCell  cellXibIdentifier] ];
+    ZZLog(@"%@",cell);
     return cell;
 }
 

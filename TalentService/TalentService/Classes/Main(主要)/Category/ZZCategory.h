@@ -21,4 +21,5 @@
 #import "UIImage+Extension.h"
 #import "UIViewController+Extension.h"
 #import "ZZAppSystem.h"
+#import "UIViewController+Xib.h"
 #endif

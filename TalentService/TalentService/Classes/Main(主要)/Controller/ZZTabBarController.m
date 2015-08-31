@@ -31,8 +31,7 @@
     
     [self setUpOneChildViewController:activity image:[UIImage imageNamed:@"event_close_30x30"] selectedImage:[UIImage imageWithOriginalName:@"event_open_30x30"] title:@"活动"];
 
-    
-    
+
     // 我的
     ZZInfoVC *me = [[ZZInfoVC alloc] init];
     [self setUpOneChildViewController:me image:[UIImage imageNamed:@"mine_close_30x30"] selectedImage:[UIImage imageWithOriginalName:@"mine_open_30x30"] title:@"我的"];

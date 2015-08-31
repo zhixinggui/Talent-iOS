@@ -10,5 +10,18 @@
 
 @interface ZZActivityCell : UITableViewCell
 
++(ZZActivityCell *)dequeueReusableCellTableView:(UITableView *)tableView;
+/**
+ *  在xib中的标识符
+ *
+ *  @return <#return value description#>
+ */
++ (NSString *)cellXibIdentifier;
 
+/**
+ *  cell的固定宽高
+ *
+ *  @return <#return value description#>
+ */
++ (CGFloat)cellHeight;
 @end
