@@ -1296,6 +1296,7 @@
 			buildActionMask = 2147483647;
 			files = (
 
+<<<<<<< HEAD
 				56BA9D5E1B94051A00CC55E2 /* ZZAttentionCell.xib in Resources */,
 				6E950F0C1B6B68FC00566E85 /* zhizhen.strings in Resources */,
 				56BA9D501B93E89E00CC55E2 /* ZZMyEventVC.xib in Resources */,
@@ -1306,6 +1307,8 @@
 				56BA9D551B93E8EB00CC55E2 /* ZZAttentionVC.xib in Resources */,
 
 
+=======
+>>>>>>> origin/master
 				6E950F0C1B6B68FC00566E85 /* zhizhen.strings in Resources */,
 				563709491B902931008B7765 /* ZZMyEventVC.xib in Resources */,
 
@@ -1313,7 +1316,10 @@
 				5652D32C1B86FA2B00A3FB09 /* ZZThirdVC.xib in Resources */,
 				56C172E91B845A9C00EF55FF /* ZZRegistVC.xib in Resources */,
 				6E4C40DE1B900F5D00937CB1 /* ZZPayTypeShowView.xib in Resources */,
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 				6E8D3A901B8C1713006798A7 /* ZZHeadView.xib in Resources */,
 				6EE0D0CB1B69F2F700DC80AC /* UUPhoto.Bundle in Resources */,
 				56BA9D4E1B93E89E00CC55E2 /* ZZCommunityTVC.xib in Resources */,
@@ -1326,7 +1332,10 @@
 
 				5669870E1B8C1880007D50F7 /* ZZInfoVC.xib in Resources */,
 				6E4C40EC1B90592700937CB1 /* ZZApplyVC.xib in Resources */,
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 				6E8D3A8B1B8C073E006798A7 /* ZZActivityCell.xib in Resources */,
 				56C172EE1B846BB200EF55FF /* ZZNextRegistVC.xib in Resources */,
 				6E97F5701B6B1241004E067A /* MBProgressHUD.bundle in Resources */,
@@ -1430,11 +1439,15 @@
 				5607DA691B82E2D500803EE5 /* ZZNaviController.m in Sources */,
 				6E9E3EB51B62159F0097B194 /* AppDelegate.m in Sources */,
 				6E0016321B68B74A00DEA540 /* UIAlertView+Extension.m in Sources */,
+<<<<<<< HEAD
 
 				56BA9D681B942C8C00CC55E2 /* ZZMessageCell.m in Sources */,
 
 				6E4C40DC1B900F4D00937CB1 /* ZZPayTypeShowView.m in Sources */,
 
+=======
+				6E4C40DC1B900F4D00937CB1 /* ZZPayTypeShowView.m in Sources */,
+>>>>>>> origin/master
 				6E00160C1B687CD500DEA540 /* ZZSIzeFitButton.m in Sources */,
 				6E97F5711B6B1241004E067A /* MBProgressHUD+MJ.m in Sources */,
 				6E0016301B68B74A00DEA540 /* NSObject+Extension.m in Sources */,
@@ -1472,7 +1485,10 @@
 				6E87B3111B8C6052003BB6C0 /* AdScrollView.m in Sources */,
 				6E00163C1B68B79C00DEA540 /* ZZAppSystem.mm in Sources */,
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 				6E4C40D51B8FF9FB00937CB1 /* ZZSdWebImageTool.m in Sources */,
 
 				563709431B9028FB008B7765 /* ZZCommunityTVC.m in Sources */,
