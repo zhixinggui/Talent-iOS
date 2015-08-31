@@ -11,36 +11,24 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="54"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KBX-6L-D5B">
-                    <rect key="frame" x="0.0" y="8" width="320" height="34"/>
-                    <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pDC-2c-eBb">
-                            <rect key="frame" x="8" y="0.0" width="120" height="34"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="120" id="P8W-sJ-DvB"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                            <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
-                            <state key="normal" title="热门推荐" image="T">
-                                <color key="titleColor" red="0.99215686270000003" green="0.52156862749999999" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                        </button>
-                    </subviews>
-                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    <constraints>
-                        <constraint firstItem="pDC-2c-eBb" firstAttribute="top" secondItem="KBX-6L-D5B" secondAttribute="top" id="CSC-83-zGG"/>
-                        <constraint firstItem="pDC-2c-eBb" firstAttribute="leading" secondItem="KBX-6L-D5B" secondAttribute="leading" constant="8" id="Ucl-xU-cbv"/>
-                        <constraint firstAttribute="bottom" secondItem="pDC-2c-eBb" secondAttribute="bottom" id="eVR-N6-UKx"/>
-                    </constraints>
-                </view>
+                <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pDC-2c-eBb">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="热门推荐" image="T">
+                        <color key="titleColor" red="0.99215686270000003" green="0.52156862749999999" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="KBX-6L-D5B" firstAttribute="top" secondItem="Qsk-OQ-qYQ" secondAttribute="top" id="0rV-sD-aAT"/>
-                <constraint firstAttribute="bottom" secondItem="KBX-6L-D5B" secondAttribute="bottom" constant="8" id="3oD-Kw-UXf"/>
-                <constraint firstItem="KBX-6L-D5B" firstAttribute="leading" secondItem="Qsk-OQ-qYQ" secondAttribute="leading" id="dET-mZ-VOD"/>
-                <constraint firstAttribute="trailing" secondItem="KBX-6L-D5B" secondAttribute="trailing" id="qSd-UP-zfR"/>
+                <constraint firstItem="pDC-2c-eBb" firstAttribute="leading" secondItem="Qsk-OQ-qYQ" secondAttribute="leading" id="8Pp-QE-l21"/>
+                <constraint firstAttribute="trailing" secondItem="pDC-2c-eBb" secondAttribute="trailing" id="RBl-3n-Tff"/>
+                <constraint firstAttribute="bottom" secondItem="pDC-2c-eBb" secondAttribute="bottom" constant="4" id="ds3-Wl-1Ff"/>
+                <constraint firstItem="pDC-2c-eBb" firstAttribute="top" secondItem="Qsk-OQ-qYQ" secondAttribute="top" id="wGd-cm-rgw"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

@@ -18,8 +18,17 @@
     [super  viewDidLoad];
     // 添加所有子控制器
     [self setUpAllChildViewController];
+    [self  setUpShadow];
 }
 
+- (void)setUpShadow{
+    self.tabBar.layer.shadowColor = ZZLightGrayColor.CGColor;//shadowColor阴影颜色
+    self.tabBar.layer.shadowOffset = CGSizeMake(0,-2);//shadowOffset阴影偏移,x向右偏移4，y向下偏移4，默认(0, -3),这个跟shadowRadius配合使用
+    self.tabBar.layer.shadowOpacity = 0.8;//阴影透明度，默认0
+    self.tabBar.layer.shadowRadius = 2;//阴影半径，默认3
+    
+
+}
 - (void)setUpAllChildViewController{
 
     ZZHomeViewController *home = [[ZZHomeViewController alloc] init];
@@ -31,6 +40,10 @@
     
     [self setUpOneChildViewController:activity image:[UIImage imageNamed:@"event_close_30x30"] selectedImage:[UIImage imageWithOriginalName:@"event_open_30x30"] title:@"活动"];
 
+    // 社区
+    UIViewController *topic = [[UIViewController alloc] init];
+    
+    [self setUpOneChildViewController:topic image:[UIImage imageNamed:@"city_close_30x30"] selectedImage:[UIImage imageWithOriginalName:@"city_open_30x30"] title:@"社区"];
 
     // 我的
     ZZInfoVC *me = [[ZZInfoVC alloc] init];

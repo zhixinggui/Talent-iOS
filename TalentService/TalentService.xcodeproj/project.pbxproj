@@ -89,6 +89,14 @@
 		6E950F071B6B61C400566E85 /* ZZConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E950F061B6B61C400566E85 /* ZZConst.m */; };
 		6E97F5701B6B1241004E067A /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6E97F56D1B6B1241004E067A /* MBProgressHUD.bundle */; };
 		6E97F5711B6B1241004E067A /* MBProgressHUD+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E97F56F1B6B1241004E067A /* MBProgressHUD+MJ.m */; };
+		6E9CD1481B94007300DA3F60 /* add_range_64x112.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E9CD1451B94007300DA3F60 /* add_range_64x112.png */; };
+		6E9CD1491B94007300DA3F60 /* add_range_64x112@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E9CD1461B94007300DA3F60 /* add_range_64x112@2x.png */; };
+		6E9CD14A1B94007300DA3F60 /* add_range_64x112@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E9CD1471B94007300DA3F60 /* add_range_64x112@3x.png */; };
+		6E9CD1551B9401A200DA3F60 /* ZZAddImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9CD1531B9401A200DA3F60 /* ZZAddImageCell.m */; };
+		6E9CD1561B9401A200DA3F60 /* ZZAddImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E9CD1541B9401A200DA3F60 /* ZZAddImageCell.xib */; };
+		6E9CD15A1B94027900DA3F60 /* cancel_button_60x60.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E9CD1571B94027900DA3F60 /* cancel_button_60x60.png */; };
+		6E9CD15B1B94027900DA3F60 /* cancel_button_60x60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E9CD1581B94027900DA3F60 /* cancel_button_60x60@2x.png */; };
+		6E9CD15C1B94027900DA3F60 /* cancel_button_60x60@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E9CD1591B94027900DA3F60 /* cancel_button_60x60@3x.png */; };
 		6E9E3E6B1B620C860097B194 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9E3E6A1B620C860097B194 /* main.m */; };
 		6E9E3E791B620C860097B194 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E9E3E781B620C860097B194 /* Images.xcassets */; };
 		6E9E3E881B620C870097B194 /* TalentServiceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9E3E871B620C870097B194 /* TalentServiceTests.m */; };
@@ -274,6 +282,15 @@
 		6E97F56E1B6B1241004E067A /* MBProgressHUD+MJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+MJ.h"; sourceTree = "<group>"; };
 		6E97F56F1B6B1241004E067A /* MBProgressHUD+MJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+MJ.m"; sourceTree = "<group>"; };
 		6E9C79731B65EDEE00935D2B /* ZZCategory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZZCategory.h; sourceTree = "<group>"; };
+		6E9CD1451B94007300DA3F60 /* add_range_64x112.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add_range_64x112.png; sourceTree = "<group>"; };
+		6E9CD1461B94007300DA3F60 /* add_range_64x112@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add_range_64x112@2x.png"; sourceTree = "<group>"; };
+		6E9CD1471B94007300DA3F60 /* add_range_64x112@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add_range_64x112@3x.png"; sourceTree = "<group>"; };
+		6E9CD1521B9401A200DA3F60 /* ZZAddImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZAddImageCell.h; sourceTree = "<group>"; };
+		6E9CD1531B9401A200DA3F60 /* ZZAddImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZAddImageCell.m; sourceTree = "<group>"; };
+		6E9CD1541B9401A200DA3F60 /* ZZAddImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZZAddImageCell.xib; sourceTree = "<group>"; };
+		6E9CD1571B94027900DA3F60 /* cancel_button_60x60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cancel_button_60x60.png; sourceTree = "<group>"; };
+		6E9CD1581B94027900DA3F60 /* cancel_button_60x60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cancel_button_60x60@2x.png"; sourceTree = "<group>"; };
+		6E9CD1591B94027900DA3F60 /* cancel_button_60x60@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cancel_button_60x60@3x.png"; sourceTree = "<group>"; };
 		6E9E3E651B620C860097B194 /* TalentService.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TalentService.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E9E3E691B620C860097B194 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6E9E3E6A1B620C860097B194 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -621,6 +638,7 @@
 		6E8D3A861B8C0727006798A7 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				6E9CD1511B94019600DA3F60 /* apply */,
 				6E8D3A911B8C3375006798A7 /* headView(tableView顶部) */,
 				6E8D3A871B8C073E006798A7 /* ZZActivityCell.h */,
 				6E8D3A881B8C073E006798A7 /* ZZActivityCell.m */,
@@ -803,6 +821,7 @@
 		6E9807B51B82E0EE00527EB2 /* Picture */ = {
 			isa = PBXGroup;
 			children = (
+				6E9CD1441B94007300DA3F60 /* textImage */,
 			);
 			path = Picture;
 			sourceTree = "<group>";
@@ -835,6 +854,29 @@
 				6E0016391B68B79C00DEA540 /* SystemTool */,
 			);
 			path = Tool;
+			sourceTree = "<group>";
+		};
+		6E9CD1441B94007300DA3F60 /* textImage */ = {
+			isa = PBXGroup;
+			children = (
+				6E9CD1571B94027900DA3F60 /* cancel_button_60x60.png */,
+				6E9CD1581B94027900DA3F60 /* cancel_button_60x60@2x.png */,
+				6E9CD1591B94027900DA3F60 /* cancel_button_60x60@3x.png */,
+				6E9CD1451B94007300DA3F60 /* add_range_64x112.png */,
+				6E9CD1461B94007300DA3F60 /* add_range_64x112@2x.png */,
+				6E9CD1471B94007300DA3F60 /* add_range_64x112@3x.png */,
+			);
+			path = textImage;
+			sourceTree = "<group>";
+		};
+		6E9CD1511B94019600DA3F60 /* apply */ = {
+			isa = PBXGroup;
+			children = (
+				6E9CD1521B9401A200DA3F60 /* ZZAddImageCell.h */,
+				6E9CD1531B9401A200DA3F60 /* ZZAddImageCell.m */,
+				6E9CD1541B9401A200DA3F60 /* ZZAddImageCell.xib */,
+			);
+			path = apply;
 			sourceTree = "<group>";
 		};
 		6E9E3E5C1B620C860097B194 = {
@@ -898,7 +940,6 @@
 		6E9E3E921B62159F0097B194 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				5637091D1B8EA3D6008B7765 /* More(更多) */,
 				6E9014011B82E2F10083F2B7 /* login(注册登录) */,
 				6E9E3E931B62159F0097B194 /* Activity(活动) */,
 				6E9E3E971B62159F0097B194 /* Home(首页) */,
@@ -1210,22 +1251,26 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-
-				6E950F0C1B6B68FC00566E85 /* zhizhen.strings in Resources */,
+				6E9CD1491B94007300DA3F60 /* add_range_64x112@2x.png in Resources */,
 				563709491B902931008B7765 /* ZZMyEventVC.xib in Resources */,
-
 				6E90140B1B83052C0083F2B7 /* InfoPlist.strings in Resources */,
 				5652D32C1B86FA2B00A3FB09 /* ZZThirdVC.xib in Resources */,
+				6E9CD1481B94007300DA3F60 /* add_range_64x112.png in Resources */,
 				56C172E91B845A9C00EF55FF /* ZZRegistVC.xib in Resources */,
 				6E4C40DE1B900F5D00937CB1 /* ZZPayTypeShowView.xib in Resources */,
+				6E9CD1561B9401A200DA3F60 /* ZZAddImageCell.xib in Resources */,
+				6E9CD15C1B94027900DA3F60 /* cancel_button_60x60@3x.png in Resources */,
 				6E8D3A901B8C1713006798A7 /* ZZHeadView.xib in Resources */,
 				6EE0D0CB1B69F2F700DC80AC /* UUPhoto.Bundle in Resources */,
 				563709261B8EA48B008B7765 /* ZZMoreVC.xib in Resources */,
+				6E9CD15B1B94027900DA3F60 /* cancel_button_60x60@2x.png in Resources */,
 				6E9014091B82E2F10083F2B7 /* ZZLoginVC.xib in Resources */,
 				5652D31E1B859A7600A3FB09 /* ZZForgetVC.xib in Resources */,
 				5669870E1B8C1880007D50F7 /* ZZInfoVC.xib in Resources */,
 				6E4C40EC1B90592700937CB1 /* ZZApplyVC.xib in Resources */,
 				6E8D3A8B1B8C073E006798A7 /* ZZActivityCell.xib in Resources */,
+				6E9CD15A1B94027900DA3F60 /* cancel_button_60x60.png in Resources */,
+				6E9CD14A1B94007300DA3F60 /* add_range_64x112@3x.png in Resources */,
 				56C172EE1B846BB200EF55FF /* ZZNextRegistVC.xib in Resources */,
 				6E97F5701B6B1241004E067A /* MBProgressHUD.bundle in Resources */,
 				5607DA7D1B831DB000803EE5 /* ZZFirstLoginVC.xib in Resources */,
@@ -1358,16 +1403,14 @@
 				6E76839C1B8EF70900661770 /* ZZDetailsView.m in Sources */,
 				6E87B3111B8C6052003BB6C0 /* AdScrollView.m in Sources */,
 				6E00163C1B68B79C00DEA540 /* ZZAppSystem.mm in Sources */,
-
 				6E4C40D51B8FF9FB00937CB1 /* ZZSdWebImageTool.m in Sources */,
-
 				563709431B9028FB008B7765 /* ZZCommunityTVC.m in Sources */,
-
 				54B253871B80353300AC944E /* ZZTextView.m in Sources */,
 				5669870D1B8C1880007D50F7 /* ZZInfoVC.m in Sources */,
 				6E8D722C1B8432000031C721 /* ZZSecurityButton.m in Sources */,
 				6E7683971B8EF70900661770 /* ZZEnsureOrderView.m in Sources */,
 				6E4C40D81B9007FF00937CB1 /* ZZPayType.m in Sources */,
+				6E9CD1551B9401A200DA3F60 /* ZZAddImageCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

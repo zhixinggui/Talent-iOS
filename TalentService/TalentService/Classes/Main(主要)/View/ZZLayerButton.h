@@ -6,8 +6,8 @@
 //  Copyright (c) 2015年 zhizhen. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "ZZSecurityButton.h"
 
-@interface ZZLayerButton : UIButton
+@interface ZZLayerButton : ZZSecurityButton
 
 @end

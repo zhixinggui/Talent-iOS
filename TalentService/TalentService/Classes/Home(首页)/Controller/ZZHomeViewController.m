@@ -11,7 +11,7 @@
 #import "ZZHeadView.h"
 #import "ZZTableHeadView.h"
 #import "ZZActivityDetailController.h"
-
+#import "ZZApplyVC.h"
 @interface ZZHomeViewController ()
 @property (nonatomic, strong)ZZHeadView *headView;
 @property (nonatomic, strong)NSMutableArray *activityArray;
@@ -46,6 +46,7 @@
 
 #pragma mark - event response
 - (void)applySuper{
+    pushVC(ZZApplyVC);
     
 }
 

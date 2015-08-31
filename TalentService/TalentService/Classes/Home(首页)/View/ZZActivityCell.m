@@ -10,12 +10,24 @@
 
 @interface ZZActivityCell ()
 @property (weak, nonatomic) IBOutlet UIImageView *showIV;
-@property (weak, nonatomic) IBOutlet UILabel *cityLabel;
+
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 
+@property (weak, nonatomic) IBOutlet UILabel *joinCountlabel;
+@property (weak, nonatomic) IBOutlet UIButton *cityButton;
+
+
 @end
 @implementation ZZActivityCell
+
+-(void)awakeFromNib{
+    self.showIV.contentMode = UIViewContentModeScaleAspectFill;
+    self.showIV.clipsToBounds = YES;
+    self.titleLabel.textColor = ZZNatiBarColor;
+    self.joinCountlabel.textColor = ZZLightGrayColor;
+    [self.cityButton setTitleColor:ZZLightGrayColor forState:UIControlStateNormal];
+}
 
 +(ZZActivityCell *)dequeueReusableCellTableView:(UITableView *)tableView{
     ZZActivityCell *cell = [tableView  dequeueReusableCellWithIdentifier:[ZZActivityCell  cellXibIdentifier]];
@@ -31,6 +43,6 @@
 }
 
 + (CGFloat)cellHeight{
-    return 190.0;
+    return 230.0;
 }
 @end
