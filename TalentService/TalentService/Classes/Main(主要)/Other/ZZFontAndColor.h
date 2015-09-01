@@ -31,7 +31,7 @@
 #define backGroundColor  [UIColor colorWithRed:241.0/255 green:242.0/255 blue:246.0/255 alpha:1]
 
 //font
-#define ZZNaviTitleFont   [UIFont  boldSystemFontOfSize:16]
+#define ZZNaviTitleFont   [UIFont  boldSystemFontOfSize:20]
 #define ZZButtonFont   [UIFont  boldSystemFontOfSize:16]
 #define ZZNameFont         [UIFont  systemFontOfSize:14]
 #define ZZTitleFont         [UIFont  systemFontOfSize:16]

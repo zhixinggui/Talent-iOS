@@ -42,7 +42,7 @@
  *
  *  @return yes：比otherVersion老
  */
-- (BOOL) sOlderVersionThan:(NSString*)otherVersion;
+- (BOOL) isOlderVersionThan:(NSString*)otherVersion;
 
 /**
  *  新版本比较

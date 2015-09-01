@@ -32,7 +32,7 @@
 + (void)setupNavigationBarTheme
 {
     UINavigationBar *appearance = [UINavigationBar appearance];
-    
+    [appearance setTintColor:[UIColor  whiteColor]];
     [appearance setBarTintColor:ZZNatiBarColor];
     // 设置文字属性
     NSMutableDictionary *textAttrs = [NSMutableDictionary dictionary];

@@ -204,5 +204,6 @@ static  NSUInteger  const ImageCount = 5;
 
 -(void)dealloc{
     [self.securityButton  clearButton];
+    ZZLog(@"%@",[self  class]);
 }
 @end

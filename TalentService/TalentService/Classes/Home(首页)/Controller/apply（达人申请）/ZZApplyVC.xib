@@ -29,7 +29,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                     <subviews>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="真实姓名" minimumFontSize="16" background="tfline" translatesAutoresizingMaskIntoConstraints="NO" id="iyn-Le-ecI" customClass="ZZTextField">
-                            <rect key="frame" x="8" y="58" width="398" height="44"/>
+                            <rect key="frame" x="8" y="50" width="398" height="44"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="44" id="doB-by-8j3"/>
                             </constraints>
@@ -37,27 +37,27 @@
                             <textInputTraits key="textInputTraits"/>
                         </textField>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="身份证号" minimumFontSize="16" background="tfline" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="r10-VF-fAE" customClass="ZZTextField">
-                            <rect key="frame" x="8" y="110" width="398" height="44"/>
+                            <rect key="frame" x="8" y="102" width="398" height="44"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
                         </textField>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="手机号" minimumFontSize="16" background="tfline" translatesAutoresizingMaskIntoConstraints="NO" id="XbQ-vH-Cq0" customClass="ZZTextField">
-                            <rect key="frame" x="8" y="162" width="398" height="44"/>
+                            <rect key="frame" x="8" y="154" width="398" height="44"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                         </textField>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="短信验证" minimumFontSize="16" background="tfline" translatesAutoresizingMaskIntoConstraints="NO" id="f0E-aw-Z38" customClass="ZZTextField">
-                            <rect key="frame" x="8" y="214" width="398" height="44"/>
+                            <rect key="frame" x="8" y="206" width="398" height="44"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                         </textField>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="达人类型" minimumFontSize="16" background="tfline" translatesAutoresizingMaskIntoConstraints="NO" id="ga0-rS-fBE" customClass="ZZTextField">
-                            <rect key="frame" x="8" y="266" width="398" height="44"/>
+                            <rect key="frame" x="8" y="258" width="398" height="44"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t2Y-84-Ks5" customClass="ZZTextView">
-                            <rect key="frame" x="8" y="328" width="398" height="90"/>
+                            <rect key="frame" x="8" y="320" width="398" height="90"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="90" id="AcS-cd-xCa"/>
@@ -89,7 +89,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="92L-e7-eHL">
-                            <rect key="frame" x="8" y="466" width="398" height="112"/>
+                            <rect key="frame" x="8" y="458" width="398" height="112"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="112" id="RIJ-7N-V7T"/>
@@ -106,8 +106,8 @@
                                 <outlet property="delegate" destination="-1" id="HMU-xk-0cd"/>
                             </connections>
                         </collectionView>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jER-f3-Rma" userLabel="验证码" customClass="ZZLayerButton">
-                            <rect key="frame" x="309" y="214" width="80" height="36"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jER-f3-Rma" userLabel="验证码" customClass="ZZLayerButton">
+                            <rect key="frame" x="309" y="206" width="80" height="36"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="80" id="V1J-wf-azg"/>
                             </constraints>
@@ -119,7 +119,7 @@
                             </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9hQ-rX-xjv" userLabel="图片数量">
-                            <rect key="frame" x="8" y="436" width="36" height="22"/>
+                            <rect key="frame" x="8" y="428" width="36" height="22"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="22" id="TBN-mz-YWO"/>
                             </constraints>
@@ -160,7 +160,7 @@
                         <constraint firstItem="Sco-of-jRy" firstAttribute="centerY" secondItem="6qd-uD-io0" secondAttribute="centerY" id="fAm-yn-oNU"/>
                         <constraint firstAttribute="centerX" secondItem="iyn-Le-ecI" secondAttribute="centerX" id="fNi-YN-vWR"/>
                         <constraint firstItem="ga0-rS-fBE" firstAttribute="top" secondItem="jER-f3-Rma" secondAttribute="bottom" constant="8" id="h2t-za-8Eu"/>
-                        <constraint firstItem="iyn-Le-ecI" firstAttribute="top" secondItem="Sco-of-jRy" secondAttribute="bottom" constant="16" id="hGl-d8-mlD"/>
+                        <constraint firstItem="iyn-Le-ecI" firstAttribute="top" secondItem="Sco-of-jRy" secondAttribute="bottom" constant="8" id="hGl-d8-mlD"/>
                         <constraint firstItem="Sco-of-jRy" firstAttribute="leading" secondItem="JXg-J7-TbZ" secondAttribute="leading" constant="14" id="iBv-jG-dYU"/>
                         <constraint firstAttribute="trailing" secondItem="92L-e7-eHL" secondAttribute="trailing" constant="8" id="iPc-du-HvU"/>
                         <constraint firstAttribute="trailing" secondItem="jER-f3-Rma" secondAttribute="trailing" constant="25" id="jKe-Ui-ayV"/>

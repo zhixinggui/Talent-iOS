@@ -12,6 +12,7 @@
 #import "ZZDetailsView.h"
 #import "ZZActivityBottomToolBar.h"
 #import "ZZEnsureOrderController.h"
+#import "ZZDetailFunctionView.h"
 @interface ZZActivityDetailController ()<ZZDetailImageViewDelegate>
 
 @end
@@ -22,13 +23,17 @@
     [super viewDidLoad];
     self.title = @"活动详情";
     self.view.backgroundColor = ZZViewBackColor;
+    [self  setRightItem];
     [self  setUpChild];
 }
-
+//more_close_30x30
+- (void)setRightItem{
+    UIBarButtonItem *barButtonItem = [[UIBarButtonItem  alloc]initWithImage:[UIImage  imageNamed:@"more_close_30x30"]   style:UIBarButtonItemStyleDone target:self action:@selector(moreFunction)];
+    self.navigationItem.rightBarButtonItem = barButtonItem;
+}
 
 - (void)setUpChild{
     CGFloat toolHeight = 49;
-    
     CGFloat scrollWidth = self.view.bounds.size.width;
     CGFloat scrollHeight = self.view.bounds.size.height - toolHeight;
     UIScrollView *scrollView = [[UIScrollView  alloc]initWithFrame:CGRectMake(0, 0, scrollWidth, scrollHeight)];
@@ -52,10 +57,18 @@
     ZZActivityBottomToolBar *actiBottomTool = [[ZZActivityBottomToolBar  alloc]initWithFrame:CGRectMake(0, scrollHeight, scrollWidth, toolHeight)];
     [self.view  addSubview:actiBottomTool];
 }
+#pragma mark -响应事件
+- (void)moreFunction{
+    [[ZZDetailFunctionView  detailFunctionView]showAnimation];
+}
 
 #pragma mark -ZZDetailImageViewDelegate
 - (void)detailImageViewBooking:(ZZDetailImageView *)detalImageViewDelegate{
     ZZEnsureOrderController *ensureOC = [[ZZEnsureOrderController  alloc]init];
     [self.navigationController  pushViewController:ensureOC animated:YES];
+}
+
+- (void)detailImageViewADCliceked:(ZZDetailImageView *)detalImageViewDelegate{
+    
 }
 @end

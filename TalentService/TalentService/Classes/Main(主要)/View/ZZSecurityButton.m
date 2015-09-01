@@ -27,8 +27,8 @@
         self.titleLabel.font = [UIFont systemFontOfSize:13];
         self.layer.cornerRadius = 5;
         self.layer.masksToBounds = YES;
-        [self setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [self setTitleColor:[UIColor whiteColor] forState:UIControlStateDisabled];
+        [self setTitleColor:ZZGreenColor forState:UIControlStateNormal];
+        [self setTitleColor:ZZLightGrayColor forState:UIControlStateDisabled];
     }
     return self;
 }
@@ -38,8 +38,8 @@
     self.titleLabel.font = [UIFont systemFontOfSize:13];
     self.layer.cornerRadius = 5;
     self.layer.masksToBounds = YES;
-    [self setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [self setTitleColor:[UIColor whiteColor] forState:UIControlStateDisabled];
+    [self setTitleColor:ZZGreenColor forState:UIControlStateNormal];
+    [self setTitleColor:ZZLightGrayColor forState:UIControlStateDisabled];
 }
 
 

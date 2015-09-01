@@ -10,19 +10,16 @@
 
 @implementation ZZLayerButton
 
--(id)initWithCoder:(NSCoder *)aDecoder{
-    if (self = [super initWithCoder:aDecoder]) {
-        self.exclusiveTouch = YES;
-        self.layer.cornerRadius = self.height/2;
-        self.layer.masksToBounds = YES;
-        self.layer.borderWidth = 1;
-        if (self.height == 24) {
-            self.layer.borderColor = [UIColor redColor].CGColor;
-        }else{
-            self.layer.borderColor = [UIColor whiteColor].CGColor;
-        }
-        
+
+-(void)awakeFromNib{
+    self.exclusiveTouch = YES;
+    self.layer.cornerRadius = self.height/2;
+    self.layer.masksToBounds = YES;
+    self.layer.borderWidth = 1;
+    if (self.height == 24) {
+        self.layer.borderColor = [UIColor redColor].CGColor;
+    }else{
+        self.layer.borderColor = [UIColor whiteColor].CGColor;
     }
-    return self;
 }
 @end

@@ -23,17 +23,14 @@
 @implementation UUAssetManager
 
 SHARED_SERVICE(UUAssetManager);
-//-(ALAssetsLibrary *)assetsLibrary{
-//    if (_assetsLibrary == nil) {
-//        _assetsLibrary = [[ALAssetsLibrary alloc] init];
-//        [_assetsLibrary writeImageToSavedPhotosAlbum:nil
-//                                            metadata:nil
-//                                     completionBlock:^(NSURL *assetURL, NSError *error) {
-//                                     }];
-//    }
-//    return _assetsLibrary;
-//}
 
+-(NSMutableArray *)selectdPhotos{
+    if (_selectdPhotos == nil) {
+        _selectdPhotos = [NSMutableArray  array];
+    }
+    
+    return _selectdPhotos;
+}
 - (instancetype)init{
     
     if (self = [super init]) {
@@ -331,6 +328,9 @@ SHARED_SERVICE(UUAssetManager);
     return 0;
 }
 
+-(void)dealloc{
+    ZZLog(@"%@",[self  class]);
+}
 @end
 
 /****************************************************
