@@ -13,7 +13,9 @@
 #import "ZZActivityBottomToolBar.h"
 #import "ZZEnsureOrderController.h"
 #import "ZZDetailFunctionView.h"
-@interface ZZActivityDetailController ()<ZZDetailImageViewDelegate>
+#import "ZZUMTool.h"
+#import "ZZIQKeyBoardTool.h"
+@interface ZZActivityDetailController ()<ZZDetailImageViewDelegate,ZZDetailFunctionViewDelegate>
 
 @end
 
@@ -25,6 +27,8 @@
     self.view.backgroundColor = ZZViewBackColor;
     [self  setRightItem];
     [self  setUpChild];
+    //关闭键盘向上
+    ZZKeyBoardTool(close);
 }
 //more_close_30x30
 - (void)setRightItem{
@@ -57,18 +61,46 @@
     ZZActivityBottomToolBar *actiBottomTool = [[ZZActivityBottomToolBar  alloc]initWithFrame:CGRectMake(0, scrollHeight, scrollWidth, toolHeight)];
     [self.view  addSubview:actiBottomTool];
 }
+-(void)viewWillAppear:(BOOL)animated{
+    [super  viewWillAppear:animated];
+    
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+   
+}
 #pragma mark -响应事件
 - (void)moreFunction{
-    [[ZZDetailFunctionView  detailFunctionView]showAnimation];
+  ZZDetailFunctionView *functionView =  [ZZDetailFunctionView  detailFunctionView];
+    functionView.shares = [ZZUMTool  sharedUMTool].shareModels;
+    functionView.delegate = self;
+    [functionView showAnimation];
+  
 }
 
 #pragma mark -ZZDetailImageViewDelegate
 - (void)detailImageViewBooking:(ZZDetailImageView *)detalImageViewDelegate{
     ZZEnsureOrderController *ensureOC = [[ZZEnsureOrderController  alloc]init];
+    
     [self.navigationController  pushViewController:ensureOC animated:YES];
 }
 
 - (void)detailImageViewADCliceked:(ZZDetailImageView *)detalImageViewDelegate{
     
+}
+
+#pragma mark - ZZDetailFunctionViewDelegate
+-(void)detailFunctionView:(ZZDetailFunctionView *)detaileFunctionView shares:(NSArray *)shares selectedAtIndex:(NSUInteger)index{
+#warning 待完善
+    [[ZZUMTool  sharedUMTool]umShareWithTitle:@"ddd" content:@"ddd" url:nil imageUrl:nil locialImageName:nil controller:self loginModel:shares[index]];
+}
+-(void)detailFunctionView:(ZZDetailFunctionView *)detaileFunctionView functions:(NSArray *)functions selectedAtIndex:(NSUInteger)index{
+    
+}
+-(void)dealloc{
+    ZZLog(@"%@",[self  class]);
+    //打开键盘向上
+     ZZKeyBoardTool(open);
 }
 @end

@@ -28,7 +28,9 @@
 #define  pushVC(ZZVC)      ZZVC *seeOrderVC= [[ZZVC alloc]init];  [self.navigationController  pushViewController:seeOrderVC animated:YES];
 //拿到弱引用的自己
 #define  weakSelf(home)  __weak typeof(self) home = self;
+#define  ZZKeyBoardTool(closeOrOpen)   [[ZZIQKeyBoardTool  sharedZZIQKeyBoardTool]  closeOrOpen]
 
+#define  ZZRGBCloor(R,G,B)  [UIColor  colorWithRed:R/255.0 green:G/255.0 blue:B/255.0 alpha:1.0]
 
 
 

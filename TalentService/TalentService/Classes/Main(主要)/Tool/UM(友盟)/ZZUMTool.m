@@ -22,6 +22,7 @@
 @property (nonatomic, copy)NSString *url;
 @property (nonatomic, copy)NSString *imageUrl;
 @property (nonatomic, copy)NSString *imageName;
+@property (nonatomic, copy)NSString *sinaShareText;
 @property (nonatomic, weak)UIViewController *controller;
 @property (nonatomic, strong)NSData *imageData;
 
@@ -49,10 +50,12 @@ NSString * const WXurl = @"http://www.umeng.com/social";//
 //新浪
 //NSString * const SinaAppId = @"1104000906";//
 //NSString * const SinaAppKey = @"T73NH4Tz75dWsPdy";//
-NSString * const sinaurl = @"https://api.weibo.com/oauth2/default.html";//
+NSString * const SinaUrl = @"https://api.weibo.com/oauth2/default.html";//
 @interface ZZUMTool ()<UMSocialUIDelegate>
 /** 支持的三方登陆 */
 @property (nonatomic, strong)NSMutableArray* loginModels;
+/** 分享支持的类型 */
+@property (nonatomic, strong)NSMutableArray* shareModels;
 /** 分享支持的类型 */
 @property (nonatomic, strong)NSMutableArray* shareTypes;
 /** 支持QQ不 */
@@ -82,64 +85,87 @@ NSString * const sinaurl = @"https://api.weibo.com/oauth2/default.html";//
 }
 
 /** 实现单例的类方法*/
-singleton_implementation(ZZUMTool);
+static ZZUMTool *umTool;
 
--(NSMutableArray *)loginModels{
-    if (_loginModels == nil) {
-        [self  umToolInit];
-    }
-    return _loginModels;
++ (id)allocWithZone:(struct _NSZone *)zone
+{
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        umTool = [super allocWithZone:zone];
+        [umTool  umToolInit];
+    });
+    
+    return umTool;
 }
 
--(NSMutableArray *)shareTypes{
-    if (_shareTypes == nil) {
-        [self  umToolInit];
++ (instancetype)sharedUMTool
+{
+    if (umTool == nil) {
+        umTool = [[self alloc] init];
     }
-    return _shareTypes;
+    
+    return umTool;
 }
+
 
 /** 初始化分享数组 */
 
 -(void)umToolInit{
     self.loginModels = [NSMutableArray  array];
     self.shareTypes = [NSMutableArray  array];
+    self.shareModels = [NSMutableArray  array];
     
      //   QQ分享入口
     if ([TencentOAuth iphoneQQSupportSSOLogin]) {//是否安装有QQ客户端
-        [UMSocialQQHandler setQQWithAppId:@"1104000906" appKey:@"T73NH4Tz75dWsPdy" url:@"http://www.umeng.com/social"];
-        [self.shareTypes addObject:UMShareToQQ];
-        [self.shareTypes addObject:UMShareToQzone];
+        [UMSocialQQHandler setQQWithAppId:QQAppId appKey:QQAppKey url:nil];
         //创建qq登陆模型
         ZZUMLoginModel *qqLoginModel = [[ZZUMLoginModel alloc]initWithImageName:@"QQ_50x50" shareType:UMShareToQQ loginType:ZZUMLoginTypeQQ name:@"QQ"];
         [self.loginModels addObject:qqLoginModel];
-        
+        //qq分享模型
+        ZZUMLoginModel *qqshareModel = [[ZZUMLoginModel alloc]initWithImageName:@"QQ_50x50" shareType:UMShareToQQ loginType:ZZUMLoginTypeQQ name:@"QQ"];
+        [self.shareModels addObject:qqshareModel];
+        [self.shareTypes addObject:UMShareToQQ];
+        //qq空间分享模型
+       ZZUMLoginModel *zoneShareModel = [[ZZUMLoginModel alloc]initWithImageName:@"QQ_50x50" shareType:UMShareToQzone loginType:ZZUMLoginTypeQQZone name:@"QQ空间"];
+        [self.shareModels  addObject:zoneShareModel];
+        [self.shareTypes addObject:UMShareToQzone];
         self.supportQQ = YES;
     }
     
      // 微信分享入口
     if ([WXApi isWXAppSupportApi]){//是否有微信客户端
-        [UMSocialWechatHandler setWXAppId:@"wx766b807ef51aa8da" appSecret:@"139fc6ccddba72262d94688368082312" url:nil];
-        [self.shareTypes addObject:UMShareToWechatSession];
-        [self.shareTypes addObject:UMShareToWechatTimeline];
-        //创建微信登陆模型
-        ZZUMLoginModel *wxLoginModel = [[ZZUMLoginModel alloc]initWithImageName:@"Wechat_50x50" shareType:UMShareToWechatSession loginType:ZZUMLoginTypeWeChat name:@"微信好友"];
-        [self.loginModels addObject:wxLoginModel];
+        [UMSocialWechatHandler setWXAppId:WXAppId appSecret:WXAppSecret url:nil];
         
+       
+        //创建微信登陆模型
+        ZZUMLoginModel *wxLoginModel = [[ZZUMLoginModel alloc]initWithImageName:@"Wechat_50x50" shareType:UMShareToWechatSession loginType:ZZUMLoginTypeWeChatFriend name:@"微信"];
+        [self.loginModels addObject:wxLoginModel];
+        //创建微信好友分享模型
+        ZZUMLoginModel *friendShareModel = [[ZZUMLoginModel alloc]initWithImageName:@"Wechat_50x50" shareType:UMShareToWechatSession loginType:ZZUMLoginTypeWeChatFriend name:@"微信好友"];
+        [self.shareModels addObject:friendShareModel];
+        [self.shareTypes addObject:UMShareToWechatSession];
+        //创建微信朋友圈分享模型
+        ZZUMLoginModel *friendsShareModel = [[ZZUMLoginModel alloc]initWithImageName:@"Wechat_50x50" shareType:UMShareToWechatTimeline loginType:ZZUMLoginTypeWeChatFriends name:@"朋友圈"];
+        [self.shareModels addObject:friendsShareModel];
+         [self.shareTypes addObject:UMShareToWechatTimeline];
         self.supportWX = YES;
     }
     
      // 新浪分享入口
-    [UMSocialSinaSSOHandler  openNewSinaSSOWithRedirectURL:@"https://api.weibo.com/oauth2/default.html"];
-    [self.shareTypes addObject:UMShareToSina];
+    [UMSocialSinaSSOHandler  openNewSinaSSOWithRedirectURL:SinaUrl];
+    
     //创建新浪登陆模型
-    ZZUMLoginModel *wxLoginModel = [[ZZUMLoginModel alloc]initWithImageName:@"weibo_50x50" shareType:UMShareToSina loginType:ZZUMLoginTypeSina name:@"新浪"];
-    [self.loginModels addObject:wxLoginModel];
-
+    ZZUMLoginModel *sinaLoginModel = [[ZZUMLoginModel alloc]initWithImageName:@"weibo_50x50" shareType:UMShareToSina loginType:ZZUMLoginTypeSina name:@"新浪"];
+    [self.loginModels addObject:sinaLoginModel];
+    //创建新浪分享模型
+    ZZUMLoginModel *sinaShareModel = [[ZZUMLoginModel alloc]initWithImageName:@"weibo_50x50" shareType:UMShareToSina loginType:ZZUMLoginTypeSina name:@"新浪"];
+    [self.shareModels addObject:sinaShareModel];
+    [self.shareTypes addObject:UMShareToSina];
     self.supportSina = YES;
 }
-
+//设置分享链接
 - (void)setShareDefaultData:(ZZShareModel *)shareModel{
-    if (self.shareTypes && self.supportWX) {
+    if ( self.supportWX) {
         /**  微信设置要分享的链接和title*/
         //微信好友
         [UMSocialData defaultData].extConfig.wechatSessionData.url = shareModel.url;
@@ -148,7 +174,7 @@ singleton_implementation(ZZUMTool);
         [UMSocialData defaultData].extConfig.wechatTimelineData.url = shareModel.url;
         [UMSocialData defaultData].extConfig.wechatTimelineData.title = shareModel.title;
     }
-    if (self.shareTypes && self.supportQQ) {
+    if (self.supportQQ) {
         /** QQ设置要分享的链接*/
         //qq
         [UMSocialData defaultData].extConfig.qqData.url = shareModel.url;
@@ -159,6 +185,55 @@ singleton_implementation(ZZUMTool);
     }
     
     
+}
+//
+- (NSString *)getShareInfoWtihResponseCode:(UMSResponseCode )responseCode{
+    switch (responseCode) {
+        case UMSResponseCodeSuccess:
+            return @"分享成功";
+        case UMSREsponseCodeTokenInvalid:
+            return @"授权用户token错误";
+        case UMSResponseCodeBaned:
+            return @"用户被封禁";
+        case UMSResponseCodeFaild:
+            return @"内容不符合要求或者其他原因";
+        case UMSResponseCodeArgumentsError:
+            return @"参数错误";
+        case UMSResponseCodeEmptyContent:
+            return @"发送内容为空";
+        case UMSResponseCodeShareRepeated:
+            return @"分享内容重复";
+        case UMSResponseCodeGetNoUidFromOauth:
+            return @"授权失败";
+        case UMSResponseCodeAccessTokenExpired:
+            return @"token过期";
+        case UMSResponseCodeNetworkError:
+            return @"网络错误";
+        case UMSResponseCodeGetProfileFailed:
+            return @"获取账户失败";
+        case UMSResponseCodeCancel:
+            return @"用户取消授权";
+        case UMSResponseCodeNotLogin:
+            return @"用户没有登录";
+        case UMSResponseCodeNoApiAuthority:
+            return @"没有响应权限";
+        default:
+            return @"分享失败";
+    }
+//    UMSResponseCodeSuccess            = 200,        //成功
+//    UMSREsponseCodeTokenInvalid       = 400,        //授权用户token错误
+//    UMSResponseCodeBaned              = 505,        //用户被封禁
+//    UMSResponseCodeFaild              = 510,        //发送失败（由于内容不符合要求或者其他原因）
+//    UMSResponseCodeArgumentsError     = 522,        //参数错误,提供的参数不符合要求
+//    UMSResponseCodeEmptyContent       = 5007,       //发送内容为空
+//    UMSResponseCodeShareRepeated      = 5016,       //分享内容重复
+//    UMSResponseCodeGetNoUidFromOauth  = 5020,       //授权之后没有得到用户uid
+//    UMSResponseCodeAccessTokenExpired = 5027,       //token过期
+//    UMSResponseCodeNetworkError       = 5050,       //网络错误
+//    UMSResponseCodeGetProfileFailed   = 5051,       //获取账户失败
+//    UMSResponseCodeCancel             = 5052,        //用户取消授权
+//    UMSResponseCodeNotLogin           = 5053,       //用户没有登录
+//    UMSResponseCodeNoApiAuthority     = 100031      //QQ空间应用没有在QQ互联平台上申请上传图片到相册的权限
 }
 #pragma mark - private methods
 
@@ -186,10 +261,20 @@ singleton_implementation(ZZUMTool);
     ZZShareModel *shareModel = [[ZZShareModel  alloc]initWithTitle:title content:content url:url imageUrl:imageUrl imageName:imageName controller:controller];
     self.shareModel = shareModel;
     [self  setShareDefaultData:shareModel];
+    
     if (loginModel) {//自定义的ui界面
-            [[UMSocialControllerService defaultControllerService] setShareText:self.shareModel.content shareImage:self.shareModel.imageData socialUIDelegate:self];        //设置分享内容和回调对象
-           [UMSocialSnsPlatformManager getSocialPlatformWithName:UMShareToSina].snsClickHandler(self.shareModel.controller,[UMSocialControllerService defaultControllerService],YES);
-    }else{
+        
+        if (loginModel.loginType == ZZUMLoginTypeSina) {//新浪
+            
+            [[UMSocialControllerService defaultControllerService] setShareText:self.shareModel.sinaShareText shareImage:self.shareModel.imageData socialUIDelegate:self];        //设置分享内容和回调对象
+           [UMSocialSnsPlatformManager getSocialPlatformWithName:loginModel.shareType].snsClickHandler(self.shareModel.controller,[UMSocialControllerService defaultControllerService],YES); 
+        }else{//QQ、微信
+            [[UMSocialDataService defaultDataService]  postSNSWithTypes:@[loginModel.shareType] content:self.shareModel.content image:self.shareModel.imageData location:nil urlResource:nil presentedController:self.shareModel.controller completion:^(UMSocialResponseEntity *response){
+                [self  didFinishGetUMSocialDataInViewController:response];
+            }];
+        }
+        
+    }else{//默认分享
         [UMSocialSnsService presentSnsIconSheetView:self.shareModel.controller
                                              appKey:UMSocialAppKey
                                           shareText:self.shareModel.content
@@ -203,20 +288,27 @@ singleton_implementation(ZZUMTool);
 
 
 #pragma mark - UMSocialUIDelegate
-/**
- 自定义关闭授权页面事件
- @param navigationCtroller 关闭当前页面的navigationCtroller对象
- */
--(BOOL)closeOauthWebViewController:(UINavigationController *)navigationCtroller socialControllerService:(UMSocialControllerService *)socialControllerService{
-    return NO;
-}
+///**
+// 自定义关闭授权页面事件
+// @param navigationCtroller 关闭当前页面的navigationCtroller对象
+// */
+//-(BOOL)closeOauthWebViewController:(UINavigationController *)navigationCtroller socialControllerService:(UMSocialControllerService *)socialControllerService{
+//    return YES;
+//}
 
 /**
  关闭当前页面之后
  */
 -(void)didCloseUIViewController:(UMSViewControllerType)fromViewControllerType{
     if ([self.delegate  respondsToSelector:@selector(didCloseUIViewController:)]) {
-        [self.delegate  didCloseUIViewController:ZZSViewControllerTypeLoginShare];
+        ZZSViewControllerType ctype ;
+        if(fromViewControllerType == UMSViewControllerLogin){
+            ctype = ZZSViewControllerTypeLoginAccount;
+        }else{
+            ctype = ZZSViewControllerTypeLoginShare;
+        }
+            
+        [self.delegate  didCloseUIViewController:ctype];
     }
 }
 
@@ -224,11 +316,12 @@ singleton_implementation(ZZUMTool);
  各个页面执行授权完成、分享完成、或者评论完成时的回调函数
  */
 -(void)didFinishGetUMSocialDataInViewController:(UMSocialResponseEntity *)response{
-    if ([self.delegate  respondsToSelector:@selector(didFinishGetUMSocialDataInViewController:)]) {
+     [UMSocialConfig setFinishToastIsHidden:YES position:UMSocialiToastPositionCenter];
+    if ([self.delegate  respondsToSelector:@selector(didFinishGetUMSocialDataInViewController:result:)]) {
         if(response.responseCode == UMSResponseCodeSuccess){
-        [self.delegate  didFinishGetUMSocialDataInViewController:ZZUMToolResponseSuccess];
+        [self.delegate  didFinishGetUMSocialDataInViewController:ZZUMToolResponseSuccess result:[self  getShareInfoWtihResponseCode:response.responseCode]];
         }else{
-          [self.delegate  didFinishGetUMSocialDataInViewController:ZZUMToolResponseFaile];
+          [self.delegate  didFinishGetUMSocialDataInViewController:ZZUMToolResponseFaile result:[self  getShareInfoWtihResponseCode:response.responseCode]];
         }
     }
 }
@@ -239,20 +332,18 @@ singleton_implementation(ZZUMTool);
  */
 -(void)didSelectSocialPlatform:(NSString *)platformName withSocialData:(UMSocialData *)socialData{
     if ([platformName  isEqualToString:@"sina"]) {
-        socialData.shareText = [NSString  stringWithFormat:@"%@,%@",self.shareModel.title,self.shareModel.url];
+        socialData.shareText = self.shareModel.sinaShareText;
     }
-    if ([self.delegate  respondsToSelector:@selector(didSelectSocialPlatform:)]) {
-        [self.delegate  didSelectSocialPlatform:ZZUMToolShareTypeQQ];
-    }
+  
 }
 
 
-/**
- 配置点击分享列表后是否弹出分享内容编辑页面，再弹出分享，默认需要弹出分享编辑页面
- */
--(BOOL)isDirectShareInIconActionSheet{
-    return YES;
-}
+///**
+// 配置点击分享列表后是否弹出分享内容编辑页面，再弹出分享，默认需要弹出分享编辑页面
+// */
+//-(BOOL)isDirectShareInIconActionSheet{
+//    return YES;
+//}
 
 #pragma mark -工厂方法
 /** 友盟社会化分享三个系统回调方法 */
@@ -293,6 +384,26 @@ singleton_implementation(ZZUMTool);
 -(void)setContent:(NSString *)content{
     content = [content  subStringFromTitleOrcontentWithLength:ShareContentLength];
     _content = content;
+}
+-(NSString *)sinaShareText{
+    if (_sinaShareText == nil) {
+        NSMutableString *shareMstr = [NSMutableString  string];
+        if (self.title) {
+            [shareMstr  appendString:self.title];
+        }else{
+            if (self.content ) {
+                [shareMstr  appendString:self.content];
+            }else{
+                [shareMstr appendString:@"来自萌宝派"];
+            }
+        }
+        if(self.url){
+            [shareMstr appendString:@","];
+            [shareMstr appendString:self.url];
+        }
+        _sinaShareText = [shareMstr  copy];
+    }
+    return _sinaShareText;
 }
 -(NSData *)imageData{
     NSString *imagePath = self.imageUrl;

@@ -61,6 +61,11 @@
 		6E00163C1B68B79C00DEA540 /* ZZAppSystem.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6E00163B1B68B79C00DEA540 /* ZZAppSystem.mm */; };
 		6E00163F1B68B7F800DEA540 /* ZZHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E00163E1B68B7F800DEA540 /* ZZHttpTool.m */; };
 		6E0016431B68EB5000DEA540 /* ZZTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E0016421B68EB5000DEA540 /* ZZTextField.m */; };
+		6E3C5DFC1B968AF4004BEAD3 /* ZZFunctionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E3C5DFA1B968AF4004BEAD3 /* ZZFunctionCell.m */; };
+		6E3C5DFD1B968AF4004BEAD3 /* ZZFunctionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E3C5DFB1B968AF4004BEAD3 /* ZZFunctionCell.xib */; };
+		6E3C5E011B968D4B004BEAD3 /* ZZFunctionShowRule.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E3C5E001B968D4B004BEAD3 /* ZZFunctionShowRule.m */; };
+		6E3C5E051B96DD4C004BEAD3 /* ZZIQKeyBoardTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E3C5E041B96DD4C004BEAD3 /* ZZIQKeyBoardTool.m */; };
+		6E3C5E081B96F2ED004BEAD3 /* ZZTopicForumTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E3C5E071B96F2ED004BEAD3 /* ZZTopicForumTVC.m */; };
 		6E4A5C571B954732003751D5 /* ZZViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4A5C561B954732003751D5 /* ZZViewController.m */; };
 		6E4A5C5A1B954743003751D5 /* ZZTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4A5C591B954743003751D5 /* ZZTableViewController.m */; };
 		6E4A5C5D1B95474F003751D5 /* ZZCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4A5C5C1B95474F003751D5 /* ZZCollectionViewController.m */; };
@@ -272,6 +277,15 @@
 		6E0016401B68BBB500DEA540 /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
 		6E0016411B68EB5000DEA540 /* ZZTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZTextField.h; sourceTree = "<group>"; };
 		6E0016421B68EB5000DEA540 /* ZZTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZTextField.m; sourceTree = "<group>"; };
+		6E3C5DF91B968AF4004BEAD3 /* ZZFunctionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZFunctionCell.h; sourceTree = "<group>"; };
+		6E3C5DFA1B968AF4004BEAD3 /* ZZFunctionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZFunctionCell.m; sourceTree = "<group>"; };
+		6E3C5DFB1B968AF4004BEAD3 /* ZZFunctionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZZFunctionCell.xib; sourceTree = "<group>"; };
+		6E3C5DFF1B968D4B004BEAD3 /* ZZFunctionShowRule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZFunctionShowRule.h; sourceTree = "<group>"; };
+		6E3C5E001B968D4B004BEAD3 /* ZZFunctionShowRule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZFunctionShowRule.m; sourceTree = "<group>"; };
+		6E3C5E031B96DD4C004BEAD3 /* ZZIQKeyBoardTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZIQKeyBoardTool.h; sourceTree = "<group>"; };
+		6E3C5E041B96DD4C004BEAD3 /* ZZIQKeyBoardTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZIQKeyBoardTool.m; sourceTree = "<group>"; };
+		6E3C5E061B96F2ED004BEAD3 /* ZZTopicForumTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZTopicForumTVC.h; sourceTree = "<group>"; };
+		6E3C5E071B96F2ED004BEAD3 /* ZZTopicForumTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZTopicForumTVC.m; sourceTree = "<group>"; };
 		6E4A5C551B954732003751D5 /* ZZViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZViewController.h; sourceTree = "<group>"; };
 		6E4A5C561B954732003751D5 /* ZZViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZViewController.m; sourceTree = "<group>"; };
 		6E4A5C581B954743003751D5 /* ZZTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZTableViewController.h; sourceTree = "<group>"; };
@@ -742,6 +756,24 @@
 			path = SystemTool;
 			sourceTree = "<group>";
 		};
+		6E3C5DFE1B968CFC004BEAD3 /* ShowDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				6E3C5DFF1B968D4B004BEAD3 /* ZZFunctionShowRule.h */,
+				6E3C5E001B968D4B004BEAD3 /* ZZFunctionShowRule.m */,
+			);
+			path = ShowDelegate;
+			sourceTree = "<group>";
+		};
+		6E3C5E021B96DD0B004BEAD3 /* IQKeyBoard(键盘弹上弹下) */ = {
+			isa = PBXGroup;
+			children = (
+				6E3C5E031B96DD4C004BEAD3 /* ZZIQKeyBoardTool.h */,
+				6E3C5E041B96DD4C004BEAD3 /* ZZIQKeyBoardTool.m */,
+			);
+			path = "IQKeyBoard(键盘弹上弹下)";
+			sourceTree = "<group>";
+		};
 		6E4A5C541B9546D6003751D5 /* superController(所有用到的控制器的父类) */ = {
 			isa = PBXGroup;
 			children = (
@@ -896,6 +928,9 @@
 				6E4A5CD01B95A0EC003751D5 /* ZZDetailFunctionView.h */,
 				6E4A5CD11B95A0EC003751D5 /* ZZDetailFunctionView.m */,
 				6E4A5CD31B95A102003751D5 /* ZZDetailFunctionView.xib */,
+				6E3C5DF91B968AF4004BEAD3 /* ZZFunctionCell.h */,
+				6E3C5DFA1B968AF4004BEAD3 /* ZZFunctionCell.m */,
+				6E3C5DFB1B968AF4004BEAD3 /* ZZFunctionCell.xib */,
 			);
 			path = function;
 			sourceTree = "<group>";
@@ -1201,6 +1236,8 @@
 		6E9807B61B82E10000527EB2 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				6E3C5E061B96F2ED004BEAD3 /* ZZTopicForumTVC.h */,
+				6E3C5E071B96F2ED004BEAD3 /* ZZTopicForumTVC.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1222,6 +1259,7 @@
 		6E9C796F1B65DD6F00935D2B /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				6E3C5E021B96DD0B004BEAD3 /* IQKeyBoard(键盘弹上弹下) */,
 				6E4A5CB51B9551CA003751D5 /* UM(友盟) */,
 				6E4A5CB41B9551A3003751D5 /* Singleton.h */,
 				6E0016381B68B79C00DEA540 /* HttpTool */,
@@ -1388,6 +1426,7 @@
 		6E9E3EA21B62159F0097B194 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				6E3C5DFE1B968CFC004BEAD3 /* ShowDelegate */,
 				6E4A5CB91B955551003751D5 /* UM */,
 				6E4C40D21B8FF9A100937CB1 /* SdwebImageTool */,
 				6E97F5761B6B5B08004E067A /* HttpParam */,
@@ -1650,6 +1689,7 @@
 				6E4C40DE1B900F5D00937CB1 /* ZZPayTypeShowView.xib in Resources */,
 				6E9CD1561B9401A200DA3F60 /* ZZAddImageCell.xib in Resources */,
 				6E9CD15C1B94027900DA3F60 /* cancel_button_60x60@3x.png in Resources */,
+				6E3C5DFD1B968AF4004BEAD3 /* ZZFunctionCell.xib in Resources */,
 				6E8D3A901B8C1713006798A7 /* ZZHeadView.xib in Resources */,
 				6EE0D0CB1B69F2F700DC80AC /* UUPhoto.Bundle in Resources */,
 				56BA9D4E1B93E89E00CC55E2 /* ZZCommunityTVC.xib in Resources */,
@@ -1737,6 +1777,7 @@
 				6E76839B1B8EF70900661770 /* ZZDetailRuleView.m in Sources */,
 				6E4A5CB81B955260003751D5 /* ZZUMTool.m in Sources */,
 				56BA9D5D1B94051A00CC55E2 /* ZZAttentionCell.m in Sources */,
+				6E3C5E081B96F2ED004BEAD3 /* ZZTopicForumTVC.m in Sources */,
 				56BA9D581B93F3AF00CC55E2 /* UIViewController+Xib.m in Sources */,
 				6E76836A1B8EB14D00661770 /* ZZPopMenu.m in Sources */,
 				6E4A5C571B954732003751D5 /* ZZViewController.m in Sources */,
@@ -1749,6 +1790,7 @@
 				6E00162F1B68B74A00DEA540 /* NSDictionary+Extension.m in Sources */,
 				5637093E1B8F04A5008B7765 /* ZZCommunityCell.m in Sources */,
 				5637094D1B903153008B7765 /* ZZSegmentedControl.m in Sources */,
+				6E3C5DFC1B968AF4004BEAD3 /* ZZFunctionCell.m in Sources */,
 				6E8D3A8E1B8C15DF006798A7 /* ZZHeadView.m in Sources */,
 				6E76839D1B8EF70900661770 /* ZZOrderInfoShowView.m in Sources */,
 				6EE0D0CA1B69F2F700DC80AC /* UUAssetManager.m in Sources */,
@@ -1794,6 +1836,7 @@
 				6EA108841B8D61FD00F4215A /* ZZActivityController.m in Sources */,
 				6E950F041B6B616900566E85 /* ZZTabBarController.m in Sources */,
 				6EA108871B8D80E100F4215A /* ZZMenuButton.m in Sources */,
+				6E3C5E011B968D4B004BEAD3 /* ZZFunctionShowRule.m in Sources */,
 				5652D31D1B859A7600A3FB09 /* ZZForgetVC.m in Sources */,
 				56C172E81B845A9C00EF55FF /* ZZRegistVC.m in Sources */,
 				6E0016331B68B74A00DEA540 /* UIButton+Extension.m in Sources */,
@@ -1802,6 +1845,7 @@
 				6E8D3A941B8C3403006798A7 /* ZZTableHeadView.m in Sources */,
 				5652D32B1B86FA2B00A3FB09 /* ZZThirdVC.m in Sources */,
 				6EE0D0C71B69F2F700DC80AC /* UUPhotoBrowserViewController.m in Sources */,
+				6E3C5E051B96DD4C004BEAD3 /* ZZIQKeyBoardTool.m in Sources */,
 				56BA9D4F1B93E89E00CC55E2 /* ZZMyEventVC.m in Sources */,
 				6EE0D0C61B69F2F700DC80AC /* UUPhotoConst.m in Sources */,
 				6E76839A1B8EF70900661770 /* ZZDetailImageView.m in Sources */,

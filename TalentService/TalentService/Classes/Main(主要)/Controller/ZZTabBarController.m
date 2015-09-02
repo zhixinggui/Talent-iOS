@@ -12,6 +12,7 @@
 #import "ZZInfoVC.h"
 #import "ZZHomeViewController.h"
 #import "ZZActivityController.h"
+#import "ZZTopicForumTVC.h"
 #import "ZZMoreVC.h"
 @implementation ZZTabBarController
 -(void)viewDidLoad{
@@ -38,10 +39,10 @@
     // 活动
     ZZActivityController *activity = [[ZZActivityController alloc] init];
     
-    [self setUpOneChildViewController:activity image:[UIImage imageNamed:@"event_close_30x30"] selectedImage:[UIImage imageWithOriginalName:@"event_open_30x30"] title:@"活动"];
+    [self setUpOneChildViewController:activity image:[UIImage imageNamed:@"event_close_30x30"] selectedImage:[UIImage imageWithOriginalName:@"event_open_30x30"] title:@"服务"];
 
     // 社区
-    UIViewController *topic = [[UIViewController alloc] init];
+    ZZTopicForumTVC *topic = [[ZZTopicForumTVC alloc] init];
     
     [self setUpOneChildViewController:topic image:[UIImage imageNamed:@"city_close_30x30"] selectedImage:[UIImage imageWithOriginalName:@"city_open_30x30"] title:@"社区"];
 
@@ -62,7 +63,6 @@
     [vc.tabBarItem setTitlePositionAdjustment:UIOffsetMake(0, -1)];
     NSMutableDictionary *selectedTextAttrs = [NSMutableDictionary dictionary];
     selectedTextAttrs[NSForegroundColorAttributeName] = ZZNatiBarColor;
-    
     [vc.tabBarItem setTitleTextAttributes:selectedTextAttrs forState:UIControlStateSelected];
     ZZNaviController *nav = [[ZZNaviController alloc] initWithRootViewController:vc];
     [self addChildViewController:nav];

@@ -7,14 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Singleton.h"
 #import "ZZUMLoginModel.h"
 /** 友盟回调block */
 typedef void (^UMToolCallBack)(id obj);
 
 typedef enum {
-    ZZSViewControllerTypeLoginAccount,
-    ZZSViewControllerTypeLoginShare
+    ZZSViewControllerTypeLoginAccount,//登陆
+    ZZSViewControllerTypeLoginShare//分享
 }ZZSViewControllerType;
 
 typedef enum {
@@ -22,26 +21,19 @@ typedef enum {
     ZZUMToolResponseFaile
 }ZZUMToolResponse;
 
-typedef enum {
-    ZZUMToolShareTypeQQ,
-    ZZUMToolShareTypeWeChat,
-    ZZUMToolShareTypeSina
-}ZZUMToolShareType;
 @protocol ZZUMToolSocialDelgate <NSObject>
 
 // 关闭当前页面之后
 - (void)didCloseUIViewController:(ZZSViewControllerType)fromViewControllerType;
 
 //各个页面执行授权完成、分享完成、或者评论完成时的回调函数
--(void)didFinishGetUMSocialDataInViewController:(ZZUMToolResponse )umToolResponse;
+-(void)didFinishGetUMSocialDataInViewController:(ZZUMToolResponse )umToolResponse result:(NSString *)result;
 
-// 点击分享列表页面，之后的回调方法，你可以通过判断不同的分享平台，来设置分享内容。
--(void)didSelectSocialPlatform:(ZZUMToolShareType )platformName;
 @end
 @interface ZZUMTool : NSObject
 
 /**  单例 */
-singleton_interface(ZZUMTool);
++(instancetype)sharedUMTool;
 /** 支持的三方登陆 */
 @property (nonatomic, strong, readonly)NSMutableArray* loginModels;
 /** 分享支持的类型 */
@@ -53,7 +45,7 @@ singleton_interface(ZZUMTool);
 /** 支持微信不 */
 @property (nonatomic, assign, readonly, getter=isSupportWX)BOOL supportWX;
 
-@property (nonatomic, weak) UIViewController<ZZUMToolSocialDelgate> *delegate;
+@property (nonatomic, weak) id<ZZUMToolSocialDelgate> delegate;
 
 /**
  *  友盟三方登陆响应方法
@@ -63,7 +55,9 @@ singleton_interface(ZZUMTool);
  *  @param umToolBack <#umToolBack description#>
  */
 - (void)umThirdLoginWithController:(UIViewController*)controller andUmloginModel:(ZZUMLoginModel *)loginModel andBack:(UMToolCallBack)umToolBack;
-- (void)umShareWithTitle:(NSString *)title  content:(NSString *)content url:(NSString *)url imageUrl:(NSString *)imageUrl locialImageName:(NSString *)imageName  controller:(UIViewController *)controller;
+
+//分享方法
+- (void)umShareWithTitle:(NSString *)title  content:(NSString *)content url:(NSString *)url imageUrl:(NSString *)imageUrl locialImageName:(NSString *)imageName  controller:(UIViewController *)controller  loginModel:(ZZUMLoginModel *)loginModel;
 
 
 /** 友盟社会化分享三个系统回调方法 */

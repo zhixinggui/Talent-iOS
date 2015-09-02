@@ -156,7 +156,7 @@
     if (_topMenuView == nil) {
         //设置tableview的头部
         _topMenuView = [[ZZTopMenuView  alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, 44)];
-        _topMenuView.backgroundColor = [UIColor  clearColor];
+        _topMenuView.backgroundColor = [UIColor  whiteColor];
         if (self.cityMenuBtn == nil) {
             [self  setUpSelectMenu];
         }
