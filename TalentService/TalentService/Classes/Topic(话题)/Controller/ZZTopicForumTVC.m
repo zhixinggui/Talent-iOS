@@ -22,6 +22,7 @@
 - (void)setTableViewProperty{
     UINib* nib = [UINib nibWithNibName:@"ZZCommunityCell" bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:communityCelldentifier];
+
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 
