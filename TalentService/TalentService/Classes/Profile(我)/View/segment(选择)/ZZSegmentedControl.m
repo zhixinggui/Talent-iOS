@@ -55,5 +55,10 @@
     [UIView  animateWithDuration:0.25 animations:^{
         self.lineLabel.x = (self.width/index)*seg.selectedSegmentIndex;
     }];
+    
+    if ([self.delegate   respondsToSelector:@selector(segmentControl:andIndex:)]) {
+        [self.delegate  segmentControl:self andIndex:seg.selectedSegmentIndex];
+    }
+    
 }
 @end

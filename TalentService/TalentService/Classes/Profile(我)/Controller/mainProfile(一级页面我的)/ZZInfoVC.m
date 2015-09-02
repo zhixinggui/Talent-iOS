@@ -11,6 +11,7 @@
 #import "ZZCommunityTVC.h"
 #import "ZZAttentionVC.h"
 #import "ZZMessageTVC.h"
+#import "ZZMyOrderVC.h"
 @interface ZZInfoVC ()
 @property (strong, nonatomic) IBOutlet UIScrollView *infoScrollView;
 @property (strong, nonatomic) IBOutlet UIImageView *infoIV;
@@ -29,6 +30,8 @@
 
 - (IBAction)gotoMydindan:(UIButton *)sender {
     ZZLog(@"订单订单");
+    ZZMyOrderVC *orderTvc = [[ZZMyOrderVC alloc]initWithNib];
+    [self.navigationController pushViewController:orderTvc animated:YES];
 }
 
 /**

@@ -21,7 +21,7 @@
     self.title = @"活动";
     [self.eventTableView  registerNib:[UINib nibWithNibName:@"ZZActivityCell" bundle:nil] forCellReuseIdentifier:@"ActivityCell"];
     self.eventTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    self.eventTableView.rowHeight = 190;
+    self.eventTableView.rowHeight = [ZZActivityCell cellHeight];
     self.eventTableView.delegate = self;
     self.eventTableView.dataSource = self;
 }

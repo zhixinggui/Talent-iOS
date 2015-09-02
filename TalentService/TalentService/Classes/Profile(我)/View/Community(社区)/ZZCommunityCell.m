@@ -8,13 +8,24 @@
 
 #import "ZZCommunityCell.h"
 @interface ZZCommunityCell()
+@property (weak, nonatomic) IBOutlet UIImageView *headIV;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *identityLabel;
+@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *contentLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *firstIV;
+@property (weak, nonatomic) IBOutlet UIImageView *secondIV;
+@property (weak, nonatomic) IBOutlet UIImageView *thirdIV;
+@property (weak, nonatomic) IBOutlet UIButton *firstBT;
+@property (weak, nonatomic) IBOutlet UIButton *secondBT;
+@property (weak, nonatomic) IBOutlet UIButton *thirdBT;
 
 @end
 @implementation ZZCommunityCell
 - (id)initWithCoder:(NSCoder *)aDecoder {
     if (self = [super initWithCoder:aDecoder]) {
-//        UIImageView* imageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"border_43x47"]];
-//        [self setBackgroundView:imageView];
+
     }
     return self;
 }
@@ -33,5 +44,13 @@
     
     [[UIImage imageNamed:@"border_34x34"]drawInRect:CGRectMake(rect.origin.x +5, rect.origin.y+5, rect.size.width - 10, rect.size.height)];
 
+}
+
+#pragma mark - Setters and Getters
+- (void)setModel:(ZZCommunityCellModel *)model {
+    _model = model;
+    self.titleLabel.text = model.title;
+    self.contentLabel.text = model.content;
+    
 }
 @end

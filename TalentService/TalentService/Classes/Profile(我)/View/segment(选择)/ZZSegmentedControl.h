@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+@class ZZSegmentedControl;
+@protocol ZZSegmentedControlDelegate <NSObject>
 
+- (void)segmentControl:(ZZSegmentedControl *)segment andIndex:(NSUInteger)index;
+
+@end
 @interface ZZSegmentedControl : UISegmentedControl
-
+@property (nonatomic, weak)id<ZZSegmentedControlDelegate> delegate;
 @end

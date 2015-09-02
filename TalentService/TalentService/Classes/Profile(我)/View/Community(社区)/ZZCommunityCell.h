@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ZZCommunityCellModel.h"
 #define communityCelldentifier @"communityCelldentifier"
 @interface ZZCommunityCell : UITableViewCell
+@property(nonatomic,strong)ZZCommunityCellModel *model;
 
 @end
