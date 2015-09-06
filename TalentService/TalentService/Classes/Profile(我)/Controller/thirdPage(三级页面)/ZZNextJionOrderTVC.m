@@ -1,27 +1,27 @@
 //
-//  ZZJoinOrderTVC.m
+//  ZZNextJionOrderTVC.m
 //  TalentService
 //
-//  Created by charles on 15/9/2.
+//  Created by charles on 15/9/6.
 //  Copyright (c) 2015年 zhizhen. All rights reserved.
 //
 
-#import "ZZJoinOrderTVC.h"
-#import "ZZJoinOrderCell.h"
 #import "ZZNextJionOrderTVC.h"
-@interface ZZJoinOrderTVC ()
+#import "ZZNextJionOrderCell.h"
+@interface ZZNextJionOrderTVC ()
 
 @end
 
-@implementation ZZJoinOrderTVC
+@implementation ZZNextJionOrderTVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    UINib* nib = [UINib nibWithNibName:@"ZZJoinOrderCell" bundle:nil];
-    [self.tableView registerNib:nib forCellReuseIdentifier:jionOrderCelldentifier];
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.title = @"接单";
+    UINib* nib = [UINib nibWithNibName:@"ZZNextJionOrderCell" bundle:nil];
+    [self.tableView registerNib:nib forCellReuseIdentifier:nextJionorderCellIdentifier];
     self.tableView.rowHeight = 100;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -31,18 +31,17 @@
 
 #pragma mark - Table view data source
 
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-
-    return 10;
+    return 5;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    ZZJoinOrderCell *cell = [tableView dequeueReusableCellWithIdentifier:jionOrderCelldentifier forIndexPath:indexPath];
+    ZZNextJionOrderCell *cell = [tableView dequeueReusableCellWithIdentifier:nextJionorderCellIdentifier forIndexPath:indexPath];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
+
 
 /*
 // Override to support conditional editing of the table view.
@@ -78,21 +77,21 @@
 }
 */
 
-
+/*
 #pragma mark - Table view delegate
 
 // In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     // Navigation logic may go here, for example:
     // Create the next view controller.
-    ZZNextJionOrderTVC *detailViewController = [[ZZNextJionOrderTVC alloc] initWithNib];
+    <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:<#@"Nib name"#> bundle:nil];
     
     // Pass the selected object to the new view controller.
     
     // Push the view controller.
     [self.navigationController pushViewController:detailViewController animated:YES];
 }
-
+*/
 
 /*
 #pragma mark - Navigation
