@@ -49,7 +49,12 @@
 #pragma mark - Setters and Getters
 - (void)setModel:(ZZCommunityCellModel *)model {
     _model = model;
-    self.titleLabel.text = model.title;
+    NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:@"这是一个"];
+    [str addAttribute:NSForegroundColorAttributeName value:[UIColor blueColor] range:NSMakeRange(0,1)];
+    [str  addAttribute:NSBackgroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(0,1)];
+    self.titleLabel.attributedText = str;
+
+//    self.titleLabel.text = model.title;
     self.contentLabel.text = model.content;
     
 }
