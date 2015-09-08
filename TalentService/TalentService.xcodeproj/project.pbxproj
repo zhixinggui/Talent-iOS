@@ -276,9 +276,9 @@
 		568DA5F81B9BEC7100A77661 /* ZZNextJionOrderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZNextJionOrderCell.h; sourceTree = "<group>"; };
 		568DA5F91B9BEC7100A77661 /* ZZNextJionOrderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZNextJionOrderCell.m; sourceTree = "<group>"; };
 		568DA5FA1B9BEC7100A77661 /* ZZNextJionOrderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZZNextJionOrderCell.xib; sourceTree = "<group>"; };
-		568DA6001B9C2BFC00A77661 /* ZZInfoDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZInfoDetailVC.h; sourceTree = "<group>"; };
-		568DA6011B9C2BFC00A77661 /* ZZInfoDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZInfoDetailVC.m; sourceTree = "<group>"; };
-		568DA6021B9C2BFC00A77661 /* ZZInfoDetailVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZZInfoDetailVC.xib; sourceTree = "<group>"; };
+		568DA6001B9C2BFC00A77661 /* ZZInfoDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZZInfoDetailVC.h; path = ../ZZInfoDetailVC.h; sourceTree = "<group>"; };
+		568DA6011B9C2BFC00A77661 /* ZZInfoDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZZInfoDetailVC.m; path = ../ZZInfoDetailVC.m; sourceTree = "<group>"; };
+		568DA6021B9C2BFC00A77661 /* ZZInfoDetailVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ZZInfoDetailVC.xib; path = ../ZZInfoDetailVC.xib; sourceTree = "<group>"; };
 		56BA9D411B93E82A00CC55E2 /* ZZInfoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZInfoVC.h; sourceTree = "<group>"; };
 		56BA9D421B93E82A00CC55E2 /* ZZInfoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZInfoVC.m; sourceTree = "<group>"; };
 		56BA9D431B93E82A00CC55E2 /* ZZInfoVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZZInfoVC.xib; sourceTree = "<group>"; };
@@ -691,6 +691,16 @@
 			path = "segment(选择)";
 			sourceTree = "<group>";
 		};
+		564CD9081B9E8DF200298F36 /* infoHomepage(个人主页) */ = {
+			isa = PBXGroup;
+			children = (
+				568DA6001B9C2BFC00A77661 /* ZZInfoDetailVC.h */,
+				568DA6011B9C2BFC00A77661 /* ZZInfoDetailVC.m */,
+				568DA6021B9C2BFC00A77661 /* ZZInfoDetailVC.xib */,
+			);
+			path = "infoHomepage(个人主页)";
+			sourceTree = "<group>";
+		};
 		5652D3191B8599FF00A3FB09 /* ForgetSecrect */ = {
 			isa = PBXGroup;
 			children = (
@@ -791,10 +801,8 @@
 				568DA5E41B9BD65600A77661 /* ZZMyselfInfoTVC.h */,
 				568DA5E51B9BD65600A77661 /* ZZMyselfInfoTVC.m */,
 				568DA5E61B9BD65600A77661 /* ZZMyselfInfoTVC.xib */,
-				568DA6001B9C2BFC00A77661 /* ZZInfoDetailVC.h */,
-				568DA6011B9C2BFC00A77661 /* ZZInfoDetailVC.m */,
-				568DA6021B9C2BFC00A77661 /* ZZInfoDetailVC.xib */,
 				5678A1DE1B9699F700DC4377 /* myOrder(我的订单) */,
+				564CD9081B9E8DF200298F36 /* infoHomepage(个人主页) */,
 			);
 			path = "SecondPage(二级页面)";
 			sourceTree = "<group>";

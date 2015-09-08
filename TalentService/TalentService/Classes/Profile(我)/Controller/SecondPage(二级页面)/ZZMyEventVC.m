@@ -18,7 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"活动";
+    self.title = @"服务";
     [self.eventTableView  registerNib:[UINib nibWithNibName:@"ZZActivityCell" bundle:nil] forCellReuseIdentifier:@"ActivityCell"];
     self.eventTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.eventTableView.rowHeight = [ZZActivityCell cellHeight];
@@ -46,7 +46,7 @@
 
 -(ZZSegmentedControl *)mySegmentControl{
     if (!_mySegmentControl) {
-        _mySegmentControl = [[ZZSegmentedControl alloc]initWithItems:@[@"活动",@"收藏"]];
+        _mySegmentControl = [[ZZSegmentedControl alloc]initWithItems:@[@"服务",@"收藏"]];
         _mySegmentControl.frame = CGRectMake(0, 0, ScreenWidth, 40);
     }
     return _mySegmentControl;
