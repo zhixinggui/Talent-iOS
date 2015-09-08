@@ -13,6 +13,7 @@
 #import "ZZMessageTVC.h"
 #import "ZZMyOrderVC.h"
 #import "ZZMyselfInfoTVC.h"
+#import "ZZInfoDetailVC.h"
 @interface ZZInfoVC ()
 @property (strong, nonatomic) IBOutlet UIScrollView *infoScrollView;
 @property (strong, nonatomic) IBOutlet UIImageView *infoIV;
@@ -50,6 +51,8 @@
 }
 - (IBAction)gotoInfoDetail:(UIButton *)sender {
     ZZLog(@"个人详细资料");
+    ZZInfoDetailVC *infoDetailVc = [[ZZInfoDetailVC alloc]initWithNib];
+    [self.navigationController pushViewController:infoDetailVc animated:YES];
 }
 
 - (IBAction)gotoCommunity:(UIButton *)sender {

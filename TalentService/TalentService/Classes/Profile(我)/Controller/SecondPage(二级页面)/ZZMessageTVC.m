@@ -111,7 +111,7 @@
 #pragma mark setter andGetter
 -(ZZSegmentedControl *)messageSegmentControl{
     if (!_messageSegmentControl) {
-        _messageSegmentControl = [[ZZSegmentedControl alloc]initWithItems:@[@"活动",@"系统"]];
+        _messageSegmentControl = [[ZZSegmentedControl alloc]initWithItems:@[@"服务",@"系统"]];
         _messageSegmentControl.frame = CGRectMake(0, 0, ScreenWidth, 40);
     }
     return _messageSegmentControl;
