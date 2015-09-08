@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		54B253871B80353300AC944E /* ZZTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54B253861B80353300AC944E /* ZZTextView.m */; };
+		54B6A2151B9F437000C2DE61 /* ZZCity.m in Sources */ = {isa = PBXBuildFile; fileRef = 54B6A2101B9F437000C2DE61 /* ZZCity.m */; };
+		54B6A2161B9F437000C2DE61 /* ZZCounty.m in Sources */ = {isa = PBXBuildFile; fileRef = 54B6A2121B9F437000C2DE61 /* ZZCounty.m */; };
+		54B6A2171B9F437000C2DE61 /* ZZProvince.m in Sources */ = {isa = PBXBuildFile; fileRef = 54B6A2141B9F437000C2DE61 /* ZZProvince.m */; };
 		5607DA691B82E2D500803EE5 /* ZZNaviController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5607DA681B82E2D500803EE5 /* ZZNaviController.m */; };
 		5607DA761B82FC1800803EE5 /* ZZLayerButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5607DA751B82FC1800803EE5 /* ZZLayerButton.m */; };
 		5607DA7C1B831DB000803EE5 /* ZZFirstLoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5607DA7A1B831DB000803EE5 /* ZZFirstLoginVC.m */; };
@@ -92,9 +95,6 @@
 		6E45ABDF1B9ED0EB00D09DCF /* ZZCitySelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E45ABDE1B9ED0EB00D09DCF /* ZZCitySelector.m */; };
 		6E45ABE11B9ED16800D09DCF /* ZZCitySelector.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E45ABE01B9ED16800D09DCF /* ZZCitySelector.xib */; };
 		6E45ABE71B9F04F600D09DCF /* address.json in Resources */ = {isa = PBXBuildFile; fileRef = 6E45ABE61B9F04F600D09DCF /* address.json */; };
-		6E45ABF81B9F0BF800D09DCF /* ZZCity.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E45ABF31B9F0BF800D09DCF /* ZZCity.m */; };
-		6E45ABF91B9F0BF800D09DCF /* ZZCounty.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E45ABF51B9F0BF800D09DCF /* ZZCounty.m */; };
-		6E45ABFA1B9F0BF800D09DCF /* ZZProvince.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E45ABF71B9F0BF800D09DCF /* ZZProvince.m */; };
 		6E4A5C571B954732003751D5 /* ZZViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4A5C561B954732003751D5 /* ZZViewController.m */; };
 		6E4A5C5A1B954743003751D5 /* ZZTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4A5C591B954743003751D5 /* ZZTableViewController.m */; };
 		6E4A5C5D1B95474F003751D5 /* ZZCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4A5C5C1B95474F003751D5 /* ZZCollectionViewController.m */; };
@@ -216,6 +216,12 @@
 		52C7B23BB58666F9989BCC8C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		54B253851B80353300AC944E /* ZZTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZTextView.h; sourceTree = "<group>"; };
 		54B253861B80353300AC944E /* ZZTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZTextView.m; sourceTree = "<group>"; };
+		54B6A20F1B9F437000C2DE61 /* ZZCity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZCity.h; sourceTree = "<group>"; };
+		54B6A2101B9F437000C2DE61 /* ZZCity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZCity.m; sourceTree = "<group>"; };
+		54B6A2111B9F437000C2DE61 /* ZZCounty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZCounty.h; sourceTree = "<group>"; };
+		54B6A2121B9F437000C2DE61 /* ZZCounty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZCounty.m; sourceTree = "<group>"; };
+		54B6A2131B9F437000C2DE61 /* ZZProvince.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZProvince.h; sourceTree = "<group>"; };
+		54B6A2141B9F437000C2DE61 /* ZZProvince.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZProvince.m; sourceTree = "<group>"; };
 		5607DA671B82E2D500803EE5 /* ZZNaviController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZNaviController.h; sourceTree = "<group>"; };
 		5607DA681B82E2D500803EE5 /* ZZNaviController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZNaviController.m; sourceTree = "<group>"; };
 		5607DA741B82FC1800803EE5 /* ZZLayerButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZLayerButton.h; sourceTree = "<group>"; };
@@ -355,12 +361,6 @@
 		6E45ABDE1B9ED0EB00D09DCF /* ZZCitySelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZCitySelector.m; sourceTree = "<group>"; };
 		6E45ABE01B9ED16800D09DCF /* ZZCitySelector.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZZCitySelector.xib; sourceTree = "<group>"; };
 		6E45ABE61B9F04F600D09DCF /* address.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = address.json; sourceTree = "<group>"; };
-		6E45ABF21B9F0BF800D09DCF /* ZZCity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZCity.h; sourceTree = "<group>"; };
-		6E45ABF31B9F0BF800D09DCF /* ZZCity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZCity.m; sourceTree = "<group>"; };
-		6E45ABF41B9F0BF800D09DCF /* ZZCounty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZCounty.h; sourceTree = "<group>"; };
-		6E45ABF51B9F0BF800D09DCF /* ZZCounty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZCounty.m; sourceTree = "<group>"; };
-		6E45ABF61B9F0BF800D09DCF /* ZZProvince.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZProvince.h; sourceTree = "<group>"; };
-		6E45ABF71B9F0BF800D09DCF /* ZZProvince.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZProvince.m; sourceTree = "<group>"; };
 		6E4A5C551B954732003751D5 /* ZZViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZViewController.h; sourceTree = "<group>"; };
 		6E4A5C561B954732003751D5 /* ZZViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZViewController.m; sourceTree = "<group>"; };
 		6E4A5C581B954743003751D5 /* ZZTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZTableViewController.h; sourceTree = "<group>"; };
@@ -608,6 +608,19 @@
 				52C7B23BB58666F9989BCC8C /* libPods.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		54B6A20E1B9F436F00C2DE61 /* City */ = {
+			isa = PBXGroup;
+			children = (
+				54B6A20F1B9F437000C2DE61 /* ZZCity.h */,
+				54B6A2101B9F437000C2DE61 /* ZZCity.m */,
+				54B6A2111B9F437000C2DE61 /* ZZCounty.h */,
+				54B6A2121B9F437000C2DE61 /* ZZCounty.m */,
+				54B6A2131B9F437000C2DE61 /* ZZProvince.h */,
+				54B6A2141B9F437000C2DE61 /* ZZProvince.m */,
+			);
+			path = City;
 			sourceTree = "<group>";
 		};
 		5607DA771B831D3500803EE5 /* Login */ = {
@@ -917,12 +930,6 @@
 		6E45ABD91B9EB5C100D09DCF /* city(城市) */ = {
 			isa = PBXGroup;
 			children = (
-				6E45ABF21B9F0BF800D09DCF /* ZZCity.h */,
-				6E45ABF31B9F0BF800D09DCF /* ZZCity.m */,
-				6E45ABF41B9F0BF800D09DCF /* ZZCounty.h */,
-				6E45ABF51B9F0BF800D09DCF /* ZZCounty.m */,
-				6E45ABF61B9F0BF800D09DCF /* ZZProvince.h */,
-				6E45ABF71B9F0BF800D09DCF /* ZZProvince.m */,
 				6E45ABDA1B9EB5D600D09DCF /* ZZCityTool.h */,
 				6E45ABDB1B9EB5D600D09DCF /* ZZCityTool.m */,
 			);
@@ -1599,6 +1606,7 @@
 		6E9E3EA21B62159F0097B194 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				54B6A20E1B9F436F00C2DE61 /* City */,
 				6E3C5DFE1B968CFC004BEAD3 /* ShowDelegate */,
 				6E4A5CB91B955551003751D5 /* UM */,
 				6E4C40D21B8FF9A100937CB1 /* SdwebImageTool */,
@@ -1971,6 +1979,7 @@
 				56BA9D621B94241A00CC55E2 /* ZZMessageTVC.m in Sources */,
 				6EA1088A1B8D819100F4215A /* ZZTopMenuView.m in Sources */,
 				6EA108811B8D537000F4215A /* ZZSuperCell.m in Sources */,
+				54B6A2151B9F437000C2DE61 /* ZZCity.m in Sources */,
 				6E7683961B8EF70900661770 /* ZZBaseOrderView.m in Sources */,
 				6E00163F1B68B7F800DEA540 /* ZZHttpTool.m in Sources */,
 				568DA5F11B9BDE4E00A77661 /* ZZMyselfCellModel.m in Sources */,
@@ -1990,7 +1999,6 @@
 				6E8D3A821B8C00CB006798A7 /* ZZHomeViewController.m in Sources */,
 				6EE0D0CF1B69F2F700DC80AC /* UUToolBarView.m in Sources */,
 				6E0016371B68B74A00DEA540 /* UIView+Extension.m in Sources */,
-				6E45ABF91B9F0BF800D09DCF /* ZZCounty.m in Sources */,
 				6E4A5CD21B95A0EC003751D5 /* ZZDetailFunctionView.m in Sources */,
 				6E8D722F1B84326D0031C721 /* ZZShowView.m in Sources */,
 				56BA9D541B93E8EB00CC55E2 /* ZZAttentionVC.m in Sources */,
@@ -2006,6 +2014,7 @@
 				6E7683811B8EF70200661770 /* ZZEnsureOrderController.m in Sources */,
 				6E0016311B68B74A00DEA540 /* NSString+Extension.m in Sources */,
 				56BA9D6E1B943A5E00CC55E2 /* ZZDetailMessageVC.m in Sources */,
+				54B6A2161B9F437000C2DE61 /* ZZCounty.m in Sources */,
 				6E9014081B82E2F10083F2B7 /* ZZLoginVC.m in Sources */,
 				6E4C40E61B9046E600937CB1 /* ZZSeeOrderVC.m in Sources */,
 				6E8D3A981B8C3EE3006798A7 /* ASScroll.m in Sources */,
@@ -2020,9 +2029,7 @@
 				6E0016301B68B74A00DEA540 /* NSObject+Extension.m in Sources */,
 				6E4C40D11B8FF96700937CB1 /* ZZSelectPayTypeVC.m in Sources */,
 				6E0016431B68EB5000DEA540 /* ZZTextField.m in Sources */,
-				6E45ABF81B9F0BF800D09DCF /* ZZCity.m in Sources */,
 				6E950F071B6B61C400566E85 /* ZZConst.m in Sources */,
-				6E45ABFA1B9F0BF800D09DCF /* ZZProvince.m in Sources */,
 				5637092E1B8EDBEE008B7765 /* ZZMoreName.m in Sources */,
 				5678A1D01B954EF700DC4377 /* ZZMyOrderTVC.m in Sources */,
 				6E950EFE1B6B604800566E85 /* ZZFileParam.m in Sources */,
@@ -2031,6 +2038,7 @@
 				6E00162E1B68B74A00DEA540 /* NSArray+Extension.m in Sources */,
 				6EE0D0C81B69F2F700DC80AC /* UUPhotoCollectionViewController.m in Sources */,
 				6EA108841B8D61FD00F4215A /* ZZActivityController.m in Sources */,
+				54B6A2171B9F437000C2DE61 /* ZZProvince.m in Sources */,
 				6E950F041B6B616900566E85 /* ZZTabBarController.m in Sources */,
 				6EA108871B8D80E100F4215A /* ZZMenuButton.m in Sources */,
 				6E3C5E011B968D4B004BEAD3 /* ZZFunctionShowRule.m in Sources */,

@@ -11,11 +11,11 @@
 
 @implementation ZZCity
 
-- (NSDictionary *)objectClassInArray
++ (NSDictionary *)objectClassInArray
 {
     return @{@"counties" : [ZZCounty class]};
 }
-- (NSDictionary *)replacedKeyFromPropertyName
++ (NSDictionary *)replacedKeyFromPropertyName
 {
     return @{@"cityId" : @"id"};
 }

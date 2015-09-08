@@ -6,7 +6,7 @@
 //  Copyright (c) 2015年 zhizhen. All rights reserved.
 //
 
-NSTimeInterval const animationTime = 0.25;
+
 CGFloat  const ViewAlpha = 0.4;
 #import "ZZDetailFunctionView.h"
 #import "ZZFunctionCell.h"

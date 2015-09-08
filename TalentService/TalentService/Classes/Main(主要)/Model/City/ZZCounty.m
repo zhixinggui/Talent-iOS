@@ -9,7 +9,7 @@
 #import "ZZCounty.h"
 
 @implementation ZZCounty
-- (NSDictionary *)replacedKeyFromPropertyName
++ (NSDictionary *)replacedKeyFromPropertyName
 {
     return @{@"countyId" : @"id"};
 }

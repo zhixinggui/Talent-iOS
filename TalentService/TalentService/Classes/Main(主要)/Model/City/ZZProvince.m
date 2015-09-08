@@ -10,11 +10,11 @@
 
 #import "ZZCity.h"
 @implementation ZZProvince
-- (NSDictionary *)objectClassInArray
++ (NSDictionary *)objectClassInArray
 {
     return @{@"cities" : [ZZCity class]};
 }
-- (NSDictionary *)replacedKeyFromPropertyName
++ (NSDictionary *)replacedKeyFromPropertyName
 {
     return @{@"provinceId" : @"id"};
 }

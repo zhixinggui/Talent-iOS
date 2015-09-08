@@ -15,3 +15,4 @@ extern  CGFloat  const  ZZCharSpace ;//字间距
 extern  CGFloat  const  ZZParagraphSpace ;//段间距
 extern  CGFloat  const  ZZEdgeMargin ;//边间距
 extern  NSUInteger  const  ZZSecerityTime ;//验证码时常
+extern  NSTimeInterval const animationTime;

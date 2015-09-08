@@ -8,7 +8,7 @@
 
 #import "ZZCitySelector.h"
 #import "ZZCityTool.h"
-NSTimeInterval const animationTime = 0.25;
+
 @interface ZZCitySelector ()<UIPickerViewDataSource,UIPickerViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIPickerView *pickerView;
