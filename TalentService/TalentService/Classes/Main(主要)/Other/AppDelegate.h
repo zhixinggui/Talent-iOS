@@ -7,12 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
-
+typedef enum {
+    ZZRootViewControllerTypeLogin, //登陆
+    ZZRootViewControllerTypeHome //首页
+}ZZRootViewControllerType;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
-
+//切换window的跟视图控制器
+- (void)swithWindowRootViewController:(ZZRootViewControllerType )vcType;
 @end
 

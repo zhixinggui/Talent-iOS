@@ -14,10 +14,15 @@
 
 static AFHTTPRequestOperationManager  *_manager;
 
-+(void)load{//@"text/plain", @"text/html",
++(void)initialize{//@"text/plain", @"text/html",
     _manager = [[AFHTTPRequestOperationManager alloc]initWithBaseURL:[NSURL  URLWithString:[baseUrl  copy]]];
-
+    AFJSONRequestSerializer *jsonRequest = [AFJSONRequestSerializer  serializer];
+    _manager.requestSerializer = jsonRequest;
     _manager.requestSerializer.timeoutInterval = responseTime;
+    
+//    AFJSONResponseSerializer *response = [AFJSONResponseSerializer  serializer];
+//    response.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/plain", @"text/html",  nil];
+
 }
 
 
@@ -145,10 +150,10 @@ static AFHTTPRequestOperationManager  *_manager;
                failure:(ErrorBlock)failure{
     
     [_manager POST:apiName parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        //QQLog(@"JSON: %@", responseObject);
+        ZZLog(@"JSON: %@", responseObject);
         success(responseObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        //QQLog(@"Error: %@", error);
+        ZZLog(@"Error: %@", error);
         failure(error);
     }];
     

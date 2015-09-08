@@ -7,7 +7,7 @@
 //
 
 #import "ZZNaviController.h"
-
+#import "UIBarButtonItem+Extension.h"
 @interface ZZNaviController ()<UINavigationControllerDelegate>
 @property (nonatomic, strong) id popDelegate;
 @end
@@ -87,8 +87,12 @@
         self.navigationBarHidden = NO;
         /* 设置导航栏上面的内容 */
         // 设置左边的返回按钮
-        viewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:@selector(back)];
-   
+       
+        UIBarButtonItem *negativeSeperator = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+        UIBarButtonItem *back = [UIBarButtonItem  itemWithTarget:self action:@selector(back) image:@"return_30x30" highImage:nil];
+        
+        negativeSeperator.width = -16;//此处修改到边界的距离，请自行测试
+        viewController.navigationItem.leftBarButtonItems = @[negativeSeperator,back];
     }
     
     [super pushViewController:viewController animated:animated];

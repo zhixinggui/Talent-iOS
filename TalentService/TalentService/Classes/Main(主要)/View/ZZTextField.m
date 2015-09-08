@@ -61,7 +61,7 @@
 
 
 -(void)addLeftViewImageString:(NSString *)imageString{
-    UIImageView* phoneIV = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 60, 40)];
+    UIImageView* phoneIV = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 40, 40)];
     phoneIV.image= [UIImage imageNamed:imageString];
     phoneIV.contentMode = UIViewContentModeCenter;
     [self setLeftView:phoneIV];

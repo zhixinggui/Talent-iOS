@@ -10,6 +10,7 @@
 #import "ZZFirstLoginVC.h"
 #import "ZZRegistVC.h"
 #import "ZZLayerButton.h"
+NSTimeInterval  const timeInterval = 3;
 @interface ZZLoginVC ()<UIScrollViewDelegate>
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollview;
 /**
@@ -26,6 +27,12 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = YES;
+    [self  addTimer];
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    [super  viewWillDisappear:animated];
+    [self  removeTimer];
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -39,66 +46,37 @@
 }
 
 -(void)addScrollview{
-    /**
-     *  图片的宽
-     */
+    /**图片的宽*/
     CGFloat imageW = [UIScreen mainScreen].bounds.size.width;
-    /**
-     *  图片的高
-     */
+    /**  图片的高*/
     CGFloat imageH = [UIScreen mainScreen].bounds.size.height-117;
-    /**
-     *  图片的Y
-     */
+    /**图片的Y*/
     CGFloat imageY = 0;
-    /**
-     *  图片数量
-     */
+    /**  图片数量*/
     NSInteger totalCount = 5;
-    /**
-     *  添加图片
-     */
+    /** 添加图片*/
     for (int i = 0; i<totalCount; i++) {
         UIImageView *imageView = [[UIImageView alloc]init];
-        /**
-         *  图片的X
-         */
+        /** 图片的X*/
         CGFloat imageX = i*imageW;
-        /**
-         *  图片frame
-         */
+        /**  图片frame*/
         imageView.frame = CGRectMake(imageX, imageY, imageW, imageH);
-        /**
-         *  设置图片
-         */
+        /**  设置图片*/
         imageView.backgroundColor = self.colorArray[i];
-        /**
-         *  隐藏指示条
-         */
+        /** 隐藏指示条*/
         self.scrollview.showsHorizontalScrollIndicator = NO;
-        /**
-         *  scrollview加载图片
-         */
+        /**  scrollview加载图片*/
         [self.scrollview addSubview:imageView];
     }
-    /**
-     *  设置scrollview的滚动范围
-     */
+    /**设置scrollview的滚动范围*/
     CGFloat contentW = totalCount *imageW;
-    /**
-     *  不允许垂直方向进行滚动
-     */
+    /** 不允许垂直方向进行滚动*/
     self.scrollview.contentSize = CGSizeMake(contentW, 0);
-    /**
-     *  设置分页
-     */
+    /** 设置分页*/
     self.scrollview.pagingEnabled = YES;
-    /**
-     *  监听scrollview的滚动
-     */
+    /** 监听scrollview的滚动*/
     self.scrollview.delegate = self;
-    
-    [self addTimer];
+  
 }
 
 
@@ -108,7 +86,7 @@
  *  开启定时器
  */
 - (void)addTimer{
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(nextImage) userInfo:nil repeats:YES];
+        self.timer = [NSTimer scheduledTimerWithTimeInterval:timeInterval target:self selector:@selector(nextImage) userInfo:nil repeats:YES];
 }
 /**
  *  关闭定时器
@@ -116,6 +94,22 @@
 -(void)removeTimer{
     [self.timer invalidate];
 }
+
+//暂定定时器
+- (void)pauseTimer{
+    if (![self.timer isValid]) {
+        return ;
+    }
+    [self.timer setFireDate:[NSDate  distantFuture]];
+}
+//开启计时器
+- (void)openTimer{
+    if (![self.timer isValid]) {
+        return ;
+    }
+    [self.timer  setFireDate:[NSDate  dateWithTimeIntervalSinceNow:timeInterval]];
+}
+//开启定时器
 
 -(void)nextImage{
     int page = (int)self.pageControl.currentPage;
@@ -152,9 +146,9 @@
  */
 -(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
     /**
-     *  关闭定时器
+     *  暂停定时器
      */
-    [self removeTimer];
+    [self pauseTimer];
 }
 /**
  *  拖拽结束的时候调用
@@ -163,7 +157,7 @@
     /**
      *  开启计时器
      */
-    [self addTimer];
+    [self openTimer];
 }
 
 #pragma mark event response
@@ -199,11 +193,9 @@
 }
 
 -(void)dealloc{
-    [self removeTimer];
-}
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+   
+    ZZLog(@",,,%@",[self  class]);
+   
 }
 
 

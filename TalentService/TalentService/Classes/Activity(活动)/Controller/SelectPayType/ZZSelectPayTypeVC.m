@@ -40,7 +40,7 @@
 }
 
 - (ZZPayTypeShowView *)getPayTypeShowViewWithPayType:(ZZPayType *)payType{
-    ZZPayTypeShowView *showView = [[[NSBundle  mainBundle]loadNibNamed:@"ZZPayTypeShowView" owner:self options:nil]lastObject];
+    ZZPayTypeShowView *showView = [ZZPayTypeShowView  payTypeShowView];
     showView.payType = payType;
     showView.y= self.currentChildHeight;
     showView.height = 50;

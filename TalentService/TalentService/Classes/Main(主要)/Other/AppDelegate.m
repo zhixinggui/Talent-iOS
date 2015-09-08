@@ -26,17 +26,10 @@
      */
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
-    [self.window makeKeyAndVisible];
-
-    /**
-     *  登录
-     */
-    //[self addLoginViewController];
-    /**
-     *  进入首页界面
-     */
-    [self presentMenuViewController];
     
+    [self  swithWindowRootViewController:ZZRootViewControllerTypeLogin];
+    
+    [self.window makeKeyAndVisible];
     return YES;
 }
 /**
@@ -48,12 +41,6 @@
     loginNavi.navigationBarHidden = YES;
     self.window.rootViewController = loginNavi;
 
-//    ZZLoginVC *loginVc = [[ZZLoginVC alloc]initWithNibName:@"ZZLoginVC" bundle:nil];
-//    ZZNaviController *loginNavi = [[ZZNaviController alloc]initWithRootViewController:loginVc];
-//    loginNavi.navigationBarHidden = YES;
-
-
-
 }
 /**
  *  进入首页等界面
@@ -64,13 +51,27 @@
 }
 
 
-
-
+//切换window的跟视图控制器
+- (void)swithWindowRootViewController:(ZZRootViewControllerType )vcType{
+    switch (vcType) {
+        case ZZRootViewControllerTypeLogin:
+        {
+            [self  addLoginViewController];
+        }
+        break;
+     case ZZRootViewControllerTypeHome:
+        {
+            [self   presentMenuViewController];
+        }
+        break;
+    }
+}
+#pragma mark -内存警告
 /** 接受到内存警告，停止加载所有图片，并清除内存缓存 */
 -(void)applicationDidReceiveMemoryWarning:(UIApplication *)application{
     [ZZSdWebImageTool  receiveMemoryWarningClearImageMemory];
 }
-
+#pragma mark - 三方回调
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
 {
     return  [ZZUMTool  umSocialHandleOpenURL:url];

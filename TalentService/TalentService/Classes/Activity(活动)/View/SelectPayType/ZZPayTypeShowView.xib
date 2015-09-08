@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ZZPayTypeShowView"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="UIY-3i-AhL" customClass="ZZPayTypeShowView">
             <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
@@ -14,10 +14,10 @@
                 <button opaque="NO" contentMode="left" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vVy-er-MLr">
                     <rect key="frame" x="30" y="8" width="260" height="34"/>
                     <color key="backgroundColor" red="0.99215686270000003" green="0.52156862749999999" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
-                    <state key="normal" image="gray_choose_16x16">
+                    <state key="normal" image="notselected_20x20">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
-                    <state key="selected" image="gray_chosed_16x16"/>
+                    <state key="selected" image="selected_20x20"/>
                 </button>
                 <imageView userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fRf-Dv-tkb">
                     <rect key="frame" x="60" y="8" width="230" height="34"/>
@@ -44,7 +44,7 @@
         </view>
     </objects>
     <resources>
-        <image name="gray_choose_16x16" width="16" height="16"/>
-        <image name="gray_chosed_16x16" width="16" height="16"/>
+        <image name="notselected_20x20" width="20" height="20"/>
+        <image name="selected_20x20" width="20" height="20"/>
     </resources>
 </document>

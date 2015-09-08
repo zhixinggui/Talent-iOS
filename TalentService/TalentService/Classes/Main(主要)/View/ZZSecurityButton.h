@@ -23,4 +23,6 @@
 - (void) stop;
 
 - (void) startWithSecond:(NSUInteger)second;
+
+- (void)setCornerRadius:(CGFloat )radius borderColor:(UIColor *)color;
 @end

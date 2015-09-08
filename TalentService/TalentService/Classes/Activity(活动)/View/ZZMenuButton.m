@@ -16,8 +16,8 @@
         [self setTitleColor:ZZLightGrayColor forState:UIControlStateNormal];
         [self  setTitleColor:ZZGreenColor forState:UIControlStateSelected];
         
-        [self  setImage:[UIImage  imageNamed:@"navigationbar_arrow_down"] forState:UIControlStateNormal];
-        [self  setImage:[UIImage  imageNamed:@"navigationbar_arrow_up"] forState:UIControlStateSelected];
+        [self  setImage:[UIImage  imageNamed:@"down_20x20"] forState:UIControlStateNormal];
+        [self  setImage:[UIImage  imageNamed:@"down_selected_20x20"] forState:UIControlStateSelected];
     }
     return self;
 }

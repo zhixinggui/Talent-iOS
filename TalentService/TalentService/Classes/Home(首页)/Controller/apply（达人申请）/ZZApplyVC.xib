@@ -89,11 +89,11 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="92L-e7-eHL">
-                            <rect key="frame" x="8" y="458" width="398" height="112"/>
+                            <rect key="frame" x="8" y="516" width="398" height="112"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="112" id="RIJ-7N-V7T"/>
-                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="112" id="xQ5-Qe-vda"/>
+                                <constraint firstAttribute="height" constant="112" id="xQ5-Qe-vda"/>
                             </constraints>
                             <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="5" id="if4-uX-rKH">
                                 <size key="itemSize" width="64" height="112"/>
@@ -101,6 +101,11 @@
                                 <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                 <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                             </collectionViewFlowLayout>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="xQ5-Qe-vda"/>
+                                </mask>
+                            </variation>
                             <connections>
                                 <outlet property="dataSource" destination="-1" id="TBt-a5-0h1"/>
                                 <outlet property="delegate" destination="-1" id="HMU-xk-0cd"/>
@@ -127,6 +132,12 @@
                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OzB-E6-kC8" userLabel="提示label">
+                            <rect key="frame" x="8" y="452" width="398" height="15"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <gestureRecognizers/>
@@ -136,14 +147,18 @@
                         <constraint firstItem="f0E-aw-Z38" firstAttribute="top" secondItem="XbQ-vH-Cq0" secondAttribute="bottom" constant="8" id="4WD-2e-G2r"/>
                         <constraint firstAttribute="bottom" secondItem="92L-e7-eHL" secondAttribute="bottom" constant="20" id="4ea-ly-3PJ"/>
                         <constraint firstItem="9hQ-rX-xjv" firstAttribute="top" secondItem="t2Y-84-Ks5" secondAttribute="bottom" constant="18" id="5d0-dq-ORx"/>
+                        <constraint firstItem="92L-e7-eHL" firstAttribute="top" secondItem="OzB-E6-kC8" secondAttribute="bottom" constant="49" id="8Td-UX-Z12"/>
                         <constraint firstItem="ga0-rS-fBE" firstAttribute="top" secondItem="jER-f3-Rma" secondAttribute="bottom" constant="16" id="AjD-rK-cJM"/>
                         <constraint firstItem="r10-VF-fAE" firstAttribute="width" secondItem="f0E-aw-Z38" secondAttribute="width" id="BjC-sG-Dcv"/>
                         <constraint firstItem="r10-VF-fAE" firstAttribute="width" secondItem="92L-e7-eHL" secondAttribute="width" id="E3T-dd-LSv"/>
                         <constraint firstItem="XbQ-vH-Cq0" firstAttribute="top" secondItem="r10-VF-fAE" secondAttribute="bottom" constant="8" id="EcE-qN-3uL"/>
+                        <constraint firstItem="OzB-E6-kC8" firstAttribute="leading" secondItem="JXg-J7-TbZ" secondAttribute="leading" constant="8" id="EfY-lE-vOE"/>
                         <constraint firstItem="iyn-Le-ecI" firstAttribute="height" secondItem="r10-VF-fAE" secondAttribute="height" id="FR8-Jk-ipN"/>
                         <constraint firstItem="iyn-Le-ecI" firstAttribute="leading" secondItem="JXg-J7-TbZ" secondAttribute="leading" constant="8" id="FaA-6r-NKi"/>
                         <constraint firstAttribute="centerX" secondItem="XbQ-vH-Cq0" secondAttribute="centerX" id="Gue-eZ-Bd8"/>
+                        <constraint firstItem="OzB-E6-kC8" firstAttribute="top" secondItem="9hQ-rX-xjv" secondAttribute="bottom" constant="2" id="HCu-nC-oHM"/>
                         <constraint firstItem="r10-VF-fAE" firstAttribute="width" secondItem="ga0-rS-fBE" secondAttribute="width" id="Hjs-Ts-Kr1"/>
+                        <constraint firstAttribute="trailing" secondItem="OzB-E6-kC8" secondAttribute="trailing" constant="8" id="I35-Ea-mY7"/>
                         <constraint firstItem="t2Y-84-Ks5" firstAttribute="top" secondItem="ga0-rS-fBE" secondAttribute="bottom" constant="18" id="JGO-PN-EUL"/>
                         <constraint firstAttribute="centerX" secondItem="r10-VF-fAE" secondAttribute="centerX" id="LqS-NL-j3N"/>
                         <constraint firstItem="Sco-of-jRy" firstAttribute="bottom" secondItem="6qd-uD-io0" secondAttribute="bottom" id="LyR-kS-N81"/>
@@ -178,6 +193,7 @@
                             <exclude reference="LyR-kS-N81"/>
                             <exclude reference="wDa-hQ-RIL"/>
                             <exclude reference="h2t-za-8Eu"/>
+                            <exclude reference="W1j-1y-QMT"/>
                         </mask>
                     </variation>
                     <connections>

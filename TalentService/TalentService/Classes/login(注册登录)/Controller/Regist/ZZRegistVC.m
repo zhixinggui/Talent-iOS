@@ -10,10 +10,12 @@
 #import "ZZTextField.h"
 #import "ZZNextRegistVC.h"
 #import "ZZLayerButton.h"
+#import "ZZSecurityButton.h"
 @interface ZZRegistVC ()
 @property (strong, nonatomic) IBOutlet ZZTextField *phoneTF;
 @property (strong, nonatomic) IBOutlet ZZTextField *messageTF;
 @property (strong, nonatomic) IBOutlet ZZLayerButton *nextButton;
+@property (weak, nonatomic) IBOutlet ZZSecurityButton *securityButton;
 
 @end
 
@@ -22,28 +24,33 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setTitle:@"注册"];
-    [self.phoneTF addLeftViewImageString:@"T2"];
-    [self.messageTF addLeftViewImageString:@"T2"];
+    //调整xib中的控件属性
+    [self  setUppropertys];
+  
+}
+- (void)setUppropertys{
+    [self.phoneTF addLeftViewImageString:@"phone_30x30"];
+    [self.messageTF addLeftViewImageString:@"key_30x30"];
     
     /**
      *  设置button颜色
      */
     self.nextButton.backgroundColor = LoginButtonColor;
+    [ self.securityButton  setCornerRadius:10 borderColor:ZZNatiBarColor];
+    [self.securityButton  setTitleColor:[UIColor  whiteColor] forState:UIControlStateNormal];
 }
 - (IBAction)gotoNextRegist:(UIButton *)sender {
     ZZNextRegistVC *nextRegistVc = [[ZZNextRegistVC alloc]initWithNibName:@"ZZNextRegistVC" bundle:nil];
     [self.navigationController pushViewController:nextRegistVc animated:YES];
 }
-
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (IBAction)securityButtonAction:(ZZSecurityButton *)sender {
+     [sender  startWithSecond:ZZSecerityTime];
+    
 }
-*/
+
+
+-(void)dealloc{
+    [self.securityButton clearButton];
+}
 
 @end

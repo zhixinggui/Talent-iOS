@@ -7,6 +7,8 @@
 //
 
 #import "UIViewController+Extension.h"
+#import "AppDelegate.h"
+#import "ZZLoginVC.h"
 #define mengID (954281556)
 @implementation UIViewController (Extension)
 #pragma mark - Settings
@@ -71,7 +73,9 @@
         }
     }
 }
-
+- (id)initWithNib {
+    return [self initWithNibName:NSStringFromClass([self class]) bundle:nil];
+}
 -(void)jumpToAppStoreWithAppID:(long)appID{
     
     if(appID <= 0){
@@ -79,5 +83,15 @@
     }
     NSString *string = [NSString stringWithFormat:@"itms-apps://itunes.apple.com/us/app/id%@?mt=8",@(appID)];
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:string]];
+}
+
+- (void)swithWindowRootControllerToLogin{
+    AppDelegate *app = [UIApplication  sharedApplication].delegate;
+    [app  swithWindowRootViewController:ZZRootViewControllerTypeLogin];
+}
+
+- (void)swithWindowRootControllerToHome{
+    AppDelegate *app = [UIApplication  sharedApplication].delegate;
+    [app  swithWindowRootViewController:ZZRootViewControllerTypeHome];
 }
 @end

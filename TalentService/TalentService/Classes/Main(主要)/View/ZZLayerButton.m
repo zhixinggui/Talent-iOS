@@ -13,7 +13,7 @@
 
 -(void)awakeFromNib{
     self.exclusiveTouch = YES;
-    self.layer.cornerRadius = self.height/2;
+    self.layer.cornerRadius = 12;
     self.layer.masksToBounds = YES;
     self.layer.borderWidth = 1;
     if (self.height == 24) {

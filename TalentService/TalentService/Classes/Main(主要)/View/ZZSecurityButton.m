@@ -74,6 +74,16 @@
      self.timer = nil;
 }
 
+#pragma 
+- (void)setCornerRadius:(CGFloat )radius borderColor:(UIColor *)color{
+    self.exclusiveTouch = YES;
+    self.layer.cornerRadius = radius;
+    self.layer.masksToBounds = YES;
+    self.backgroundColor = color;
+//    self.layer.borderWidth = 1;
+//        self.layer.borderColor = color.CGColor;
+    
+}
 - (void) stop{
     self.changeSecond = 0;
 }

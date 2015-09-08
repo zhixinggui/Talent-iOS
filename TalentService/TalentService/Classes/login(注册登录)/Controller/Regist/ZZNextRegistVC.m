@@ -9,7 +9,9 @@
 #import "ZZNextRegistVC.h"
 #import "ZZTextField.h"
 #import "ZZLayerButton.h"
-@interface ZZNextRegistVC ()
+#import "ZZCityTool.h"
+#import "ZZCitySelector.h"
+@interface ZZNextRegistVC ()<UITextFieldDelegate>
 @property (strong, nonatomic) IBOutlet ZZTextField *nameTF;
 @property (strong, nonatomic) IBOutlet ZZTextField *cityTF;
 @property (strong, nonatomic) IBOutlet ZZTextField *secrectTF;
@@ -23,17 +25,33 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"注册";
-    [self.nameTF addLeftViewImageString:@"T2"];
-    [self.cityTF addLeftViewImageString:@"T2"];
-    [self.secrectTF addLeftViewImageString:@"T2"];
-    [self.againSecrectTF addLeftViewImageString:@"T2"];
+  
+    //调整xib中的控件属性
+    [self  setUppropertys];
+}
+
+- (void)setUppropertys{
+    [self.nameTF addLeftViewImageString:@"user_30x30"];
+    [self.cityTF addLeftViewImageString:@"city_30x30"];
+    [self.secrectTF addLeftViewImageString:@"key_30x30"];
+    [self.againSecrectTF addLeftViewImageString:@"key_30x30"];
     
     /**
      *  设置button颜色
      */
     self.finishButton.backgroundColor = LoginButtonColor;
 }
+- (IBAction)sureButtonAction:(UIButton *)sender {
+    [self.navigationController  popToRootViewControllerAnimated:YES];
+}
 
-
-
+#pragma mark -UITextFieldDelegate
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
+    if (textField == self.cityTF) {
+        [[ZZCitySelector  citySelectorWithProvinceArray:[ZZCityTool  sharedZZCityTool].provinceGroups delegate:self] showAnimation];
+        return NO;
+    }else{
+        return YES;
+    }
+}
 @end

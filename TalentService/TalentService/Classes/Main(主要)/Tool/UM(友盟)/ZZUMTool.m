@@ -119,14 +119,14 @@ static ZZUMTool *umTool;
     if ([TencentOAuth iphoneQQSupportSSOLogin]) {//是否安装有QQ客户端
         [UMSocialQQHandler setQQWithAppId:QQAppId appKey:QQAppKey url:nil];
         //创建qq登陆模型
-        ZZUMLoginModel *qqLoginModel = [[ZZUMLoginModel alloc]initWithImageName:@"QQ_50x50" shareType:UMShareToQQ loginType:ZZUMLoginTypeQQ name:@"QQ"];
+        ZZUMLoginModel *qqLoginModel = [[ZZUMLoginModel alloc]initWithImageName:@"QQ_60x60" shareType:UMShareToQQ loginType:ZZUMLoginTypeQQ name:@"QQ"];
         [self.loginModels addObject:qqLoginModel];
         //qq分享模型
-        ZZUMLoginModel *qqshareModel = [[ZZUMLoginModel alloc]initWithImageName:@"QQ_50x50" shareType:UMShareToQQ loginType:ZZUMLoginTypeQQ name:@"QQ"];
+        ZZUMLoginModel *qqshareModel = [[ZZUMLoginModel alloc]initWithImageName:@"QQ_share_60x60" shareType:UMShareToQQ loginType:ZZUMLoginTypeQQ name:@"QQ"];
         [self.shareModels addObject:qqshareModel];
         [self.shareTypes addObject:UMShareToQQ];
         //qq空间分享模型
-       ZZUMLoginModel *zoneShareModel = [[ZZUMLoginModel alloc]initWithImageName:@"QQ_50x50" shareType:UMShareToQzone loginType:ZZUMLoginTypeQQZone name:@"QQ空间"];
+       ZZUMLoginModel *zoneShareModel = [[ZZUMLoginModel alloc]initWithImageName:@"Qzong_share_60x60" shareType:UMShareToQzone loginType:ZZUMLoginTypeQQZone name:@"QQ空间"];
         [self.shareModels  addObject:zoneShareModel];
         [self.shareTypes addObject:UMShareToQzone];
         self.supportQQ = YES;
@@ -138,14 +138,14 @@ static ZZUMTool *umTool;
         
        
         //创建微信登陆模型
-        ZZUMLoginModel *wxLoginModel = [[ZZUMLoginModel alloc]initWithImageName:@"Wechat_50x50" shareType:UMShareToWechatSession loginType:ZZUMLoginTypeWeChatFriend name:@"微信"];
+        ZZUMLoginModel *wxLoginModel = [[ZZUMLoginModel alloc]initWithImageName:@"wechat_60x60" shareType:UMShareToWechatSession loginType:ZZUMLoginTypeWeChatFriend name:@"微信"];
         [self.loginModels addObject:wxLoginModel];
         //创建微信好友分享模型
-        ZZUMLoginModel *friendShareModel = [[ZZUMLoginModel alloc]initWithImageName:@"Wechat_50x50" shareType:UMShareToWechatSession loginType:ZZUMLoginTypeWeChatFriend name:@"微信好友"];
+        ZZUMLoginModel *friendShareModel = [[ZZUMLoginModel alloc]initWithImageName:@"wechat_share_60x60" shareType:UMShareToWechatSession loginType:ZZUMLoginTypeWeChatFriend name:@"微信好友"];
         [self.shareModels addObject:friendShareModel];
         [self.shareTypes addObject:UMShareToWechatSession];
         //创建微信朋友圈分享模型
-        ZZUMLoginModel *friendsShareModel = [[ZZUMLoginModel alloc]initWithImageName:@"Wechat_50x50" shareType:UMShareToWechatTimeline loginType:ZZUMLoginTypeWeChatFriends name:@"朋友圈"];
+        ZZUMLoginModel *friendsShareModel = [[ZZUMLoginModel alloc]initWithImageName:@"wechatfriends_share_60x60" shareType:UMShareToWechatTimeline loginType:ZZUMLoginTypeWeChatFriends name:@"朋友圈"];
         [self.shareModels addObject:friendsShareModel];
          [self.shareTypes addObject:UMShareToWechatTimeline];
         self.supportWX = YES;
@@ -155,10 +155,10 @@ static ZZUMTool *umTool;
     [UMSocialSinaSSOHandler  openNewSinaSSOWithRedirectURL:SinaUrl];
     
     //创建新浪登陆模型
-    ZZUMLoginModel *sinaLoginModel = [[ZZUMLoginModel alloc]initWithImageName:@"weibo_50x50" shareType:UMShareToSina loginType:ZZUMLoginTypeSina name:@"新浪"];
+    ZZUMLoginModel *sinaLoginModel = [[ZZUMLoginModel alloc]initWithImageName:@"weibo_60x60" shareType:UMShareToSina loginType:ZZUMLoginTypeSina name:@"新浪"];
     [self.loginModels addObject:sinaLoginModel];
     //创建新浪分享模型
-    ZZUMLoginModel *sinaShareModel = [[ZZUMLoginModel alloc]initWithImageName:@"weibo_50x50" shareType:UMShareToSina loginType:ZZUMLoginTypeSina name:@"新浪"];
+    ZZUMLoginModel *sinaShareModel = [[ZZUMLoginModel alloc]initWithImageName:@"weibo_share_60x60" shareType:UMShareToSina loginType:ZZUMLoginTypeSina name:@"新浪"];
     [self.shareModels addObject:sinaShareModel];
     [self.shareTypes addObject:UMShareToSina];
     self.supportSina = YES;
