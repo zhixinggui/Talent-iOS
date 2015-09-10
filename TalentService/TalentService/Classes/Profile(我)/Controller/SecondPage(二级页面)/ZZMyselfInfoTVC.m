@@ -9,15 +9,10 @@
 #import "ZZMyselfInfoTVC.h"
 #import "ZZMyselfCell.h"
 #import "ZZMyselfCellModel.h"
-#import "UUPhotoActionSheet.h"
-#import "UUPhotoBrowserViewController.h"
-#import "ZZModifyVC.h"
-@interface ZZMyselfInfoTVC ()<UUPhotoActionSheetDelegate,UUPhotoBrowserDelegate>
+@interface ZZMyselfInfoTVC ()
 @property (weak, nonatomic) IBOutlet UIButton *changeInfoBT;
 @property(nonatomic ,strong)NSArray *cellNameArray;
 @property(nonatomic ,strong)ZZMyselfCellModel *myselfCellModel;
-/** 选择图片*/
-@property (nonatomic, strong) UUPhotoActionSheet *sheet;
 @end
 
 @implementation ZZMyselfInfoTVC
@@ -85,48 +80,55 @@
     return cell;
 }
 
+/*
+// Override to support conditional editing of the table view.
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Return NO if you do not want the specified item to be editable.
+    return YES;
+}
+*/
+
+/*
+// Override to support editing the table view.
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        // Delete the row from the data source
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
+        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+    }   
+}
+*/
+
+/*
+// Override to support rearranging the table view.
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
+}
+*/
+
+/*
+// Override to support conditional rearranging of the table view.
+- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Return NO if you do not want the item to be re-orderable.
+    return YES;
+}
+*/
+
+/*
 #pragma mark - Table view delegate
 
 // In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    switch (indexPath.row) {
-        case 0:
-        {
-            self.sheet.maxSelected = 1;
-            [self.sheet showAnimation];
-            
-        }
-            break;
-            
-        case 1:
-        {
-            ZZModifyVC *modifyVc = [[ZZModifyVC alloc]initWithNib];
-            [self.navigationController pushViewController:modifyVc animated:YES];
-        }
-            break;
-            
-        case 2:
-        {
-            
-        }
-            break;
-            
-        case 3:
-        {
-            
-        }
-            break;
-            
-        case 4:
-        {
-            
-        }
-            break;
-    }
+    // Navigation logic may go here, for example:
+    // Create the next view controller.
+    <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:<#@"Nib name"#> bundle:nil];
     
+    // Pass the selected object to the new view controller.
     
+    // Push the view controller.
+    [self.navigationController pushViewController:detailViewController animated:YES];
 }
-
+*/
 
 /*
 #pragma mark - Navigation
@@ -143,17 +145,6 @@
 }
 
 #pragma mark -Setters and Getters
-
--(UUPhotoActionSheet *)sheet{
-    if (_sheet == nil) {
-        _sheet = [[UUPhotoActionSheet alloc] initWithWeakSuper:self];
-        _sheet.delegate = self;
-        _sheet.head = YES;
-    }
-    return _sheet;
-}
-
-
 -(NSArray *)cellNameArray{
     if (!_cellNameArray) {
         _cellNameArray = @[@"头像",@"昵称",@"手机号码",@"联系地址",@"性别"];

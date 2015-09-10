@@ -10,7 +10,6 @@
 #import "ZZMoreCell.h"
 #import "ZZMoreName.h"
 #import "UIImageView+WebCache.h"
-#import "ZZFeedbackVC.h"
 @interface ZZMoreVC ()<UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *moreTableView;
 @property (strong, nonatomic) IBOutlet UIButton *cacheButton;
@@ -51,19 +50,6 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    switch (indexPath.row) {
-        case 0:
-        {
-            ZZFeedbackVC *feedbackVc = [[ZZFeedbackVC alloc]initWithNib];
-            [self.navigationController pushViewController:feedbackVc animated:YES];
-        }
-            break;
-            
-        default:
-            break;
-    }
-    
     
 }
 - (IBAction)cacheActionButton:(UIButton *)sender {

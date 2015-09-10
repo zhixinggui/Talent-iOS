@@ -180,7 +180,7 @@
                 <outlet property="timeLabel" destination="ASU-iN-IcW" id="eG3-MK-TAd"/>
                 <outlet property="titleLabel" destination="fXe-9l-JYT" id="4an-YX-xlK"/>
             </connections>
-            <point key="canvasLocation" x="205" y="72"/>
+            <point key="canvasLocation" x="186" y="35"/>
         </tableViewCell>
     </objects>
     <resources>
