@@ -7,9 +7,7 @@
 //
 
 #import "ZZCityTool.h"
-#import "ZZProvince.h"
-#import "ZZCity.h"
-#import "ZZCounty.h"
+
 #import "MJExtension.h"
 @interface ZZCityTool ()
 @property (strong, nonatomic) NSArray *provinceGroups;
@@ -28,5 +26,44 @@ singleton_implementation(ZZCityTool);
         _provinceGroups = [ZZProvince  objectArrayWithKeyValuesArray:JsonObject];
     }
     return _provinceGroups;
+}
+
+- (ZZCounty *)getCountyWithCountyId:(NSUInteger )countyId{
+    ZZCounty *backCounty = nil;
+    for (ZZProvince *province in self.provinceGroups) {
+        for (ZZCity  * city in province.cities) {
+            for (ZZCounty *county in city.counties) {
+                if (county.countyId == countyId) {
+                    backCounty = county;
+                    break;
+                }
+            }
+        }
+    }
+    return backCounty;
+}
+
+- (ZZCity *)getCityWithCityId:(NSUInteger )cityId{
+    ZZCity *backCity = nil;
+    for (ZZProvince *province in self.provinceGroups) {
+        for (ZZCity  * city in province.cities) {
+                if (city.cityId == cityId) {
+                    backCity = city;
+                    break;
+                }
+        }
+    }
+    return backCity;
+}
+
+- (ZZProvince *)getProvinceWithProvinceId:(NSUInteger )provinceId{
+    ZZProvince *backProvince = nil;
+    for (ZZProvince *province in self.provinceGroups) {
+            if (province.provinceId == provinceId) {
+                backProvince = province;
+                break;
+            }
+    }
+    return backProvince;
 }
 @end

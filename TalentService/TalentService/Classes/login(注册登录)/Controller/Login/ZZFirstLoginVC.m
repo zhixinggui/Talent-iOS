@@ -14,6 +14,8 @@
 #import "ZZUMTool.h"
 #import "ZZHttpTool.h"
 #import "ZZCityTool.h"
+#import "ZZLoadHttpTool.h"
+#import "ZZLoginUserTool.h"
 #define  ButtonHeight   360
 @interface ZZFirstLoginVC ()
 @property (strong, nonatomic) IBOutlet ZZTextField *phoneNumTF;
@@ -50,22 +52,24 @@
 }
 //创建三方登陆
 - (void)setUpThirdLogin{
-    NSArray*  array = [ZZUMTool  sharedUMTool].loginModels;
-    CGFloat   benWidth = 90;
-    CGFloat  left = (ScreenWidth - array.count*benWidth)/2+20;
-    
-    for (int  i = 0; i<array.count; i++) {
-        ZZUMLoginModel *loginModel = array[i];
-        UIButton* loginButton = [[UIButton alloc]initWithFrame:CGRectMake(i*benWidth+left, ButtonHeight, 60, 60)];
-        loginButton.exclusiveTouch = YES;
-        [loginButton setBackgroundImage:[UIImage imageNamed:loginModel.imageName] forState:UIControlStateNormal];
-        [loginButton  addTarget:self action:@selector(thirdLoginButtonAction:) forControlEvents: UIControlEventTouchUpInside];
-        loginButton.tag = i;
-        
-        [self.view addSubview:loginButton];
-        
-        
-    }
+ 
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSArray*  array = [ZZUMTool  sharedUMTool].loginModels;
+        CGFloat   benWidth = 90;
+        CGFloat  left = (ScreenWidth - array.count*benWidth)/2+20;
+            dispatch_async(dispatch_get_main_queue(), ^{
+                for (int  i = 0; i<array.count; i++) {
+                    ZZUMLoginModel *loginModel = array[i];
+                    UIButton* loginButton = [[UIButton alloc]initWithFrame:CGRectMake(i*benWidth+left, ButtonHeight, 60, 60)];
+                    loginButton.exclusiveTouch = YES;
+                    [loginButton setBackgroundImage:[UIImage imageNamed:loginModel.imageName] forState:UIControlStateNormal];
+                    [loginButton  addTarget:self action:@selector(thirdLoginButtonAction:) forControlEvents: UIControlEventTouchUpInside];
+                    loginButton.tag = i;
+                    
+                    [self.view addSubview:loginButton];
+                }
+            });
+    });
 }
 /**
  *  navigation右button
@@ -79,23 +83,33 @@
 #pragma mark - 响应事件
 
 - (IBAction)loginButtonAction:(UIButton *)sender {
-
-  
-    ZZLog(@",,%@,,,,,,",[ZZCityTool  sharedZZCityTool].provinceGroups);
-//        NSData *jdata = [[NSData alloc]initWithContentsOfFile:[[NSBundle  mainBundle]pathForResource:@"address.json" ofType:nil]];
-//    NSError *error;
-//    id JsonObject=[NSJSONSerialization JSONObjectWithData:jdata
-//                                                  options:NSJSONReadingAllowFragments
-//                                                    error:&error] ; //nslog (@"%@",jsonobject);打印json字典
-//    NSLog(@"%@",JsonObject);
+    if ([self.phoneNumTF.text  isCorrectPhoneNumber] == NO) {
+        [self.phoneNumTF  shakeAnimation];
+        return;
+    }
+    if ([self.secrectTF.text  isPassWordWithMin:ZZMiMaMinLenth max:ZZMiMaMaxLenth]== NO) {
+        [self.secrectTF shakeAnimation];
+        return;
+    }
     
-//    NSDictionary *params = @{@"cmd":@"smart/register",@"parameters":@{@"loginAccount":@"15901718791"}};
-//[ZZHttpTool  afPostByApiName:@"" Params:params success:^(id json) {
-//    
-//} failure:^(NSError *error) {
-//    
-//}];
-
+    ZZLoginParam *param = [[ZZLoginParam alloc]init];
+    param.loginAccount = self.phoneNumTF.text;
+    param.loginPassword = self.secrectTF.text;
+    param.thirdType = @(ZZLoginTypeSmart);
+    [MBProgressHUD  showMessage:@"登录中..."];
+    
+    [ZZLoadHttpTool  loadLogin:param success:^(ZZLoginUser * loginUser, ZZNetDataType dataType) {
+        
+        [[ZZLoginUserTool  sharedZZLoginUserTool] save:loginUser];
+        [MBProgressHUD hideHUD];
+        [MBProgressHUD  showSuccess:@"登录成功"];
+         [self  swithWindowRootControllerToHome];
+    } failure:^(NSString *error, ZZNetDataType dataType) {
+        
+        [MBProgressHUD hideHUD];
+        [MBProgressHUD  showError:error];
+    }];
+    
 }
 
 
@@ -107,19 +121,41 @@
 
 - (void)thirdLoginButtonAction:(UIButton *)btn{
     
-//   [ [ZZUMTool  sharedUMTool]umThirdLoginWithController:self andUmloginModel:[ZZUMTool  sharedUMTool].loginModels[btn.tag] andBack:^(id obj) {
-//        
-//    }];
+    ZZUMLoginModel *loginModel = [ZZUMTool  sharedUMTool].loginModels[btn.tag];
+  
+   [ [ZZUMTool  sharedUMTool]umThirdLoginWithController:self andUmloginModel:loginModel andSuccBack:^(NSString *usid, NSString *nick ,ZZLoginType loginType) {
+       
+       [MBProgressHUD showSuccess:@"授权成功"];
+       ZZLoginParam *param = [[ZZLoginParam  alloc]init];
+       param.thirdType = @(loginType);
+       param.openId = usid;
+       param.userNike = nick;
+        [MBProgressHUD  showMessage:@"登录中..."];
+       
+       [ZZLoadHttpTool loadLogin:param success:^(ZZLoginUser * loginUser, ZZNetDataType dataType) {
+           
+           [[ZZLoginUserTool  sharedZZLoginUserTool] save:loginUser];
+            [MBProgressHUD hideHUD];
+           [MBProgressHUD  showSuccess:@"登陆成功"];
+           [self  swithWindowRootControllerToHome];
+       } failure:^(NSString *error, ZZNetDataType dataType) {
+           
+            [MBProgressHUD hideHUD];
+           [MBProgressHUD showError:error];
+       }];
+   } andFailBack:^(NSString *reason) {
+       
+        [MBProgressHUD showError:reason];
+   
+    }];
     
    
-    ZZThirdVC *thirdVc = [[ZZThirdVC alloc]initWithNibName:@"ZZThirdVC" bundle:nil];
-    [self.navigationController pushViewController:thirdVc animated:YES];
 }
 
 /**
  *  跳转忘记密码界面
  */
-- (void)didClickOnTestSelect:(id)sender {
+- (void)didClickOnTestSelect:(UIButton *)sender {
     ZZLog(@"忘记密码");
     ZZForgetVC *forgetVc = [[ZZForgetVC alloc]initWithNibName:@"ZZForgetVC" bundle:nil];
     [self.navigationController pushViewController:forgetVc animated:YES];

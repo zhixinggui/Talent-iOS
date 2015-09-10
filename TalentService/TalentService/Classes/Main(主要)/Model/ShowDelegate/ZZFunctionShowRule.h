@@ -12,9 +12,15 @@
 
 - (NSString *)name;
 
-- (NSString *)imageName;
+- (NSString *)showImageName;
 
 @end
+@protocol ZZActivityClassSelectorShowDele <NSObject>
+
+- (NSString *)showInfo;
+
+@end
+
 @interface ZZFunctionShowRule : NSObject
 
 @end

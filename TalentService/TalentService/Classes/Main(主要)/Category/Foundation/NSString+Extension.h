@@ -85,7 +85,7 @@
  *
  *  @return yes是
  */
-- (BOOL)isPhoneNumber;
+- (BOOL)isCorrectPhoneNumber;
 
 /**
  *  是否是验证码

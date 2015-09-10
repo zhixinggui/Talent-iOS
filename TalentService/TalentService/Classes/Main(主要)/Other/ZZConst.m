@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-NSString * const baseUrl = @"http://192.168.100.150:8081/wine-rest/cgi";
+NSString * const baseUrl = @"http://192.168.100.145:8081/wine-rest/cgi";
 NSTimeInterval const responseTime = 60;
 CGFloat  const  ZZLineSpace = 4;//行间距
 CGFloat  const  ZZCharSpace = 1;//字间距
@@ -16,3 +16,7 @@ CGFloat  const  ZZParagraphSpace = 3;//段间距
 CGFloat  const  ZZEdgeMargin = 8;//边间距
 NSUInteger  const  ZZSecerityTime = 60 ;//验证码时常
 NSTimeInterval const animationTime = 0.25;
+NSUInteger  const  ZZMiMaMinLenth = 6 ;//密码最少位数
+NSUInteger  const  ZZMiMaMaxLenth  = 16;//密码最多位数
+NSUInteger  const  ZZNickMaxLenth  = 14;//昵称最多位数
+CGFloat  const DelayTime = 0.1;

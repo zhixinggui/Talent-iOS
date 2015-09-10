@@ -9,8 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "ZZUMLoginModel.h"
 /** 友盟回调block */
-typedef void (^UMToolCallBack)(id obj);
-
+typedef void (^UMToolSuccCallBack)(NSString *usid ,NSString *nick, ZZLoginType loginType);
+typedef void (^UMToolFailCallBack)(NSString *reason);
 typedef enum {
     ZZSViewControllerTypeLoginAccount,//登陆
     ZZSViewControllerTypeLoginShare//分享
@@ -54,7 +54,7 @@ typedef enum {
  *  @param loginModel <#loginModel description#>
  *  @param umToolBack <#umToolBack description#>
  */
-- (void)umThirdLoginWithController:(UIViewController*)controller andUmloginModel:(ZZUMLoginModel *)loginModel andBack:(UMToolCallBack)umToolBack;
+- (void)umThirdLoginWithController:(UIViewController*)controller andUmloginModel:(ZZUMLoginModel *)loginModel andSuccBack:(UMToolSuccCallBack)umToolSuccBack andFailBack:(UMToolFailCallBack)umToolFailBack;
 
 //分享方法
 - (void)umShareWithTitle:(NSString *)title  content:(NSString *)content url:(NSString *)url imageUrl:(NSString *)imageUrl locialImageName:(NSString *)imageName  controller:(UIViewController *)controller  loginModel:(ZZUMLoginModel *)loginModel;

@@ -17,7 +17,7 @@
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                     <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
-                    <state key="normal" title="热门推荐" image="T">
+                    <state key="normal" title="热门推荐" image="hot_30x30">
                         <color key="titleColor" red="0.99215686270000003" green="0.52156862749999999" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -39,6 +39,6 @@
         </view>
     </objects>
     <resources>
-        <image name="T" width="20" height="20"/>
+        <image name="hot_30x30" width="30" height="30"/>
     </resources>
 </document>

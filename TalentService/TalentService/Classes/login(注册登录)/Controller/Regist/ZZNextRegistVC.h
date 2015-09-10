@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface ZZNextRegistVC : UIViewController
-
+@property (nonatomic, copy)NSString *phone;
 @end

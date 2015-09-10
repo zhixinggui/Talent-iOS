@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ZZFunctionShowRule.h"
 @class ZZDetailFunctionView;
 @protocol ZZDetailFunctionViewDelegate <NSObject>
 /** 分享数组选中了数组中的那个元素 */
@@ -25,6 +26,9 @@
 @property (nonatomic, strong)NSArray  * functions;
 
 @property (nonatomic, weak) id<ZZDetailFunctionViewDelegate>  delegate;
+
+- (void)reloadRowIn:(NSArray *)array  object:(id<ZZFunctionShowRuleDelegate>) object;
+
 /** 显示动画 */
 - (void)showAnimation;
 

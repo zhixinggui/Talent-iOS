@@ -24,7 +24,7 @@
 -(void)setShowRule:(id<ZZFunctionShowRuleDelegate>)showRule{
     _showRule = showRule;
     self.nameLabel.text = [showRule  name];
-    self.iconIV.image = [UIImage  imageNamed:[showRule  imageName]];
+    self.iconIV.image = [UIImage  imageNamed:[showRule  showImageName]];
 }
 
 

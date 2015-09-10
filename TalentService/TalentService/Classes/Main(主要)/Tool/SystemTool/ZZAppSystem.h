@@ -53,6 +53,13 @@ extern const BOOL IS_SCREEN_35_INCH;
 + (NSString *)appIdentifier;
 
 /**
+ *  设备UDID
+ *
+ *  @return <#return value description#>
+ */
++ (NSString *)appUDID;
+
+/**
  *  通过url打开用应用
  *
  *  @return
@@ -66,6 +73,13 @@ extern const BOOL IS_SCREEN_35_INCH;
  *  @return e.g. @"iPhone", @"iPod touch"
  */
 + (NSString *)deviceModel;
+
+/**
+ *  设备型号 如 iPhone 7,1
+ *
+ *  @return <#return value description#>
+ */
++ (NSString *)appPlatform;
 
 /**
  *  当前设备名称

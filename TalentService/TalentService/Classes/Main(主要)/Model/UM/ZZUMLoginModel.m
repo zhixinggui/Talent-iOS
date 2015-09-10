@@ -23,4 +23,8 @@
     return self;
 }
 
+-(NSString *)showImageName{
+    return self.imageName;
+}
+
 @end

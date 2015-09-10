@@ -264,4 +264,8 @@ static NSUInteger const vRepeatCount = 3;
     // 添加上动画
     [viewLayer addAnimation:animation forKey:nil];
 }
+
+- (void)shakeAnimation{
+    [self  shakeAnimation:vOffsetX duration:vDuration repeatCount:vRepeatCount];
+}
 @end

@@ -1,0 +1,13 @@
+//
+//  ZZParam.m
+//  TalentService
+//
+//  Created by zhizhen on 15/9/9.
+//  Copyright (c) 2015年 zhizhen. All rights reserved.
+//
+
+#import "ZZParam.h"
+
+@implementation ZZParam
+
+@end

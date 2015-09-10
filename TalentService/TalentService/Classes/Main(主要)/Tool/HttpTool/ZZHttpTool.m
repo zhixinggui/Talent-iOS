@@ -59,7 +59,7 @@ static AFHTTPRequestOperationManager  *_manager;
                 success(jsonData);
             }
         }else {
-            failure(error);
+         //   failure(error);
         }
         
     }];
@@ -102,7 +102,7 @@ static AFHTTPRequestOperationManager  *_manager;
                     success(jsonData);
                 }
             }else {
-                failure(error);
+              //  failure(error);
             }
         }];
         //开始请求
@@ -122,17 +122,23 @@ static AFHTTPRequestOperationManager  *_manager;
  *  @param failure 失败block回调
  */
 + (void)afGetByApiName:(NSString *)apiName
-                Params:(NSDictionary *)params
-               success:(SuccessBlock)success
-               failure:(ErrorBlock)failure{
+                Params:(ZZParam *)param
+               success:(SuccessBlock)Success
+               failure:(ErrorBlock)Failure{
     
-    [_manager GET:apiName parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [_manager GET:apiName parameters:[param  keyValues] success:^(AFHTTPRequestOperation *operation, id responseObject) {
         //QQLog(@"JSON: %@", responseObject);
-        success(responseObject);
+      [self  managerOriginJsonData:responseObject serverSuccess:^(id json) {
+          
+          Success(json);
+      } serverFail:^(NSString *error, ZZNetDataType dataType) {
+          
+          Failure (error,dataType);
+      }];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         //QQLog(@"Error: %@", error);
-        failure(error);
+        Failure(NetFailTipStr,ZZNetDataTypeFailLocal);
     }];
     
 }
@@ -145,16 +151,26 @@ static AFHTTPRequestOperationManager  *_manager;
  *  @param failure 失败block回调
  */
 +(void)afPostByApiName:(NSString *)apiName
-                Params:(NSDictionary *)params
-               success:(SuccessBlock)success
-               failure:(ErrorBlock)failure{
+                Params:(ZZParam *)param
+               success:(SuccessBlock)Success
+               failure:(ErrorBlock)Failure{
     
-    [_manager POST:apiName parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [_manager POST:apiName parameters:[param  keyValues] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSLog(@"JSON: %@", responseObject);
         ZZLog(@"JSON: %@", responseObject);
-        success(responseObject);
+        
+        [self  managerOriginJsonData:responseObject serverSuccess:^(id json) {
+            
+            Success(json);
+        } serverFail:^(NSString *error, ZZNetDataType dataType) {
+            
+            Failure (error,dataType);
+        }];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
         ZZLog(@"Error: %@", error);
-        failure(error);
+        Failure(NetFailTipStr,ZZNetDataTypeFailLocal);
     }];
     
 }
@@ -168,20 +184,28 @@ static AFHTTPRequestOperationManager  *_manager;
  *  @param failure -
  */
 +(void)afPostImageByApiName:(NSString *)apiName
-                     Params:(NSDictionary *)params
+                     Params:(ZZParam *)param
                 ImagesArray:(NSArray *)fileParams
-                    success:(SuccessBlock)success
-                    failure:(ErrorBlock)failure{
+                    success:(SuccessBlock)Success
+                    failure:(ErrorBlock)Failure{
     
-    [_manager POST:apiName parameters:params constructingBodyWithBlock:^(id formData) {
+    [_manager POST:apiName parameters:[param  keyValues] constructingBodyWithBlock:^(id formData) {
         for (ZZFileParam *fileParam in fileParams) {
             
             [formData  appendPartWithFileData:fileParam.data name:fileParam.name fileName:fileParam.fileName mimeType:fileParam.mimeType];
         }
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        success(responseObject);
+       
+        
+        [self  managerOriginJsonData:responseObject serverSuccess:^(id json) {
+            
+            Success(json);
+        } serverFail:^(NSString *error, ZZNetDataType dataType) {
+            
+            Failure (error,dataType);
+        }];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        failure(error);
+         Failure(NetFailTipStr,ZZNetDataTypeFailLocal);
     }];
 }
 /**
@@ -210,4 +234,53 @@ static AFHTTPRequestOperationManager  *_manager;
 //    }];
 }
 
+
+/**
+ *  业务逻辑（数据库）状态判断
+ *
+ *  @param jsonData <#jsonData description#>
+ *  @param succ     <#succ description#>
+ *  @param failure  <#failure description#>
+ */
++ (void)managerJsonData:(id)jsonData  netSuccess: (void (^)(id json))succ  netFail :(void (^)(NSString *reason))failure{
+   
+    if ([[[jsonData safeDictionary] objectForKey:@"status"] integerValue]==1) {
+        id dataDic = [[jsonData safeDictionary] objectForKey:@"data"];
+        succ(dataDic);
+    }else {
+        failure([[jsonData safeDictionary] objectForKey:@"msg"]);
+    }
+}
+/**
+ *  服务器服务状态判断
+ *
+ *  @param jsonOriginData <#jsonOriginData description#>
+ *  @param succ           <#succ description#>
+ *  @param failure        <#failure description#>
+ */
++ (void)managerOriginJsonData:(id)jsonOriginData  serverSuccess: (void (^)(id json))succ  serverFail :(void (^)(NSString *error, ZZNetDataType dataType))failure{
+    NSDictionary *originDic = [jsonOriginData safeDictionary];
+    NSInteger statusCode=   [[originDic objectForKey:@"statusCode"]integerValue];
+    if (statusCode >= 200 &&statusCode < 300) {
+        
+        NSDictionary *responseDic = [[originDic  objectForKey:@"response"]safeDictionary];
+        [self  managerJsonData:responseDic netSuccess:^(id json) {
+                succ(json);
+          
+        } netFail:^(NSString *reason) {
+            failure(reason,ZZNetDataTypeFailNet);
+        }];
+        
+    }else {
+        NSDictionary *errorDic = [[originDic objectForKey:@"error"]safeDictionary];
+        NSString *errorStr = [[errorDic objectForKey:@"errorInfo"]safeString];
+        if (errorStr ) {
+      
+        }else{
+            errorStr = @"让服务器休息下";
+        }
+      
+        failure(errorStr,ZZNetDataTypeFailServer);
+    }
+}
 @end

@@ -116,4 +116,6 @@
 - (NSMutableAttributedString *)getAttributedStringWithText:(NSString *)text paragraphSpacing:(CGFloat)paragraphSpacing lineSpace:(CGFloat)lineSpace stringCharacterSpacing:(CGFloat)stringCharacterSpacing  textAlignment:(NSTextAlignment) textAlignment font:(UIFont *)font  color:(UIColor *)color;
 
 - (NSMutableAttributedString *)getAttributedStringWithText:(NSString *)text  textFont:(UIFont *)textFont  textColor:(UIColor *)textFont   content:(NSString *)content  contentFont:(UIFont *)contentFont  contentColor:(UIColor *)contentColor ;
+
+- (void)shakeAnimation;
 @end

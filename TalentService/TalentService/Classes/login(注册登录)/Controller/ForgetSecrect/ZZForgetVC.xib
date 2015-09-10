@@ -27,7 +27,7 @@
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                 </textField>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="短信验证码" minimumFontSize="16" background="tfline" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="pJH-5o-aDA" customClass="ZZTextField">
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="短信验证码" minimumFontSize="16" background="tfline" disabledBackground="line_grey_132x44" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="pJH-5o-aDA" customClass="ZZTextField">
                     <rect key="frame" x="10" y="125" width="255" height="44"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="AIB-2f-ASc"/>
@@ -101,6 +101,7 @@
         </view>
     </objects>
     <resources>
+        <image name="line_grey_132x44" width="66" height="22"/>
         <image name="tfline" width="66" height="22"/>
     </resources>
 </document>

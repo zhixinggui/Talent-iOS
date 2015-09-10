@@ -9,6 +9,7 @@
 static  const  NSUInteger  mengbaoAppId = 954281556;
 #import "ZZAppSystem.h"
 #import <UIKit/UIKit.h>
+#import "sys/sysctl.h"
 #if (TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR)
 const BOOL IOS8_OR_LATER = ( [[[UIDevice currentDevice] systemVersion] compare:@"8.0"] != NSOrderedAscending );
 const BOOL IOS7_OR_LATER = ( [[[UIDevice currentDevice] systemVersion] compare:@"7.0"] != NSOrderedAscending );
@@ -48,6 +49,7 @@ const BOOL IS_SCREEN_35_INCH = NO;
 + (NSString *)OSVersion {
 #if (TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR)
     return [NSString stringWithFormat:@"%@ %@", [UIDevice currentDevice].systemName, [UIDevice currentDevice].systemVersion];
+   
 #else	// #if (TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR)
     return nil;
 #endif	// #if (TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR)
@@ -82,6 +84,14 @@ const BOOL IS_SCREEN_35_INCH = NO;
 #endif	// #if (TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR)
 }
 
++ (NSString *)appUDID{
+#if (TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR || TARGET_OS_MAC)
+    
+    return  [UIDevice currentDevice].identifierForVendor.UUIDString;
+#else	// #if (TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR)
+    return nil;
+#endif	// #if (TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR)
+}
 + (NSString *)appSchema {
     return [self appSchema:nil];
 }
@@ -127,6 +137,19 @@ const BOOL IS_SCREEN_35_INCH = NO;
 #endif	// #if (TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR)
 }
 
++ (NSString *)appPlatform{
+    size_t size;
+    int nR = sysctlbyname("hw.machine", NULL, &size, NULL, 0);
+    char *machine = (char *)malloc(size);
+    nR = sysctlbyname("hw.machine", machine, &size, NULL, 0);
+    NSString *platform = [NSString stringWithCString:machine encoding:NSUTF8StringEncoding];
+    free(machine);
+#if (TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR)
+    return platform;
+#else	// #if (TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR)
+    return nil;
+#endif	// #if (TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR)
+}
 + (NSString *)deviceName{
 #if (TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR)
     return [UIDevice currentDevice].name;

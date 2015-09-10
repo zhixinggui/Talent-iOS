@@ -29,4 +29,6 @@ singleton_implementation(ZZIQKeyBoardTool);
 -(void)open{
      self.manager.enable = YES;
 }
+
+
 @end

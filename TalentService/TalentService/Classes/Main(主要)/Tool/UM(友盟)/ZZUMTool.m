@@ -186,7 +186,7 @@ static ZZUMTool *umTool;
     
     
 }
-//
+//根据错误代码得到错误信息
 - (NSString *)getShareInfoWtihResponseCode:(UMSResponseCode )responseCode{
     switch (responseCode) {
         case UMSResponseCodeSuccess:
@@ -220,40 +220,50 @@ static ZZUMTool *umTool;
         default:
             return @"分享失败";
     }
-//    UMSResponseCodeSuccess            = 200,        //成功
-//    UMSREsponseCodeTokenInvalid       = 400,        //授权用户token错误
-//    UMSResponseCodeBaned              = 505,        //用户被封禁
-//    UMSResponseCodeFaild              = 510,        //发送失败（由于内容不符合要求或者其他原因）
-//    UMSResponseCodeArgumentsError     = 522,        //参数错误,提供的参数不符合要求
-//    UMSResponseCodeEmptyContent       = 5007,       //发送内容为空
-//    UMSResponseCodeShareRepeated      = 5016,       //分享内容重复
-//    UMSResponseCodeGetNoUidFromOauth  = 5020,       //授权之后没有得到用户uid
-//    UMSResponseCodeAccessTokenExpired = 5027,       //token过期
-//    UMSResponseCodeNetworkError       = 5050,       //网络错误
-//    UMSResponseCodeGetProfileFailed   = 5051,       //获取账户失败
-//    UMSResponseCodeCancel             = 5052,        //用户取消授权
-//    UMSResponseCodeNotLogin           = 5053,       //用户没有登录
-//    UMSResponseCodeNoApiAuthority     = 100031      //QQ空间应用没有在QQ互联平台上申请上传图片到相册的权限
+
+}
+//得到系统的登陆类型
+- (ZZLoginType )getSystemLoginTypeWithSelfType:(ZZUMLoginType ) umType{
+    switch (umType) {
+        case ZZUMLoginTypeQQ:
+        ZZUMLoginTypeQQZone:
+            return ZZLoginTypeQQ;
+        case ZZUMLoginTypeWeChatFriend:
+        ZZUMLoginTypeWeChatFriends:
+            return ZZLoginTypeWeChat;
+        case ZZUMLoginTypeSina:
+            return ZZLoginTypeSina;
+            
+        default:
+            return ZZLoginTypeQQ;
+    }
 }
 #pragma mark - private methods
 
 /**
  *  友盟三方登陆响应方法
  */
-- (void)umThirdLoginWithController:(UIViewController*)controller andUmloginModel:(ZZUMLoginModel *)loginModel andBack:(UMToolCallBack)umToolBack{
+- (void)umThirdLoginWithController:(UIViewController*)controller andUmloginModel:(ZZUMLoginModel *)loginModel andSuccBack:(UMToolSuccCallBack)umToolSuccBack andFailBack:(UMToolFailCallBack)umToolFailBack{
     UMSocialSnsPlatform *snsPlatform = [UMSocialSnsPlatformManager getSocialPlatformWithName:loginModel.shareType];
      [UMSocialControllerService defaultControllerService].socialUIDelegate = self;
     snsPlatform.loginClickHandler(controller,[UMSocialControllerService defaultControllerService],YES,^(UMSocialResponseEntity *response){
         
         //          获取微博用户名、uid、token等
-        
         if (response.responseCode == UMSResponseCodeSuccess) {
             
             UMSocialAccountEntity *snsAccount = [[UMSocialAccountManager socialAccountDictionary] valueForKey:loginModel.shareType];
+            if (snsAccount.usid.length && snsAccount.userName.length) {
+                umToolSuccBack(snsAccount.usid, snsAccount.userName, [self  getSystemLoginTypeWithSelfType:loginModel.loginType] );
+            }else{
+                umToolFailBack(@"参数错误");
+            }
 #warning 未完待续
             NSLog(@"username is %@, uid is %@, token is %@ url is %@",snsAccount.userName,snsAccount.usid,snsAccount.accessToken,snsAccount.iconURL);
             
-        }});
+        }else{
+            umToolFailBack([self  getShareInfoWtihResponseCode:response.responseCode]);
+        }
+    });
 }
 
 - (void)umShareWithTitle:(NSString *)title  content:(NSString *)content url:(NSString *)url imageUrl:(NSString *)imageUrl locialImageName:(NSString *)imageName  controller:(UIViewController *)controller  loginModel:(ZZUMLoginModel *)loginModel{

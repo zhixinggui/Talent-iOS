@@ -14,9 +14,16 @@
 @property (weak, nonatomic) IBOutlet UIPickerView *pickerView;
 @property (nonatomic, strong)NSArray *provinceArray;
 @property (nonatomic, weak)id <ZZCitySelectorDelegate> delgate;
-
+@property (nonatomic, strong) ZZCity *selectedCity;
+@property (nonatomic, strong) ZZProvince *selectedProvince;
+@property (nonatomic, strong) ZZCounty *selectedCounty;
 @end
+
+
+
 @implementation ZZCitySelector
+
+
 + (instancetype)citySelectorWithProvinceArray:(NSArray *)array  delegate:(id<ZZCitySelectorDelegate>) delegate{
     ZZCitySelector *citySelector = [[[NSBundle  mainBundle]loadNibNamed:@"ZZCitySelector" owner:nil options:nil]lastObject];
     citySelector.delgate = delegate;
@@ -25,6 +32,20 @@
 }
 -(void)awakeFromNib{
     self.frame = [UIScreen  mainScreen].bounds;
+}
+
+- (void)setSelectedProvince:(ZZProvince *)province city:(ZZCity *)city county:(ZZCounty *)county{
+    if (province == nil || city== nil || county == nil) {
+        return;
+    }
+    self.selectedProvince = province;
+    [self.pickerView selectRow:[self.provinceArray  indexOfObject:province] inComponent:0 animated:YES];
+    
+    self.selectedCity = city;
+    [self.pickerView selectRow:[province.cities indexOfObject:city] inComponent:1 animated:YES];
+    
+    self.selectedCounty = county;
+    [self.pickerView selectRow:[city.counties  indexOfObject:county] inComponent:2 animated:YES];
 }
 - (ZZCity *)selectedCity{
     if (_selectedCity == nil) {
@@ -47,6 +68,8 @@
     return _selectedCounty;
 }
 
+
+
 - (IBAction)cancellButtonAction:(UIButton *)sender {
     if ([self.delgate  respondsToSelector:@selector(citySelectorCancellSelect:)]) {
         [self.delgate  citySelectorCancellSelect:self];
@@ -59,6 +82,7 @@
     if ([self.delgate respondsToSelector:@selector(citySelectorSelect:selectedProvince:selectedCity:selectedCounty:)]) {
         [self.delgate  citySelectorSelect:self selectedProvince:self.self.selectedProvince selectedCity:self.selectedCity selectedCounty:self.selectedCounty];
     }
+      [self  dismissAnimation];
 }
 #pragma mark -共有方法
 - (void)showAnimation{
@@ -67,8 +91,6 @@
     [UIView  animateWithDuration:animationTime animations:^{
         self.y = 0;
     }];
-    
-    
 }
 
 - (void)dismissAnimation{
@@ -86,28 +108,35 @@
     if (component == 0) {
         return self.provinceArray.count;
     }else if (component == 1){
-    
         return self.selectedProvince.cities.count;
     }else{
-        ZZLog(@",,,%@,,,%@",self.selectedCity,self.selectedProvince);
-            return self.selectedCity.counties.count;
-       
-        
+    return self.selectedCity.counties.count;
     }
 }
 
-- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
-    if (component == 0) {
-        
-        return self.selectedProvince.name;
-    }else if (component == 1){
-        
-        return self.selectedCity.name;
-    }else{
-        
-        return self.selectedCounty.name;
+-(UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view{
+    UILabel *pickerLabel = (UILabel *)view;
+    if (!pickerLabel) {
+        pickerLabel = [[UILabel alloc] init];
+        pickerLabel.minimumScaleFactor = 8;
+        pickerLabel.adjustsFontSizeToFitWidth = YES;
+        [pickerLabel setTextAlignment:NSTextAlignmentCenter];
+        [pickerLabel setBackgroundColor:[UIColor clearColor]];
+        [pickerLabel setFont:[UIFont systemFontOfSize:14]];
     }
+    if (component == 0) {
+        ZZProvince *province = self.provinceArray[row];
+        pickerLabel.text = province.name;
+    }else if (component == 1){
+        ZZCity *city = self.selectedProvince.cities[row];
+        pickerLabel.text = city.name;
+    }else{
+        ZZCounty *county = self.selectedCity.counties[row];
+        pickerLabel.text = county.name;
+    }
+    return pickerLabel;
 }
+
 
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
     if (component == 0) {
@@ -119,6 +148,12 @@
         
         //选中第一个
         [pickerView selectRow:0 inComponent:1 animated:YES];
+        self.selectedCity = self.selectedProvince.cities[0];
+        //刷新第三组数据
+        [pickerView reloadComponent:2];
+        
+        //选中第一个
+        [pickerView selectRow:0 inComponent:2 animated:YES];
     }else if(component == 1){
         self.selectedCity = self.selectedProvince.cities[row];
         

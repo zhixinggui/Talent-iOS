@@ -10,6 +10,8 @@
 #import "ZZFirstLoginVC.h"
 #import "ZZRegistVC.h"
 #import "ZZLayerButton.h"
+#import "ZZAppSystem.h"
+
 NSTimeInterval  const timeInterval = 3;
 @interface ZZLoginVC ()<UIScrollViewDelegate>
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollview;
@@ -38,7 +40,8 @@ NSTimeInterval  const timeInterval = 3;
     [super viewDidLoad];
     
     [self addScrollview];
-    
+    ZZLog(@"OSVersion:%@,,appVersion:%@,,appBundle:%@,,appIdentifier:%@,,,:deviceModel:%@,,:deviceName:%@,,appUDID:%@,,appPlatform:%@",[ZZAppSystem  OSVersion],[ZZAppSystem  appVersion],[ZZAppSystem appBundle],[ZZAppSystem appIdentifier],[ZZAppSystem  deviceModel],[ZZAppSystem deviceName],[ZZAppSystem  appUDID],[ZZAppSystem  appPlatform]);
+
     /**
      *  设置button颜色
      */
@@ -166,16 +169,24 @@ NSTimeInterval  const timeInterval = 3;
  */
 - (IBAction)loginEvent:(UIButton *)sender {
     ZZLog(@"登录");
-    ZZFirstLoginVC *firstLoginVc = [[ZZFirstLoginVC alloc]initWithNibName:@"ZZFirstLoginVC" bundle:nil];
+    sender.enabled = NO;
+    ZZFirstLoginVC *firstLoginVc = [[ZZFirstLoginVC alloc]init];
     [self.navigationController pushViewController:firstLoginVc animated:YES];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(DelayTime * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        sender.enabled = YES;
+    });
 }
 /**
  *  注册入口
  */
 - (IBAction)registEvent:(UIButton *)sender {
     ZZLog(@"注册");
-    ZZRegistVC *registVc = [[ZZRegistVC alloc]initWithNibName:@"ZZRegistVC" bundle:nil];
+     sender.enabled = NO;
+    ZZRegistVC *registVc = [[ZZRegistVC alloc]init];
     [self.navigationController pushViewController:registVc animated:YES];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(DelayTime * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        sender.enabled = YES;
+    });
 }
 
 

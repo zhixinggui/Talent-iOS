@@ -5,14 +5,20 @@
 //  Created by zhizhen on 15/8/26.
 //  Copyright (c) 2015年 zhizhen. All rights reserved.
 //
-
+NSString *  const CityStr = @"选择城市";
+NSString *  const TypeStr = @"选择类型";
+NSString *  const StatusStr = @"选择状态";
 #import "ZZActivityController.h"
 #import "ZZActivityCell.h"
 #import "ZZMenuButton.h"
 #import "ZZTopMenuView.h"
 #import "ZZActivityDetailController.h"
-#import "ZZPopMenu.h"
-@interface ZZActivityController ()<ZZPopMenuDelegate>
+#import "ZZActivityClassSelector.h"
+
+#import "ZZActivityCity.h"
+#import "ZZActivityStatus.h"
+#import "ZZActivityType.h"
+@interface ZZActivityController ()<ZZActivityClassSelectorDelegate>
 /**活动请求到的数组*/
 @property (nonatomic, strong)NSMutableArray *activityArray;
 /** 城市选择*/
@@ -26,6 +32,14 @@
 
 /**记录选中了那个选择菜单  */
 @property (nonatomic, strong)ZZMenuButton *selectMenuBtn;
+
+@property (nonatomic, strong)ZZActivityClassSelector *classSelector;
+
+@property (nonatomic, strong)ZZActivityCity *selectedCity;
+
+@property (nonatomic, strong)ZZActivityStatus *selectedStatus;
+
+@property (nonatomic, strong)ZZActivityType *selectedType;
 @end
 
 @implementation ZZActivityController
@@ -71,16 +85,10 @@
     button.selected = YES;
     self.selectMenuBtn = button;
     
-    CGFloat menuW = 200;
-    CGFloat menuH = 300;
-    CGFloat menuX = 40;
-    CGFloat menuY =CGRectGetMaxY(button.frame)+64;
+    self.classSelector.title = CityStr;
+    [self.classSelector  showAnimation];
     
-    ZZPopMenu *menu = [[ZZPopMenu alloc ] initWithContentView:nil];
-        menu.dimBackground = YES;
-    menu.delegate = self;
-    menu.arrowPosition = ZZTopMenuArrowPositionLeft;
-    [menu showInRect:CGRectMake(menuX, menuY, menuW, menuH)];
+    
 }
 //类型
 - (void)typeMenuBtnClick:(ZZMenuButton *)button{
@@ -88,41 +96,32 @@
     button.selected = YES;
     self.selectMenuBtn = button;
     
-    CGFloat menuW = 200;
-    CGFloat menuH = 300;
-    CGFloat menuX = CGRectGetMidX(button.frame)- menuW/2;
-    CGFloat menuY =CGRectGetMaxY(button.frame)+64;
+    self.classSelector.title = TypeStr;
+    [self.classSelector  showAnimation];
     
-    ZZPopMenu *menu = [[ZZPopMenu alloc ] initWithContentView:nil];
-    menu.arrowPosition = ZZTopMenuArrowPositionCenter;
-        menu.dimBackground = YES;
-     menu.delegate = self;
-    [menu showInRect:CGRectMake(menuX, menuY, menuW, menuH)];
+   
 }
 //状态
 - (void)statusMenuBtnClick:(ZZMenuButton *)button{
     self.selectMenuBtn.selected = NO;
     button.selected = YES;
     self.selectMenuBtn = button;
-
-    CGFloat menuW = 200;
-    CGFloat menuH = 300;
-    CGFloat menuX = ScreenWidth - menuW - 40;
-    CGFloat menuY =CGRectGetMaxY(button.frame)+64;
     
-    ZZPopMenu *menu = [[ZZPopMenu alloc ] initWithContentView:nil];
-    menu.arrowPosition = ZZTopMenuArrowPositionRight;
-       menu.dimBackground = YES;
-     menu.delegate = self;
-    [menu showInRect:CGRectMake(menuX, menuY, menuW, menuH)];
+    self.classSelector.title = StatusStr;
+    [self.classSelector  showAnimation];
+  
+}
+#pragma mark - ZZActivityClassSelectorDelegate
+-(void)activityClassSelector:(ZZActivityClassSelector *)activityClassSelector selectNsobject:(id <ZZActivityClassSelectorShowDele>)object title:(NSString *)title{
+    if ([title isEqualToString:CityStr]) {
+        self.selectedCity = object;
+    }else if ([title isEqualToString:TypeStr]){
+        self.selectedType = object;
+    }else if ([title  isEqualToString:StatusStr]){
+        self.selectedStatus = object;
+    }
 }
 
-#pragma mark - ZZPopMenuDelegate
-
--(void)popMenuDidDismissed:(ZZPopMenu *)popMenu{
-    self.selectMenuBtn.selected = NO;
-    self.selectMenuBtn = nil;
-}
 #pragma mark - Table view data source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 #warning Incomplete method implementation.
@@ -163,6 +162,13 @@
         _topMenuView.menuButtons = @[self.cityMenuBtn,self.typeMenuBtn,self.statusMenuBtn];
     }
     return _topMenuView;
+}
+
+-(ZZActivityClassSelector *)classSelector{
+    if (_classSelector == nil) {
+        _classSelector = [ZZActivityClassSelector  activityClassSelectorWithDlegate:self];
+    }
+    return _classSelector;
 }
 /*
 #pragma mark - Navigation

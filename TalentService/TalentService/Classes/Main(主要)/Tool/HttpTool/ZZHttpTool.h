@@ -7,10 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "ZZParam.h"
 #import "ZZFileParam.h"
 typedef void(^SuccessBlock)(id json);
-typedef void(^ErrorBlock)(NSError *error);
+typedef void(^ErrorBlock)(NSString *error, ZZNetDataType  netDataType);
 @interface ZZHttpTool : NSObject
 
 
@@ -18,26 +18,26 @@ typedef void(^ErrorBlock)(NSError *error);
  *  第三方的get请求方式
  */
 +(void)afGetByApiName:(NSString *)apiName
-               Params:(NSDictionary *)params
-              success:(SuccessBlock)success
-              failure:(ErrorBlock)failure;
+               Params:(ZZParam *)param
+              success:(SuccessBlock)Success
+              failure:(ErrorBlock)Failure;
 
 /**
  *  第三方的post请求方式
  */
 +(void)afPostByApiName:(NSString *)apiName
-                Params:(NSDictionary *)params
-               success:(SuccessBlock)success
-               failure:(ErrorBlock)failure;
+                Params:(ZZParam *)param
+               success:(SuccessBlock)Success
+               failure:(ErrorBlock)Failure;
 
 /**
  *  第三方的post上传多张图片请求方式
  */
 +(void)afPostImageByApiName:(NSString *)apiName
-                     Params:(NSDictionary *)params
+                     Params:(ZZParam *)param
                 ImagesArray:(NSArray *)fileParams
-                    success:(SuccessBlock)success
-                    failure:(ErrorBlock)failure;
+                    success:(SuccessBlock)Success
+                    failure:(ErrorBlock)Failure;
 
 
 @end

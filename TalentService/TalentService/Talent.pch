@@ -15,6 +15,7 @@
 #import "ZZConst.h"
 #import "ZZFontAndColor.h"
 #import "MJExtension.h"
+#import "MBProgressHUD+MJ.h"
 // 自定义Log
 #ifdef DEBUG
 #define ZZLog(...) NSLog(@"%s %d \n %@\n\n",__func__,__LINE__,[NSString stringWithFormat:__VA_ARGS__])
@@ -33,7 +34,7 @@
 
 #define  ZZRGBCloor(R,G,B)  [UIColor  colorWithRed:R/255.0 green:G/255.0 blue:B/255.0 alpha:1.0]
 
-
+#define NetFailTipStr error.localizedFailureReason
 
 
 #endif

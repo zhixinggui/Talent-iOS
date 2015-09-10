@@ -21,10 +21,8 @@
 @interface ZZCitySelector : UIView
 
 + (instancetype)citySelectorWithProvinceArray:(NSArray *)array  delegate:(id<ZZCitySelectorDelegate>) delegate;
-@property (nonatomic, strong) ZZCity *selectedCity;
-@property (nonatomic, strong) ZZProvince *selectedProvince;
-@property (nonatomic, strong) ZZCounty *selectedCounty;
 
+- (void)setSelectedProvince:(ZZProvince *)province city:(ZZCity *)city county:(ZZCounty *)county;
 - (void)showAnimation;
 
 - (void)dismissAnimation;

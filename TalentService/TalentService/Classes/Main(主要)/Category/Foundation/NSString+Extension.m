@@ -89,7 +89,7 @@
     return asciiLength;
 }
 
-- (BOOL)isPhoneNumber{
+- (BOOL)isCorrectPhoneNumber{
     NSString *telRegex = @"^1[34578]\\d{9}$";
     NSPredicate *prediate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", telRegex];
     return [prediate evaluateWithObject:self];

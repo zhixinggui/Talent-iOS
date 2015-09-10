@@ -12,4 +12,5 @@
 singleton_interface(ZZIQKeyBoardTool);
 -(void)close;
 -(void)open;
+
 @end

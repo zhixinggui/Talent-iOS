@@ -12,23 +12,10 @@
 -(instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     if (self) {
-       // self.delegate = self;
+       
     }
     return self;
 }
-
-//- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
-// 
-//        if (string.length == 0) return YES;
-//        
-//        NSInteger existedLength = textField.text.length;
-//        NSInteger selectedLength = range.length;
-//        NSInteger replaceLength = string.length;
-//    if (existedLength - selectedLength + replaceLength > self.textContentLength ||[self  isRegex:string]) {
-//            return NO;
-//        }
-//    return YES;
-//}
 
 - (BOOL)isRegex:(NSString*)candidate
 {//(“^[A-Za-z0-9]+$”) ;
@@ -42,12 +29,12 @@
 
     NSString *telRegex = @"^1[34578]\\d{9}$";
     NSPredicate *prediate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", telRegex];
-    return [prediate evaluateWithObject:self];
+    return [prediate evaluateWithObject:self.text];
 }
 - (BOOL)isSecutityNumber{
     NSString *telRegex = @"[0-9]{6}$";
     NSPredicate *prediate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", telRegex];
-    return [prediate evaluateWithObject:self];
+    return [prediate evaluateWithObject:self.text];
 
 
 }
@@ -56,7 +43,7 @@
 - (BOOL)isPassWordWithMin:(NSUInteger)min max:(NSUInteger)max{
     NSString *telRegex = [NSString  stringWithFormat:@"[A-Za-z0-9]{%ld,%ld}$", min,max];
     NSPredicate* emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",telRegex];
-    return [emailTest evaluateWithObject:self];
+    return [emailTest evaluateWithObject:self.text];
 }
 
 
@@ -67,6 +54,5 @@
     [self setLeftView:phoneIV];
     self.leftViewMode = UITextFieldViewModeAlways;
 }
-
 
 @end

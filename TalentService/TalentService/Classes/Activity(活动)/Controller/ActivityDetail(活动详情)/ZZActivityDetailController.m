@@ -15,8 +15,14 @@
 #import "ZZDetailFunctionView.h"
 #import "ZZUMTool.h"
 #import "ZZIQKeyBoardTool.h"
+#import "ZZFuncitonModel.h"
 @interface ZZActivityDetailController ()<ZZDetailImageViewDelegate,ZZDetailFunctionViewDelegate>
+//当前功能按钮
+@property (nonatomic, strong)NSArray *functions;
 
+@property (nonatomic, strong)ZZFuncitonModel *starModel;
+
+@property (nonatomic, strong)ZZDetailFunctionView *detailFV;
 @end
 
 @implementation ZZActivityDetailController
@@ -72,17 +78,15 @@
 }
 #pragma mark -响应事件
 - (void)moreFunction{
-  ZZDetailFunctionView *functionView =  [ZZDetailFunctionView  detailFunctionView];
-    functionView.shares = [ZZUMTool  sharedUMTool].shareModels;
-    functionView.delegate = self;
-    [functionView showAnimation];
+  
+    [self.detailFV showAnimation];
   
 }
 
 #pragma mark -ZZDetailImageViewDelegate
 - (void)detailImageViewBooking:(ZZDetailImageView *)detalImageViewDelegate{
-    ZZEnsureOrderController *ensureOC = [[ZZEnsureOrderController  alloc]init];
     
+    ZZEnsureOrderController *ensureOC = [[ZZEnsureOrderController  alloc]init];
     [self.navigationController  pushViewController:ensureOC animated:YES];
 }
 
@@ -96,11 +100,55 @@
     [[ZZUMTool  sharedUMTool]umShareWithTitle:@"ddd" content:@"ddd" url:nil imageUrl:nil locialImageName:nil controller:self loginModel:shares[index]];
 }
 -(void)detailFunctionView:(ZZDetailFunctionView *)detaileFunctionView functions:(NSArray *)functions selectedAtIndex:(NSUInteger)index{
+    ZZFuncitonModel *model = functions[index];
+    switch (model.modelType) {
+        case ZZFuncitonModelTypeReport:
+            
+            break;
+        case ZZFuncitonModelTypeStar:
+            
+            break;
+        case ZZFuncitonModelTypeBackHome:
+            [self.navigationController  popToRootViewControllerAnimated:YES];
+            break;
+        
+    }
     
 }
 -(void)dealloc{
     ZZLog(@"%@",[self  class]);
     //打开键盘向上
      ZZKeyBoardTool(open);
+}
+
+#pragma mark - lazy load
+-(NSArray *)functions{
+    if (_functions == nil) {
+        NSMutableArray *array = [NSMutableArray  arrayWithCapacity:3];
+        
+        ZZFuncitonModel *report = [[ZZFuncitonModel  alloc]initWithImageName:@"report_60x60" name:@"举报" modelType:ZZFuncitonModelTypeReport ];
+        [array  addObject:report];
+        
+        ZZFuncitonModel *star  = [[ZZFuncitonModel  alloc]initWithImageName:@"collected_60x60" name:@"收藏" modelType:ZZFuncitonModelTypeStar ];
+        [array  addObject:star];
+        self.starModel = star;
+        
+        ZZFuncitonModel *backHome  = [[ZZFuncitonModel  alloc]initWithImageName:@"home_60x60" name:@"返回主页" modelType:ZZFuncitonModelTypeBackHome ];
+        [array addObject:backHome];
+        
+        _functions =array;
+    }
+    return _functions;
+}
+
+-(ZZDetailFunctionView *)detailFV{
+    if (_detailFV == nil) {
+        ZZDetailFunctionView *functionView =  [ZZDetailFunctionView  detailFunctionView];
+        functionView.shares = [ZZUMTool  sharedUMTool].shareModels;
+        functionView.functions = self.functions;
+        functionView.delegate = self;
+        _detailFV = functionView;
+    }
+    return _detailFV;
 }
 @end

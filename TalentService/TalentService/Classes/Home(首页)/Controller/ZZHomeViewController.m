@@ -12,6 +12,7 @@
 #import "ZZTableHeadView.h"
 #import "ZZActivityDetailController.h"
 #import "ZZApplyVC.h"
+#import "ZZHomeHttpTool.h"
 @interface ZZHomeViewController ()
 @property (nonatomic, strong)ZZHeadView *headView;
 @property (nonatomic, strong)NSMutableArray *activityArray;
@@ -25,6 +26,8 @@
    //设置tableview的相关属性
     [self setUpTableView];
     [self  setUpRightBarItem];
+    
+    [self  getRecommendTalent];
 
 }
 //设置tableview的相关属性
@@ -78,6 +81,14 @@
     ZZActivityDetailController *actDetailVC = [[ZZActivityDetailController  alloc]init];
     [self.navigationController  pushViewController:actDetailVC animated:YES];
     [tableView  deselectRowAtIndexPath:indexPath animated:YES];
+}
+#pragma mark
+- (void)getRecommendTalent{
+    [ZZHomeHttpTool  homeRcommoned:1 success:^(NSArray *recoms, ZZNetDataType netDataType) {
+        
+    } failure:^(NSString *error, ZZNetDataType netDataType) {
+        
+    }];
 }
 #pragma mark -lazy load
 -(NSMutableArray *)activityArray{

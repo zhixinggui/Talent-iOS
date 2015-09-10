@@ -79,6 +79,16 @@ CGFloat  const ViewAlpha = 0.4;
       [self  dismissAnimation];
 }
 #pragma mark -共有方法
+
+- (void)reloadRowIn:(NSArray *)array  object:(id<ZZFunctionShowRuleDelegate>) object{
+    if ([array isEqualToArray:self.shares]) {
+      
+        [self.collectionView  reloadItemsAtIndexPaths:@[[NSIndexPath  indexPathForItem:[array  indexOfObject:object] inSection:0] ]];
+    }else if([array  isEqualToArray:self.functions]){
+        [self.functionCV  reloadItemsAtIndexPaths:@[[NSIndexPath  indexPathForItem:[array  indexOfObject:object] inSection:0] ]] ;
+    }
+}
+
 - (void)showAnimation{
     [[UIApplication  sharedApplication].keyWindow.rootViewController.view  addSubview:self];
     self.translucentView.alpha = 0;

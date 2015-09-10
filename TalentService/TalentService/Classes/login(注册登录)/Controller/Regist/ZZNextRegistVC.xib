@@ -20,15 +20,18 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="昵称" minimumFontSize="16" background="tfline" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ghh-Dc-ph4" customClass="ZZTextField">
+                <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="昵称,最多7位汉字" minimumFontSize="16" background="tfline" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ghh-Dc-ph4" customClass="ZZTextField">
                     <rect key="frame" x="10" y="73" width="355" height="44"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="SEh-n7-XPm"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                    <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="JUi-FY-RlX"/>
+                    </connections>
                 </textField>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="城市" minimumFontSize="16" background="tfline" translatesAutoresizingMaskIntoConstraints="NO" id="Ysn-jX-cOQ" customClass="ZZTextField">
+                <textField opaque="NO" clipsSubviews="YES" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="城市,请选择" minimumFontSize="16" background="tfline" translatesAutoresizingMaskIntoConstraints="NO" id="Ysn-jX-cOQ" customClass="ZZTextField">
                     <rect key="frame" x="10" y="125" width="355" height="44"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="nwJ-xH-Wl1"/>
@@ -36,24 +39,19 @@
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <textInputTraits key="textInputTraits"/>
                     <connections>
-                        <outlet property="delegate" destination="-1" id="MaX-8J-0pD"/>
+                        <outlet property="delegate" destination="-1" id="pez-hm-oHy"/>
                     </connections>
                 </textField>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="密码" minimumFontSize="16" background="tfline" translatesAutoresizingMaskIntoConstraints="NO" id="Dua-L7-c2p" customClass="ZZTextField">
+                <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="密码,6~16位,密码数字下划线" minimumFontSize="16" background="tfline" translatesAutoresizingMaskIntoConstraints="NO" id="Dua-L7-c2p" customClass="ZZTextField">
                     <rect key="frame" x="10" y="177" width="355" height="44"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="F7n-AU-7z3"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                    <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
-                </textField>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="确认密码" minimumFontSize="16" background="tfline" translatesAutoresizingMaskIntoConstraints="NO" id="DI2-Of-XPg" customClass="ZZTextField">
-                    <rect key="frame" x="10" y="229" width="355" height="44"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="44" id="pQw-k2-cpS"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                    <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
+                    <textInputTraits key="textInputTraits" keyboardType="alphabet" secureTextEntry="YES"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="NoO-CO-xsj"/>
+                    </connections>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Gy-LP-pY7" customClass="ZZLayerButton">
                     <rect key="frame" x="37" y="316" width="300" height="40"/>
@@ -70,6 +68,17 @@
                         <action selector="sureButtonAction:" destination="-1" eventType="touchUpInside" id="1lH-b2-tye"/>
                     </connections>
                 </button>
+                <textField opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="与上面一致" minimumFontSize="16" background="tfline" translatesAutoresizingMaskIntoConstraints="NO" id="DI2-Of-XPg" customClass="ZZTextField">
+                    <rect key="frame" x="10" y="229" width="355" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="pQw-k2-cpS"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <textInputTraits key="textInputTraits" keyboardType="alphabet" secureTextEntry="YES"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="uhU-dl-ldk"/>
+                    </connections>
+                </textField>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
