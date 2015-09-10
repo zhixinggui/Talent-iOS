@@ -240,14 +240,14 @@
                     <color key="textColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yB2-N0-bBW">
-                    <rect key="frame" x="315" y="20" width="40" height="40"/>
-                    <color key="backgroundColor" red="0.98431372549999996" green="0.2784313725" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yB2-N0-bBW">
+                    <rect key="frame" x="327" y="4" width="40" height="40"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="40" id="632-oH-f2n"/>
                         <constraint firstAttribute="height" constant="40" id="8aA-5b-Je0"/>
                     </constraints>
-                    <state key="normal">
+                    <state key="normal" image="add_attention_40x40">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
@@ -264,7 +264,7 @@
                 <constraint firstItem="RVs-AK-hEE" firstAttribute="top" secondItem="r6d-MJ-TIq" secondAttribute="top" constant="21" id="I0b-Ee-4ab"/>
                 <constraint firstItem="u5C-hq-5rr" firstAttribute="centerX" secondItem="r6d-MJ-TIq" secondAttribute="trailing" multiplier="1/2" id="IAR-5E-DQN"/>
                 <constraint firstItem="vOa-78-mNL" firstAttribute="top" secondItem="bTF-Qc-z2k" secondAttribute="bottom" id="Isl-Ic-KWE"/>
-                <constraint firstAttribute="trailing" secondItem="yB2-N0-bBW" secondAttribute="trailing" constant="20" id="JFq-Qe-uBO"/>
+                <constraint firstAttribute="trailing" secondItem="yB2-N0-bBW" secondAttribute="trailing" constant="8" id="JFq-Qe-uBO"/>
                 <constraint firstItem="JGk-Ob-4vB" firstAttribute="top" secondItem="2SL-pB-hkK" secondAttribute="bottom" constant="10" id="JKA-OG-Pxi"/>
                 <constraint firstItem="m3J-PA-OST" firstAttribute="top" secondItem="RVs-AK-hEE" secondAttribute="bottom" constant="8" id="L2B-zl-G0t"/>
                 <constraint firstItem="RVs-AK-hEE" firstAttribute="leading" secondItem="2SL-pB-hkK" secondAttribute="trailing" constant="8" id="LNn-G3-w0J"/>
@@ -272,7 +272,7 @@
                 <constraint firstItem="bTF-Qc-z2k" firstAttribute="top" secondItem="mpI-Qx-HhD" secondAttribute="top" id="OUX-yT-sfO"/>
                 <constraint firstItem="JGk-Ob-4vB" firstAttribute="bottom" secondItem="gsT-uj-bBP" secondAttribute="bottom" constant="-40" id="Og0-oj-fBH"/>
                 <constraint firstItem="Zrk-ZE-30a" firstAttribute="bottom" secondItem="G0c-UJ-DMl" secondAttribute="bottom" constant="5" id="Or0-T6-f5b"/>
-                <constraint firstItem="yB2-N0-bBW" firstAttribute="top" secondItem="SDu-d9-2Vz" secondAttribute="top" constant="20" id="Pji-7A-Vl8"/>
+                <constraint firstItem="yB2-N0-bBW" firstAttribute="top" secondItem="SDu-d9-2Vz" secondAttribute="top" constant="4" id="Pji-7A-Vl8"/>
                 <constraint firstItem="r6d-MJ-TIq" firstAttribute="leading" secondItem="SDu-d9-2Vz" secondAttribute="leading" constant="8" id="QDB-If-vI3"/>
                 <constraint firstItem="JGk-Ob-4vB" firstAttribute="leading" secondItem="r6d-MJ-TIq" secondAttribute="leading" constant="4" id="RlP-tH-Nvy"/>
                 <constraint firstItem="5Ru-zI-6M0" firstAttribute="centerX" secondItem="r6d-MJ-TIq" secondAttribute="trailing" multiplier="2/3" id="S72-m8-GWA"/>
@@ -308,6 +308,7 @@
     </objects>
     <resources>
         <image name="T3" width="40" height="40"/>
+        <image name="add_attention_40x40" width="40" height="40"/>
         <image name="border_34x34" width="9" height="9"/>
         <image name="user" width="32" height="32"/>
     </resources>

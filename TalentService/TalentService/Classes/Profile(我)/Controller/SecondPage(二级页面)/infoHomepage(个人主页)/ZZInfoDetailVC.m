@@ -7,7 +7,7 @@
 //
 
 #import "ZZInfoDetailVC.h"
-#import "ZZAttentionCell.h"
+#import "ZZCommunityCell.h"
 #import "ZZSegmentedControl.h"
 #import "ZZCommunityTVC.h"
 #import "ZZActivityController.h"
@@ -26,12 +26,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"个人主页";
-    UINib* nib = [UINib nibWithNibName:@"ZZAttentionCell" bundle:nil];
-    [self.infoDetailTableView registerNib:nib forCellReuseIdentifier:attentionCelldentifier];
+    UINib* nib = [UINib nibWithNibName:@"ZZCommunityCell" bundle:nil];
+    [self.infoDetailTableView registerNib:nib forCellReuseIdentifier:communityCelldentifier];
     self.infoDetailTableView.delegate = self;
     self.infoDetailTableView.dataSource = self;
     self.infoDetailTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    self.infoDetailTableView.rowHeight = 100;
+    self.infoDetailTableView.rowHeight = 280;
     self.infoDetailTableView.tableHeaderView = self.headView;
     
 
@@ -46,7 +46,7 @@
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    ZZAttentionCell *cell = [tableView dequeueReusableCellWithIdentifier:attentionCelldentifier forIndexPath:indexPath];
+    ZZCommunityCell *cell = [tableView dequeueReusableCellWithIdentifier:communityCelldentifier forIndexPath:indexPath];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
