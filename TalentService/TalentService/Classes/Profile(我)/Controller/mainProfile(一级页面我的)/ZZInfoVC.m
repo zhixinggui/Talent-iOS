@@ -13,6 +13,8 @@
 #import "ZZMessageTVC.h"
 #import "ZZMyOrderVC.h"
 #import "ZZMyselfInfoTVC.h"
+#import "ZZInfoDetailVC.h"
+#import "ZZInfoModifyVC.h"
 @interface ZZInfoVC ()
 @property (strong, nonatomic) IBOutlet UIScrollView *infoScrollView;
 @property (strong, nonatomic) IBOutlet UIImageView *infoIV;
@@ -23,9 +25,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     self.infoScrollView.backgroundColor = backGroundColor;
-//    self.infoScrollView.contentSize = CGSizeMake(0, 400);
 }
 
 
@@ -35,9 +35,6 @@
     [self.navigationController pushViewController:orderTvc animated:YES];
 }
 
-/**
- *  活动跳转
- */
 - (IBAction)gotoEvent:(UIButton *)sender {
     ZZLog(@"活动活动");
     ZZMyEventVC *myEventVc = [[ZZMyEventVC alloc]initWithNib];
@@ -45,13 +42,13 @@
 }
 - (IBAction)gotoInformation:(UIButton *)sender {
     ZZLog(@"个人信息");
-    ZZMyselfInfoTVC *myselfInfoTvc = [[ZZMyselfInfoTVC alloc]initWithNib];
+    ZZInfoModifyVC *myselfInfoTvc = [[ZZInfoModifyVC alloc]initWithNib];
     [self.navigationController pushViewController:myselfInfoTvc animated:YES];
 }
 - (IBAction)gotoInfoDetail:(UIButton *)sender {
     ZZLog(@"个人详细资料");
-//    ZZInfoDetailVC *infoDetailVc = [[ZZInfoDetailVC alloc]initWithNib];
-//    [self.navigationController pushViewController:infoDetailVc animated:YES];
+    ZZInfoDetailVC *infoDetailVc = [[ZZInfoDetailVC alloc]initWithNib];
+    [self.navigationController pushViewController:infoDetailVc animated:YES];
 }
 
 - (IBAction)gotoCommunity:(UIButton *)sender {
