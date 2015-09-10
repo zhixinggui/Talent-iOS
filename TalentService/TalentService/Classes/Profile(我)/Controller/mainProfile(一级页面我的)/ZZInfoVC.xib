@@ -149,39 +149,32 @@
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="oder_40x40" translatesAutoresizingMaskIntoConstraints="NO" id="ive-PX-sXs">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="订单120x120" translatesAutoresizingMaskIntoConstraints="NO" id="ive-PX-sXs">
                             <rect key="frame" x="23" y="372" width="25" height="25"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="25" id="CB4-cw-7MJ"/>
                                 <constraint firstAttribute="height" constant="25" id="MDd-XW-SHw"/>
                             </constraints>
                         </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="event_40x40" translatesAutoresizingMaskIntoConstraints="NO" id="dhi-em-vGh">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="活动120x120" translatesAutoresizingMaskIntoConstraints="NO" id="dhi-em-vGh">
                             <rect key="frame" x="23" y="441" width="25" height="25"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="25" id="fGb-d0-WTC"/>
                                 <constraint firstAttribute="width" constant="25" id="r5j-SO-1en"/>
                             </constraints>
                         </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="commnuity_40x40" translatesAutoresizingMaskIntoConstraints="NO" id="den-5i-EfP">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="社区120xx120" translatesAutoresizingMaskIntoConstraints="NO" id="den-5i-EfP">
                             <rect key="frame" x="23" y="492" width="25" height="25"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="25" id="1Nk-Pk-5ZG"/>
                                 <constraint firstAttribute="width" constant="25" id="1lK-hh-B4M"/>
                             </constraints>
                         </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="eye_40x40" translatesAutoresizingMaskIntoConstraints="NO" id="GGd-f5-LDR">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="关注120x120" translatesAutoresizingMaskIntoConstraints="NO" id="GGd-f5-LDR">
                             <rect key="frame" x="23" y="541" width="25" height="25"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="25" id="Xza-OQ-Mne"/>
                                 <constraint firstAttribute="width" constant="25" id="bkp-hA-a0k"/>
-                            </constraints>
-                        </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="message_40x40" translatesAutoresizingMaskIntoConstraints="NO" id="Qhr-7x-q6J">
-                            <rect key="frame" x="23" y="590" width="25" height="25"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="25" id="H6H-rZ-ZpN"/>
-                                <constraint firstAttribute="height" constant="25" id="oTi-zk-rVQ"/>
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我的订单" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mJl-Ut-eRz">
@@ -377,6 +370,13 @@
                             <color key="textColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="关注120x120" translatesAutoresizingMaskIntoConstraints="NO" id="Qhr-7x-q6J" userLabel="消息120x120">
+                            <rect key="frame" x="23" y="590" width="25" height="25"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="25" id="H6H-rZ-ZpN"/>
+                                <constraint firstAttribute="height" constant="25" id="oTi-zk-rVQ"/>
+                            </constraints>
+                        </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FIH-9U-d0K" userLabel="个人信息">
                             <rect key="frame" x="8" y="208" width="75" height="87"/>
                             <constraints>
@@ -540,12 +540,11 @@
     </objects>
     <resources>
         <image name="border_34x34" width="9" height="9"/>
-        <image name="commnuity_40x40" width="40" height="40"/>
-        <image name="event_40x40" width="40" height="40"/>
-        <image name="eye_40x40" width="40" height="40"/>
-        <image name="message_40x40" width="40" height="40"/>
-        <image name="oder_40x40" width="40" height="40"/>
         <image name="right_20x20" width="20" height="20"/>
         <image name="user" width="32" height="32"/>
+        <image name="关注120x120" width="40" height="40"/>
+        <image name="活动120x120" width="40" height="40"/>
+        <image name="社区120xx120" width="40" height="40"/>
+        <image name="订单120x120" width="40" height="40"/>
     </resources>
 </document>
