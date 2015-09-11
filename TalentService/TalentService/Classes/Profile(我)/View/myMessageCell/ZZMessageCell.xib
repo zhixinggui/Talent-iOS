@@ -17,39 +17,36 @@
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="border_34x34" translatesAutoresizingMaskIntoConstraints="NO" id="NXE-dr-dOd">
                         <rect key="frame" x="0.0" y="8" width="320" height="51"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="51" id="nSE-Oz-DFc"/>
-                        </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HgV-Ex-vGy">
-                        <rect key="frame" x="15" y="12" width="240" height="43"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="43" id="2NC-GW-05y"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <color key="textColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="未读" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tq2-7V-gEQ">
-                        <rect key="frame" x="272" y="23" width="34" height="21"/>
+                        <rect key="frame" x="272" y="23" width="34" height="20"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="21" id="2ub-VK-GSp"/>
-                            <constraint firstAttribute="width" constant="34" id="zH1-lu-Afr"/>
+                            <constraint firstAttribute="width" constant="34" id="zZI-zB-rW8"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <color key="textColor" red="1" green="0.4549019608" blue="0.12549019610000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HgV-Ex-vGy">
+                        <rect key="frame" x="15" y="12" width="240" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="7LU-yn-SaM"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.12156862745098039" green="0.12941176470588237" blue="0.14117647058823529" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="HgV-Ex-vGy" firstAttribute="leading" secondItem="NXE-dr-dOd" secondAttribute="leading" constant="15" id="2yp-lV-6T4"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="tq2-7V-gEQ" secondAttribute="trailing" constant="6" id="XI2-rV-M2q"/>
-                    <constraint firstItem="tq2-7V-gEQ" firstAttribute="leading" secondItem="HgV-Ex-vGy" secondAttribute="trailing" constant="17" id="ZUh-wF-Wdt"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="NXE-dr-dOd" secondAttribute="trailing" constant="-8" id="c8y-Fa-jnD"/>
-                    <constraint firstItem="NXE-dr-dOd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="gUY-MC-zJm"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="NXE-dr-dOd" secondAttribute="bottom" constant="-8" id="hja-Nc-QPa"/>
-                    <constraint firstItem="NXE-dr-dOd" firstAttribute="top" secondItem="tq2-7V-gEQ" secondAttribute="top" constant="-15" id="stl-l3-q6j"/>
-                    <constraint firstItem="HgV-Ex-vGy" firstAttribute="top" secondItem="NXE-dr-dOd" secondAttribute="top" constant="4" id="x8a-Xs-tz1"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="NXE-dr-dOd" secondAttribute="bottom" constant="-8" id="3Eu-R8-94L"/>
+                    <constraint firstItem="HgV-Ex-vGy" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="7" id="G9P-qg-Bcy"/>
+                    <constraint firstItem="NXE-dr-dOd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="MM9-wd-Wnq"/>
+                    <constraint firstItem="tq2-7V-gEQ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="15" id="ONv-rX-jti"/>
+                    <constraint firstItem="NXE-dr-dOd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="P2z-Sk-g3f"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="NXE-dr-dOd" secondAttribute="trailing" constant="-8" id="fnx-c8-MDd"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="tq2-7V-gEQ" secondAttribute="trailing" constant="6" id="js2-Pg-ohG"/>
+                    <constraint firstItem="tq2-7V-gEQ" firstAttribute="leading" secondItem="HgV-Ex-vGy" secondAttribute="trailing" constant="17" id="rhS-dB-Ict"/>
+                    <constraint firstItem="HgV-Ex-vGy" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="4" id="tgj-OL-KVI"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
