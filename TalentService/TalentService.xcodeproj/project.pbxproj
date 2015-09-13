@@ -12,6 +12,7 @@
 		548837A91BA29AE700720150 /* ZZActivityDetailParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 548837A81BA29AE700720150 /* ZZActivityDetailParam.m */; };
 		548837AC1BA2C4EE00720150 /* ZZApplyTalentParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 548837AB1BA2C4EE00720150 /* ZZApplyTalentParam.m */; };
 		548837AF1BA2CBC700720150 /* ZZCacheTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 548837AE1BA2CBC700720150 /* ZZCacheTool.m */; };
+		54D379A21BA5A8C400A61C72 /* ZZApplyVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54D379A11BA5A8C400A61C72 /* ZZApplyVC.xib */; };
 		54EEFC531BA544E400AFE7D4 /* ZZBaseUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 54EEFC521BA544E400AFE7D4 /* ZZBaseUser.m */; };
 		54EEFC561BA5468C00AFE7D4 /* ZZOtherUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 54EEFC551BA5468C00AFE7D4 /* ZZOtherUser.m */; };
 		5607DA7C1B831DB000803EE5 /* ZZFirstLoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5607DA7A1B831DB000803EE5 /* ZZFirstLoginVC.m */; };
@@ -254,6 +255,7 @@
 		548837AB1BA2C4EE00720150 /* ZZApplyTalentParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZApplyTalentParam.m; sourceTree = "<group>"; };
 		548837AD1BA2CBC700720150 /* ZZCacheTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZCacheTool.h; sourceTree = "<group>"; };
 		548837AE1BA2CBC700720150 /* ZZCacheTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZCacheTool.m; sourceTree = "<group>"; };
+		54D379A11BA5A8C400A61C72 /* ZZApplyVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZZApplyVC.xib; sourceTree = "<group>"; };
 		54EEFC511BA544E400AFE7D4 /* ZZBaseUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZBaseUser.h; sourceTree = "<group>"; };
 		54EEFC521BA544E400AFE7D4 /* ZZBaseUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZBaseUser.m; sourceTree = "<group>"; };
 		54EEFC541BA5468C00AFE7D4 /* ZZOtherUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZOtherUser.h; sourceTree = "<group>"; };
@@ -1207,6 +1209,7 @@
 			children = (
 				6E4C40E81B90592700937CB1 /* ZZApplyVC.h */,
 				6E4C40E91B90592700937CB1 /* ZZApplyVC.m */,
+				54D379A11BA5A8C400A61C72 /* ZZApplyVC.xib */,
 			);
 			path = "apply（达人申请）";
 			sourceTree = "<group>";
@@ -2131,6 +2134,7 @@
 				6E90140B1B83052C0083F2B7 /* InfoPlist.strings in Resources */,
 				5652D32C1B86FA2B00A3FB09 /* ZZThirdVC.xib in Resources */,
 				6EC4C4931B9FD83400C39F8A /* ZZCitySelector.xib in Resources */,
+				54D379A21BA5A8C400A61C72 /* ZZApplyVC.xib in Resources */,
 				6E7C6AE81B9DB5E200132D27 /* order_success_170x273@2x.png in Resources */,
 				56C172E91B845A9C00EF55FF /* ZZRegistVC.xib in Resources */,
 				6E4A5CAD1B954D06003751D5 /* WeiboSDK.bundle in Resources */,
