@@ -9,5 +9,9 @@
 #import <UIKit/UIKit.h>
 #define orderCelldentifier @"orderCelldentifier"
 @interface ZZOrderCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UIButton *cancelBT;
+@property (weak, nonatomic) IBOutlet UIButton *goodBT;
+@property (weak, nonatomic) IBOutlet UIButton *badBT;
+
 
 @end

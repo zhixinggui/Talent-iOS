@@ -9,7 +9,8 @@
 #import "ZZMyOrderTVC.h"
 #import "ZZOrderCell.h"
 #import "ZZJoinOrderCell.h"
-
+#import "ZZCancelOrderVC.h"
+#import "ZZSeeOrderVC.h"
 @interface ZZMyOrderTVC ()
 @property(nonatomic)NSInteger segmentControlIndex;
 @end
@@ -40,70 +41,64 @@
 
         ZZOrderCell *cell = [tableView dequeueReusableCellWithIdentifier:orderCelldentifier forIndexPath:indexPath];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    //取消订单
+    [cell.cancelBT addTarget:self action:@selector(cancelOrderAction:) forControlEvents:UIControlEventTouchUpInside];
+    
+    //点赞
+    [cell.goodBT addTarget:self action:@selector(goodOrderAction:) forControlEvents:UIControlEventTouchUpInside];
+    
+    //吐槽
+    [cell.badBT addTarget:self action:@selector(badOrderAction:) forControlEvents:UIControlEventTouchUpInside];
         return cell;
     
 }
-
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+/**
+ *  取消订单
+ *
+ *  @param button <#button description#>
+ */
+-(void)cancelOrderAction:(UIButton*)button{
+    ZZLog(@"取消订单");
+    ZZCancelOrderVC *cancelOrderVc = [[ZZCancelOrderVC alloc]initWithNib];
+    [self.navigationController pushViewController:cancelOrderVc animated:YES];
 }
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+/**
+ *  点赞
+ *
+ *  @param button <#button description#>
+ */
+-(void)goodOrderAction:(UIButton*)button{
+    ZZLog(@"点赞");
 }
-*/
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
+/**
+ *  吐槽
+ *
+ *  @param button <#button description#>
+ */
+-(void)badOrderAction:(UIButton*)button{
+    ZZLog(@"吐槽");
 }
-*/
 
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
-/*
+
 #pragma mark - Table view delegate
 
 // In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     // Navigation logic may go here, for example:
     // Create the next view controller.
-    <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:<#@"Nib name"#> bundle:nil];
+    ZZSeeOrderVC *detailViewController = [[ZZSeeOrderVC alloc] init];
     
     // Pass the selected object to the new view controller.
     
     // Push the view controller.
     [self.navigationController pushViewController:detailViewController animated:YES];
 }
-*/
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+
 
 
 @end

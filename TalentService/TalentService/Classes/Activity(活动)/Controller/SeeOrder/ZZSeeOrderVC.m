@@ -8,6 +8,7 @@
 
 #import "ZZSeeOrderVC.h"
 #import "ZZSeeOrderView.h"
+#import "ZZCancelOrderVC.h"
 @interface ZZSeeOrderVC ()<ZZBaseOrderViewDelegate>
 
 @end
@@ -31,7 +32,9 @@
 
 #pragma mark -ZZBaseOrderViewDelegate
 -(void)baseOrderViewCancellOrder:(ZZBaseOrderView *)baseprderView{
-    
+    ZZLog(@"取消订单");
+    ZZCancelOrderVC *cancelOrderVc = [[ZZCancelOrderVC alloc]initWithNib];
+    [self.navigationController pushViewController:cancelOrderVc animated:YES];
 }
 
 @end
