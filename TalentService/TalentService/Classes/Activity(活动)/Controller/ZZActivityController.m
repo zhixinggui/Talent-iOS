@@ -114,17 +114,17 @@ NSString *  const StatusStr = @"选择状态";
 #pragma mark - ZZActivityClassSelectorDelegate
 -(void)activityClassSelector:(ZZActivityClassSelector *)activityClassSelector selectNsobject:(id <ZZActivityClassSelectorShowDele>)object title:(NSString *)title{
     if ([title isEqualToString:CityStr]) {
-        self.selectedCity = object;
+        self.selectedCity = (ZZActivityCity *)  object;
     }else if ([title isEqualToString:TypeStr]){
-        self.selectedType = object;
+        self.selectedType = (ZZActivityType *)object;
     }else if ([title  isEqualToString:StatusStr]){
-        self.selectedStatus = object;
+        self.selectedStatus = (ZZActivityStatus *)object;
     }
 }
 
 #pragma mark - Table view data source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
+
     // Return the number of rows in the section.
     return self.activityArray.count+5;
 }

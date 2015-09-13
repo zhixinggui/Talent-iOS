@@ -30,4 +30,14 @@
     btn.size = btn.currentBackgroundImage.size;
     return [[UIBarButtonItem alloc] initWithCustomView:btn];
 }
++ (UIBarButtonItem *)itemWithTarget:(id)target action:(SEL)action {
+    return [self  itemWithTarget:target action:action image:@"return_30x30" highImage:nil];
+}
++ (NSArray *)backItemWithTarget:(id)target action:(SEL)action {
+    UIBarButtonItem *negativeSeperator = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+    UIBarButtonItem *back = [UIBarButtonItem  itemWithTarget:target action:action image:@"return_30x30" highImage:nil];
+    
+    negativeSeperator.width = -16;//此处修改到边界的距离，请自行测试
+   return  @[negativeSeperator,back];
+}
 @end

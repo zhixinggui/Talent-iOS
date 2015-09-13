@@ -13,6 +13,9 @@ static  NSUInteger  const ImageCount = 5;
 #import "ZZLayerButton.h"
 #import "UUPhotoActionSheet.h"
 #import "UUPhotoBrowserViewController.h"
+#import "UIBarButtonItem+Extension.h"
+#import "ZZApplyTalentParam.h"
+#import "ZZCacheTool.h"
 @interface ZZApplyVC ()<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,UUPhotoActionSheetDelegate,UUPhotoBrowserDelegate,UIGestureRecognizerDelegate,ZZAddImageCellDelegate>
 
 
@@ -41,7 +44,7 @@ static  NSUInteger  const ImageCount = 5;
 @property (strong, nonatomic) NSMutableArray *images;
 /** 点击那个进入了选片选择*/
 @property (nonatomic, strong) NSIndexPath *indexPath;
-@property (weak, nonatomic) IBOutlet ZZLayerButton *securityButton;
+@property (weak, nonatomic) IBOutlet ZZSecurityButton *securityButton;
 
 @end
 
@@ -51,25 +54,40 @@ static  NSUInteger  const ImageCount = 5;
     [super viewDidLoad];
     self.title = @"达人申请";
     self.view.backgroundColor = ZZViewBackColor;
-    [self  setRightItem];
+    [self  setItem];
     [self  setChilds];
 }
-- (void)setRightItem{
+- (void)setItem{
     UIBarButtonItem *rightBItem = [[UIBarButtonItem  alloc]initWithTitle:@"提交" style:UIBarButtonItemStyleDone target:self action:@selector(commitAction)];
     self.navigationItem.rightBarButtonItem = rightBItem;
+    
+    self.navigationController.navigationItem.leftBarButtonItems = [UIBarButtonItem  backItemWithTarget:self action:@selector(back)];
 }
 
 - (void)setChilds{
-    [self.nameTF addLeftViewImageString:@"T3"];
-    [self.idCardTF addLeftViewImageString:@"T3"];
-     [self.phoneTF addLeftViewImageString:@"T3"];
-     [self.identifyTF addLeftViewImageString:@"T3"];
-     [self.talentTypeTF addLeftViewImageString:@"T3"];
+    [self.nameTF addLeftViewImageString:@"user_30x30"];
+    [self.idCardTF addLeftViewImageString:@"IDcard_40x40"];
+     [self.phoneTF addLeftViewImageString:@"phone_30x30"];
+     [self.identifyTF addLeftViewImageString:@"message_30x30"];
+     [self.talentTypeTF addLeftViewImageString:@"mengbao_40x40"];
     self.personTF.placeholder = @"个人简介,150字以内";
     self.personTF.textContentLength = 300;
+    self.securityButton.backgroundColor = LoginButtonColor;
     [self.addImageCV  registerNib:[UINib  nibWithNibName:@"ZZAddImageCell" bundle:[NSBundle  mainBundle]] forCellWithReuseIdentifier:[ZZAddImageCell  addImageCellIdentifier]];
   
 
+}
+
+- (void)back{
+    ZZApplyTalentParam *applyParam = [[ZZApplyTalentParam  alloc]init];
+    applyParam.userName = self.nameTF.text;
+    applyParam.identityCard = self.idCardTF.text;
+    applyParam.phone = self.phoneTF.text;
+    applyParam.userPresentation = self.personTF.text;
+    applyParam.eredarType = @(1);
+    [ZZCacheTool saveApplyTalentParam:applyParam];
+    
+    [self.navigationController  popViewControllerAnimated:YES];
 }
 #pragma mark - private  methods
 - (IBAction)securityButton:(ZZLayerButton *)sender {

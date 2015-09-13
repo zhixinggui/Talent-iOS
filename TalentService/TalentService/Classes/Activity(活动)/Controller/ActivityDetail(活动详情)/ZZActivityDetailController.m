@@ -16,6 +16,7 @@
 #import "ZZUMTool.h"
 #import "ZZIQKeyBoardTool.h"
 #import "ZZFuncitonModel.h"
+#import "ZZActivityDetailParam.h"
 @interface ZZActivityDetailController ()<ZZDetailImageViewDelegate,ZZDetailFunctionViewDelegate>
 //当前功能按钮
 @property (nonatomic, strong)NSArray *functions;
@@ -33,6 +34,9 @@
     self.view.backgroundColor = ZZViewBackColor;
     [self  setRightItem];
     [self  setUpChild];
+    ZZActivityDetailParam *param = [[ZZActivityDetailParam alloc]init];
+    param.activityID = @(20);
+    ZZLog(@",,%@",[param keyValues]);
     //关闭键盘向上
     ZZKeyBoardTool(close);
 }
@@ -130,6 +134,7 @@
         [array  addObject:report];
         
         ZZFuncitonModel *star  = [[ZZFuncitonModel  alloc]initWithImageName:@"collected_60x60" name:@"收藏" modelType:ZZFuncitonModelTypeStar ];
+        star.seletedName = @"collected_60x60";
         [array  addObject:star];
         self.starModel = star;
         

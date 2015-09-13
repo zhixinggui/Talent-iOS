@@ -86,12 +86,12 @@
 }
 
 - (void)swithWindowRootControllerToLogin{
-    AppDelegate *app = [UIApplication  sharedApplication].delegate;
+    AppDelegate *app = (AppDelegate *)[UIApplication  sharedApplication].delegate;
     [app  swithWindowRootViewController:ZZRootViewControllerTypeLogin];
 }
 
 - (void)swithWindowRootControllerToHome{
-    AppDelegate *app = [UIApplication  sharedApplication].delegate;
+    AppDelegate *app = (AppDelegate *)[UIApplication  sharedApplication].delegate;
     [app  swithWindowRootViewController:ZZRootViewControllerTypeHome];
 }
 @end

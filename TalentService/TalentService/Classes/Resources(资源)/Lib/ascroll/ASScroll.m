@@ -138,16 +138,16 @@
 //    scrollview.scrollEnabled = YES;
   
     
-    int page = scrollview.bounds.origin.x/scrollview.frame.size.width;
- 
-    if (previousTouchPoint > scrollView.contentOffset.x)
-        page = page+2;
-    else
-        page = page+1;
-    
-    UIView *nextPage = [scrollView.superview viewWithTag:page+1];
-    UIView *previousPage = [scrollView.superview viewWithTag:page-1];
-    UIView *currentPage = [scrollView.superview viewWithTag:page];
+//    int page = scrollview.bounds.origin.x/scrollview.frame.size.width;
+// 
+//    if (previousTouchPoint > scrollView.contentOffset.x)
+//        page = page+2;
+//    else
+//        page = page+1;
+//    
+//    UIView *nextPage = [scrollView.superview viewWithTag:page+1];
+//    UIView *previousPage = [scrollView.superview viewWithTag:page-1];
+//    UIView *currentPage = [scrollView.superview viewWithTag:page];
 //
 //    if(previousTouchPoint <= scrollView.contentOffset.x){
 //        if ([currentPage isKindOfClass:[UIImageView class]])

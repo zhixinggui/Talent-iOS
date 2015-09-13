@@ -33,10 +33,10 @@
 }
 
 -(NSString *)name{
-    if (self.seleted && self.seletedName) {
-        return self.seletedName;
+    if (self.seleted && _seletedName) {
+        return _seletedName;
     }else{
-        return self.name;
+        return _name;
     }
 }
 @end

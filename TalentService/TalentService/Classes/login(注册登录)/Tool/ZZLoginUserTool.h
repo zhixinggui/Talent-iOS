@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Singleton.h"
-@class ZZLoginUser;
+#import "ZZLoginUser.h"
 @interface ZZLoginUserTool : NSObject
 singleton_interface(ZZLoginUserTool);
 @property (nonatomic, strong, readonly)ZZLoginUser *loginUser;

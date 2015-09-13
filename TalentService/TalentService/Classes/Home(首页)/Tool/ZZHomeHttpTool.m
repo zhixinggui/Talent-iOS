@@ -19,7 +19,7 @@
     [ZZHttpTool  afPostByApiName:@"" Params:param success:^(id json) {
         //objectArrayWithKeyValuesArray
         NSArray *array = [ZZLoginUser objectArrayWithKeyValuesArray:json];
-        ZZLog(@"%@",array);
+    
         succ(array,ZZNetDataTypeSuccServer);
     } failure:^(NSString *error, ZZNetDataType netDataType) {
         

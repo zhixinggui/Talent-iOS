@@ -10,4 +10,7 @@
 
 @interface ZZTableHeadView : UIView
 
+@property (nonatomic, strong)NSArray *images;
+
+@property (nonatomic, strong)NSArray *talents;
 @end

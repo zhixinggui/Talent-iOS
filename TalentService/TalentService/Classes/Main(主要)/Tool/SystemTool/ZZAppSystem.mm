@@ -139,11 +139,12 @@ const BOOL IS_SCREEN_35_INCH = NO;
 
 + (NSString *)appPlatform{
     size_t size;
-    int nR = sysctlbyname("hw.machine", NULL, &size, NULL, 0);
+  //  int nR = sysctlbyname("hw.machine", NULL, &size, NULL, 0);
     char *machine = (char *)malloc(size);
-    nR = sysctlbyname("hw.machine", machine, &size, NULL, 0);
+//   int nR = sysctlbyname("hw.machine", machine, &size, NULL, 0);
     NSString *platform = [NSString stringWithCString:machine encoding:NSUTF8StringEncoding];
     free(machine);
+    
 #if (TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR)
     return platform;
 #else	// #if (TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR)

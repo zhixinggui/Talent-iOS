@@ -20,3 +20,4 @@ NSUInteger  const  ZZMiMaMinLenth = 6 ;//密码最少位数
 NSUInteger  const  ZZMiMaMaxLenth  = 16;//密码最多位数
 NSUInteger  const  ZZNickMaxLenth  = 14;//昵称最多位数
 CGFloat  const DelayTime = 0.1;
+NSString * const ZZNetLoading  = @"连接服务器中";//连接服务器中

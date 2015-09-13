@@ -20,12 +20,12 @@
 - (void)baseOrderViewEnsueOrder:(ZZBaseOrderView *)baseprderView;
 @end
 
-@interface ZZBaseOrderView : UIScrollView
+@interface ZZBaseOrderView : UIScrollView<UIScrollViewDelegate>
 @property (nonatomic) CGFloat  toalheight;
 
 @property (nonatomic, strong) ZZOrderInfoShowView*  phoneShowView;
 
-@property (nonatomic)id<ZZBaseOrderViewDelegate> delegate;
+@property (nonatomic, weak)id<ZZBaseOrderViewDelegate> delegate;
 - (void)setUpChild;
 /**
  *  创建视图，并自动计算frame、添加到当前视图中

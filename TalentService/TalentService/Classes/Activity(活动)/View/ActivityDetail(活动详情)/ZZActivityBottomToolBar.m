@@ -68,7 +68,7 @@
     [super layoutSubviews];
     
     // 设置按钮的frame
-    int btnCount = self.btns.count;
+    NSInteger btnCount = self.btns.count;
     CGFloat btnW = self.width / btnCount;
     CGFloat btnH = self.height;
     for (int i = 0; i<btnCount; i++) {
