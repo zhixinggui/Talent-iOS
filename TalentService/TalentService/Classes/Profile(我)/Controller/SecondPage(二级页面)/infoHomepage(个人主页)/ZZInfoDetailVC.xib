@@ -198,7 +198,7 @@
                     <color key="textColor" red="0.12156862745098039" green="0.12941176470588237" blue="0.14117647058823529" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user" translatesAutoresizingMaskIntoConstraints="NO" id="2SL-pB-hkK" userLabel="头像">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user_30x30" translatesAutoresizingMaskIntoConstraints="NO" id="2SL-pB-hkK" userLabel="头像">
                     <rect key="frame" x="23" y="224" width="60" height="60"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="60" id="PdS-wy-2bD"/>
@@ -278,6 +278,7 @@
                 <constraint firstItem="5Ru-zI-6M0" firstAttribute="centerX" secondItem="r6d-MJ-TIq" secondAttribute="trailing" multiplier="2/3" id="S72-m8-GWA"/>
                 <constraint firstItem="azZ-Nj-4Px" firstAttribute="top" secondItem="r6d-MJ-TIq" secondAttribute="top" constant="21" id="SjZ-0f-3n8"/>
                 <constraint firstItem="3SX-51-ggB" firstAttribute="centerX" secondItem="mpI-Qx-HhD" secondAttribute="centerX" id="UYp-3W-Zpv"/>
+                <constraint firstAttribute="bottom" secondItem="gS7-5s-n6l" secondAttribute="bottom" constant="263" id="Ual-vu-yWT"/>
                 <constraint firstItem="r6d-MJ-TIq" firstAttribute="top" secondItem="gS7-5s-n6l" secondAttribute="bottom" constant="8" id="Vl6-hC-qgI"/>
                 <constraint firstItem="Zrk-ZE-30a" firstAttribute="trailing" secondItem="GBo-5I-BBT" secondAttribute="trailing" constant="-5" id="XGz-WJ-U54"/>
                 <constraint firstItem="Zrk-ZE-30a" firstAttribute="leading" secondItem="GBo-5I-BBT" secondAttribute="leading" constant="4" id="Xfc-2i-1Qr"/>
@@ -290,6 +291,7 @@
                 <constraint firstItem="KET-MY-1BR" firstAttribute="centerX" secondItem="u5C-hq-5rr" secondAttribute="centerX" id="fYO-Hn-nJk"/>
                 <constraint firstItem="2SL-pB-hkK" firstAttribute="top" secondItem="r6d-MJ-TIq" secondAttribute="top" constant="16" id="gGp-ag-wMB"/>
                 <constraint firstItem="azZ-Nj-4Px" firstAttribute="trailing" secondItem="r6d-MJ-TIq" secondAttribute="trailing" constant="-19" id="gbm-yb-dxn"/>
+                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="gS7-5s-n6l" secondAttribute="bottom" constant="263" id="jDv-U6-ewd"/>
                 <constraint firstItem="JGk-Ob-4vB" firstAttribute="trailing" secondItem="r6d-MJ-TIq" secondAttribute="trailing" constant="-5" id="l7p-oL-0J9"/>
                 <constraint firstItem="gS7-5s-n6l" firstAttribute="top" secondItem="SDu-d9-2Vz" secondAttribute="top" id="mSs-r1-fM2"/>
                 <constraint firstItem="bTF-Qc-z2k" firstAttribute="top" secondItem="u5C-hq-5rr" secondAttribute="top" id="mTJ-2X-OEk"/>
@@ -310,6 +312,6 @@
         <image name="T3" width="9" height="9"/>
         <image name="add_attention_40x40" width="40" height="40"/>
         <image name="border_34x34" width="9" height="9"/>
-        <image name="user" width="32" height="32"/>
+        <image name="user_30x30" width="30" height="30"/>
     </resources>
 </document>

@@ -1,89 +1,46 @@
 //
-//  ZZJoinOrderTVC.m
+//  ZZCollectCommunityTVC.m
 //  TalentService
 //
-//  Created by charles on 15/9/2.
+//  Created by charles on 15/9/14.
 //  Copyright (c) 2015年 zhizhen. All rights reserved.
 //
 
-#import "ZZJoinOrderTVC.h"
-#import "ZZJoinOrderCell.h"
-#import "ZZSegmentedControl.h"
-#import "ZZTestingVC.h"
-@interface ZZJoinOrderTVC ()<ZZSegmentedControlDelegate>
-@property(nonatomic,strong)ZZSegmentedControl *orderSegmentControl;
+#import "ZZCollectCommunityTVC.h"
+#import "ZZCommunityCell.h"
+@interface ZZCollectCommunityTVC ()
+
 @end
 
-@implementation ZZJoinOrderTVC
+@implementation ZZCollectCommunityTVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"我的接单";
-    UINib* nib = [UINib nibWithNibName:@"ZZJoinOrderCell" bundle:nil];
-    [self.tableView registerNib:nib forCellReuseIdentifier:jionOrderCelldentifier];
+    
+    [self.tableView  registerNib:[UINib nibWithNibName:@"ZZCommunityCell" bundle:nil] forCellReuseIdentifier:communityCelldentifier];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    self.tableView.rowHeight = 76;
-    
-    [self setNavRightItemWithName:@"验证" target:self action:@selector(testingAction:)];
+    self.tableView.rowHeight = 280;
 }
-
-/**
- *  navigation右button
- */
-- (void)setNavRightItemWithName:(NSString *)name target:(id)target action:(SEL)action {
-    
-    UIBarButtonItem *rightBarItem = [[UIBarButtonItem  alloc]initWithTitle:name style:UIBarButtonItemStyleDone target:target action:action];
-    self.navigationItem.rightBarButtonItem = rightBarItem;
-    
-}
-
-
-/**
- *  跳转验证
- */
-- (void)testingAction:(UIButton *)sender {
-    ZZLog(@"验证");
-    ZZTestingVC *testingVc = [[ZZTestingVC alloc]initWithNib];
-    [self.navigationController pushViewController:testingVc animated:YES];
-}
-
-
-
-
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark  event delegate
--(void)segmentControl:(ZZSegmentedControl *)segment andIndex:(NSUInteger)index{
-    ZZLog(@"切换%ld",index);
-}
-
-
-
 #pragma mark - Table view data source
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-
+#warning Incomplete method implementation.
+    // Return the number of rows in the section.
     return 10;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    ZZJoinOrderCell *cell = [tableView dequeueReusableCellWithIdentifier:jionOrderCelldentifier forIndexPath:indexPath];
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    ZZCommunityCell *cell = [tableView dequeueReusableCellWithIdentifier:communityCelldentifier forIndexPath:indexPath];
+    
     return cell;
-}
-
--(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    return self.self.orderSegmentControl;
-}
--(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 40;
 }
 
 
@@ -121,14 +78,14 @@
 }
 */
 
-
-#pragma mark - Table view delegate
 /*
+#pragma mark - Table view delegate
+
 // In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     // Navigation logic may go here, for example:
     // Create the next view controller.
-    ZZNextJionOrderTVC *detailViewController = [[ZZNextJionOrderTVC alloc] initWithNib];
+    <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:<#@"Nib name"#> bundle:nil];
     
     // Pass the selected object to the new view controller.
     
@@ -146,13 +103,5 @@
     // Pass the selected object to the new view controller.
 }
 */
-#pragma mark setter andGetter
--(ZZSegmentedControl *)orderSegmentControl{
-    if (!_orderSegmentControl) {
-        _orderSegmentControl = [[ZZSegmentedControl alloc]initWithItems:@[@"已接单",@"已验证"]];
-        _orderSegmentControl.delegate = self;
-        _orderSegmentControl.frame = CGRectMake(0, 0, ScreenWidth, 40);
-    }
-    return _orderSegmentControl;
-}
+
 @end
