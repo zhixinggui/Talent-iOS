@@ -1,26 +1,23 @@
 //
-//  ZZNextJionOrderTVC.m
+//  ZZCollectActivityTVC.m
 //  TalentService
 //
-//  Created by charles on 15/9/6.
+//  Created by charles on 15/9/14.
 //  Copyright (c) 2015年 zhizhen. All rights reserved.
 //
 
-#import "ZZNextJionOrderTVC.h"
-#import "ZZNextJionOrderCell.h"
-@interface ZZNextJionOrderTVC ()
+#import "ZZCollectActivityTVC.h"
+#import "ZZActivityCell.h"
+@interface ZZCollectActivityTVC ()
 
 @end
 
-@implementation ZZNextJionOrderTVC
+@implementation ZZCollectActivityTVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.title = @"接单";
-    UINib* nib = [UINib nibWithNibName:@"ZZNextJionOrderCell" bundle:nil];
-    [self.tableView registerNib:nib forCellReuseIdentifier:nextJionorderCellIdentifier];
-    self.tableView.rowHeight = 100;
+    self.tableView.rowHeight = [ZZActivityCell  cellHeight];
+    [self.tableView  registerNib:[UINib nibWithNibName:@"ZZActivityCell" bundle:nil] forCellReuseIdentifier:[ZZActivityCell   cellXibIdentifier]];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 
@@ -31,14 +28,18 @@
 
 #pragma mark - Table view data source
 
+
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 5;
+#warning Incomplete method implementation.
+    // Return the number of rows in the section.
+    return 10;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    ZZNextJionOrderCell *cell = [tableView dequeueReusableCellWithIdentifier:nextJionorderCellIdentifier forIndexPath:indexPath];
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    ZZActivityCell *cell = [tableView dequeueReusableCellWithIdentifier:[ZZActivityCell   cellXibIdentifier] forIndexPath:indexPath];
+    
     return cell;
 }
 

@@ -11,14 +11,17 @@
 #import "ZZJoinOrderCell.h"
 #import "ZZCancelOrderVC.h"
 #import "ZZSeeOrderVC.h"
-@interface ZZMyOrderTVC ()
+#import "ZZSegmentedControl.h"
+@interface ZZMyOrderTVC ()<ZZSegmentedControlDelegate>
 @property(nonatomic)NSInteger segmentControlIndex;
+@property(nonatomic,strong)ZZSegmentedControl *orderSegmentControl;
 @end
 
 @implementation ZZMyOrderTVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"我的订单";
     UINib* nib = [UINib nibWithNibName:@"ZZOrderCell" bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:orderCelldentifier];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -98,6 +101,29 @@
 }
 
 
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    return self.self.orderSegmentControl;
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 40;
+}
+
+#pragma mark  event delegate
+-(void)segmentControl:(ZZSegmentedControl *)segment andIndex:(NSUInteger)index{
+    ZZLog(@"切换%ld",index);
+    
+}
+
+
+#pragma mark setter andGetter
+-(ZZSegmentedControl *)orderSegmentControl{
+    if (!_orderSegmentControl) {
+        _orderSegmentControl = [[ZZSegmentedControl alloc]initWithItems:@[@"全部",@"未支付",@"已支付",@"已参加",@"已过期"]];
+        _orderSegmentControl.delegate = self;
+        _orderSegmentControl.frame = CGRectMake(0, 0, ScreenWidth, 40);
+    }
+    return _orderSegmentControl;
+}
 
 
 
