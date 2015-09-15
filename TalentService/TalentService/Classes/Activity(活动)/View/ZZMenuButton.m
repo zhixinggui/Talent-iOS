@@ -15,7 +15,7 @@
         self.backgroundColor = [UIColor  whiteColor];
         [self setTitleColor:ZZLightGrayColor forState:UIControlStateNormal];
         [self  setTitleColor:ZZGreenColor forState:UIControlStateSelected];
-        
+        self.titleLabel.font = ZZContentFont;
         [self  setImage:[UIImage  imageNamed:@"down_20x20"] forState:UIControlStateNormal];
         [self  setImage:[UIImage  imageNamed:@"down_selected_20x20"] forState:UIControlStateSelected];
     }
@@ -28,13 +28,11 @@
 }
 -(void)layoutSubviews{
     [super  layoutSubviews];
-
         // 1.计算titleLabel的frame
         self.titleLabel.x = self.imageView.x;
         
         // 2.计算imageView的frame
-        self.imageView.x = self.width - 20 -self.imageView.width;
-   
+        self.imageView.x = self.width - 5 -self.imageView.width;
 }
 
 @end

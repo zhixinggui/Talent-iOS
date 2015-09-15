@@ -42,12 +42,23 @@
     if (view == nil) view = [[UIApplication sharedApplication] keyWindow];
     // 快速显示一个提示信息
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
+   
     hud.labelText = message;
     // YES代表需要蒙版效果
-    hud.dimBackground = YES;
+    hud.dimBackground = NO;
     return hud;
 }
-
++ (MBProgressHUD *)showTipContent:(NSString *)content toView:(UIView *)view{
+    if (view == nil) view = [[UIApplication sharedApplication] keyWindow];
+    // 快速显示一个提示信息
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
+    hud.mode = MBProgressHUDModeText;
+    hud.labelText = content;
+    
+    // YES代表需要蒙版效果
+    hud.dimBackground = NO;
+    return hud;
+}
 + (void)showSuccess:(NSString *)success
 {
     [self showSuccess:success toView:nil];
@@ -62,7 +73,10 @@
 {
     return [self showMessage:message toView:nil];
 }
-
+//显示提示文字，没有图片的
++ (MBProgressHUD *)showTipContent:(NSString *)content{
+     return [self showTipContent:content toView:nil];
+}
 + (void)hideHUDForView:(UIView *)view
 {
     if (view == nil) view = [[UIApplication sharedApplication ] keyWindow];

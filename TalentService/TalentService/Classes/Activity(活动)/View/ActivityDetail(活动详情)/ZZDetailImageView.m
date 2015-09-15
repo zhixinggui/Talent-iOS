@@ -49,20 +49,20 @@
     
     // 报名按钮
     
-    CGFloat by = ly + ZZEdgeMargin;
-    CGFloat bw = 80;
-    CGFloat bh = lh - 2*ZZEdgeMargin;
-    
-    CGFloat bx = ScreenWidth - bw - lx;
-    UIButton *button = [[UIButton  alloc]initWithFrame:CGRectMake(bx, by, bw, bh)];
-    [button  setTitle:@"预  订" forState:UIControlStateNormal];
-    [button setTitleColor:[UIColor  whiteColor] forState:UIControlStateNormal];
-    [button  addTarget:self action:@selector(booking) forControlEvents:UIControlEventTouchUpInside];
-    button.titleLabel.font = ZZButtonFont;
-    button.backgroundColor = ZZNatiBarColor;
-    button.layer.cornerRadius = 5;
-    button.layer.masksToBounds = YES;
-    [self  addSubview:button];
+//    CGFloat by = ly + ZZEdgeMargin;
+//    CGFloat bw = 80;
+//    CGFloat bh = lh - 2*ZZEdgeMargin;
+//    
+//    CGFloat bx = ScreenWidth - bw - lx;
+//    UIButton *button = [[UIButton  alloc]initWithFrame:CGRectMake(bx, by, bw, bh)];
+//    [button  setTitle:@"预  订" forState:UIControlStateNormal];
+//    [button setTitleColor:[UIColor  whiteColor] forState:UIControlStateNormal];
+//    [button  addTarget:self action:@selector(booking) forControlEvents:UIControlEventTouchUpInside];
+//    button.titleLabel.font = ZZButtonFont;
+//    button.backgroundColor = ZZNatiBarColor;
+//    button.layer.cornerRadius = 5;
+//    button.layer.masksToBounds = YES;
+//    [self  addSubview:button];
     
     self.totalHeight = CGRectGetMaxY(label.frame);
     

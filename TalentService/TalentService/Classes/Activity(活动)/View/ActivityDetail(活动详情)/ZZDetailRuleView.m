@@ -8,7 +8,7 @@
 
 #import "ZZDetailRuleView.h"
 #import "ZZUnderLineLabel.h"
-
+#import "ZZHeadImageView.h"
 @interface ZZDetailRuleView ()<UIActionSheetDelegate>
 
 @end
@@ -40,13 +40,7 @@
     CGFloat headY = CGRectGetMaxY(underLabel.frame)+lineMargin;
     CGFloat headW = 50;
     CGFloat headH = headW;
-    UIImageView *headIV = [[UIImageView  alloc]initWithFrame:CGRectMake(headX, headY, headW, headH)];
-    headIV.contentMode = UIViewContentModeScaleAspectFill;
-    headIV.clipsToBounds = YES;
-    headIV.layer.cornerRadius = headW * 0.5;
-    headIV.layer.borderColor = ZZLightGrayColor.CGColor;
-    headIV.layer.borderWidth = 0.5;
-    headIV.layer.masksToBounds = YES;
+    ZZHeadImageView *headIV = [[ZZHeadImageView  alloc]initWithFrame:CGRectMake(headX, headY, headW, headH)];
     [self  addSubview:headIV];
     
     //昵称

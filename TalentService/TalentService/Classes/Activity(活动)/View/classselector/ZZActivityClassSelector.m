@@ -12,6 +12,7 @@
 @property (weak, nonatomic) IBOutlet UIPickerView *pickerView;
 @property (weak, nonatomic) IBOutlet UILabel *selectLabel;
 @property (weak, nonatomic) UIViewController<ZZActivityClassSelectorDelegate> *delegate;
+
 @end
 @implementation ZZActivityClassSelector
 +(instancetype)activityClassSelectorWithDlegate:(UIViewController<ZZActivityClassSelectorDelegate> *) delgate{

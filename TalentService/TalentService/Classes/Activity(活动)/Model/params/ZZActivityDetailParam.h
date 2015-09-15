@@ -9,5 +9,5 @@
 #import <Foundation/Foundation.h>
 
 @interface ZZActivityDetailParam : NSObject
-@property (nonatomic, strong)NSNumber *activityID ;
+@property (nonatomic, strong)NSNumber *activityID;
 @end

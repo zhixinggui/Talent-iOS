@@ -8,17 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-typedef enum {
-   ZZActivityBottomToolBarTypeSport,//点赞
-    ZZActivityBottomToolBarTypeRoast//吐槽
-}ZZActivityBottomToolBarType;
-@class ZZActivityBottomToolBar;
-@protocol ZZActivityBottomToolBarDelegate <NSObject>
-
-- (void)bottomToolbar:(ZZActivityBottomToolBar *)bottomToolbar didSelectedButton:(ZZActivityBottomToolBarType)buttonType;
-
-@end
 @interface ZZActivityBottomToolBar : UIView
+@property (nonatomic, strong) NSArray *btns;
 
-@property (nonatomic, weak) id<ZZActivityBottomToolBarDelegate> delegate;
 @end

@@ -12,4 +12,6 @@
 +(NSDictionary *)objectClassInArray{
     return @{@"userRole":[ZZUserRole class ]};
 }
+
 @end
+

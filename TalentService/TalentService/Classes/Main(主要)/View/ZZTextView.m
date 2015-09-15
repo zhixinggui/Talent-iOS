@@ -34,7 +34,23 @@
     }
     return self;
 }
-
+-(void)awakeFromNib{
+    
+    self.scrollsToTop = NO;
+    self.layer.borderColor = [UIColor  colorWithRed:0 green:0 blue:0 alpha:0.2].CGColor;
+    self.layer.borderWidth = 0.5;
+    self.layer.masksToBounds = YES;
+    self.layer.cornerRadius = 5;
+    self.enablesReturnKeyAutomatically = YES;
+    self.autocorrectionType=UITextAutocorrectionTypeNo;
+    self.showsVerticalScrollIndicator=NO;
+    self.autocapitalizationType = UITextAutocapitalizationTypeNone;
+    self.alwaysBounceVertical = YES;
+    self.layoutManager.allowsNonContiguousLayout=NO;
+    
+    //self.textContainerInset = UIEdgeInsetsMake(7.5, 3, 7.5, 0);
+    [[NSNotificationCenter   defaultCenter]addObserver:self selector:@selector(textViewDidChangeNoti:) name:UITextViewTextDidChangeNotification object:self];
+}
 -(UILabel *)placeholderLabel{
     if (!_placeholderLabel) {//WithFrame:CGRectMake(5,5, self.frame.size.width-20, 15)
         _placeholderLabel = [[UILabel  alloc]init];
@@ -56,7 +72,6 @@
 }
 
 
-
 - (void)textViewDidChangeNoti:(NSNotification *)noti{
     if (self.placeholder.length) {
         [self  updatePlaceholderLabelStatus];
@@ -69,10 +84,8 @@
       
         NSInteger textLength = [text  unicodeLength] - offset;
         if (textLength <= self.textContentLength||textLength <0 ) {
-           
             return;
         }else{
-           
             for (NSUInteger lenth = self.textContentLength/2; lenth < textLength; lenth++) {
                 if ([[text  substringToIndex:lenth] unicodeLength] > self.textContentLength) {
                     self.text = [text  substringToIndex:lenth-1];

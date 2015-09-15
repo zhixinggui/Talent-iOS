@@ -37,11 +37,10 @@
         // 添加带箭头的菜单图片
         UIImageView *container = [[UIImageView alloc] init];
         container.userInteractionEnabled = YES;
+        self.container.backgroundColor = [UIColor  redColor];
         [self addSubview:container];
         self.container = container;
-        
-        // 默认箭头指向中间
-        self.arrowPosition = ZZTopMenuArrowPositionCenter;
+
     }
     return self;
 }
@@ -76,24 +75,6 @@
 #pragma mark - 公共方法
 
 
-- (void)setArrowPosition:(ZZTopMenuArrowPosition)arrowPosition
-{
-    _arrowPosition = arrowPosition;
-    
-    switch (arrowPosition) {
-        case ZZTopMenuArrowPositionCenter:
-            self.container.image = [UIImage resizedImage:@"popover_background"];
-            break;
-            
-        case ZZTopMenuArrowPositionLeft:
-            self.container.image = [UIImage resizedImage:@"popover_background_left"];
-            break;
-            
-        case ZZTopMenuArrowPositionRight:
-            self.container.image = [UIImage resizedImage:@"popover_background_right"];
-            break;
-    }
-}
 - (void)setDimBackground:(BOOL)dimBackground
 {
     
@@ -136,13 +117,47 @@
     self.contentView.width = self.container.width - leftMargin - rightMargin;
     self.contentView.height = self.container.height - topMargin - bottomMargin;
 }
-
+/**
+ *  显示
+ */
+- (void)showFrom:(UIView *)from
+{
+    // 1.获得最上面的窗口
+    UIWindow *window = [[UIApplication sharedApplication].windows lastObject];
+    
+    // 2.添加自己到窗口上
+    [window addSubview:self];
+    
+    [self.container  addSubview:self.contentView];
+    
+    // 3.设置尺寸
+    self.frame = window.bounds;
+    
+    // 4.调整灰色图片的位置
+    // 默认情况下，frame是以父控件左上角为坐标原点
+    // 转换坐标系
+    CGRect newFrame = [from convertRect:from.bounds toView:window];
+    //    CGRect newFrame = [from.superview convertRect:from.frame toView:window];
+    
+    self.contentView.y = CGRectGetMaxY(newFrame)+5;
+    self.contentView.width = CGRectGetWidth(from.frame) - 10;
+    if (self.contentView.height > window.bounds.size.height - 2*CGRectGetMaxY(self.contentView.frame)) {
+        self.contentView.height =  window.bounds.size.height - 2*CGRectGetMaxY(self.contentView.frame);
+    }
+ 
+    self.contentView.centerX = CGRectGetMidX(newFrame);
+    self.container.x = 0;
+    // 设置灰色的高度
+    self.container.height = CGRectGetHeight(self.contentView.frame) + 11;
+    // 设置灰色的宽度
+    self.container.width = CGRectGetWidth(from.frame);
+ 
+}
 - (void)dismiss
 {
     if ([self.delegate respondsToSelector:@selector(popMenuDidDismissed:)]) {
         [self.delegate popMenuDidDismissed:self];
     }
-    
     [self removeFromSuperview];
 }
 

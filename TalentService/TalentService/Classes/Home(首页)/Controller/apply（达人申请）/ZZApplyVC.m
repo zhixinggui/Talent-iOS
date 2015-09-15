@@ -61,7 +61,7 @@ static  NSUInteger  const ImageCount = 5;
     UIBarButtonItem *rightBItem = [[UIBarButtonItem  alloc]initWithTitle:@"提交" style:UIBarButtonItemStyleDone target:self action:@selector(commitAction)];
     self.navigationItem.rightBarButtonItem = rightBItem;
     
-    self.navigationController.navigationItem.leftBarButtonItems = [UIBarButtonItem  backItemWithTarget:self action:@selector(back)];
+    self.navigationItem.leftBarButtonItems = [UIBarButtonItem  backItemWithTarget:self action:@selector(back)];
 }
 
 - (void)setChilds{
@@ -76,9 +76,18 @@ static  NSUInteger  const ImageCount = 5;
     [self.addImageCV  registerNib:[UINib  nibWithNibName:@"ZZAddImageCell" bundle:[NSBundle  mainBundle]] forCellWithReuseIdentifier:[ZZAddImageCell  addImageCellIdentifier]];
   
 
+    ZZApplyTalentParam *readApplyTalentParam = [ZZCacheTool  readApplyTalentParam];
+    if (readApplyTalentParam) {
+        self.nameTF.text = readApplyTalentParam.userName;
+        self.idCardTF.text = readApplyTalentParam.identityCard;
+        self.phoneTF.text = readApplyTalentParam.phone;
+      //  self.talentTypeTF.text = readApplyTalentParam.eredarType;
+        self.personTF.text = readApplyTalentParam.userPresentation;
+    }
 }
 
 - (void)back{
+    //本地缓存填写的东西
     ZZApplyTalentParam *applyParam = [[ZZApplyTalentParam  alloc]init];
     applyParam.userName = self.nameTF.text;
     applyParam.identityCard = self.idCardTF.text;

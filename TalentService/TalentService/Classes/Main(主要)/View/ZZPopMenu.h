@@ -7,11 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-typedef enum {
-    ZZTopMenuArrowPositionCenter = 0,
-    ZZTopMenuArrowPositionLeft = 1,
-    ZZTopMenuArrowPositionRight = 2
-} ZZTopMenuArrowPosition;
+
 @class ZZPopMenu;
 @protocol ZZPopMenuDelegate <NSObject>
 
@@ -26,7 +22,7 @@ typedef enum {
 
 @property (nonatomic, weak) id<ZZPopMenuDelegate> delegate;
 
-@property (nonatomic, assign) ZZTopMenuArrowPosition arrowPosition;
+
 /**
  *  初始化方法
  */
@@ -43,6 +39,10 @@ typedef enum {
  */
 - (void)showInRect:(CGRect)rect;
 
+/**
+ *  显示
+ */
+- (void)showFrom:(UIView *)from;
 /**
  *  关闭菜单
  */

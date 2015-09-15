@@ -13,4 +13,6 @@
 @property (nonatomic, copy)NSString *cmd;
 /** 请求参数 */
 @property (nonatomic, strong) NSDictionary*  parameters;
+/** token */
+@property (nonatomic, copy)NSString *token;
 @end

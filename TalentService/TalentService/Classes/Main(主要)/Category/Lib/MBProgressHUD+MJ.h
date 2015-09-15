@@ -20,7 +20,10 @@
 + (void)showError:(NSString *)error;
 
 + (MBProgressHUD *)showMessage:(NSString *)message;
+//显示提示文字，没有图片的
++ (MBProgressHUD *)showTipContent:(NSString *)content;
 
++ (MBProgressHUD *)showTipContent:(NSString *)content toView:(UIView *)view;
 + (void)hideHUDForView:(UIView *)view;
 
 + (void)hideHUD;

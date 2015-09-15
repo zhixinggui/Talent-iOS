@@ -15,6 +15,7 @@ static   NSUInteger const HomeNumCount = 10;
 #import "ZZApplyVC.h"
 #import "ZZHomeHttpTool.h"
 #import "MJRefresh.h"
+#import "ZZHudView.h"
 @interface ZZHomeViewController ()
 @property (nonatomic, strong)ZZHeadView *headView;
 @property (nonatomic, strong)NSMutableArray *activityArray;
@@ -41,41 +42,34 @@ static   NSUInteger const HomeNumCount = 10;
     //一定要在tableview 分割线设置之前
      [self.tableView  registerNib:[UINib nibWithNibName:@"ZZActivityCell" bundle:nil] forCellReuseIdentifier:[ZZActivityCell  cellXibIdentifier]];
      self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    //底部刷新
+    self.tableView.footer =   [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreService)];
+ 
+    //头部刷新
+    self.tableView.header =  [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(getNetData)];
+    [self.tableView.header  beginRefreshing];
     
-    self.tableView.footer = [MJRefreshAutoNormalFooter  forwardingTargetForSelector:@selector(loadMoreService)];
-    
-   
 }
 - (void)setUpRightBarItem{
-    
     UIBarButtonItem *barItem = [[UIBarButtonItem  alloc]initWithTitle:@"申请达人" style:UIBarButtonItemStyleDone target:self action:@selector(applySuper)];
     self.navigationItem.rightBarButtonItem = barItem;
-    
 }
-
-
 #pragma mark - event response
 - (void)applySuper{
-    
-    pushVC(ZZApplyVC);
-    
+    [ZZHudView  showMessage:@"dddd" animated:YES];
+    //pushVC(ZZApplyVC);
 }
 
 #pragma mark - Table view data source
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    return self.activityArray.count+10;
+    return self.activityArray.count;
 }
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ZZActivityCell *cell = [tableView  dequeueReusableCellWithIdentifier:[ZZActivityCell  cellXibIdentifier] ];
-
     return cell;
 }
-
-
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     return self.headView.height;
@@ -91,33 +85,43 @@ static   NSUInteger const HomeNumCount = 10;
 }
 #pragma mark
 - (void)getNetData{
-    
-    //
-  //[MBProgressHUD showMessage:ZZNetLoading];
+
+    //请求推荐达人
+  //[MBProgressHUD showMessage:ZZNetLoading ];
     [ZZHomeHttpTool  homeRcommoned:1 success:^(NSArray *recoms, ZZNetDataType netDataType) {
-        [MBProgressHUD  hideHUD];
+     
         self.tableHeadView.talents = recoms;
         self.tableView.tableHeaderView = self.tableHeadView;
         [self.tableView reloadData];
        
     } failure:^(NSString *error, ZZNetDataType netDataType) {
-        [MBProgressHUD  hideHUD];
+ 
     }];
     
-    //
+    //请求热门推荐
     ZZHomeServiceParam *homeParam = [[ZZHomeServiceParam  alloc]init];
     homeParam.pageNo = @(0);
     homeParam.isRecommoned = @(1);
     homeParam.numberOfPerPage = @(HomeNumCount);
+    
     self.lastParam = homeParam;
     [ZZHomeHttpTool  homeServices:homeParam success:^(NSArray *services, ZZNetDataType netDataType) {
-        
-       [ self.activityArray addObjectsFromArray:services];
+        [self.tableView.header endRefreshing];
+        if (self.lastParam != homeParam) {
+            return ;
+        }
+        [self.activityArray  removeAllObjects];
+        [self.activityArray addObjectsFromArray:services];
         [self.tableView  reloadData];
-        [MBProgressHUD  hideHUD];
+        
     } failure:^(NSString *error, ZZNetDataType netDataType) {
+          [self.tableView.header endRefreshing];
+        if (self.lastParam != homeParam) {
+            return ;
+        }
+         [MBProgressHUD  showError:error];
         self.lastParam = nil;
-        [MBProgressHUD  hideHUD];
+      
     }];
 }
 
@@ -129,13 +133,22 @@ static   NSUInteger const HomeNumCount = 10;
     self.lastParam = homeParam;
     [ZZHomeHttpTool  homeServices:homeParam success:^(NSArray *services, ZZNetDataType netDataType) {
         [self.tableView.footer  endRefreshing];
+        if (self.lastParam != homeParam) {
+            return ;
+        }
         [ self.activityArray addObjectsFromArray:services];
         [self.tableView  reloadData];
     
     } failure:^(NSString *error, ZZNetDataType netDataType) {
+        
+        [self.tableView.footer  endRefreshing];
+        if (self.lastParam != homeParam) {
+            return ;
+        }
+        [MBProgressHUD  showError:error];
         self.lastParam.pageNo = @([self.lastParam.pageNo integerValue]-1);
      
-        [self.tableView.footer  endRefreshing];
+       
     }];
 }
 #pragma mark -lazy load

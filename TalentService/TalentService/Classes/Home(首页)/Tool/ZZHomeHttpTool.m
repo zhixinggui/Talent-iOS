@@ -36,9 +36,9 @@
     
     [ZZHttpTool  afPostByApiName:@"" Params:param success:^(id json) {
         
-        
+        succ (nil, ZZNetDataTypeSuccLocal);
     } failure:^(NSString *error, ZZNetDataType netDataType) {
-        
+        fail (nil, netDataType);
         
     }];
 }

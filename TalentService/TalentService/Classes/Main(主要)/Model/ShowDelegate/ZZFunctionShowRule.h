@@ -21,6 +21,11 @@
 
 @end
 
+@protocol ZZSelectorViewShowDele <NSObject>
+//显示的文字
+- (NSString *)content;
+
+@end
 @interface ZZFunctionShowRule : NSObject
 
 @end

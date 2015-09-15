@@ -13,12 +13,13 @@ NSString *  const StatusStr = @"选择状态";
 #import "ZZMenuButton.h"
 #import "ZZTopMenuView.h"
 #import "ZZActivityDetailController.h"
-#import "ZZActivityClassSelector.h"
 
 #import "ZZActivityCity.h"
 #import "ZZActivityStatus.h"
 #import "ZZActivityType.h"
-@interface ZZActivityController ()<ZZActivityClassSelectorDelegate>
+#import "ZZPopMenu.h"
+#import "ZZSelectorView.h"
+@interface ZZActivityController ()
 /**活动请求到的数组*/
 @property (nonatomic, strong)NSMutableArray *activityArray;
 /** 城市选择*/
@@ -32,13 +33,11 @@ NSString *  const StatusStr = @"选择状态";
 
 /**记录选中了那个选择菜单  */
 @property (nonatomic, strong)ZZMenuButton *selectMenuBtn;
-
-@property (nonatomic, strong)ZZActivityClassSelector *classSelector;
-
+/**选中的城市  */
 @property (nonatomic, strong)ZZActivityCity *selectedCity;
-
+/**选中的状态 */
 @property (nonatomic, strong)ZZActivityStatus *selectedStatus;
-
+/**选中的类型  */
 @property (nonatomic, strong)ZZActivityType *selectedType;
 @end
 
@@ -85,21 +84,23 @@ NSString *  const StatusStr = @"选择状态";
     button.selected = YES;
     self.selectMenuBtn = button;
     
-    self.classSelector.title = CityStr;
-    [self.classSelector  showAnimation];
-    
-    
+    ZZSelectorView *selector = [[ZZSelectorView alloc]init];
+    ZZPopMenu *pop = [ZZPopMenu  popMenuWithContentView:selector];
+    pop.dimBackground = YES;
+//    CGFloat x = CGRectGetMinX(button.frame);
+//    CGFloat y = CGRectGetMaxY(button.frame) + 64;
+//    CGFloat W = CGRectGetWidth(button.frame);
+//    CGFloat h = ScreenHeight - y;
+//    [pop  showInRect:CGRectMake(x, y, w, h)];
+    [pop showFrom:button];
+  
 }
 //类型
 - (void)typeMenuBtnClick:(ZZMenuButton *)button{
     self.selectMenuBtn.selected = NO;
     button.selected = YES;
     self.selectMenuBtn = button;
-    
-    self.classSelector.title = TypeStr;
-    [self.classSelector  showAnimation];
-    
-   
+
 }
 //状态
 - (void)statusMenuBtnClick:(ZZMenuButton *)button{
@@ -107,20 +108,9 @@ NSString *  const StatusStr = @"选择状态";
     button.selected = YES;
     self.selectMenuBtn = button;
     
-    self.classSelector.title = StatusStr;
-    [self.classSelector  showAnimation];
-  
+
 }
-#pragma mark - ZZActivityClassSelectorDelegate
--(void)activityClassSelector:(ZZActivityClassSelector *)activityClassSelector selectNsobject:(id <ZZActivityClassSelectorShowDele>)object title:(NSString *)title{
-    if ([title isEqualToString:CityStr]) {
-        self.selectedCity = (ZZActivityCity *)  object;
-    }else if ([title isEqualToString:TypeStr]){
-        self.selectedType = (ZZActivityType *)object;
-    }else if ([title  isEqualToString:StatusStr]){
-        self.selectedStatus = (ZZActivityStatus *)object;
-    }
-}
+
 
 #pragma mark - Table view data source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -164,20 +154,6 @@ NSString *  const StatusStr = @"选择状态";
     return _topMenuView;
 }
 
--(ZZActivityClassSelector *)classSelector{
-    if (_classSelector == nil) {
-        _classSelector = [ZZActivityClassSelector  activityClassSelectorWithDlegate:self];
-    }
-    return _classSelector;
-}
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

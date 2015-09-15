@@ -9,13 +9,13 @@
 #import "ZZActivityDetailParam.h"
 
 @implementation ZZActivityDetailParam
+
 +(void)initialize{
     [self referenceReplacedKeyWhenCreatingKeyValues:YES];
 }
+
 +(NSDictionary *)replacedKeyFromPropertyName{
     return    @{@"activityID":@"id"};
 }
-
-
 
 @end

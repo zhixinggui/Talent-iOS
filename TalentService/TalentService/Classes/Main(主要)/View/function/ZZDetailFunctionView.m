@@ -18,6 +18,7 @@ CGFloat  const ViewAlpha = 0.4;
 @property (weak, nonatomic) IBOutlet UIView *grayBackView;
 @property (weak, nonatomic) IBOutlet UIView *separLine;
 @property (weak, nonatomic) IBOutlet UIButton *cancellButton;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *funCVheight;
 
 @end
 @implementation ZZDetailFunctionView
@@ -26,10 +27,18 @@ CGFloat  const ViewAlpha = 0.4;
     return detailFunctionView;
 }
 
+-(void)setFunctions:(NSArray *)functions{
+    _functions = functions;
+    self.funCVheight.constant = 90;
+    self.functionCV.hidden = NO;
+}
 - (void)awakeFromNib{
     self.frame = [UIScreen  mainScreen].bounds;
     [self.collectionView  registerNib:[UINib  nibWithNibName:@"ZZFunctionCell" bundle:[NSBundle  mainBundle]] forCellWithReuseIdentifier:[ZZFunctionCell  functionCellIdentifier]];
      [self.functionCV  registerNib:[UINib  nibWithNibName:@"ZZFunctionCell" bundle:[NSBundle  mainBundle]] forCellWithReuseIdentifier:[ZZFunctionCell  functionCellIdentifier]];
+    self.funCVheight.constant = 1;
+    self.functionCV.hidden = YES;
+    self.separLine.hidden = YES;
     self.grayBackView.backgroundColor = ZZRGBCloor(217, 217, 217);
     self.separLine.backgroundColor = ZZRGBCloor(207, 202, 198);
     [self.cancellButton  setTitleColor:ZZLightGrayColor forState:UIControlStateNormal];
@@ -82,7 +91,6 @@ CGFloat  const ViewAlpha = 0.4;
 
 - (void)reloadRowIn:(NSArray *)array  object:(id<ZZFunctionShowRuleDelegate>) object{
     if ([array isEqualToArray:self.shares]) {
-      
         [self.collectionView  reloadItemsAtIndexPaths:@[[NSIndexPath  indexPathForItem:[array  indexOfObject:object] inSection:0] ]];
     }else if([array  isEqualToArray:self.functions]){
         [self.functionCV  reloadItemsAtIndexPaths:@[[NSIndexPath  indexPathForItem:[array  indexOfObject:object] inSection:0] ]] ;
@@ -92,6 +100,9 @@ CGFloat  const ViewAlpha = 0.4;
 - (void)showAnimation{
     [[UIApplication  sharedApplication].keyWindow.rootViewController.view  addSubview:self];
     self.translucentView.alpha = 0;
+    if (self.shares.count && self.functions.count) {
+        self.separLine.hidden = NO;
+    }
     self.grayBackView.y = ScreenHeight + self.grayBackView.height;
     [UIView  animateWithDuration:animationTime animations:^{
         self.translucentView.alpha = ViewAlpha;

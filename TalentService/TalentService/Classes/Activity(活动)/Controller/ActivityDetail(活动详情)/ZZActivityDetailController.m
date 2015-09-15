@@ -17,6 +17,10 @@
 #import "ZZIQKeyBoardTool.h"
 #import "ZZFuncitonModel.h"
 #import "ZZActivityDetailParam.h"
+typedef enum {
+    ZZActivityBottomToolBarTypeApply,//预定
+    ZZActivityBottomToolBarTypeCollect//收藏
+}ZZActivityBottomToolBarType;
 @interface ZZActivityDetailController ()<ZZDetailImageViewDelegate,ZZDetailFunctionViewDelegate>
 //当前功能按钮
 @property (nonatomic, strong)NSArray *functions;
@@ -24,6 +28,11 @@
 @property (nonatomic, strong)ZZFuncitonModel *starModel;
 
 @property (nonatomic, strong)ZZDetailFunctionView *detailFV;
+
+//
+@property (nonatomic, strong) UIButton *applyBtn;
+
+@property (nonatomic, strong) UIButton *collectBtn;
 @end
 
 @implementation ZZActivityDetailController
@@ -69,6 +78,7 @@
     scrollView.contentSize = CGSizeMake(0, CGRectGetMaxY(detailView.frame));
     //工具栏
     ZZActivityBottomToolBar *actiBottomTool = [[ZZActivityBottomToolBar  alloc]initWithFrame:CGRectMake(0, scrollHeight, scrollWidth, toolHeight)];
+    actiBottomTool.btns = @[self.collectBtn,self.applyBtn];
     [self.view  addSubview:actiBottomTool];
 }
 -(void)viewWillAppear:(BOOL)animated{
@@ -81,10 +91,22 @@
    
 }
 #pragma mark -响应事件
+//分享
 - (void)moreFunction{
   
     [self.detailFV showAnimation];
   
+}
+- (void)btnAction:(UIButton *)btn{
+    switch (btn.tag) {
+        case ZZActivityBottomToolBarTypeApply:
+            
+            break;
+        case ZZActivityBottomToolBarTypeCollect:
+            btn.selected = YES;
+        default:
+            break;
+    }
 }
 
 #pragma mark -ZZDetailImageViewDelegate
@@ -124,8 +146,38 @@
     //打开键盘向上
      ZZKeyBoardTool(open);
 }
-
+//创建button
+- (UIButton *)setupBtnWithIcon:(NSString *)icon selectedIcon:(NSString *)selectedIcon  title:(NSString *)title backColor:(UIColor *)backColor  tag:(ZZActivityBottomToolBarType)barType
+{
+    UIButton *btn = [[UIButton alloc] init];
+    btn.tag = barType;
+    [btn setImage:[UIImage imageNamed:icon] forState:UIControlStateNormal];
+    [btn  setImage:[UIImage imageNamed:selectedIcon] forState:UIControlStateSelected];
+    [btn setTitle:title forState:UIControlStateNormal];
+    [btn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+    btn.titleLabel.font = ZZContentFont;
+    btn.backgroundColor = backColor;
+    btn.adjustsImageWhenHighlighted = NO;
+    [btn  addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside ];
+    // 设置间距
+    btn.titleEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0);
+    
+    return btn;
+}
 #pragma mark - lazy load
+
+-(UIButton *)applyBtn{
+    if (_applyBtn == nil) {
+        _applyBtn = [self setupBtnWithIcon:@"supported_20x20"  selectedIcon:@"" title:@"预定"  backColor:ZZGreenColor  tag:ZZActivityBottomToolBarTypeCollect];
+    }
+    return _applyBtn ;
+}
+-(UIButton *)collectBtn{
+    if (_collectBtn == nil) {
+        _collectBtn = [self setupBtnWithIcon:@"collect_60x60" selectedIcon:@"collected_60x60" title:@"收藏"  backColor:ZZBlueColor  tag:ZZActivityBottomToolBarTypeApply];
+    }
+    return  _collectBtn;
+}
 -(NSArray *)functions{
     if (_functions == nil) {
         NSMutableArray *array = [NSMutableArray  arrayWithCapacity:3];
@@ -150,7 +202,7 @@
     if (_detailFV == nil) {
         ZZDetailFunctionView *functionView =  [ZZDetailFunctionView  detailFunctionView];
         functionView.shares = [ZZUMTool  sharedUMTool].shareModels;
-        functionView.functions = self.functions;
+    
         functionView.delegate = self;
         _detailFV = functionView;
     }

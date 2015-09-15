@@ -7,60 +7,26 @@
 //
 
 #import "ZZActivityBottomToolBar.h"
-@interface ZZActivityBottomToolBar()
-@property (nonatomic, strong) NSMutableArray *btns;
 
-@property (nonatomic, weak) UIButton *sportBtn;
-@property (nonatomic, weak) UIButton *roastBtn;
-
-@end
 @implementation ZZActivityBottomToolBar
-- (NSMutableArray *)btns
-{
-    if (_btns == nil) {
-        self.btns = [NSMutableArray array];
-    }
-    return _btns;
-}
+
 
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
         self.backgroundColor = [UIColor clearColor];
-        self.sportBtn = [self setupBtnWithIcon:@"support_20x20" title:@"点赞（100）"  backColor:ZZBlueColor  tag:ZZActivityBottomToolBarTypeSport];
-        self.roastBtn = [self setupBtnWithIcon:@"supported_20x20" title:@"吐槽（2）"  backColor:ZZGreenColor  tag:ZZActivityBottomToolBarTypeRoast];
+
  
     }
     return self;
 }
 
-
-/**
- *  添加按钮
- *
- *  @param icon  图标
- *  @param title 标题
- */
-- (UIButton *)setupBtnWithIcon:(NSString *)icon title:(NSString *)title backColor:(UIColor *)backColor  tag:(ZZActivityBottomToolBarType)barType
-{
-    UIButton *btn = [[UIButton alloc] init];
-    btn.tag = barType;
-    [btn setImage:[UIImage imageNamed:icon] forState:UIControlStateNormal];
-    [btn setTitle:title forState:UIControlStateNormal];
-    [btn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
-    btn.titleLabel.font = [UIFont systemFontOfSize:13];
-    btn.backgroundColor = backColor;
-    btn.adjustsImageWhenHighlighted = NO;
-    [btn  addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside ];
-    // 设置间距
-    btn.titleEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0);
-    
-    [self addSubview:btn];
-    
-    [self.btns addObject:btn];
-    
-    return btn;
+-(void)setBtns:(NSArray *)btns{
+    _btns = btns;
+    for (UIButton *btn in btns) {
+        [self  addSubview:btn];
+    }
 }
 
 - (void)layoutSubviews
@@ -80,12 +46,6 @@
     }
     
 
-}
-
-- (void)btnAction:(UIButton *)btn{
-    if ([self.delegate respondsToSelector:@selector(bottomToolbar:didSelectedButton:)]) {
-        [self.delegate bottomToolbar:self didSelectedButton:btn.tag];
-    }
 }
 
 @end

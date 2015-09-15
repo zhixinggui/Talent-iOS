@@ -82,7 +82,6 @@
 /** 是否是当前登录用户*/
 @property (nonatomic)  BOOL  isLogin;
 
-
 /** 用户身份*/
 @property (nonatomic, strong) NSArray  *userRole;
 @end
