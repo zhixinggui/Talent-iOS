@@ -17,6 +17,7 @@
 		54EEFC561BA5468C00AFE7D4 /* ZZOtherUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 54EEFC551BA5468C00AFE7D4 /* ZZOtherUser.m */; };
 		5607DA7C1B831DB000803EE5 /* ZZFirstLoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5607DA7A1B831DB000803EE5 /* ZZFirstLoginVC.m */; };
 		5607DA7D1B831DB000803EE5 /* ZZFirstLoginVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5607DA7B1B831DB000803EE5 /* ZZFirstLoginVC.xib */; };
+		5618A9161BA94E83003ECC2D /* ZZSexSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 5618A9151BA94E83003ECC2D /* ZZSexSelector.m */; };
 		56227AB91BA6B85700813C09 /* ZZMyCollectVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 56227AB71BA6B85700813C09 /* ZZMyCollectVC.m */; };
 		56227ABA1BA6B85700813C09 /* ZZMyCollectVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56227AB81BA6B85700813C09 /* ZZMyCollectVC.xib */; };
 		56227ABE1BA6B96100813C09 /* ZZCollectActivityTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 56227ABC1BA6B96100813C09 /* ZZCollectActivityTVC.m */; };
@@ -35,6 +36,11 @@
 		565CF4771BA2A60A005CC369 /* ZZCancelOrderVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 565CF4751BA2A60A005CC369 /* ZZCancelOrderVC.xib */; };
 		566A00AF1BA69A7A00128DFE /* ZZInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 566A00AD1BA69A7A00128DFE /* ZZInfoCell.m */; };
 		566A00B01BA69A7A00128DFE /* ZZInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 566A00AE1BA69A7A00128DFE /* ZZInfoCell.xib */; };
+		56BFB4B71BA7E7EB002EAA1D /* ZZMyInfoHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 56BFB4B61BA7E7EB002EAA1D /* ZZMyInfoHttpTool.m */; };
+		56BFB4C01BA7EEAA002EAA1D /* ZZInfoParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 56BFB4BF1BA7EEAA002EAA1D /* ZZInfoParam.m */; };
+		56BFB4C31BA807E0002EAA1D /* ZZChangeInfoParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 56BFB4C21BA807E0002EAA1D /* ZZChangeInfoParam.m */; };
+		56BFB4C71BA915AE002EAA1D /* ZZChangePhoneNumVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 56BFB4C51BA915AE002EAA1D /* ZZChangePhoneNumVC.m */; };
+		56BFB4C81BA915AE002EAA1D /* ZZChangePhoneNumVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56BFB4C61BA915AE002EAA1D /* ZZChangePhoneNumVC.xib */; };
 		56C172E81B845A9C00EF55FF /* ZZRegistVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 56C172E61B845A9C00EF55FF /* ZZRegistVC.m */; };
 		56C172E91B845A9C00EF55FF /* ZZRegistVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56C172E71B845A9C00EF55FF /* ZZRegistVC.xib */; };
 		56C172ED1B846BB200EF55FF /* ZZNextRegistVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 56C172EB1B846BB200EF55FF /* ZZNextRegistVC.m */; };
@@ -268,6 +274,8 @@
 		5607DA791B831DB000803EE5 /* ZZFirstLoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZFirstLoginVC.h; sourceTree = "<group>"; };
 		5607DA7A1B831DB000803EE5 /* ZZFirstLoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZFirstLoginVC.m; sourceTree = "<group>"; };
 		5607DA7B1B831DB000803EE5 /* ZZFirstLoginVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZZFirstLoginVC.xib; sourceTree = "<group>"; };
+		5618A9141BA94E83003ECC2D /* ZZSexSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZZSexSelector.h; path = "../../../login(注册登录)/View/ZZSexSelector.h"; sourceTree = "<group>"; };
+		5618A9151BA94E83003ECC2D /* ZZSexSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZZSexSelector.m; path = "../../../login(注册登录)/View/ZZSexSelector.m"; sourceTree = "<group>"; };
 		56227AB61BA6B85700813C09 /* ZZMyCollectVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZMyCollectVC.h; sourceTree = "<group>"; };
 		56227AB71BA6B85700813C09 /* ZZMyCollectVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZMyCollectVC.m; sourceTree = "<group>"; };
 		56227AB81BA6B85700813C09 /* ZZMyCollectVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZZMyCollectVC.xib; sourceTree = "<group>"; };
@@ -295,6 +303,15 @@
 		566A00AC1BA69A7A00128DFE /* ZZInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZInfoCell.h; sourceTree = "<group>"; };
 		566A00AD1BA69A7A00128DFE /* ZZInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZInfoCell.m; sourceTree = "<group>"; };
 		566A00AE1BA69A7A00128DFE /* ZZInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZZInfoCell.xib; sourceTree = "<group>"; };
+		56BFB4B51BA7E7EB002EAA1D /* ZZMyInfoHttpTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZZMyInfoHttpTool.h; path = ../ZZMyInfoHttpTool.h; sourceTree = "<group>"; };
+		56BFB4B61BA7E7EB002EAA1D /* ZZMyInfoHttpTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZZMyInfoHttpTool.m; path = ../ZZMyInfoHttpTool.m; sourceTree = "<group>"; };
+		56BFB4BE1BA7EEAA002EAA1D /* ZZInfoParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZInfoParam.h; sourceTree = "<group>"; };
+		56BFB4BF1BA7EEAA002EAA1D /* ZZInfoParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZInfoParam.m; sourceTree = "<group>"; };
+		56BFB4C11BA807E0002EAA1D /* ZZChangeInfoParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZChangeInfoParam.h; sourceTree = "<group>"; };
+		56BFB4C21BA807E0002EAA1D /* ZZChangeInfoParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZChangeInfoParam.m; sourceTree = "<group>"; };
+		56BFB4C41BA915AE002EAA1D /* ZZChangePhoneNumVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZChangePhoneNumVC.h; sourceTree = "<group>"; };
+		56BFB4C51BA915AE002EAA1D /* ZZChangePhoneNumVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZChangePhoneNumVC.m; sourceTree = "<group>"; };
+		56BFB4C61BA915AE002EAA1D /* ZZChangePhoneNumVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZZChangePhoneNumVC.xib; sourceTree = "<group>"; };
 		56C172E51B845A9C00EF55FF /* ZZRegistVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZRegistVC.h; sourceTree = "<group>"; };
 		56C172E61B845A9C00EF55FF /* ZZRegistVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZRegistVC.m; sourceTree = "<group>"; };
 		56C172E71B845A9C00EF55FF /* ZZRegistVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZZRegistVC.xib; sourceTree = "<group>"; };
@@ -823,6 +840,26 @@
 			path = "infoCell(我的)";
 			sourceTree = "<group>";
 		};
+		56BFB4B81BA7E827002EAA1D /* MyInfoNetTool */ = {
+			isa = PBXGroup;
+			children = (
+				56BFB4B51BA7E7EB002EAA1D /* ZZMyInfoHttpTool.h */,
+				56BFB4B61BA7E7EB002EAA1D /* ZZMyInfoHttpTool.m */,
+			);
+			path = MyInfoNetTool;
+			sourceTree = "<group>";
+		};
+		56BFB4BD1BA7EE94002EAA1D /* infoParam */ = {
+			isa = PBXGroup;
+			children = (
+				56BFB4BE1BA7EEAA002EAA1D /* ZZInfoParam.h */,
+				56BFB4BF1BA7EEAA002EAA1D /* ZZInfoParam.m */,
+				56BFB4C11BA807E0002EAA1D /* ZZChangeInfoParam.h */,
+				56BFB4C21BA807E0002EAA1D /* ZZChangeInfoParam.m */,
+			);
+			path = infoParam;
+			sourceTree = "<group>";
+		};
 		6E2B7F991BA1A2D9004CA827 /* share */ = {
 			isa = PBXGroup;
 			children = (
@@ -974,6 +1011,9 @@
 				6E2B7FDF1BA1B52A004CA827 /* ZZModifyVC.h */,
 				6E2B7FE01BA1B52A004CA827 /* ZZModifyVC.m */,
 				6E2B7FE11BA1B52A004CA827 /* ZZModifyVC.xib */,
+				56BFB4C41BA915AE002EAA1D /* ZZChangePhoneNumVC.h */,
+				56BFB4C51BA915AE002EAA1D /* ZZChangePhoneNumVC.m */,
+				56BFB4C61BA915AE002EAA1D /* ZZChangePhoneNumVC.xib */,
 			);
 			path = "thirdPage(三级页面)";
 			sourceTree = "<group>";
@@ -981,6 +1021,8 @@
 		6E2B7FE51BA1B52A004CA827 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				56BFB4B81BA7E827002EAA1D /* MyInfoNetTool */,
+				56BFB4BD1BA7EE94002EAA1D /* infoParam */,
 				6E2B7FE61BA1B52A004CA827 /* ZZCommunityCellModel.h */,
 				6E2B7FE71BA1B52A004CA827 /* ZZCommunityCellModel.m */,
 				6E2B7FE81BA1B52A004CA827 /* ZZMyselfCellModel.h */,
@@ -1059,6 +1101,8 @@
 		6E2B80061BA1B52A004CA827 /* segment(选择) */ = {
 			isa = PBXGroup;
 			children = (
+				5618A9141BA94E83003ECC2D /* ZZSexSelector.h */,
+				5618A9151BA94E83003ECC2D /* ZZSexSelector.m */,
 				6E2B80071BA1B52A004CA827 /* ZZSegmentedControl.h */,
 				6E2B80081BA1B52A004CA827 /* ZZSegmentedControl.m */,
 			);
@@ -2186,6 +2230,7 @@
 				6E8D3A901B8C1713006798A7 /* ZZHeadView.xib in Resources */,
 				6E2B80341BA1B52A004CA827 /* ZZOrderCell.xib in Resources */,
 				6EE0D0CB1B69F2F700DC80AC /* UUPhoto.Bundle in Resources */,
+				56BFB4C81BA915AE002EAA1D /* ZZChangePhoneNumVC.xib in Resources */,
 				6E2B80161BA1B52A004CA827 /* ZZInfoModifyVC.xib in Resources */,
 				6E4A5CA81B954D06003751D5 /* UMSnsAccountViewController.xib in Resources */,
 				6E2B800C1BA1B52A004CA827 /* ZZInfoDetailVC.xib in Resources */,
@@ -2295,6 +2340,7 @@
 				6E7F58ED1BA1575D00191BC0 /* MBProgressHUD+MJ.m in Sources */,
 				6E2B7F9C1BA1A2F6004CA827 /* ZZFuncitonModel.m in Sources */,
 				6E2B80351BA1B52A004CA827 /* ZZSegmentedControl.m in Sources */,
+				56BFB4C31BA807E0002EAA1D /* ZZChangeInfoParam.m in Sources */,
 				6E7F59161BA1575D00191BC0 /* ZZTextView.m in Sources */,
 				6E7F58FC1BA1575D00191BC0 /* ZZCity.m in Sources */,
 				6E7F58FB1BA1575D00191BC0 /* ZZTabBarController.m in Sources */,
@@ -2314,6 +2360,7 @@
 				6E7F59081BA1575D00191BC0 /* ZZHttpTool.m in Sources */,
 				6E2B80111BA1B52A004CA827 /* ZZAttentionVC.m in Sources */,
 				6E7F58FD1BA1575D00191BC0 /* ZZCounty.m in Sources */,
+				56BFB4C01BA7EEAA002EAA1D /* ZZInfoParam.m in Sources */,
 				54EEFC561BA5468C00AFE7D4 /* ZZOtherUser.m in Sources */,
 				56227AB91BA6B85700813C09 /* ZZMyCollectVC.m in Sources */,
 				6E2B7FAF1BA1B4E6004CA827 /* ZZMoreVC.m in Sources */,
@@ -2329,6 +2376,7 @@
 				6E7F586D1BA146EE00191BC0 /* ZZLoginUser.m in Sources */,
 				6E9014081B82E2F10083F2B7 /* ZZLoginVC.m in Sources */,
 				566A00AF1BA69A7A00128DFE /* ZZInfoCell.m in Sources */,
+				5618A9161BA94E83003ECC2D /* ZZSexSelector.m in Sources */,
 				6E4C40E61B9046E600937CB1 /* ZZSeeOrderVC.m in Sources */,
 				6E8D3A981B8C3EE3006798A7 /* ASScroll.m in Sources */,
 				6E2B80331BA1B52A004CA827 /* ZZOrderCell.m in Sources */,
@@ -2351,6 +2399,7 @@
 				6E7F58EA1BA1575D00191BC0 /* NSDictionary+Extension.m in Sources */,
 				6EA108841B8D61FD00F4215A /* ZZActivityController.m in Sources */,
 				6E7F58EC1BA1575D00191BC0 /* NSString+Extension.m in Sources */,
+				56BFB4B71BA7E7EB002EAA1D /* ZZMyInfoHttpTool.m in Sources */,
 				6EC4C4A61B9FE55000C39F8A /* ZZLoginParam.m in Sources */,
 				6E7F592A1BA166A500191BC0 /* ZZActivityType.m in Sources */,
 				6EA108871B8D80E100F4215A /* ZZMenuButton.m in Sources */,
@@ -2360,6 +2409,7 @@
 				6E7F590A1BA1575D00191BC0 /* ZZAppSystem.mm in Sources */,
 				6EC4C4921B9FD83400C39F8A /* ZZCitySelector.m in Sources */,
 				6E2B802D1BA1B52A004CA827 /* ZZMyselfCell.m in Sources */,
+				56BFB4C71BA915AE002EAA1D /* ZZChangePhoneNumVC.m in Sources */,
 				6E7F58F31BA1575D00191BC0 /* UIImageView+Extension.m in Sources */,
 				6E7683991B8EF70900661770 /* ZZActivityBottomToolBar.m in Sources */,
 				6E7F59031BA1575D00191BC0 /* ZZFunctionShowRule.m in Sources */,

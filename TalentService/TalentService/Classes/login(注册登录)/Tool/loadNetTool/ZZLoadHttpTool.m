@@ -120,7 +120,6 @@ NSUInteger const DeviceType =1;
     ZZParam *param = [[ZZParam alloc]init];
     param.cmd = @"smart/registerNext";
     param.parameters = @{@"loginAccount":loginAccount,@"securityCode":securityCode};
-    
     [ZZHttpTool  afPostByApiName:@"" Params:param success:^(id json) {
         
         success(json,ZZNetDataTypeSuccServer);
@@ -166,4 +165,6 @@ NSUInteger const DeviceType =1;
         failure(error,netDataType);
     }];
 }
+
+
 @end

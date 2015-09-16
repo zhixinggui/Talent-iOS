@@ -1,27 +1,27 @@
 //
-//  ZZModifyVC.m
+//  ZZChangePhoneNumVC.m
 //  TalentService
 //
-//  Created by charles on 15/9/10.
+//  Created by charles on 15/9/16.
 //  Copyright (c) 2015年 zhizhen. All rights reserved.
 //
 
-#import "ZZModifyVC.h"
+#import "ZZChangePhoneNumVC.h"
 
-@interface ZZModifyVC ()
-@property (weak, nonatomic) IBOutlet UITextField *nameTF;
+@interface ZZChangePhoneNumVC ()
+@property (weak, nonatomic) IBOutlet UITextField *phoneTF;
 
 @end
 
-@implementation ZZModifyVC
+@implementation ZZChangePhoneNumVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"昵称";
+    self.title = @"手机号";
     UIView *whiteView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 10, 10)];
     whiteView.backgroundColor = [UIColor whiteColor];
-    [self.nameTF setLeftView:whiteView];
-    self.nameTF.leftViewMode = UITextFieldViewModeAlways;
+    [self.phoneTF setLeftView:whiteView];
+    self.phoneTF.leftViewMode = UITextFieldViewModeAlways;
 }
 
 - (void)didReceiveMemoryWarning {

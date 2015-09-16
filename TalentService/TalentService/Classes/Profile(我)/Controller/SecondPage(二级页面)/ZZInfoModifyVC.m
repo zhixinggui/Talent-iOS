@@ -9,7 +9,13 @@
 #import "ZZInfoModifyVC.h"
 #import "UUPhotoActionSheet.h"
 #import "ZZModifyVC.h"
-@interface ZZInfoModifyVC ()<UUPhotoActionSheetDelegate>
+#import "ZZMyInfoHttpTool.h"
+#import "ZZChangeInfoParam.h"
+#import "ZZChangePhoneNumVC.h"
+#import "ZZCitySelector.h"
+#import "ZZCityTool.h"
+#import "ZZSexSelector.h"
+@interface ZZInfoModifyVC ()<UUPhotoActionSheetDelegate,ZZCitySelectorDelegate,ZZSexSelectorDelegate>
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentViewHeightConstraint;
 @property (weak, nonatomic) IBOutlet UIImageView *headIV;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
@@ -19,6 +25,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *sexLabel;
 /** 选择图片*/
 @property (nonatomic, strong) UUPhotoActionSheet *sheet;
+
+@property (nonatomic, strong) ZZCity *selectedCity;
+@property (nonatomic, strong) ZZProvince *selectedProvince;
+@property (nonatomic, strong) ZZCounty *selectedCounty;
 @end
 
 @implementation ZZInfoModifyVC
@@ -32,8 +42,8 @@
 #pragma mark - button的所有响应事件
 - (IBAction)gotoModifyHeadIv:(UIButton *)sender {
     ZZLog(@"改头像");
-
     [self.sheet showAnimation];
+    
 }
 
 - (IBAction)gotoModifyName:(UIButton *)sender {
@@ -46,20 +56,46 @@
 
 - (IBAction)gotoModifyPhoneNum:(UIButton *)sender {
     ZZLog(@"改手机号码");
+    ZZChangePhoneNumVC *phoneNemVc = [[ZZChangePhoneNumVC alloc]initWithNib];
+    [self.navigationController pushViewController:phoneNemVc animated:YES];
 }
 
 - (IBAction)gotoModifyAddress:(UIButton *)sender {
     ZZLog(@"改地址");
-    
+    ZZCitySelector *citySelector = [ZZCitySelector  citySelectorWithProvinceArray:[ZZCityTool  sharedZZCityTool].provinceGroups delegate:self];
+    [citySelector  setSelectedProvince:self.selectedProvince city:self.selectedCity county:self.selectedCounty];
+    [citySelector showAnimation];
 }
+
+#pragma mark -ZZCitySelectorDelegate
+
+-(void)citySelectorSelect:(ZZCitySelector *)citySelector selectedProvince:(ZZProvince *)selectedProvince selectedCity:(ZZCity *)selectedCity selectedCounty:(ZZCounty *)selectedCounty{
+    
+    self.selectedProvince = selectedProvince;
+    self.selectedCounty = selectedCounty;
+    self.selectedCity = selectedCity;
+    self.adressLabel.text = [NSString  stringWithFormat:@"%@%@%@",selectedProvince.name,selectedCity.name,selectedCounty.name];
+}
+
 
 - (IBAction)gotoModifySex:(UIButton *)sender {
     ZZLog(@"改性别");
+    ZZSexSelector *sexSelector = [[[NSBundle  mainBundle]loadNibNamed:@"ZZInfoModifyVC" owner:self options:nil]lastObject];
+    sexSelector.delegate = self;
+    [sexSelector showAnimation];
 }
 #pragma mark -UUPhotoActionSheetDelegate
 - (void)actionSheetDidFinished:(NSArray *)obj{
     ZZLog(@"11111%@",obj);
     self.headIV.image = obj[0];
+    //上传修改信息
+    ZZChangeInfoParam *infoParam = [[ZZChangeInfoParam alloc]init];
+    
+    [ZZMyInfoHttpTool changeInfoWithChangeInfoParam:infoParam success:^(ZZLoginUser *infoUser, ZZNetDataType dataType) {
+        
+    } failure:^(NSString *error, ZZNetDataType datatype) {
+        
+    }];
 }
 
 
