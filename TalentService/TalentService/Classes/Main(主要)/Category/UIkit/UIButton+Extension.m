@@ -15,6 +15,7 @@ static const char *UIControl_acceptEventInterval = "UIControl_acceptEventInterva
 static const char *UIControl_acceptedEventTime = "UIControl_acceptedEventTime";
 @implementation UIButton (Extension)
 /**在app启动的时候,我们hook 所有的按钮的 event*/
+/*
 + (void)load
 {
     Method a = class_getInstanceMethod(self, @selector(sendAction:to:forEvent:));
@@ -34,9 +35,17 @@ static const char *UIControl_acceptedEventTime = "UIControl_acceptedEventTime";
 }
 /** runtime  动态绑定,  不建议大范围内用*/
 
+/*
 - (NSTimeInterval)uxy_acceptedEventTime
 {
-    return [objc_getAssociatedObject(self, UIControl_acceptedEventTime) doubleValue];
+    
+      __block id value = objc_getAssociatedObject(self, &UIControl_acceptedEventTime);
+    if(value){
+        return [value  doubleValue];
+    }else{
+        return NSDate.date.timeIntervalSince1970;
+    }
+    
 }
 - (void)setUxy_acceptedEventTime:(NSTimeInterval)uxy_acceptedEventTime
 {
@@ -53,6 +62,7 @@ static const char *UIControl_acceptedEventTime = "UIControl_acceptedEventTime";
     objc_setAssociatedObject(self, UIControl_acceptEventInterval, @(uxy_acceptEventInterval), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
+*/
 #pragma mark -封装属性，简化使用
 
 -(void)setN_BG:(NSString *)nbg H_BG:(NSString *)hbg{
