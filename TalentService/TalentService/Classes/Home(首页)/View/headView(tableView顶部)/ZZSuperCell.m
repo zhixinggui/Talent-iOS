@@ -7,10 +7,11 @@
 //
 
 #import "ZZSuperCell.h"
-
+#import "ZZOtherUser.h"
+#import "ZZHeadImageView.h"
 @interface ZZSuperCell ()
 @property (nonatomic, strong)UILabel *nameLabel;
-@property (nonatomic, strong)UIImageView *headIV;
+@property (nonatomic, strong)ZZHeadImageView *headIV;
 @end
 @implementation ZZSuperCell
 
@@ -26,12 +27,10 @@
     return _nameLabel;
 }
 
--(UIImageView *)headIV{
+-(ZZHeadImageView *)headIV{
     if (_headIV == nil) {
-        _headIV = [[UIImageView  alloc]init];
-        _headIV.contentMode = UIViewContentModeScaleAspectFill;
-        _headIV.clipsToBounds = YES;
-        _headIV.layer.masksToBounds = YES;
+        _headIV = [[ZZHeadImageView  alloc]init];
+        _headIV.backgroundColor = [UIColor  yellowColor];
         [self.contentView  addSubview:_headIV];
     }
     return _headIV;
@@ -49,11 +48,15 @@
     CGFloat  headX = (width -headW)/2;
     CGFloat  headY = (height-20 - headW)/2;
     self.headIV.frame = CGRectMake(headX, headY, headW, headW);
-    self.headIV.layer.cornerRadius = headW/2;
-    self.headIV.backgroundColor = [UIColor  yellowColor];
     
     //名字
     self.nameLabel.frame = CGRectMake(0, height- 20, width, nameH);
-    self.nameLabel.text = @"达人";
+//    self.nameLabel.text = @"达人";
+}
+
+-(void)setOtherUser:(ZZOtherUser *)otherUser{
+    _otherUser = otherUser;
+    [self.headIV  setHeadImageWithURL:otherUser.userSmallImg];
+    self.nameLabel.text = otherUser.userNike;
 }
 @end

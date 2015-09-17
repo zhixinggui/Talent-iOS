@@ -17,7 +17,7 @@
         self.contentMode = UIViewContentModeScaleAspectFill;
         self.clipsToBounds = YES;
         self.layer.masksToBounds = YES;
-        self.layer.borderColor = [UIColor  whiteColor].CGColor;
+        self.layer.borderColor = [UIColor  lightGrayColor].CGColor;
         self.layer.borderWidth = 0.5;
         
     }

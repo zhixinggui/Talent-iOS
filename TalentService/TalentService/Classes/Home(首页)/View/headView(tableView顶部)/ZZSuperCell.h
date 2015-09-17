@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class ZZOtherUser;
 @interface ZZSuperCell : UICollectionViewCell
-
+@property (nonatomic, strong)ZZOtherUser *otherUser;
 @end

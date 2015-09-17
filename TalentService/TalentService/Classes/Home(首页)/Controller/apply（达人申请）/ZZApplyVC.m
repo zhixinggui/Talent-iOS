@@ -153,9 +153,7 @@ static  NSUInteger  const ImageCount = 5;
         controller = [[UUPhotoBrowserViewController alloc] init];
         controller.delegate = self;
         controller.canDelete = YES;
-//        UINavigationController *naviController;
-//        naviController = [[UINavigationController alloc] initWithRootViewController:controller];
-//        //[self  presentViewController:naviController animated:YES completion:nil];
+
         [self.navigationController  pushViewController:controller animated:YES];
     }
 }

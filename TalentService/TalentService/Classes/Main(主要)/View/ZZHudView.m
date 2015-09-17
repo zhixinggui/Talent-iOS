@@ -40,8 +40,6 @@ CGFloat  const  Minwidth = 20;
 }
 - (void)showAnimated:(BOOL)animated{
 
-    
-   
   
     self.frame = CGRectMake(0, 0, self.contentSize.width+Minwidth, 20+Minheight);
     UIWindow *keyWindow = [UIApplication  sharedApplication].keyWindow;
@@ -67,7 +65,7 @@ CGFloat  const  Minwidth = 20;
         self.textAlignment = NSTextAlignmentCenter;
         self.backgroundColor = [UIColor  blackColor];
         self.alpha= .7;
-        
+        self.layer.cornerRadius =5;
         self.layer.masksToBounds = YES;
     }
     return self;

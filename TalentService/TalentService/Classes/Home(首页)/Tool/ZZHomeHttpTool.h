@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "ZZHomeServiceParam.h"
+#import "ZZHomeServiceResult.h"
 @interface ZZHomeHttpTool : NSObject
 /**
  *  推荐达人
@@ -25,5 +26,5 @@
  *  @param succ  <#succ description#>
  *  @param fail  <#fail description#>
  */
-+ (void)homeServices:(ZZHomeServiceParam *)homeParam success:(void (^)( NSArray *services, ZZNetDataType netDataType))succ  failure:(void (^)(NSString * error, ZZNetDataType netDataType))fail;
++ (void)homeServices:(ZZHomeServiceParam *)homeParam success:(void (^)(ZZHomeServiceResult *result, ZZNetDataType netDataType))succ  failure:(void (^)(NSString * error, ZZNetDataType netDataType))fail;
 @end

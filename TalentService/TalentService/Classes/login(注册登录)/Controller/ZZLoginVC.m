@@ -20,6 +20,8 @@ NSTimeInterval  const timeInterval = 3;
  */
 @property (strong, nonatomic) IBOutlet UIPageControl *pageControl;
 @property (strong, nonatomic) IBOutlet ZZLayerButton *loginButton;
+
+@property (weak, nonatomic) IBOutlet ZZLayerButton *resignButton;
 @property (nonatomic, strong) NSTimer *timer;
 @property (nonatomic,strong)NSArray *colorArray;
 @end
@@ -40,12 +42,14 @@ NSTimeInterval  const timeInterval = 3;
     [super viewDidLoad];
     
     [self addScrollview];
-    ZZLog(@"OSVersion:%@,,appVersion:%@,,appBundle:%@,,appIdentifier:%@,,,:deviceModel:%@,,:deviceName:%@,,appUDID:%@,,appPlatform:%@",[ZZAppSystem  OSVersion],[ZZAppSystem  appVersion],[ZZAppSystem appBundle],[ZZAppSystem appIdentifier],[ZZAppSystem  deviceModel],[ZZAppSystem deviceName],[ZZAppSystem  appUDID],[ZZAppSystem  appPlatform]);
+ 
 
     /**
      *  设置button颜色
      */
     self.loginButton.backgroundColor = LoginButtonColor;
+    self.loginButton.uxy_acceptEventInterval = 1;
+    self.resignButton.uxy_acceptEventInterval = 1;
 }
 
 -(void)addScrollview{
@@ -169,24 +173,20 @@ NSTimeInterval  const timeInterval = 3;
  */
 - (IBAction)loginEvent:(UIButton *)sender {
     ZZLog(@"登录");
-    sender.enabled = NO;
+ 
     ZZFirstLoginVC *firstLoginVc = [[ZZFirstLoginVC alloc]init];
     [self.navigationController pushViewController:firstLoginVc animated:YES];
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(DelayTime * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        sender.enabled = YES;
-    });
+  
 }
 /**
  *  注册入口
  */
 - (IBAction)registEvent:(UIButton *)sender {
     ZZLog(@"注册");
-     sender.enabled = NO;
+
     ZZRegistVC *registVc = [[ZZRegistVC alloc]init];
     [self.navigationController pushViewController:registVc animated:YES];
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(DelayTime * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        sender.enabled = YES;
-    });
+   
 }
 
 

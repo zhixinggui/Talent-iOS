@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "ZZActivity.h"
 @interface ZZActivityCell : UITableViewCell
+
+@property (nonatomic, strong)ZZActivity *activity;
 
 +(ZZActivityCell *)dequeueReusableCellTableView:(UITableView *)tableView;
 /**
@@ -24,4 +26,6 @@
  *  @return <#return value description#>
  */
 + (CGFloat)cellHeight;
+
+
 @end

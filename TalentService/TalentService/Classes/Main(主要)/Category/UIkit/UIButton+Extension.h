@@ -9,9 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface UIButton (Extension)
-/** 设置按钮的延迟时间，避免重复点击*/
-@property (nonatomic, assign) NSTimeInterval uxy_acceptEventInterval;   // 可以用这个给重复点击加间隔
-@property (nonatomic, assign) NSTimeInterval uxy_acceptedEventTime;
+
 /**
  * 设置普通状态与高亮状态的背景图片
  */

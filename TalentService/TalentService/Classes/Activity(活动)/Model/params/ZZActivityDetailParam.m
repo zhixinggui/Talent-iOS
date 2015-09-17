@@ -15,7 +15,7 @@
 }
 
 +(NSDictionary *)replacedKeyFromPropertyName{
-    return    @{@"activityID":@"id"};
+    return  @{@"activityID":@"id"};
 }
 
 @end

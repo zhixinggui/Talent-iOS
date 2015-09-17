@@ -32,7 +32,6 @@
 +(ZZActivityCell *)dequeueReusableCellTableView:(UITableView *)tableView{
     ZZActivityCell *cell = [tableView  dequeueReusableCellWithIdentifier:[ZZActivityCell  cellXibIdentifier]];
     if (cell == nil) {
-        
         NSArray *objs = [[NSBundle mainBundle] loadNibNamed:@"ZZActivityCell" owner:nil options:nil];
         cell = [objs lastObject];
     }
@@ -44,5 +43,21 @@
 
 + (CGFloat)cellHeight{
     return 230.0;
+}
+
+
+-(void)setActivity:(ZZActivity *)activity{
+    _activity = activity;
+    self.titleLabel.text = activity.title;
+    if (self.activity.price) {
+        self.priceLabel.text = [NSString  stringWithFormat:@"%@",activity.price];
+    }else{
+        self.priceLabel.text = @"免费";
+    }
+    
+    self.joinCountlabel.text = [NSString  stringWithFormat:@"参加人数%ld/%ld",activity.realityPeoples,activity.peoples];
+    self.cityButton.title = @"dd";
+
+   [self.showIV  setImageWithURL:activity.imgUrl];
 }
 @end

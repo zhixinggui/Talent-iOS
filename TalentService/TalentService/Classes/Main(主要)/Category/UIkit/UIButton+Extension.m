@@ -11,28 +11,33 @@
 #import "UIButton+WebCache.h"
 
 
-static const char *UIControl_acceptEventInterval = "UIControl_acceptEventInterval";
-static const char *UIControl_acceptedEventTime = "UIControl_acceptedEventTime";
+
+
+
 @implementation UIButton (Extension)
 /**在app启动的时候,我们hook 所有的按钮的 event*/
 /*
 + (void)load
 {
+    ZZLog(@"..%@",NSStringFromClass(self.class));
     Method a = class_getInstanceMethod(self, @selector(sendAction:to:forEvent:));
     Method b = class_getInstanceMethod(self, @selector(__uxy_sendAction:to:forEvent:));
     method_exchangeImplementations(a, b);
 }
 - (void)__uxy_sendAction:(SEL)action to:(id)target forEvent:(UIEvent *)event
 {
-    if (NSDate.date.timeIntervalSince1970 - self.uxy_acceptedEventTime < self.uxy_acceptEventInterval) return;
-    
-    if (self.uxy_acceptEventInterval > 0)
-    {
-        self.uxy_acceptedEventTime = NSDate.date.timeIntervalSince1970;
+    if([self  respondsToSelector:@selector(uxy_acceptedEventTime)]&&[self  respondsToSelector:@selector(uxy_acceptEventInterval)]){
+        if (NSDate.date.timeIntervalSince1970 - self.uxy_acceptedEventTime < self.uxy_acceptEventInterval) return;
+        if (self.uxy_acceptEventInterval > 0)
+        {
+            self.uxy_acceptedEventTime = NSDate.date.timeIntervalSince1970;
+        }
+         [self __uxy_sendAction:action to:target forEvent:event];
+    }else {
+      [self __uxy_sendAction:action to:target forEvent:event];
     }
-    
-    [self __uxy_sendAction:action to:target forEvent:event];
 }
+ */
 /** runtime  动态绑定,  不建议大范围内用*/
 
 /*
@@ -61,7 +66,6 @@ static const char *UIControl_acceptedEventTime = "UIControl_acceptedEventTime";
 {
     objc_setAssociatedObject(self, UIControl_acceptEventInterval, @(uxy_acceptEventInterval), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
-
 */
 #pragma mark -封装属性，简化使用
 

@@ -123,6 +123,10 @@
 		6E4C40E21B9041BB00937CB1 /* ZZOrderResultVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4C40E11B9041BB00937CB1 /* ZZOrderResultVC.m */; };
 		6E4C40E61B9046E600937CB1 /* ZZSeeOrderVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4C40E51B9046E600937CB1 /* ZZSeeOrderVC.m */; };
 		6E4C40EB1B90592700937CB1 /* ZZApplyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4C40E91B90592700937CB1 /* ZZApplyVC.m */; };
+		6E6695AD1BAA861600EDFE94 /* ZZActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6695AC1BAA861600EDFE94 /* ZZActivity.m */; };
+		6E6695B11BAA891000EDFE94 /* ZZHomeServiceResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6695B01BAA891000EDFE94 /* ZZHomeServiceResult.m */; };
+		6E6695B41BAAB87400EDFE94 /* UIControl+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6695B31BAAB87400EDFE94 /* UIControl+Extension.m */; };
+		6E6695BA1BAAB95200EDFE94 /* ZZRunTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6695B91BAAB95200EDFE94 /* ZZRunTime.m */; };
 		6E7408901BA69636003241AA /* ZZSelectorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E74088F1BA69636003241AA /* ZZSelectorView.m */; };
 		6E7683801B8EF70200661770 /* ZZActivityDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E76837D1B8EF70200661770 /* ZZActivityDetailController.m */; };
 		6E7683811B8EF70200661770 /* ZZEnsureOrderController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E76837F1B8EF70200661770 /* ZZEnsureOrderController.m */; };
@@ -445,6 +449,14 @@
 		6E4C40E51B9046E600937CB1 /* ZZSeeOrderVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZSeeOrderVC.m; sourceTree = "<group>"; };
 		6E4C40E81B90592700937CB1 /* ZZApplyVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZApplyVC.h; sourceTree = "<group>"; };
 		6E4C40E91B90592700937CB1 /* ZZApplyVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZApplyVC.m; sourceTree = "<group>"; };
+		6E6695AB1BAA861600EDFE94 /* ZZActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZActivity.h; sourceTree = "<group>"; };
+		6E6695AC1BAA861600EDFE94 /* ZZActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZActivity.m; sourceTree = "<group>"; };
+		6E6695AF1BAA891000EDFE94 /* ZZHomeServiceResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZHomeServiceResult.h; sourceTree = "<group>"; };
+		6E6695B01BAA891000EDFE94 /* ZZHomeServiceResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZHomeServiceResult.m; sourceTree = "<group>"; };
+		6E6695B21BAAB87400EDFE94 /* UIControl+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIControl+Extension.h"; sourceTree = "<group>"; };
+		6E6695B31BAAB87400EDFE94 /* UIControl+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIControl+Extension.m"; sourceTree = "<group>"; };
+		6E6695B81BAAB95200EDFE94 /* ZZRunTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZRunTime.h; sourceTree = "<group>"; };
+		6E6695B91BAAB95200EDFE94 /* ZZRunTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZRunTime.m; sourceTree = "<group>"; };
 		6E74088E1BA69636003241AA /* ZZSelectorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZSelectorView.h; sourceTree = "<group>"; };
 		6E74088F1BA69636003241AA /* ZZSelectorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZSelectorView.m; sourceTree = "<group>"; };
 		6E76837C1B8EF70200661770 /* ZZActivityDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZActivityDetailController.h; sourceTree = "<group>"; };
@@ -1248,6 +1260,24 @@
 			path = "apply（达人申请）";
 			sourceTree = "<group>";
 		};
+		6E6695AA1BAA860100EDFE94 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				6E6695AB1BAA861600EDFE94 /* ZZActivity.h */,
+				6E6695AC1BAA861600EDFE94 /* ZZActivity.m */,
+			);
+			path = utils;
+			sourceTree = "<group>";
+		};
+		6E6695AE1BAA889700EDFE94 /* Result */ = {
+			isa = PBXGroup;
+			children = (
+				6E6695AF1BAA891000EDFE94 /* ZZHomeServiceResult.h */,
+				6E6695B01BAA891000EDFE94 /* ZZHomeServiceResult.m */,
+			);
+			path = Result;
+			sourceTree = "<group>";
+		};
 		6E76837B1B8EF70200661770 /* ActivityDetail(活动详情) */ = {
 			isa = PBXGroup;
 			children = (
@@ -1370,6 +1400,8 @@
 				6E7F587D1BA1575D00191BC0 /* NSObject+Extension.m */,
 				6E7F587E1BA1575D00191BC0 /* NSString+Extension.h */,
 				6E7F587F1BA1575D00191BC0 /* NSString+Extension.m */,
+				6E6695B81BAAB95200EDFE94 /* ZZRunTime.h */,
+				6E6695B91BAAB95200EDFE94 /* ZZRunTime.m */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -1403,6 +1435,8 @@
 				6E7F58931BA1575D00191BC0 /* UIView+Extension.m */,
 				6E7F58941BA1575D00191BC0 /* UIViewController+Extension.h */,
 				6E7F58951BA1575D00191BC0 /* UIViewController+Extension.m */,
+				6E6695B21BAAB87400EDFE94 /* UIControl+Extension.h */,
+				6E6695B31BAAB87400EDFE94 /* UIControl+Extension.m */,
 			);
 			path = UIkit;
 			sourceTree = "<group>";
@@ -1617,6 +1651,7 @@
 		6E7F59171BA1576C00191BC0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				6E6695AE1BAA889700EDFE94 /* Result */,
 				6E7F59181BA1578400191BC0 /* Params */,
 			);
 			path = Model;
@@ -1763,6 +1798,7 @@
 		6E9807AC1B82E05200527EB2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				6E6695AA1BAA860100EDFE94 /* utils */,
 				5488379F1BA29A6400720150 /* params */,
 				6E7F59241BA1667300191BC0 /* typeclass */,
 				6E4C40D61B9007FF00937CB1 /* ZZPayType.h */,
@@ -2275,6 +2311,7 @@
 			files = (
 				6E7F58F51BA1575D00191BC0 /* UIView+Extension.m in Sources */,
 				6EE0D0D01B69F2F700DC80AC /* UUZoomingScrollView.m in Sources */,
+				6E6695BA1BAAB95200EDFE94 /* ZZRunTime.m in Sources */,
 				6E4C40E21B9041BB00937CB1 /* ZZOrderResultVC.m in Sources */,
 				6E7F59141BA1575D00191BC0 /* ZZSIzeFitButton.m in Sources */,
 				6E8D3A8A1B8C073E006798A7 /* ZZActivityCell.m in Sources */,
@@ -2338,6 +2375,7 @@
 				548837A61BA29AD600720150 /* ZZActivityListParam.m in Sources */,
 				6E2B80251BA1B52A004CA827 /* ZZCommunityCellModel.m in Sources */,
 				6E7F59041BA1575D00191BC0 /* ZZUMLoginModel.m in Sources */,
+				6E6695B11BAA891000EDFE94 /* ZZHomeServiceResult.m in Sources */,
 				6E4C40D11B8FF96700937CB1 /* ZZSelectPayTypeVC.m in Sources */,
 				6E7F58F21BA1575D00191BC0 /* UIImage+Extension.m in Sources */,
 				6E7F59101BA1575D00191BC0 /* ZZLayerButton.m in Sources */,
@@ -2353,6 +2391,7 @@
 				6E7F58EC1BA1575D00191BC0 /* NSString+Extension.m in Sources */,
 				6EC4C4A61B9FE55000C39F8A /* ZZLoginParam.m in Sources */,
 				6E7F592A1BA166A500191BC0 /* ZZActivityType.m in Sources */,
+				6E6695B41BAAB87400EDFE94 /* UIControl+Extension.m in Sources */,
 				6EA108871B8D80E100F4215A /* ZZMenuButton.m in Sources */,
 				6E7F59071BA1575D00191BC0 /* ZZCityTool.m in Sources */,
 				5652D31D1B859A7600A3FB09 /* ZZForgetVC.m in Sources */,
@@ -2406,6 +2445,7 @@
 				6E87B3111B8C6052003BB6C0 /* AdScrollView.m in Sources */,
 				6E7683971B8EF70900661770 /* ZZEnsureOrderView.m in Sources */,
 				6E38A4151BA666DC008B0C8D /* ZZHeadImageView.m in Sources */,
+				6E6695AD1BAA861600EDFE94 /* ZZActivity.m in Sources */,
 				6E2B80131BA1B52A004CA827 /* ZZCommunityTVC.m in Sources */,
 				6E4C40D81B9007FF00937CB1 /* ZZPayType.m in Sources */,
 				6E7F59201BA157E300191BC0 /* ZZLoadHttpTool.m in Sources */,

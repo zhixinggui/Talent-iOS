@@ -17,28 +17,31 @@
     param.parameters = @{@"isRecommoned":@(isRecom)};
     
     [ZZHttpTool  afPostByApiName:@"" Params:param success:^(id json) {
-        //objectArrayWithKeyValuesArray
+        ZZLog(@".%@",json);
         NSArray *array = [ZZLoginUser objectArrayWithKeyValuesArray:json];
     
         succ(array,ZZNetDataTypeSuccServer);
     } failure:^(NSString *error, ZZNetDataType netDataType) {
         
-        
+         fail (error, netDataType);
     }];
     
 }
 
-+(void)homeServices:(ZZHomeServiceParam *)homeParam success:(void (^)(NSArray *, ZZNetDataType))succ failure:(void (^)(NSString *, ZZNetDataType))fail{
++(void)homeServices:(ZZHomeServiceParam *)homeParam success:(void (^)(ZZHomeServiceResult *result, ZZNetDataType netDataType))succ failure:(void (^)(NSString *, ZZNetDataType))fail{
     
     ZZParam *param = [[ZZParam  alloc]init];
     param.cmd = @"smart/services/getPage";
     param.parameters = homeParam.keyValues;
     
     [ZZHttpTool  afPostByApiName:@"" Params:param success:^(id json) {
-        
-        succ (nil, ZZNetDataTypeSuccLocal);
+          ZZLog(@",,%@",[NSThread currentThread]);
+          ZZLog(@".%@",json);
+          ZZLog(@",,%@",[NSThread currentThread]);
+        ZZHomeServiceResult *serviceResult = [ZZHomeServiceResult  objectWithKeyValues:json];
+        succ (serviceResult, ZZNetDataTypeSuccLocal);
     } failure:^(NSString *error, ZZNetDataType netDataType) {
-        fail (nil, netDataType);
+        fail (error, netDataType);
         
     }];
 }

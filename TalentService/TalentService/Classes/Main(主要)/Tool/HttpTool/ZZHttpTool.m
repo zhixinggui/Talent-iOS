@@ -274,7 +274,7 @@ static AFHTTPRequestOperationManager  *_manager;
     }else {
         NSDictionary *errorDic = [[originDic objectForKey:@"error"]safeDictionary];
         NSString *errorStr = [[errorDic objectForKey:@"errorInfo"]safeString];
-        if (errorStr ) {
+        if (errorStr.length) {
       
         }else{
             errorStr = @"让服务器休息下";

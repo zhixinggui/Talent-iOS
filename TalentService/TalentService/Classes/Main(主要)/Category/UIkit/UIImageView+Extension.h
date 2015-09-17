@@ -16,7 +16,7 @@
  *  @param url       网络路径 ，NSString
  *  @param imageName 默认图片名字
  */
--(void)setImageWithURL:(NSString*)url placeholderImageName:(NSString*)imageName ;
+-(void)setImageWithURL:(NSString*)url ;
 
 /**
  *  网络加载头像，并设置默认图片

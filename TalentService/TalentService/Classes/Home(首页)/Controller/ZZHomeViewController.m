@@ -21,6 +21,7 @@ static   NSUInteger const HomeNumCount = 10;
 @property (nonatomic, strong)NSMutableArray *activityArray;
 @property (nonatomic, strong)ZZTableHeadView *tableHeadView;
 @property (nonatomic, strong)ZZHomeServiceParam *lastParam;
+@property (nonatomic, strong)ZZHomeServiceResult *result;
 @end
 
 @implementation ZZHomeViewController
@@ -47,6 +48,7 @@ static   NSUInteger const HomeNumCount = 10;
  
     //头部刷新
     self.tableView.header =  [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(getNetData)];
+    self.tableView.header.automaticallyChangeAlpha = YES;
     [self.tableView.header  beginRefreshing];
     
 }
@@ -57,17 +59,17 @@ static   NSUInteger const HomeNumCount = 10;
 #pragma mark - event response
 - (void)applySuper{
     [ZZHudView  showMessage:@"dddd" animated:YES];
-    //pushVC(ZZApplyVC);
+   pushVC(ZZApplyVC);
 }
 
 #pragma mark - Table view data source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-
     return self.activityArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ZZActivityCell *cell = [tableView  dequeueReusableCellWithIdentifier:[ZZActivityCell  cellXibIdentifier] ];
+    cell.activity = self.activityArray[indexPath.row];
     return cell;
 }
 
@@ -105,13 +107,15 @@ static   NSUInteger const HomeNumCount = 10;
     homeParam.numberOfPerPage = @(HomeNumCount);
     
     self.lastParam = homeParam;
-    [ZZHomeHttpTool  homeServices:homeParam success:^(NSArray *services, ZZNetDataType netDataType) {
+    [ZZHomeHttpTool  homeServices:homeParam success:^(ZZHomeServiceResult *result, ZZNetDataType netDataType) {
         [self.tableView.header endRefreshing];
         if (self.lastParam != homeParam) {
             return ;
         }
+        self.result = result;
+        ZZLog(@",,%@",[NSThread currentThread]);
         [self.activityArray  removeAllObjects];
-        [self.activityArray addObjectsFromArray:services];
+        [self.activityArray addObjectsFromArray:result.rows];
         [self.tableView  reloadData];
         
     } failure:^(NSString *error, ZZNetDataType netDataType) {
@@ -127,16 +131,17 @@ static   NSUInteger const HomeNumCount = 10;
 
 - (void)loadMoreService{
     ZZHomeServiceParam *homeParam = [[ZZHomeServiceParam  alloc]init];
-    homeParam.pageNo = @([self.lastParam.pageNo integerValue]+1);
+    homeParam.pageNo = @(self.result.page);
     homeParam.isRecommoned = @(1);
     homeParam.numberOfPerPage = @(HomeNumCount);
     self.lastParam = homeParam;
-    [ZZHomeHttpTool  homeServices:homeParam success:^(NSArray *services, ZZNetDataType netDataType) {
+    [ZZHomeHttpTool  homeServices:homeParam success:^(ZZHomeServiceResult *result, ZZNetDataType netDataType) {
         [self.tableView.footer  endRefreshing];
         if (self.lastParam != homeParam) {
             return ;
         }
-        [ self.activityArray addObjectsFromArray:services];
+        self.result = result;
+        [ self.activityArray addObjectsFromArray:result.rows];
         [self.tableView  reloadData];
     
     } failure:^(NSString *error, ZZNetDataType netDataType) {
@@ -146,12 +151,18 @@ static   NSUInteger const HomeNumCount = 10;
             return ;
         }
         [MBProgressHUD  showError:error];
-        self.lastParam.pageNo = @([self.lastParam.pageNo integerValue]-1);
-     
-       
     }];
 }
 #pragma mark -lazy load
+
+-(void)setResult:(ZZHomeServiceResult *)result{
+    _result = result;
+    if (result.page == result.total) {
+        [self.tableView.footer noticeNoMoreData];
+    }else{
+        [self.tableView.footer resetNoMoreData];
+    }
+}
 -(NSMutableArray *)activityArray{
     if (_activityArray == nil) {
         _activityArray = [NSMutableArray  array];

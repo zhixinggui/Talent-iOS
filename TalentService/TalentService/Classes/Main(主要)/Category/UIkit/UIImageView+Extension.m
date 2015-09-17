@@ -10,11 +10,13 @@
 #import "UIImageView+WebCache.h"
 @implementation UIImageView (Extension)
 
--(void)setImageWithURL:(NSString*)url placeholderImageName:(NSString*)imageName{
-    [self  sd_setImageWithURL:[NSURL URLWithString:url]  placeholderImage:[UIImage  imageWithContentsOfFile:[[NSBundle mainBundle]pathForResource:imageName ofType:nil]]options:SDWebImageRetryFailed | SDWebImageLowPriority ];
+-(void)setImageWithURL:(NSString*)url{
+    [self  sd_setImageWithURL:[NSURL URLWithString:url]  placeholderImage:[UIImage  imageNamed:@"default100x100.png"]options:SDWebImageRetryFailed | SDWebImageLowPriority ];
 }
 
 -(void)setHeadImageWithURL:(NSString*)url{
-     [self  sd_setImageWithURL:[NSURL URLWithString:url]  placeholderImage:[UIImage  imageWithContentsOfFile:[[NSBundle mainBundle]pathForResource:@"" ofType:nil]]options:SDWebImageRetryFailed | SDWebImageLowPriority |SDWebImageRefreshCached];
+    
+   
+     [self  sd_setImageWithURL:[NSURL URLWithString:url]  placeholderImage:[UIImage  imageNamed:@"default_icon_60x60.png" ] options:SDWebImageRetryFailed | SDWebImageLowPriority |SDWebImageRefreshCached];
 }
 @end

@@ -63,6 +63,7 @@ static  NSString *cellIden = @"collectionCell";
 }
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     ZZSuperCell *cell = [collectionView  dequeueReusableCellWithReuseIdentifier:cellIden forIndexPath:indexPath];
+    cell.otherUser = self.talents[indexPath.row];
     [cell  setNeedsLayout];
     return cell;
 }
