@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "ZZUserRole.h"
 @interface ZZBaseUser : NSObject
 /** 用户ID*/
 @property (nonatomic, assign)NSUInteger userId;

@@ -9,13 +9,15 @@
 #import "ZZInfoModifyVC.h"
 #import "UUPhotoActionSheet.h"
 #import "ZZModifyVC.h"
-#import "ZZMyInfoHttpTool.h"
+
 #import "ZZChangeInfoParam.h"
 #import "ZZChangePhoneNumVC.h"
 #import "ZZCitySelector.h"
 #import "ZZCityTool.h"
 #import "ZZSexSelector.h"
-@interface ZZInfoModifyVC ()<UUPhotoActionSheetDelegate,ZZCitySelectorDelegate,ZZSexSelectorDelegate>
+#import "ZZLoginUserTool.h"
+#import "ZZMyInfoHttpTool.h"
+@interface ZZInfoModifyVC ()<UUPhotoActionSheetDelegate,ZZCitySelectorDelegate>
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentViewHeightConstraint;
 @property (weak, nonatomic) IBOutlet UIImageView *headIV;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
@@ -37,6 +39,24 @@
     [super viewDidLoad];
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.title = @"我的";
+    /**
+     *  个人信息
+     */
+    ZZLoginUserTool *loginUserTool = [ZZLoginUserTool sharedZZLoginUserTool];
+    
+    self.nameLabel.text = loginUserTool.loginUser.userNike;
+    self.phoneLabel.text = loginUserTool.loginUser.userPhone;
+    self.adressLabel.text = loginUserTool.loginUser.userAddress;
+    if (loginUserTool.loginUser.userSex == 1) {
+        self.sexLabel.text = @"男";
+    }else if (loginUserTool.loginUser.userSex == 2){
+        self.sexLabel.text = @"女";
+    }else{
+        self.sexLabel.text = @"男";
+    }
+    
+    
+    
 }
 
 #pragma mark - button的所有响应事件
@@ -80,9 +100,7 @@
 
 - (IBAction)gotoModifySex:(UIButton *)sender {
     ZZLog(@"改性别");
-    ZZSexSelector *sexSelector = [[[NSBundle  mainBundle]loadNibNamed:@"ZZInfoModifyVC" owner:self options:nil]lastObject];
-    sexSelector.delegate = self;
-    [sexSelector showAnimation];
+    
 }
 #pragma mark -UUPhotoActionSheetDelegate
 - (void)actionSheetDidFinished:(NSArray *)obj{

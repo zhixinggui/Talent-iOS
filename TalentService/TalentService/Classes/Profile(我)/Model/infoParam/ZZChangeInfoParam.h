@@ -42,12 +42,4 @@
  */
 @property (nonatomic,strong)NSNumber *userSex;
 
--(instancetype)initWithImgPath:(NSString*)imgpath
-                   andUserNike:(NSString*)userNike
-                  andUserPhone:(NSString*)userPhone
-                   andProvince:(NSNumber*)province
-                   andDistrict:(NSNumber*)district
-                       andCity:(NSNumber*)city
-                andUserAddress:(NSString*)userAddress
-                    andUserSex:(NSNumber*)userSex;
 @end

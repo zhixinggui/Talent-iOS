@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-NSString * const baseUrl = @"http://192.168.100.164:8081/wine-rest/cgi";
+NSString * const baseUrl = @"http://192.168.100.155:8081/wine-rest/cgi";
 
 NSTimeInterval const responseTime = 60;
 CGFloat  const  ZZLineSpace = 4;//行间距
@@ -23,3 +23,4 @@ NSUInteger  const  ZZNickMaxLenth  = 14;//昵称最多位数
 CGFloat  const DelayTime = 0.1;
 NSString * const ZZNetLoading  = @"连接服务器中";//连接服务器中
 NSString * const ZZRefreshFail  = @"刷新失败，请稍候重试";//刷新失败提示
+NSString * const ZZUserNickChangeNoti = @"ZZUserNickChangeNoti";

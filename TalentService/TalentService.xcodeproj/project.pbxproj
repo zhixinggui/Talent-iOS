@@ -36,6 +36,7 @@
 		565CF4771BA2A60A005CC369 /* ZZCancelOrderVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 565CF4751BA2A60A005CC369 /* ZZCancelOrderVC.xib */; };
 		566A00AF1BA69A7A00128DFE /* ZZInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 566A00AD1BA69A7A00128DFE /* ZZInfoCell.m */; };
 		566A00B01BA69A7A00128DFE /* ZZInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 566A00AE1BA69A7A00128DFE /* ZZInfoCell.xib */; };
+		568D748E1BAA888000E1C4B1 /* ZZJsonInfoTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 568D748D1BAA888000E1C4B1 /* ZZJsonInfoTool.m */; };
 		56BFB4B71BA7E7EB002EAA1D /* ZZMyInfoHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 56BFB4B61BA7E7EB002EAA1D /* ZZMyInfoHttpTool.m */; };
 		56BFB4C01BA7EEAA002EAA1D /* ZZInfoParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 56BFB4BF1BA7EEAA002EAA1D /* ZZInfoParam.m */; };
 		56BFB4C31BA807E0002EAA1D /* ZZChangeInfoParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 56BFB4C21BA807E0002EAA1D /* ZZChangeInfoParam.m */; };
@@ -303,6 +304,8 @@
 		566A00AC1BA69A7A00128DFE /* ZZInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZInfoCell.h; sourceTree = "<group>"; };
 		566A00AD1BA69A7A00128DFE /* ZZInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZInfoCell.m; sourceTree = "<group>"; };
 		566A00AE1BA69A7A00128DFE /* ZZInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZZInfoCell.xib; sourceTree = "<group>"; };
+		568D748C1BAA888000E1C4B1 /* ZZJsonInfoTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZJsonInfoTool.h; sourceTree = "<group>"; };
+		568D748D1BAA888000E1C4B1 /* ZZJsonInfoTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZJsonInfoTool.m; sourceTree = "<group>"; };
 		56BFB4B51BA7E7EB002EAA1D /* ZZMyInfoHttpTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZZMyInfoHttpTool.h; path = ../ZZMyInfoHttpTool.h; sourceTree = "<group>"; };
 		56BFB4B61BA7E7EB002EAA1D /* ZZMyInfoHttpTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZZMyInfoHttpTool.m; path = ../ZZMyInfoHttpTool.m; sourceTree = "<group>"; };
 		56BFB4BE1BA7EEAA002EAA1D /* ZZInfoParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZInfoParam.h; sourceTree = "<group>"; };
@@ -845,6 +848,8 @@
 			children = (
 				56BFB4B51BA7E7EB002EAA1D /* ZZMyInfoHttpTool.h */,
 				56BFB4B61BA7E7EB002EAA1D /* ZZMyInfoHttpTool.m */,
+				568D748C1BAA888000E1C4B1 /* ZZJsonInfoTool.h */,
+				568D748D1BAA888000E1C4B1 /* ZZJsonInfoTool.m */,
 			);
 			path = MyInfoNetTool;
 			sourceTree = "<group>";
@@ -2423,6 +2428,7 @@
 				6EE0D0C71B69F2F700DC80AC /* UUPhotoBrowserViewController.m in Sources */,
 				6E2B80091BA1B52A004CA827 /* ZZInfoVC.m in Sources */,
 				6E7F59311BA1688000191BC0 /* ZZActivityClassSelector.m in Sources */,
+				568D748E1BAA888000E1C4B1 /* ZZJsonInfoTool.m in Sources */,
 				56227ABE1BA6B96100813C09 /* ZZCollectActivityTVC.m in Sources */,
 				6E7F58F41BA1575D00191BC0 /* UILabel+Extension.m in Sources */,
 				6E7F59271BA1668A00191BC0 /* ZZActivityCity.m in Sources */,

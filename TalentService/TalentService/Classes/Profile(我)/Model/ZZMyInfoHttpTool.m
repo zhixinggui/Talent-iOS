@@ -9,6 +9,7 @@
 #import "ZZMyInfoHttpTool.h"
 #import "ZZLoginUserTool.h"
 #import "ZZHttpTool.h"
+#import "ZZJsonInfoTool.h"
 @implementation ZZMyInfoHttpTool
 /**
  *  获取个人信息
@@ -31,10 +32,14 @@
     }
     infoParam.parameters = dic;
     [ZZHttpTool afPostByApiName:@"" Params:infoParam success:^(id json) {
-        ZZLog(@"个人信息:%@",json);
+        ZZLog(@"你妈了个逼Json:%@",json);
         //解析
+        [ZZJsonInfoTool parseSelfInfomation:json];
+        
+        success(nil,ZZNetDataTypeSuccServer);
     } failure:^(NSString *error, ZZNetDataType netDataType) {
-        ZZLog(@"请求失败");
+        failure(error,netDataType);
+        ZZLog(@"个人信息请求失败");
     }];
 }
 
@@ -45,8 +50,11 @@
 +(void)changeInfoWithChangeInfoParam:(ZZChangeInfoParam *)changeInfoParam success:(void (^)(ZZLoginUser *, ZZNetDataType))success failure:(failureBlock)failure{
     
     ZZParam *param = [[ZZParam alloc]init];
+    
     param.cmd = @"smart/personal/updatePersonal";
+    
     param.token = [ZZLoginUserTool sharedZZLoginUserTool].loginUser.token;
+    
     param.parameters = [changeInfoParam keyValues];
     
     [ZZHttpTool afPostByApiName:@"" Params:param success:^(id json) {
