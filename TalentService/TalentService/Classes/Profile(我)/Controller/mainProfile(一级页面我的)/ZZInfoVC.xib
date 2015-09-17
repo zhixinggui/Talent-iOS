@@ -9,8 +9,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ZZInfoVC">
             <connections>
+                <outlet property="fansCount" destination="ZXf-At-WvE" id="Bq2-GU-eGY"/>
                 <outlet property="infoIV" destination="qta-VE-Uke" id="XrW-3E-z5E"/>
                 <outlet property="infoTableView" destination="iRf-jQ-hHJ" id="C1b-7I-FEJ"/>
+                <outlet property="nameLabel" destination="4LX-7A-IiL" id="GGn-Ck-zVg"/>
+                <outlet property="roleLabel" destination="ZZs-Ds-y3L" id="kqC-wo-r9U"/>
                 <outlet property="tableHeadView" destination="3Ud-jI-0s5" id="Myu-qV-rF4"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -113,7 +116,7 @@
                     <color key="textColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="等级" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZXf-At-WvE">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fans" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZXf-At-WvE">
                     <rect key="frame" x="268" y="258" width="80" height="21"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="RbV-hd-9PK"/>

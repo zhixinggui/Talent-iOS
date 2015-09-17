@@ -7,8 +7,10 @@
 //
 
 #import "ZZModifyVC.h"
-
+#import "ZZLoginUserTool.h"
+#import "ZZMyInfoHttpTool.h"
 @interface ZZModifyVC ()
+@property (weak, nonatomic) IBOutlet UITextField *nameTF;
 
 @end
 
@@ -16,9 +18,36 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    self.title = @"昵称";
+    [self setNavRightItemWithName:@"保存" target:self action:@selector(exchageNameAction:)];
+    UIView *whiteView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 10, 10)];
+    whiteView.backgroundColor = [UIColor whiteColor];
+    [self.nameTF setLeftView:whiteView];
+    self.nameTF.leftViewMode = UITextFieldViewModeAlways;
+    self.nameTF.text = [ZZLoginUserTool sharedZZLoginUserTool].loginUser.userNike;
 }
 
+/**
+ *  navigation右button
+ */
+- (void)setNavRightItemWithName:(NSString *)name target:(id)target action:(SEL)action {
+    
+    UIBarButtonItem *rightBarItem = [[UIBarButtonItem  alloc]initWithTitle:name style:UIBarButtonItemStyleDone target:target action:action];
+    self.navigationItem.rightBarButtonItem = rightBarItem;
+    
+}
+
+-(void)exchageNameAction:(UIButton*)button{
+    //上传修改信息
+    ZZChangeInfoParam *infoParam = [[ZZChangeInfoParam alloc]init];
+    infoParam.userNike = self.nameTF.text;
+    
+    [ZZMyInfoHttpTool changeInfoWithChangeInfoParam:infoParam success:^(ZZLoginUser *infoUser, ZZNetDataType dataType) {
+        
+    } failure:^(NSString *error, ZZNetDataType datatype) {
+        
+    }];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

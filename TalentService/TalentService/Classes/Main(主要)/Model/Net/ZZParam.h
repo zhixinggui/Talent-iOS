@@ -11,8 +11,9 @@
 @interface ZZParam : NSObject
 /** 接口名 */
 @property (nonatomic, copy)NSString *cmd;
+/**用户token*/
+@property (nonatomic, strong)NSString *token;
 /** 请求参数 */
 @property (nonatomic, strong) NSDictionary*  parameters;
-/** token */
-@property (nonatomic, copy)NSString *token;
+
 @end

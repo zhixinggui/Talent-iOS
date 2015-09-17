@@ -18,7 +18,17 @@
 #import "ZZJoinOrderTVC.h"
 #import "ZZMyCollectVC.h"
 #import "UUPhotoActionSheet.h"
+/**
+ *  我的页面请求
+ */
+#import "ZZMyInfoHttpTool.h"
+#import "ZZLoginUser.h"
 @interface ZZInfoVC ()<UITableViewDataSource,UITableViewDelegate,UUPhotoActionSheetDelegate>
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *roleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *fansCount;
+
+@property (nonatomic,strong)ZZLoginUser *loginUser;
 @property (weak, nonatomic) IBOutlet UIView *tableHeadView;
 @property (weak, nonatomic) IBOutlet UITableView *infoTableView;
 
@@ -31,6 +41,20 @@
 
 @implementation ZZInfoVC
 
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    /**
+     *  请求
+     */
+    [ZZMyInfoHttpTool getMyInfoWithUserAttentionId:nil andMyCenter:nil success:^(ZZLoginUser *infoUser, ZZNetDataType dataType) {
+        ZZLog(@"个人信息infoUser:%@",infoUser);
+        
+    } failure:^(NSString *error, ZZNetDataType datatype) {
+        ZZLog(@"请求失败");
+    }];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.infoTableView.tableHeaderView = self.tableHeadView;
@@ -42,6 +66,13 @@
     self.infoTableView.rowHeight = 50;
     
     [self setNavRightItemWithName:@"消息" target:self action:@selector(messageAction:)];
+    /**
+     *  请求数据赋值
+     */
+    self.nameLabel.text = self.loginUser.userNike;
+    ZZUserRole *userRole = self.loginUser.userRole[0];
+    self.roleLabel.text = userRole.eredarName;
+    self.fansCount.text = [NSString stringWithFormat:@"%ld",self.loginUser.fans];
 }
 
 /**
@@ -220,6 +251,13 @@
         _imageArray = @[@"oder_40x40",@"oder_40x40",@"oder_40x40",@"commnuity_40x40",@"oder_40x40"];
     }
     return _imageArray;
+}
+
+-(ZZLoginUser *)loginUser{
+    if (!_loginUser) {
+        _loginUser = [ZZLoginUserTool sharedZZLoginUserTool].loginUser;
+    }
+    return _loginUser;
 }
 
 @end

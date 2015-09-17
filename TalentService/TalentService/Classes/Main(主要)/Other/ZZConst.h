@@ -35,3 +35,4 @@ extern  NSUInteger  const  ZZNickMaxLenth ;//昵称最多位数
 extern  CGFloat  const DelayTime;
 extern  NSString * const ZZNetLoading ;//连接服务器中
 extern  NSString * const ZZRefreshFail; // 刷新失败提示
+extern  NSString * const ZZUserNickChangeNoti; // 登录用户头像改变通知
