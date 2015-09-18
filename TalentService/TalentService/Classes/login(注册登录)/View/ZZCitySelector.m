@@ -112,18 +112,65 @@
     }else{
     return self.selectedCity.counties.count;
     }
+
 }
 
+//-(NSAttributedString *)pickerView:(UIPickerView *)pickerView attributedTitleForRow:(NSInteger)row forComponent:(NSInteger)component{
+//    NSString *str ;
+//    if (component == 0) {
+//        ZZProvince *province = self.provinceArray[row];
+//      str = province.name;
+//    }else if (component == 1){
+//        ZZCity *city = self.selectedProvince.cities[row];
+//        str =  city.name;
+//    }else{
+//        ZZCounty *county = self.selectedCity.counties[row];
+//       str =  county.name;
+//    }
+//    
+////    NSMutableAttributedString *attributedString = [[NSMutableAttributedString   alloc]
+////    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle  alloc] init];
+////    paragraphStyle.alignment = NSTextAlignmentLeft;
+////    paragraphStyle.lineBreakMode = NSLineBreakByWordWrapping;
+////    
+////    NSRange range = NSMakeRange(0,attributedString.length);
+////    [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:range];
+////    //字体大小
+////    if (font) {
+////        [attributedString  addAttributes:@{NSFontAttributeName:font} range:range];
+////    }
+////    if (color) {
+////        [attributedString  addAttributes:@{NSForegroundColorAttributeName :color} range:range];
+////    }
+//    NSMutableAttributedString  *astr = [[NSMutableAttributedString  alloc]initWithString:str];
+//
+// [astr  addAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14]} range:NSMakeRange(0, str.length)];
+//    ZZLog(@",,%@..%@",str,astr);
+//    return astr;
+//}
+//-(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
+//
+//    if (component == 0) {
+//        ZZProvince *province = self.provinceArray[row];
+//        return  province.name;
+//    }else if (component == 1){
+//        ZZCity *city = self.selectedProvince.cities[row];
+//       return  city.name;
+//    }else{
+//        ZZCounty *county = self.selectedCity.counties[row];
+//       return  county.name;
+//    }
+//}
 -(UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view{
-    UILabel *pickerLabel = (UILabel *)view;
-    if (!pickerLabel) {
-        pickerLabel = [[UILabel alloc] init];
+    UILabel *pickerLabel  = nil;
+
+        pickerLabel = [[UILabel alloc] initWithFrame:CGRectMake(0.0, 0.0, 180, 30)];
         pickerLabel.minimumScaleFactor = 8;
         pickerLabel.adjustsFontSizeToFitWidth = YES;
         [pickerLabel setTextAlignment:NSTextAlignmentCenter];
         [pickerLabel setBackgroundColor:[UIColor clearColor]];
         [pickerLabel setFont:[UIFont systemFontOfSize:14]];
-    }
+ 
     if (component == 0) {
         ZZProvince *province = self.provinceArray[row];
         pickerLabel.text = province.name;
@@ -142,28 +189,26 @@
     if (component == 0) {
         //更改当前选中省份的索引
         self.selectedProvince = self.provinceArray[row];
-        
+        ZZLog(@"sehng:%@",self.selectedProvince.name);
         //刷新第二组数据
         [pickerView reloadComponent:1];
         
-        //选中第一个
-        [pickerView selectRow:0 inComponent:1 animated:YES];
-        self.selectedCity = self.selectedProvince.cities[0];
-        //刷新第三组数据
-        [pickerView reloadComponent:2];
-        
-        //选中第一个
-        [pickerView selectRow:0 inComponent:2 animated:YES];
+        [self  pickerView:self.pickerView didSelectRow:0 inComponent:1];
+
     }else if(component == 1){
         self.selectedCity = self.selectedProvince.cities[row];
-        
+        ZZLog(@"city:%@",self.selectedCity.name);
         //刷新第三组数据
         [pickerView reloadComponent:2];
         
         //选中第一个
-        [pickerView selectRow:0 inComponent:2 animated:YES];
+         [self  pickerView:self.pickerView didSelectRow:0 inComponent:2];
+   
     }else{
         self.selectedCounty = self.selectedCity.counties[row];
+            ZZLog(@"county:%@",self.selectedCounty.name);
     }
 }
+
+
 @end

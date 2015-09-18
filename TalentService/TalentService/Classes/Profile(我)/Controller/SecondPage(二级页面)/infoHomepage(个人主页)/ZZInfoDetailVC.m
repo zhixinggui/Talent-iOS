@@ -11,14 +11,16 @@
 #import "ZZSegmentedControl.h"
 #import "ZZCommunityTVC.h"
 #import "ZZActivityController.h"
+/**
+ *  个人页面请求
+ */
+#import "ZZMyInfoHttpTool.h"
+#import "ZZLoginUser.h"
 @interface ZZInfoDetailVC ()<UITableViewDataSource,UITableViewDelegate,ZZSegmentedControlDelegate>
 @property (weak, nonatomic) IBOutlet UIView *headView;
 @property (weak, nonatomic) IBOutlet UITableView *infoDetailTableView;
 @property (strong, nonatomic) ZZSegmentedControl *segmentControl;
-#warning 暂时用这两个类 到时候替换成个人服务类和社区类
-@property (strong, nonatomic) ZZCommunityTVC *communityTvc;
-@property (strong, nonatomic) ZZActivityController *activityTvc;
-#warning ----------------------------------------------
+
 @end
 
 @implementation ZZInfoDetailVC
@@ -34,7 +36,15 @@
     self.infoDetailTableView.rowHeight = 280;
     self.infoDetailTableView.tableHeaderView = self.headView;
     
-
+    /**
+     *  请求
+     */
+    [ZZMyInfoHttpTool getMyInfoWithUserAttentionId:nil andMyCenter:@(1) success:^(ZZLoginUser *infoUser, ZZNetDataType dataType) {
+        ZZLog(@"个人信息infoUser:%@",infoUser);
+        
+    } failure:^(NSString *error, ZZNetDataType datatype) {
+        ZZLog(@"请求失败");
+    }];
     
 }
 

@@ -15,4 +15,11 @@
  *  @param dic <#dic description#>
  */
 +(void)parseSelfInfomation:(NSDictionary*)dic;
+/**
+ *  修改解析
+ *
+ *  @param dic <#dic description#>
+ */
++(void)parseChangeInformation:(NSDictionary*)dic;
+
 @end

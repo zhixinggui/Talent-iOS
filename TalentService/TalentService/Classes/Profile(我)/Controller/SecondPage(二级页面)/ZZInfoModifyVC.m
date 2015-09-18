@@ -18,6 +18,10 @@
 #import "ZZLoginUserTool.h"
 #import "ZZMyInfoHttpTool.h"
 @interface ZZInfoModifyVC ()<UUPhotoActionSheetDelegate,ZZCitySelectorDelegate>
+@property (weak, nonatomic) IBOutlet UIButton *womanButton;
+@property (weak, nonatomic) IBOutlet UIButton *manButton;
+@property (strong, nonatomic) IBOutlet UIView *changeView;
+@property (weak, nonatomic) IBOutlet UIScrollView *changScrollView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentViewHeightConstraint;
 @property (weak, nonatomic) IBOutlet UIImageView *headIV;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
@@ -31,7 +35,11 @@
 @property (nonatomic, strong) ZZCity *selectedCity;
 @property (nonatomic, strong) ZZProvince *selectedProvince;
 @property (nonatomic, strong) ZZCounty *selectedCounty;
+
+@property (nonatomic ,strong)UIButton *selectedButton;
 @end
+
+
 
 @implementation ZZInfoModifyVC
 
@@ -42,22 +50,31 @@
     /**
      *  个人信息
      */
-    ZZLoginUserTool *loginUserTool = [ZZLoginUserTool sharedZZLoginUserTool];
-    
-    self.nameLabel.text = loginUserTool.loginUser.userNike;
-    self.phoneLabel.text = loginUserTool.loginUser.userPhone;
-    self.adressLabel.text = loginUserTool.loginUser.userAddress;
-    if (loginUserTool.loginUser.userSex == 1) {
-        self.sexLabel.text = @"男";
-    }else if (loginUserTool.loginUser.userSex == 2){
-        self.sexLabel.text = @"女";
-    }else{
-        self.sexLabel.text = @"男";
-    }
-    
-    
-    
+    [self  notice];
+
+    //获取通知中心单例对象
+    NSNotificationCenter * center = [NSNotificationCenter defaultCenter];
+    //添加当前类对象为一个观察者，name和object设置为nil，表示接收一切通知
+    [center addObserver:self selector:@selector(notice) name:ZZUserNickChangeNoti object:nil];
 }
+//接听通知
+-(void)notice{
+    
+    ZZLoginUser *loginUser = [ZZLoginUserTool  sharedZZLoginUserTool].loginUser;
+    self.nameLabel.text = loginUser.userNike;
+    self.phoneLabel.text = loginUser.userPhone;
+    self.adressLabel.text = loginUser.userAddress;
+    if (loginUser.userSex == 1) {
+        self.sexLabel.text = @"男";
+        self.manButton.selected = YES;
+        self.selectedButton = self.manButton;
+    }else{
+        self.womanButton.selected = YES;
+        self.sexLabel.text = @"女";
+        self.selectedButton = self.womanButton;
+    }
+}
+
 
 #pragma mark - button的所有响应事件
 - (IBAction)gotoModifyHeadIv:(UIButton *)sender {
@@ -95,13 +112,54 @@
     self.selectedCounty = selectedCounty;
     self.selectedCity = selectedCity;
     self.adressLabel.text = [NSString  stringWithFormat:@"%@%@%@",selectedProvince.name,selectedCity.name,selectedCounty.name];
+    
+    //上传地址
+    ZZChangeInfoParam *infoParam = [[ZZChangeInfoParam alloc]init];
+    infoParam.userAddress = self.adressLabel.text;
+    [MBProgressHUD showMessage:@"正在保存中..."];
+    
+    [ZZMyInfoHttpTool changeInfoWithChangeInfoParam:infoParam success:^(ZZLoginUser *infoUser, ZZNetDataType dataType) {
+        [MBProgressHUD  hideHUD];
+        [MBProgressHUD  showSuccess:@"保存成功"];
+
+    } failure:^(NSString *error, ZZNetDataType datatype) {
+        [MBProgressHUD  hideHUD];
+        [MBProgressHUD  showError:error];
+    }];
+    
 }
 
 
 - (IBAction)gotoModifySex:(UIButton *)sender {
     ZZLog(@"改性别");
+    self.changeView.center = self.view.center;
+    [self.view addSubview:self.changeView];
+}
+
+- (IBAction)changeSexButton:(UIButton *)sender {
+    self.selectedButton.selected = NO;
+    sender.selected = YES;
+    ZZLog(@"%ld",sender.tag);
+    self.selectedButton = sender;
+    
+    //上传地址
+    ZZChangeInfoParam *infoParam = [[ZZChangeInfoParam alloc]init];
+    infoParam.userSex = @(sender.tag);
+    [self.changeView removeFromSuperview];
+    [MBProgressHUD showMessage:@"正在保存中..."];
+    [ZZMyInfoHttpTool changeInfoWithChangeInfoParam:infoParam success:^(ZZLoginUser *infoUser, ZZNetDataType dataType) {
+        [MBProgressHUD  hideHUD];
+        [MBProgressHUD  showSuccess:@"保存成功"];
+    } failure:^(NSString *error, ZZNetDataType datatype) {
+        [MBProgressHUD  hideHUD];
+        [MBProgressHUD  showError:error];
+    }];
     
 }
+
+
+
+
 #pragma mark -UUPhotoActionSheetDelegate
 - (void)actionSheetDidFinished:(NSArray *)obj{
     ZZLog(@"11111%@",obj);
@@ -149,5 +207,6 @@
     }
     return _sheet;
 }
+
 
 @end

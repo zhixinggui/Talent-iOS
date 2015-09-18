@@ -39,13 +39,17 @@
 
 -(void)exchageNameAction:(UIButton*)button{
     //上传修改信息
+    
     ZZChangeInfoParam *infoParam = [[ZZChangeInfoParam alloc]init];
     infoParam.userNike = self.nameTF.text;
-    
+    [MBProgressHUD showMessage:@"正在保存中..."];
     [ZZMyInfoHttpTool changeInfoWithChangeInfoParam:infoParam success:^(ZZLoginUser *infoUser, ZZNetDataType dataType) {
-        
+        [MBProgressHUD  hideHUD];
+        [MBProgressHUD  showSuccess:@"保存成功"];
+        [self.navigationController popViewControllerAnimated:YES];
     } failure:^(NSString *error, ZZNetDataType datatype) {
-        
+        [MBProgressHUD  hideHUD];
+        [MBProgressHUD  showError:error];
     }];
 }
 - (void)didReceiveMemoryWarning {

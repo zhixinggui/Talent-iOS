@@ -7,7 +7,8 @@
 //
 
 #import "ZZChangePhoneNumVC.h"
-
+#import "ZZLoginUserTool.h"
+#import "ZZMyInfoHttpTool.h"
 @interface ZZChangePhoneNumVC ()
 @property (weak, nonatomic) IBOutlet UITextField *phoneTF;
 
@@ -22,7 +23,40 @@
     whiteView.backgroundColor = [UIColor whiteColor];
     [self.phoneTF setLeftView:whiteView];
     self.phoneTF.leftViewMode = UITextFieldViewModeAlways;
+    [self setNavRightItemWithName:@"保存" target:self action:@selector(changePhoneAction:)];
+    
+    self.phoneTF.text = [ZZLoginUserTool sharedZZLoginUserTool].loginUser.userPhone;
+    
 }
+
+
+/**
+ *  navigation右button
+ */
+- (void)setNavRightItemWithName:(NSString *)name target:(id)target action:(SEL)action {
+    
+    UIBarButtonItem *rightBarItem = [[UIBarButtonItem  alloc]initWithTitle:name style:UIBarButtonItemStyleDone target:target action:action];
+    self.navigationItem.rightBarButtonItem = rightBarItem;
+    
+}
+
+
+-(void)changePhoneAction:(UIButton*)button{
+    //上传修改信息
+    
+    ZZChangeInfoParam *infoParam = [[ZZChangeInfoParam alloc]init];
+    infoParam.userPhone = self.phoneTF.text;
+    [MBProgressHUD showMessage:@"正在保存中..."];
+    [ZZMyInfoHttpTool changeInfoWithChangeInfoParam:infoParam success:^(ZZLoginUser *infoUser, ZZNetDataType dataType) {
+        [MBProgressHUD  hideHUD];
+        [MBProgressHUD  showSuccess:@"保存成功"];
+        [self.navigationController popViewControllerAnimated:YES];
+    } failure:^(NSString *error, ZZNetDataType datatype) {
+        [MBProgressHUD  hideHUD];
+        [MBProgressHUD  showError:error];
+    }];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

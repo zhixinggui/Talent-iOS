@@ -32,7 +32,7 @@
     }
     infoParam.parameters = dic;
     [ZZHttpTool afPostByApiName:@"" Params:infoParam success:^(id json) {
-        ZZLog(@"你妈了个逼Json:%@",json);
+        ZZLog(@"你Json:%@",json);
         //解析
         [ZZJsonInfoTool parseSelfInfomation:json];
         
@@ -60,9 +60,20 @@
     [ZZHttpTool afPostByApiName:@"" Params:param success:^(id json) {
         ZZLog(@"个人信息:%@",json);
         //解析
+        [ZZJsonInfoTool parseChangeInformation:json];
+        success(nil,ZZNetDataTypeSuccServer);
     } failure:^(NSString *error, ZZNetDataType netDataType) {
         ZZLog(@"请求失败");
     }];
     
 }
+
+/**
+ *  获取我的服务收藏
+ */
++(void)getMyCollectActivityWithPageNo:(NSInteger)pageNo andNumberOfPerPage:(NSInteger)numberOfPerPage success:(void (^)(ZZActivity *, ZZNetDataType))success failure:(failureBlock)failure{
+    
+}
+
+
 @end

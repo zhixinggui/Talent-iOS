@@ -8,12 +8,16 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ZZInfoModifyVC">
             <connections>
                 <outlet property="adressLabel" destination="zCk-kH-hXp" id="4Lm-gt-cEK"/>
+                <outlet property="changScrollView" destination="u31-Xe-HT6" id="fyA-Tf-9PQ"/>
+                <outlet property="changeView" destination="GzJ-RY-JH2" id="Q3L-Up-Fio"/>
                 <outlet property="contentViewHeightConstraint" destination="XDf-px-no2" id="DIP-uT-vWW"/>
                 <outlet property="headIV" destination="sxf-ZW-zSz" id="dUp-dk-s2S"/>
+                <outlet property="manButton" destination="OEO-mv-xbZ" id="KjW-wR-kdS"/>
                 <outlet property="nameLabel" destination="Iuw-kL-yUy" id="X4c-TP-FgL"/>
                 <outlet property="phoneLabel" destination="qW6-QC-07W" id="BrI-Uo-AKw"/>
                 <outlet property="sexLabel" destination="C32-Yl-BJw" id="aKo-K2-n7w"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="womanButton" destination="boW-63-cES" id="Qyx-zH-yaM"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -24,7 +28,7 @@
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u31-Xe-HT6">
                     <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4bX-9m-dAJ">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4bX-9m-dAJ" userLabel="contentView">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="500"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="border_34x34" translatesAutoresizingMaskIntoConstraints="NO" id="3Bc-cL-Paz" userLabel="昵称背景">
@@ -327,105 +331,77 @@
                 <constraint firstAttribute="bottom" secondItem="u31-Xe-HT6" secondAttribute="bottom" id="dvI-t8-U6O"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-            <point key="canvasLocation" x="322.5" y="380.5"/>
+            <point key="canvasLocation" x="479.5" y="300.5"/>
         </view>
-        <view contentMode="scaleToFill" id="uRY-CU-DBL" customClass="ZZSexSelector">
+        <view contentMode="scaleToFill" id="GzJ-RY-JH2">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7jh-8P-Fr5">
-                    <rect key="frame" x="0.0" y="455" width="375" height="50"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y4M-a7-bu4">
+                    <rect key="frame" x="69" y="296" width="237" height="76"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L9e-6s-KxX" userLabel="保存">
-                            <rect key="frame" x="335" y="0.0" width="30" height="50"/>
+                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OEO-mv-xbZ">
+                            <rect key="frame" x="30" y="24" width="72" height="28"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="50" id="Ff4-AP-YtV"/>
+                                <constraint firstAttribute="height" constant="28" id="PeQ-oH-rIL"/>
+                                <constraint firstAttribute="width" constant="72" id="rR3-JL-uw9"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <state key="normal" title="保存">
-                                <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                            <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="5" maxY="0.0"/>
+                            <state key="normal" title="男" image="notselected_20x20">
+                                <color key="titleColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </state>
+                            <state key="selected" title="男" image="selected_20x20"/>
                             <connections>
-                                <action selector="sexSaveButton:" destination="uRY-CU-DBL" eventType="touchUpInside" id="EwF-w5-LdA"/>
+                                <action selector="changeSexButton:" destination="-1" eventType="touchUpInside" id="X0o-DE-CsE"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e7X-5v-Cwv" userLabel="取消">
-                            <rect key="frame" x="10" y="0.0" width="30" height="50"/>
+                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="boW-63-cES">
+                            <rect key="frame" x="128" y="24" width="72" height="28"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="50" id="3D4-pt-Vn7"/>
+                                <constraint firstAttribute="height" constant="28" id="N6D-Vx-mDU"/>
+                                <constraint firstAttribute="width" constant="72" id="nVn-ne-xtE"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <state key="normal" title="取消">
-                                <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                            <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="5" maxY="0.0"/>
+                            <state key="normal" title="女" image="notselected_20x20">
+                                <color key="titleColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </state>
+                            <state key="selected" title="女" image="selected_20x20"/>
                             <connections>
-                                <action selector="sexCancelButton:" destination="uRY-CU-DBL" eventType="touchUpInside" id="EuH-mG-IbL"/>
+                                <action selector="changeSexButton:" destination="-1" eventType="touchUpInside" id="62b-5H-Irt"/>
                             </connections>
                         </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="性别" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4PT-f7-1UQ">
-                            <rect key="frame" x="172" y="0.0" width="32" height="50"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="50" id="xR3-dA-t7G"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
                     </subviews>
-                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="50" id="3oV-X0-UCt"/>
-                        <constraint firstItem="L9e-6s-KxX" firstAttribute="top" secondItem="7jh-8P-Fr5" secondAttribute="top" id="46d-IV-Wwd"/>
-                        <constraint firstItem="e7X-5v-Cwv" firstAttribute="top" secondItem="7jh-8P-Fr5" secondAttribute="top" id="Crj-Qb-YAi"/>
-                        <constraint firstAttribute="bottom" secondItem="4PT-f7-1UQ" secondAttribute="bottom" id="GXf-NZ-0Wl"/>
-                        <constraint firstAttribute="trailing" secondItem="L9e-6s-KxX" secondAttribute="trailing" constant="10" id="NC3-n6-SMV"/>
-                        <constraint firstAttribute="bottom" secondItem="L9e-6s-KxX" secondAttribute="bottom" id="QdW-wH-etn"/>
-                        <constraint firstItem="e7X-5v-Cwv" firstAttribute="leading" secondItem="7jh-8P-Fr5" secondAttribute="leading" constant="10" id="S6J-uL-kAG"/>
-                        <constraint firstAttribute="bottom" secondItem="e7X-5v-Cwv" secondAttribute="bottom" id="fmh-L5-TIb"/>
-                        <constraint firstAttribute="centerX" secondItem="4PT-f7-1UQ" secondAttribute="centerX" id="wRS-VT-AOP"/>
-                        <constraint firstItem="4PT-f7-1UQ" firstAttribute="top" secondItem="7jh-8P-Fr5" secondAttribute="top" id="xoF-Eg-bJ3"/>
-                    </constraints>
-                </view>
-                <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jfs-Pp-2R3">
-                    <rect key="frame" x="0.0" y="505" width="375" height="162"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="162" id="Jo1-H7-a2z"/>
+                        <constraint firstAttribute="height" constant="76" id="5il-6v-N9m"/>
+                        <constraint firstAttribute="centerY" secondItem="OEO-mv-xbZ" secondAttribute="centerY" id="DC7-XQ-EC7"/>
+                        <constraint firstAttribute="trailing" secondItem="boW-63-cES" secondAttribute="trailing" constant="37" id="Gb1-1A-LYZ"/>
+                        <constraint firstAttribute="centerY" secondItem="boW-63-cES" secondAttribute="centerY" id="Gwx-aN-JUA"/>
+                        <constraint firstItem="OEO-mv-xbZ" firstAttribute="top" secondItem="y4M-a7-bu4" secondAttribute="top" constant="24" id="RnA-iI-clD"/>
+                        <constraint firstItem="boW-63-cES" firstAttribute="top" secondItem="y4M-a7-bu4" secondAttribute="top" constant="24" id="aUv-4l-rMW"/>
+                        <constraint firstItem="OEO-mv-xbZ" firstAttribute="leading" secondItem="y4M-a7-bu4" secondAttribute="leading" constant="30" id="iuJ-bV-eZP"/>
+                        <constraint firstAttribute="width" constant="237" id="wL3-mU-Y1R"/>
                     </constraints>
-                </pickerView>
-                <view alpha="0.25" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XMb-gS-zhR">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="455"/>
-                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
             </subviews>
-            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="7jh-8P-Fr5" firstAttribute="top" secondItem="XMb-gS-zhR" secondAttribute="bottom" id="2Ku-QC-Ddv"/>
-                <constraint firstItem="Jfs-Pp-2R3" firstAttribute="top" secondItem="7jh-8P-Fr5" secondAttribute="bottom" id="3qG-Fs-zna"/>
-                <constraint firstAttribute="bottom" secondItem="Jfs-Pp-2R3" secondAttribute="bottom" id="4Uw-N7-85f"/>
-                <constraint firstAttribute="trailing" secondItem="XMb-gS-zhR" secondAttribute="trailing" id="CDI-J8-Lc4"/>
-                <constraint firstAttribute="bottom" secondItem="Jfs-Pp-2R3" secondAttribute="bottom" id="EFi-Yc-E1k"/>
-                <constraint firstItem="XMb-gS-zhR" firstAttribute="leading" secondItem="uRY-CU-DBL" secondAttribute="leading" id="ET0-KD-qli"/>
-                <constraint firstItem="7jh-8P-Fr5" firstAttribute="leading" secondItem="uRY-CU-DBL" secondAttribute="leading" id="S2X-l2-xsU"/>
-                <constraint firstAttribute="trailing" secondItem="Jfs-Pp-2R3" secondAttribute="trailing" id="rTt-FO-UTQ"/>
-                <constraint firstAttribute="trailing" secondItem="7jh-8P-Fr5" secondAttribute="trailing" id="sX9-Td-19N"/>
-                <constraint firstAttribute="trailing" secondItem="Jfs-Pp-2R3" secondAttribute="trailing" id="tYi-EX-jPH"/>
-                <constraint firstItem="Jfs-Pp-2R3" firstAttribute="leading" secondItem="uRY-CU-DBL" secondAttribute="leading" id="uYC-Tv-9xh"/>
-                <constraint firstItem="Jfs-Pp-2R3" firstAttribute="leading" secondItem="uRY-CU-DBL" secondAttribute="leading" id="ucs-re-8h5"/>
-                <constraint firstItem="XMb-gS-zhR" firstAttribute="top" secondItem="uRY-CU-DBL" secondAttribute="top" id="w5n-7Z-72k"/>
+                <constraint firstAttribute="centerY" secondItem="y4M-a7-bu4" secondAttribute="centerY" id="M9e-fd-naN"/>
+                <constraint firstAttribute="centerX" secondItem="y4M-a7-bu4" secondAttribute="centerX" id="TRP-TC-1nR"/>
             </constraints>
-            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <connections>
-                <outlet property="sexPickView" destination="Jfs-Pp-2R3" id="Vmc-dF-C7u"/>
-            </connections>
-            <point key="canvasLocation" x="750.5" y="390.5"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+            <point key="canvasLocation" x="901.5" y="300.5"/>
         </view>
     </objects>
     <resources>
         <image name="border_34x34" width="9" height="9"/>
         <image name="default_icon_60x60" width="60" height="60"/>
+        <image name="notselected_20x20" width="20" height="20"/>
         <image name="right_20x20" width="20" height="20"/>
+        <image name="selected_20x20" width="20" height="20"/>
     </resources>
 </document>

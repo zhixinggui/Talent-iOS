@@ -10,6 +10,8 @@
 #import "ZZInfoParam.h"
 #import "ZZLoginUserTool.h"
 #import "ZZChangeInfoParam.h"
+
+#import "ZZActivity.h"
 typedef void (^successBlock)(id json, ZZNetDataType dataType);
 typedef void (^failureBlock)(NSString *error , ZZNetDataType datatype);
 @interface ZZMyInfoHttpTool : NSObject
@@ -23,5 +25,8 @@ typedef void (^failureBlock)(NSString *error , ZZNetDataType datatype);
  *  修改个人信息
  */
 +(void)changeInfoWithChangeInfoParam:(ZZChangeInfoParam*)changeInfoParam success:(void(^)(ZZLoginUser *infoUser, ZZNetDataType dataType))success failure:(failureBlock)failure;
+
++(void)getMyCollectActivityWithPageNo:(NSInteger)pageNo andNumberOfPerPage:(NSInteger)numberOfPerPage success:(void(^)(ZZActivity *activity, ZZNetDataType dataType))success failure:(failureBlock)failure;
+
 
 @end

@@ -48,14 +48,14 @@ void swizzleMethod(Class class, SEL originalSelector, SEL swizzledSelector)   {
 -(void)aop_viewWillAppear:(BOOL)animated {
     [self aop_viewWillAppear:animated];
 #ifndef DEBUG
-    [MobClick beginLogPageView:NSStringFromClass([self class])];
+//    [MobClick beginLogPageView:NSStringFromClass([self class])];
 #endif
 }
 -(void)aop_viewWillDisappear:(BOOL)animated {
     [self aop_viewWillDisappear:animated];
 #ifndef DEBUG
     
-    [MobClick endLogPageView:NSStringFromClass([self class])];
+  //  [MobClick endLogPageView:NSStringFromClass([self class])];
 #endif
 }
 //- (void)aop_viewDidLoad {
