@@ -7,7 +7,7 @@
 //
 
 #import "ZZActivity.h"
-#define ZZImageScrwidth  [NSString  stringWithFormat:@"@%.0fw_1pr.jpg",ScreenWidth * [UIScreen mainScreen].scale]
+#define ZZImageScrwidth  [NSString  stringWithFormat:@"@%dw_1pr_2o|watermark=2&text=6JCM5a6d5rS-&type=ZmFuZ3poZW5nc2h1c29uZw&size=20&t=79&p=5",200]
 @implementation ZZActivity
 +(NSDictionary *)replacedKeyFromPropertyName{
     return @{@"activityId":@"id"};
@@ -15,7 +15,13 @@
 
 -(void)setServicesImg:(NSString *)servicesImg{
     _servicesImg = servicesImg;
-    self.imgUrl = [NSString  stringWithFormat:@"%@%@",servicesImg,ZZImageScrwidth];
+    NSString *urlString = [NSString  stringWithFormat:@"%@%@",servicesImg,ZZImageScrwidth];
+    //转字符串
+    urlString = [urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    
+    self.imgUrl = [NSURL URLWithString:urlString];
+ 
+//    self.imgUrl = [NSString  stringWithFormat:@"%@%@",servicesImg,ZZImageScrwidth];
 }
 
 -(void)setPrice:(NSNumber *)price{

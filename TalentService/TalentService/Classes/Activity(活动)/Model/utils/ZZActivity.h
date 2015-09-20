@@ -55,5 +55,5 @@
 @property (nonatomic, strong)NSArray *properties;
 
 #pragma mark  - 客户端有的，为了显示效果
-@property (nonatomic, copy)NSString *imgUrl;
+@property (nonatomic, copy)NSURL *imgUrl;
 @end

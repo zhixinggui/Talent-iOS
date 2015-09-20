@@ -9,6 +9,7 @@
 #import "ZZHomeHttpTool.h"
 #import "ZZHttpTool.h"
 #import "ZZLoginUser.h"
+
 @implementation ZZHomeHttpTool
 +(void)homeRcommoned:(NSInteger)isRecom success:(void (^)(NSArray *, ZZNetDataType))succ failure:(void (^)(NSString *, ZZNetDataType))fail{
     
@@ -44,5 +45,15 @@
         fail (error, netDataType);
         
     }];
+}
+
++(void)homeApply:(ZZApplyTalentParam *)applyParam success:(void (^)(__autoreleasing id *, ZZNetDataType))succ failure:(void (^)(NSString *, ZZNetDataType))fail{
+    
+    ZZParam *param = [[ZZParam  alloc]init];
+    param.cmd = @"smart/eredar/apply";
+    param.parameters = applyParam.keyValues;
+    param.token = [ZZLoginUserTool  sharedZZLoginUserTool].loginUser.token;
+    
+    
 }
 @end

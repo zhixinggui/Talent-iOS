@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "ZZHomeServiceParam.h"
 #import "ZZHomeServiceResult.h"
+#import "ZZApplyTalentParam.h"
 @interface ZZHomeHttpTool : NSObject
 /**
  *  推荐达人
@@ -27,4 +28,13 @@
  *  @param fail  <#fail description#>
  */
 + (void)homeServices:(ZZHomeServiceParam *)homeParam success:(void (^)(ZZHomeServiceResult *result, ZZNetDataType netDataType))succ  failure:(void (^)(NSString * error, ZZNetDataType netDataType))fail;
+
+/**
+ *  达人申请
+ *
+ *  @param applyParam <#applyParam description#>
+ *  @param succ       <#succ description#>
+ *  @param fail       <#fail description#>
+ */
++ (void)homeApply:(ZZApplyTalentParam *)applyParam success:(void (^)(id *result, ZZNetDataType netDataType))succ  failure:(void (^)(NSString * error, ZZNetDataType netDataType))fail;
 @end

@@ -122,6 +122,7 @@
 
     // Prevents app crashing on argument type error like sending NSNull instead of NSURL
     if (![url isKindOfClass:NSURL.class]) {
+        
         url = nil;
     }
 
@@ -134,6 +135,7 @@
     }
 
     if (!url || (!(options & SDWebImageRetryFailed) && isFailedUrl)) {
+       
         dispatch_main_sync_safe(^{
             NSError *error = [NSError errorWithDomain:NSURLErrorDomain code:NSURLErrorFileDoesNotExist userInfo:nil];
             completedBlock(nil, error, SDImageCacheTypeNone, YES, url);
