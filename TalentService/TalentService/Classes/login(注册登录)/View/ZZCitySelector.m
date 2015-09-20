@@ -11,29 +11,105 @@
 
 @interface ZZCitySelector ()<UIPickerViewDataSource,UIPickerViewDelegate>
 
-@property (weak, nonatomic) IBOutlet UIPickerView *pickerView;
+@property (weak, nonatomic) UIPickerView *pickerView;
 @property (nonatomic, strong)NSArray *provinceArray;
 @property (nonatomic, weak)id <ZZCitySelectorDelegate> delgate;
 @property (nonatomic, strong) ZZCity *selectedCity;
 @property (nonatomic, strong) ZZProvince *selectedProvince;
 @property (nonatomic, strong) ZZCounty *selectedCounty;
+
+@property (nonatomic, strong) UIView *toolBar;
 @end
-
-
 
 @implementation ZZCitySelector
 
 
 + (instancetype)citySelectorWithProvinceArray:(NSArray *)array  delegate:(id<ZZCitySelectorDelegate>) delegate{
-    ZZCitySelector *citySelector = [[[NSBundle  mainBundle]loadNibNamed:@"ZZCitySelector" owner:nil options:nil]lastObject];
+    ZZCitySelector *citySelector = [[ZZCitySelector  alloc]init];
     citySelector.delgate = delegate;
     citySelector.provinceArray = array;
     return citySelector;
 }
+
 -(void)awakeFromNib{
     self.frame = [UIScreen  mainScreen].bounds;
 }
 
+-(instancetype)initWithFrame:(CGRect)frame{
+    self = [super  initWithFrame:[UIScreen  mainScreen].bounds];
+    if (self) {
+        self.backgroundColor = [UIColor  clearColor];
+        UIView *backView = [[UIView  alloc]initWithFrame:self.bounds];
+        backView.backgroundColor = [UIColor  blackColor];
+        backView.alpha = 0.2;
+        [self  addSubview:backView];
+        [self  customInit];
+    }
+    return self;
+}
+
+
+- (void)customInit{
+    
+    CGFloat sw = self.width;;
+    CGFloat sh = self.height;
+    
+    
+    CGFloat w = sw;
+    CGFloat h = 200;
+    CGFloat x = 0;
+    CGFloat y = sh - h;
+   //
+    UIPickerView *pickerView = [[UIPickerView  alloc]initWithFrame:CGRectMake(x, y, w, h)];
+    pickerView.backgroundColor = [UIColor  whiteColor];
+    pickerView.delegate = self;
+    pickerView.dataSource = self;
+    [self  addSubview:pickerView];
+    self.pickerView = pickerView;
+    //
+    CGFloat tw = sw;
+    CGFloat th = 50;
+    CGFloat tx = 0;
+    CGFloat ty = CGRectGetMinY(pickerView.frame)-th;
+    UIView *toolBar = [[UIView  alloc]initWithFrame:CGRectMake(tx, ty, tw, th)];
+    [self  addSubview:toolBar];
+    toolBar.backgroundColor = [UIColor  grayColor];
+    self.toolBar = toolBar;
+    //取消按钮
+    CGFloat cw = 60;
+    CGFloat ch = CGRectGetHeight(toolBar.frame);
+    CGFloat cx = 0;
+    CGFloat cy = (CGRectGetHeight(toolBar.frame) - ch)/2;
+    
+    UIButton *cancellButton = [[UIButton  alloc]initWithFrame:CGRectMake(cx, cy, cw, ch)];
+    cancellButton.titleLabel.font = ZZContentFont;
+    [cancellButton setTitle:@"取消" forState:UIControlStateNormal];
+    [cancellButton  addTarget:self action:@selector(cancellButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    [toolBar  addSubview:cancellButton];
+    //取消按钮
+    CGFloat suw = cw;
+    CGFloat suh = ch;
+    CGFloat sux = CGRectGetWidth(toolBar.frame)-suw;
+    CGFloat suy = (CGRectGetHeight(toolBar.frame) - ch)/2;
+    UIButton *sureButton = [[UIButton  alloc]initWithFrame:CGRectMake(sux, suy, suw, suh)];
+    sureButton.titleEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 15);
+    sureButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
+    sureButton.titleLabel.font = ZZContentFont;
+    [sureButton setTitle:@"确定" forState:UIControlStateNormal];
+    [sureButton  addTarget:self action:@selector(saveBuutonAction:) forControlEvents:UIControlEventTouchUpInside];
+    [toolBar  addSubview:sureButton];
+    
+    //取消按钮
+    CGFloat lw = 100;
+    CGFloat lh = ch;
+    UILabel *titleLabel = [[UILabel  alloc]initWithFrame:CGRectMake(0, 0, lw, lh)];
+    titleLabel.text = @"城市选择";
+    titleLabel.textAlignment = NSTextAlignmentCenter;
+    titleLabel.font = ZZContentFont;
+    titleLabel.centerX = toolBar.centerX;
+    [toolBar  addSubview:titleLabel];
+}
+#pragma mark
 - (void)setSelectedProvince:(ZZProvince *)province city:(ZZCity *)city county:(ZZCounty *)county{
     if (province == nil || city== nil || county == nil) {
         return;
@@ -70,14 +146,14 @@
 
 
 
-- (IBAction)cancellButtonAction:(UIButton *)sender {
+- (void)cancellButtonAction:(UIButton *)sender {
     if ([self.delgate  respondsToSelector:@selector(citySelectorCancellSelect:)]) {
         [self.delgate  citySelectorCancellSelect:self];
     }
     [self  dismissAnimation];
 }
 
-- (IBAction)saveBuutonAction:(UIButton *)sender {
+- (void)saveBuutonAction:(UIButton *)sender {
     
     if ([self.delgate respondsToSelector:@selector(citySelectorSelect:selectedProvince:selectedCity:selectedCounty:)]) {
         [self.delgate  citySelectorSelect:self selectedProvince:self.self.selectedProvince selectedCity:self.selectedCity selectedCounty:self.selectedCounty];
@@ -212,3 +288,4 @@
 
 
 @end
+

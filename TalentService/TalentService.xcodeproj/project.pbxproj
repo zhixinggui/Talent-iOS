@@ -231,7 +231,6 @@
 		6EA108871B8D80E100F4215A /* ZZMenuButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EA108861B8D80E100F4215A /* ZZMenuButton.m */; };
 		6EA1088A1B8D819100F4215A /* ZZTopMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EA108891B8D819100F4215A /* ZZTopMenuView.m */; };
 		6EC4C4921B9FD83400C39F8A /* ZZCitySelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC4C4901B9FD83400C39F8A /* ZZCitySelector.m */; };
-		6EC4C4931B9FD83400C39F8A /* ZZCitySelector.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EC4C4911B9FD83400C39F8A /* ZZCitySelector.xib */; };
 		6EC4C4A31B9FE47900C39F8A /* ZZResignParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC4C4A21B9FE47900C39F8A /* ZZResignParam.m */; };
 		6EC4C4A61B9FE55000C39F8A /* ZZLoginParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC4C4A51B9FE55000C39F8A /* ZZLoginParam.m */; };
 		6EE0D0C61B69F2F700DC80AC /* UUPhotoConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE0D0AE1B69F2F700DC80AC /* UUPhotoConst.m */; };
@@ -662,7 +661,6 @@
 		6EA108891B8D819100F4215A /* ZZTopMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZTopMenuView.m; sourceTree = "<group>"; };
 		6EC4C48F1B9FD83400C39F8A /* ZZCitySelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZCitySelector.h; sourceTree = "<group>"; };
 		6EC4C4901B9FD83400C39F8A /* ZZCitySelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZCitySelector.m; sourceTree = "<group>"; };
-		6EC4C4911B9FD83400C39F8A /* ZZCitySelector.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZZCitySelector.xib; sourceTree = "<group>"; };
 		6EC4C4A11B9FE47900C39F8A /* ZZResignParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZResignParam.h; sourceTree = "<group>"; };
 		6EC4C4A21B9FE47900C39F8A /* ZZResignParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZResignParam.m; sourceTree = "<group>"; };
 		6EC4C4A41B9FE55000C39F8A /* ZZLoginParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZLoginParam.h; sourceTree = "<group>"; };
@@ -2052,7 +2050,6 @@
 			children = (
 				6EC4C48F1B9FD83400C39F8A /* ZZCitySelector.h */,
 				6EC4C4901B9FD83400C39F8A /* ZZCitySelector.m */,
-				6EC4C4911B9FD83400C39F8A /* ZZCitySelector.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2254,7 +2251,6 @@
 				6E2B802A1BA1B52A004CA827 /* ZZCommunityCell.xib in Resources */,
 				6E90140B1B83052C0083F2B7 /* InfoPlist.strings in Resources */,
 				5652D32C1B86FA2B00A3FB09 /* ZZThirdVC.xib in Resources */,
-				6EC4C4931B9FD83400C39F8A /* ZZCitySelector.xib in Resources */,
 				54D379A21BA5A8C400A61C72 /* ZZApplyVC.xib in Resources */,
 				6E7C6AE81B9DB5E200132D27 /* order_success_170x273@2x.png in Resources */,
 				56C172E91B845A9C00EF55FF /* ZZRegistVC.xib in Resources */,
