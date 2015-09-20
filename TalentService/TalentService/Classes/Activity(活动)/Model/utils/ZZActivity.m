@@ -7,7 +7,7 @@
 //
 
 #import "ZZActivity.h"
-#define ZZImageScrwidth  [NSString  stringWithFormat:@"@%dw_1pr_2o|watermark=2&text=6JCM5a6d5rS-&type=ZmFuZ3poZW5nc2h1c29uZw&size=20&t=79&p=5",200]
+#define ZZImageScrwidth  [NSString  stringWithFormat:@"@%dw_1pr_2o_1l|watermark=2&text=6JCM5a6d5rS-&type=ZmFuZ3poZW5nc2h1c29uZw&size=20&t=79&p=5",200]
 @implementation ZZActivity
 +(NSDictionary *)replacedKeyFromPropertyName{
     return @{@"activityId":@"id"};

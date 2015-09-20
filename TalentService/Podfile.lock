@@ -1,25 +1,26 @@
 PODS:
-  - AFNetworking (2.5.4):
-    - AFNetworking/NSURLConnection (= 2.5.4)
-    - AFNetworking/NSURLSession (= 2.5.4)
-    - AFNetworking/Reachability (= 2.5.4)
-    - AFNetworking/Security (= 2.5.4)
-    - AFNetworking/Serialization (= 2.5.4)
-    - AFNetworking/UIKit (= 2.5.4)
-  - AFNetworking/NSURLConnection (2.5.4):
+  - AFNetworking (2.6.0):
+    - AFNetworking/NSURLConnection (= 2.6.0)
+    - AFNetworking/NSURLSession (= 2.6.0)
+    - AFNetworking/Reachability (= 2.6.0)
+    - AFNetworking/Security (= 2.6.0)
+    - AFNetworking/Serialization (= 2.6.0)
+    - AFNetworking/UIKit (= 2.6.0)
+  - AFNetworking/NSURLConnection (2.6.0):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/NSURLSession (2.5.4):
+  - AFNetworking/NSURLSession (2.6.0):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/Reachability (2.5.4)
-  - AFNetworking/Security (2.5.4)
-  - AFNetworking/Serialization (2.5.4)
-  - AFNetworking/UIKit (2.5.4):
+  - AFNetworking/Reachability (2.6.0)
+  - AFNetworking/Security (2.6.0)
+  - AFNetworking/Serialization (2.6.0)
+  - AFNetworking/UIKit (2.6.0):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - DACircularProgress (2.3.1)
   - FMDB (2.5):
     - FMDB/standard (= 2.5)
   - FMDB/common (2.5)
@@ -27,31 +28,38 @@ PODS:
     - FMDB/common
   - IQKeyboardManager (3.2.4)
   - MBProgressHUD (0.9.1)
-  - MJExtension (2.5.9)
-  - MJRefresh (2.4.8)
+  - MJExtension (2.5.10)
+  - MJRefresh (2.4.10)
+  - MWPhotoBrowser (2.1.1):
+    - DACircularProgress (~> 2.3)
+    - MBProgressHUD (~> 0.9)
+    - SDWebImage (!= 3.7.2, ~> 3.7)
   - SDWebImage (3.7.3):
     - SDWebImage/Core (= 3.7.3)
   - SDWebImage/Core (3.7.3)
-  - UMengAnalytics-NO-IDFA (3.5.11)
+  - UMengAnalytics-NO-IDFA (3.5.17)
 
 DEPENDENCIES:
-  - AFNetworking (~> 2.5.4)
+  - AFNetworking (~> 2.5)
   - FMDB (~> 2.5)
-  - IQKeyboardManager (~> 3.2.4)
-  - MBProgressHUD (~> 0.9.1)
-  - MJExtension (~> 2.5.9)
-  - MJRefresh (~> 2.4.7)
-  - SDWebImage (~> 3.7.2)
+  - IQKeyboardManager (~> 3.2)
+  - MBProgressHUD (~> 0.9)
+  - MJExtension (~> 2.5)
+  - MJRefresh (~> 2.4)
+  - MWPhotoBrowser (~> 2.1)
+  - SDWebImage (~> 3.7)
   - UMengAnalytics-NO-IDFA
 
 SPEC CHECKSUMS:
-  AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
+  AFNetworking: 79f7eb1a0fcfa7beb409332b2ca49afe9ce53b05
+  DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
   FMDB: 96e8f1bcc1329e269330f99770ad4285d9003e52
   IQKeyboardManager: 555b1231fefafb21b19278d7cca72986a27b748b
   MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
-  MJExtension: 2330aeb6c83428c820749290bf766e81827cda65
-  MJRefresh: 887c9ee5ff155533d7d9c20098bebb7b847b2fcb
+  MJExtension: 944fb5a12bceb9b866914527f66101566e66292b
+  MJRefresh: e52328552ed9cbfce3501e3820b18bf7643c65cc
+  MWPhotoBrowser: ba0d0c09ffda3a7ea10093518738c502c1c7141c
   SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84
-  UMengAnalytics-NO-IDFA: e41024644de702e450093ef043af20b5fbe06cbc
+  UMengAnalytics-NO-IDFA: 601dab9ffe32f9de3fa0a6116768aed18a56f8a9
 
 COCOAPODS: 0.37.2
