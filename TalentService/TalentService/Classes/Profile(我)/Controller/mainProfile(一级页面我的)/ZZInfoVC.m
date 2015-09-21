@@ -18,6 +18,7 @@
 #import "ZZJoinOrderTVC.h"
 #import "ZZMyCollectVC.h"
 #import "UUPhotoActionSheet.h"
+#import "ZZMyAllActivityTVC.h"
 /**
  *  我的页面请求
  */
@@ -66,6 +67,8 @@
     self.infoTableView.rowHeight = 50;
     
     [self setNavRightItemWithName:@"消息" target:self action:@selector(messageAction:)];
+    
+    [self setNavLeftItemWithName:@"设置" target:self action:@selector(settingAction:)];
     /**
      *  请求数据赋值
      */
@@ -88,14 +91,29 @@
  *  navigation右button
  */
 - (void)setNavRightItemWithName:(NSString *)name target:(id)target action:(SEL)action {
-    
     UIBarButtonItem *rightBarItem = [[UIBarButtonItem  alloc]initWithTitle:name style:UIBarButtonItemStyleDone target:target action:action];
     self.navigationItem.rightBarButtonItem = rightBarItem;
-    
 }
+/**
+ *  navigation左button
+ */
+- (void)setNavLeftItemWithName:(NSString *)name target:(id)target action:(SEL)action {
+    
+    UIBarButtonItem *leftBarItem = [[UIBarButtonItem  alloc]initWithTitle:name style:UIBarButtonItemStyleDone target:target action:action];
+    self.navigationItem.leftBarButtonItem = leftBarItem;
+}
+
 
 -(void)messageAction:(UIButton*)sender{
     ZZLog(@"消息消息");
+    ZZMessageTVC *messageTvc = [[ZZMessageTVC alloc]initWithNib];
+    [self.navigationController pushViewController:messageTvc animated:YES];
+}
+
+-(void)settingAction:(UIButton*)sender{
+    ZZLog(@"设置设置");
+    ZZInfoModifyVC *myselfInfoTvc = [[ZZInfoModifyVC alloc]initWithNib];
+    [self.navigationController pushViewController:myselfInfoTvc animated:YES];
 }
 
 
@@ -156,8 +174,8 @@
             
             if (indexPath.row) {
                 ZZLog(@"接单接单");
-                ZZJoinOrderTVC *jionOrderTvc = [[ZZJoinOrderTVC alloc]initWithNib];
-                [self.navigationController pushViewController:jionOrderTvc animated:YES];
+                ZZMyAllActivityTVC *myActivityTvc = [[ZZMyAllActivityTVC alloc]initWithNib];
+                [self.navigationController pushViewController:myActivityTvc animated:YES];
             }else{
                 ZZLog(@"订单订单");
                 ZZMyOrderTVC *orderTvc = [[ZZMyOrderTVC alloc]initWithNib];
@@ -210,16 +228,7 @@
     ZZMyEventVC *myEventVc = [[ZZMyEventVC alloc]initWithNib];
     [self.navigationController pushViewController:myEventVc animated:YES];
 }
-- (IBAction)gotoInformation:(UIButton *)sender {
-    ZZLog(@"个人信息");
-    ZZInfoModifyVC *myselfInfoTvc = [[ZZInfoModifyVC alloc]initWithNib];
-    [self.navigationController pushViewController:myselfInfoTvc animated:YES];
-}
-- (IBAction)gotoInfoDetail:(UIButton *)sender {
-    ZZLog(@"个人详细资料");
-    ZZInfoDetailVC *infoDetailVc = [[ZZInfoDetailVC alloc]initWithNib];
-    [self.navigationController pushViewController:infoDetailVc animated:YES];
-}
+
 
 - (IBAction)gotoCommunity:(UIButton *)sender {
     ZZLog(@"社区社区");
@@ -231,11 +240,6 @@
     ZZLog(@"关注关注");
     ZZAttentionVC *attentionVc = [[ZZAttentionVC alloc]initWithNib];
     [self.navigationController pushViewController:attentionVc animated:YES];
-}
-- (IBAction)gotoMessage:(UIButton *)sender {
-    ZZLog(@"消息消息");
-    ZZMessageTVC *messageTvc = [[ZZMessageTVC alloc]initWithNib];
-    [self.navigationController pushViewController:messageTvc animated:YES];
 }
 
 #pragma mark -Setters and Getters
@@ -250,7 +254,7 @@
 }
 -(NSArray *)nameArray{
     if (!_nameArray) {
-        _nameArray = @[@"我的订单",@"我的接单",@"我的金币",@"我的社区",@"申请达人"];
+        _nameArray = @[@"我的订单",@"我的服务",@"我的金币",@"我的社区",@"申请达人"];
     }
     return _nameArray;
 }

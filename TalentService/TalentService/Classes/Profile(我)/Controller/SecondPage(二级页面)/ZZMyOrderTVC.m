@@ -12,9 +12,11 @@
 #import "ZZCancelOrderVC.h"
 #import "ZZSeeOrderVC.h"
 #import "ZZSegmentedControl.h"
+#import "ZZEvaluationTVC.h"
 @interface ZZMyOrderTVC ()<ZZSegmentedControlDelegate>
 @property(nonatomic)NSInteger segmentControlIndex;
 @property(nonatomic,strong)ZZSegmentedControl *orderSegmentControl;
+@property(nonatomic)NSInteger selcetedNumber;
 @end
 
 @implementation ZZMyOrderTVC
@@ -44,6 +46,16 @@
 
         ZZOrderCell *cell = [tableView dequeueReusableCellWithIdentifier:orderCelldentifier forIndexPath:indexPath];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    if (self.selcetedNumber == 1) {
+        [cell.cancelBT setTitle:@"立即支付"];
+    }else if (self.selcetedNumber == 3){
+        [cell.cancelBT setTitle:@"立即评价"];
+    }else if (self.selcetedNumber == 4){
+        [cell.cancelBT setTitle:@"申请退款"];
+    }else{
+        [cell.cancelBT setTitle:@"取消订单"];
+    }
+    
     //取消订单
     [cell.cancelBT addTarget:self action:@selector(cancelOrderAction:) forControlEvents:UIControlEventTouchUpInside];
     
@@ -62,8 +74,23 @@
  */
 -(void)cancelOrderAction:(UIButton*)button{
     ZZLog(@"取消订单");
-    ZZCancelOrderVC *cancelOrderVc = [[ZZCancelOrderVC alloc]initWithNib];
-    [self.navigationController pushViewController:cancelOrderVc animated:YES];
+    switch (self.selcetedNumber) {
+            
+        case 3:
+        {
+            ZZLog(@"立即评价");
+            ZZEvaluationTVC *evaTvc = [[ZZEvaluationTVC alloc]initWithNib];
+            [self.navigationController pushViewController:evaTvc animated:YES];
+        }
+            break;
+            
+        default:
+        {
+            ZZCancelOrderVC *cancelOrderVc = [[ZZCancelOrderVC alloc]initWithNib];
+            [self.navigationController pushViewController:cancelOrderVc animated:YES];
+        }
+            break;
+    }
 }
 
 /**
@@ -111,7 +138,8 @@
 #pragma mark  event delegate
 -(void)segmentControl:(ZZSegmentedControl *)segment andIndex:(NSUInteger)index{
     ZZLog(@"切换%ld",index);
-    
+    self.selcetedNumber = index;
+    [self.tableView reloadData];
 }
 
 
