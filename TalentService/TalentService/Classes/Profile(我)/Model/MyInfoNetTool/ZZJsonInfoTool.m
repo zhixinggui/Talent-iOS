@@ -8,31 +8,36 @@
 
 #import "ZZJsonInfoTool.h"
 #import "ZZLoginUserTool.h"
-
+#import "ZZOtherUser.h"
 @implementation ZZJsonInfoTool
 /**
  *  个人信息解析
  *
  *  @param dic <#dic description#>
  */
-+(void)parseSelfInfomation:(NSDictionary *)dic{
++(ZZLoginUser *)parseSelfInfomation:(NSDictionary *)dic{
     if ([dic safeDictionary]) {
-        ZZLoginUserTool *loginuserTool = [ZZLoginUserTool sharedZZLoginUserTool];
-        loginuserTool.loginUser.userId = [[[dic objectForKey:@"userId"]safeString] integerValue];
-        loginuserTool.loginUser.userNike = [[dic objectForKey:@"userNike"]safeString];
+        ZZLoginUser *loginUser = [ZZLoginUserTool sharedZZLoginUserTool].loginUser;
+        loginUser.userId = [[[dic objectForKey:@"userId"]safeString] integerValue];
+        loginUser.userNike = [[dic objectForKey:@"userNike"]safeString];
         if ([[dic objectForKey:@"userRole"]safeArray]) {
             NSArray *userRoles = [ZZUserRole  objectArrayWithKeyValuesArray:[dic objectForKey:@"userRole"]];
-            loginuserTool.loginUser.userRole= userRoles;
+            loginUser.userRole= userRoles;
         }
         
-        loginuserTool.loginUser.fans = [[[dic objectForKey:@"fans"]safeString]integerValue];
+        loginUser.fans = [[[dic objectForKey:@"fans"]safeString]integerValue];
         
-        loginuserTool.loginUser.userPhone = [[dic objectForKey:@"userPhone"]safeString];
+        loginUser.userPhone = [[dic objectForKey:@"userPhone"]safeString];
         
-        loginuserTool.loginUser.userAddress = [[dic objectForKey:@"userAddress"]safeString];
+        loginUser.userAddress = [[dic objectForKey:@"userAddress"]safeString];
         
-        loginuserTool.loginUser.userSex = [[[dic objectForKey:@"userSex"]safeString]integerValue];
+        loginUser.userSex = [[[dic objectForKey:@"userSex"]safeNumber]integerValue];
+        loginUser.userBigImg = [[dic objectForKey:@"userBigImg"]safeString];
+        return loginUser;
+    }else{
+        return nil;
     }
+    
 }
 
 /**
@@ -40,24 +45,27 @@
  */
 +(void)parseChangeInformation:(NSDictionary *)dic{
     if ([dic safeDictionary]) {
-        ZZLoginUserTool *loginuserTool = [ZZLoginUserTool sharedZZLoginUserTool];
-        loginuserTool.loginUser.userId = [[[dic objectForKey:@"userId"]safeString] integerValue];
-        loginuserTool.loginUser.userNike = [[dic objectForKey:@"userNike"]safeString];
+        ZZLoginUser *loginUser = [ZZLoginUserTool sharedZZLoginUserTool].loginUser;
+        loginUser.userId = [[[dic objectForKey:@"userId"]safeString] integerValue];
+        loginUser.userNike = [[dic objectForKey:@"userNike"]safeString];
         if ([[dic objectForKey:@"userRole"]safeArray]) {
             NSArray *userRoles = [ZZUserRole  objectArrayWithKeyValuesArray:[dic objectForKey:@"userRole"]];
-            loginuserTool.loginUser.userRole= userRoles;
+            loginUser.userRole= userRoles;
         }
         
-        loginuserTool.loginUser.fans = [[[dic objectForKey:@"fans"]safeString]integerValue];
+        loginUser.fans = [[[dic objectForKey:@"fans"]safeString]integerValue];
         
-        loginuserTool.loginUser.userPhone = [[dic objectForKey:@"userPhone"]safeString];
+        loginUser.userPhone = [[dic objectForKey:@"userPhone"]safeString];
         
-        loginuserTool.loginUser.userAddress = [[dic objectForKey:@"userAddress"]safeString];
+        loginUser.userAddress = [[dic objectForKey:@"userAddress"]safeString];
         
-        loginuserTool.loginUser.userSex = [[[dic objectForKey:@"userSex"]safeNumber]integerValue];
+        loginUser.userSex = [[[dic objectForKey:@"userSex"]safeNumber]integerValue];
         NSNotification * noti = [NSNotification  notificationWithName:ZZUserNickChangeNoti object:nil];
         [[NSNotificationCenter  defaultCenter]postNotification:noti];
     }
 }
+
+
+
 
 @end

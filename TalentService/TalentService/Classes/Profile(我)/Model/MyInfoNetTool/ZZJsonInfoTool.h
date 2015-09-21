@@ -14,12 +14,17 @@
  *
  *  @param dic <#dic description#>
  */
-+(void)parseSelfInfomation:(NSDictionary*)dic;
++(ZZLoginUser *)parseSelfInfomation:(NSDictionary*)dic;
 /**
  *  修改解析
  *
  *  @param dic <#dic description#>
  */
 +(void)parseChangeInformation:(NSDictionary*)dic;
+
+///**
+// *  关注列表解析
+// */
+//+(NSArray*)parseAttentionList:(NSDictionary*)dic;
 
 @end

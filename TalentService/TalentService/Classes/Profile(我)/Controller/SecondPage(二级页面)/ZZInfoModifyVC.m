@@ -64,13 +64,17 @@
     self.nameLabel.text = loginUser.userNike;
     self.phoneLabel.text = loginUser.userPhone;
     self.adressLabel.text = loginUser.userAddress;
+    ZZLog(@"是男是女:%ld",loginUser.userSex);
     if (loginUser.userSex == 1) {
         self.sexLabel.text = @"男";
         self.manButton.selected = YES;
+        self.womanButton.selected = NO;
         self.selectedButton = self.manButton;
     }else{
+        
+       self.sexLabel.text = @"女";
         self.womanButton.selected = YES;
-        self.sexLabel.text = @"女";
+        self.manButton.selected = NO;
         self.selectedButton = self.womanButton;
     }
 }
@@ -142,7 +146,7 @@
     ZZLog(@"%ld",sender.tag);
     self.selectedButton = sender;
     
-    //上传地址
+    //上传性别
     ZZChangeInfoParam *infoParam = [[ZZChangeInfoParam alloc]init];
     infoParam.userSex = @(sender.tag);
     [self.changeView removeFromSuperview];

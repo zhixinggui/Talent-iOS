@@ -42,20 +42,6 @@
 
 @implementation ZZInfoVC
 
-
--(void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    /**
-     *  请求
-     */
-    [ZZMyInfoHttpTool getMyInfoWithUserAttentionId:nil andMyCenter:nil success:^(ZZLoginUser *infoUser, ZZNetDataType dataType) {
-        ZZLog(@"个人信息infoUser:%@",infoUser);
-        
-    } failure:^(NSString *error, ZZNetDataType datatype) {
-        ZZLog(@"请求失败");
-    }];
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.infoTableView.tableHeaderView = self.tableHeadView;

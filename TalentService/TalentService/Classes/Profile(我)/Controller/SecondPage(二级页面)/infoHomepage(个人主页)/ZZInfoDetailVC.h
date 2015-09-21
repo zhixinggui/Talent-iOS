@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface ZZInfoDetailVC : UIViewController
-
+@property(nonatomic)NSInteger userAttentionId;
 @end

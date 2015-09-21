@@ -7,9 +7,21 @@
 //
 
 #import "ZZAttentionCell.h"
+@interface ZZAttentionCell()
+@property (weak, nonatomic) IBOutlet UIImageView *headIV;
 
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *identityLabel;
+
+@end
 @implementation ZZAttentionCell
-
+- (id)initWithCoder:(NSCoder *)aDecoder {
+    if (self = [super initWithCoder:aDecoder]) {
+        
+    }
+    return self;
+}
 - (void)awakeFromNib {
     // Initialization code
 }
@@ -19,5 +31,13 @@
 
     // Configure the view for the selected state
 }
-
+#pragma mark - Setters and Getters
+- (void)setOtherUser:(ZZOtherUser *)otherUser {
+    
+    _otherUser= otherUser;
+    self.nameLabel.text = otherUser.userNike;
+    ZZUserRole *userRole = otherUser.userRole[0];
+    self.identityLabel.text = userRole.eredarName;
+    [self.headIV  setImageWithURL:otherUser.userBigImg];
+}
 @end

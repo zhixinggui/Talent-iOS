@@ -54,6 +54,8 @@
 		56C172E91B845A9C00EF55FF /* ZZRegistVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56C172E71B845A9C00EF55FF /* ZZRegistVC.xib */; };
 		56C172ED1B846BB200EF55FF /* ZZNextRegistVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 56C172EB1B846BB200EF55FF /* ZZNextRegistVC.m */; };
 		56C172EE1B846BB200EF55FF /* ZZNextRegistVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56C172EC1B846BB200EF55FF /* ZZNextRegistVC.xib */; };
+		56D8B84E1BAFE57900E7A4E9 /* ZZBaseResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 56D8B84D1BAFE57900E7A4E9 /* ZZBaseResult.m */; };
+		56D8B8511BAFE6C500E7A4E9 /* ZZAttentionResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 56D8B8501BAFE6C500E7A4E9 /* ZZAttentionResult.m */; };
 		6E2B7F9C1BA1A2F6004CA827 /* ZZFuncitonModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E2B7F9B1BA1A2F6004CA827 /* ZZFuncitonModel.m */; };
 		6E2B7FAD1BA1B4E6004CA827 /* ZZFeedbackVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E2B7FA11BA1B4E6004CA827 /* ZZFeedbackVC.m */; };
 		6E2B7FAE1BA1B4E6004CA827 /* ZZFeedbackVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E2B7FA21BA1B4E6004CA827 /* ZZFeedbackVC.xib */; };
@@ -344,6 +346,10 @@
 		56C172EA1B846BB200EF55FF /* ZZNextRegistVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZNextRegistVC.h; sourceTree = "<group>"; };
 		56C172EB1B846BB200EF55FF /* ZZNextRegistVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZNextRegistVC.m; sourceTree = "<group>"; };
 		56C172EC1B846BB200EF55FF /* ZZNextRegistVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZZNextRegistVC.xib; sourceTree = "<group>"; };
+		56D8B84C1BAFE57900E7A4E9 /* ZZBaseResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZBaseResult.h; sourceTree = "<group>"; };
+		56D8B84D1BAFE57900E7A4E9 /* ZZBaseResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZBaseResult.m; sourceTree = "<group>"; };
+		56D8B84F1BAFE6C500E7A4E9 /* ZZAttentionResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZAttentionResult.h; sourceTree = "<group>"; };
+		56D8B8501BAFE6C500E7A4E9 /* ZZAttentionResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZAttentionResult.m; sourceTree = "<group>"; };
 		6E2B7F9A1BA1A2F6004CA827 /* ZZFuncitonModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZFuncitonModel.h; sourceTree = "<group>"; };
 		6E2B7F9B1BA1A2F6004CA827 /* ZZFuncitonModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZFuncitonModel.m; sourceTree = "<group>"; };
 		6E2B7FA01BA1B4E6004CA827 /* ZZFeedbackVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZFeedbackVC.h; sourceTree = "<group>"; };
@@ -879,6 +885,8 @@
 				56BFB4B61BA7E7EB002EAA1D /* ZZMyInfoHttpTool.m */,
 				568D748C1BAA888000E1C4B1 /* ZZJsonInfoTool.h */,
 				568D748D1BAA888000E1C4B1 /* ZZJsonInfoTool.m */,
+				56D8B84F1BAFE6C500E7A4E9 /* ZZAttentionResult.h */,
+				56D8B8501BAFE6C500E7A4E9 /* ZZAttentionResult.m */,
 			);
 			path = MyInfoNetTool;
 			sourceTree = "<group>";
@@ -892,6 +900,15 @@
 				56BFB4C21BA807E0002EAA1D /* ZZChangeInfoParam.m */,
 			);
 			path = infoParam;
+			sourceTree = "<group>";
+		};
+		56D8B84B1BAFE55700E7A4E9 /* result */ = {
+			isa = PBXGroup;
+			children = (
+				56D8B84C1BAFE57900E7A4E9 /* ZZBaseResult.h */,
+				56D8B84D1BAFE57900E7A4E9 /* ZZBaseResult.m */,
+			);
+			path = result;
 			sourceTree = "<group>";
 		};
 		6E2B7F991BA1A2D9004CA827 /* share */ = {
@@ -1575,6 +1592,7 @@
 		6E7F58AB1BA1575D00191BC0 /* HttpParam */ = {
 			isa = PBXGroup;
 			children = (
+				56D8B84B1BAFE55700E7A4E9 /* result */,
 				6E7F58AC1BA1575D00191BC0 /* ZZFileParam.h */,
 				6E7F58AD1BA1575D00191BC0 /* ZZFileParam.m */,
 			);
@@ -2285,7 +2303,6 @@
 				6E90140B1B83052C0083F2B7 /* InfoPlist.strings in Resources */,
 				5652D32C1B86FA2B00A3FB09 /* ZZThirdVC.xib in Resources */,
 				56220AFD1BAE9429008046DF /* ZZMyAllActivityTVC.xib in Resources */,
-				6EC4C4931B9FD83400C39F8A /* ZZCitySelector.xib in Resources */,
 				54D379A21BA5A8C400A61C72 /* ZZApplyVC.xib in Resources */,
 				6E7C6AE81B9DB5E200132D27 /* order_success_170x273@2x.png in Resources */,
 				56C172E91B845A9C00EF55FF /* ZZRegistVC.xib in Resources */,
@@ -2478,6 +2495,7 @@
 				56BFB4B71BA7E7EB002EAA1D /* ZZMyInfoHttpTool.m in Sources */,
 				6EC4C4A61B9FE55000C39F8A /* ZZLoginParam.m in Sources */,
 				6E7F592A1BA166A500191BC0 /* ZZActivityType.m in Sources */,
+				56D8B84E1BAFE57900E7A4E9 /* ZZBaseResult.m in Sources */,
 				6E6695B41BAAB87400EDFE94 /* UIControl+Extension.m in Sources */,
 				6EA108871B8D80E100F4215A /* ZZMenuButton.m in Sources */,
 				6E7F59071BA1575D00191BC0 /* ZZCityTool.m in Sources */,
@@ -2542,6 +2560,7 @@
 				6E2B80131BA1B52A004CA827 /* ZZCommunityTVC.m in Sources */,
 				6E4C40D81B9007FF00937CB1 /* ZZPayType.m in Sources */,
 				6E7F59201BA157E300191BC0 /* ZZLoadHttpTool.m in Sources */,
+				56D8B8511BAFE6C500E7A4E9 /* ZZAttentionResult.m in Sources */,
 				54EEFC531BA544E400AFE7D4 /* ZZBaseUser.m in Sources */,
 				6E9CD1551B9401A200DA3F60 /* ZZAddImageCell.m in Sources */,
 				6E2B801F1BA1B52A004CA827 /* ZZDetailMessageVC.m in Sources */,

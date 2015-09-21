@@ -10,8 +10,9 @@
 #import "ZZInfoParam.h"
 #import "ZZLoginUserTool.h"
 #import "ZZChangeInfoParam.h"
-
 #import "ZZActivity.h"
+#import "ZZOtherUser.h"
+#import "ZZAttentionResult.h"
 typedef void (^successBlock)(id json, ZZNetDataType dataType);
 typedef void (^failureBlock)(NSString *error , ZZNetDataType datatype);
 @interface ZZMyInfoHttpTool : NSObject
@@ -26,7 +27,14 @@ typedef void (^failureBlock)(NSString *error , ZZNetDataType datatype);
  */
 +(void)changeInfoWithChangeInfoParam:(ZZChangeInfoParam*)changeInfoParam success:(void(^)(ZZLoginUser *infoUser, ZZNetDataType dataType))success failure:(failureBlock)failure;
 
+/**
+ *  我的服务收藏
+ */
 +(void)getMyCollectActivityWithPageNo:(NSInteger)pageNo andNumberOfPerPage:(NSInteger)numberOfPerPage success:(void(^)(ZZActivity *activity, ZZNetDataType dataType))success failure:(failureBlock)failure;
 
-
+/**
+ *  我的关注列表
+ */
++(void)getMyAttentionWithTypeNum:(NSInteger)typeNum andPageNo:(NSInteger)pageNo andNumberOfPerPage:(NSInteger)numberOfPerPage
+ success:(void(^)(ZZAttentionResult *attResult, ZZNetDataType dataType))success failure:(failureBlock)failure;
 @end

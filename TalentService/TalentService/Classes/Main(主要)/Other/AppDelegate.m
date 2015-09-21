@@ -27,7 +27,7 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
    
-    [self  swithWindowRootViewController:ZZRootViewControllerTypeHome];
+    [self  swithWindowRootViewController:ZZRootViewControllerTypeLogin];
     
     [self.window makeKeyAndVisible];
     return YES;

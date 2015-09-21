@@ -17,9 +17,13 @@
 #import "ZZMyInfoHttpTool.h"
 #import "ZZLoginUser.h"
 @interface ZZInfoDetailVC ()<UITableViewDataSource,UITableViewDelegate,ZZSegmentedControlDelegate>
+@property(nonatomic,strong)ZZLoginUser *loginUser;
 @property (weak, nonatomic) IBOutlet UIView *headView;
 @property (weak, nonatomic) IBOutlet UITableView *infoDetailTableView;
 @property (strong, nonatomic) ZZSegmentedControl *segmentControl;
+@property (weak, nonatomic) IBOutlet UIImageView *headIV;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *identityLabel;
 
 @end
 
@@ -39,9 +43,13 @@
     /**
      *  请求
      */
-    [ZZMyInfoHttpTool getMyInfoWithUserAttentionId:nil andMyCenter:@(1) success:^(ZZLoginUser *infoUser, ZZNetDataType dataType) {
+    [ZZMyInfoHttpTool getMyInfoWithUserAttentionId:@(self.userAttentionId) andMyCenter:nil success:^(ZZLoginUser *infoUser, ZZNetDataType dataType) {
         ZZLog(@"个人信息infoUser:%@",infoUser);
-        
+        self.loginUser = infoUser;
+        [self.headIV  setImageWithURL:infoUser.userBigImg];
+        self.nameLabel.text = self.loginUser.userNike;
+        ZZUserRole *userRole = self.loginUser.userRole[0];
+        self.identityLabel.text = userRole.eredarName;
     } failure:^(NSString *error, ZZNetDataType datatype) {
         ZZLog(@"请求失败");
     }];

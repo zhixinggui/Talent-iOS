@@ -9,5 +9,10 @@
 #import "ZZOtherUser.h"
 
 @implementation ZZOtherUser
-
+//+(NSDictionary *)replacedKeyFromPropertyName{
+//    return @{@"userRole":@"contentMaps"};
+//}
++(NSDictionary *)objectClassInArray{
+    return @{@"userRole":[ZZUserRole class ]};
+}
 @end

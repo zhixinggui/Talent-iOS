@@ -9,9 +9,7 @@
 #import "ZZBaseUser.h"
 #import "ZZUserRole.h"
 @implementation ZZBaseUser
-+(NSDictionary *)objectClassInArray{
-    return @{@"userRole":[ZZUserRole class ]};
-}
+
 
 @end
 

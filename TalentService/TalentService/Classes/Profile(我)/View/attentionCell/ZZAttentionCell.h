@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #define attentionCelldentifier @"attentionCelldentifier"
+#import "ZZOtherUser.h"
 @interface ZZAttentionCell : UITableViewCell
-
+@property(nonatomic,strong)ZZOtherUser *otherUser;
 @end

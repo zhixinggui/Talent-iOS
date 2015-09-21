@@ -10,6 +10,7 @@
 #import "ZZLoginUserTool.h"
 #import "ZZHttpTool.h"
 #import "ZZJsonInfoTool.h"
+
 @implementation ZZMyInfoHttpTool
 /**
  *  获取个人信息
@@ -19,7 +20,7 @@
  *  @param success         <#success description#>
  *  @param failure         <#failure description#>
  */
-+(void)getMyInfoWithUserAttentionId:(NSNumber *)userAttentionId andMyCenter:(NSNumber *)myCenter success:(void (^)(ZZLoginUser *, ZZNetDataType))success failure:(failureBlock)failure{
++(void)getMyInfoWithUserAttentionId:(NSNumber *)userAttentionId andMyCenter:(NSNumber *)myCenter success:(void (^)(ZZLoginUser *loginUser, ZZNetDataType))success failure:(failureBlock)failure{
     ZZInfoParam *infoParam = [[ZZInfoParam alloc]init];
     infoParam.cmd = @"smart/personal/getPersonal";
     infoParam.token = [ZZLoginUserTool sharedZZLoginUserTool].loginUser.token;
@@ -34,9 +35,9 @@
     [ZZHttpTool afPostByApiName:@"" Params:infoParam success:^(id json) {
         ZZLog(@"你Json:%@",json);
         //解析
-        [ZZJsonInfoTool parseSelfInfomation:json];
+        ZZLoginUser *loginUser = [ZZJsonInfoTool parseSelfInfomation:json];
         
-        success(nil,ZZNetDataTypeSuccServer);
+        success(loginUser,ZZNetDataTypeSuccServer);
     } failure:^(NSString *error, ZZNetDataType netDataType) {
         failure(error,netDataType);
         ZZLog(@"个人信息请求失败");
@@ -61,6 +62,7 @@
         ZZLog(@"个人信息:%@",json);
         //解析
         [ZZJsonInfoTool parseChangeInformation:json];
+        ZZLog(@"个人信息:%@",json);
         success(nil,ZZNetDataTypeSuccServer);
     } failure:^(NSString *error, ZZNetDataType netDataType) {
         ZZLog(@"请求失败");
@@ -75,5 +77,17 @@
     
 }
 
-
++(void)getMyAttentionWithTypeNum:(NSInteger)typeNum andPageNo:(NSInteger)pageNo andNumberOfPerPage:(NSInteger)numberOfPerPage success:(void (^)(ZZAttentionResult *attResult, ZZNetDataType))success failure:(failureBlock)failure{
+    ZZParam *param = [[ZZParam alloc]init];
+    param.cmd = @"smart/attention/getList";
+    param.token = [ZZLoginUserTool sharedZZLoginUserTool].loginUser.token;
+    param.parameters = @{@"typeNum":@(typeNum),@"pageNo":@(pageNo),@"numberOfPerPage":@(numberOfPerPage)};
+    [ZZHttpTool afPostByApiName:@"" Params:param success:^(id json) {
+        ZZLog(@"关注列表%@",json);
+        ZZAttentionResult *attResult = [ZZAttentionResult objectWithKeyValues:json];
+        success(attResult,ZZNetDataTypeSuccServer);
+    } failure:^(NSString *error, ZZNetDataType netDataType) {
+        ZZLog(@"请求失败");
+    }];
+}
 @end
