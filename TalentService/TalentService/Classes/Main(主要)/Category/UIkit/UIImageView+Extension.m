@@ -19,4 +19,18 @@
    
      [self  sd_setImageWithURL:[NSURL URLWithString:url]  placeholderImage:[UIImage  imageNamed:@"default_icon_60x60.png" ] options:SDWebImageRetryFailed | SDWebImageLowPriority |SDWebImageRefreshCached];
 }
+
+
+#pragma mark
+-(void)addTarget:(id)target action:(SEL)action{
+  
+    for (UIGestureRecognizer *tap in self.gestureRecognizers) {
+        if ([tap isKindOfClass:UITapGestureRecognizer.class]) {
+            [self  removeGestureRecognizer:tap];
+        }
+    }
+    UITapGestureRecognizer *tap = [[ UITapGestureRecognizer  alloc]initWithTarget:target action:action];
+   
+    [self  addGestureRecognizer:tap];
+}
 @end

@@ -9,12 +9,11 @@
 #import "ZZDetailsView.h"
 #import "ZZUnderLineLabel.h"
 @implementation ZZDetailsView
--(instancetype)initWithFrame:(CGRect)frame{
-    self = [super  initWithFrame:frame];
-    if (self) {
-        [self  setUpChild];
-    }
-    return self;
+
+
+-(void)setActivity:(ZZActivity *)activity{
+    _activity = activity;
+    [self setUpChild];
 }
 - (void)setUpChild{
      self.backgroundColor = [UIColor  whiteColor];
@@ -60,7 +59,6 @@
 //画线
 -(void)drawRect:(CGRect)rect{
     [super  drawRect:rect];
-    
     [ZZLightGrayColor  set];
     UIRectFill(CGRectMake(0, 0, rect.size.width, 2));
 }

@@ -7,16 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-@class ZZDetailImageView;
-@protocol ZZDetailImageViewDelegate <NSObject>
+@class ZZActivityDetailController,ZZActivity;
 
-- (void)detailImageViewADCliceked:(ZZDetailImageView *)detalImageViewDelegate;
-
-- (void)detailImageViewBooking:(ZZDetailImageView *)detalImageViewDelegate;
-
-@end
 @interface ZZDetailImageView : UIView
 
-@property (nonatomic, weak)id<ZZDetailImageViewDelegate> delegate;
+@property (nonatomic, weak)ZZActivityDetailController *delegateVC;
 @property (nonatomic)CGFloat totalHeight;
+@property (nonatomic, weak)ZZActivity *activity;
 @end

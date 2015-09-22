@@ -26,4 +26,6 @@
  *  @param imageName 默认图片名字
  */
 -(void)setHeadImageWithURL:(NSString*)url;
+
+- (void)addTarget:( id)target action:(SEL)action;
 @end

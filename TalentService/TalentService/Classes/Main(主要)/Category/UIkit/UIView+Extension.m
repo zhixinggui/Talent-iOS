@@ -189,6 +189,9 @@ static NSUInteger const vRepeatCount = 3;
     return NO;
 }
 - (NSMutableAttributedString *)getAttributedStringWithText:(NSString *)text paragraphSpacing:(CGFloat)paragraphSpacing lineSpace:(CGFloat)lineSpace stringCharacterSpacing:(CGFloat)stringCharacterSpacing  textAlignment:(NSTextAlignment) textAlignment font:(UIFont *)font  color:(UIColor *)color{
+    if (text == nil) {
+        return nil;
+    }
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString   alloc] initWithString:text];
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle  alloc] init];
     paragraphStyle.alignment = textAlignment;

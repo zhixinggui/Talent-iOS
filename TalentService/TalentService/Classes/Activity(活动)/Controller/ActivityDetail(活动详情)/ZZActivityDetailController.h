@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface ZZActivityDetailController : UIViewController
-
+@property (nonatomic, assign)NSInteger activityId;
 @end

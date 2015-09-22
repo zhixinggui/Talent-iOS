@@ -127,12 +127,12 @@ static AFHTTPRequestOperationManager  *_manager;
                failure:(ErrorBlock)Failure{
     
     [_manager GET:apiName parameters:[param  keyValues] success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        //QQLog(@"JSON: %@", responseObject);
+      
       [self  managerOriginJsonData:responseObject serverSuccess:^(id json) {
-          
+          ZZLog(@",succ,,%@",json);
           Success(json);
       } serverFail:^(NSString *error, ZZNetDataType dataType) {
-          
+          ZZLog(@",fail,,%@",error);
           Failure (error,dataType);
       }];
         
@@ -157,7 +157,7 @@ static AFHTTPRequestOperationManager  *_manager;
     
     [_manager POST:apiName parameters:[param  keyValues] success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
-        NSLog(@"JSON: %@", responseObject);
+     
         ZZLog(@"JSON: %@", responseObject);
         
         [self  managerOriginJsonData:responseObject serverSuccess:^(id json) {

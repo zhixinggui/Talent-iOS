@@ -82,6 +82,8 @@ static   NSUInteger const HomeNumCount = 10;
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     ZZActivityDetailController *actDetailVC = [[ZZActivityDetailController  alloc]init];
+    ZZActivity *activity = self.activityArray[indexPath.row];;
+    actDetailVC.activityId =activity.activityId;
     [self.navigationController  pushViewController:actDetailVC animated:YES];
     [tableView  deselectRowAtIndexPath:indexPath animated:YES];
 }

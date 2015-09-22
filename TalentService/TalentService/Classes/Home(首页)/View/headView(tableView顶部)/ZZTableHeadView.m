@@ -26,9 +26,14 @@ static  NSString *cellIden = @"collectionCell";
     return self;
 }
 -(void)setImages:(NSArray *)images{
-    if (self.images == nil) {
+    if (self.images == nil && images) {
         self.height += HeadHeight/2;
         self.adScrollView.hidden = NO;
+    }
+    
+    if (self.images  && images == nil) {
+        self.height -= HeadHeight/2;
+        self.adScrollView.hidden = YES;
     }
     _images = images;
     self.adScrollView.imageNameArray = images;
@@ -37,9 +42,13 @@ static  NSString *cellIden = @"collectionCell";
 }
 
 -(void)setTalents:(NSArray *)talents{
-    if (self.talents == nil) {
+    if (self.talents == nil &&talents.count) {
         self.height += HeadHeight/2;
         self.collectionView.hidden = NO;
+    }
+    if (self.talents && talents == nil) {
+        self.height -= HeadHeight/2;
+        self.collectionView.hidden = YES;
     }
     _talents  = talents;
     [self.collectionView  reloadData];

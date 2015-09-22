@@ -14,13 +14,13 @@
 /** 标题  */
 @property (nonatomic, copy)NSString *title;
 /** 活动开始时间  */
-@property (nonatomic, copy)NSDate *startTime;
+@property (nonatomic, copy)NSString *startTime;
 /** 活动结束时间  */
-@property (nonatomic, copy)NSDate *endTime;
+@property (nonatomic, copy)NSString *endTime;
 /** 报名开始时间  */
-@property (nonatomic, copy)NSDate *applyStartTime;
+@property (nonatomic, copy)NSString *applyStartTime;
 /** 报名结束时间  */
-@property (nonatomic, copy)NSDate *applyEndTime;
+@property (nonatomic, copy)NSString *applyEndTime;
 
 /**  最多报名人数 */
 @property (nonatomic) NSInteger peoples;
@@ -34,9 +34,9 @@
 @property (nonatomic) NSInteger district;
 /**  活动地址 */
 @property (nonatomic, copy)NSString *address;
-/**   */
-@property (nonatomic, strong) NSNumber *price;
-/** 活动价格  */
+/** 活动价格   */
+@property (nonatomic, strong) NSString *price;
+/** 活动类型 */
 @property (nonatomic) NSInteger type;
 /**  活动正文 */
 @property (nonatomic, copy)NSString *content;
@@ -51,9 +51,12 @@
 /**  是否删除 */
 @property (nonatomic) BOOL isDelete;
 
-/**   */
-@property (nonatomic, strong)NSArray *properties;
+///** 服务图片数组  */
+//@property (nonatomic, strong)NSArray *serviceImgList;
+/** 用户  */
+@property (nonatomic, strong)NSArray *userInfoList;
 
 #pragma mark  - 客户端有的，为了显示效果
-@property (nonatomic, copy)NSURL *imgUrl;
+@property (nonatomic, copy)NSString *detailRule;
+
 @end

@@ -49,15 +49,13 @@
 -(void)setActivity:(ZZActivity *)activity{
     _activity = activity;
     self.titleLabel.text = activity.title;
-    if (self.activity.price) {
+ 
         self.priceLabel.text = [NSString  stringWithFormat:@"%@",activity.price];
-    }else{
-        self.priceLabel.text = @"免费";
-    }
+  
     
     self.joinCountlabel.text = [NSString  stringWithFormat:@"参加人数%ld/%ld",activity.realityPeoples,activity.peoples];
     self.cityButton.title = @"dd";
 
-   [self.showIV  setImageWithURL:activity.imgUrl];
+   [self.showIV  setImageWithURL:activity.servicesImg];
 }
 @end

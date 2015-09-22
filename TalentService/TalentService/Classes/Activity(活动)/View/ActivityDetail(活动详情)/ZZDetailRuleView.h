@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class ZZActivityDetailController,ZZActivity;
 @interface ZZDetailRuleView : UIView
 @property (nonatomic)CGFloat totalHeight;
+@property (nonatomic ,weak)ZZActivityDetailController *delegateVC;
+@property (nonatomic, weak)ZZActivity *activity;
 @end

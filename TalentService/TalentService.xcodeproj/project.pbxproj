@@ -145,6 +145,9 @@
 		6E6695B41BAAB87400EDFE94 /* UIControl+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6695B31BAAB87400EDFE94 /* UIControl+Extension.m */; };
 		6E6695BA1BAAB95200EDFE94 /* ZZRunTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6695B91BAAB95200EDFE94 /* ZZRunTime.m */; };
 		6E7408901BA69636003241AA /* ZZSelectorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E74088F1BA69636003241AA /* ZZSelectorView.m */; };
+		6E7669041BAF99C8001F8A32 /* ZZStarTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7669021BAF99C8001F8A32 /* ZZStarTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		6E7669051BAF99C8001F8A32 /* ZZStarTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E7669031BAF99C8001F8A32 /* ZZStarTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
+		6E7669091BAFF87A001F8A32 /* ZZMoreTalentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7669081BAFF87A001F8A32 /* ZZMoreTalentController.m */; settings = {ASSET_TAGS = (); }; };
 		6E7683801B8EF70200661770 /* ZZActivityDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E76837D1B8EF70200661770 /* ZZActivityDetailController.m */; };
 		6E7683811B8EF70200661770 /* ZZEnsureOrderController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E76837F1B8EF70200661770 /* ZZEnsureOrderController.m */; };
 		6E7683961B8EF70900661770 /* ZZBaseOrderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7683851B8EF70900661770 /* ZZBaseOrderView.m */; };
@@ -504,6 +507,11 @@
 		6E6695B91BAAB95200EDFE94 /* ZZRunTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZRunTime.m; sourceTree = "<group>"; };
 		6E74088E1BA69636003241AA /* ZZSelectorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZSelectorView.h; sourceTree = "<group>"; };
 		6E74088F1BA69636003241AA /* ZZSelectorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZSelectorView.m; sourceTree = "<group>"; };
+		6E7669011BAF99C8001F8A32 /* ZZStarTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZStarTableViewCell.h; sourceTree = "<group>"; };
+		6E7669021BAF99C8001F8A32 /* ZZStarTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZStarTableViewCell.m; sourceTree = "<group>"; };
+		6E7669031BAF99C8001F8A32 /* ZZStarTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZZStarTableViewCell.xib; sourceTree = "<group>"; };
+		6E7669071BAFF87A001F8A32 /* ZZMoreTalentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZMoreTalentController.h; sourceTree = "<group>"; };
+		6E7669081BAFF87A001F8A32 /* ZZMoreTalentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZMoreTalentController.m; sourceTree = "<group>"; };
 		6E76837C1B8EF70200661770 /* ZZActivityDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZActivityDetailController.h; sourceTree = "<group>"; };
 		6E76837D1B8EF70200661770 /* ZZActivityDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZActivityDetailController.m; sourceTree = "<group>"; };
 		6E76837E1B8EF70200661770 /* ZZEnsureOrderController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZEnsureOrderController.h; sourceTree = "<group>"; };
@@ -1374,6 +1382,25 @@
 			path = Result;
 			sourceTree = "<group>";
 		};
+		6E7669001BAF99A3001F8A32 /* star（个人带星星的） */ = {
+			isa = PBXGroup;
+			children = (
+				6E7669011BAF99C8001F8A32 /* ZZStarTableViewCell.h */,
+				6E7669021BAF99C8001F8A32 /* ZZStarTableViewCell.m */,
+				6E7669031BAF99C8001F8A32 /* ZZStarTableViewCell.xib */,
+			);
+			path = "star（个人带星星的）";
+			sourceTree = "<group>";
+		};
+		6E7669061BAFF850001F8A32 /* MoreTalent（更多主办达人） */ = {
+			isa = PBXGroup;
+			children = (
+				6E7669071BAFF87A001F8A32 /* ZZMoreTalentController.h */,
+				6E7669081BAFF87A001F8A32 /* ZZMoreTalentController.m */,
+			);
+			path = "MoreTalent（更多主办达人）";
+			sourceTree = "<group>";
+		};
 		6E76837B1B8EF70200661770 /* ActivityDetail(活动详情) */ = {
 			isa = PBXGroup;
 			children = (
@@ -1882,6 +1909,7 @@
 		6E9807AB1B82E05200527EB2 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				6E7669061BAFF850001F8A32 /* MoreTalent（更多主办达人） */,
 				6E4C40E31B9046B900937CB1 /* SeeOrder */,
 				6E4C40DF1B90414300937CB1 /* OrderResult(支付结果) */,
 				6E4C40CE1B8FF90F00937CB1 /* SelectPayType(选择支付方式) */,
@@ -1907,6 +1935,7 @@
 		6E9807AD1B82E05200527EB2 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				6E7669001BAF99A3001F8A32 /* star（个人带星星的） */,
 				6E7F592E1BA1685D00191BC0 /* classselector */,
 				6E4C40D91B900F0000937CB1 /* SelectPayType */,
 				6E7683821B8EF70900661770 /* ActivityDetail(活动详情) */,
@@ -2291,6 +2320,7 @@
 				56220B0C1BAEA19C008046DF /* ZZEvaluationCell.xib in Resources */,
 				6E45ABE71B9F04F600D09DCF /* address.json in Resources */,
 				6E2B80121BA1B52A004CA827 /* ZZAttentionVC.xib in Resources */,
+				6E7669051BAF99C8001F8A32 /* ZZStarTableViewCell.xib in Resources */,
 				6E7C6AE61B9DB5E200132D27 /* order_fail_236x275@3x.png in Resources */,
 				6E4A5CA71B954D06003751D5 /* UMSLoginViewController.xib in Resources */,
 				6E2B7FB01BA1B4E6004CA827 /* ZZMoreVC.xib in Resources */,
@@ -2475,6 +2505,7 @@
 				548837A31BA29AA100720150 /* ZZActivityHttpTool.m in Sources */,
 				6E7F58701BA14A3A00191BC0 /* ZZUserRole.m in Sources */,
 				6E7F58FF1BA1575D00191BC0 /* ZZFileParam.m in Sources */,
+				6E7669041BAF99C8001F8A32 /* ZZStarTableViewCell.m in Sources */,
 				548837A61BA29AD600720150 /* ZZActivityListParam.m in Sources */,
 				6E2B80251BA1B52A004CA827 /* ZZCommunityCellModel.m in Sources */,
 				6E7F59041BA1575D00191BC0 /* ZZUMLoginModel.m in Sources */,
@@ -2551,6 +2582,7 @@
 				6E2B80261BA1B52A004CA827 /* ZZMyselfCellModel.m in Sources */,
 				6E7683981B8EF70900661770 /* ZZSeeOrderView.m in Sources */,
 				6E7F59051BA1575D00191BC0 /* AppDelegate.m in Sources */,
+				6E7669091BAFF87A001F8A32 /* ZZMoreTalentController.m in Sources */,
 				6E7F58F01BA1575D00191BC0 /* UIBarButtonItem+Extension.m in Sources */,
 				6E76839C1B8EF70900661770 /* ZZDetailsView.m in Sources */,
 				6E87B3111B8C6052003BB6C0 /* AdScrollView.m in Sources */,

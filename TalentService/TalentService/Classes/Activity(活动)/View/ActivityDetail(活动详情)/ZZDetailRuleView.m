@@ -9,16 +9,20 @@
 #import "ZZDetailRuleView.h"
 #import "ZZUnderLineLabel.h"
 #import "ZZHeadImageView.h"
-@interface ZZDetailRuleView ()<UIActionSheetDelegate>
+#import "ZZStarTableViewCell.h"
+#import "ZZActivity.h"
+#import "ZZInfoDetailVC.h"
+#import "ZZActivityDetailController.h"
+#import "ZZBaseUser.h"
+#import "ZZMoreTalentController.h"
+@interface ZZDetailRuleView ()<UIActionSheetDelegate,ZZStarTableViewCellDelegate>
 
 @end
 @implementation ZZDetailRuleView
--(instancetype)initWithFrame:(CGRect)frame{
-    self = [super  initWithFrame:frame];
-    if (self) {
-        [self  setUpChild];
-    }
-    return self;
+
+-(void)setActivity:(ZZActivity *)activity{
+    _activity  = activity;
+    [self  setUpChild];
 }
 - (void)setUpChild{
      self.backgroundColor = ZZViewBackColor;
@@ -35,44 +39,35 @@
     underLabel.font = ZZContentBoldFont;
     [self addSubview:underLabel];
     
-    //头像
-    CGFloat headX = edgeMargin;
+  
     CGFloat headY = CGRectGetMaxY(underLabel.frame)+lineMargin;
-    CGFloat headW = 50;
-    CGFloat headH = headW;
-    ZZHeadImageView *headIV = [[ZZHeadImageView  alloc]initWithFrame:CGRectMake(headX, headY, headW, headH)];
-    [self  addSubview:headIV];
+    ZZStarTableViewCell *starView = [ZZStarTableViewCell starCellViewWithDelegate:self];
+    starView.baseUser = [self.activity.userInfoList firstObject];
+    starView.frame = CGRectMake(0, headY, ScreenWidth, [ZZStarTableViewCell starCellHeight]);
+  
+    [self addSubview:starView];
     
-    //昵称
-    CGFloat nameX = CGRectGetMaxX(headIV.frame)+lineMargin;
-    CGFloat nameY = headY;
-    CGFloat nameW = ScreenWidth - nameX - edgeMargin;
-    CGFloat nameH = 20;
-    UILabel *nameLabel = [[UILabel alloc]initWithFrame:CGRectMake(nameX, nameY, nameW, nameH)];
-    nameLabel.text = @"昵称";
-    nameLabel.textColor = ZZLightGrayColor;
-    nameLabel.font = ZZContentFont;
-    [self addSubview:nameLabel];
-    
-    //身份
-    CGFloat permissX = nameX;
-    CGFloat permissY = CGRectGetMaxY(nameLabel.frame)+lineMargin;
-    CGFloat permissW = nameW/2;
-    CGFloat permissH = 20;
-    UILabel *permissLabel = [[UILabel alloc]initWithFrame:CGRectMake(permissX, permissY, permissW, permissH)];
-    permissLabel.text = @"身份";
-    permissLabel.textColor = ZZLightGrayColor;
-    permissLabel.font = ZZContentFont;
-    [self addSubview:permissLabel];
-    
+    if (self.activity.userInfoList.count>1) {
+        CGFloat moreW = 40;
+        CGFloat moreH = moreW;
+        CGFloat moreX = CGRectGetWidth(starView.frame)-moreW;
+        CGFloat moreY = (CGRectGetHeight(starView.frame)-moreH)/2;
+        UIButton *moreButton = [[UIButton alloc]initWithFrame:CGRectMake(moreX, moreY, moreW, moreH)];
+        moreButton.backgroundColor = [UIColor  redColor];
+        [moreButton  setImage:[UIImage  imageNamed:@"right_20x20"] forState:UIControlStateNormal];
+        [moreButton  addTarget:self action:@selector(moreTalentVC) forControlEvents:UIControlEventTouchUpInside];
+        [starView  addSubview:moreButton];
+    }
+  
+//
     //内容
-    CGFloat contentX = headX + lineMargin;
-    CGFloat contentY = MAX(CGRectGetMaxY(headIV.frame), CGRectGetMaxY(permissLabel.frame))+lineMargin;
+    CGFloat contentX =  lineMargin;
+    CGFloat contentY = CGRectGetMaxY(starView.frame)+lineMargin;
     CGFloat contentW = ScreenWidth - 2 *contentX;
    
     UILabel *contentLabel = [[UILabel alloc]init];
     contentLabel.numberOfLines = 0;
-    contentLabel.attributedText =  [contentLabel  getAttributedStringWithText:@"有道词典是最好用的免费全能翻译软件,\n拥有5亿用户,占据市场第一。 \n独创的“网络释义”功能,轻松收录最新词汇。为您提供准确的在线词典、在线翻译、海量例句、全球..." paragraphSpacing:5 lineSpace:2 stringCharacterSpacing:3 textAlignment:NSTextAlignmentLeft font:ZZContentFont color:ZZLightGrayColor];
+    contentLabel.attributedText =  [contentLabel  getAttributedStringWithText:self.activity.detailRule paragraphSpacing:ZZParagraphSpace lineSpace:ZZLineSpace stringCharacterSpacing:ZZCharSpace textAlignment:NSTextAlignmentLeft font:ZZContentFont color:ZZLightGrayColor];
     CGSize contentSize = [contentLabel sizeThatFits:CGSizeMake(contentW, MAXFLOAT)];
     contentLabel.frame = (CGRect){{contentX,contentY},contentSize};
     [self addSubview:contentLabel];
@@ -85,9 +80,9 @@
     UIButton *telebutton = [[UIButton alloc]initWithFrame:CGRectMake(teleX, teleY, teleW, teleH)];
     telebutton.contentEdgeInsets = UIEdgeInsetsMake(0, edgeMargin, 0, edgeMargin);
     telebutton.backgroundColor = [UIColor  whiteColor];
-    [telebutton  setImage:[UIImage  imageNamed:@"T"] forState:UIControlStateNormal];
+    [telebutton  setImage:[UIImage  imageNamed:@"phone_30x30"] forState:UIControlStateNormal];
     telebutton.titleEdgeInsets = UIEdgeInsetsMake(0, 3, 0, 0);
-    [telebutton  setAttributedTitle:[self  getAttributedStringWithText:@"拨打电话" textFont:ZZContentFont textColor:ZZLightGrayColor content:@"15821565760" contentFont:ZZContentFont contentColor:ZZGreenColor] forState:UIControlStateNormal];
+    [telebutton  setAttributedTitle:[self  getAttributedStringWithText:@"拨打电话" textFont:ZZContentFont textColor:ZZLightGrayColor content:self.activity.servicePhone  contentFont:ZZContentFont contentColor:ZZGreenColor] forState:UIControlStateNormal];
       [telebutton  setTitleColor:ZZGreenColor forState:UIControlStateNormal];
     telebutton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
     [telebutton  addTarget:self action:@selector(callPhone) forControlEvents:UIControlEventTouchUpInside];
@@ -97,6 +92,12 @@
     
 }
 #pragma mark event response
+//显示所有主办达人
+- (void)moreTalentVC{
+    ZZMoreTalentController *moreVC = [[ZZMoreTalentController alloc]init];
+    moreVC.talents = self.activity.userInfoList;
+    [self.delegateVC.navigationController  pushViewController:moreVC animated:YES];
+}
 - (void)callPhone{
   
         UIActionSheet *myActionSheet = [[UIActionSheet alloc]initWithTitle:nil
@@ -107,13 +108,19 @@
         
         [myActionSheet showInView:[UIApplication sharedApplication].keyWindow];
 }
-
+#pragma mark - ZZStarTableViewCellDelegate
+-(void)starCellHeadImageTap:(ZZStarTableViewCell *)starTableViewCell{
+    ZZInfoDetailVC *infoDvc = [[ZZInfoDetailVC alloc]init];
+    ZZBaseUser *baseUser = [self.activity.userInfoList firstObject];
+    infoDvc.userAttentionId = baseUser.userId;
+    [self.delegateVC.navigationController pushViewController:infoDvc animated:YES ];
+}
 #pragma mark - ActionSheet Delegate
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if (buttonIndex == 0) {
-        //拨打电话
-            [[UIApplication sharedApplication]openURL:[NSURL URLWithString:@"tel://15821565760"]];
+        //拨打电话 @"tel://15821565760"
+        [[UIApplication sharedApplication]openURL:[NSURL URLWithString:[NSString  stringWithFormat:@"tel://%@",self.activity.servicePhone]]];
     }
 }
 //画线

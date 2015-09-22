@@ -17,22 +17,26 @@
 #import "ZZIQKeyBoardTool.h"
 #import "ZZFuncitonModel.h"
 #import "ZZActivityDetailParam.h"
+#import "ZZActivityHttpTool.h"
+#import "ZZActivity.h"
 typedef enum {
     ZZActivityBottomToolBarTypeApply,//预定
     ZZActivityBottomToolBarTypeCollect//收藏
 }ZZActivityBottomToolBarType;
-@interface ZZActivityDetailController ()<ZZDetailImageViewDelegate,ZZDetailFunctionViewDelegate>
+@interface ZZActivityDetailController ()<ZZDetailFunctionViewDelegate>
 //当前功能按钮
 @property (nonatomic, strong)NSArray *functions;
-
+/**收藏模型*/
 @property (nonatomic, strong)ZZFuncitonModel *starModel;
-
+/**更多功能*/
 @property (nonatomic, strong)ZZDetailFunctionView *detailFV;
 
-//
+/**预约*/
 @property (nonatomic, strong) UIButton *applyBtn;
-
+/**收藏*/
 @property (nonatomic, strong) UIButton *collectBtn;
+
+@property (nonatomic, strong) ZZActivity *detailActivity;
 @end
 
 @implementation ZZActivityDetailController
@@ -41,11 +45,8 @@ typedef enum {
     [super viewDidLoad];
     self.title = @"活动详情";
     self.view.backgroundColor = ZZViewBackColor;
-    [self  setRightItem];
-    [self  setUpChild];
-    ZZActivityDetailParam *param = [[ZZActivityDetailParam alloc]init];
-    param.activityID = @(20);
-    ZZLog(@",,%@",[param keyValues]);
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    [self   getDetailActivity];
     //关闭键盘向上
     ZZKeyBoardTool(close);
 }
@@ -55,6 +56,7 @@ typedef enum {
     self.navigationItem.rightBarButtonItem = barButtonItem;
 }
 
+
 - (void)setUpChild{
     CGFloat toolHeight = 49;
     CGFloat scrollWidth = self.view.bounds.size.width;
@@ -63,33 +65,28 @@ typedef enum {
     [self.view  addSubview:scrollView];
     //广告位滚动图片
     ZZDetailImageView *detailIV = [[ZZDetailImageView  alloc]init];
-    detailIV.delegate = self;
-    detailIV.frame = CGRectMake(0, 0, ScreenWidth, detailIV.totalHeight);
+    detailIV.delegateVC = self;
+    detailIV.activity = self.detailActivity;
+    detailIV.frame = CGRectMake(0, 64, ScreenWidth, detailIV.totalHeight);
     [scrollView addSubview:detailIV];
     //细则
     ZZDetailRuleView *detailRuleV = [[ZZDetailRuleView  alloc]init];
+    detailRuleV.activity = self.detailActivity;
     detailRuleV.frame = CGRectMake(0, CGRectGetMaxY(detailIV.frame), ScreenWidth, detailRuleV.totalHeight);
+    detailRuleV.delegateVC = self;
+    
     [scrollView addSubview:detailRuleV];
-    //详情
+//    //详情
     ZZDetailsView *detailView = [[ZZDetailsView  alloc]init];
     detailView.frame = CGRectMake(0, CGRectGetMaxY(detailRuleV.frame), ScreenWidth, detailView.totalHeight);
     [scrollView addSubview:detailView];
-    
     scrollView.contentSize = CGSizeMake(0, CGRectGetMaxY(detailView.frame));
     //工具栏
     ZZActivityBottomToolBar *actiBottomTool = [[ZZActivityBottomToolBar  alloc]initWithFrame:CGRectMake(0, scrollHeight, scrollWidth, toolHeight)];
     actiBottomTool.btns = @[self.collectBtn,self.applyBtn];
     [self.view  addSubview:actiBottomTool];
 }
--(void)viewWillAppear:(BOOL)animated{
-    [super  viewWillAppear:animated];
-    
-}
 
--(void)viewWillDisappear:(BOOL)animated{
-    [super viewWillDisappear:animated];
-   
-}
 #pragma mark -响应事件
 //分享
 - (void)moreFunction{
@@ -109,16 +106,7 @@ typedef enum {
     }
 }
 
-#pragma mark -ZZDetailImageViewDelegate
-- (void)detailImageViewBooking:(ZZDetailImageView *)detalImageViewDelegate{
-    
-    ZZEnsureOrderController *ensureOC = [[ZZEnsureOrderController  alloc]init];
-    [self.navigationController  pushViewController:ensureOC animated:YES];
-}
 
-- (void)detailImageViewADCliceked:(ZZDetailImageView *)detalImageViewDelegate{
-    
-}
 
 #pragma mark - ZZDetailFunctionViewDelegate
 -(void)detailFunctionView:(ZZDetailFunctionView *)detaileFunctionView shares:(NSArray *)shares selectedAtIndex:(NSUInteger)index{
@@ -139,7 +127,22 @@ typedef enum {
             break;
         
     }
+
+}
+
+#pragma mark -net
+- (void)getDetailActivity{
+    [MBProgressHUD  showMessage:ZZNetLoading toView:self.view];
     
+    [ZZActivityHttpTool  activityDetail:self.activityId success:^(ZZActivity *detailActivity, ZZNetDataType netSuccType) {
+        self.detailActivity = detailActivity;
+        [self  setRightItem];
+        [self  setUpChild];
+        [MBProgressHUD  hideHUDForView:self.view animated:YES];
+    } failure:^(NSString *error, ZZNetDataType netFialType) {
+        
+         [MBProgressHUD  hideHUDForView:self.view animated:YES];
+    }];
 }
 -(void)dealloc{
     ZZLog(@"%@",[self  class]);

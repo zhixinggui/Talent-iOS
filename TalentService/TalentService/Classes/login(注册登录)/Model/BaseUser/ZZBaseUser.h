@@ -75,7 +75,7 @@
 /** 关注总数*/
 @property (nonatomic) NSInteger attentionCount;
 
-/** 关注总数*/
+/** 被关注总数*/
 @property (nonatomic)  NSInteger  fans;
 /** 是否关注*/
 @property (nonatomic)  BOOL  isAttention;
