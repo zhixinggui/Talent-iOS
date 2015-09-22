@@ -9,9 +9,9 @@
 #import <Foundation/Foundation.h>
 
 
-//NSString * const baseUrl = @"http://192.168.100.181:8097/cgi";
+NSString * const baseUrl = @"http://192.168.100.181:8097/cgi";
 
-NSString * const baseUrl = @"http://192.168.100.155:8081/wine-rest/cgi";
+//NSString * const baseUrl = @"http://192.168.100.133:8081/wine-rest/cgi";
 
 NSTimeInterval const responseTime = 60;
 CGFloat  const  ZZLineSpace = 4;//行间距

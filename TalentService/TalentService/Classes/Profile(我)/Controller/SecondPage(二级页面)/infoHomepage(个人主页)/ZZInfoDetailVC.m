@@ -24,7 +24,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *headIV;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *identityLabel;
-
+@property (weak, nonatomic) IBOutlet UIButton *attentionButton;
 @end
 
 @implementation ZZInfoDetailVC
@@ -43,13 +43,20 @@
     /**
      *  请求
      */
-    [ZZMyInfoHttpTool getMyInfoWithUserAttentionId:@(self.userAttentionId) andMyCenter:nil success:^(ZZLoginUser *infoUser, ZZNetDataType dataType) {
+    [ZZMyInfoHttpTool getMyInfoWithUserAttentionId:@(self.userAttentionId) andMyCenter:@(1) success:^(ZZLoginUser *infoUser, ZZNetDataType dataType) {
         ZZLog(@"个人信息infoUser:%@",infoUser);
         self.loginUser = infoUser;
         [self.headIV  setImageWithURL:infoUser.userBigImg];
         self.nameLabel.text = self.loginUser.userNike;
         ZZUserRole *userRole = self.loginUser.userRole[0];
         self.identityLabel.text = userRole.eredarName;
+        
+        if (self.loginUser.isAttention) {
+            self.attentionButton.selected = YES;
+        }else{
+            self.attentionButton.selected = NO;
+        }
+        
     } failure:^(NSString *error, ZZNetDataType datatype) {
         ZZLog(@"请求失败");
     }];
@@ -94,7 +101,21 @@
             break;
     }
 }
-
+/**
+ *  关注事件
+ */
+- (IBAction)addAttention:(UIButton *)sender {
+    self.attentionButton.enabled = NO;
+    [ZZMyInfoHttpTool attentionOrCancelWithUserAttentionId:self.userAttentionId success:^(ZZOtherUser *otherUser, ZZNetDataType dataType) {
+        sender.selected = !sender.selected;
+        self.attentionButton.enabled = YES;
+        
+        [MBProgressHUD  showSuccess:@"关注成功"];
+    } failure:^(NSString *error, ZZNetDataType datatype) {
+        ZZLog(@"数据返回失败");
+        [MBProgressHUD  showError:error];
+    }];
+}
 
 
 

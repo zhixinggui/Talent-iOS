@@ -33,6 +33,7 @@
         
         loginUser.userSex = [[[dic objectForKey:@"userSex"]safeNumber]integerValue];
         loginUser.userBigImg = [[dic objectForKey:@"userBigImg"]safeString];
+        loginUser.isAttention = [[dic objectForKey:@"isAttention"]boolValue];
         return loginUser;
     }else{
         return nil;

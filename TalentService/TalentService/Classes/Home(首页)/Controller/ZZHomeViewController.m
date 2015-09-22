@@ -143,7 +143,7 @@ static   NSUInteger const HomeNumCount = 10;
             return ;
         }
         self.result = result;
-        [ self.activityArray addObjectsFromArray:result.rows];
+        [self.activityArray addObjectsFromArray:result.rows];
         [self.tableView  reloadData];
     
     } failure:^(NSString *error, ZZNetDataType netDataType) {
