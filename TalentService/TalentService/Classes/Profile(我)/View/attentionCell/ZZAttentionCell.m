@@ -38,6 +38,6 @@
     self.nameLabel.text = otherUser.userNike;
     ZZUserRole *userRole = otherUser.userRole[0];
     self.identityLabel.text = userRole.eredarName;
-    [self.headIV  setImageWithURL:otherUser.userBigImg];
+    [self.headIV  setHeadImageWithURL:otherUser.userBigImg];
 }
 @end

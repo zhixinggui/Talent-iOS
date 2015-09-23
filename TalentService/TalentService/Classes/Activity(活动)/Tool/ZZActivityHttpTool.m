@@ -13,7 +13,7 @@
     
     ZZParam *param = [[ZZParam  alloc]init];
     param.cmd = @"smart/services/getServicesDetails";
-    param.token = [ZZLoginUserTool  sharedZZLoginUserTool].loginUser.token;
+    param.token = ZZLoginTool.loginToken;
     param.parameters = @{@"id":@(activityID)};
     
     [ZZHttpTool  afPostByApiName:@"" Params:param success:^(id json) {
@@ -25,14 +25,35 @@
     }];
 }
 
-+ (void)activityBook:(NSUInteger)activityID  success:(void(^)(id json,  ZZNetDataType  netSuccType ))succ  failure:(void(^)(NSString *error , ZZNetDataType  netFialType))fail{
++ (void)activityBook:(NSUInteger)activityID  success:(void(^)(ZZOrder *order,  ZZNetDataType  netSuccType ))succ  failure:(void(^)(NSString *error , ZZNetDataType  netFialType))fail{
     
     ZZParam *param = [[ZZParam  alloc]init];
     param.cmd = @"smart/services/Reserve";
-    param.token = [ZZLoginUserTool  sharedZZLoginUserTool].loginUser.token;
+    param.token = ZZLoginTool.loginToken;
     param.parameters = @{@"serviceId":@(activityID)};
     
+    [ZZHttpTool  afPostByApiName:@"" Params:param success:^(id json) {
+        
+        ZZOrder *order = [ZZOrder objectWithKeyValues:json];
+        succ(order,ZZNetDataTypeSuccServer);
+    } failure:^(NSString *error, ZZNetDataType netDataType) {
+        fail (error,netDataType);
+    }];
     
+}
+
++ (void)activityCollect:(NSUInteger )activityID collect:(BOOL) isCollect success:(void(^)(id json,  ZZNetDataType  netSuccType ))succ  failure:(void(^)(NSString *error , ZZNetDataType  netFialType))fail{
     
+    ZZParam *param = [[ZZParam  alloc]init];
+    param.cmd = @"smart/services/serviceCollect";
+    param.token = ZZLoginTool.loginToken;
+    NSInteger collect = isCollect ? 1:0;
+    param.parameters = @{@"id":@(activityID),@"isCollect":@(collect)};
+    
+    [ZZHttpTool  afPostByApiName:@"" Params:param success:^(id json) {
+        
+    } failure:^(NSString *error, ZZNetDataType netDataType) {
+        
+    }];
 }
 @end

@@ -56,6 +56,6 @@
     self.joinCountlabel.text = [NSString  stringWithFormat:@"参加人数%ld/%ld",activity.realityPeoples,activity.peoples];
     self.cityButton.title = @"dd";
 
-   [self.showIV  setImageWithURL:activity.servicesImg];
+   [self.showIV  setPictureImageWithURL:activity.servicesImg];
 }
 @end

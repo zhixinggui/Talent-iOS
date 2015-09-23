@@ -9,5 +9,8 @@
 #import "UILabel+Extension.h"
 
 @implementation UILabel (Extension)
-
+- (void)setDefineText:(NSString *)text{
+    self.numberOfLines = 0;
+    self.attributedText =  [self  getAttributedStringWithText:text paragraphSpacing:ZZParagraphSpace lineSpace:ZZLineSpace stringCharacterSpacing:ZZCharSpace textAlignment:NSTextAlignmentLeft font:self.font color:self.textColor];
+}
 @end

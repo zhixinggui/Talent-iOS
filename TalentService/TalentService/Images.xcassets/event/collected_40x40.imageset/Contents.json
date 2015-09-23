@@ -2,18 +2,18 @@
   "images" : [
     {
       "idiom" : "universal",
-      "scale" : "1x",
-      "filename" : "collected_60x60.png"
+      "filename" : "collected_40x40.png",
+      "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "scale" : "2x",
-      "filename" : "collected_60x60@2x.png"
+      "filename" : "collected_40x40@2x.png",
+      "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "scale" : "3x",
-      "filename" : "collected_60x60@3x.png"
+      "filename" : "collected_40x40@3x.png",
+      "scale" : "3x"
     }
   ],
   "info" : {

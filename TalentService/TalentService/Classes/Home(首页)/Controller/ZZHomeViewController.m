@@ -16,6 +16,7 @@ static   NSUInteger const HomeNumCount = 10;
 #import "ZZHomeHttpTool.h"
 #import "MJRefresh.h"
 #import "ZZHudView.h"
+
 @interface ZZHomeViewController ()
 @property (nonatomic, strong)ZZHeadView *headView;
 @property (nonatomic, strong)NSMutableArray *activityArray;
@@ -58,8 +59,10 @@ static   NSUInteger const HomeNumCount = 10;
 }
 #pragma mark - event response
 - (void)applySuper{
-    [ZZHudView  showMessage:@"dddd" animated:YES];
-   pushVC(ZZApplyVC);
+ 
+   // [ZZHudView  showMessage:@"dddd" animated:YES];
+ //  pushVC(ZZApplyVC);
+    
 }
 
 #pragma mark - Table view data source

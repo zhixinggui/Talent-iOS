@@ -7,7 +7,9 @@
 // 确认订单
 
 #import <UIKit/UIKit.h>
-
+#import "ZZOrder.h"
+@class ZZActivity;
 @interface ZZEnsureOrderController : UIViewController
-
+@property (nonatomic ,strong)ZZOrder *order;
+@property (nonatomic, strong)ZZActivity *activity;
 @end

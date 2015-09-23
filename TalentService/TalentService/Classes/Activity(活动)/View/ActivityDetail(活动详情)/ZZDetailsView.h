@@ -12,4 +12,5 @@
 @interface ZZDetailsView : UIView
 @property (nonatomic, weak)ZZActivity *activity;
 @property (nonatomic)CGFloat totalHeight;
+@property (nonatomic, weak)ZZActivityDetailController *delegateVC;
 @end

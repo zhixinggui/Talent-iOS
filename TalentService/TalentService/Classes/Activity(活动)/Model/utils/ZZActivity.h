@@ -50,13 +50,19 @@
 @property (nonatomic, copy)NSString *servicesImg;
 /**  是否删除 */
 @property (nonatomic) BOOL isDelete;
+/**  是否收藏 */
+@property (nonatomic) BOOL isCollect;
+/**  是否预定过 */
+@property (nonatomic) BOOL isReserve;
 
 ///** 服务图片数组  */
-//@property (nonatomic, strong)NSArray *serviceImgList;
+@property (nonatomic, strong)NSArray *serviceImgList;
 /** 用户  */
 @property (nonatomic, strong)NSArray *userInfoList;
 
 #pragma mark  - 客户端有的，为了显示效果
 @property (nonatomic, copy)NSString *detailRule;
 
+/**  大图 */
+@property (nonatomic, copy)NSString *servicesBigImg;
 @end

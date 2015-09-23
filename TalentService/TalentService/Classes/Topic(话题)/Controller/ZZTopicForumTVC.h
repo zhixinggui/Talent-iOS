@@ -6,8 +6,8 @@
 //  Copyright (c) 2015年 zhizhen. All rights reserved.
 //
 
-#import "ZZTableViewController.h"
+#import <UIKit/UIKit.h>
 
-@interface ZZTopicForumTVC : ZZTableViewController
+@interface ZZTopicForumTVC : UITableViewController
 
 @end

@@ -30,6 +30,7 @@
     [self  swithWindowRootViewController:ZZRootViewControllerTypeHome];
     
     [self.window makeKeyAndVisible];
+    
     return YES;
 }
 /**

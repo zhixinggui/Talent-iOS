@@ -20,6 +20,7 @@ singleton_implementation(ZZLoginUserTool);
     }
     return _loginUser;
 }
+
 - (void)save:(ZZLoginUser *)loginUser
 {
     // 归档
@@ -27,5 +28,12 @@ singleton_implementation(ZZLoginUserTool);
     self.loginUser = loginUser;
 }
 
+-(BOOL)islogin{
+    return self.loginUser ? YES :NO;
+}
+
+-(NSString *)loginToken{
+    return self.loginUser.token;
+}
 
 @end

@@ -10,7 +10,7 @@
 #import "UIImageView+WebCache.h"
 @implementation UIImageView (Extension)
 
--(void)setImageWithURL:(NSString*)url{
+-(void)setPictureImageWithURL:(NSString*)url{
     [self  sd_setImageWithURL:[NSURL URLWithString:url]  placeholderImage:[UIImage  imageNamed:@"default100x100.png"]options:SDWebImageRetryFailed | SDWebImageLowPriority ];
 }
 

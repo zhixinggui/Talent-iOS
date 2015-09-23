@@ -10,5 +10,5 @@
 
 @interface UILabel (Extension)
 
-
+- (void)setDefineText:(NSString *)text;
 @end

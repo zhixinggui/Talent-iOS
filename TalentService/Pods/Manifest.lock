@@ -26,7 +26,6 @@ PODS:
   - FMDB/common (2.5)
   - FMDB/standard (2.5):
     - FMDB/common
-  - HCSStarRatingView (1.4.2)
   - IQKeyboardManager (3.3.2)
   - MBProgressHUD (0.9.1)
   - MJExtension (2.5.10)
@@ -43,7 +42,6 @@ PODS:
 DEPENDENCIES:
   - AFNetworking (~> 2.5)
   - FMDB (~> 2.5)
-  - HCSStarRatingView (~> 1.4)
   - IQKeyboardManager (~> 3.2)
   - MBProgressHUD (~> 0.9)
   - MJExtension (~> 2.5)
@@ -56,7 +54,6 @@ SPEC CHECKSUMS:
   AFNetworking: 79f7eb1a0fcfa7beb409332b2ca49afe9ce53b05
   DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
   FMDB: 96e8f1bcc1329e269330f99770ad4285d9003e52
-  HCSStarRatingView: 6157471eff9fe3ec7240e131a5b0aba39f097e57
   IQKeyboardManager: d863eb0bca424d1f6dad6bdd1f856af52664add8
   MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
   MJExtension: 944fb5a12bceb9b866914527f66101566e66292b

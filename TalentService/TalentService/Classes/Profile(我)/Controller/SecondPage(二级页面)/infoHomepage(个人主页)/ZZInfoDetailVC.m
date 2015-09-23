@@ -46,7 +46,7 @@
     [ZZMyInfoHttpTool getMyInfoWithUserAttentionId:@(self.userAttentionId) andMyCenter:nil success:^(ZZLoginUser *infoUser, ZZNetDataType dataType) {
         ZZLog(@"个人信息infoUser:%@",infoUser);
         self.loginUser = infoUser;
-        [self.headIV  setImageWithURL:infoUser.userBigImg];
+        [self.headIV  setHeadImageWithURL:infoUser.userBigImg];
         self.nameLabel.text = self.loginUser.userNike;
         ZZUserRole *userRole = self.loginUser.userRole[0];
         self.identityLabel.text = userRole.eredarName;

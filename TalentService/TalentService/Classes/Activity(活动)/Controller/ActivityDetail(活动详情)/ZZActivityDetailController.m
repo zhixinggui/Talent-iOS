@@ -19,11 +19,15 @@
 #import "ZZActivityDetailParam.h"
 #import "ZZActivityHttpTool.h"
 #import "ZZActivity.h"
+#import "MWPhotoBrowser.h"
+#import "ZZImageContent.h"
+#import "ZZHudView.h"
+#import "ZZEnsureOrderController.h"
 typedef enum {
     ZZActivityBottomToolBarTypeApply,//预定
     ZZActivityBottomToolBarTypeCollect//收藏
 }ZZActivityBottomToolBarType;
-@interface ZZActivityDetailController ()<ZZDetailFunctionViewDelegate>
+@interface ZZActivityDetailController ()<ZZDetailFunctionViewDelegate,MWPhotoBrowserDelegate>
 //当前功能按钮
 @property (nonatomic, strong)NSArray *functions;
 /**收藏模型*/
@@ -37,6 +41,9 @@ typedef enum {
 @property (nonatomic, strong) UIButton *collectBtn;
 
 @property (nonatomic, strong) ZZActivity *detailActivity;
+
+@property (nonatomic, strong)MWPhotoBrowser *photoBrowser;
+@property(nonatomic,strong)NSMutableArray*  wBrowserPhotos;
 @end
 
 @implementation ZZActivityDetailController
@@ -78,6 +85,7 @@ typedef enum {
     [scrollView addSubview:detailRuleV];
 //    //详情
     ZZDetailsView *detailView = [[ZZDetailsView  alloc]init];
+    detailView.activity = self.detailActivity;
     detailView.frame = CGRectMake(0, CGRectGetMaxY(detailRuleV.frame), ScreenWidth, detailView.totalHeight);
     [scrollView addSubview:detailView];
     scrollView.contentSize = CGSizeMake(0, CGRectGetMaxY(detailView.frame));
@@ -111,55 +119,102 @@ typedef enum {
 #pragma mark - ZZDetailFunctionViewDelegate
 -(void)detailFunctionView:(ZZDetailFunctionView *)detaileFunctionView shares:(NSArray *)shares selectedAtIndex:(NSUInteger)index{
 #warning 待完善
-    [[ZZUMTool  sharedUMTool]umShareWithTitle:@"ddd" content:@"ddd" url:nil imageUrl:nil locialImageName:nil controller:self loginModel:shares[index]];
+    ZZActivity *activity = self.detailActivity;
+    [[ZZUMTool  sharedUMTool]umShareWithTitle:activity.title content:activity.content url:nil imageUrl:activity.servicesImg locialImageName:nil controller:self loginModel:shares[index]];
 }
--(void)detailFunctionView:(ZZDetailFunctionView *)detaileFunctionView functions:(NSArray *)functions selectedAtIndex:(NSUInteger)index{
-    ZZFuncitonModel *model = functions[index];
-    switch (model.modelType) {
-        case ZZFuncitonModelTypeReport:
-            
-            break;
-        case ZZFuncitonModelTypeStar:
-            
-            break;
-        case ZZFuncitonModelTypeBackHome:
-            [self.navigationController  popToRootViewControllerAnimated:YES];
-            break;
-        
-    }
 
-}
 
 #pragma mark -net
 - (void)getDetailActivity{
-    [MBProgressHUD  showMessage:ZZNetLoading toView:self.view];
     
+    [MBProgressHUD  showMessage:ZZNetLoading toView:self.view];
     [ZZActivityHttpTool  activityDetail:self.activityId success:^(ZZActivity *detailActivity, ZZNetDataType netSuccType) {
-        self.detailActivity = detailActivity;
-        [self  setRightItem];
-        [self  setUpChild];
-        [MBProgressHUD  hideHUDForView:self.view animated:YES];
-    } failure:^(NSString *error, ZZNetDataType netFialType) {
         
+        if(detailActivity.isDelete){//这个服务是否已经删除
+            [MBProgressHUD  hideHUDForView:self.view animated:YES];
+            [MBProgressHUD  showMessageClearBackView:@"此服务已删除" toView:self.view];
+        }else{
+            self.detailActivity = detailActivity;
+            [self  setRightItem];
+            [self  setUpChild];
+             [MBProgressHUD  hideHUDForView:self.view animated:YES];
+        }
+     
+       
+    } failure:^(NSString *error, ZZNetDataType netFialType) {
+       
          [MBProgressHUD  hideHUDForView:self.view animated:YES];
+        //提示加载失败并点击重新加载
+        [MBProgressHUD showNetLoadFailWithText:@"加载失败，点击重新加载" view:self.view target:self action: @selector(getDetailActivity) isBack:NO];
     }];
 }
+//
+- (void)booking:(UIButton *)btn{
+    btn.enabled = NO;
+    [MBProgressHUD  showMessage:ZZNetLoading ];
+    [ZZActivityHttpTool  activityBook:self.activityId success:^(ZZOrder *order, ZZNetDataType netSuccType) {
+        [MBProgressHUD  hideHUD];
+         btn.enabled = YES;
+       
+        ZZEnsureOrderController *ensureVC = [[ZZEnsureOrderController  alloc]init];
+        ensureVC.order = order;
+        ensureVC.activity = self.detailActivity;
+        [self.navigationController  pushViewController:ensureVC animated:YES];
+        
+    } failure:^(NSString *error, ZZNetDataType netFialType) {
+          [MBProgressHUD  hideHUD];
+        [ZZHudView  showMessage:error time:3 toView:self.view];
+        btn.enabled = YES;
+    }];
+}
+
+- (void)updateCollectButtonProterty{
+    self.collectBtn.selected = self.detailActivity.isCollect;
+}
+
+- (void)updateBookingButtonProterty{
+    self.applyBtn.selected = self.detailActivity.isReserve;
+}
+#pragma mark - MWPhotoBrowserDelegate
+
+- (NSUInteger)numberOfPhotosInPhotoBrowser:(MWPhotoBrowser *)photoBrowser {
+    return self.wBrowserPhotos.count;
+}
+
+- (id <MWPhoto>)photoBrowser:(MWPhotoBrowser *)photoBrowser photoAtIndex:(NSUInteger)index {
+    if (index < self.wBrowserPhotos.count)
+        return [self.wBrowserPhotos objectAtIndex:index];
+    return nil;
+}
+
+#pragma mark  子view回调方法
+- (void)showBigImage:(BOOL)isDetail  currentpage:(NSUInteger) currentpage{
+    NSInteger page = 0;
+    if (isDetail) {
+        page = currentpage+1;
+    }
+    [self.photoBrowser setCurrentPhotoIndex:page];
+    
+    UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:self.photoBrowser];
+    nc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    [[UIApplication  sharedApplication].keyWindow.rootViewController presentViewController:nc animated:YES completion:nil];
+}
 -(void)dealloc{
-    ZZLog(@"%@",[self  class]);
     //打开键盘向上
      ZZKeyBoardTool(open);
 }
 //创建button
-- (UIButton *)setupBtnWithIcon:(NSString *)icon selectedIcon:(NSString *)selectedIcon  title:(NSString *)title backColor:(UIColor *)backColor  tag:(ZZActivityBottomToolBarType)barType
+- (UIButton *)setupBtnWithIcon:(NSString *)icon selectedIcon:(NSString *)selectedIcon  title:(NSString *)title selectedTitle:(NSString *)selectedTitle   tag:(ZZActivityBottomToolBarType)barType
 {
     UIButton *btn = [[UIButton alloc] init];
     btn.tag = barType;
     [btn setImage:[UIImage imageNamed:icon] forState:UIControlStateNormal];
     [btn  setImage:[UIImage imageNamed:selectedIcon] forState:UIControlStateSelected];
     [btn setTitle:title forState:UIControlStateNormal];
+    [btn  setTitle:selectedTitle forState:UIControlStateSelected];
     [btn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
     btn.titleLabel.font = ZZContentFont;
-    btn.backgroundColor = backColor;
+ 
     btn.adjustsImageWhenHighlighted = NO;
     [btn  addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside ];
     // 设置间距
@@ -168,16 +223,46 @@ typedef enum {
     return btn;
 }
 #pragma mark - lazy load
+-(MWPhotoBrowser *)photoBrowser{
+    if (_photoBrowser == nil){
+        MWPhotoBrowser *browser = [[MWPhotoBrowser alloc] initWithDelegate:self];
+        browser.displayActionButton = YES;//  展示操作按钮
+        //        browser.displayNavArrows = NO;  　//底部显示左右按钮移动
+        //        browser.displaySelectionButtons = NO;  //显示选择按钮
+        //        browser.alwaysShowControls = NO; //一直显示返回导航栏
+        browser.zoomPhotosToFill = YES; //是否可以缩放
+        //        browser.enableGrid = NO; //是否可以显示网格状
+        //        browser.startOnGrid = NO;  //以网格状开始
+        //        browser.enableSwipeToDismiss = NO;//是否能滑动消失
+        //        browser.autoPlayOnAppear = NO;   //出现的时候视频播放
+        _photoBrowser = browser;
+    }
+    return _photoBrowser;
+}
 
+-(NSMutableArray *)wBrowserPhotos{
+    if (_wBrowserPhotos ==nil) {
+        _wBrowserPhotos = [NSMutableArray  array];
+        [_wBrowserPhotos addObject:[MWPhoto photoWithURL:[NSURL URLWithString:self.detailActivity.servicesBigImg]]];
+        
+        for (ZZImageContent *imageContent in self.detailActivity.serviceImgList) {
+            [_wBrowserPhotos addObject:[MWPhoto photoWithURL:[NSURL URLWithString:imageContent.imgBigPath]]];
+        }
+    }
+    return _wBrowserPhotos;
+}
 -(UIButton *)applyBtn{
     if (_applyBtn == nil) {
-        _applyBtn = [self setupBtnWithIcon:@"supported_20x20"  selectedIcon:@"" title:@"预定"  backColor:ZZGreenColor  tag:ZZActivityBottomToolBarTypeCollect];
+        _applyBtn = [self setupBtnWithIcon:@"reserve_40x40"  selectedIcon:@"reserved_40x40" title:@"预定"  selectedTitle:@"已预定"    tag:ZZActivityBottomToolBarTypeApply];
+        [self  updateBookingButtonProterty];
+        [_applyBtn  addTarget:self action:@selector(booking:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _applyBtn ;
 }
 -(UIButton *)collectBtn{
     if (_collectBtn == nil) {
-        _collectBtn = [self setupBtnWithIcon:@"collect_60x60" selectedIcon:@"collected_60x60" title:@"收藏"  backColor:ZZBlueColor  tag:ZZActivityBottomToolBarTypeApply];
+        _collectBtn = [self setupBtnWithIcon:@"collect_40x40" selectedIcon:@"collected_40x40" title:@"收藏"  selectedTitle:@"已收藏"   tag:ZZActivityBottomToolBarTypeCollect];
+        [self  updateCollectButtonProterty];
     }
     return  _collectBtn;
 }

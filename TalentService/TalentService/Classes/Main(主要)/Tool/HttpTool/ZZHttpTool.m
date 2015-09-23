@@ -196,9 +196,8 @@ static AFHTTPRequestOperationManager  *_manager;
         }
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {
        
-        
         [self  managerOriginJsonData:responseObject serverSuccess:^(id json) {
-            
+
             Success(json);
         } serverFail:^(NSString *error, ZZNetDataType dataType) {
             
@@ -261,7 +260,8 @@ static AFHTTPRequestOperationManager  *_manager;
 + (void)managerOriginJsonData:(id)jsonOriginData  serverSuccess: (void (^)(id json))succ  serverFail :(void (^)(NSString *error, ZZNetDataType dataType))failure{
     NSDictionary *originDic = [jsonOriginData safeDictionary];
     NSInteger statusCode=   [[originDic objectForKey:@"statusCode"]integerValue];
-    if (statusCode >= 200 &&statusCode < 300) {
+   
+    if (statusCode >= 200 &&statusCode < 302) {//服务器状态正常
         
         NSDictionary *responseDic = [[originDic  objectForKey:@"response"]safeDictionary];
         [self  managerJsonData:responseDic netSuccess:^(id json) {
@@ -271,7 +271,7 @@ static AFHTTPRequestOperationManager  *_manager;
             failure(reason,ZZNetDataTypeFailNet);
         }];
         
-    }else {
+    }else if(statusCode == 403){//token失效
         NSDictionary *errorDic = [[originDic objectForKey:@"error"]safeDictionary];
         NSString *errorStr = [[errorDic objectForKey:@"errorInfo"]safeString];
         if (errorStr.length) {
@@ -279,7 +279,19 @@ static AFHTTPRequestOperationManager  *_manager;
         }else{
             errorStr = @"让服务器休息下";
         }
-      
+        //发出通知
+        NSNotification *noti = [NSNotification  notificationWithName:ZZTokenIsNoActive object:nil userInfo:@{ZZTokenIsNoActiveError:errorStr}];
+        [[NSNotificationCenter defaultCenter]postNotification:noti];
+        
+        failure(errorStr,ZZNetDataTypeFailServer);
+    }else{//服务器连接失败
+        NSDictionary *errorDic = [[originDic objectForKey:@"error"]safeDictionary];
+        NSString *errorStr = [[errorDic objectForKey:@"errorInfo"]safeString];
+        if (errorStr.length) {
+            
+        }else{
+            errorStr = @"让服务器休息下";
+        }
         failure(errorStr,ZZNetDataTypeFailServer);
     }
 }

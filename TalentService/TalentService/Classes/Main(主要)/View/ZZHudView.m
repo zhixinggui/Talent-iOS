@@ -18,7 +18,7 @@ CGFloat  const  Minwidth = 20;
 @property (nonatomic) CGSize contentSize;
 @end
 @implementation ZZHudView
-+ (ZZHudView *)showMessage:(NSString *)message animated:(BOOL)animated{
++ (ZZHudView *)showMessage:(NSString *)message time:(NSTimeInterval )time toView:(UIView *)view{
   
     ZZHudView *hudView = [[ZZHudView  alloc]init];
     hudView.text = message;
@@ -27,7 +27,7 @@ CGFloat  const  Minwidth = 20;
         size.width=260;
     }
     hudView.contentSize = size;
-    [hudView  showAnimated:YES];
+    [hudView  showTime:time toView:view];
     return hudView;
     
 }
@@ -38,19 +38,27 @@ CGFloat  const  Minwidth = 20;
     self.center = keyWindow.center;
     
 }
-- (void)showAnimated:(BOOL)animated{
+- (void)showTime:(NSTimeInterval )time toView:(UIView *)view{
 
   
     self.frame = CGRectMake(0, 0, self.contentSize.width+Minwidth, 20+Minheight);
-    UIWindow *keyWindow = [UIApplication  sharedApplication].keyWindow;
-  
-    [keyWindow  addSubview:self];
+    
+    self.transform = CGAffineTransformMakeScale(1.3, 1.3);
+    if(view){
+      self.center = CGPointMake(view.width/2, view.height/2);
+        [view addSubview:self];
+    }else{
+        UIWindow *keyWindow = [UIApplication  sharedApplication].keyWindow;
+          self.center = CGPointMake(keyWindow.width/2, keyWindow.height/2);
+        [keyWindow  addSubview:self];
+    }
+    
     [UIView  animateWithDuration:0.2 animations:^{
         
-   
+   self.transform = CGAffineTransformMakeScale(1.0, 1.0);
     self.alpha = 0.7;
     } completion:^(BOOL finished) {
-      [self  performSelector:@selector(dismiss) withObject:nil afterDelay:2];
+      [self  performSelector:@selector(dismiss) withObject:nil afterDelay:time];
     }];
     
 }
@@ -59,7 +67,6 @@ CGFloat  const  Minwidth = 20;
     self = [super  initWithFrame:CGRectZero];
     
     if (self) {
-        
         self.font = [UIFont   systemFontOfSize:16];
         self.textColor = [UIColor  whiteColor];
         self.textAlignment = NSTextAlignmentCenter;
@@ -75,6 +82,7 @@ CGFloat  const  Minwidth = 20;
     
     dispatch_async(dispatch_get_main_queue(), ^{
         [UIView  animateWithDuration:0.1 animations:^{
+            self.transform = CGAffineTransformMakeScale(0.5, 0.5);
             self.alpha = 0.2;
         } completion:^(BOOL finished) {
             [self  removeFromSuperview];

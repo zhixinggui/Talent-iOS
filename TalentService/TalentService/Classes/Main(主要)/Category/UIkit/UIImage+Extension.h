@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface UIImage (Extension)
+
 /**
  *返回中心拉伸的图片
  */
@@ -27,4 +28,8 @@
 + (UIImage *)resizedImage:(NSString *)name;
 
 + (UIImage*)imageWithStretchableName:(NSString *)imageName;
+
+//对图片尺寸进行压缩--
+
+-(UIImage*)imageWithImage:(UIImage*)image scaledToSize:(CGSize)newSize;
 @end

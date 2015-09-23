@@ -15,13 +15,13 @@ typedef void(^ErrorBlock)(NSString *error, ZZNetDataType  netDataType);
 @interface ZZHttpTool : NSObject
 
 
-/**
- *  第三方的get请求方式
- */
-+(void)afGetByApiName:(NSString *)apiName
-               Params:(ZZParam *)param
-              success:(SuccessBlock)Success
-              failure:(ErrorBlock)Failure;
+///**
+// *  第三方的get请求方式
+// */
+//+(void)afGetByApiName:(NSString *)apiName
+//               Params:(ZZParam *)param
+//              success:(SuccessBlock)Success
+//              failure:(ErrorBlock)Failure;
 
 /**
  *  第三方的post请求方式

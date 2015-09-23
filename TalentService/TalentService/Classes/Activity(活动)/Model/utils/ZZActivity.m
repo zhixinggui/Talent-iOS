@@ -8,14 +8,15 @@
 
 #import "ZZActivity.h"
 #import "ZZOtherUser.h"
-#define ZZImageScrwidth  [NSString  stringWithFormat:@"@%.0fw_1pr_2o_1l|watermark=2&text=6JCM5a6d5rS-&type=ZmFuZ3poZW5nc2h1c29uZw&size=20&t=79&p=5",ScreenWidth * [UIScreen  mainScreen].scale]
+#import "ZZImageContent.h"
+
 @implementation ZZActivity
 #pragma mark - 解析
 +(NSDictionary *)replacedKeyFromPropertyName{
     return @{@"activityId":@"id"};
 }
 +(NSDictionary *)objectClassInArray{
-    return @{@"userInfoList":[ZZOtherUser  class]};
+    return @{@"userInfoList":[ZZOtherUser  class],@"serviceImgList":[ZZImageContent class]};
 }
 #pragma mark - 重写系统方法
 
@@ -37,13 +38,8 @@
 }
 -(void)setServicesImg:(NSString *)servicesImg{
 
-    NSString *urlString = [NSString  stringWithFormat:@"%@%@",servicesImg,ZZImageScrwidth];
-    //转字符串
-    urlString = [urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    
-    _servicesImg = urlString;
-   
-//    self.imgUrl = [NSString  stringWithFormat:@"%@%@",servicesImg,ZZImageScrwidth];
+  _servicesImg=  [[servicesImg  stringByAppendingString:ZZImageUrlAppend(ScreenWidth, YES)]stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+_servicesBigImg = [[servicesImg  stringByAppendingString:ZZImageUrlOrigin(YES)]stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 }
 
 -(void)setPrice:(NSString *)price{

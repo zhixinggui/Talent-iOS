@@ -14,12 +14,19 @@
 #import "ZZActivityController.h"
 #import "ZZTopicForumTVC.h"
 #import "ZZMoreVC.h"
+#import "ZZLoginUserTool.h"
+
+@interface ZZTabBarController ()<UIAlertViewDelegate>
+@property (nonatomic, strong)UIAlertView *alert;
+@end
 @implementation ZZTabBarController
 -(void)viewDidLoad{
     [super  viewDidLoad];
     // 添加所有子控制器
     [self setUpAllChildViewController];
     [self  setUpShadow];
+    //注册通知接受token失效
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(tokenIsNoActive:) name:ZZTokenIsNoActive object:nil];
 }
 
 - (void)setUpShadow{
@@ -66,5 +73,31 @@
     [vc.tabBarItem setTitleTextAttributes:selectedTextAttrs forState:UIControlStateSelected];
     ZZNaviController *nav = [[ZZNaviController alloc] initWithRootViewController:vc];
     [self addChildViewController:nav];
+}
+#pragma mark -token失效方法
+- (void)tokenIsNoActive:(NSNotification *)noti{
+    NSString *tipstr = noti.userInfo[ZZTokenIsNoActiveError];
+    if (tipstr == nil) {
+        tipstr = @"你的账号信息已失效，请重新登录";
+    }
+    [ZZLoginTool save:nil];
+    if (self.alert.isVisible) {
+        return;
+    }
+    if (self.alert == nil) {
+         self.alert = [[UIAlertView  alloc]initWithTitle:@"温馨提示" message:tipstr delegate:self cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
+    }else{
+        self.alert.message = tipstr;
+    }
+   
+    [self.alert  show];
+
+}
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+        [self  swithWindowRootControllerToLogin];
+}
+
+-(void)dealloc{
+    [[NSNotificationCenter defaultCenter]removeObserver:self];
 }
 @end

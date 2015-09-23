@@ -10,7 +10,7 @@
 
 @interface ZZHudView : UILabel
 
-+ (ZZHudView *)showMessage:(NSString *)message animated:(BOOL)animated;
++ (ZZHudView *)showMessage:(NSString *)message time:(NSTimeInterval )time toView:(UIView *)view;
 
 
 

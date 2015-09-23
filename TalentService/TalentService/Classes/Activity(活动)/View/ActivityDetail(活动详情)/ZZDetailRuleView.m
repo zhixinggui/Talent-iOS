@@ -53,7 +53,7 @@
         CGFloat moreX = CGRectGetWidth(starView.frame)-moreW;
         CGFloat moreY = (CGRectGetHeight(starView.frame)-moreH)/2;
         UIButton *moreButton = [[UIButton alloc]initWithFrame:CGRectMake(moreX, moreY, moreW, moreH)];
-        moreButton.backgroundColor = [UIColor  redColor];
+ 
         [moreButton  setImage:[UIImage  imageNamed:@"right_20x20"] forState:UIControlStateNormal];
         [moreButton  addTarget:self action:@selector(moreTalentVC) forControlEvents:UIControlEventTouchUpInside];
         [starView  addSubview:moreButton];

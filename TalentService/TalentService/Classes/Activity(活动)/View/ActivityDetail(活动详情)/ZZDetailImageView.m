@@ -9,6 +9,7 @@
 #import "ZZDetailImageView.h"
 #import "AdScrollView.h"
 #import "ZZActivity.h"
+#import "ZZActivityDetailController.h"
 @interface ZZDetailImageView ()<UIAlertViewDelegate>
 
 @end
@@ -29,7 +30,7 @@
     UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(sx, sy, w, h)];
     imageView.contentMode = UIViewContentModeScaleAspectFill;
     imageView.clipsToBounds = YES;
-    [imageView  setImageWithURL:self.activity.servicesImg];
+    [imageView  setPictureImageWithURL:self.activity.servicesImg];
     imageView.userInteractionEnabled = YES;
     [imageView  addTarget:self action:@selector(showBigImage)];
     [self addSubview:imageView];
@@ -60,6 +61,6 @@
 }
 #pragma mark 查看大图
 - (void)showBigImage{
-    
+    [self.delegateVC  showBigImage:NO currentpage:0];
 }
 @end

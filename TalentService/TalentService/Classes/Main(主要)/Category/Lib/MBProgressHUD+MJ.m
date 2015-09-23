@@ -24,7 +24,7 @@
     hud.removeFromSuperViewOnHide = YES;
     
     // 1秒之后再消失
-    [hud hide:YES afterDelay:2];
+    [hud hide:YES afterDelay:1];
 }
 
 #pragma mark 显示错误信息
@@ -122,9 +122,11 @@
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
     // 快速显示一个提示信息
     //  MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
-    hud.labelText = text;
+      hud.labelText = text;
+    hud.labelColor = ZZLightGrayColor;
     if (back) {
         // 设置图片
+      
         hud.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"MBProgressHUD.bundle/%@", @"error.png"]]];
         // 再设置模式
         hud.mode = MBProgressHUDModeCustomView;
@@ -133,10 +135,10 @@
         hud.color = [UIColor clearColor];
         
         UIButton *button = [UIButton  buttonWithType:UIButtonTypeCustom];
-        [button setTitle:text forState:UIControlStateNormal];
-        [button  sizeToFit];
-        button.backgroundColor = [UIColor  clearColor];
-        [button setTitleColor:[UIColor  grayColor] forState:UIControlStateNormal];
+        button.width = view.width/2;
+        button.height = view.height/2;
+        button.backgroundColor = [UIColor  redColor];
+        
         [button  addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
         [button  addTarget:hud action:@selector(hideSelf) forControlEvents:UIControlEventTouchUpInside];
         hud.customView = button;
@@ -146,6 +148,17 @@
     // 隐藏时候从父控件中移除
 
     //
+}
+
++ (void)showMessageClearBackView:(NSString *)message toView:(UIView *)view{
+    if (view == nil) view = [[UIApplication sharedApplication] keyWindow];
+    // 快速显示一个提示信息
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
+    hud.color = [UIColor  clearColor];
+    hud.labelText = message;
+    // YES代表需要蒙版效果
+    hud.dimBackground = NO;
+  
 }
 - (void)hideSelf{
     [self  hide:YES];

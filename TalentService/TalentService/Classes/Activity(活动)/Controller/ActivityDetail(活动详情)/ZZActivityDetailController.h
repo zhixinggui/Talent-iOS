@@ -10,4 +10,6 @@
 
 @interface ZZActivityDetailController : UIViewController
 @property (nonatomic, assign)NSInteger activityId;
+
+- (void)showBigImage:(BOOL)isDetail  currentpage:(NSUInteger) currentpage;
 @end
