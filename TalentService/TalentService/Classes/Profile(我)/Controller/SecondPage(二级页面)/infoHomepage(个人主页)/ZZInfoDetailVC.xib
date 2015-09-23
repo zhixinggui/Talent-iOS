@@ -9,6 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ZZInfoDetailVC">
             <connections>
+                <outlet property="attentionButton" destination="yB2-N0-bBW" id="nWg-16-bcg"/>
                 <outlet property="headIV" destination="2SL-pB-hkK" id="9sz-QY-mt1"/>
                 <outlet property="headView" destination="SDu-d9-2Vz" id="Faz-bW-wHV"/>
                 <outlet property="identityLabel" destination="m3J-PA-OST" id="QNc-56-L1S"/>
@@ -23,42 +24,16 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="fjK-ef-La1">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="607"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </tableView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vv5-01-ewd">
-                    <rect key="frame" x="0.0" y="615" width="187" height="52"/>
-                    <color key="backgroundColor" red="0.17254901960784313" green="0.6470588235294118" blue="0.34901960784313724" alpha="1" colorSpace="calibratedRGB"/>
-                    <state key="normal" title="点赞(100)" image="T3">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    </state>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qt1-UP-SD2">
-                    <rect key="frame" x="187" y="615" width="188" height="52"/>
-                    <color key="backgroundColor" red="0.070588235294117646" green="0.53725490196078429" blue="0.82352941176470584" alpha="1" colorSpace="calibratedRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="52" id="GV0-DU-IgE"/>
-                    </constraints>
-                    <state key="normal" title="吐槽(100)" image="T3">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    </state>
-                </button>
             </subviews>
             <color key="backgroundColor" red="0.94509803921568625" green="0.94901960784313721" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="vv5-01-ewd" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="3nW-Vm-Urq"/>
-                <constraint firstAttribute="bottom" secondItem="vv5-01-ewd" secondAttribute="bottom" id="8se-Jf-pbv"/>
-                <constraint firstItem="qt1-UP-SD2" firstAttribute="top" secondItem="fjK-ef-La1" secondAttribute="bottom" constant="8" id="AwH-GB-tpn"/>
-                <constraint firstAttribute="trailing" secondItem="fjK-ef-La1" secondAttribute="trailing" id="ENi-mA-JBS"/>
-                <constraint firstItem="fjK-ef-La1" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="KOu-XQ-Hmz"/>
-                <constraint firstAttribute="trailing" secondItem="qt1-UP-SD2" secondAttribute="trailing" id="bLL-BR-kdc"/>
-                <constraint firstItem="qt1-UP-SD2" firstAttribute="leading" secondItem="vv5-01-ewd" secondAttribute="trailing" id="jiU-kn-0YL"/>
-                <constraint firstItem="vv5-01-ewd" firstAttribute="width" secondItem="qt1-UP-SD2" secondAttribute="width" constant="-1" id="ptK-lP-QOH"/>
-                <constraint firstItem="fjK-ef-La1" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="qud-9T-ccP"/>
-                <constraint firstAttribute="bottom" secondItem="qt1-UP-SD2" secondAttribute="bottom" id="wGK-1p-7vZ"/>
-                <constraint firstItem="vv5-01-ewd" firstAttribute="top" secondItem="fjK-ef-La1" secondAttribute="bottom" constant="8" id="xDm-yV-YT9"/>
+                <constraint firstItem="fjK-ef-La1" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="7qm-r1-V3a"/>
+                <constraint firstItem="fjK-ef-La1" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="OtH-kn-9jI"/>
+                <constraint firstAttribute="trailing" secondItem="fjK-ef-La1" secondAttribute="trailing" id="V8T-vN-gBS"/>
+                <constraint firstAttribute="bottom" secondItem="fjK-ef-La1" secondAttribute="bottom" id="rkC-me-FhO"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
             <point key="canvasLocation" x="302.5" y="222.5"/>
@@ -253,6 +228,10 @@
                     <state key="normal" image="add_attention_40x40">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <state key="selected" image="has_attention_40x40"/>
+                    <connections>
+                        <action selector="addAttention:" destination="-1" eventType="touchUpInside" id="Rt7-DH-oO8"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="0.94509803921568625" green="0.94901960784313721" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
@@ -312,9 +291,9 @@
         </view>
     </objects>
     <resources>
-        <image name="T3" width="9" height="9"/>
         <image name="add_attention_40x40" width="40" height="40"/>
         <image name="border_34x34" width="9" height="9"/>
+        <image name="has_attention_40x40" width="40" height="40"/>
         <image name="user_30x30" width="30" height="30"/>
     </resources>
 </document>

@@ -13,6 +13,7 @@
 #import "ZZActivity.h"
 #import "ZZOtherUser.h"
 #import "ZZAttentionResult.h"
+#import "ZZHomeServiceResult.h"
 typedef void (^successBlock)(id json, ZZNetDataType dataType);
 typedef void (^failureBlock)(NSString *error , ZZNetDataType datatype);
 @interface ZZMyInfoHttpTool : NSObject
@@ -30,11 +31,16 @@ typedef void (^failureBlock)(NSString *error , ZZNetDataType datatype);
 /**
  *  我的服务收藏
  */
-+(void)getMyCollectActivityWithPageNo:(NSInteger)pageNo andNumberOfPerPage:(NSInteger)numberOfPerPage success:(void(^)(ZZActivity *activity, ZZNetDataType dataType))success failure:(failureBlock)failure;
++(void)getMyCollectActivityWithPageNo:(NSInteger)pageNo andNumberOfPerPage:(NSInteger)numberOfPerPage success:(void(^)(ZZHomeServiceResult *result, ZZNetDataType dataType))success failure:(failureBlock)failure;
 
 /**
  *  我的关注列表
  */
 +(void)getMyAttentionWithTypeNum:(NSInteger)typeNum andPageNo:(NSInteger)pageNo andNumberOfPerPage:(NSInteger)numberOfPerPage
  success:(void(^)(ZZAttentionResult *attResult, ZZNetDataType dataType))success failure:(failureBlock)failure;
+
+/**
+ *  关注/取消关注某人
+ */
++(void)attentionOrCancelWithUserAttentionId:(NSInteger)userAttentionId success:(void(^)(ZZOtherUser *otherUser, ZZNetDataType dataType))success failure:(failureBlock)failure;
 @end

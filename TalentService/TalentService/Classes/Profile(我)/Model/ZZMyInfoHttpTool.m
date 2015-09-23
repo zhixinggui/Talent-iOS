@@ -73,10 +73,23 @@
 /**
  *  获取我的服务收藏
  */
-+(void)getMyCollectActivityWithPageNo:(NSInteger)pageNo andNumberOfPerPage:(NSInteger)numberOfPerPage success:(void (^)(ZZActivity *, ZZNetDataType))success failure:(failureBlock)failure{
++(void)getMyCollectActivityWithPageNo:(NSInteger)pageNo andNumberOfPerPage:(NSInteger)numberOfPerPage success:(void (^)(ZZHomeServiceResult *result, ZZNetDataType))success failure:(failureBlock)failure{
+    ZZParam *param = [[ZZParam alloc]init];
+    param.cmd = @"smart/personal/getServiceCollect";
+    param.token = [ZZLoginUserTool sharedZZLoginUserTool].loginUser.token;
+    param.parameters = @{@"pageNo":@(pageNo),@"numberOfPerPage":@(numberOfPerPage)};
+    [ZZHttpTool afPostByApiName:@"" Params:param success:^(id json) {
+        ZZLog(@"我的收藏:%@",json);
+        ZZHomeServiceResult *serviceResult = [ZZHomeServiceResult  objectWithKeyValues:json];
+        success (serviceResult, ZZNetDataTypeSuccLocal);
+    } failure:^(NSString *error, ZZNetDataType netDataType) {
+        
+    }];
     
 }
-
+/**
+ *  关注列表
+ */
 +(void)getMyAttentionWithTypeNum:(NSInteger)typeNum andPageNo:(NSInteger)pageNo andNumberOfPerPage:(NSInteger)numberOfPerPage success:(void (^)(ZZAttentionResult *attResult, ZZNetDataType))success failure:(failureBlock)failure{
     ZZParam *param = [[ZZParam alloc]init];
     param.cmd = @"smart/attention/getList";
@@ -86,6 +99,21 @@
         ZZLog(@"关注列表%@",json);
         ZZAttentionResult *attResult = [ZZAttentionResult objectWithKeyValues:json];
         success(attResult,ZZNetDataTypeSuccServer);
+    } failure:^(NSString *error, ZZNetDataType netDataType) {
+        ZZLog(@"请求失败");
+    }];
+}
+/**
+ *  关注取消列表
+ */
++(void)attentionOrCancelWithUserAttentionId:(NSInteger)userAttentionId success:(void (^)(ZZOtherUser *otherUser, ZZNetDataType))success failure:(failureBlock)failure{
+    ZZParam *param = [[ZZParam alloc]init];
+    param.cmd = @"smart/attention/attentionUser";
+    param.token = [ZZLoginUserTool sharedZZLoginUserTool].loginUser.token;
+    param.parameters = @{@"userAttentionId":@(userAttentionId)};
+    [ZZHttpTool afPostByApiName:@"" Params:param success:^(id json) {
+        ZZLog(@"关注或取消:%@",json);
+        success(json,ZZNetDataTypeSuccServer);
     } failure:^(NSString *error, ZZNetDataType netDataType) {
         ZZLog(@"请求失败");
     }];
