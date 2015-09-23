@@ -65,6 +65,7 @@
         ZZLog(@"个人信息:%@",json);
         success(nil,ZZNetDataTypeSuccServer);
     } failure:^(NSString *error, ZZNetDataType netDataType) {
+        failure(error,netDataType);
         ZZLog(@"请求失败");
     }];
     
@@ -83,7 +84,7 @@
         ZZHomeServiceResult *serviceResult = [ZZHomeServiceResult  objectWithKeyValues:json];
         success (serviceResult, ZZNetDataTypeSuccLocal);
     } failure:^(NSString *error, ZZNetDataType netDataType) {
-        
+        failure(error,netDataType);
     }];
     
 }
@@ -100,6 +101,7 @@
         ZZAttentionResult *attResult = [ZZAttentionResult objectWithKeyValues:json];
         success(attResult,ZZNetDataTypeSuccServer);
     } failure:^(NSString *error, ZZNetDataType netDataType) {
+        failure(error,netDataType);
         ZZLog(@"请求失败");
     }];
 }
@@ -115,7 +117,32 @@
         ZZLog(@"关注或取消:%@",json);
         success(json,ZZNetDataTypeSuccServer);
     } failure:^(NSString *error, ZZNetDataType netDataType) {
+        failure(error,netDataType);
         ZZLog(@"请求失败");
     }];
 }
+
++ (void)getMyOrderListWithQueryType:(NSInteger)QueryType andStatus:(NSString *)status andPageNo:(NSInteger)pageNo andNumberOfPerPage:(NSInteger)numberOfPerPage success:(void (^)(ZZOrderResult *orderResult, ZZNetDataType))success failure:(failureBlock)failure {
+    ZZParam *param = [[ZZParam alloc]init];
+    param.cmd = @"smart/order/getMyOrder";
+    param.token = [ZZLoginUserTool sharedZZLoginUserTool].loginUser.token;
+    NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithCapacity:4];
+    if (status) {
+        [dic setValue:status forKey:@"status"];
+    }
+    [dic setValue:@(QueryType) forKey:@"queryType"];
+    [dic setValue:@(pageNo) forKey:@"pageNo"];
+    [dic setValue:@(numberOfPerPage) forKey:@"numberOfPerPage"];
+    param.parameters = dic;
+    [ZZHttpTool afPostByApiName:@"" Params:param success:^(id json) {
+        ZZLog(@"我的订单列表:%@",json);
+        ZZOrderResult *orderResult = [ZZOrderResult objectWithKeyValues:json];
+        success(orderResult,ZZNetDataTypeSuccServer);
+    } failure:^(NSString *error, ZZNetDataType netDataType) {
+        ZZLog(@"请求失败");
+        failure(error,netDataType);
+        
+    }];
+}
+
 @end

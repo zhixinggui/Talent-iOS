@@ -44,6 +44,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    //初始化tableview
+    [self initTableView];
+    //右Button
+    [self setNavRightItemWithName:@"消息" target:self action:@selector(messageAction:)];
+    //左Button
+    [self setNavLeftItemWithName:@"设置" target:self action:@selector(settingAction:)];
+    //赋值
+    [self selfInformation];
+    //通知
+    [self monitorNotification];
+}
+
+//tableview初始化
+- (void)initTableView {
     self.infoTableView.tableHeaderView = self.tableHeadView;
     self.infoTableView.delegate = self;
     self.infoTableView.dataSource = self;
@@ -51,25 +65,26 @@
     UINib* nib = [UINib nibWithNibName:@"ZZInfoCell" bundle:nil];
     [self.infoTableView registerNib:nib forCellReuseIdentifier:infoCelldentifier];
     self.infoTableView.rowHeight = 50;
-    
-    [self setNavRightItemWithName:@"消息" target:self action:@selector(messageAction:)];
-    
-    [self setNavLeftItemWithName:@"设置" target:self action:@selector(settingAction:)];
-    /**
-     *  请求数据赋值
-     */
+}
+
+//请求数据赋值
+- (void)selfInformation {
     self.nameLabel.text = self.loginUser.userNike;
     ZZUserRole *userRole = self.loginUser.userRole[0];
     self.roleLabel.text = userRole.eredarName;
     self.fansCount.text = [NSString stringWithFormat:@"%ld",self.loginUser.fans];
-    
+}
+
+//监听通知
+- (void)monitorNotification {
     //获取通知中心单例对象
     NSNotificationCenter * center = [NSNotificationCenter defaultCenter];
     //添加当前类对象为一个观察者，name和object设置为nil，表示接收一切通知
     [center addObserver:self selector:@selector(notice) name:ZZUserNickChangeNoti object:nil];
 }
 
--(void)notice{
+//通知方法
+- (void)notice {
     self.nameLabel.text = self.loginUser.userNike;
 }
 
@@ -84,39 +99,39 @@
  *  navigation左button
  */
 - (void)setNavLeftItemWithName:(NSString *)name target:(id)target action:(SEL)action {
-    
     UIBarButtonItem *leftBarItem = [[UIBarButtonItem  alloc]initWithTitle:name style:UIBarButtonItemStyleDone target:target action:action];
     self.navigationItem.leftBarButtonItem = leftBarItem;
 }
 
-
--(void)messageAction:(UIButton*)sender{
+//右button响应事件
+- (void)messageAction:(UIButton*)sender {
     ZZLog(@"消息消息");
     ZZMessageTVC *messageTvc = [[ZZMessageTVC alloc]initWithNib];
     [self.navigationController pushViewController:messageTvc animated:YES];
 }
 
--(void)settingAction:(UIButton*)sender{
+//左button响应事件
+- (void)settingAction:(UIButton*)sender {
     ZZLog(@"设置设置");
     ZZInfoModifyVC *myselfInfoTvc = [[ZZInfoModifyVC alloc]initWithNib];
     [self.navigationController pushViewController:myselfInfoTvc animated:YES];
 }
 
-
-
 #pragma mark - UITableViewDatasourse
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 4;
 }
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section == 0) {
         return 2;
     }else{
         return 1;
     }
-    
 }
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ZZInfoCell *cell = [tableView  dequeueReusableCellWithIdentifier:infoCelldentifier];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     switch (indexPath.section) {
@@ -152,8 +167,7 @@
     return cell;
 }
 
-
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.section) {
         case 0:
         {
@@ -195,14 +209,12 @@
 - (IBAction)gotoChangeImage:(UIButton *)sender {
     ZZLog(@"换图换图");
     [self.sheet showAnimation];
-    
 }
 
-- (void)actionSheetDidFinished:(NSArray *)obj{
-    
+- (void)actionSheetDidFinished:(NSArray *)obj {
     self.infoIV.image = obj[0];
-    
 }
+
 - (IBAction)gotoCollect:(UIButton *)sender {
     ZZLog(@"收藏收藏");
     ZZMyCollectVC *mycollectVc = [[ZZMyCollectVC alloc]initWithNib];
@@ -214,7 +226,6 @@
     ZZMyEventVC *myEventVc = [[ZZMyEventVC alloc]initWithNib];
     [self.navigationController pushViewController:myEventVc animated:YES];
 }
-
 
 - (IBAction)gotoCommunity:(UIButton *)sender {
     ZZLog(@"社区社区");
@@ -230,7 +241,7 @@
 
 #pragma mark -Setters and Getters
 
--(UUPhotoActionSheet *)sheet{
+- (UUPhotoActionSheet *)sheet {
     if (_sheet == nil) {
         _sheet = [[UUPhotoActionSheet alloc] initWithWeakSuper:self];
         _sheet.delegate = self;
@@ -238,21 +249,22 @@
     }
     return _sheet;
 }
--(NSArray *)nameArray{
+
+- (NSArray *)nameArray {
     if (!_nameArray) {
         _nameArray = @[@"我的订单",@"我的服务",@"我的金币",@"我的社区",@"申请达人"];
     }
     return _nameArray;
 }
 
--(NSArray *)imageArray{
+- (NSArray *)imageArray {
     if (!_imageArray) {
         _imageArray = @[@"oder_40x40",@"oder_40x40",@"oder_40x40",@"commnuity_40x40",@"oder_40x40"];
     }
     return _imageArray;
 }
 
--(ZZLoginUser *)loginUser{
+- (ZZLoginUser *)loginUser {
     if (!_loginUser) {
         _loginUser = [ZZLoginUserTool sharedZZLoginUserTool].loginUser;
     }

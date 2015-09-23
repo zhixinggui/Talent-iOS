@@ -12,6 +12,9 @@
 #import "ZZMyInfoHttpTool.h"
 #import "ZZInfoDetailVC.h"
 #import "MJRefresh.h"
+#import "ZZHudView.h"
+
+#define numberOfpage 10
 @interface ZZAttentionVC ()<UITableViewDelegate,UITableViewDataSource,ZZSegmentedControlDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *attentionTV;
 @property(nonatomic,strong)ZZSegmentedControl *attentionSegmentedControl;
@@ -39,25 +42,20 @@
     self.attentionTV.footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreService)];
     
     //头部刷新
-    [self getNetDataWith:0];
+    [self getNetWithAttentionListWithTypeNum:0];
 }
 
-/**
- *  头部刷新方法
- */
-- (void)getNetDataWith:(NSInteger)typeNum{
-    [self getNetWithAttentionListWithTypeNum:typeNum andPageNo:0 andNumberOfPerPage:2];
-}
-
--(void)getNetWithAttentionListWithTypeNum:(NSInteger)typeNum andPageNo:(NSInteger)pageNo andNumberOfPerPage:(NSInteger)numberOfPerPage{
+-(void)getNetWithAttentionListWithTypeNum:(NSInteger)typeNum{
     [MBProgressHUD showMessage:@"正在加载中..." toView:self.view];
     /**
      *  获取关注列表
      */
-    [ZZMyInfoHttpTool getMyAttentionWithTypeNum:typeNum andPageNo:pageNo andNumberOfPerPage:numberOfPerPage success:^(ZZAttentionResult *attResult, ZZNetDataType dataType) {
+    [ZZMyInfoHttpTool getMyAttentionWithTypeNum:typeNum andPageNo:0 andNumberOfPerPage:numberOfpage success:^(ZZAttentionResult *attResult, ZZNetDataType dataType) {
         [MBProgressHUD  hideHUDForView:self.view];
-        [MBProgressHUD  showSuccess:@"请求成功"];
         self.attResult = attResult;
+        if (self.attResult.rows.count == 0) {
+            [MBProgressHUD showMessageClearBackView:@"你还没有关注任何朋友" toView:self.view];
+        }
         if (typeNum) {
             [self.expertArray removeAllObjects];
             [self.expertArray addObjectsFromArray:self.attResult.rows];
@@ -70,19 +68,24 @@
     } failure:^(NSString *error, ZZNetDataType datatype) {
         ZZLog(@"没有返回数据");
         [MBProgressHUD  hideHUDForView:self.view];
-        [MBProgressHUD  showError:error];
+        [MBProgressHUD  showNetLoadFailWithText:@"加载失败，点击重新加载" view:self.view target:self action:@selector(getNetWithAttentionListAgainWithTypeNum) isBack:NO];
     }];
+}
+
+//重新请求
+- (void)getNetWithAttentionListAgainWithTypeNum {
+    [self getNetWithAttentionListWithTypeNum:self.segmentIndex];
 }
 
 /**
  *  底部刷新方法
  */
 - (void)loadMoreService{
-    [self getMoreAttentionListWithTypeNum:self.segmentIndex andPageNo:self.attResult.page andNumberOfPerPage:2];
+    [self getMoreAttentionListWithTypeNum:self.segmentIndex];
 }
 
--(void)getMoreAttentionListWithTypeNum:(NSInteger)typeNum andPageNo:(NSInteger)pageNo andNumberOfPerPage:(NSInteger)numberOfPerPage{
-    [ZZMyInfoHttpTool getMyAttentionWithTypeNum:typeNum andPageNo:pageNo andNumberOfPerPage:numberOfPerPage success:^(ZZAttentionResult *attResult, ZZNetDataType dataType) {
+-(void)getMoreAttentionListWithTypeNum:(NSInteger)typeNum{
+    [ZZMyInfoHttpTool getMyAttentionWithTypeNum:typeNum andPageNo:self.attResult.page andNumberOfPerPage:numberOfpage success:^(ZZAttentionResult *attResult, ZZNetDataType dataType) {
        [self.attentionTV.footer endRefreshing];
         self.attResult = attResult;
         if (typeNum) {
@@ -95,7 +98,7 @@
     } failure:^(NSString *error, ZZNetDataType datatype) {
         ZZLog(@"没有返回数据");
         [self.attentionTV.footer endRefreshing];
-        [MBProgressHUD  showError:error];
+        [ZZHudView  showMessage:error time:3 toView:self.view];
     }];
 }
 
@@ -150,13 +153,13 @@
     switch (index) {
         case 0:
         {
-            [self getNetDataWith:0];
+            [self getNetWithAttentionListWithTypeNum:self.segmentIndex];
         }
             break;
             
         case 1:
         {
-            [self getNetDataWith:1];
+            [self getNetWithAttentionListWithTypeNum:self.segmentIndex];
         }
             break;
     }

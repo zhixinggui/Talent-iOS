@@ -154,6 +154,9 @@
     if (view == nil) view = [[UIApplication sharedApplication] keyWindow];
     // 快速显示一个提示信息
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
+    // 再设置模式
+    hud.labelColor = ZZDarkGrayColor;
+    hud.mode = MBProgressHUDModeText;
     hud.color = [UIColor  clearColor];
     hud.labelText = message;
     // YES代表需要蒙版效果
