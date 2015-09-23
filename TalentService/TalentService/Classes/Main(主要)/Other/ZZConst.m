@@ -9,17 +9,15 @@
 #import <Foundation/Foundation.h>
 
 
-<<<<<<< HEAD
+
 //NSString * const baseUrl = @"http://192.168.100.181:8097/cgi";
 /**网络请求地址*/
 NSString * const baseUrl = @"http://192.168.100.133:8081/wine-rest/cgi";
 /**网络请求时长*/
-=======
-NSString * const baseUrl = @"http://192.168.100.181:8097/cgi";
 
-//NSString * const baseUrl = @"http://192.168.100.133:8081/wine-rest/cgi";
+//NSString * const baseUrl = @"http://192.168.100.181:8097/cgi";
 
->>>>>>> origin/master
+
 NSTimeInterval const responseTime = 60;
 /**提示语言*/
 NSString * const ZZNetLoading  = @"连接服务器中";//连接服务器中
