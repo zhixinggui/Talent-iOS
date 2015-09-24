@@ -130,5 +130,9 @@
     
     return attributedString;
 }
+/**得到拼接字符串且编码的路径str*/
+- (NSString *)getUrlUseEncodAppend:(NSString *)appstring{
+    return  [[self stringByAppendingString:appstring] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+}
 
 @end

@@ -8,7 +8,7 @@
 
 #import "UUAssetManager.h"
 #import "UUPhotoConst.h"
-
+#import "ZZUploadImageModel.h"
 
 @interface UUAssetManager()
 
@@ -236,8 +236,10 @@ SHARED_SERVICE(UUAssetManager);
     NSMutableArray *sendArray = [NSMutableArray array];
     for (UUAssetPhoto *obj in _selectdPhotos) {
         
-        UIImage *image = [self getImageFromAsset:obj.asset type:type];
-        [sendArray addObject:image];
+        ZZUploadImageModel *uploadModel = [[ZZUploadImageModel alloc]init];
+        uploadModel.asset = obj.asset;
+        uploadModel.image = [self getImageFromAsset:obj.asset type:ASSET_PHOTO_ASPECT_THUMBNAIL];
+        [sendArray addObject:uploadModel];
     }
     
     [_selectdPhotos removeAllObjects];

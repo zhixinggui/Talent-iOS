@@ -307,7 +307,7 @@ typedef enum {
         _applyBtn = [self setupBtnWithIcon:@"reserve_40x40"  selectedIcon:@"reserved_40x40" title:@"预定"  selectedTitle:@"已预定"    tag:ZZActivityBottomToolBarTypeApply];
         
         [self  updateBookingButtonProterty];
-        //_applyBtn.backgroundColor = ZZLightGrayColor;
+        _applyBtn.backgroundColor = ZZBlueColor;
         [_applyBtn  addTarget:self action:@selector(booking:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _applyBtn ;
@@ -316,6 +316,7 @@ typedef enum {
     if (_collectBtn == nil) {
         _collectBtn = [self setupBtnWithIcon:@"collect_40x40" selectedIcon:@"collected_40x40" title:@"收藏"  selectedTitle:@"已收藏"   tag:ZZActivityBottomToolBarTypeCollect];
         [_collectBtn addTarget:self action:@selector(collect:) forControlEvents:UIControlEventTouchUpInside];
+        _collectBtn.backgroundColor = ZZGreenColor;
         [self  updateCollectButtonProterty];
     }
     return  _collectBtn;

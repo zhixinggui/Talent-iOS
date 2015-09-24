@@ -11,7 +11,7 @@
 #import "UUAssetManager.h"
 #import "UUPhotoGroupViewController.h"
 #import "UUPhotoConst.h"
-
+#import "ZZUploadImageModel.h"
 #import <AVFoundation/AVFoundation.h>
 @interface UUPhotoActionSheet() < UIImagePickerControllerDelegate,
                                   UINavigationControllerDelegate >
@@ -96,9 +96,16 @@
     }else{
         editedImage = [info objectForKey:UIImagePickerControllerOriginalImage];
     }
+    
+    ZZUploadImageModel *uploadModel = [[ZZUploadImageModel alloc]init];
+    CGFloat  wid = ScreenWidth *[UIScreen  mainScreen].scale ;
+    CGFloat  heitht = wid * editedImage.size.height/editedImage.size.width;
+    editedImage = [editedImage imageWithImage:editedImage scaledToSize:CGSizeMake(wid, heitht)];
+    uploadModel.image = editedImage;
+    
     [picker dismissViewControllerAnimated:YES completion:^{
     
-        [self sendImageArray:@[editedImage]];
+        [self sendImageArray:@[uploadModel]];
     }];
     
     
@@ -126,33 +133,26 @@
 
 - (void)onClickCamera:(id)sender{
 
-    AVAuthorizationStatus  authStatus = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo                                                                                                                                                                                                                                                                                                                                                        ];
-    if (authStatus == AVAuthorizationStatusAuthorized) {//有访问权限
-        
-        [self openSystemPhotoCameraWithSourceType:UIImagePickerControllerSourceTypeCamera];
-    }else  if(authStatus == AVAuthorizationStatusNotDetermined){//没有授权过
-        [self  requestCaeraAccessPermission];
-    }else{//没有访问权限
-        [self  tipDeviceAccessPermission:@"相机"];
-    }
-    
-//    UIImagePickerController *pickerImage = [[UIImagePickerController alloc] init];
-//    
-//    if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
-//        
-//        pickerImage.sourceType = UIImagePickerControllerSourceTypeCamera;
-//        pickerImage.mediaTypes = [UIImagePickerController availableMediaTypesForSourceType:pickerImage.sourceType];
-//        
-//    }
-//    
-//    pickerImage.delegate = self;
-//    pickerImage.allowsEditing = NO;
-//    
-//    [_weakSuper presentViewController:pickerImage animated:YES completion:^{
-//        
-//        [self cancelAnimation];
-//    }];
+    [self openSystemPhotoCameraWithSourceType:UIImagePickerControllerSourceTypeCamera];
+    [self  requestCameraStatus];
 
+}
+- (void)requestCameraStatus{
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        AVAuthorizationStatus  authStatus = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo                                                                                                                                                                                                                                                                                                                                                        ];
+        if (authStatus == AVAuthorizationStatusAuthorized) {//有访问权限
+            
+            
+        }else  if(authStatus == AVAuthorizationStatusNotDetermined){//没有授权过
+            
+        }else{//没有访问权限
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self  tipDeviceAccessPermission:@"相机"];
+            });
+            
+        }
+    });
 }
 /**
  *  点击打开相册
@@ -286,22 +286,7 @@
     
     [alert show];
 }
-//请求相机权限
--(void)requestCaeraAccessPermission{
-    [AVCaptureDevice   requestAccessForMediaType:AVMediaTypeVideo    completionHandler:^(BOOL granted) {
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            if (granted)
-            {
-                //打开相机
-               [self openSystemPhotoCameraWithSourceType:UIImagePickerControllerSourceTypeCamera];
-                
-            }else{
-                [self  tipDeviceAccessPermission:@"相机"];
-            }
-        });
-    }];
-}
+
 
 - (void)notificationUpdateSelected:(NSNotification *)note{
     

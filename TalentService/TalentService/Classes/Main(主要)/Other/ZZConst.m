@@ -8,30 +8,28 @@
 
 #import <Foundation/Foundation.h>
 
-
-
-//NSString * const baseUrl = @"http://192.168.100.181:8097/cgi";
 /**网络请求地址*/
-NSString * const baseUrl = @"http://192.168.100.133:8081/wine-rest/cgi";
+NSString * const baseUrl = @"http://192.168.100.174:8081/wine-rest/cgi";
 /**网络请求时长*/
-
-//NSString * const baseUrl = @"http://192.168.100.181:8097/cgi";
-
-
 NSTimeInterval const responseTime = 60;
+
 /**提示语言*/
 NSString * const ZZNetLoading  = @"连接服务器中";//连接服务器中
 NSString * const ZZRefreshFail  = @"刷新失败，请稍候重试";//刷新失败提示
+
 /**通知*/
 NSString * const ZZUserNickChangeNoti = @"ZZUserNickChangeNoti";
 NSString * const ZZTokenIsNoActive = @"ZZTokenIsNoActive"; //token失效
 NSString * const ZZTokenIsNoActiveError = @"ZZTokenIsNoActiveError"; //token失效通知里userinfo的信息
+
 /**文字间距*/
 CGFloat  const  ZZLineSpace = 4;//行间距
 CGFloat  const  ZZCharSpace = 1;//字间距
 CGFloat  const  ZZParagraphSpace = 3;//段间距
+
 /**边距*/
 CGFloat  const  ZZEdgeMargin = 8;//边间距
+
 /**长度*/
 NSUInteger  const  ZZSecerityTime = 60 ;//验证码时常
 NSTimeInterval const animationTime = 0.25;

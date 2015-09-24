@@ -19,7 +19,7 @@
     
     for (int i = 0; i < 20; i++) {
         ZZActivityType *city = [[ZZActivityType  alloc]init];
-        city.typeName = [ NSString  stringWithFormat:@"北京%d",i];
+        city.typeName = [ NSString  stringWithFormat:@"类型%d",i];
         [array  addObject:city];
     }
     return array;

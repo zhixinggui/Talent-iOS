@@ -247,6 +247,18 @@
 		6EC4C4A61B9FE55000C39F8A /* ZZLoginParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC4C4A51B9FE55000C39F8A /* ZZLoginParam.m */; };
 		6ED6B1871BB38900002FF9C6 /* ZZAttentionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ED6B1851BB38900002FF9C6 /* ZZAttentionVC.m */; settings = {ASSET_TAGS = (); }; };
 		6ED6B1881BB38900002FF9C6 /* ZZAttentionVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6ED6B1861BB38900002FF9C6 /* ZZAttentionVC.xib */; settings = {ASSET_TAGS = (); }; };
+		6ED6B18C1BB39350002FF9C6 /* ZZUploadImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ED6B18B1BB39350002FF9C6 /* ZZUploadImageModel.m */; settings = {ASSET_TAGS = (); }; };
+		6ED6B1911BB3958A002FF9C6 /* ZZUploadImageTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ED6B1901BB3958A002FF9C6 /* ZZUploadImageTool.m */; settings = {ASSET_TAGS = (); }; };
+		6ED6B19D1BB39829002FF9C6 /* ALBBFullSecurityGuard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ED6B1931BB39829002FF9C6 /* ALBBFullSecurityGuard.framework */; settings = {ASSET_TAGS = (); }; };
+		6ED6B19E1BB39829002FF9C6 /* ALBBHotpatch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ED6B1941BB39829002FF9C6 /* ALBBHotpatch.framework */; settings = {ASSET_TAGS = (); }; };
+		6ED6B19F1BB39829002FF9C6 /* ALBBMediaService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ED6B1951BB39829002FF9C6 /* ALBBMediaService.framework */; settings = {ASSET_TAGS = (); }; };
+		6ED6B1A01BB39829002FF9C6 /* ALBBRpcPlugin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ED6B1961BB39829002FF9C6 /* ALBBRpcPlugin.framework */; settings = {ASSET_TAGS = (); }; };
+		6ED6B1A11BB39829002FF9C6 /* SecurityGuardSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ED6B1971BB39829002FF9C6 /* SecurityGuardSDK.framework */; settings = {ASSET_TAGS = (); }; };
+		6ED6B1A21BB39829002FF9C6 /* Tae.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6ED6B1981BB39829002FF9C6 /* Tae.bundle */; settings = {ASSET_TAGS = (); }; };
+		6ED6B1A31BB39829002FF9C6 /* TAESDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ED6B1991BB39829002FF9C6 /* TAESDK.framework */; settings = {ASSET_TAGS = (); }; };
+		6ED6B1A41BB39829002FF9C6 /* UTDID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ED6B19A1BB39829002FF9C6 /* UTDID.framework */; settings = {ASSET_TAGS = (); }; };
+		6ED6B1A51BB39829002FF9C6 /* UTMini.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ED6B19B1BB39829002FF9C6 /* UTMini.framework */; settings = {ASSET_TAGS = (); }; };
+		6ED6B1A61BB39829002FF9C6 /* yw_1222.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6ED6B19C1BB39829002FF9C6 /* yw_1222.jpg */; settings = {ASSET_TAGS = (); }; };
 		6EE0D0C61B69F2F700DC80AC /* UUPhotoConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE0D0AE1B69F2F700DC80AC /* UUPhotoConst.m */; };
 		6EE0D0C71B69F2F700DC80AC /* UUPhotoBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE0D0B11B69F2F700DC80AC /* UUPhotoBrowserViewController.m */; };
 		6EE0D0C81B69F2F700DC80AC /* UUPhotoCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE0D0B31B69F2F700DC80AC /* UUPhotoCollectionViewController.m */; };
@@ -702,6 +714,20 @@
 		6ED6B1841BB38900002FF9C6 /* ZZAttentionVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZAttentionVC.h; sourceTree = "<group>"; };
 		6ED6B1851BB38900002FF9C6 /* ZZAttentionVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZAttentionVC.m; sourceTree = "<group>"; };
 		6ED6B1861BB38900002FF9C6 /* ZZAttentionVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZZAttentionVC.xib; sourceTree = "<group>"; };
+		6ED6B18A1BB39350002FF9C6 /* ZZUploadImageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZUploadImageModel.h; sourceTree = "<group>"; };
+		6ED6B18B1BB39350002FF9C6 /* ZZUploadImageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZUploadImageModel.m; sourceTree = "<group>"; };
+		6ED6B18F1BB3958A002FF9C6 /* ZZUploadImageTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZUploadImageTool.h; sourceTree = "<group>"; };
+		6ED6B1901BB3958A002FF9C6 /* ZZUploadImageTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZUploadImageTool.m; sourceTree = "<group>"; };
+		6ED6B1931BB39829002FF9C6 /* ALBBFullSecurityGuard.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ALBBFullSecurityGuard.framework; sourceTree = "<group>"; };
+		6ED6B1941BB39829002FF9C6 /* ALBBHotpatch.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ALBBHotpatch.framework; sourceTree = "<group>"; };
+		6ED6B1951BB39829002FF9C6 /* ALBBMediaService.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ALBBMediaService.framework; sourceTree = "<group>"; };
+		6ED6B1961BB39829002FF9C6 /* ALBBRpcPlugin.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ALBBRpcPlugin.framework; sourceTree = "<group>"; };
+		6ED6B1971BB39829002FF9C6 /* SecurityGuardSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SecurityGuardSDK.framework; sourceTree = "<group>"; };
+		6ED6B1981BB39829002FF9C6 /* Tae.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Tae.bundle; sourceTree = "<group>"; };
+		6ED6B1991BB39829002FF9C6 /* TAESDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TAESDK.framework; sourceTree = "<group>"; };
+		6ED6B19A1BB39829002FF9C6 /* UTDID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UTDID.framework; sourceTree = "<group>"; };
+		6ED6B19B1BB39829002FF9C6 /* UTMini.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UTMini.framework; sourceTree = "<group>"; };
+		6ED6B19C1BB39829002FF9C6 /* yw_1222.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yw_1222.jpg; sourceTree = "<group>"; };
 		6EE0D0AD1B69F2F700DC80AC /* UUPhotoConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UUPhotoConst.h; sourceTree = "<group>"; };
 		6EE0D0AE1B69F2F700DC80AC /* UUPhotoConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UUPhotoConst.m; sourceTree = "<group>"; };
 		6EE0D0B01B69F2F700DC80AC /* UUPhotoBrowserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UUPhotoBrowserViewController.h; sourceTree = "<group>"; };
@@ -734,20 +760,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6ED6B1A01BB39829002FF9C6 /* ALBBRpcPlugin.framework in Frameworks */,
 				6E4A5CCE1B956C33003751D5 /* libz.dylib in Frameworks */,
 				6E4A5CCC1B956C2B003751D5 /* libstdc++.dylib in Frameworks */,
+				6ED6B19E1BB39829002FF9C6 /* ALBBHotpatch.framework in Frameworks */,
 				6E4A5CCA1B956C1E003751D5 /* CoreTelephony.framework in Frameworks */,
 				6E4A5CC81B956C12003751D5 /* libsqlite3.dylib in Frameworks */,
 				6E4A5CC61B956C05003751D5 /* CoreGraphics.framework in Frameworks */,
 				6E4A5CC41B956BF9003751D5 /* libiconv.dylib in Frameworks */,
+				6ED6B1A41BB39829002FF9C6 /* UTDID.framework in Frameworks */,
 				6E4A5CC21B956BEA003751D5 /* Security.framework in Frameworks */,
 				6E4A5CC01B956B3F003751D5 /* ImageIO.framework in Frameworks */,
+				6ED6B19F1BB39829002FF9C6 /* ALBBMediaService.framework in Frameworks */,
 				6E4A5CBE1B956ADB003751D5 /* SystemConfiguration.framework in Frameworks */,
 				6E4A5CAE1B954D06003751D5 /* libSocialQQ.a in Frameworks */,
 				6E4A5CAF1B954D06003751D5 /* TencentOpenAPI.framework in Frameworks */,
 				6E6C197F1BB112350081E914 /* libSocialSinaSSO.a in Frameworks */,
+				6ED6B1A51BB39829002FF9C6 /* UTMini.framework in Frameworks */,
 				6E4A5C9F1B954D06003751D5 /* libUMessage_Sdk_1.1.0.a in Frameworks */,
+				6ED6B1A31BB39829002FF9C6 /* TAESDK.framework in Frameworks */,
 				6E6C19801BB112350081E914 /* libWeiboSDK.a in Frameworks */,
+				6ED6B19D1BB39829002FF9C6 /* ALBBFullSecurityGuard.framework in Frameworks */,
+				6ED6B1A11BB39829002FF9C6 /* SecurityGuardSDK.framework in Frameworks */,
 				6E4A5CB21B954D06003751D5 /* libWeChatSDK.a in Frameworks */,
 				6E4A5CB11B954D06003751D5 /* libSocialWechat.a in Frameworks */,
 				6E4A5CA11B954D06003751D5 /* libUMSocial_Sdk_4.2.3.a in Frameworks */,
@@ -1260,6 +1294,7 @@
 		6E4A5C5E1B954D05003751D5 /* UM(友盟) */ = {
 			isa = PBXGroup;
 			children = (
+				6ED6B1921BB39829002FF9C6 /* OneSDK（多媒体） */,
 				6E4A5C631B954D05003751D5 /* UMessage_Sdk_1.1.0_no-idfa(推送) */,
 				6E4A5C661B954D05003751D5 /* UMSocial_Sdk_4.2.3(社会化分享) */,
 			);
@@ -1641,6 +1676,7 @@
 		6E7F58A31BA1575D00191BC0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				6ED6B1891BB39301002FF9C6 /* Utils */,
 				6E2B7F991BA1A2D9004CA827 /* share */,
 				6E7F58A41BA1575D00191BC0 /* City */,
 				6E7F58AB1BA1575D00191BC0 /* HttpParam */,
@@ -1728,6 +1764,7 @@
 		6E7F58C21BA1575D00191BC0 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				6ED6B18E1BB39569002FF9C6 /* UploadImageTool */,
 				6E7F58C31BA1575D00191BC0 /* city(城市) */,
 				6E7F58C61BA1575D00191BC0 /* HttpTool */,
 				6E7F58C91BA1575D00191BC0 /* IQKeyBoard(键盘弹上弹下) */,
@@ -2205,6 +2242,41 @@
 			path = params;
 			sourceTree = "<group>";
 		};
+		6ED6B1891BB39301002FF9C6 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				6ED6B18A1BB39350002FF9C6 /* ZZUploadImageModel.h */,
+				6ED6B18B1BB39350002FF9C6 /* ZZUploadImageModel.m */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		6ED6B18E1BB39569002FF9C6 /* UploadImageTool */ = {
+			isa = PBXGroup;
+			children = (
+				6ED6B18F1BB3958A002FF9C6 /* ZZUploadImageTool.h */,
+				6ED6B1901BB3958A002FF9C6 /* ZZUploadImageTool.m */,
+			);
+			path = UploadImageTool;
+			sourceTree = "<group>";
+		};
+		6ED6B1921BB39829002FF9C6 /* OneSDK（多媒体） */ = {
+			isa = PBXGroup;
+			children = (
+				6ED6B1931BB39829002FF9C6 /* ALBBFullSecurityGuard.framework */,
+				6ED6B1941BB39829002FF9C6 /* ALBBHotpatch.framework */,
+				6ED6B1951BB39829002FF9C6 /* ALBBMediaService.framework */,
+				6ED6B1961BB39829002FF9C6 /* ALBBRpcPlugin.framework */,
+				6ED6B1971BB39829002FF9C6 /* SecurityGuardSDK.framework */,
+				6ED6B1981BB39829002FF9C6 /* Tae.bundle */,
+				6ED6B1991BB39829002FF9C6 /* TAESDK.framework */,
+				6ED6B19A1BB39829002FF9C6 /* UTDID.framework */,
+				6ED6B19B1BB39829002FF9C6 /* UTMini.framework */,
+				6ED6B19C1BB39829002FF9C6 /* yw_1222.jpg */,
+			);
+			path = "OneSDK（多媒体）";
+			sourceTree = "<group>";
+		};
 		6EE0D0AB1B69F2F700DC80AC /* UUPhoto */ = {
 			isa = PBXGroup;
 			children = (
@@ -2415,6 +2487,7 @@
 				6E4A5CA31B954D06003751D5 /* UMSCommentInputController.xib in Resources */,
 				56227ABF1BA6B96100813C09 /* ZZCollectActivityTVC.xib in Resources */,
 				6E9014091B82E2F10083F2B7 /* ZZLoginVC.xib in Resources */,
+				6ED6B1A61BB39829002FF9C6 /* yw_1222.jpg in Resources */,
 				566A00B01BA69A7A00128DFE /* ZZInfoCell.xib in Resources */,
 				6E7F58EE1BA1575D00191BC0 /* MBProgressHUD.bundle in Resources */,
 				6E4A5CA01B954D06003751D5 /* UMSocialLocalizable.strings in Resources */,
@@ -2444,6 +2517,7 @@
 				6E7F590D1BA1575D00191BC0 /* ZZDetailFunctionView.xib in Resources */,
 				5652D3231B859E6B00A3FB09 /* ZZNextForgetVC.xib in Resources */,
 				56220B071BAEA130008046DF /* ZZEvaluationTVC.xib in Resources */,
+				6ED6B1A21BB39829002FF9C6 /* Tae.bundle in Resources */,
 				6E9E3E791B620C860097B194 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2518,6 +2592,7 @@
 				6E7F59091BA1575D00191BC0 /* ZZIQKeyBoardTool.m in Sources */,
 				6E7F58ED1BA1575D00191BC0 /* MBProgressHUD+MJ.m in Sources */,
 				6E2B7F9C1BA1A2F6004CA827 /* ZZFuncitonModel.m in Sources */,
+				6ED6B18C1BB39350002FF9C6 /* ZZUploadImageModel.m in Sources */,
 				6E2B80351BA1B52A004CA827 /* ZZSegmentedControl.m in Sources */,
 				56BFB4C31BA807E0002EAA1D /* ZZChangeInfoParam.m in Sources */,
 				6E7F59161BA1575D00191BC0 /* ZZTextView.m in Sources */,
@@ -2564,6 +2639,7 @@
 				548837A31BA29AA100720150 /* ZZActivityHttpTool.m in Sources */,
 				6E7F58701BA14A3A00191BC0 /* ZZUserRole.m in Sources */,
 				6E7F58FF1BA1575D00191BC0 /* ZZFileParam.m in Sources */,
+				6ED6B1911BB3958A002FF9C6 /* ZZUploadImageTool.m in Sources */,
 				6E7669041BAF99C8001F8A32 /* ZZStarTableViewCell.m in Sources */,
 				548837A61BA29AD600720150 /* ZZActivityListParam.m in Sources */,
 				6E2B80251BA1B52A004CA827 /* ZZCommunityCellModel.m in Sources */,
@@ -2784,6 +2860,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/TalentService/Classes/Resources(资源)/Lib/UM(友盟)/UMSocial_Sdk_4.2.3(社会化分享)/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
+					"$(PROJECT_DIR)/TalentService/Classes/Resources(资源)/Lib/UM(友盟)/OneSDK（多媒体）",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = TalentService/Talent.pch;
@@ -2813,6 +2890,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/TalentService/Classes/Resources(资源)/Lib/UM(友盟)/UMSocial_Sdk_4.2.3(社会化分享)/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
+					"$(PROJECT_DIR)/TalentService/Classes/Resources(资源)/Lib/UM(友盟)/OneSDK（多媒体）",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = TalentService/Talent.pch;

@@ -19,7 +19,7 @@
     
     for (int i = 0; i < 20; i++) {
         ZZActivityStatus *city = [[ZZActivityStatus  alloc]init];
-        city.statusName = [ NSString  stringWithFormat:@"北京%d",i];
+        city.statusName = [ NSString  stringWithFormat:@"状态%d",i];
         [array  addObject:city];
     }
     return array;

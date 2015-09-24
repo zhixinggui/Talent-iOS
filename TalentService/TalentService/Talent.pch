@@ -35,8 +35,10 @@
 #define  ZZRGBCloor(R,G,B)  [UIColor  colorWithRed:R/255.0 green:G/255.0 blue:B/255.0 alpha:1.0]
 
 #define NetFailTipStr error.localizedDescription
-//图片带水印的拼接字符串  width 要显示的宽度  bool 是否加水印
-#define ZZImageUrlAppend(width,bool)  [NSString  stringWithFormat:@"@%.0fw_1pr_2o_1l%@",width,bool ? @"|watermark=2&text=6JCM5a6d5rS-&type=ZmFuZ3poZW5nc2h1c29uZw&size=20&t=79&p=5":@""]
-
-#define ZZImageUrlOrigin(bool)  [NSString  stringWithFormat:@"@1pr_2o_1l%@",bool ? @"|watermark=2&text=6JCM5a6d5rS-&type=ZmFuZ3poZW5nc2h1c29uZw&size=20&t=79&p=5":@""]
+//水印
+#define ZZSHUIYIN  @"|watermark=2&text=6JCM5a6d5rS-&type=ZmFuZ3poZW5nc2h1c29uZw&size=20&t=79&p=5"
+//图片带水印的拼接字符串  width 要显示的宽度  bool 是否加水印  xiaotu
+#define ZZImageUrlAppend(width,bool)  [NSString  stringWithFormat:@"@%.0fw_1pr_2o_1l%@",width,bool ? ZZSHUIYIN:@""]
+// yuantu
+#define ZZImageUrlOrigin(bool)  [NSString  stringWithFormat:@"@1pr_2o_1l%@",bool ? ZZSHUIYIN:@""]
 #endif

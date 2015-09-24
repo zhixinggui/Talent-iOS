@@ -13,7 +13,7 @@
 
 -(void)setUserSmallImg:(NSString *)userSmallImg{
 
-    _userSmallImg = [[userSmallImg stringByAppendingString:ZZImageUrlAppend(60.0, NO)]stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    _userSmallImg = [[userSmallImg stringByAppendingString:ZZImageUrlAppend(120.0, NO)]stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 }
 @end
 

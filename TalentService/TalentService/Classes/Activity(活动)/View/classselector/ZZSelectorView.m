@@ -31,6 +31,10 @@
     self.height = height;
     [self  setNeedsLayout];
 }
+-(void)setSelectedRow:(NSInteger)selectedRow{
+    _selectedRow = selectedRow;
+    [self  selectRowAtIndexPath:[NSIndexPath  indexPathForRow:selectedRow inSection:0] animated:YES scrollPosition:UITableViewScrollPositionNone];
+}
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.datas.count;
 }
@@ -40,6 +44,7 @@ static NSString *identifier = @"SelectorViewcell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (cell == nil) {
         cell = [[UITableViewCell  alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+        cell.textLabel.textAlignment = NSTextAlignmentCenter;
     }
     id <ZZSelectorViewShowDele> object = self.datas[indexPath.row];
     cell .textLabel.text = [object content];
@@ -48,6 +53,9 @@ static NSString *identifier = @"SelectorViewcell";
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
+    if([self.selecedDelegate  respondsToSelector:@selector(selectorView:selected:type:)]){
+        [self.selecedDelegate  selectorView:self selected:self.datas[indexPath.row] type:self.type];
+    }
 }
 
 @end

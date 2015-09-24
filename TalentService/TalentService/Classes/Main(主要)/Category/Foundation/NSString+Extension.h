@@ -114,4 +114,7 @@
  */
 - (NSMutableAttributedString *)getReplyAttributedStringFont:(UIFont *)font  color:(UIColor *)color;
 
+/**得到拼接字符串且编码的路径str*/
+- (NSString *)getUrlUseEncodAppend:(NSString *)appstring;
+
 @end

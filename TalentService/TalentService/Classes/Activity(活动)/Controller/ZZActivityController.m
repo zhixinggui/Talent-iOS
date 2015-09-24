@@ -93,12 +93,7 @@ typedef enum {
     
     self.selectorView.datas= [ZZActivityCity arrays];
     self.selectorView.type = ZZSelectorTypeCity;
-   
-//    CGFloat x = CGRectGetMinX(button.frame);
-//    CGFloat y = CGRectGetMaxY(button.frame) + 64;
-//    CGFloat W = CGRectGetWidth(button.frame);
-//    CGFloat h = ScreenHeight - y;
-//    [pop  showInRect:CGRectMake(x, y, w, h)];
+    self.popmenu.contentView = self.selectorView;
     [self.popmenu showFrom:button];
   
 }
@@ -108,10 +103,9 @@ typedef enum {
     button.selected = YES;
     self.selectMenuBtn = button;
 
-    
     self.selectorView.datas= [ZZActivityType arrays];
     self.selectorView.type = ZZSelectorTypeType;
-
+    self.popmenu.contentView = self.selectorView;
     [self.popmenu showFrom:button];
 }
 //状态
@@ -122,7 +116,7 @@ typedef enum {
     
     self.selectorView.datas= [ZZActivityStatus arrays];
     self.selectorView.type = ZZSelectorTypeType;
-    
+    self.popmenu.contentView = self.selectorView;
     [self.popmenu showFrom:button];
 }
 
@@ -131,7 +125,7 @@ typedef enum {
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
     // Return the number of rows in the section.
-    return self.activityArray.count+5;
+    return self.activityArray.count;
 }
 
 
@@ -155,9 +149,25 @@ typedef enum {
 }
 #pragma mark -ZZSelectorViewDlegate
 
--(void)selectorView:(ZZSelectorView *)selectorView selectedIndex:(NSUInteger)index type:(NSUInteger)type{
+-(void)selectorView:(ZZSelectorView *)selectorView selected:(id<ZZSelectorViewShowDele>)selectedObject type:(NSUInteger)type{
     [self.popmenu  dismiss];
-
+    switch (type) {
+        case ZZSelectorTypeCity:{
+             self.selectedCity = (ZZActivityCity *)selectedObject;
+        }
+           
+            break;
+        case ZZSelectorTypeType:{
+            self.selectedType = (ZZActivityType *)selectedObject;
+        }
+            
+            break;
+        case ZZSelectorTypeStatus:{
+            self.selectedStatus = (ZZActivityStatus *) selectedObject;
+        }
+            
+            break;
+    }
 }
 
 #pragma mark -lazy load
