@@ -37,8 +37,9 @@
     _applyEndTime = [self dealNoyearDate:applyEndTime];
 }
 -(void)setServicesImg:(NSString *)servicesImg{
+    _servicesImg = [servicesImg  getUrlUseEncodAppend:ZZImageUrlAppend(ScreenWidth, YES)];
 
-  _servicesImg=  [[servicesImg  stringByAppendingString:ZZImageUrlAppend(ScreenWidth, YES)]stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+//  _servicesImg=  [[servicesImg  stringByAppendingString:ZZImageUrlAppend(ScreenWidth, YES)]stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 _servicesBigImg = [[servicesImg  stringByAppendingString:ZZImageUrlOrigin(YES)]stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 }
 

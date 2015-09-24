@@ -156,6 +156,7 @@
     // 快速显示一个提示信息
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
     // 再设置模式
+
     hud.labelColor = ZZDarkGrayColor;
     hud.mode = MBProgressHUDModeText;
     hud.color = [UIColor  clearColor];
