@@ -13,10 +13,18 @@
 #import "ZZSeeOrderVC.h"
 #import "ZZSegmentedControl.h"
 #import "ZZEvaluationTVC.h"
+#import "ZZMyInfoHttpTool.h"
+#import "MJRefresh.h"
+#import "ZZHudView.h"
+
+#define numberOfpage 10
+
 @interface ZZMyOrderTVC ()<ZZSegmentedControlDelegate>
 @property(nonatomic)NSInteger segmentControlIndex;
 @property(nonatomic,strong)ZZSegmentedControl *orderSegmentControl;
 @property(nonatomic)NSInteger selcetedNumber;
+@property (nonatomic, strong) ZZOrderResult *orderResult;
+@property (nonatomic, strong) NSMutableArray *orderArray;
 @end
 
 @implementation ZZMyOrderTVC
@@ -28,6 +36,44 @@
     [self.tableView registerNib:nib forCellReuseIdentifier:orderCelldentifier];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.rowHeight = 130;
+    //底部刷新
+    self.tableView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreOrder)];
+    
+    //第一次请求数据
+    [self getNetMyOrderListWithStatus:nil];
+    
+}
+
+//请求数据
+- (void)getNetMyOrderListWithStatus:(NSString *)status {
+    [MBProgressHUD showMessage:@"正在加载中..." toView:self.view];
+    [ZZMyInfoHttpTool getMyOrderListWithQueryType:0 andStatus:status andPageNo:0 andNumberOfPerPage:numberOfpage success:^(ZZOrderResult *orderResult, ZZNetDataType dataType) {
+        [MBProgressHUD  hideHUDForView:self.view];
+        self.orderResult = orderResult;
+        if (self.orderResult.rows.count == 0) {
+            [MBProgressHUD showMessageClearBackView:@"你还没有下单" toView:self.view];
+        }
+        [self.orderArray removeAllObjects];
+        [self.orderArray addObjectsFromArray:self.orderResult.rows];
+        [self.tableView reloadData];
+        ZZLog(@"数组列表:%@",self.orderArray);
+    } failure:^(NSString *error, ZZNetDataType datatype) {
+        [MBProgressHUD  hideHUDForView:self.view];
+        [MBProgressHUD  showNetLoadFailWithText:@"加载失败，点击重新加载" view:self.view target:self action:@selector(getNetMyOrderListWithStatusAgain) isBack:NO];
+    }];
+}
+
+//重新请求方法
+- (void)getNetMyOrderListWithStatusAgain{
+    [self getNetMyOrderListWithStatus:@""];
+}
+
+
+/**
+ *  底部刷新方法
+ */
+- (void)loadMoreOrder {
+    [self getNetMyOrderListWithStatus:@""];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -38,23 +84,15 @@
 #pragma mark - Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-        return 6;
+        return self.orderArray.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-
-        ZZOrderCell *cell = [tableView dequeueReusableCellWithIdentifier:orderCelldentifier forIndexPath:indexPath];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    if (self.selcetedNumber == 1) {
-        [cell.cancelBT setTitle:@"立即支付"];
-    }else if (self.selcetedNumber == 3){
-        [cell.cancelBT setTitle:@"立即评价"];
-    }else if (self.selcetedNumber == 4){
-        [cell.cancelBT setTitle:@"申请退款"];
-    }else{
-        [cell.cancelBT setTitle:@"取消订单"];
-    }
+    ZZOrderCell *cell = [tableView dequeueReusableCellWithIdentifier:orderCelldentifier forIndexPath:indexPath];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.order = self.orderArray[indexPath.row];
+    
     
     //取消订单
     [cell.cancelBT addTarget:self action:@selector(cancelOrderAction:) forControlEvents:UIControlEventTouchUpInside];
@@ -153,6 +191,11 @@
     return _orderSegmentControl;
 }
 
-
+-(NSMutableArray *)orderArray{
+    if (!_orderArray) {
+        _orderArray = [NSMutableArray array];
+    }
+    return _orderArray;
+}
 
 @end

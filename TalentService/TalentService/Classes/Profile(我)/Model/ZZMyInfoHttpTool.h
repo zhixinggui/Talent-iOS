@@ -14,6 +14,8 @@
 #import "ZZOtherUser.h"
 #import "ZZAttentionResult.h"
 #import "ZZHomeServiceResult.h"
+#import "ZZOrderResult.h"
+
 typedef void (^successBlock)(id json, ZZNetDataType dataType);
 typedef void (^failureBlock)(NSString *error , ZZNetDataType datatype);
 @interface ZZMyInfoHttpTool : NSObject
@@ -43,4 +45,17 @@ typedef void (^failureBlock)(NSString *error , ZZNetDataType datatype);
  *  关注/取消关注某人
  */
 +(void)attentionOrCancelWithUserAttentionId:(NSInteger)userAttentionId success:(void(^)(ZZOtherUser *otherUser, ZZNetDataType dataType))success failure:(failureBlock)failure;
+
+/**
+ *  我的订单列表
+ */
++ (void)getMyOrderListWithQueryType:(NSInteger)QueryType
+                          andStatus:(NSString *)status
+                          andPageNo:(NSInteger)pageNo
+                          andNumberOfPerPage:(NSInteger)numberOfPerPage
+                          success:(void(^)(ZZOrderResult *orderResult, ZZNetDataType dataType))success
+                          failure:(failureBlock)failure;
 @end
+
+
+

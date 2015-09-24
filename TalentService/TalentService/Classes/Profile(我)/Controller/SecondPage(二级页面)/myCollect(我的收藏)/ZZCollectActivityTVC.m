@@ -10,6 +10,8 @@
 #import "ZZActivityCell.h"
 #import "ZZMyInfoHttpTool.h"
 #import "MJRefresh.h"
+#import "ZZHudView.h"
+#define numberOfpage 10
 @interface ZZCollectActivityTVC ()
 @property (nonatomic, strong)NSMutableArray *activityArray;
 @property (nonatomic, strong)ZZHomeServiceResult *result;
@@ -25,39 +27,28 @@
     //底部刷新
     self.tableView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreService)];
     
-    //头部刷新
-    [self getNetData];
-//    self.tableView.header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(getNetData)];
-//    self.tableView.header.automaticallyChangeAlpha = YES;
-    //开始进入刷新
-    //[self.tableView.header beginRefreshing];
-    
+    //进入界面请求刷新
+    [self getMyCollectionList];
 }
+
 /**
- *  头部刷新方法
+ *  进入界面请求刷新
  */
-- (void)getNetData{
-    [self getMyCollectionListWithPageNo:0 andNumberOfPerPage:10];
-}
-/**
- *  头部刷新网络请求
- */
--(void)getMyCollectionListWithPageNo:(NSInteger)pageNo andNumberOfPerPage:(NSInteger)numberOfPerPage{
+-(void)getMyCollectionList{
     [MBProgressHUD showMessage:@"正在加载中..." toView:self.view];
-    [ZZMyInfoHttpTool getMyCollectActivityWithPageNo:pageNo andNumberOfPerPage:numberOfPerPage success:^(ZZHomeServiceResult *result, ZZNetDataType dataType) {
-        //请求成功刷新停止
-        //[self.tableView.header endRefreshing];
+    [ZZMyInfoHttpTool getMyCollectActivityWithPageNo:0 andNumberOfPerPage:numberOfpage success:^(ZZHomeServiceResult *result, ZZNetDataType dataType) {
         [MBProgressHUD  hideHUDForView:self.view];
-        [MBProgressHUD  showSuccess:@"请求成功"];
         ZZLog(@"啥数据啊:%@",result);
         self.result = result;
+        if (self.result.rows.count == 0) {
+            [MBProgressHUD showMessageClearBackView:@"你还没有添加服务收藏" toView:self.view];
+        }
         [self.activityArray  removeAllObjects];
         [self.activityArray addObjectsFromArray:result.rows];
         [self.tableView reloadData];
     } failure:^(NSString *error, ZZNetDataType datatype) {
-        //[self.tableView.header endRefreshing];
-        [MBProgressHUD  hideHUD];
-        [MBProgressHUD  showError:error];
+        [MBProgressHUD  hideHUDForView:self.view];
+        [MBProgressHUD  showNetLoadFailWithText:@"加载失败，点击重新加载" view:self.view target:self action:@selector(getMyCollectionList) isBack:NO];
     }];
 }
 
@@ -65,13 +56,13 @@
  *  底部刷新方法
  */
 - (void)loadMoreService{
-    [self getMoreCollectionListWithPageNo:self.result.page andNumberOfPerPage:2];
+    [self getMoreCollectionList];
 }
 /**
  *  底部刷新更多请求
  */
-- (void)getMoreCollectionListWithPageNo:(NSInteger)pageNo andNumberOfPerPage:(NSInteger)numberOfPerPage{
-    [ZZMyInfoHttpTool getMyCollectActivityWithPageNo:pageNo andNumberOfPerPage:numberOfPerPage success:^(ZZHomeServiceResult *result, ZZNetDataType dataType) {
+- (void)getMoreCollectionList{
+    [ZZMyInfoHttpTool getMyCollectActivityWithPageNo:self.result.page andNumberOfPerPage:numberOfpage success:^(ZZHomeServiceResult *result, ZZNetDataType dataType) {
         //请求成功刷新停止
         [self.tableView.footer endRefreshing];
         ZZLog(@"啥数据啊:%@",result);
@@ -80,7 +71,7 @@
         [self.tableView reloadData];
     } failure:^(NSString *error, ZZNetDataType datatype) {
         [self.tableView.footer  endRefreshing];
-        [MBProgressHUD  showError:error];
+        [ZZHudView  showMessage:error time:3 toView:self.view];
     }];
 }
 

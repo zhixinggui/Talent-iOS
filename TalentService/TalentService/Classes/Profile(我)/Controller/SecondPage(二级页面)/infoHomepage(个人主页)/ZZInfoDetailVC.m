@@ -109,8 +109,12 @@
     [ZZMyInfoHttpTool attentionOrCancelWithUserAttentionId:self.userAttentionId success:^(ZZOtherUser *otherUser, ZZNetDataType dataType) {
         sender.selected = !sender.selected;
         self.attentionButton.enabled = YES;
+        if (sender.selected) {
+            [MBProgressHUD  showSuccess:@"关注成功"];
+        }else{
+            [MBProgressHUD  showSuccess:@"取消关注"];
+        }
         
-        [MBProgressHUD  showSuccess:@"关注成功"];
     } failure:^(NSString *error, ZZNetDataType datatype) {
         ZZLog(@"数据返回失败");
         [MBProgressHUD  showError:error];

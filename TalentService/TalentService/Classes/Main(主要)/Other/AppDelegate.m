@@ -28,6 +28,7 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
    
+
     if (ZZLoginTool.loginToken.length) {
         [self  swithWindowRootViewController:ZZRootViewControllerTypeHome];
     }else{

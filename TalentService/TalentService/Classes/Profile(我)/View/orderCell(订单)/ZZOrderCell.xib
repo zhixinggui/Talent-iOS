@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
@@ -13,7 +13,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="130"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="129"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="border_34x34" translatesAutoresizingMaskIntoConstraints="NO" id="cBB-Pn-P6L" userLabel="背景">
@@ -166,6 +166,10 @@
                 <outlet property="badBT" destination="PGz-aw-izN" id="4L5-5h-xMf"/>
                 <outlet property="cancelBT" destination="nhG-cb-Wbg" id="EGb-fY-Vdu"/>
                 <outlet property="goodBT" destination="BsP-Bi-Ssp" id="O7X-Ys-L3d"/>
+                <outlet property="headIV" destination="fqo-tl-AoB" id="NdN-0B-MlM"/>
+                <outlet property="priceLabel" destination="btc-nK-GlC" id="3Yd-YH-4Kg"/>
+                <outlet property="statusLabel" destination="iP5-GE-Ger" id="gyb-MY-0cm"/>
+                <outlet property="titleLabel" destination="SNJ-KA-VUO" id="JpS-cK-Hlk"/>
             </connections>
             <point key="canvasLocation" x="294" y="244"/>
         </tableViewCell>

@@ -11,6 +11,8 @@
 @interface ZZOrder : NSObject
 /**是否出具发票*/
 @property (nonatomic) BOOL isInvoice;
+/**服务标题*/
+@property (nonatomic, copy)NSString *title;
 /**订单状态*/
 @property (nonatomic) NSInteger status;
 /**是否使用金币*/
