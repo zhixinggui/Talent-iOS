@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "ZZFunctionShowRule.h"
-@interface ZZActivityCity : NSObject<ZZActivityClassSelectorShowDele>
+@interface ZZActivityCity : NSObject<ZZSelectorViewShowDele>
+@property (nonatomic, copy)NSString *cityName;
 
++ (NSArray *)arrays;
 @end

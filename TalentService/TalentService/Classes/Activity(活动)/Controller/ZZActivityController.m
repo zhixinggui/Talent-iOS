@@ -5,9 +5,12 @@
 //  Created by zhizhen on 15/8/26.
 //  Copyright (c) 2015年 zhizhen. All rights reserved.
 //
-NSString *  const CityStr = @"选择城市";
-NSString *  const TypeStr = @"选择类型";
-NSString *  const StatusStr = @"选择状态";
+
+typedef enum {
+  ZZSelectorTypeCity = 1,
+    ZZSelectorTypeType,
+    ZZSelectorTypeStatus
+} ZZSelectorType;
 #import "ZZActivityController.h"
 #import "ZZActivityCell.h"
 #import "ZZMenuButton.h"
@@ -19,7 +22,7 @@ NSString *  const StatusStr = @"选择状态";
 #import "ZZActivityType.h"
 #import "ZZPopMenu.h"
 #import "ZZSelectorView.h"
-@interface ZZActivityController ()
+@interface ZZActivityController ()<ZZSelectorViewDlegate>
 /**活动请求到的数组*/
 @property (nonatomic, strong)NSMutableArray *activityArray;
 /** 城市选择*/
@@ -39,6 +42,10 @@ NSString *  const StatusStr = @"选择状态";
 @property (nonatomic, strong)ZZActivityStatus *selectedStatus;
 /**选中的类型  */
 @property (nonatomic, strong)ZZActivityType *selectedType;
+/**推出的菜单 */
+@property (nonatomic, strong)ZZPopMenu *popmenu;
+/**选择的菜单*/
+@property (nonatomic, strong)ZZSelectorView *selectorView;;
 @end
 
 @implementation ZZActivityController
@@ -84,15 +91,15 @@ NSString *  const StatusStr = @"选择状态";
     button.selected = YES;
     self.selectMenuBtn = button;
     
-    ZZSelectorView *selector = [[ZZSelectorView alloc]init];
-    ZZPopMenu *pop = [ZZPopMenu  popMenuWithContentView:selector];
-    pop.dimBackground = YES;
+    self.selectorView.datas= [ZZActivityCity arrays];
+    self.selectorView.type = ZZSelectorTypeCity;
+   
 //    CGFloat x = CGRectGetMinX(button.frame);
 //    CGFloat y = CGRectGetMaxY(button.frame) + 64;
 //    CGFloat W = CGRectGetWidth(button.frame);
 //    CGFloat h = ScreenHeight - y;
 //    [pop  showInRect:CGRectMake(x, y, w, h)];
-    [pop showFrom:button];
+    [self.popmenu showFrom:button];
   
 }
 //类型
@@ -101,6 +108,11 @@ NSString *  const StatusStr = @"选择状态";
     button.selected = YES;
     self.selectMenuBtn = button;
 
+    
+    self.selectorView.datas= [ZZActivityType arrays];
+    self.selectorView.type = ZZSelectorTypeType;
+
+    [self.popmenu showFrom:button];
 }
 //状态
 - (void)statusMenuBtnClick:(ZZMenuButton *)button{
@@ -108,7 +120,10 @@ NSString *  const StatusStr = @"选择状态";
     button.selected = YES;
     self.selectMenuBtn = button;
     
-
+    self.selectorView.datas= [ZZActivityStatus arrays];
+    self.selectorView.type = ZZSelectorTypeType;
+    
+    [self.popmenu showFrom:button];
 }
 
 
@@ -138,7 +153,12 @@ NSString *  const StatusStr = @"选择状态";
     [self.navigationController  pushViewController:actDetailVC animated:YES];
     [tableView  deselectRowAtIndexPath:indexPath animated:YES];
 }
+#pragma mark -ZZSelectorViewDlegate
 
+-(void)selectorView:(ZZSelectorView *)selectorView selectedIndex:(NSUInteger)index type:(NSUInteger)type{
+    [self.popmenu  dismiss];
+
+}
 
 #pragma mark -lazy load
 -(ZZTopMenuView *)topMenuView{
@@ -154,6 +174,18 @@ NSString *  const StatusStr = @"选择状态";
     return _topMenuView;
 }
 
-
-
+-(ZZPopMenu *)popmenu{
+    if (_popmenu == nil) {
+        _popmenu = [[ZZPopMenu alloc]init];
+           _popmenu.dimBackground = YES;
+    }
+    return _popmenu;
+}
+-(ZZSelectorView *)selectorView{
+    if (_selectorView == nil) {
+        _selectorView = [[ZZSelectorView  alloc]init];
+        _selectorView.selecedDelegate = self;
+    }
+    return _selectorView;
+}
 @end

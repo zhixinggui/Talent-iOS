@@ -16,17 +16,27 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"支付结果";
+    self.title = @"订单状态";
+
     [self  setUpChilds];
 }
 
 - (void)setUpChilds{
-    UIImageView *resultIV = [[UIImageView  alloc]initWithFrame:CGRectMake(0, 74, ScreenWidth, 200)];
-    resultIV.backgroundColor = [UIColor  orangeColor];
+    NSString *imageName ;
+    if (self.result) {
+        imageName = @"order_succ";
+    }else{
+        imageName = @"order_fail";
+    }
+  
+    UIImageView *resultIV = [[UIImageView  alloc]initWithImage:[UIImage  imageNamed:imageName]];
+  
+    resultIV.centerX= self.view.width/2;
+    resultIV.y = 74;
     resultIV.contentMode = UIViewContentModeCenter;
     [self.view  addSubview:resultIV];
     
-    if (1) {
+    if (self.result == NO) {
         CGFloat btnw = 200;
         CGFloat btnh = 40;
         CGFloat btnx = (ScreenWidth - btnw)/2;
@@ -48,8 +58,9 @@
 }
 
 - (void)seeOrder{
-    pushVC(ZZSeeOrderVC);
-//    ZZSeeOrderVC *seeOrderVC= [[ZZSeeOrderVC alloc]init];
-//    [self.navigationController  pushViewController:seeOrderVC animated:YES];
+//    pushVC(ZZSeeOrderVC);
+    ZZSeeOrderVC *seeOrderVC= [[ZZSeeOrderVC alloc]init];
+    seeOrderVC.orderCode = self.orderCode;
+    [self.navigationController  pushViewController:seeOrderVC animated:YES];
 }
 @end

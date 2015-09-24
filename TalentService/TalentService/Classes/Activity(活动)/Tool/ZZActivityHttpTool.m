@@ -9,7 +9,7 @@
 #import "ZZActivityHttpTool.h"
 #import "ZZHttpTool.h"
 @implementation ZZActivityHttpTool
-+ (void)activityDetail:(NSUInteger)activityID  success:(void(^)(ZZActivity *detailActivity,  ZZNetDataType  netSuccType ))succ  failure:(void(^)(NSString *error , ZZNetDataType  netFialType))fail{
++ (void)activityDetail:(NSInteger)activityID  success:(void(^)(ZZActivity *detailActivity,  ZZNetDataType  netSuccType ))succ  failure:(void(^)(NSString *error , ZZNetDataType  netFialType))fail{
     
     ZZParam *param = [[ZZParam  alloc]init];
     param.cmd = @"smart/services/getServicesDetails";
@@ -25,7 +25,7 @@
     }];
 }
 
-+ (void)activityBook:(NSUInteger)activityID  success:(void(^)(ZZOrder *order,  ZZNetDataType  netSuccType ))succ  failure:(void(^)(NSString *error , ZZNetDataType  netFialType))fail{
++ (void)activityBook:(NSInteger)activityID  success:(void(^)(ZZOrder *order,  ZZNetDataType  netSuccType ))succ  failure:(void(^)(NSString *error , ZZNetDataType  netFialType))fail{
     
     ZZParam *param = [[ZZParam  alloc]init];
     param.cmd = @"smart/services/Reserve";
@@ -42,7 +42,7 @@
     
 }
 
-+ (void)activityCollect:(NSUInteger )activityID collect:(BOOL) isCollect success:(void(^)(id json,  ZZNetDataType  netSuccType ))succ  failure:(void(^)(NSString *error , ZZNetDataType  netFialType))fail{
++ (void)activityCollect:(NSInteger )activityID collect:(BOOL) isCollect success:(void(^)(id json,  ZZNetDataType  netSuccType ))succ  failure:(void(^)(NSString *error , ZZNetDataType  netFialType))fail{
     
     ZZParam *param = [[ZZParam  alloc]init];
     param.cmd = @"smart/services/serviceCollect";
@@ -51,9 +51,53 @@
     param.parameters = @{@"id":@(activityID),@"isCollect":@(collect)};
     
     [ZZHttpTool  afPostByApiName:@"" Params:param success:^(id json) {
-        
+        succ(json,ZZNetDataTypeSuccServer);
     } failure:^(NSString *error, ZZNetDataType netDataType) {
+        fail(error,netDataType);
+    }];
+}
+
++ (void)activityCommitOrder:(ZZActivityConmitParam *)commitParam success:(void(^)(id json,  ZZNetDataType  netSuccType ))succ  failure:(void(^)(NSString *error , ZZNetDataType  netFialType))fail{
+    
+    ZZParam *param = [[ZZParam  alloc]init];
+    param.cmd = @"smart/services/commitOrder";
+    param.token = ZZLoginTool.loginToken;
+    param.parameters = [commitParam  keyValues];
+    
+    [ZZHttpTool  afPostByApiName:@"" Params:param success:^(id json) {
         
+        succ(json,ZZNetDataTypeSuccServer);
+    } failure:^(NSString *error, ZZNetDataType netDataType) {
+        fail(error,netDataType);
+    }];
+}
+
+/**查看订单*/
++ (void)activitySeeOrder:(NSString *)orderCode  success:(void(^)(id json ,ZZNetDataType netDataType))succ  failure:(void (^)(NSString *error , ZZNetDataType netDataType))fail{
+    
+    ZZParam *param = [[ZZParam alloc]init];
+    param.cmd = @"smart/order/getOrderDetails";
+    param.token = ZZLoginTool.loginToken;
+    param.parameters = @{@"orderCode":orderCode};
+    
+    [ZZHttpTool  afPostByApiName:@"" Params:param success:^(id json) {
+        succ(json,ZZNetDataTypeSuccServer);
+    } failure:^(NSString *error, ZZNetDataType netDataType) {
+        fail(error,netDataType);
+    }];
+}
+
+/**取消订单*/
++ (void)activityCancellOrder:(NSString *)orderCode  success:(void(^)(id json ,ZZNetDataType netDataType))succ  failure:(void (^)(NSString *error , ZZNetDataType netDataType))fail{
+    ZZParam *param = [[ZZParam alloc]init];
+    param.cmd = @"smart/order/cancelOrder";
+    param.token = ZZLoginTool.loginToken;
+    param.parameters = @{@"orderCode":orderCode};
+    
+    [ZZHttpTool  afPostByApiName:@"" Params:param success:^(id json) {
+        succ(json,ZZNetDataTypeSuccServer);
+    } failure:^(NSString *error, ZZNetDataType netDataType) {
+        fail(error,netDataType);
     }];
 }
 @end

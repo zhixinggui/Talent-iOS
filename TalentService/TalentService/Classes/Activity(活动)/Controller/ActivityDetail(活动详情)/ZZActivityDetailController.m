@@ -27,7 +27,7 @@ typedef enum {
     ZZActivityBottomToolBarTypeApply,//预定
     ZZActivityBottomToolBarTypeCollect//收藏
 }ZZActivityBottomToolBarType;
-@interface ZZActivityDetailController ()<ZZDetailFunctionViewDelegate,MWPhotoBrowserDelegate>
+@interface ZZActivityDetailController ()<ZZDetailFunctionViewDelegate,MWPhotoBrowserDelegate,UIAlertViewDelegate>
 //当前功能按钮
 @property (nonatomic, strong)NSArray *functions;
 /**收藏模型*/
@@ -148,32 +148,73 @@ typedef enum {
         [MBProgressHUD showNetLoadFailWithText:@"加载失败，点击重新加载" view:self.view target:self action: @selector(getDetailActivity) isBack:NO];
     }];
 }
-//
+//预定
 - (void)booking:(UIButton *)btn{
+    
     btn.enabled = NO;
+    UIAlertView *alertView = [[UIAlertView  alloc]initWithTitle:nil message:@"你确定要报名这个活动吗" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+    [alertView show];
+    
+
+}
+
+- (void)bookingActivity{
     [MBProgressHUD  showMessage:ZZNetLoading ];
     [ZZActivityHttpTool  activityBook:self.activityId success:^(ZZOrder *order, ZZNetDataType netSuccType) {
         [MBProgressHUD  hideHUD];
-         btn.enabled = YES;
-       
-        ZZEnsureOrderController *ensureVC = [[ZZEnsureOrderController  alloc]init];
-        ensureVC.order = order;
-        ensureVC.activity = self.detailActivity;
-        [self.navigationController  pushViewController:ensureVC animated:YES];
+        self.applyBtn.enabled = YES;
         
+        ZZEnsureOrderController *ensureVC = [[ZZEnsureOrderController  alloc]init];
+        order.serviceBasicInfo = self.detailActivity;
+        ensureVC.order = order;
+     
+        [self.navigationController  pushViewController:ensureVC animated:YES];
+        self.detailActivity.isReserve = YES;
+        [self updateBookingButtonProterty];
     } failure:^(NSString *error, ZZNetDataType netFialType) {
-          [MBProgressHUD  hideHUD];
+        [MBProgressHUD  hideHUD];
         [ZZHudView  showMessage:error time:3 toView:self.view];
-        btn.enabled = YES;
+        self.applyBtn.enabled = YES;
     }];
 }
-
+/**
+ *  收藏
+ *
+ *  @param btn <#btn description#>
+ */
+- (void)collect:(UIButton *)btn{
+    //btn.enabled = NO;
+    
+    [ZZActivityHttpTool  activityCollect:self.activityId collect:!self.detailActivity.isCollect success:^(id json, ZZNetDataType netSuccType) {
+        self.detailActivity.isCollect = !self.detailActivity.isCollect;
+        NSString *tips = self.detailActivity.isCollect ? @"收藏成功":@"取消收藏成功";
+        [ZZHudView  showMessage:tips time:1 toView:self.view];
+        btn.enabled = YES;
+        [self  updateCollectButtonProterty];
+    } failure:^(NSString *error, ZZNetDataType netFialType) {
+        btn.enabled = YES;
+        [ZZHudView  showMessage:error time:2 toView:self.view];
+    }];
+}
 - (void)updateCollectButtonProterty{
     self.collectBtn.selected = self.detailActivity.isCollect;
 }
 
 - (void)updateBookingButtonProterty{
-    self.applyBtn.selected = self.detailActivity.isReserve;
+    self.applyBtn.enabled = !self.detailActivity.isReserve;
+
+    if (self.applyBtn.enabled == NO) {
+        self.applyBtn.alpha = 0.5;
+    }
+}
+
+#pragma mark - UIAlertViewDelegate
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex) {
+        [self  bookingActivity];
+    }else {
+        self.applyBtn.enabled = YES;
+    }
 }
 #pragma mark - MWPhotoBrowserDelegate
 
@@ -208,15 +249,25 @@ typedef enum {
 {
     UIButton *btn = [[UIButton alloc] init];
     btn.tag = barType;
+   
     [btn setImage:[UIImage imageNamed:icon] forState:UIControlStateNormal];
-    [btn  setImage:[UIImage imageNamed:selectedIcon] forState:UIControlStateSelected];
+   
     [btn setTitle:title forState:UIControlStateNormal];
-    [btn  setTitle:selectedTitle forState:UIControlStateSelected];
-    [btn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+    [btn setTitleColor:ZZDarkGrayColor forState:UIControlStateNormal];
+    if (barType == ZZActivityBottomToolBarTypeApply) {
+        [btn  setImage:[UIImage imageNamed:selectedIcon] forState:UIControlStateDisabled];
+        [btn  setTitle:selectedTitle forState:UIControlStateDisabled];
+        [btn setTitleColor:ZZLightGrayColor forState:UIControlStateDisabled];
+    }else{
+         [btn  setImage:[UIImage imageNamed:selectedIcon] forState:UIControlStateSelected];
+       [btn  setTitle:selectedTitle forState:UIControlStateSelected];
+        [btn setTitleColor:ZZLightGrayColor forState:UIControlStateSelected];
+    }
+   
     btn.titleLabel.font = ZZContentFont;
  
     btn.adjustsImageWhenHighlighted = NO;
-    [btn  addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside ];
+
     // 设置间距
     btn.titleEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0);
     
@@ -254,7 +305,9 @@ typedef enum {
 -(UIButton *)applyBtn{
     if (_applyBtn == nil) {
         _applyBtn = [self setupBtnWithIcon:@"reserve_40x40"  selectedIcon:@"reserved_40x40" title:@"预定"  selectedTitle:@"已预定"    tag:ZZActivityBottomToolBarTypeApply];
+        
         [self  updateBookingButtonProterty];
+        //_applyBtn.backgroundColor = ZZLightGrayColor;
         [_applyBtn  addTarget:self action:@selector(booking:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _applyBtn ;
@@ -262,6 +315,7 @@ typedef enum {
 -(UIButton *)collectBtn{
     if (_collectBtn == nil) {
         _collectBtn = [self setupBtnWithIcon:@"collect_40x40" selectedIcon:@"collected_40x40" title:@"收藏"  selectedTitle:@"已收藏"   tag:ZZActivityBottomToolBarTypeCollect];
+        [_collectBtn addTarget:self action:@selector(collect:) forControlEvents:UIControlEventTouchUpInside];
         [self  updateCollectButtonProterty];
     }
     return  _collectBtn;

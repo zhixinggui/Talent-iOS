@@ -13,6 +13,7 @@
 #import "ZZSdWebImageTool.h"
 
 #import "ZZUMTool.h"
+#import "ZZLoginUserTool.h"
 @interface AppDelegate ()
 
 @end
@@ -27,7 +28,12 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
    
-    [self  swithWindowRootViewController:ZZRootViewControllerTypeLogin];
+    if (ZZLoginTool.loginToken.length) {
+        [self  swithWindowRootViewController:ZZRootViewControllerTypeHome];
+    }else{
+        [self  swithWindowRootViewController:ZZRootViewControllerTypeLogin];
+    }
+
     
     [self.window makeKeyAndVisible];
     

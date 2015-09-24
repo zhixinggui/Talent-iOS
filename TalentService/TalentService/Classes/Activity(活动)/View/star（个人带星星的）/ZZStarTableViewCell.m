@@ -22,7 +22,7 @@
 @implementation ZZStarTableViewCell
 
 -(void)awakeFromNib{
-    //self.starView.backgroundColor = [UIColor  redColor];
+ 
     self.starView.maximumValue = 5;
     self.starView.minimumValue = 0;
     self.starView.value = 4;

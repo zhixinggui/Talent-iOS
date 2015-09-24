@@ -185,6 +185,7 @@ static   NSUInteger const HomeNumCount = 10;
 -(ZZTableHeadView *)tableHeadView{
     if (_tableHeadView == nil) {
         _tableHeadView = [[ZZTableHeadView  alloc]init];
+        _tableHeadView.delegateVC = self;
     }
     return _tableHeadView;
 }

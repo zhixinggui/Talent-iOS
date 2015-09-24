@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class ZZHomeViewController;
 @interface ZZTableHeadView : UIView
 
 @property (nonatomic, strong)NSArray *images;
 
 @property (nonatomic, strong)NSArray *talents;
+
+@property (nonatomic, weak)ZZHomeViewController *delegateVC;
 @end

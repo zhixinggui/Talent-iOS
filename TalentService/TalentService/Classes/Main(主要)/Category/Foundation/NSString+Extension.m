@@ -47,7 +47,7 @@
     NSMutableDictionary *attrs = [NSMutableDictionary dictionary];
     attrs[NSFontAttributeName] = font;
     CGSize maxSize = CGSizeMake(maxW, MAXFLOAT);
-    CGSize  backSize = [self boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:attrs context:nil].size;
+    CGSize  backSize = [self boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:attrs context:nil].size;
     return CGSizeMake(ceil(backSize.width)+1, ceil(backSize.height));
 }
 - (CGSize)sizeWithFont:(UIFont *)font maxSize:(CGSize)size{

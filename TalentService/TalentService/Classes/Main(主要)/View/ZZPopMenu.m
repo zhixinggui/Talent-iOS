@@ -8,7 +8,6 @@
 
 #import "ZZPopMenu.h"
 @interface ZZPopMenu()
-@property (nonatomic, strong) UIView *contentView;
 
 /**
  *  最底部的遮盖 ：屏蔽除菜单以外控件的事件
@@ -141,9 +140,6 @@
     
     self.contentView.y = CGRectGetMaxY(newFrame)+5;
     self.contentView.width = CGRectGetWidth(from.frame) - 10;
-    if (self.contentView.height > window.bounds.size.height - 2*CGRectGetMaxY(self.contentView.frame)) {
-        self.contentView.height =  window.bounds.size.height - 2*CGRectGetMaxY(self.contentView.frame);
-    }
  
     self.contentView.centerX = CGRectGetMidX(newFrame);
     self.container.x = 0;

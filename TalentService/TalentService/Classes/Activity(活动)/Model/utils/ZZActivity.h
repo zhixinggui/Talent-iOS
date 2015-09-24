@@ -55,6 +55,13 @@
 /**  是否预定过 */
 @property (nonatomic) BOOL isReserve;
 
+/**  区 */
+@property (nonatomic, copy)NSString *districtText;
+/**  市 */
+@property (nonatomic, copy)NSString *cityText;
+/**  省 */
+@property (nonatomic, copy)NSString *provinceText;
+
 ///** 服务图片数组  */
 @property (nonatomic, strong)NSArray *serviceImgList;
 /** 用户  */

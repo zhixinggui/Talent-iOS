@@ -122,11 +122,11 @@
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
     // 快速显示一个提示信息
     //  MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
-      hud.labelText = text;
-    hud.labelColor = ZZLightGrayColor;
+          hud.labelColor = ZZLightGrayColor;
     if (back) {
         // 设置图片
-      
+        hud.labelText = text;
+
         hud.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"MBProgressHUD.bundle/%@", @"error.png"]]];
         // 再设置模式
         hud.mode = MBProgressHUDModeCustomView;
@@ -135,10 +135,11 @@
         hud.color = [UIColor clearColor];
         
         UIButton *button = [UIButton  buttonWithType:UIButtonTypeCustom];
-        button.width = view.width/2;
+        button.width = view.width;
         button.height = view.height/2;
-        button.backgroundColor = [UIColor  redColor];
-        
+        button.backgroundColor = [UIColor  clearColor];
+        [button  setTitle:text forState:UIControlStateNormal];
+        [button  setTitleColor:ZZLightGrayColor forState:UIControlStateNormal];
         [button  addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
         [button  addTarget:hud action:@selector(hideSelf) forControlEvents:UIControlEventTouchUpInside];
         hud.customView = button;

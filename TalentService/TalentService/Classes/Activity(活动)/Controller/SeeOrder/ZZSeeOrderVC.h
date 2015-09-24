@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface ZZSeeOrderVC : UIViewController
+@property (nonatomic, copy)NSString *orderCode;
 
 @end

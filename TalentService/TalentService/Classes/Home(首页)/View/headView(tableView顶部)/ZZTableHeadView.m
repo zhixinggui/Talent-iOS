@@ -9,6 +9,9 @@
 #import "ZZTableHeadView.h"
 #import "AdScrollView.h"
 #import "ZZSuperCell.h"
+#import "ZZInfoDetailVC.h"
+#import "ZZBaseUser.h"
+#import "ZZHomeViewController.h"
 #define HeadWidth  (ScreenWidth)
 #define HeadHeight  (ScreenWidth/2)
 #define Height  ((HeadWidth/2 - ZZEdgeMargin)*0.5)
@@ -18,13 +21,7 @@ static  NSString *cellIden = @"collectionCell";
 @property (nonatomic, strong)UICollectionView *collectionView;
 @end
 @implementation ZZTableHeadView
--(instancetype)initWithFrame:(CGRect)frame{
-    self = [super  initWithFrame:frame];
-    if (self) {
-      
-    }
-    return self;
-}
+
 -(void)setImages:(NSArray *)images{
     if (self.images == nil && images) {
         self.height += HeadHeight/2;
@@ -75,6 +72,14 @@ static  NSString *cellIden = @"collectionCell";
     cell.otherUser = self.talents[indexPath.row];
     [cell  setNeedsLayout];
     return cell;
+}
+
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    ZZInfoDetailVC *infoDvc = [[ZZInfoDetailVC alloc]init];
+    ZZBaseUser *baseUser = self.talents[indexPath.item];
+    infoDvc.userAttentionId = baseUser.userId;
+   
+    [self.delegateVC.navigationController pushViewController:infoDvc animated:YES ];
 }
 #pragma mark - lazyOut
 -(AdScrollView *)adScrollView{

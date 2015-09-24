@@ -7,7 +7,7 @@
 // 订单
 
 #import <Foundation/Foundation.h>
-
+#import "ZZActivity.h"
 @interface ZZOrder : NSObject
 /**是否出具发票*/
 @property (nonatomic) BOOL isInvoice;
@@ -20,7 +20,7 @@
 /**金币数量*/
 @property (nonatomic) NSInteger goldCount;
 /**订单号*/
-@property (nonatomic) NSInteger orderCode;
+@property (nonatomic ,copy) NSString *orderCode;
 /**支付方式*/
 @property (nonatomic) NSInteger payment;
 /**用户昵称*/
@@ -31,14 +31,16 @@
 @property (nonatomic, copy)NSString *invoiceTitle;
 /**用户id*/
 @property (nonatomic) NSUInteger userId;
+/**电话*/
+@property (nonatomic, copy)NSString *phone;
 
-
+@property (nonatomic, strong)ZZActivity *serviceBasicInfo;
 /**服务价格*/
-@property (nonatomic) NSInteger servicePrice;
+@property (nonatomic, strong) NSNumber *servicePrice;
 /**金币换算金额*/
-@property (nonatomic) NSInteger discountPrice;
+@property (nonatomic, strong) NSNumber *discountPrice;
 /**价格*/
-@property (nonatomic) NSInteger price;
+@property (nonatomic, strong) NSNumber *price;
 
-
+- (NSString *)showPrice:(NSNumber *)price;
 @end

@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "ZZFunctionShowRule.h"
-@interface ZZActivityStatus : NSObject<ZZActivityClassSelectorShowDele>
-
+@interface ZZActivityStatus : NSObject<ZZSelectorViewShowDele>
+@property (nonatomic, copy)NSString *statusName;
++ (NSArray *)arrays;
 @end

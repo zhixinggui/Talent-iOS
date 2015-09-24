@@ -19,6 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
    self.title = @"更多达人";
+    self.tableView.separatorInset = UIEdgeInsetsMake(0, 15, 0, 15);
     self.tableView.rowHeight = [ZZStarTableViewCell  starCellHeight];
 }
 
@@ -34,6 +35,10 @@
     ZZStarTableViewCell *cell = [ZZStarTableViewCell  starTableViewCellWithTableView:tableView delegate:self];
     cell.baseUser = self.talents[indexPath.row];
     return cell;
+}
+
+-(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+    return [[UIView alloc]init];
 }
 #pragma mark - ZZStarTableViewCellDelegate
 -(void)starCellHeadImageTap:(ZZStarTableViewCell *)starTableViewCell{

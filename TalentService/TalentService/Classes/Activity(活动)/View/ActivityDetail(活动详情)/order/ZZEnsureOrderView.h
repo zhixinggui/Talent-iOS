@@ -7,7 +7,7 @@
 //
 
 #import "ZZBaseOrderView.h"
-
+@class ZZEnsureOrderController;
 @interface ZZEnsureOrderView : ZZBaseOrderView
-
+@property (nonatomic, weak) ZZEnsureOrderController  *delegateVC;
 @end

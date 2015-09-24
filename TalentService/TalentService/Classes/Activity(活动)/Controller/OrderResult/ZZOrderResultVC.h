@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface ZZOrderResultVC : UIViewController
-
+@property (nonatomic)BOOL result;
+@property (nonatomic, copy)NSString *orderCode;
 @end

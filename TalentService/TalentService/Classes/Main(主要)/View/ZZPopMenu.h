@@ -17,7 +17,7 @@
 @end
 @interface ZZPopMenu : UIView
 //@property (nonatomic, weak) id<HMPopMenuDelegate> delegate;
-
+@property (nonatomic, strong) UIView *contentView;
 @property (nonatomic, assign, getter = isDimBackground) BOOL dimBackground;
 
 @property (nonatomic, weak) id<ZZPopMenuDelegate> delegate;

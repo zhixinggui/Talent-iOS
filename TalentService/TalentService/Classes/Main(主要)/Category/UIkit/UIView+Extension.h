@@ -118,4 +118,6 @@
 - (NSMutableAttributedString *)getAttributedStringWithText:(NSString *)text  textFont:(UIFont *)textFont  textColor:(UIColor *)textFont   content:(NSString *)content  contentFont:(UIFont *)contentFont  contentColor:(UIColor *)contentColor ;
 
 - (void)shakeAnimation;
+
+- (void)setUpTopShadow;
 @end

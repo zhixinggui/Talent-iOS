@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "scale" : "1x",
-      "filename" : "预定失败.png"
+      "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "预定成功.png",
       "scale" : "2x"
     },
     {

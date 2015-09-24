@@ -9,6 +9,7 @@
 #import "ZZSeeOrderVC.h"
 #import "ZZSeeOrderView.h"
 #import "ZZCancelOrderVC.h"
+#import "ZZActivityHttpTool.h"
 @interface ZZSeeOrderVC ()<ZZBaseOrderViewDelegate>
 
 @end
@@ -19,6 +20,7 @@
     [super viewDidLoad];
     self.title = @"查看订单";
     self.view.backgroundColor = ZZViewBackColor;
+    [self  getOrderDetail];
     [self  setUpChild];
     
 }
@@ -30,6 +32,14 @@
     [self.view  addSubview:seeOrderView];
 }
 
+- (void)getOrderDetail{
+    
+    [ZZActivityHttpTool  activitySeeOrder:self.orderCode success:^(id json, ZZNetDataType netDataType) {
+        
+    } failure:^(NSString *error, ZZNetDataType netDataType) {
+        
+    }];
+}
 #pragma mark -ZZBaseOrderViewDelegate
 -(void)baseOrderViewCancellOrder:(ZZBaseOrderView *)baseprderView{
     ZZLog(@"取消订单");

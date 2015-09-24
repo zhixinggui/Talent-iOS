@@ -7,20 +7,21 @@
 //
 
 #import "ZZBaseOrderView.h"
-
+#import "ZZActivity.h"
 @implementation ZZBaseOrderView
 
 -(instancetype)initWithFrame:(CGRect)frame{
     self = [super  initWithFrame:frame];
     if (self) {
         self.backgroundColor = [UIColor  whiteColor];
-        [self  setUpChild];
-        
     }
     return self;
 }
+
+
 - (void)setUpChild{
     
+    ZZActivity *activity = self.order.serviceBasicInfo;
     //标题
     CGFloat titleX = edge;
     CGFloat titleY = 20;
@@ -28,7 +29,7 @@
     CGFloat titleH = 40;
     UILabel *titleLabel = [[UILabel  alloc]initWithFrame:CGRectMake(titleX, titleY, titleW, titleH)];
     titleLabel.numberOfLines = 2;
-    titleLabel.text = @"一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十";
+    titleLabel.text = activity.title;
     titleLabel.textColor = ZZDarkGrayColor;
     titleLabel.font = ZZTitleFont;
     [self  addSubview:titleLabel];
@@ -39,7 +40,7 @@
     CGFloat contentW = titleW;
     CGFloat contentH = 20;
     UILabel *contentLabel = [[UILabel  alloc]initWithFrame:CGRectMake(contentX, contentY, contentW, contentH)];
-    contentLabel.text = @"城市";
+    contentLabel.text = activity.cityText;
     contentLabel.textColor = ZZDarkGrayColor;
     contentLabel.font = ZZTitleFont;
     [self  addSubview:contentLabel];
@@ -51,7 +52,7 @@
     CGFloat moneyY = CGRectGetMidY(titleLabel.frame);
   
     UILabel *moneyLabel = [[UILabel  alloc]initWithFrame:CGRectMake(moneyX, moneyY, moneyW, moneyH)];
-    moneyLabel.text = @"城市";
+    moneyLabel.text =   [self.order showPrice:self.order.servicePrice];
     moneyLabel.textColor = ZZNatiBarColor;
     moneyLabel.font = ZZTitleFont;
     [self  addSubview:moneyLabel];
@@ -68,13 +69,13 @@
     [self  addSubview:lineLabel];
     
     self.toalheight = CGRectGetMaxY(lineLabel.frame);
-    [self  setUpShowView:@"订单号：" content:@"201507200001"];
-     [self  setUpShowView:@"订单时间：" content:@"2015-07-20 12:00"];
-     [self  setUpShowView:@"用户名：" content:@"一二三四五六七"];
-  self.phoneShowView =   [self  setUpShowView:@"手机号：" content:@"15821565760"];
-     [self  setUpShowView:@"活动时间：" content:@"2015-07-22 12:00"];
-     [self  setUpShowView:@"活动地点：" content:@"一二三四五六七一二三四五六七一二三四五六七一二三四五六七一二三四五六七一二三四五六七"];
-     [self  setUpShowView:@"金额：" content:@"10元"];
+    [self  setUpShowView:@"订单号：" content:self.order.orderCode];
+     [self  setUpShowView:@"订单时间：" content:self.order.orderDate];
+     [self  setUpShowView:@"用户名：" content:self.order.userNike];
+  self.phoneShowView =   [self  setUpShowView:@"手机号：" content:self.order.phone];
+     [self  setUpShowView:@"活动时间：" content:activity.startTime];
+     [self  setUpShowView:@"活动地点：" content:activity.address];
+     [self  setUpShowView:@"金额：" content:[self.order showPrice:self.order.price]];
 
     self.contentSize = CGSizeMake(0, self.toalheight);
 }

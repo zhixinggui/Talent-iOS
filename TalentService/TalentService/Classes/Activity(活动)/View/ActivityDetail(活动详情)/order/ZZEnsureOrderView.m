@@ -7,13 +7,17 @@
 //
 
 #import "ZZEnsureOrderView.h"
-
+#import "ZZEnsureOrderController.h"
+#import "ZZOrderResultVC.h"
+#import "ZZActivityHttpTool.h"
+#import "ZZActivityConmitParam.h"
+#import "ZZHudView.h"
 @implementation ZZEnsureOrderView
 
 -(instancetype)initWithFrame:(CGRect)frame{
     self = [super  initWithFrame:frame];
     if (self) {
-        [self  setUpChild];
+    
     }
     return self;
 }
@@ -40,14 +44,31 @@
 }
 
 - (void)changePhone{
-    if ([self.delegate  respondsToSelector:@selector(baseOrderViewChangePhone:)]) {
-        [self.delegate  baseOrderViewChangePhone:self];
-    }
+
+    
+  
 }
 
 - (void)ensurePhone{
-    if ([self.delegate  respondsToSelector:@selector(baseOrderViewEnsueOrder:)]) {
-        [self.delegate  baseOrderViewEnsueOrder:self];
-    }
+    ZZActivityConmitParam *commitparam = [[ZZActivityConmitParam  alloc]init];
+    commitparam.orderCode = self.order.orderCode;
+    commitparam.phone = self.order.phone;
+    commitparam.serviceId = @(self.order.serviceBasicInfo.activityId);
+    commitparam.servicePrice = self.order.servicePrice;
+    
+    [MBProgressHUD  showMessage:ZZNetLoading];
+    [ZZActivityHttpTool  activityCommitOrder:commitparam success:^(id json, ZZNetDataType netSuccType) {
+        [MBProgressHUD  hideHUD];
+        ZZOrderResultVC *resultVC = [[ZZOrderResultVC  alloc]init];
+        resultVC.orderCode = self.order.orderCode;
+        resultVC.result = YES;
+        [self.delegateVC.navigationController  pushViewController:resultVC animated:YES];
+        
+    } failure:^(NSString *error, ZZNetDataType netFialType) {
+        [MBProgressHUD  hideHUD];
+        [ZZHudView  showMessage:error time:10 toView:self];
+        
+    }];
+    
 }
 @end

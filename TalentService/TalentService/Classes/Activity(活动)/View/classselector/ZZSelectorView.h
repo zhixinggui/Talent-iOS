@@ -15,6 +15,7 @@
 @end
 @interface ZZSelectorView : UITableView
 
+@property (nonatomic, weak)id <ZZSelectorViewDlegate> selecedDelegate;
 @property (nonatomic, strong)NSArray *datas;
 @property (nonatomic, assign) NSUInteger type;
 @end
