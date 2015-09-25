@@ -5,7 +5,7 @@
 //  Created by zhizhen on 15/8/27.
 //  Copyright (c) 2015年 zhizhen. All rights reserved.
 //
-
+#define MaxHeight (ScreenHeight- 180)
 #import "ZZPopMenu.h"
 @interface ZZPopMenu()
 
@@ -36,7 +36,7 @@
         // 添加带箭头的菜单图片
         UIImageView *container = [[UIImageView alloc] init];
         container.userInteractionEnabled = YES;
-        self.container.backgroundColor = [UIColor  redColor];
+        container.backgroundColor = [UIColor  clearColor];
         [self addSubview:container];
         self.container = container;
 
@@ -76,7 +76,6 @@
 
 - (void)setDimBackground:(BOOL)dimBackground
 {
-    
     _dimBackground = dimBackground;
     
     if (dimBackground) {
@@ -94,6 +93,10 @@
     self.container.image = background;
 }
 
+-(void)setContentView:(UIView *)contentView{
+    _contentView = contentView;
+      [self.container  addSubview:contentView];
+}
 - (void)showInRect:(CGRect)rect
 {
     // 添加菜单整体到窗口身上
@@ -127,8 +130,6 @@
     // 2.添加自己到窗口上
     [window addSubview:self];
     
-    [self.container  addSubview:self.contentView];
-    
     // 3.设置尺寸
     self.frame = window.bounds;
     
@@ -138,11 +139,12 @@
     CGRect newFrame = [from convertRect:from.bounds toView:window];
     //    CGRect newFrame = [from.superview convertRect:from.frame toView:window];
     
-    self.contentView.y = CGRectGetMaxY(newFrame)+5;
-    self.contentView.width = CGRectGetWidth(from.frame) - 10;
- 
-    self.contentView.centerX = CGRectGetMidX(newFrame);
-    self.container.x = 0;
+    self.container.y = CGRectGetMaxY(newFrame);
+    self.container.x = CGRectGetMinX(newFrame);
+    self.contentView.height = self.contentView.height > MaxHeight ? MaxHeight : self.contentView.height;
+    self.contentView.y = 5;
+    self.contentView.x = 5;
+ self.contentView.width = CGRectGetWidth(from.frame) - 10;
     // 设置灰色的高度
     self.container.height = CGRectGetHeight(self.contentView.frame) + 11;
     // 设置灰色的宽度
@@ -154,6 +156,7 @@
     if ([self.delegate respondsToSelector:@selector(popMenuDidDismissed:)]) {
         [self.delegate popMenuDidDismissed:self];
     }
+   
     [self removeFromSuperview];
 }
 

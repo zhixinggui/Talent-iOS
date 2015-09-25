@@ -94,6 +94,7 @@ typedef enum {
     self.selectorView.datas= [ZZActivityCity arrays];
     self.selectorView.type = ZZSelectorTypeCity;
     self.popmenu.contentView = self.selectorView;
+  //  self.popmenu.backgroundColor = [UIColor  redColor];
     [self.popmenu showFrom:button];
   
 }
@@ -106,6 +107,7 @@ typedef enum {
     self.selectorView.datas= [ZZActivityType arrays];
     self.selectorView.type = ZZSelectorTypeType;
     self.popmenu.contentView = self.selectorView;
+  //  self.popmenu.backgroundColor = [UIColor  grayColor];
     [self.popmenu showFrom:button];
 }
 //状态
@@ -115,8 +117,9 @@ typedef enum {
     self.selectMenuBtn = button;
     
     self.selectorView.datas= [ZZActivityStatus arrays];
-    self.selectorView.type = ZZSelectorTypeType;
-    self.popmenu.contentView = self.selectorView;
+    self.selectorView.type = ZZSelectorTypeStatus;
+   self.popmenu.contentView = self.selectorView;
+   // self.popmenu.backgroundColor = [UIColor yellowColor];
     [self.popmenu showFrom:button];
 }
 
@@ -188,7 +191,8 @@ typedef enum {
     if (_popmenu == nil) {
         _popmenu = [[ZZPopMenu alloc]init];
            _popmenu.dimBackground = YES;
-    }
+        _popmenu.contentView = self.selectorView;
+   }
     return _popmenu;
 }
 -(ZZSelectorView *)selectorView{

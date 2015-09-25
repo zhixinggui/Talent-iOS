@@ -5,7 +5,7 @@
 //  Created by zhizhen on 15/9/14.
 //  Copyright (c) 2015年 zhizhen. All rights reserved.
 //
-#define MaxHeight (ScreenHeight- 180)
+
 #import "ZZSelectorView.h"
 #import "ZZFunctionShowRule.h"
 @interface ZZSelectorView ()<UITableViewDataSource,UITableViewDelegate>
@@ -20,16 +20,17 @@
         self.dataSource = self;
         self.backgroundColor = [UIColor whiteColor];
         self.separatorInset = UIEdgeInsetsMake(0, 10, 0, 10);
+    
     }
     return self;
 }
 - (void)setDatas:(NSArray *)datas{
     _datas = datas;
-    CGFloat tolalHeight = datas.count*44;
+    self.height= datas.count*44;
     
-    CGFloat height = (tolalHeight > MaxHeight) ? MaxHeight : tolalHeight;
-    self.height = height;
+ 
     [self  setNeedsLayout];
+    [self  reloadData];
 }
 -(void)setSelectedRow:(NSInteger)selectedRow{
     _selectedRow = selectedRow;

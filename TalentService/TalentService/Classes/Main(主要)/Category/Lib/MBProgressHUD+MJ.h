@@ -33,4 +33,6 @@
 + (void)showNetLoadFailWithText:(NSString *)text view:(UIView *)view target:(id)target action:(SEL)action  isBack:(BOOL)back;
 
 + (void)showMessageClearBackView:(NSString *)message toView:(UIView *)view;
+
++ (void)showMessageClearBackView:(NSString *)message toView:(UIView *)view   yoffest:(CGFloat )y;
 @end

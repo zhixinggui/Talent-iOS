@@ -117,7 +117,7 @@ static ZZUMTool *umTool;
     
      //   QQ分享入口
     if ([TencentOAuth iphoneQQSupportSSOLogin]) {//是否安装有QQ客户端
-        [UMSocialQQHandler setQQWithAppId:QQAppId appKey:QQAppKey url:nil];
+        [UMSocialQQHandler setQQWithAppId:QQAppId appKey:QQAppKey url:QQurl];
         //创建qq登陆模型
         ZZUMLoginModel *qqLoginModel = [[ZZUMLoginModel alloc]initWithImageName:@"QQ_60x60" shareType:UMShareToQQ loginType:ZZUMLoginTypeQQ name:@"QQ"];
         [self.loginModels addObject:qqLoginModel];
@@ -125,6 +125,7 @@ static ZZUMTool *umTool;
         ZZUMLoginModel *qqshareModel = [[ZZUMLoginModel alloc]initWithImageName:@"QQ_share_60x60" shareType:UMShareToQQ loginType:ZZUMLoginTypeQQ name:@"QQ"];
         [self.shareModels addObject:qqshareModel];
         [self.shareTypes addObject:UMShareToQQ];
+        
         //qq空间分享模型
        ZZUMLoginModel *zoneShareModel = [[ZZUMLoginModel alloc]initWithImageName:@"Qzong_share_60x60" shareType:UMShareToQzone loginType:ZZUMLoginTypeQQZone name:@"QQ空间"];
         [self.shareModels  addObject:zoneShareModel];
@@ -134,7 +135,7 @@ static ZZUMTool *umTool;
     
      // 微信分享入口
     if ([WXApi isWXAppSupportApi]){//是否有微信客户端
-        [UMSocialWechatHandler setWXAppId:WXAppId appSecret:WXAppSecret url:nil];
+        [UMSocialWechatHandler setWXAppId:WXAppId appSecret:WXAppSecret url:WXurl];
         
        
         //创建微信登陆模型

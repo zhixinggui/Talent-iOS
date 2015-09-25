@@ -19,6 +19,12 @@
 #import "ZZMyCollectVC.h"
 #import "UUPhotoActionSheet.h"
 #import "ZZMyAllActivityTVC.h"
+#import "HCSStarRatingView.h"
+#import "ZZMyInfoModel.h"
+#import "ZZApplyVC.h"
+#import "ZZMyGoldVC.h"
+#import "LDProgressView.h"
+
 /**
  *  我的页面请求
  */
@@ -29,15 +35,19 @@
 @property (weak, nonatomic) IBOutlet UILabel *roleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *fansCount;
 
-@property (nonatomic,strong)ZZLoginUser *loginUser;
+
 @property (weak, nonatomic) IBOutlet UIView *tableHeadView;
+@property (weak, nonatomic) IBOutlet HCSStarRatingView *starView;
 @property (weak, nonatomic) IBOutlet UITableView *infoTableView;
 
 @property (strong, nonatomic) IBOutlet UIImageView *infoIV;
+
+
 /** 选择图片*/
 @property (nonatomic, strong) UUPhotoActionSheet *sheet;
-@property (nonatomic,strong)NSArray *nameArray;
-@property (nonatomic,strong)NSArray *imageArray;
+@property (weak, nonatomic) IBOutlet LDProgressView *progressView;
+
+@property (nonatomic, strong)NSArray *rowDatas;
 @end
 
 @implementation ZZInfoVC
@@ -65,14 +75,26 @@
     UINib* nib = [UINib nibWithNibName:@"ZZInfoCell" bundle:nil];
     [self.infoTableView registerNib:nib forCellReuseIdentifier:infoCelldentifier];
     self.infoTableView.rowHeight = 50;
+ 
 }
 
 //请求数据赋值
 - (void)selfInformation {
-    self.nameLabel.text = self.loginUser.userNike;
-    ZZUserRole *userRole = self.loginUser.userRole[0];
+    ZZLoginUser *user = ZZLoginTool.loginUser;
+    self.nameLabel.text = user.userNike;
+    ZZUserRole *userRole = user.userRole[0];
     self.roleLabel.text = userRole.eredarName;
-    self.fansCount.text = [NSString stringWithFormat:@"%ld",self.loginUser.fans];
+    self.fansCount.text = [NSString stringWithFormat:@"Fans%ld",user.fans];
+    self.progressView.color = [UIColor colorWithRed:0.00f green:0.64f blue:0.00f alpha:1.00f];
+    self.progressView.flat = @YES;
+    self.progressView.progress = 0.40;
+    self.progressView.animate = @YES;
+    self.progressView.showText = @NO;
+    self.progressView.showStroke = @NO;
+    self.progressView.progressInset = @5;
+    self.progressView.showBackground = @NO;
+    self.progressView.outerStrokeWidth = @3;
+    self.progressView.type = LDProgressSolid;
 }
 
 //监听通知
@@ -85,7 +107,8 @@
 
 //通知方法
 - (void)notice {
-    self.nameLabel.text = self.loginUser.userNike;
+     ZZLoginUser *user = ZZLoginTool.loginUser;
+    self.nameLabel.text = user.userNike;
 }
 
 /**
@@ -120,89 +143,29 @@
 #pragma mark - UITableViewDatasourse
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 4;
+    return self.rowDatas.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (section == 0) {
-        return 2;
-    }else{
-        return 1;
-    }
+    NSArray *array = self.rowDatas[section];
+    return array.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ZZInfoCell *cell = [tableView  dequeueReusableCellWithIdentifier:infoCelldentifier];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    switch (indexPath.section) {
-        case 0:
-        {
-            cell.nameLabel.text = self.nameArray[indexPath.row];
-            cell.imageIV.image = [UIImage imageNamed:self.imageArray[indexPath.row]];
-        }
-        break;
-        
-        case 1:
-        {
-            cell.nameLabel.text = self.nameArray[2];
-            cell.imageIV.image = [UIImage imageNamed:self.imageArray[2]];
-        }
-        break;
-        
-        case 2:
-        {
-            cell.nameLabel.text = self.nameArray[3];
-            cell.imageIV.image = [UIImage imageNamed:self.imageArray[3]];
-        }
-        break;
-        
-        case 3:
-        {
-            cell.nameLabel.text = self.nameArray[4];
-            cell.imageIV.image = [UIImage imageNamed:self.imageArray[4]];
-        }
-        break;
-    }
-    
+    ZZMyInfoModel *model = self.rowDatas[indexPath.section][indexPath.row];
+            cell.nameLabel.text = model.text;
+            cell.imageIV.image = [UIImage imageNamed:model.iconName];
+   
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    switch (indexPath.section) {
-        case 0:
-        {
-            
-            if (indexPath.row) {
-                ZZLog(@"接单接单");
-                ZZMyAllActivityTVC *myActivityTvc = [[ZZMyAllActivityTVC alloc]initWithNib];
-                [self.navigationController pushViewController:myActivityTvc animated:YES];
-            }else{
-                ZZLog(@"订单订单");
-                ZZMyOrderTVC *orderTvc = [[ZZMyOrderTVC alloc]initWithNib];
-                [self.navigationController pushViewController:orderTvc animated:YES];
-            }
-            
-        }
-        break;
-        
-        case 1:
-        {
-            
-        }
-        break;
-        
-        case 2:
-        {
-            
-        }
-        break;
-        
-        case 3:
-        {
-            
-        }
-        break;
-    }
+      ZZMyInfoModel *model = self.rowDatas[indexPath.section][indexPath.row];
+           
+    UIViewController *vc = [[model.classType alloc]init];
+    [self.navigationController pushViewController:vc animated:YES];
     
 }
 
@@ -221,17 +184,7 @@
     [self.navigationController pushViewController:mycollectVc animated:YES];
 }
 
-- (IBAction)gotoEvent:(UIButton *)sender {
-    ZZLog(@"活动活动");
-    ZZMyEventVC *myEventVc = [[ZZMyEventVC alloc]initWithNib];
-    [self.navigationController pushViewController:myEventVc animated:YES];
-}
 
-- (IBAction)gotoCommunity:(UIButton *)sender {
-    ZZLog(@"社区社区");
-    ZZCommunityTVC *communityTvc = [[ZZCommunityTVC alloc]initWithNib];
-    [self.navigationController pushViewController:communityTvc animated:YES];
-}
 
 - (IBAction)gotoAttentionView:(UIButton *)sender {
     ZZLog(@"关注关注");
@@ -250,25 +203,29 @@
     return _sheet;
 }
 
-- (NSArray *)nameArray {
-    if (!_nameArray) {
-        _nameArray = @[@"我的订单",@"我的服务",@"我的金币",@"我的社区",@"申请达人"];
+
+-(NSArray *)rowDatas{
+    if (_rowDatas == nil) {
+        //第一个分区
+        NSMutableArray *farray = [NSMutableArray  array];
+        ZZMyInfoModel *order = [ZZMyInfoModel  myInfoModelWithText:@"我的订单" iconName:@"accept_40x40" classType:[ZZMyAllActivityTVC class ]];
+        [farray  addObject:order];
+        ZZMyInfoModel *serve = [ZZMyInfoModel  myInfoModelWithText:@"我的服务" iconName:@"accept_40x40" classType:[ZZMyOrderTVC class ]];
+        [farray  addObject:serve];
+         //第二个分区
+        NSMutableArray *tarray = [NSMutableArray  array];
+        ZZMyInfoModel *comnumity = [ZZMyInfoModel  myInfoModelWithText:@"我的社区" iconName:@"community_40x40" classType:[ZZCommunityTVC class ]];
+        [tarray  addObject:comnumity];
+        ZZMyInfoModel *gold = [ZZMyInfoModel  myInfoModelWithText:@"我的金币" iconName:@"coin_40x40" classType:[ZZMyGoldVC class ]];
+        [tarray  addObject:gold];
+        
+        ZZMyInfoModel *apply = [ZZMyInfoModel  myInfoModelWithText:@"申请达人" iconName:@"talent_40x40" classType:[ZZApplyVC class ]];
+        [tarray  addObject:apply];
+        
+        _rowDatas = @[farray,tarray];
     }
-    return _nameArray;
+    return _rowDatas;
 }
 
-- (NSArray *)imageArray {
-    if (!_imageArray) {
-        _imageArray = @[@"oder_40x40",@"oder_40x40",@"oder_40x40",@"commnuity_40x40",@"oder_40x40"];
-    }
-    return _imageArray;
-}
-
-- (ZZLoginUser *)loginUser {
-    if (!_loginUser) {
-        _loginUser = [ZZLoginUserTool sharedZZLoginUserTool].loginUser;
-    }
-    return _loginUser;
-}
 
 @end

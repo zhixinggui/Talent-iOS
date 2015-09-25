@@ -27,9 +27,10 @@ PODS:
   - FMDB/standard (2.5):
     - FMDB/common
   - IQKeyboardManager (3.3.2)
+  - LDProgressView (1.2.1)
   - MBProgressHUD (0.9.1)
-  - MJExtension (2.5.10)
-  - MJRefresh (2.4.10)
+  - MJExtension (2.5.12)
+  - MJRefresh (2.4.11)
   - MWPhotoBrowser (2.1.1):
     - DACircularProgress (~> 2.3)
     - MBProgressHUD (~> 0.9)
@@ -43,6 +44,7 @@ DEPENDENCIES:
   - AFNetworking (~> 2.5)
   - FMDB (~> 2.5)
   - IQKeyboardManager (~> 3.2)
+  - LDProgressView (~> 1.2)
   - MBProgressHUD (~> 0.9)
   - MJExtension (~> 2.5)
   - MJRefresh (~> 2.4)
@@ -55,9 +57,10 @@ SPEC CHECKSUMS:
   DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
   FMDB: 96e8f1bcc1329e269330f99770ad4285d9003e52
   IQKeyboardManager: d863eb0bca424d1f6dad6bdd1f856af52664add8
+  LDProgressView: f6afc7c30d2a9edf33001515f3189338567a32d2
   MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
-  MJExtension: 944fb5a12bceb9b866914527f66101566e66292b
-  MJRefresh: e52328552ed9cbfce3501e3820b18bf7643c65cc
+  MJExtension: 5ab633484e431f777387c70b676c80f993361f1b
+  MJRefresh: b327947f35ab3eb16ca42646b26f7347e6aa7186
   MWPhotoBrowser: ba0d0c09ffda3a7ea10093518738c502c1c7141c
   SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84
   UMengAnalytics-NO-IDFA: 601dab9ffe32f9de3fa0a6116768aed18a56f8a9

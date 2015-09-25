@@ -120,82 +120,11 @@ typedef enum {
 -(void)detailFunctionView:(ZZDetailFunctionView *)detaileFunctionView shares:(NSArray *)shares selectedAtIndex:(NSUInteger)index{
 #warning 待完善
     ZZActivity *activity = self.detailActivity;
-    [[ZZUMTool  sharedUMTool]umShareWithTitle:activity.title content:activity.content url:nil imageUrl:activity.servicesImg locialImageName:nil controller:self loginModel:shares[index]];
+    [[ZZUMTool  sharedUMTool]umShareWithTitle:activity.title content:activity.content url:@"http://mengbaopai.smart-kids.com/iosAndroid" imageUrl:activity.servicesImg locialImageName:nil controller:self loginModel:shares[index]];
 }
 
 
-#pragma mark -net
-- (void)getDetailActivity{
-    
-    [MBProgressHUD  showMessage:ZZNetLoading toView:self.view];
-    [ZZActivityHttpTool  activityDetail:self.activityId success:^(ZZActivity *detailActivity, ZZNetDataType netSuccType) {
-        
-        if(detailActivity.isDelete){//这个服务是否已经删除
-            [MBProgressHUD  hideHUDForView:self.view animated:YES];
-            [MBProgressHUD  showMessageClearBackView:@"此服务已删除" toView:self.view];
-        }else{
-            self.detailActivity = detailActivity;
-            [self  setRightItem];
-            [self  setUpChild];
-             [MBProgressHUD  hideHUDForView:self.view animated:YES];
-        }
-     
-       
-    } failure:^(NSString *error, ZZNetDataType netFialType) {
-       
-         [MBProgressHUD  hideHUDForView:self.view animated:YES];
-        //提示加载失败并点击重新加载
-        [MBProgressHUD showNetLoadFailWithText:@"加载失败，点击重新加载" view:self.view target:self action: @selector(getDetailActivity) isBack:NO];
-    }];
-}
-//预定
-- (void)booking:(UIButton *)btn{
-    
-    btn.enabled = NO;
-    UIAlertView *alertView = [[UIAlertView  alloc]initWithTitle:nil message:@"你确定要报名这个活动吗" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
-    [alertView show];
-    
 
-}
-
-- (void)bookingActivity{
-    [MBProgressHUD  showMessage:ZZNetLoading ];
-    [ZZActivityHttpTool  activityBook:self.activityId success:^(ZZOrder *order, ZZNetDataType netSuccType) {
-        [MBProgressHUD  hideHUD];
-        self.applyBtn.enabled = YES;
-        
-        ZZEnsureOrderController *ensureVC = [[ZZEnsureOrderController  alloc]init];
-        order.serviceBasicInfo = self.detailActivity;
-        ensureVC.order = order;
-     
-        [self.navigationController  pushViewController:ensureVC animated:YES];
-        self.detailActivity.isReserve = YES;
-        [self updateBookingButtonProterty];
-    } failure:^(NSString *error, ZZNetDataType netFialType) {
-        [MBProgressHUD  hideHUD];
-        [ZZHudView  showMessage:error time:3 toView:self.view];
-        self.applyBtn.enabled = YES;
-    }];
-}
-/**
- *  收藏
- *
- *  @param btn <#btn description#>
- */
-- (void)collect:(UIButton *)btn{
-    //btn.enabled = NO;
-    
-    [ZZActivityHttpTool  activityCollect:self.activityId collect:!self.detailActivity.isCollect success:^(id json, ZZNetDataType netSuccType) {
-        self.detailActivity.isCollect = !self.detailActivity.isCollect;
-        NSString *tips = self.detailActivity.isCollect ? @"收藏成功":@"取消收藏成功";
-        [ZZHudView  showMessage:tips time:1 toView:self.view];
-        btn.enabled = YES;
-        [self  updateCollectButtonProterty];
-    } failure:^(NSString *error, ZZNetDataType netFialType) {
-        btn.enabled = YES;
-        [ZZHudView  showMessage:error time:2 toView:self.view];
-    }];
-}
 - (void)updateCollectButtonProterty{
     self.collectBtn.selected = self.detailActivity.isCollect;
 }
@@ -239,6 +168,79 @@ typedef enum {
     UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:self.photoBrowser];
     nc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     [[UIApplication  sharedApplication].keyWindow.rootViewController presentViewController:nc animated:YES completion:nil];
+}
+
+#pragma mark -net
+- (void)getDetailActivity{
+    
+    [MBProgressHUD  showMessage:ZZNetLoading toView:self.view];
+    [ZZActivityHttpTool  activityDetail:self.activityId success:^(ZZActivity *detailActivity, ZZNetDataType netSuccType) {
+        
+        if(detailActivity.isDelete){//这个服务是否已经删除
+            [MBProgressHUD  hideHUDForView:self.view animated:YES];
+            [MBProgressHUD  showMessageClearBackView:@"此服务已删除" toView:self.view];
+        }else{
+            self.detailActivity = detailActivity;
+            [self  setRightItem];
+            [self  setUpChild];
+            [MBProgressHUD  hideHUDForView:self.view animated:YES];
+        }
+        
+        
+    } failure:^(NSString *error, ZZNetDataType netFialType) {
+        
+        [MBProgressHUD  hideHUDForView:self.view animated:YES];
+        //提示加载失败并点击重新加载
+        [MBProgressHUD showNetLoadFailWithText:@"加载失败，点击重新加载" view:self.view target:self action: @selector(getDetailActivity) isBack:NO];
+    }];
+}
+//预定
+- (void)booking:(UIButton *)btn{
+    
+    btn.enabled = NO;
+    UIAlertView *alertView = [[UIAlertView  alloc]initWithTitle:nil message:@"你确定要报名这个活动吗" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+    [alertView show];
+    
+    
+}
+
+- (void)bookingActivity{
+    [MBProgressHUD  showMessage:ZZNetLoading ];
+    [ZZActivityHttpTool  activityBook:self.activityId success:^(ZZOrder *order, ZZNetDataType netSuccType) {
+        [MBProgressHUD  hideHUD];
+        self.applyBtn.enabled = YES;
+        
+        ZZEnsureOrderController *ensureVC = [[ZZEnsureOrderController  alloc]init];
+        order.serviceBasicInfo = self.detailActivity;
+        ensureVC.order = order;
+        
+        [self.navigationController  pushViewController:ensureVC animated:YES];
+        self.detailActivity.isReserve = YES;
+        [self updateBookingButtonProterty];
+    } failure:^(NSString *error, ZZNetDataType netFialType) {
+        [MBProgressHUD  hideHUD];
+        [ZZHudView  showMessage:error time:3 toView:self.view];
+        self.applyBtn.enabled = YES;
+    }];
+}
+/**
+ *  收藏
+ *
+ *  @param btn <#btn description#>
+ */
+- (void)collect:(UIButton *)btn{
+    //btn.enabled = NO;
+    
+    [ZZActivityHttpTool  activityCollect:self.activityId collect:!self.detailActivity.isCollect success:^(id json, ZZNetDataType netSuccType) {
+        self.detailActivity.isCollect = !self.detailActivity.isCollect;
+        NSString *tips = self.detailActivity.isCollect ? @"收藏成功":@"取消收藏成功";
+        [ZZHudView  showMessage:tips time:1 toView:self.view];
+        btn.enabled = YES;
+        [self  updateCollectButtonProterty];
+    } failure:^(NSString *error, ZZNetDataType netFialType) {
+        btn.enabled = YES;
+        [ZZHudView  showMessage:error time:2 toView:self.view];
+    }];
 }
 -(void)dealloc{
     //打开键盘向上
