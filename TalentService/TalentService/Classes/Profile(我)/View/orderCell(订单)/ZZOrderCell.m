@@ -9,11 +9,12 @@
 #import "ZZOrderCell.h"
 
 @interface ZZOrderCell ()
+@property (weak, nonatomic) IBOutlet UIButton *cancelBT;
 @property (weak, nonatomic) IBOutlet UIImageView *headIV;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *statusLabel;
-
+//@property (nonatomic)ZZOrderStatus orderStatus;
 
 @end
 
@@ -27,55 +28,64 @@
 }
 
 - (void)awakeFromNib {
-    // Initialization code
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+    self.headIV.contentMode = UIViewContentModeScaleAspectFill;
+    self.headIV.clipsToBounds = YES;
 }
 
 #pragma mark - Setters andGetters
 - (void)setOrder:(ZZOrder *)order {
+    self.cancelBT.hidden = NO;
     _order = order;
     self.titleLabel.text = order.title;
-    self.priceLabel.text = [NSString stringWithFormat:@"%ld",order.price];
+    self.priceLabel.text = [NSString stringWithFormat:@"%@",order.price];
     switch (order.status) {
-        case 1:
+        case ZZOrderStatusNotPaid:
             self.statusLabel.text = @"未支付";
+
             break;
-        case 2:
+        case ZZOrderStatusPaid:
             self.statusLabel.text = @"已支付";
+
             break;
-        case 3:
+        case ZZOrderStatusComplete:
             self.statusLabel.text = @"已参加";
+
             break;
-        case 4:
+        case ZZOrderStatusExpired:
             self.statusLabel.text = @"已过期";
+
             break;
-        case 5:
+        case ZZOrderStatusEvaluation:
             self.statusLabel.text = @"已评价";
+
             break;
-        case 6:
+        case ZZOrderStatusRefund:
             self.statusLabel.text = @"已退款";
+
             break;
-        case 7:
+        case ZZOrderStatusCancel:
             self.statusLabel.text = @"已取消";
             break;
-            
-        default:
-            break;
+
     }
     
-    if (order.status == 1 && order.status == 7) {
+    if (order.status == ZZOrderStatusNotPaid) {
         [self.cancelBT setTitle:@"立即支付"];
-    }else if (order.status == 2 && order.status == 4) {
+    }else if (order.status == ZZOrderStatusPaid || order.status == ZZOrderStatusExpired) {
         [self.cancelBT setTitle:@"申请退款"];
-    }else if (order.status == 3) {
+    }else if (order.status == ZZOrderStatusComplete) {
         [self.cancelBT setTitle:@"立即评价"];
-    }else if (order.status == 5) {
-        [self.cancelBT setTitle:@"申请退款"];
+    }else {
+        self.cancelBT.hidden = YES;
+    }
+    [self.headIV  setPictureImageWithURL:order.servicesImg];
+}
+
+//订单按钮响应事件
+- (IBAction)didClickOnCaneclButton:(UIButton *)sender {
+    
+    if ([self.delegate respondsToSelector:@selector(didClickOnCell:andOrderStatus:)]) {
+        [self.delegate didClickOnCell:self andOrderStatus:self.order.status];
     }
     
 }

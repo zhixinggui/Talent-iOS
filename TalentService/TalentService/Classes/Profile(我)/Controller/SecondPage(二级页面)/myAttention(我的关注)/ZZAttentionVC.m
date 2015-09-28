@@ -54,7 +54,7 @@
         [MBProgressHUD  hideHUDForView:self.view];
         self.attResult = attResult;
         if (self.attResult.rows.count == 0) {
-            [MBProgressHUD showMessageClearBackView:@"你还没有关注任何朋友" toView:self.view];
+            //[MBProgressHUD showMessageClearBackView:@"你还没有关注任何朋友" toView:self.view];
         }
         if (typeNum) {
             [self.expertArray removeAllObjects];

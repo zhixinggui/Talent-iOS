@@ -52,7 +52,7 @@
     CGFloat moneyY = CGRectGetMidY(titleLabel.frame);
   
     UILabel *moneyLabel = [[UILabel  alloc]initWithFrame:CGRectMake(moneyX, moneyY, moneyW, moneyH)];
-    moneyLabel.text =   [self.order showPrice:self.order.servicePrice];
+   // moneyLabel.text =   [self.order showPrice:self.order.servicePrice];
     moneyLabel.textColor = ZZNatiBarColor;
     moneyLabel.font = ZZTitleFont;
     [self  addSubview:moneyLabel];
@@ -75,7 +75,7 @@
   self.phoneShowView =   [self  setUpShowView:@"手机号：" content:self.order.phone];
      [self  setUpShowView:@"活动时间：" content:activity.startTime];
      [self  setUpShowView:@"活动地点：" content:activity.address];
-     [self  setUpShowView:@"金额：" content:[self.order showPrice:self.order.price]];
+   //  [self  setUpShowView:@"金额：" content:[self.order showPrice:self.order.price]];
 
     self.contentSize = CGSizeMake(0, self.toalheight);
 }

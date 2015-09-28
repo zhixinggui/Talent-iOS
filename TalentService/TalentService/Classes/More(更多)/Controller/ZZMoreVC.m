@@ -11,6 +11,7 @@
 #import "ZZMoreName.h"
 #import "UIImageView+WebCache.h"
 #import "ZZFeedbackVC.h"
+#import "ZZMoreExplainVC.h"
 @interface ZZMoreVC ()<UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *moreTableView;
 @property (strong, nonatomic) IBOutlet UIButton *cacheButton;
@@ -61,6 +62,10 @@
             break;
             
         default:
+        {
+            ZZMoreExplainVC *moreExplainVc = [[ZZMoreExplainVC alloc]initWithNib];
+            [self.navigationController pushViewController:moreExplainVc animated:YES];
+        }
             break;
     }
     
