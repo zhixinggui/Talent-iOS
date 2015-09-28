@@ -1,23 +1,22 @@
 //
-//  ZZFeedbackVC.m
+//  ZZMoreExplainVC.m
 //  TalentService
 //
-//  Created by charles on 15/9/10.
-//  Copyright (c) 2015年 zhizhen. All rights reserved.
+//  Created by charles on 15/9/25.
+//  Copyright © 2015年 zhizhen. All rights reserved.
 //
 
-#import "ZZFeedbackVC.h"
-#import "ZZIQKeyBoardTool.h"
-@interface ZZFeedbackVC ()
+#import "ZZMoreExplainVC.h"
+
+@interface ZZMoreExplainVC ()
 
 @end
 
-@implementation ZZFeedbackVC
+@implementation ZZMoreExplainVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    ZZKeyBoardTool(close);
-    [self setTitle:@"意见反馈"];
+    // Do any additional setup after loading the view from its nib.
 }
 
 - (void)didReceiveMemoryWarning {

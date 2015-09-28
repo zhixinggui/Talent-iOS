@@ -40,8 +40,9 @@
         [MBProgressHUD  hideHUDForView:self.view];
         ZZLog(@"啥数据啊:%@",result);
         self.result = result;
-        if (self.result.rows.count == 0) {
-            [MBProgressHUD showMessageClearBackView:@"你还没有添加服务收藏" toView:self.view];
+      if (self.result.rows.count == 0) {
+            
+            [MBProgressHUD showMessageClearBackView:@"你还没有添加服务收藏" toView:self.view ];
         }
         [self.activityArray  removeAllObjects];
         [self.activityArray addObjectsFromArray:result.rows];

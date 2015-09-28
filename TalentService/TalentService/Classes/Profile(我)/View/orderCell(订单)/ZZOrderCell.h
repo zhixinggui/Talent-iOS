@@ -8,13 +8,16 @@
 
 #import <UIKit/UIKit.h>
 #import "ZZOrder.h"
-
 #define orderCelldentifier @"orderCelldentifier"
+@class ZZOrderCell;
+
+@protocol ZZOrderCellDelegate <NSObject>
+
+- (void)didClickOnCell:(ZZOrderCell *)orderCell andOrderStatus:(ZZOrderStatus)orderStatus;
+
+@end
+
 @interface ZZOrderCell : UITableViewCell
 @property (nonatomic , strong) ZZOrder *order;
-@property (weak, nonatomic) IBOutlet UIButton *cancelBT;
-@property (weak, nonatomic) IBOutlet UIButton *goodBT;
-@property (weak, nonatomic) IBOutlet UIButton *badBT;
-
-
+@property (nonatomic ,weak) id<ZZOrderCellDelegate>delegate;
 @end

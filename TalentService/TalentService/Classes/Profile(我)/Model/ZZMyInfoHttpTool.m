@@ -127,7 +127,7 @@
     param.cmd = @"smart/order/getMyOrder";
     param.token = [ZZLoginUserTool sharedZZLoginUserTool].loginUser.token;
     NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithCapacity:4];
-    if (status) {
+    if (status.length) {
         [dic setValue:status forKey:@"status"];
     }
     [dic setValue:@(QueryType) forKey:@"queryType"];

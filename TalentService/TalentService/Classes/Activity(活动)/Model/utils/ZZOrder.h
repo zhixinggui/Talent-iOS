@@ -14,9 +14,11 @@
 /**服务标题*/
 @property (nonatomic, copy)NSString *title;
 /**订单状态*/
-@property (nonatomic) NSInteger status;
+@property (nonatomic) ZZOrderStatus status;
 /**是否使用金币*/
 @property (nonatomic) BOOL isGold;
+/**订单id*/
+@property (nonatomic) NSInteger orderId;
 /**服务id*/
 @property (nonatomic) NSInteger serviceId;
 /**金币数量*/
@@ -35,6 +37,8 @@
 @property (nonatomic) NSUInteger userId;
 /**电话*/
 @property (nonatomic, copy)NSString *phone;
+/**服务图片*/
+@property (nonatomic, copy)NSString *servicesImg;
 
 @property (nonatomic, strong)ZZActivity *serviceBasicInfo;
 /**服务价格*/

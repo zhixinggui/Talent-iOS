@@ -21,6 +21,32 @@ typedef enum {
     ZZNetDataTypeFailNet,//业务逻辑失败
     ZZNetDataTypeFailLocal//本地返回失败
 }ZZNetDataType;
+
+typedef  enum{
+    ZZOrderTypeAll = 1,//全部
+    ZZOrderTypeNoPay,//未支付
+    ZZOrderTypeDidPay,//已支付
+    ZZOrderTypeDidJoin,//已参加
+    ZZOrderTypeDidPast,//已过期
+}ZZOrderType;
+
+typedef enum {
+    /**未支付*/
+    ZZOrderStatusNotPaid = 1,
+    /**已支付*/
+    ZZOrderStatusPaid,
+    /**已参加*/
+    ZZOrderStatusComplete,
+    /**已过期*/
+    ZZOrderStatusExpired,
+    /**已评价*/
+    ZZOrderStatusEvaluation,
+    /**已退款*/
+    ZZOrderStatusRefund,
+    /**已取消*/
+    ZZOrderStatusCancel,
+}ZZOrderStatus;
+
 /**网络请求地址*/
 extern  NSString * const baseUrl ;//请求的基本网址
 /**网络请求时长*/

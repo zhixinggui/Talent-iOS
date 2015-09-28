@@ -11,7 +11,7 @@
 #import "ZZCommunityTVC.h"
 #import "ZZAttentionVC.h"
 #import "ZZMessageTVC.h"
-#import "ZZMyOrderTVC.h"
+#import "ZZMyOrderVC.h"
 #import "ZZInfoDetailVC.h"
 #import "ZZInfoModifyVC.h"
 #import "ZZInfoCell.h"
@@ -208,9 +208,9 @@
     if (_rowDatas == nil) {
         //第一个分区
         NSMutableArray *farray = [NSMutableArray  array];
-        ZZMyInfoModel *order = [ZZMyInfoModel  myInfoModelWithText:@"我的订单" iconName:@"accept_40x40" classType:[ZZMyAllActivityTVC class ]];
+        ZZMyInfoModel *order = [ZZMyInfoModel  myInfoModelWithText:@"我的订单" iconName:@"accept_40x40" classType:[ZZMyOrderVC class ]];
         [farray  addObject:order];
-        ZZMyInfoModel *serve = [ZZMyInfoModel  myInfoModelWithText:@"我的服务" iconName:@"accept_40x40" classType:[ZZMyOrderTVC class ]];
+        ZZMyInfoModel *serve = [ZZMyInfoModel  myInfoModelWithText:@"我的服务" iconName:@"accept_40x40" classType:[ZZMyAllActivityTVC class ]];
         [farray  addObject:serve];
          //第二个分区
         NSMutableArray *tarray = [NSMutableArray  array];

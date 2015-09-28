@@ -163,18 +163,19 @@
     hud.labelText = message;
     // YES代表需要蒙版效果
     hud.dimBackground = NO;
-  
 }
 + (void)showMessageClearBackView:(NSString *)message toView:(UIView *)view   yoffest:(CGFloat )y{
     if (view == nil) view = [[UIApplication sharedApplication] keyWindow];
     // 快速显示一个提示信息
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
+    hud.yOffset = y;
     // 再设置模式
     hud.y = y;
     hud.height -= y;
+
     hud.labelColor = ZZDarkGrayColor;
     hud.mode = MBProgressHUDModeText;
-    hud.color = [UIColor  clearColor];
+    hud.backgroundColor = [UIColor  redColor];
     hud.labelText = message;
     // YES代表需要蒙版效果
     hud.dimBackground = NO;
