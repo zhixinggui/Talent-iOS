@@ -190,10 +190,9 @@ static AFHTTPRequestOperationManager  *_manager;
                     failure:(ErrorBlock)Failure{
     
     [_manager POST:apiName parameters:[param  keyValues] constructingBodyWithBlock:^(id formData) {
-        for (ZZFileParam *fileParam in fileParams) {
-            
-            [formData  appendPartWithFileData:fileParam.data name:fileParam.name fileName:fileParam.fileName mimeType:fileParam.mimeType];
-        }
+    
+        
+        
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {
        
         [self  managerOriginJsonData:responseObject serverSuccess:^(id json) {

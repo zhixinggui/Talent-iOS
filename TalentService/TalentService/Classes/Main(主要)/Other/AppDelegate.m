@@ -29,11 +29,11 @@
     self.window.backgroundColor = [UIColor whiteColor];
    
 
-    if (ZZLoginTool.loginToken.length) {
+  //  if (ZZLoginTool.loginToken.length) {
         [self  swithWindowRootViewController:ZZRootViewControllerTypeHome];
-    }else{
-        [self  swithWindowRootViewController:ZZRootViewControllerTypeLogin];
-    }
+//    }else{
+//        [self  swithWindowRootViewController:ZZRootViewControllerTypeLogin];
+//    }
 
     
     [self.window makeKeyAndVisible];

@@ -24,6 +24,7 @@
     [self.tableView registerNib:nib forCellReuseIdentifier:communityCelldentifier];
 
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tableView.rowHeight = 280.0;
 }
 
 #pragma mark - Table view data source
@@ -37,8 +38,8 @@
     return cell;
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 280.0;
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView  deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 @end

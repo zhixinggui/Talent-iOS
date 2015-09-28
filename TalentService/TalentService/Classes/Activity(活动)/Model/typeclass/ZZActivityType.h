@@ -10,5 +10,6 @@
 #import "ZZFunctionShowRule.h"
 @interface ZZActivityType : NSObject<ZZSelectorViewShowDele>
 @property (nonatomic, copy)NSString *typeName;
+@property (nonatomic) NSInteger typeNumber;
 + (NSArray *)arrays;
 @end

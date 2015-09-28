@@ -10,7 +10,12 @@
 #import "ZZActivity.h"
 #import "ZZOrder.h"
 #import "ZZActivityConmitParam.h"
+#import "ZZActivityListParam.h"
+#import "ZZActivityListResult.h"
 @interface ZZActivityHttpTool : NSObject
+
+/**服务模块列表*/
++ (void)activityList: (ZZActivityListParam *)listParam success:(void(^)(ZZActivityListResult *listResult ,ZZNetDataType  netSuccType))succ failure:(void(^)(NSString *error, ZZNetDataType  netFailType))fail;
 
 /**服务详情*/
 + (void)activityDetail:(NSInteger)activityID  success:(void(^)(ZZActivity *detailActivity,  ZZNetDataType  netSuccType ))succ  failure:(void(^)(NSString *error , ZZNetDataType  netFialType))fail;

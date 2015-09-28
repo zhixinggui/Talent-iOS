@@ -33,7 +33,7 @@ static   NSUInteger const HomeNumCount = 10;
    //设置tableview的相关属性
     [self setUpTableView];
     
-    [self  setUpRightBarItem];
+   // [self  setUpRightBarItem];
     
     [self  getNetData];
 
@@ -128,7 +128,7 @@ static   NSUInteger const HomeNumCount = 10;
         if (self.lastParam != homeParam) {
             return ;
         }
-         [MBProgressHUD  showError:error];
+         [MBProgressHUD  showError:error  toView:self.view];
         self.lastParam = nil;
       
     }];
@@ -155,7 +155,7 @@ static   NSUInteger const HomeNumCount = 10;
         if (self.lastParam != homeParam) {
             return ;
         }
-        [MBProgressHUD  showError:error];
+        [MBProgressHUD  showError:error toView:self.view];
     }];
 }
 #pragma mark -lazy load

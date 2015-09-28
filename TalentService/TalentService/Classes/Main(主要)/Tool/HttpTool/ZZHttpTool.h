@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "ZZParam.h"
-#import "ZZFileParam.h"
+
 #import "ZZLoginUserTool.h"
 typedef void(^SuccessBlock)(id json);
 typedef void(^ErrorBlock)(NSString *error, ZZNetDataType  netDataType);

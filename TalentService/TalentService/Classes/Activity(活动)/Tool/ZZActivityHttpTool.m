@@ -10,6 +10,24 @@
 #import "ZZHttpTool.h"
 
 @implementation ZZActivityHttpTool
+
+/**服务模块列表*/
++ (void)activityList: (ZZActivityListParam *)listParam success:(void(^)(ZZActivityListResult *listResult ,ZZNetDataType  netSuccType))succ failure:(void(^)(NSString *error, ZZNetDataType  netFailType))fail {
+    
+    ZZParam *param = [[ZZParam  alloc]init];
+    param.cmd = @"smart/services/getPage";
+    param.parameters = [listParam  keyValues];
+    
+    [ZZHttpTool  afPostByApiName:@"" Params:param success:^(id json) {
+        
+        ZZActivityListResult *listResult = [ZZActivityListResult  objectWithKeyValues:json];
+        succ(listResult,ZZNetDataTypeSuccServer);
+    } failure:^(NSString *error, ZZNetDataType netDataType) {
+        
+        fail(error,netDataType);
+    }];
+}
+
 + (void)activityDetail:(NSInteger)activityID  success:(void(^)(ZZActivity *detailActivity,  ZZNetDataType  netSuccType ))succ  failure:(void(^)(NSString *error , ZZNetDataType  netFialType))fail{
     
     ZZParam *param = [[ZZParam  alloc]init];

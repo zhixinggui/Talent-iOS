@@ -9,7 +9,7 @@
 #import "ZZActivity.h"
 #import "ZZOtherUser.h"
 #import "ZZImageContent.h"
-
+#import "NSObject+ZZDataLogic.h"
 @implementation ZZActivity
 #pragma mark - 解析
 +(NSDictionary *)replacedKeyFromPropertyName{
@@ -45,7 +45,7 @@ _servicesBigImg = [[servicesImg  stringByAppendingString:ZZImageUrlOrigin(YES)]s
 
 -(void)setPrice:(NSString *)price{
     
-    _price = [self  dealNumber:price];
+    _price = [NSString  dealFreePrice:price];
 }
 
 -(NSString *)detailRule{
@@ -70,24 +70,7 @@ _servicesBigImg = [[servicesImg  stringByAppendingString:ZZImageUrlOrigin(YES)]s
     }
     return _detailRule;
 }
-/**价格转换*/
-- (NSString *)dealNumber:(NSString *)sourceNumber
-{
-    
-    NSString *str = sourceNumber ;
-    if ([sourceNumber  safeString] && [sourceNumber doubleValue]) {
-        // 小数点的位置
-        NSUInteger dotIndex = [str rangeOfString:@"."].location;
-        if (dotIndex != NSNotFound && str.length - dotIndex > 2) { // 小数超过2位
-            str = [str substringToIndex:dotIndex + 3];
-        }
-        return str;
-    }else{
-        return @"免费";
-    }
-    
-  
-}
+
 /**日期转换*/
 - (NSString *)dealYearDate:(NSString *)originDate{
     NSDateFormatter *fmt = [[NSDateFormatter alloc] init];

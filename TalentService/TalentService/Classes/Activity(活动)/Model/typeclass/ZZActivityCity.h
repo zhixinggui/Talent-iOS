@@ -10,6 +10,6 @@
 #import "ZZFunctionShowRule.h"
 @interface ZZActivityCity : NSObject<ZZSelectorViewShowDele>
 @property (nonatomic, copy)NSString *cityName;
-
+@property (nonatomic) NSInteger cityNumber;
 + (NSArray *)arrays;
 @end

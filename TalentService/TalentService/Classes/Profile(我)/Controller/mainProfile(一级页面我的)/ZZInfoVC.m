@@ -24,7 +24,7 @@
 #import "ZZApplyVC.h"
 #import "ZZMyGoldVC.h"
 #import "LDProgressView.h"
-
+#import "UIBarButtonItem+Extension.h"
 /**
  *  我的页面请求
  */
@@ -57,9 +57,10 @@
     //初始化tableview
     [self initTableView];
     //右Button
-    [self setNavRightItemWithName:@"消息" target:self action:@selector(messageAction:)];
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem  itemWithTarget:self action:@selector(messageAction:) image:@"message2_30x30" highImage:nil];
     //左Button
-    [self setNavLeftItemWithName:@"设置" target:self action:@selector(settingAction:)];
+    self.navigationItem.leftBarButtonItem = [UIBarButtonItem  itemWithTarget:self action:@selector(settingAction:) image:@"set_30x30" highImage:nil];
+ 
     //赋值
     [self selfInformation];
     //通知
@@ -77,17 +78,16 @@
     self.infoTableView.rowHeight = 50;
  
 }
-
-//请求数据赋值
-- (void)selfInformation {
-    ZZLoginUser *user = ZZLoginTool.loginUser;
-    self.nameLabel.text = user.userNike;
-    ZZUserRole *userRole = user.userRole[0];
-    self.roleLabel.text = userRole.eredarName;
-    self.fansCount.text = [NSString stringWithFormat:@"Fans%ld",user.fans];
+-(void)awakeFromNib{
+    //星星
+    self.starView.maximumValue = 5;
+    self.starView.minimumValue = 0;
+    self.starView.allowsHalfStars = NO;
+    self.starView.spacing = 5;
+    self.starView.tintColor = [UIColor  blueColor];
+    
     self.progressView.color = [UIColor colorWithRed:0.00f green:0.64f blue:0.00f alpha:1.00f];
     self.progressView.flat = @YES;
-    self.progressView.progress = 0.40;
     self.progressView.animate = @YES;
     self.progressView.showText = @NO;
     self.progressView.showStroke = @NO;
@@ -95,6 +95,20 @@
     self.progressView.showBackground = @NO;
     self.progressView.outerStrokeWidth = @3;
     self.progressView.type = LDProgressSolid;
+}
+//请求数据赋值
+- (void)selfInformation {
+    ZZLoginUser *user = ZZLoginTool.loginUser;
+    self.nameLabel.text = user.userNike;
+    //星星
+
+    self.starView.value = 4;
+  
+    ZZUserRole *userRole = user.userRole[0];
+    self.roleLabel.text = userRole.eredarName;
+    self.fansCount.text = [NSString stringWithFormat:@"Fans(%ld)",user.fans];
+    //经验值进度条
+    self.progressView.progress = 0.40;
 }
 
 //监听通知
@@ -111,20 +125,6 @@
     self.nameLabel.text = user.userNike;
 }
 
-/**
- *  navigation右button
- */
-- (void)setNavRightItemWithName:(NSString *)name target:(id)target action:(SEL)action {
-    UIBarButtonItem *rightBarItem = [[UIBarButtonItem  alloc]initWithTitle:name style:UIBarButtonItemStyleDone target:target action:action];
-    self.navigationItem.rightBarButtonItem = rightBarItem;
-}
-/**
- *  navigation左button
- */
-- (void)setNavLeftItemWithName:(NSString *)name target:(id)target action:(SEL)action {
-    UIBarButtonItem *leftBarItem = [[UIBarButtonItem  alloc]initWithTitle:name style:UIBarButtonItemStyleDone target:target action:action];
-    self.navigationItem.leftBarButtonItem = leftBarItem;
-}
 
 //右button响应事件
 - (void)messageAction:(UIButton*)sender {

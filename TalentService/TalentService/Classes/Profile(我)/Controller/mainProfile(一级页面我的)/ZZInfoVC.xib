@@ -13,6 +13,7 @@
                 <outlet property="infoIV" destination="qta-VE-Uke" id="XrW-3E-z5E"/>
                 <outlet property="infoTableView" destination="iRf-jQ-hHJ" id="C1b-7I-FEJ"/>
                 <outlet property="nameLabel" destination="4LX-7A-IiL" id="GGn-Ck-zVg"/>
+                <outlet property="progressView" destination="Ran-hq-RG6" id="VLM-Ab-1AK"/>
                 <outlet property="roleLabel" destination="ZZs-Ds-y3L" id="kqC-wo-r9U"/>
                 <outlet property="starView" destination="HVf-O7-OIr" id="vib-wf-0kB"/>
                 <outlet property="tableHeadView" destination="3Ud-jI-0s5" id="Myu-qV-rF4"/>
@@ -240,7 +241,7 @@
                 </button>
                 <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HVf-O7-OIr" customClass="HCSStarRatingView">
                     <rect key="frame" x="137" y="229" width="100" height="21"/>
-                    <color key="backgroundColor" red="1" green="1" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="100" id="SjB-v6-Tet"/>
                     </constraints>

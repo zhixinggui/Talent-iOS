@@ -10,5 +10,6 @@
 #import "ZZFunctionShowRule.h"
 @interface ZZActivityStatus : NSObject<ZZSelectorViewShowDele>
 @property (nonatomic, copy)NSString *statusName;
+@property (nonatomic) ZZActivityStatusType statusNumber;
 + (NSArray *)arrays;
 @end

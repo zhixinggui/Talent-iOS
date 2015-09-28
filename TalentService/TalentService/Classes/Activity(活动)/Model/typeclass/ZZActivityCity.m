@@ -17,9 +17,27 @@
     
     NSMutableArray *array = [NSMutableArray array];
     
-    for (int i = 0; i < 20; i++) {
+    for (int i = 0; i < 4; i++) {
         ZZActivityCity *city = [[ZZActivityCity  alloc]init];
-        city.cityName = [ NSString  stringWithFormat:@"北京%d",i];
+        switch (i) {
+            case 0:
+                city.cityName = @"全部";
+                
+                break;
+            case 1:
+                city.cityName = @"北京";
+                city.cityNumber = 120100;
+                break;
+            case 2:
+                city.cityName = @"上海";
+                city.cityNumber = 120100;
+                break;
+            case 3:
+                city.cityName = @"广州";
+                city.cityNumber = 120100;
+                break;
+                
+        }
         [array  addObject:city];
     }
     return array;

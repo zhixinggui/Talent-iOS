@@ -15,12 +15,10 @@
 @property (nonatomic, strong)NSNumber *numberOfPerPage;
 /**pageNo*/
 @property (nonatomic, strong)NSNumber *pageNo;
-/** 省*/
-@property (nonatomic, strong)NSNumber *province;
+
 /**市*/
 @property (nonatomic, strong)NSNumber *city;
-/**区*/
-@property (nonatomic, strong)NSNumber *district;
+
 /** 类型*/
 @property (nonatomic, strong)NSNumber *type;
 /**状态*/

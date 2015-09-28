@@ -21,6 +21,13 @@ typedef enum {
     ZZNetDataTypeFailNet,//业务逻辑失败
     ZZNetDataTypeFailLocal//本地返回失败
 }ZZNetDataType;
+
+typedef enum {
+    ZZActivityStatusTypeAll= 1,//未开始
+   ZZActivityStatusTypeNoStart,//未开始
+    ZZActivityStatusTypeDidStart ,//已开始
+    ZZActivityStatusTypeDidEnd//已结束
+}ZZActivityStatusType;
 /**网络请求地址*/
 extern  NSString * const baseUrl ;//请求的基本网址
 /**网络请求时长*/

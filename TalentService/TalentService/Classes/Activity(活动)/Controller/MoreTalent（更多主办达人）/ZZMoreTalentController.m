@@ -21,6 +21,7 @@
    self.title = @"更多达人";
     self.tableView.separatorInset = UIEdgeInsetsMake(0, 15, 0, 15);
     self.tableView.rowHeight = [ZZStarTableViewCell  starCellHeight];
+    
 }
 
 
@@ -33,12 +34,17 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     ZZStarTableViewCell *cell = [ZZStarTableViewCell  starTableViewCellWithTableView:tableView delegate:self];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.baseUser = self.talents[indexPath.row];
     return cell;
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+    
     return [[UIView alloc]init];
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    return 1.0;
 }
 #pragma mark - ZZStarTableViewCellDelegate
 -(void)starCellHeadImageTap:(ZZStarTableViewCell *)starTableViewCell{
