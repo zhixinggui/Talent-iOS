@@ -17,7 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"订单状态";
-
+    self.view.backgroundColor = ZZViewBackColor;
     [self  setUpChilds];
 }
 
@@ -29,25 +29,27 @@
         imageName = @"order_fail";
     }
   
-    UIImageView *resultIV = [[UIImageView  alloc]initWithImage:[UIImage  imageNamed:imageName]];
-  
-    resultIV.centerX= self.view.width/2;
-    resultIV.y = 74;
-    resultIV.contentMode = UIViewContentModeCenter;
+    UIImage *image = [UIImage  imageNamed:imageName];
+    CGFloat  wid = image.size.width/2;
+    CGFloat  height = image.size.height /2;
+    CGFloat  x = (ScreenWidth -wid)/2;
+    UIImageView *resultIV = [[UIImageView  alloc]initWithFrame:CGRectMake(x, 74, wid, height)];
+    resultIV.image = image;
+    resultIV.contentMode = UIViewContentModeScaleAspectFill;
     [self.view  addSubview:resultIV];
     
-    if (self.result == NO) {
-        CGFloat btnw = 200;
-        CGFloat btnh = 40;
-        CGFloat btnx = (ScreenWidth - btnw)/2;
-         CGFloat btny = CGRectGetMaxY(resultIV.frame)+30;
-        
-        UIButton *reasonBtn = [[UIButton alloc]initWithFrame:CGRectMake(btnx, btny, btnw, btnh)];
-        reasonBtn.backgroundColor = ZZNatiBarColor;
-        [reasonBtn setTitle:@"查看原因" forState:UIControlStateNormal];
-        [reasonBtn  addTarget:self action:@selector(reasonBtnAction) forControlEvents:UIControlEventTouchUpInside];
-        [self.view  addSubview:reasonBtn];
-    }
+//    if (self.result == NO) {
+//        CGFloat btnw = 200;
+//        CGFloat btnh = 40;
+//        CGFloat btnx = (ScreenWidth - btnw)/2;
+//         CGFloat btny = CGRectGetMaxY(resultIV.frame)+30;
+//        
+//        UIButton *reasonBtn = [[UIButton alloc]initWithFrame:CGRectMake(btnx, btny, btnw, btnh)];
+//        reasonBtn.backgroundColor = ZZNatiBarColor;
+//        [reasonBtn setTitle:@"查看原因" forState:UIControlStateNormal];
+//        [reasonBtn  addTarget:self action:@selector(reasonBtnAction) forControlEvents:UIControlEventTouchUpInside];
+//        [self.view  addSubview:reasonBtn];
+//    }
     UIBarButtonItem *rightBarItem = [[UIBarButtonItem alloc]initWithTitle:@"查看" style:UIBarButtonItemStyleDone target:self action:@selector(seeOrder)];
     self.navigationItem.rightBarButtonItem = rightBarItem;
 }

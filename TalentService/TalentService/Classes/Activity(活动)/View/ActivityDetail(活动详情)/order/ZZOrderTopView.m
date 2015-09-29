@@ -19,6 +19,9 @@
 @end
 @implementation ZZOrderTopView
 
++ (instancetype)orderTopView{
+    return [[[ NSBundle mainBundle]loadNibNamed:@"ZZOrderTopView" owner:nil options:nil]lastObject];
+}
 -(void)awakeFromNib{
     self.bounds = CGRectMake(0, 0, ScreenWidth, ScreenWidth/2);
 }

@@ -94,7 +94,10 @@ typedef enum {
     actiBottomTool.btns = @[self.collectBtn,self.applyBtn];
     [self.view  addSubview:actiBottomTool];
 }
-
+-(void)viewWillAppear:(BOOL)animated{
+    [super  viewWillAppear:animated];
+    [self updateBookingButtonProterty];
+}
 #pragma mark -响应事件
 //分享
 - (void)moreFunction{
@@ -186,7 +189,7 @@ typedef enum {
             [MBProgressHUD  hideHUDForView:self.view animated:YES];
         }
         
-        
+        [self  updateBookingButtonProterty];
     } failure:^(NSString *error, ZZNetDataType netFialType) {
         
         [MBProgressHUD  hideHUDForView:self.view animated:YES];
@@ -197,10 +200,9 @@ typedef enum {
 //预定
 - (void)booking:(UIButton *)btn{
     
-    btn.enabled = NO;
-    UIAlertView *alertView = [[UIAlertView  alloc]initWithTitle:nil message:@"你确定要报名这个活动吗" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+  
+    UIAlertView *alertView = [[UIAlertView  alloc]initWithTitle:nil message:@"你确定要报名吗" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
     [alertView show];
-    
     
 }
 
@@ -208,19 +210,18 @@ typedef enum {
     [MBProgressHUD  showMessage:ZZNetLoading ];
     [ZZActivityHttpTool  activityBook:self.activityId success:^(ZZOrder *order, ZZNetDataType netSuccType) {
         [MBProgressHUD  hideHUD];
-        self.applyBtn.enabled = YES;
+    
         
         ZZEnsureOrderController *ensureVC = [[ZZEnsureOrderController  alloc]init];
-        order.serviceBasicInfo = self.detailActivity;
+        order.serviceInfo = self.detailActivity;
         ensureVC.order = order;
         
         [self.navigationController  pushViewController:ensureVC animated:YES];
-        self.detailActivity.isReserve = YES;
-        [self updateBookingButtonProterty];
+      
     } failure:^(NSString *error, ZZNetDataType netFialType) {
         [MBProgressHUD  hideHUD];
         [ZZHudView  showMessage:error time:3 toView:self.view];
-        self.applyBtn.enabled = YES;
+       
     }];
 }
 /**

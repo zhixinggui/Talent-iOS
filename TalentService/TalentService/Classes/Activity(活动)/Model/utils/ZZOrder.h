@@ -40,7 +40,7 @@
 /**服务图片*/
 @property (nonatomic, copy)NSString *servicesImg;
 
-@property (nonatomic, strong)ZZActivity *serviceBasicInfo;
+@property (nonatomic, strong)ZZActivity *serviceInfo;
 /**服务价格*/
 @property (nonatomic, strong) NSNumber *servicePrice;
 /**金币换算金额*/
@@ -49,4 +49,6 @@
 @property (nonatomic, strong) NSNumber *price;
 
 - (NSString *)showPrice:(NSNumber *)price;
+
+- (NSString *)orderStatus;
 @end

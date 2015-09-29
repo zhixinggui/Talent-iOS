@@ -24,7 +24,7 @@ singleton_implementation(ZZLoginUserTool);
 - (void)save:(ZZLoginUser *)loginUser
 {
     // 归档
- BOOL result =   [NSKeyedArchiver archiveRootObject:loginUser toFile:ZZLoginUserFilepath];
+ [NSKeyedArchiver archiveRootObject:loginUser toFile:ZZLoginUserFilepath];
     self.loginUser = loginUser;
 }
 

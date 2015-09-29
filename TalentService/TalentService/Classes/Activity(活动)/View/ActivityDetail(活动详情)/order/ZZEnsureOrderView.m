@@ -53,7 +53,7 @@
     ZZActivityConmitParam *commitparam = [[ZZActivityConmitParam  alloc]init];
     commitparam.orderCode = self.order.orderCode;
     commitparam.phone = self.order.phone;
-    commitparam.serviceId = @(self.order.serviceBasicInfo.activityId);
+    commitparam.serviceId = @(self.order.serviceInfo.activityId);
     commitparam.servicePrice = self.order.servicePrice;
     
     [MBProgressHUD  showMessage:ZZNetLoading];

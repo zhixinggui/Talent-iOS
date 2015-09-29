@@ -59,4 +59,23 @@
 -(void)setServicesImg:(NSString *)servicesImg{
     _servicesImg = [servicesImg  getUrlUseEncodAppend:ZZImageUrlAppend(60.0, NO)];
 }
+
+- (NSString *)orderStatus{
+    switch (self.status) {
+        case ZZOrderStatusNotPaid:
+           return @"未支付";
+        case ZZOrderStatusPaid:
+            return @"已支付";
+        case ZZOrderStatusComplete:
+           return @"已参加";
+        case ZZOrderStatusExpired:
+            return @"已过期";
+        case ZZOrderStatusEvaluation:
+          return @"已评价";
+        case ZZOrderStatusRefund:
+            return @"已退款";
+        case ZZOrderStatusCancel:
+            return @"已取消";
+    }
+}
 @end

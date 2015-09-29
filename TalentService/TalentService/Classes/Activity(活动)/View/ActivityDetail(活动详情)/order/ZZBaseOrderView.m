@@ -21,7 +21,7 @@
 
 - (void)setUpChild{
     
-    ZZActivity *activity = self.order.serviceBasicInfo;
+    ZZActivity *activity = self.order.serviceInfo;
     //标题
     CGFloat titleX = edge;
     CGFloat titleY = 20;

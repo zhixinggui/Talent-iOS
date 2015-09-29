@@ -76,7 +76,7 @@
         }];
 }
 
-+ (void)activityCommitOrder:(ZZActivityConmitParam *)commitParam success:(void(^)(id json,  ZZNetDataType  netSuccType ))succ  failure:(void(^)(NSString *error , ZZNetDataType  netFialType))fail{
++ (void)activityCommitOrder:(ZZActivityConmitParam *)commitParam success:(void(^)(ZZOrder *order,  ZZNetDataType  netSuccType ))succ  failure:(void(^)(NSString *error , ZZNetDataType  netFialType))fail{
     
     ZZParam *param = [[ZZParam  alloc]init];
     param.cmd = @"smart/services/commitOrder";
@@ -84,15 +84,15 @@
     param.parameters = [commitParam  keyValues];
     
     [ZZHttpTool  afPostByApiName:@"" Params:param success:^(id json) {
-        
-        succ(json,ZZNetDataTypeSuccServer);
+        ZZOrder *order = [ZZOrder  objectWithKeyValues:json];
+        succ(order,ZZNetDataTypeSuccServer);
     } failure:^(NSString *error, ZZNetDataType netDataType) {
         fail(error,netDataType);
     }];
 }
 
 /**查看订单*/
-+ (void)activitySeeOrder:(NSString *)orderCode  success:(void(^)(id json ,ZZNetDataType netDataType))succ  failure:(void (^)(NSString *error , ZZNetDataType netDataType))fail{
++ (void)activitySeeOrder:(NSString *)orderCode  success:(void(^)(ZZOrder *order,ZZNetDataType netDataType))succ  failure:(void (^)(NSString *error , ZZNetDataType netDataType))fail{
     
     ZZParam *param = [[ZZParam alloc]init];
     param.cmd = @"smart/order/getOrderDetails";
@@ -100,7 +100,8 @@
     param.parameters = @{@"orderCode":orderCode};
     
     [ZZHttpTool  afPostByApiName:@"" Params:param success:^(id json) {
-        succ(json,ZZNetDataTypeSuccServer);
+        ZZOrder *order = [ZZOrder  objectWithKeyValues:json];
+        succ(order,ZZNetDataTypeSuccServer);
     } failure:^(NSString *error, ZZNetDataType netDataType) {
         fail(error,netDataType);
     }];
