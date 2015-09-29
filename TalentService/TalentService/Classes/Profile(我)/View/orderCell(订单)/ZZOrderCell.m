@@ -14,18 +14,14 @@
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *statusLabel;
-//@property (nonatomic)ZZOrderStatus orderStatus;
+@property (weak, nonatomic) IBOutlet UIButton *nowPayButton;
+
 
 @end
 
 @implementation ZZOrderCell
 
-- (id)initWithCoder:(NSCoder *)aDecoder {
-    if (self = [super initWithCoder:aDecoder]) {
-        
-    }
-    return self;
-}
+
 
 - (void)awakeFromNib {
     self.headIV.contentMode = UIViewContentModeScaleAspectFill;
@@ -35,13 +31,14 @@
 #pragma mark - Setters andGetters
 - (void)setOrder:(ZZOrder *)order {
     self.cancelBT.hidden = NO;
+    self.nowPayButton.hidden = YES;
     _order = order;
     self.titleLabel.text = order.title;
-    self.priceLabel.text = [NSString stringWithFormat:@"%@",order.price];
+    self.priceLabel.text = [order  showPrice:order.price];
     switch (order.status) {
         case ZZOrderStatusNotPaid:
             self.statusLabel.text = @"未支付";
-
+            self.nowPayButton.hidden = NO;
             break;
         case ZZOrderStatusPaid:
             self.statusLabel.text = @"已支付";
@@ -70,7 +67,7 @@
     }
     
     if (order.status == ZZOrderStatusNotPaid) {
-        [self.cancelBT setTitle:@"立即支付"];
+        [self.cancelBT setTitle:@"取消订单"];
     }else if (order.status == ZZOrderStatusPaid || order.status == ZZOrderStatusExpired) {
         [self.cancelBT setTitle:@"申请退款"];
     }else if (order.status == ZZOrderStatusComplete) {
@@ -81,11 +78,17 @@
     [self.headIV  setPictureImageWithURL:order.servicesImg];
 }
 
+- (IBAction)nowPay:(UIButton *)sender {
+    if ([self.delegate respondsToSelector:@selector(didClickOnCell:order:orderStatus:)]) {
+        [self.delegate didClickOnCell:self order:self.order orderStatus:0];
+    }
+}
+
 //订单按钮响应事件
 - (IBAction)didClickOnCaneclButton:(UIButton *)sender {
     
-    if ([self.delegate respondsToSelector:@selector(didClickOnCell:andOrderStatus:)]) {
-        [self.delegate didClickOnCell:self andOrderStatus:self.order.status];
+    if ([self.delegate respondsToSelector:@selector(didClickOnCell:order:orderStatus:)]) {
+        [self.delegate didClickOnCell:self order:self.order orderStatus:self.order.status];
     }
     
 }

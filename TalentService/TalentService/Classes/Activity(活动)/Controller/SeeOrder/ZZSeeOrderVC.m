@@ -14,6 +14,7 @@
 #import "ZZOrder.h"
 #import "ZZActivity.h"
 #import "ZZHudView.h"
+#import "ZZSelectPayTypeVC.h"
 @interface ZZSeeOrderVC ()<ZZBaseOrderViewDelegate>
 @property (nonatomic, strong)UIScrollView *scroView;
 @property (nonatomic) CGFloat  toalheight;
@@ -87,7 +88,7 @@
         ensure.backgroundColor = ZZNatiBarColor;
         ensure.layer.cornerRadius = 20;
         ensure.layer.masksToBounds = YES;
-        [ensure  setTitle:@"取消订单" forState:UIControlStateNormal];
+        [ensure  setTitle:buttonTitle forState:UIControlStateNormal];
         [ensure  setTitleColor:[UIColor  whiteColor] forState:UIControlStateNormal];
         ensure.tag = self.order.status;
         self.button = ensure;
@@ -108,7 +109,53 @@
     return showView;
 }
 
-
+- (void)ensurePhone:(UIButton *)btn{
+    switch (btn.tag) {
+        case ZZOrderStatusPaid:
+            [self  cancellOrder];
+            break;
+        case ZZOrderStatusNotPaid:
+            [self  nowPay];
+            break;
+         case ZZOrderStatusComplete:
+            [self  nowEvaluation];
+            break;
+        case ZZOrderStatusExpired:
+            [self  applyRefund];
+            break;
+    }
+    
+}
+//立即支付
+- (void)nowPay{
+    ZZSelectPayTypeVC *selectPay = [[ZZSelectPayTypeVC  alloc]init];
+    [self.navigationController  pushViewController:selectPay animated:YES];
+}
+//立即评价
+- (void)nowEvaluation{
+    [ZZHudView  showMessage:@"正在开发中，敬请期待" time:5 toView:self.view];
+}
+//申请退款
+- (void)applyRefund{
+     [ZZHudView  showMessage:@"正在开发中，敬请期待" time:5 toView:self.view];
+}
+#pragma mark -取消订单
+//取消订单
+- (void)cancellOrder{
+    [MBProgressHUD  showMessage:ZZNetLoading ];
+    [  ZZActivityHttpTool  activityCancellOrder:self.order.orderCode success:^(id json, ZZNetDataType netDataType) {
+        
+        [MBProgressHUD hideHUD];
+        [ZZHudView  showMessage:@"取消成功" time:3 toView:self.view];
+        self.order.status = ZZOrderStatusCancel ;
+        [self.orderStatusView  setTitle:@"订单状态：" content:[self.order orderStatus]];
+        [self.button  removeFromSuperview];
+    } failure:^(NSString *error, ZZNetDataType netDataType) {
+        [MBProgressHUD hideHUD];
+        [ZZHudView  showMessage:@"取消失败，请重试" time:5 toView:self.view];
+    }];
+}
+//订单详情
 - (void)getOrderDetail{
     [MBProgressHUD  showMessage:ZZNetLoading toView:self.view];
     [ZZActivityHttpTool  activitySeeOrder:self.orderCode success:^(ZZOrder *order, ZZNetDataType netDataType) {
@@ -117,28 +164,9 @@
         self.order = order;
         [self  setUpChild];
     } failure:^(NSString *error, ZZNetDataType netDataType) {
-         [MBProgressHUD  hideAllHUDsForView:self.view animated:YES];
+        [MBProgressHUD  hideAllHUDsForView:self.view animated:YES];
         
         [MBProgressHUD  showNetLoadFailWithText:@"加载失败，点击重新加载" view:self.view target:self.view action:@selector(getOrderDetail) isBack:NO];
     }];
 }
-- (void)ensurePhone:(UIButton *)btn{
-
-            [MBProgressHUD  showMessage:ZZNetLoading ];
-          [  ZZActivityHttpTool  activityCancellOrder:self.order.orderCode success:^(id json, ZZNetDataType netDataType) {
-              
-              [MBProgressHUD hideHUD];
-              [ZZHudView  showMessage:@"取消成功" time:3 toView:self.view];
-              self.order.status = ZZOrderStatusCancel ;
-              [self.orderStatusView  setTitle:@"订单状态：" content:[self.order orderStatus]];
-              [self.button  removeFromSuperview];
-            } failure:^(NSString *error, ZZNetDataType netDataType) {
-                 [MBProgressHUD hideHUD];
-                 [ZZHudView  showMessage:@"取消失败，请重试" time:5 toView:self.view];
-            }];
-    
-
-
-}
-
 @end

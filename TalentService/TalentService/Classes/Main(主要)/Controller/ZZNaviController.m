@@ -17,13 +17,10 @@
 
 + (void)initialize
 {
-    
     // 设置UINavigationBarTheme的主
     [self setupNavigationBarTheme];
-    
     // 设置UIBarButtonItem的主题
     [self setupBarButtonItemTheme];
-
 }
 
 /**
@@ -37,11 +34,7 @@
     // 设置文字属性
     NSMutableDictionary *textAttrs = [NSMutableDictionary dictionary];
     textAttrs[NSForegroundColorAttributeName] = ZZNatiTitleColor;
-    // UITextAttributeFont  --> NSFontAttributeName(iOS7)
-#warning 过期 : 并不代表不能用, 仅仅是有最新的方案可以取代它
-    
     textAttrs[NSFontAttributeName] = ZZNaviTitleFont;
-
     [appearance setTitleTextAttributes:textAttrs];
 }
 
@@ -50,7 +43,6 @@
  */
 + (void)setupBarButtonItemTheme
 {
-    
     // 设置整个项目所有item的主题样式
     UIBarButtonItem *item = [UIBarButtonItem appearance];
     
@@ -109,7 +101,6 @@
 {
     if (self.childViewControllers.count == 0) { // 是根控制器
         self.interactivePopGestureRecognizer.delegate = _popDelegate;
-        
         
     }else{ // 非根控制器
         self.interactivePopGestureRecognizer.delegate = nil;

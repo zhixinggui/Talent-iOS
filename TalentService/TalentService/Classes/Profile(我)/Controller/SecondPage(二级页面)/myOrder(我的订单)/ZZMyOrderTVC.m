@@ -15,7 +15,9 @@
 #import "ZZMyInfoHttpTool.h"
 #import "MJRefresh.h"
 #import "ZZHudView.h"
-
+#import "ZZEmptyView.h"
+#import "ZZSelectPayTypeVC.h"
+#import "ZZActivityHttpTool.h"
 #define numberOfpage 10
 
 @interface ZZMyOrderTVC ()<ZZOrderCellDelegate>
@@ -25,6 +27,8 @@
 @property (nonatomic, strong) NSMutableArray *orderArray;
 
 @property (nonatomic,  copy)NSString *orderParam;
+
+@property (nonatomic, strong)ZZEmptyView *emptyView;
 @end
 
 @implementation ZZMyOrderTVC
@@ -50,13 +54,10 @@
     [ZZMyInfoHttpTool getMyOrderListWithQueryType:0 andStatus:self.orderParam andPageNo:0 andNumberOfPerPage:numberOfpage success:^(ZZOrderResult *orderResult, ZZNetDataType dataType) {
         [MBProgressHUD  hideHUDForView:self.view];
         self.orderResult = orderResult;
-        if (self.orderResult.rows.count == 0) {
-            [MBProgressHUD showMessageClearBackView:@"你还没有下单" toView:self.view];
-        }
         [self.orderArray removeAllObjects];
         [self.orderArray addObjectsFromArray:self.orderResult.rows];
         [self.tableView reloadData];
-        ZZLog(@"数组列表:%@",self.orderArray);
+    
     } failure:^(NSString *error, ZZNetDataType datatype) {
         [MBProgressHUD  hideHUDForView:self.view];
         [MBProgressHUD  showNetLoadFailWithText:@"加载失败，点击重新加载" view:self.view target:self action:@selector(getNetData) isBack:NO];
@@ -79,10 +80,7 @@
     }];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+
 
 #pragma mark - Table view data source
 
@@ -101,19 +99,71 @@
 #pragma mark - Table view delegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     ZZSeeOrderVC *seeOrderVc = [[ZZSeeOrderVC alloc] init];
+    ZZOrder *order = self.orderArray[indexPath.row];
+    seeOrderVc.orderCode = order.orderCode;
     [self.myOrderVcDelegate.navigationController pushViewController:seeOrderVc animated:YES];
 }
 
 #pragma mark - ZZOrderCellDelegate
-- (void)didClickOnCell:(ZZOrderCell *)orderCell andOrderStatus:(ZZOrderStatus)orderStatus {
-    ZZLog(@"订单类型:%u",orderStatus);
+- (void)didClickOnCell:(ZZOrderCell *)orderCell order:(ZZOrder *)order orderStatus:(NSInteger)orderStatus{
+
+    switch (orderStatus) {
+        case ZZOrderStatusNotPaid:
+       
+            break;
+         case ZZOrderStatusPaid:
+           ZZOrderStatusExpired:
+            
+            break;
+        case ZZOrderStatusComplete:
+            
+            break;
+        default:
+            
+            break;
+    }
     
 }
 
 
+//立即支付
+- (void)nowPay:(ZZOrder *)order{
+    ZZSelectPayTypeVC *selectPay = [[ZZSelectPayTypeVC  alloc]init];
+    [self.navigationController  pushViewController:selectPay animated:YES];
+}
+//立即评价
+- (void)nowEvaluation:(ZZOrder *)order{
+    [ZZHudView  showMessage:@"正在开发中，敬请期待" time:5 toView:self.view];
+}
+//申请退款
+- (void)applyRefund:(ZZOrder *)order{
+    [ZZHudView  showMessage:@"正在开发中，敬请期待" time:5 toView:self.view];
+}
+#pragma mark -取消订单
+//取消订单
+- (void)cancellOrder:(ZZOrder *)order{
+    [MBProgressHUD  showMessage:ZZNetLoading ];
+    [  ZZActivityHttpTool  activityCancellOrder:order.orderCode success:^(id json, ZZNetDataType netDataType) {
+        
+        [MBProgressHUD hideHUD];
+        [ZZHudView  showMessage:@"取消成功" time:3 toView:self.view];
+        order.status = ZZOrderStatusCancel ;
 
+    } failure:^(NSString *error, ZZNetDataType netDataType) {
+        [MBProgressHUD hideHUD];
+        [ZZHudView  showMessage:@"取消失败，请重试" time:5 toView:self.view];
+    }];
+}
 #pragma mark setter andGetter
-
+-(ZZEmptyView *)emptyView{
+    if (_emptyView == nil) {
+        _emptyView = [ZZEmptyView  emptyView];
+        _emptyView.tipTitle = @"没有相关订单";
+      
+        [self.view  addSubview:_emptyView];
+    }
+    return _emptyView;
+}
 -(NSString *)orderParam{
     if (_orderParam) {
         return _orderParam;

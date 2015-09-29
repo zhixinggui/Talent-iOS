@@ -12,8 +12,8 @@
 @class ZZOrderCell;
 
 @protocol ZZOrderCellDelegate <NSObject>
-
-- (void)didClickOnCell:(ZZOrderCell *)orderCell andOrderStatus:(ZZOrderStatus)orderStatus;
+/**orderStatus 为0时立即支付，为ZZOrderStatusNotPaid时取消订单*/
+- (void)didClickOnCell:(ZZOrderCell *)orderCell order:(ZZOrder *)order  orderStatus:(NSInteger)orderStatus;
 
 @end
 

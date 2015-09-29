@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9046" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9035"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
@@ -16,7 +16,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="border_34x34" translatesAutoresizingMaskIntoConstraints="NO" id="cBB-Pn-P6L" userLabel="背景">
-                        <rect key="frame" x="0.0" y="9" width="320" height="120"/>
+                        <rect key="frame" x="0.0" y="9" width="320" height="9"/>
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fqo-tl-AoB">
                         <rect key="frame" x="14" y="22" width="60" height="60"/>
@@ -81,11 +81,27 @@
                             <action selector="didClickOnCaneclButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Kkf-EF-oLP"/>
                         </connections>
                     </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tAZ-29-wEz" userLabel="立即支付">
+                        <rect key="frame" x="156" y="97" width="60" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="Umy-0h-mYx"/>
+                            <constraint firstAttribute="width" constant="60" id="kWI-dk-qBe"/>
+                        </constraints>
+                        <state key="normal" title="立即支付">
+                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
+                        <connections>
+                            <action selector="nowPay:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="waJ-mS-2yc"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailingMargin" secondItem="iP5-GE-Ger" secondAttribute="trailing" constant="6" id="4TI-pT-Wf4"/>
                     <constraint firstItem="fqo-tl-AoB" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="6" id="5P6-c0-0PR"/>
+                    <constraint firstItem="tAZ-29-wEz" firstAttribute="top" secondItem="PaI-QQ-tMH" secondAttribute="bottom" constant="1" id="6HB-vt-lQ0"/>
                     <constraint firstItem="iP5-GE-Ger" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="30" id="6kc-LR-EHO"/>
+                    <constraint firstItem="nhG-cb-Wbg" firstAttribute="leading" secondItem="tAZ-29-wEz" secondAttribute="trailing" constant="30" id="7FO-cc-dxd"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="tAZ-29-wEz" secondAttribute="bottom" constant="14" id="Fho-bl-GnX"/>
                     <constraint firstItem="fqo-tl-AoB" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="14" id="JMJ-ch-jgg"/>
                     <constraint firstItem="cBB-Pn-P6L" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="LZt-O4-U2j"/>
                     <constraint firstAttribute="trailingMargin" secondItem="cBB-Pn-P6L" secondAttribute="trailing" constant="-8" id="MxB-57-TCg"/>
@@ -106,6 +122,7 @@
             <connections>
                 <outlet property="cancelBT" destination="nhG-cb-Wbg" id="EGb-fY-Vdu"/>
                 <outlet property="headIV" destination="fqo-tl-AoB" id="NdN-0B-MlM"/>
+                <outlet property="nowPayButton" destination="tAZ-29-wEz" id="QxJ-ZH-Sl4"/>
                 <outlet property="priceLabel" destination="btc-nK-GlC" id="3Yd-YH-4Kg"/>
                 <outlet property="statusLabel" destination="iP5-GE-Ger" id="gyb-MY-0cm"/>
                 <outlet property="titleLabel" destination="SNJ-KA-VUO" id="JpS-cK-Hlk"/>

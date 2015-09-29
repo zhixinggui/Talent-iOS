@@ -17,8 +17,13 @@
 @property (nonatomic, copy)NSString *userNike;
 /** 性别*/
 @property (nonatomic, assign)NSInteger userSex;
+
 /**背景图片*/
 @property (nonatomic, copy)NSString *backgroundImg;
+/** 背景图高度*/
+@property (nonatomic)  CGFloat  backImgHeight;
+/** 背景图高度*/
+@property (nonatomic)  CGFloat  backImgWidth;
 
 /** 用户大头像地址*/
 @property (nonatomic, copy)NSString *userBigImg;
@@ -81,6 +86,9 @@
 @property (nonatomic)  BOOL  isAttention;
 /** 是否是当前登录用户*/
 @property (nonatomic)  BOOL  isLogin;
+
+/** 是否达人*/
+@property (nonatomic)  BOOL  isEredar;
 
 /** 用户身份*/
 @property (nonatomic, strong) NSArray  *userRole;
