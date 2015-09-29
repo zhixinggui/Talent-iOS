@@ -47,13 +47,17 @@
     }];
 }
 
-+(void)homeApply:(ZZApplyTalentParam *)applyParam success:(void (^)(__autoreleasing id *, ZZNetDataType))succ failure:(void (^)(NSString *, ZZNetDataType))fail{
++(void)homeApply:(ZZApplyTalentParam *)applyParam success:(void (^)( id result, ZZNetDataType))succ failure:(void (^)(NSString *, ZZNetDataType))fail{
     
     ZZParam *param = [[ZZParam  alloc]init];
     param.cmd = @"smart/eredar/apply";
     param.parameters = applyParam.keyValues;
     param.token = [ZZLoginUserTool  sharedZZLoginUserTool].loginUser.token;
     
-    
+    [ZZHttpTool  afPostByApiName:@"" Params:param success:^(id json) {
+        succ (json,ZZNetDataTypeSuccServer);
+    } failure:^(NSString *error, ZZNetDataType netDataType) {
+        fail(error ,netDataType);
+    }];
 }
 @end

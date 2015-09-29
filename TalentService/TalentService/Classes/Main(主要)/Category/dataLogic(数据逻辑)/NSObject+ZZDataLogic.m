@@ -34,3 +34,16 @@
     return [str  stringByAppendingString:@"元"];
 }
 @end
+
+@implementation NSNumber (ZZDataLogic)
++ (NSNumber *)dealNum:(NSNumber *)number{
+    NSString *str = [number description];
+    // 小数点的位置
+    NSUInteger dotIndex = [str rangeOfString:@"."].location;
+    if (dotIndex != NSNotFound && str.length - dotIndex > 2) { // 小数超过2位
+        str = [str substringToIndex:dotIndex + 3];
+    }
+    NSNumberFormatter *numberFormatter = [[NSNumberFormatter  alloc]init];
+    return  [numberFormatter numberFromString:str];
+}
+@end

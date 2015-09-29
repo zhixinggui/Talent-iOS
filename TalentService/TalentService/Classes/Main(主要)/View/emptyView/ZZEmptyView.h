@@ -14,5 +14,4 @@
 @property (nonatomic, copy)NSString *icon;
 @property (nonatomic, copy)NSString *tipTitle;
 
-@property (nonatomic)CGFloat yOffset;
 @end

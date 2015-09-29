@@ -46,6 +46,9 @@ static NSString *identifier = @"SelectorViewcell";
     if (cell == nil) {
         cell = [[UITableViewCell  alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
         cell.textLabel.textAlignment = NSTextAlignmentCenter;
+        cell.textLabel.font = ZZContentFont;
+        cell.textLabel.adjustsFontSizeToFitWidth = YES;
+        cell.textLabel.minimumScaleFactor = 10.0;
     }
     id <ZZSelectorViewShowDele> object = self.datas[indexPath.row];
     cell .textLabel.text = [object content];

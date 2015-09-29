@@ -7,29 +7,31 @@
 //放全局变量的地方
 
 #import <Foundation/Foundation.h>
+//登陆类型
 typedef enum {
    ZZLoginTypeSmart, //本平台登录
     ZZLoginTypeQQ, //QQ登录
     ZZLoginTypeWeChat,//微信登录
     ZZLoginTypeSina//新浪登录
 }ZZLoginType;
-
+//数据请求类型
 typedef enum {
     ZZNetDataTypeSuccLocal, //本地返回成功
     ZZNetDataTypeSuccServer, //服务器返回成功
     ZZNetDataTypeFailServer,//服务器返回失败
     ZZNetDataTypeFailNet,//业务逻辑失败
-    ZZNetDataTypeFailLocal//本地返回失败
+    ZZNetDataTypeFailLocal,//本地返回失败
+    ZZNetDataTypeUpLoadImageFail//本地返回失败
 }ZZNetDataType;
 
-
+//活动状态
 typedef enum {
-    ZZActivityStatusTypeAll= 1,//未开始
+    ZZActivityStatusTypeAll= 0,//全部
    ZZActivityStatusTypeNoStart,//未开始
     ZZActivityStatusTypeDidStart ,//已开始
     ZZActivityStatusTypeDidEnd//已结束
 }ZZActivityStatusType;
-
+//订单类型
 typedef  enum{
     ZZOrderTypeAll = 1,//全部
     ZZOrderTypeNoPay,//未支付
@@ -37,7 +39,7 @@ typedef  enum{
     ZZOrderTypeDidJoin,//已参加
     ZZOrderTypeDidPast,//已过期
 }ZZOrderType;
-
+//订单状态
 typedef enum {
     /**未支付*/
     ZZOrderStatusNotPaid = 1,
@@ -67,6 +69,7 @@ extern  NSString * const ZZRefreshFail; // 刷新失败提示
 extern  NSString * const ZZUserNickChangeNoti; // 登录用户头像改变通知
 extern  NSString * const ZZTokenIsNoActive; //token失效
 extern  NSString * const ZZTokenIsNoActiveError; //token失效通知里userinfo的信息
+
 /**文字间距*/
 extern  CGFloat  const  ZZLineSpace ;//行间距
 extern  CGFloat  const  ZZCharSpace ;//字间距

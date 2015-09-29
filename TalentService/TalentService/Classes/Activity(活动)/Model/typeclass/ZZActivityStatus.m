@@ -19,7 +19,7 @@
         ZZActivityStatus *status = [[ZZActivityStatus  alloc]init];
         switch (i) {
             case 0:
-                status.statusName = @"全部";
+                status.statusName = @"全部状态";
                 status.statusNumber = ZZActivityStatusTypeAll;
                  break;
             case 1:

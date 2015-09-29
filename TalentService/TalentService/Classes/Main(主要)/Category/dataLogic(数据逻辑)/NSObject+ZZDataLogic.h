@@ -20,3 +20,8 @@
 /**价格转换 0.00显示0.00的*/
 + (NSString *)dealPrice:(NSString *)originPrice;
 @end
+
+@interface NSNumber (ZZDataLogic)
+/**处理数据小数位*/
++ (NSNumber *)dealNum:(NSNumber *)number;
+@end

@@ -36,5 +36,5 @@
  *  @param succ       <#succ description#>
  *  @param fail       <#fail description#>
  */
-+ (void)homeApply:(ZZApplyTalentParam *)applyParam success:(void (^)(id *result, ZZNetDataType netDataType))succ  failure:(void (^)(NSString * error, ZZNetDataType netDataType))fail;
++ (void)homeApply:(ZZApplyTalentParam *)applyParam success:(void (^)(id result, ZZNetDataType netDataType))succ  failure:(void (^)(NSString * error, ZZNetDataType netDataType))fail;
 @end

@@ -33,9 +33,9 @@ NSUInteger const   ShareTitleLength = 64;
 NSUInteger const   ShareContentLength = 128;
 NSString * const DefaultImageName = @"icon.png"; //没有图片时默认分享的图片名字
 //友盟分享
-NSString * const UMSocialAppKey = @"556e722967e58e98be002ba7";
+NSString * const UMSocialAppKey = @"560131d3e0f55a5dc1001859";
 //友盟数据统计
-NSString * const UMMobClickAppKey = @"556e722967e58e98be002ba7";//
+NSString * const UMMobClickAppKey = @"560131d3e0f55a5dc1001859";//
 
 //QQ
 NSString * const QQAppId = @"1104000906";//

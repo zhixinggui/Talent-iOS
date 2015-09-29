@@ -29,6 +29,8 @@
 @property (nonatomic,  copy)NSString *orderParam;
 
 @property (nonatomic, strong)ZZEmptyView *emptyView;
+
+@property (nonatomic)BOOL  showTip;
 @end
 
 @implementation ZZMyOrderTVC
@@ -48,43 +50,47 @@
     [self getNetData];
     
 }
-
-- (void)getNetData{
-    [MBProgressHUD showMessage:@"正在加载中..." toView:self.view];
-    [ZZMyInfoHttpTool getMyOrderListWithQueryType:0 andStatus:self.orderParam andPageNo:0 andNumberOfPerPage:numberOfpage success:^(ZZOrderResult *orderResult, ZZNetDataType dataType) {
-        [MBProgressHUD  hideHUDForView:self.view];
-        self.orderResult = orderResult;
-        [self.orderArray removeAllObjects];
-        [self.orderArray addObjectsFromArray:self.orderResult.rows];
-        [self.tableView reloadData];
+//ZZOrderTypeAll = 1,//全部
+//ZZOrderTypeNoPay,//未支付
+//ZZOrderTypeDidPay,//已支付
+//ZZOrderTypeDidJoin,//已参加
+//ZZOrderTypeDidPast,//已过期
+-(void)setOrderType:(ZZOrderType)orderType{
+    _orderType = orderType;
+    switch (orderType) {
+        case ZZOrderTypeAll:
+            self.orderParam = @"";
+            [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(getNetData) name:ZZOrderStausChangeCancellOrderSucc object:nil];
+             [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(getNetData) name:ZZOrderStausChangeEvaluationSucc object:nil];
+             [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(getNetData) name:ZZOrderStausChangePaySucc object:nil];
+             [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(getNetData) name:ZZOrderStausChangeRefundSucc object:nil];
+            break;
+        case ZZOrderTypeNoPay:
+            self.orderParam = @"1";
+             [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(getNetData) name:ZZOrderStausChangePaySucc object:nil];
+            break;
+        case ZZOrderTypeDidPay:
+            self.orderParam = @"2,4";
+             [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(getNetData) name:ZZOrderStausChangeRefundSucc object:nil];
+            break;
+        case ZZOrderTypeDidJoin:
+            self.orderParam = @"3";
+              [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(getNetData) name:ZZOrderStausChangeEvaluationSucc object:nil];
+            break;
+        case ZZOrderTypeDidPast:
+            self.orderParam = @"6";
+            [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(getNetData) name:ZZOrderStausChangeRefundSucc object:nil];
+            break;
+    }
     
-    } failure:^(NSString *error, ZZNetDataType datatype) {
-        [MBProgressHUD  hideHUDForView:self.view];
-        [MBProgressHUD  showNetLoadFailWithText:@"加载失败，点击重新加载" view:self.view target:self action:@selector(getNetData) isBack:NO];
-    }];
 }
-
-/**
- *  底部更多刷新方法
- */
-- (void)loadMoreOrder {
-    [ZZMyInfoHttpTool getMyOrderListWithQueryType:0 andStatus:self.orderParam andPageNo:self.orderResult.page andNumberOfPerPage:numberOfpage success:^(ZZOrderResult *orderResult, ZZNetDataType dataType) {
-        //请求成功刷新停止
-        [self.tableView.footer endRefreshing];
-        self.orderResult = orderResult;
-        [self.orderArray addObjectsFromArray:self.orderResult.rows];
-        [self.tableView reloadData];
-    } failure:^(NSString *error, ZZNetDataType datatype) {
-        [self.tableView.footer  endRefreshing];
-        [ZZHudView  showMessage:error time:3 toView:self.view];
-    }];
-}
-
 
 
 #pragma mark - Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+   
+    self.emptyView.hidden = self.showTip == YES ?  self.orderArray.count > 0 :YES;
         return self.orderArray.count;
 }
 
@@ -109,17 +115,18 @@
 
     switch (orderStatus) {
         case ZZOrderStatusNotPaid:
-       
+              [self  cancellOrder:order];
+           
             break;
          case ZZOrderStatusPaid:
            ZZOrderStatusExpired:
-            
+            [self  applyRefund:order];
             break;
         case ZZOrderStatusComplete:
-            
+            [self nowEvaluation:order];
             break;
-        default:
-            
+       case 0:
+           [self nowPay:order];
             break;
     }
     
@@ -139,7 +146,7 @@
 - (void)applyRefund:(ZZOrder *)order{
     [ZZHudView  showMessage:@"正在开发中，敬请期待" time:5 toView:self.view];
 }
-#pragma mark -取消订单
+#pragma mark -网络请求
 //取消订单
 - (void)cancellOrder:(ZZOrder *)order{
     [MBProgressHUD  showMessage:ZZNetLoading ];
@@ -154,12 +161,51 @@
         [ZZHudView  showMessage:@"取消失败，请重试" time:5 toView:self.view];
     }];
 }
+
+- (void)getNetData{
+    self.showTip = NO;
+    [self.orderArray removeAllObjects];
+    [self.tableView  reloadData];
+    [MBProgressHUD showMessage:@"正在加载中..." toView:self.view];
+    [ZZMyInfoHttpTool getMyOrderListWithQueryType:0 andStatus:self.orderParam andPageNo:0 andNumberOfPerPage:numberOfpage success:^(ZZOrderResult *orderResult, ZZNetDataType dataType) {
+        [MBProgressHUD  hideHUDForView:self.view];
+        self.orderResult = orderResult;
+        self.showTip = YES;
+        [self.orderArray addObjectsFromArray:self.orderResult.rows];
+        [self.tableView reloadData];
+        
+    } failure:^(NSString *error, ZZNetDataType datatype) {
+        [MBProgressHUD  hideHUDForView:self.view];
+        [MBProgressHUD  showNetLoadFailWithText:@"加载失败，点击重新加载" view:self.view target:self action:@selector(getNetData) isBack:NO];
+    }];
+}
+
+/**
+ *  底部更多刷新方法
+ */
+- (void)loadMoreOrder {
+    [ZZMyInfoHttpTool getMyOrderListWithQueryType:0 andStatus:self.orderParam andPageNo:self.orderResult.page andNumberOfPerPage:numberOfpage success:^(ZZOrderResult *orderResult, ZZNetDataType dataType) {
+        //请求成功刷新停止
+        [self.tableView.footer endRefreshing];
+        self.orderResult = orderResult;
+        [self.orderArray addObjectsFromArray:self.orderResult.rows];
+        [self.tableView reloadData];
+    } failure:^(NSString *error, ZZNetDataType datatype) {
+        [self.tableView.footer  endRefreshing];
+        [ZZHudView  showMessage:error time:3 toView:self.view];
+    }];
+}
+
+-(void)dealloc{
+    [[NSNotificationCenter  defaultCenter] removeObserver:self];
+}
 #pragma mark setter andGetter
 -(ZZEmptyView *)emptyView{
     if (_emptyView == nil) {
         _emptyView = [ZZEmptyView  emptyView];
         _emptyView.tipTitle = @"没有相关订单";
-      
+        CGFloat y =44;
+      _emptyView.frame = CGRectMake(0, y , ScreenWidth, ScreenHeight - y  -64);
         [self.view  addSubview:_emptyView];
     }
     return _emptyView;

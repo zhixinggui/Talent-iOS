@@ -21,7 +21,7 @@
         ZZActivityType *type = [[ZZActivityType  alloc]init];
         switch (i) {
             case 0:
-                type.typeName = @"全部";
+                type.typeName = @"全部类型";
             
                 break;
             case 1:

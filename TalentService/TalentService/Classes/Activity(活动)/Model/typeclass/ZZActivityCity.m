@@ -21,7 +21,7 @@
         ZZActivityCity *city = [[ZZActivityCity  alloc]init];
         switch (i) {
             case 0:
-                city.cityName = @"全部";
+                city.cityName = @"全部城市";
                 
                 break;
             case 1:

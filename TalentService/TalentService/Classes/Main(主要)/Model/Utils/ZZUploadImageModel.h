@@ -31,4 +31,6 @@
 @property (nonatomic, strong) NSNumber *width;
 /**上传图片高度*/
 @property (nonatomic, strong) NSNumber *height;
+/**全屏图片*/
+-(UIImage *)uploadFullScreenImage;
 @end

@@ -28,6 +28,7 @@ static   NSUInteger const ActivityNumCount = 10;
 #import "MJRefresh.h"
 #import "ZZHudView.h"
 #import "ZZEmptyView.h"
+#import "ZZFailView.h"
 @interface ZZActivityController ()<ZZSelectorViewDlegate,ZZPopMenuDelegate>
 /**活动请求到的数组*/
 @property (nonatomic, strong)NSMutableArray *activityArray;
@@ -59,6 +60,8 @@ static   NSUInteger const ActivityNumCount = 10;
 @property (nonatomic, strong)ZZActivityListResult *listResult;
 
 @property (nonatomic, strong)ZZEmptyView *emptyView;
+
+@property (nonatomic)BOOL  showTip;
 @end
 
 @implementation ZZActivityController
@@ -88,19 +91,19 @@ static   NSUInteger const ActivityNumCount = 10;
 - (void)setUpSelectMenu{
     //城市
     ZZMenuButton *city = [[ZZMenuButton  alloc]init];
-    [city setTitle:@"全部" forState:UIControlStateNormal];
+    [city setTitle:@"全部城市" forState:UIControlStateNormal];
     [city  addTarget:self action:@selector(cityMenuBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     self.cityMenuBtn = city;
     
     //类型
     ZZMenuButton *type = [[ZZMenuButton alloc]init];
-    [type setTitle:@"全部" forState:UIControlStateNormal];
+    [type setTitle:@"全部类型" forState:UIControlStateNormal];
     [type  addTarget:self action:@selector(typeMenuBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     self.typeMenuBtn = type;
     
     //状态
     ZZMenuButton *status = [[ZZMenuButton alloc]init];
-    [status setTitle:@"全部" forState:UIControlStateNormal];
+    [status setTitle:@"全部状态" forState:UIControlStateNormal];
     [status  addTarget:self action:@selector(statusMenuBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     self.statusMenuBtn = status;
 }
@@ -147,7 +150,7 @@ static   NSUInteger const ActivityNumCount = 10;
 
 #pragma mark - Table view data source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
- self.emptyView.hidden = (self.activityArray.count > 0);
+    self.emptyView.hidden = self.showTip == YES ?  self.activityArray.count > 0 :YES;
     return self.activityArray.count;
 }
 
@@ -168,6 +171,8 @@ static   NSUInteger const ActivityNumCount = 10;
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     ZZActivityDetailController *actDetailVC = [[ZZActivityDetailController  alloc]init];
+ ZZActivity *activity =   self.activityArray[indexPath.row];
+    actDetailVC.activityId = activity.activityId;
     [self.navigationController  pushViewController:actDetailVC animated:YES];
     [tableView  deselectRowAtIndexPath:indexPath animated:YES];
 }
@@ -205,7 +210,9 @@ static   NSUInteger const ActivityNumCount = 10;
 #pragma mark -网络请求
 
 - (void)getNetData{
+   
     self.listResult = nil;
+    self.showTip = NO;
       [self.tableView.footer endRefreshing];
     ZZActivityListParam *listParam = [self  getListParam];
 
@@ -215,13 +222,14 @@ static   NSUInteger const ActivityNumCount = 10;
         if (self.listParam != listParam) {
             return ;
         }
+        self.showTip = YES;
         [self.tableView.header endRefreshing];
         self.listResult = listResult;
         [self.activityArray  addObjectsFromArray:listResult.rows];
         [self.tableView  reloadData];
     } failure:^(NSString *error, ZZNetDataType netFailType) {
-        [MBProgressHUD  showNetLoadFailWithText:@"加载失败，点击重新加载" view:self.view target:self action:@selector(getNetData) isBack:NO];
-      
+       
+       
         [self.tableView.header endRefreshing];
     }];
 }
@@ -263,11 +271,26 @@ static   NSUInteger const ActivityNumCount = 10;
 }
 #pragma mark -lazy load
 
+-(void)setSelectedCity:(ZZActivityCity *)selectedCity{
+    _selectedCity = selectedCity;
+    [self.cityMenuBtn setTitle:selectedCity.cityName forState:UIControlStateNormal];
+}
+
+-(void)setSelectedType:(ZZActivityType *)selectedType{
+    _selectedType = selectedType;
+    [self.typeMenuBtn setTitle:selectedType.typeName forState:UIControlStateNormal];
+}
+
+-(void)setSelectedStatus:(ZZActivityStatus *)selectedStatus{
+    _selectedStatus = selectedStatus;
+    [self.statusMenuBtn setTitle:selectedStatus.statusName forState:UIControlStateNormal];
+}
 -(ZZEmptyView *)emptyView{
     if (_emptyView == nil) {
         _emptyView = [ZZEmptyView  emptyView];
         _emptyView.tipTitle = @"没有相关服务";
-        _emptyView.yOffset = self.topMenuView.height;
+        CGFloat y =self.topMenuView.height;
+        _emptyView.frame = CGRectMake(0, y , ScreenWidth, ScreenHeight - y - 50 -64);
         [self.view  addSubview:_emptyView];
     }
     return _emptyView;

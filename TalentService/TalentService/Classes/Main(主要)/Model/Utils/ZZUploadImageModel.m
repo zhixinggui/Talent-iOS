@@ -21,4 +21,11 @@
     }
     return _data;
 }
+
+
+-(UIImage *)uploadFullScreenImage{
+
+    return self.asset ? [UIImage imageWithCGImage:[self.asset.defaultRepresentation  fullScreenImage]]:self.image;
+
+}
 @end

@@ -5,6 +5,13 @@
 //  Created by zhizhen on 15/9/22.
 //  Copyright © 2015年 zhizhen. All rights reserved.
 // 订单
+///订单状态改变通知
+extern  NSString * const ZZOrderStausChangePaySucc; //订单状态改变  支付成功
+extern  NSString * const ZZOrderStausChangeCancellOrderSucc; //订单状态改变  取消订单
+extern  NSString * const ZZOrderStausChangeEvaluationSucc ; //订单状态改变  评价成功
+extern  NSString * const ZZOrderStausChangeRefundSucc ; //订单状态改变  退款成功
+
+
 
 #import <Foundation/Foundation.h>
 #import "ZZActivity.h"
@@ -47,8 +54,10 @@
 @property (nonatomic, strong) NSNumber *discountPrice;
 /**价格*/
 @property (nonatomic, strong) NSNumber *price;
-
+/**将价格  格式化*/
 - (NSString *)showPrice:(NSNumber *)price;
-
+/**返回自负床的订单状态*/
 - (NSString *)orderStatus;
+
+
 @end

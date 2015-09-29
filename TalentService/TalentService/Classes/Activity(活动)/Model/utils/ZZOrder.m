@@ -7,7 +7,11 @@
 //
 
 #import "ZZOrder.h"
-
+#import "NSObject+ZZDataLogic.h"
+NSString * const ZZOrderStausChangePaySucc = @"ZZOrderStausChangePaySucc"; //订单状态改变  支付成功
+NSString * const ZZOrderStausChangeCancellOrderSucc = @"ZZOrderStausChangeCancellOrderSucc"; //订单状态改变  取消订单成功
+NSString * const ZZOrderStausChangeEvaluationSucc = @"ZZOrderStausChangeEvaluationSucc"; //订单状态改变  评价成功
+NSString * const ZZOrderStausChangeRefundSucc = @"ZZOrderStausChangeRefundSucc"; //订单状态改变  退款成功
 @implementation ZZOrder
 
 -(void)setStatus:(ZZOrderStatus)status{
@@ -46,6 +50,22 @@
     _status = orderStatus;
 }
 
+-(void)setServicesImg:(NSString *)servicesImg{
+    _servicesImg = [servicesImg  getUrlUseEncodAppend:ZZImageUrlAppend(60.0, NO)];
+}
+
+-(void)setServicePrice:(NSNumber *)servicePrice{
+    _servicePrice = [NSNumber  dealNum:servicePrice];
+}
+
+-(void)setPrice:(NSNumber *)price{
+    _price = [NSNumber dealNum:price];
+}
+
+-(void)setDiscountPrice:(NSNumber *)discountPrice{
+    _discountPrice = [NSNumber  dealNum:discountPrice];
+}
+
 - (NSString *)showPrice:(NSNumber *)price{
     NSString *str = [price description];
     // 小数点的位置
@@ -56,9 +76,7 @@
     return str ? [str stringByAppendingString:@"元"] :@"免费";
 }
 
--(void)setServicesImg:(NSString *)servicesImg{
-    _servicesImg = [servicesImg  getUrlUseEncodAppend:ZZImageUrlAppend(60.0, NO)];
-}
+
 
 - (NSString *)orderStatus{
     switch (self.status) {

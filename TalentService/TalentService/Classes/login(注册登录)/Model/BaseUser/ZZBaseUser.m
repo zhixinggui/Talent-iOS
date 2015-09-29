@@ -15,5 +15,9 @@
 
     _userSmallImg = [[userSmallImg stringByAppendingString:ZZImageUrlAppend(120.0, NO)]stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 }
+
+-(void)setBackgroundImg:(NSString *)backgroundImg{
+    _backgroundImg = [backgroundImg  getUrlUseEncodAppend:ZZImageUrlAppend(ScreenWidth, NO)];
+}
 @end
 

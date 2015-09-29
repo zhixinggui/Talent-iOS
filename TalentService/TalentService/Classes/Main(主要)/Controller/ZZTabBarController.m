@@ -48,10 +48,10 @@
     
     [self setUpOneChildViewController:activity image:[UIImage imageNamed:@"event_close_30x30"] selectedImage:[UIImage imageWithOriginalName:@"event_open_30x30"] title:@"服务"];
 
-    // 社区
-    ZZTopicForumTVC *topic = [[ZZTopicForumTVC alloc] init];
-    
-    [self setUpOneChildViewController:topic image:[UIImage imageNamed:@"city_close_30x30"] selectedImage:[UIImage imageWithOriginalName:@"city_open_30x30"] title:@"社区"];
+//    // 社区
+//    ZZTopicForumTVC *topic = [[ZZTopicForumTVC alloc] init];
+//    
+//    [self setUpOneChildViewController:topic image:[UIImage imageNamed:@"city_close_30x30"] selectedImage:[UIImage imageWithOriginalName:@"city_open_30x30"] title:@"社区"];
 
     // 我的
     ZZInfoVC *me = [[ZZInfoVC alloc] init];

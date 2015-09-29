@@ -34,5 +34,5 @@
 
 + (void)showMessageClearBackView:(NSString *)message toView:(UIView *)view;
 
-+ (void)showMessageClearBackView:(NSString *)message toView:(UIView *)view   yoffest:(CGFloat )y;
+
 @end

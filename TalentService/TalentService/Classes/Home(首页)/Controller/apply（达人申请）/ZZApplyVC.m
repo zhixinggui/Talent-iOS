@@ -16,6 +16,10 @@ static  NSUInteger  const ImageCount = 5;
 #import "UIBarButtonItem+Extension.h"
 #import "ZZApplyTalentParam.h"
 #import "ZZCacheTool.h"
+#import "ZZUploadImageModel.h"
+#import "ZZLoadHttpTool.h"
+#import "ZZHudView.h"
+#import "ZZHomeHttpTool.h"
 @interface ZZApplyVC ()<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,UUPhotoActionSheetDelegate,UUPhotoBrowserDelegate,UIGestureRecognizerDelegate,ZZAddImageCellDelegate>
 
 
@@ -70,7 +74,7 @@ static  NSUInteger  const ImageCount = 5;
      [self.phoneTF addLeftViewImageString:@"phone_30x30"];
      [self.identifyTF addLeftViewImageString:@"message_30x30"];
      [self.talentTypeTF addLeftViewImageString:@"mengbao_40x40"];
-    self.personTF.placeholder = @"个人简介,150字以内";
+    self.personTF.placeholder = @"个人简介,50~150字";
     self.personTF.textContentLength = 300;
     self.securityButton.backgroundColor = LoginButtonColor;
     [self.addImageCV  registerNib:[UINib  nibWithNibName:@"ZZAddImageCell" bundle:[NSBundle  mainBundle]] forCellWithReuseIdentifier:[ZZAddImageCell  addImageCellIdentifier]];
@@ -100,7 +104,19 @@ static  NSUInteger  const ImageCount = 5;
 }
 #pragma mark - private  methods
 - (IBAction)securityButton:(ZZLayerButton *)sender {
-    [sender  startWithSecond:ZZSecerityTime];
+    if ([self.phoneTF.text  isCorrectPhoneNumber]) {
+        
+          [sender  startWithSecond:ZZSecerityTime];
+    
+        [ZZLoadHttpTool loadGetCode:self.phoneTF.text success:^(id json, ZZNetDataType dataType) {
+            [ZZHudView  showMessage:@"获取验证码成功" time:1 toView:self.view];
+        } failure:^(NSString *error, ZZNetDataType dataType) {
+            [ZZHudView  showMessage:error time:2 toView:self.view];
+        }];        
+    }else{
+        [self.phoneTF  shakeAnimation];
+    }
+ 
 }
 
 - (void)updateImageCountLabelText{
@@ -111,15 +127,56 @@ static  NSUInteger  const ImageCount = 5;
     }
 }
 #pragma mark - event response
-- (void)securityButtonAction{
-    
-}
+
 - (IBAction)endEdit:(UITapGestureRecognizer *)sender {
     [self.backScrollView  endEditing:YES];
 }
 
 
 - (void)commitAction{
+    [self.backScrollView  endEditing:YES];
+    if (self.nameTF.text.length <1) {
+        [self.nameTF  shakeAnimation];
+        return;
+    }
+    if (self.idCardTF.text.length != 15&&self.idCardTF.text.length !=18) {
+        [self.idCardTF  shakeAnimation];
+        return;
+    }
+      if (![self.phoneTF.text  isCorrectPhoneNumber]) {
+          [self.phoneTF  shakeAnimation];
+          return;
+      }
+    if (![self.identifyTF.text  isSecutityNumber]) {
+        [self.identifyTF  shakeAnimation];
+        return;
+    }
+    if (self.talentTypeTF.text.length <1) {
+        [self.talentTypeTF shakeAnimation];
+        return;
+    }
+    NSInteger textCount = [self.personTF.text unicodeLength];
+    if (textCount<99||textCount>301) {
+        [self.personTF shakeAnimation];
+        return;
+    }
+   
+    ZZApplyTalentParam *applyParam = [[ZZApplyTalentParam  alloc]init];
+    applyParam.userName = self.nameTF.text;
+    applyParam.identityCard = self.idCardTF.text;
+    applyParam.phone = self.phoneTF.text;
+    applyParam.userPresentation = self.personTF.text;
+    applyParam.eredarType = @(1);
+    applyParam.securityCode = self.identifyTF.text;
+    
+    [ZZHomeHttpTool  homeApply:applyParam success:^( id result, ZZNetDataType netDataType) {
+        
+       [ZZHudView  showMessage:@"提交申请成功" time:1 toView:self.view];
+        [ZZCacheTool saveApplyTalentParam:nil];
+          [self.navigationController  popViewControllerAnimated:YES];
+    } failure:^(NSString *error, ZZNetDataType netDataType) {
+        [ZZHudView  showMessage:error time:3 toView:self.view];
+    }];
     
 }
 - (IBAction)talentKonwAction:(id)sender {
@@ -138,7 +195,8 @@ static  NSUInteger  const ImageCount = 5;
     if (self.images.count == indexPath.row) {
         cell.image = nil;
     }else{
-        cell.image = self.images[indexPath.row];
+        ZZUploadImageModel *imageModel = self.images[indexPath.row];
+        cell.image = imageModel.image;
     }
     return cell;
 }
@@ -194,7 +252,8 @@ static  NSUInteger  const ImageCount = 5;
 
 #pragma mark -UUPhotoActionSheetDelegate
 - (UIImage *)displayImageWithIndex:(NSInteger)index fromPhotoBrowser:(UUPhotoBrowserViewController *)browser{
-    UIImage  *image = self.images[index];
+    ZZUploadImageModel *imageModel = self.images[index];
+    UIImage  *image = [imageModel  uploadFullScreenImage];
     return image;
 }
 
@@ -229,6 +288,6 @@ static  NSUInteger  const ImageCount = 5;
 
 -(void)dealloc{
     [self.securityButton  clearButton];
-    ZZLog(@"%@",[self  class]);
+  
 }
 @end

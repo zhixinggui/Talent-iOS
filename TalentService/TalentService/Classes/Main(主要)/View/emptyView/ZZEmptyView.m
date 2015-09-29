@@ -19,6 +19,7 @@
 }
 -(void)awakeFromNib{
     self.imageView.contentMode = UIViewContentModeScaleAspectFill;
+   
 }
 -(void)setIcon:(NSString *)icon{
     _icon = icon;
@@ -42,8 +43,6 @@
         if (self.tipTitle.length == 0) {
             self.tipTitle = @"没有相关数据";
         }
-        
-        self.frame = CGRectMake(0, self.yOffset, newSuperview.frame.size.width, newSuperview.frame.size.height - self.yOffset*2);
     }
     
 }
