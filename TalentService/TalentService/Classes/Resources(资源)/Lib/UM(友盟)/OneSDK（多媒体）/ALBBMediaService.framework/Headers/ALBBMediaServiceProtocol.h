@@ -1,5 +1,5 @@
 //
-//  阿里多媒体云iOS SDK 3.5.2
+//  阿里多媒体云iOS SDK 3.5.4
 //  Copyright (c) 2014年 alibaba. All rights reserved.
 //
 
@@ -196,8 +196,9 @@ typedef NS_ENUM(NSInteger, TFETaskStatus) {
 
 /**
  * 获取图片组件实例
+ * 需要引入ALBBImageComponent.bundle文件才能够初始化图片组件
  * @return ALBBImageComponent实例
- */
+ */ 
 - (id)getImageComponent;
 
 

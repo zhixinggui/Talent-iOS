@@ -38,7 +38,7 @@ static id <ALBBMediaServiceProtocol> staticTaeFileEngine;
 +(instancetype)allocWithZone:(struct _NSZone *)zone{
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        _uploadTool = [[self alloc]init];
+        _uploadTool = [super allocWithZone:zone];
     });
     return _uploadTool;
 }

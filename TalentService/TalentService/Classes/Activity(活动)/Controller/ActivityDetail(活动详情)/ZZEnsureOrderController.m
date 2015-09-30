@@ -94,10 +94,10 @@
 
 - (void)ensurePhone{
     ZZActivityConmitParam *commitparam = [[ZZActivityConmitParam  alloc]init];
-    commitparam.orderCode = self.order.orderCode;
+  //  commitparam.orderCode = self.order.orderCode;
     commitparam.phone = self.order.phone;
     commitparam.serviceId = @(self.order.serviceInfo.activityId);
-    commitparam.servicePrice = self.order.servicePrice;
+  //  commitparam.servicePrice = self.order.servicePrice;
     
     [MBProgressHUD  showMessage:ZZNetLoading];
     [ZZActivityHttpTool  activityCommitOrder:commitparam success:^(ZZOrder * order, ZZNetDataType netSuccType) {

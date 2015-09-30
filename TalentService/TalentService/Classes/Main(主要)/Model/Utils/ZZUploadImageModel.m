@@ -17,7 +17,6 @@
             CGFloat scral = self.asset ? 1 : 0.8;
             _data = UIImageJPEGRepresentation(self.image, scral);
         }
-        
     }
     return _data;
 }

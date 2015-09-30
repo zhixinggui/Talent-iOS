@@ -9,6 +9,7 @@
 #import "UIViewController+Extension.h"
 #import "AppDelegate.h"
 #import "ZZLoginVC.h"
+#import "MobClick.h"
 #define mengID (954281556)
 @implementation UIViewController (Extension)
 #pragma mark -黑魔法 Method swizzling - 友盟数据统计
