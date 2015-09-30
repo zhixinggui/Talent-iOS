@@ -48,8 +48,8 @@ NSString * const WXAppSecret = @"139fc6ccddba72262d94688368082312";//
 NSString * const WXurl = @"http://www.umeng.com/social";//
 
 //新浪
-//NSString * const SinaAppId = @"1104000906";//
-//NSString * const SinaAppKey = @"T73NH4Tz75dWsPdy";//
+//NSString * const SinaAppId = @"2019049338";//
+//NSString * const SinaAppKey = @"96ae214825838c1fd26d9637ab39460d";//
 NSString * const SinaUrl = @"https://api.weibo.com/oauth2/default.html";//
 @interface ZZUMTool ()<UMSocialUIDelegate>
 /** 支持的三方登陆 */

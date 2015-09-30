@@ -68,12 +68,12 @@
 		56C652791BB53CA4009890B4 /* ZZMoreExplainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 56C652771BB53CA4009890B4 /* ZZMoreExplainVC.m */; };
 		56C6527A1BB53CA4009890B4 /* ZZMoreExplainVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56C652781BB53CA4009890B4 /* ZZMoreExplainVC.xib */; };
 		56D8B84E1BAFE57900E7A4E9 /* ZZBaseResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 56D8B84D1BAFE57900E7A4E9 /* ZZBaseResult.m */; };
-		56F734571BBA2B48000E69AB /* ZZMyServiceParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F734561BBA2B48000E69AB /* ZZMyServiceParam.m */; settings = {ASSET_TAGS = (); }; };
-		56F7345D1BBA5CD8000E69AB /* ZZCollectParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F7345C1BBA5CD8000E69AB /* ZZCollectParam.m */; settings = {ASSET_TAGS = (); }; };
-		56F734601BBA5F1F000E69AB /* ZZAttentionParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F7345F1BBA5F1F000E69AB /* ZZAttentionParam.m */; settings = {ASSET_TAGS = (); }; };
-		56F734631BBA6133000E69AB /* ZZOrderParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F734621BBA6133000E69AB /* ZZOrderParam.m */; settings = {ASSET_TAGS = (); }; };
-		56F734661BBA67D5000E69AB /* ZZMyJoinOrderVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F734651BBA67D5000E69AB /* ZZMyJoinOrderVC.m */; settings = {ASSET_TAGS = (); }; };
-		56F734691BBA7C5B000E69AB /* ZZTestOrderParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F734681BBA7C5B000E69AB /* ZZTestOrderParam.m */; settings = {ASSET_TAGS = (); }; };
+		56F734571BBA2B48000E69AB /* ZZMyServiceParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F734561BBA2B48000E69AB /* ZZMyServiceParam.m */; };
+		56F7345D1BBA5CD8000E69AB /* ZZCollectParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F7345C1BBA5CD8000E69AB /* ZZCollectParam.m */; };
+		56F734601BBA5F1F000E69AB /* ZZAttentionParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F7345F1BBA5F1F000E69AB /* ZZAttentionParam.m */; };
+		56F734631BBA6133000E69AB /* ZZOrderParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F734621BBA6133000E69AB /* ZZOrderParam.m */; };
+		56F734661BBA67D5000E69AB /* ZZMyJoinOrderVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F734651BBA67D5000E69AB /* ZZMyJoinOrderVC.m */; };
+		56F734691BBA7C5B000E69AB /* ZZTestOrderParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F734681BBA7C5B000E69AB /* ZZTestOrderParam.m */; };
 		6E2B7F9C1BA1A2F6004CA827 /* ZZFuncitonModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E2B7F9B1BA1A2F6004CA827 /* ZZFuncitonModel.m */; };
 		6E2B7FAD1BA1B4E6004CA827 /* ZZFeedbackVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E2B7FA11BA1B4E6004CA827 /* ZZFeedbackVC.m */; };
 		6E2B7FAE1BA1B4E6004CA827 /* ZZFeedbackVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E2B7FA21BA1B4E6004CA827 /* ZZFeedbackVC.xib */; };
