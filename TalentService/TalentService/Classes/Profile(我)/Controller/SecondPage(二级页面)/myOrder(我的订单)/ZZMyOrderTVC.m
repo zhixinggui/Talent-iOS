@@ -53,7 +53,7 @@
     [self getNetData];
     
 }
-<<<<<<< Updated upstream
+
 //ZZOrderTypeAll = 1,//全部
 //ZZOrderTypeNoPay,//未支付
 //ZZOrderTypeDidPay,//已支付
@@ -85,31 +85,40 @@
             self.orderParam = @"6";
             [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(getNetData) name:ZZOrderStausChangeRefundSucc object:nil];
             break;
+            default:
+            break;
     }
-=======
-
+}
+/*
 - (void)getNetData{
-    [MBProgressHUD showMessage:@"正在加载中..." toView:self.view];
+        self.showTip = NO;
+        [self.orderArray removeAllObjects];
+        [self.tableView  reloadData];
+        [MBProgressHUD showMessage:@"正在加载中..." toView:self.view];
+    
     ZZOrderParam *orderParam = [[ZZOrderParam alloc]init];
     orderParam.queryType = @(0);
     orderParam.status = self.orderParam;
     orderParam.pageNo = @(0);
     orderParam.numberOfPerPage = @(numberOfpage);
-    [ZZMyInfoHttpTool getMyOrderListWithOrderParam:orderParam success:^(ZZOrderResult *orderResult, ZZNetDataType dataType) {
-        [MBProgressHUD  hideHUDForView:self.view];
-        self.orderResult = orderResult;
-        [self.orderArray removeAllObjects];
-        [self.orderArray addObjectsFromArray:self.orderResult.rows];
-        [self.tableView reloadData];
->>>>>>> Stashed changes
-    
+    [ZZMyInfoHttpTool getMyOrderListWithOrderParam:(ZZOrderParam *)orderParam success:^(ZZOrderResult *orderResult, ZZNetDataType dataType) {
+            [MBProgressHUD  hideHUDForView:self.view];
+            self.orderResult = orderResult;
+            self.showTip = YES;
+            [self.orderArray addObjectsFromArray:self.orderResult.rows];
+            [self.tableView reloadData];
+            
+        } failure:^(NSString *error, ZZNetDataType datatype) {
+            [MBProgressHUD  hideHUDForView:self.view];
+            [MBProgressHUD  showNetLoadFailWithText:@"加载失败，点击重新加载" view:self.view target:self action:@selector(getNetData) isBack:NO];
+        }];
 }
+*/
 
-<<<<<<< Updated upstream
-=======
 /**
  *  底部更多刷新方法
  */
+/*
 - (void)loadMoreOrder {
     ZZOrderParam *orderParam = [[ZZOrderParam alloc]init];
     orderParam.queryType = @(0);
@@ -128,8 +137,7 @@
     }];
 }
 
-
->>>>>>> Stashed changes
+*/
 
 #pragma mark - Table view data source
 
@@ -212,7 +220,12 @@
     [self.orderArray removeAllObjects];
     [self.tableView  reloadData];
     [MBProgressHUD showMessage:@"正在加载中..." toView:self.view];
-    [ZZMyInfoHttpTool getMyOrderListWithQueryType:0 andStatus:self.orderParam andPageNo:0 andNumberOfPerPage:numberOfpage success:^(ZZOrderResult *orderResult, ZZNetDataType dataType) {
+    ZZOrderParam *orderParam = [[ZZOrderParam alloc]init];
+    orderParam.queryType = @(0);
+    orderParam.status = self.orderParam;
+    orderParam.pageNo = @(0);
+    orderParam.numberOfPerPage = @(numberOfpage);
+    [ZZMyInfoHttpTool getMyOrderListWithOrderParam:(ZZOrderParam *)orderParam success:^(ZZOrderResult *orderResult, ZZNetDataType dataType) {
         [MBProgressHUD  hideHUDForView:self.view];
         self.orderResult = orderResult;
         self.showTip = YES;
@@ -229,7 +242,12 @@
  *  底部更多刷新方法
  */
 - (void)loadMoreOrder {
-    [ZZMyInfoHttpTool getMyOrderListWithQueryType:0 andStatus:self.orderParam andPageNo:self.orderResult.page andNumberOfPerPage:numberOfpage success:^(ZZOrderResult *orderResult, ZZNetDataType dataType) {
+    ZZOrderParam *orderParam = [[ZZOrderParam alloc]init];
+    orderParam.queryType = @(0);
+    orderParam.status = self.orderParam;
+    orderParam.pageNo = @(self.orderResult.page);
+    orderParam.numberOfPerPage = @(numberOfpage);
+    [ZZMyInfoHttpTool getMyOrderListWithOrderParam:(ZZOrderParam *)orderParam success:^(ZZOrderResult *orderResult, ZZNetDataType dataType) {
         //请求成功刷新停止
         [self.tableView.footer endRefreshing];
         self.orderResult = orderResult;
@@ -249,8 +267,8 @@
     if (_emptyView == nil) {
         _emptyView = [ZZEmptyView  emptyView];
         _emptyView.tipTitle = @"没有相关订单";
-        CGFloat y =44;
-      _emptyView.frame = CGRectMake(0, y , ScreenWidth, ScreenHeight - y  -64);
+    
+      _emptyView.frame = CGRectMake(0, 0 , ScreenWidth, ScreenHeight );
         [self.view  addSubview:_emptyView];
     }
     return _emptyView;

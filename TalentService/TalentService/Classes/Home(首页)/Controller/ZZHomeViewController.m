@@ -177,7 +177,7 @@ static   NSUInteger const HomeNumCount = 10;
 
 -(ZZHeadView *)headView{
     if (_headView == nil) {
-        _headView = [[[NSBundle  mainBundle]loadNibNamed:@"ZZHeadView" owner:self options:nil] lastObject];
+        _headView = [[[NSBundle  mainBundle]loadNibNamed:@"ZZHeadView" owner:nil options:nil] lastObject];
     }
     return _headView;
 }
