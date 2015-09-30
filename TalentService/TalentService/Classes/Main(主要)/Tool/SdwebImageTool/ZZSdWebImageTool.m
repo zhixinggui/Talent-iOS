@@ -27,4 +27,10 @@
     //清除系统的缓存
     [[NSURLCache  sharedURLCache] removeAllCachedResponses];
 }
+
++ (void)clickClearImageCacheWithBlock:(void (^)(void))block{
+       [[SDImageCache sharedImageCache] cleanDiskWithCompletionBlock:^{
+           block();
+       }];
+}
 @end

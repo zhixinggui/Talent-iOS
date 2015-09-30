@@ -25,4 +25,9 @@
  *  点击清理图片缓存
  */
 + (void)clickClearImageCache;
+
+/**
+ *  点击清理图片缓存
+ */
++ (void)clickClearImageCacheWithBlock:(void (^)(void))block;
 @end

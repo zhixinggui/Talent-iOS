@@ -12,6 +12,7 @@
 #import "UIImageView+WebCache.h"
 #import "ZZFeedbackVC.h"
 #import "ZZMoreExplainVC.h"
+#import "ZZSdWebImageTool.h"
 @interface ZZMoreVC ()<UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *moreTableView;
 @property (strong, nonatomic) IBOutlet UIButton *cacheButton;
@@ -28,18 +29,21 @@
     self.moreTableView.tableFooterView = self.cacheButton;
     self.moreTableView.dataSource = self;
     self.moreTableView.delegate = self;
-    /**
-     *  缓存按钮
-     */
-    float tmpSize = [[SDImageCache sharedImageCache] getSize];
-    NSString *clearCacheName = tmpSize >= 1024 ? [NSString stringWithFormat:@"清除缓存(%.2fM)",tmpSize/1024/1024] : [NSString stringWithFormat:@"清除缓存(%.2fK)",tmpSize/1024];
-    [self.cacheButton setTitle:clearCacheName forState:UIControlStateNormal];
+  
 }
 
-#pragma mark - UITableViewDatasourse
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+-(void)viewWillAppear:(BOOL)animated{
+    [super  viewWillAppear:animated];
+   
+    [self  setCacheButtonTitle];
 }
+
+- (void)setCacheButtonTitle{
+  
+    [self.cacheButton setTitle: [@"缓存"  stringByAppendingString:[ZZSdWebImageTool  sdImageCacheSize]]  forState:UIControlStateNormal];
+}
+#pragma mark - UITableViewDatasourse
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 7;
 }
@@ -72,23 +76,12 @@
     
 }
 - (IBAction)cacheActionButton:(UIButton *)sender {
-    ZZLog(@"清除缓存");
+    [MBProgressHUD  showMessage:@"缓存清理中" toView:self.view];
+    [ZZSdWebImageTool  clickClearImageCacheWithBlock:^{
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        [self  setCacheButtonTitle];
+    }];
+    
 }
-
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
