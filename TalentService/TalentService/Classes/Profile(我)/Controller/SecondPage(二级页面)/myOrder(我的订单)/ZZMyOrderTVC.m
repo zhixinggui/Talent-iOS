@@ -18,6 +18,9 @@
 #import "ZZEmptyView.h"
 #import "ZZSelectPayTypeVC.h"
 #import "ZZActivityHttpTool.h"
+
+#import "ZZOrderParam.h"
+
 #define numberOfpage 10
 
 @interface ZZMyOrderTVC ()<ZZOrderCellDelegate>
@@ -50,6 +53,7 @@
     [self getNetData];
     
 }
+<<<<<<< Updated upstream
 //ZZOrderTypeAll = 1,//全部
 //ZZOrderTypeNoPay,//未支付
 //ZZOrderTypeDidPay,//已支付
@@ -82,9 +86,50 @@
             [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(getNetData) name:ZZOrderStausChangeRefundSucc object:nil];
             break;
     }
+=======
+
+- (void)getNetData{
+    [MBProgressHUD showMessage:@"正在加载中..." toView:self.view];
+    ZZOrderParam *orderParam = [[ZZOrderParam alloc]init];
+    orderParam.queryType = @(0);
+    orderParam.status = self.orderParam;
+    orderParam.pageNo = @(0);
+    orderParam.numberOfPerPage = @(numberOfpage);
+    [ZZMyInfoHttpTool getMyOrderListWithOrderParam:orderParam success:^(ZZOrderResult *orderResult, ZZNetDataType dataType) {
+        [MBProgressHUD  hideHUDForView:self.view];
+        self.orderResult = orderResult;
+        [self.orderArray removeAllObjects];
+        [self.orderArray addObjectsFromArray:self.orderResult.rows];
+        [self.tableView reloadData];
+>>>>>>> Stashed changes
     
 }
 
+<<<<<<< Updated upstream
+=======
+/**
+ *  底部更多刷新方法
+ */
+- (void)loadMoreOrder {
+    ZZOrderParam *orderParam = [[ZZOrderParam alloc]init];
+    orderParam.queryType = @(0);
+    orderParam.status = self.orderParam;
+    orderParam.pageNo = @(self.orderResult.page);
+    orderParam.numberOfPerPage = @(numberOfpage);
+    [ZZMyInfoHttpTool getMyOrderListWithOrderParam:(ZZOrderParam *)orderParam success:^(ZZOrderResult *orderResult, ZZNetDataType dataType) {
+        //请求成功刷新停止
+        [self.tableView.footer endRefreshing];
+        self.orderResult = orderResult;
+        [self.orderArray addObjectsFromArray:self.orderResult.rows];
+        [self.tableView reloadData];
+    } failure:^(NSString *error, ZZNetDataType datatype) {
+        [self.tableView.footer  endRefreshing];
+        [ZZHudView  showMessage:error time:3 toView:self.view];
+    }];
+}
+
+
+>>>>>>> Stashed changes
 
 #pragma mark - Table view data source
 
@@ -229,6 +274,9 @@
 
         case ZZOrderTypeDidPast:
          return @"6";
+            
+            default:
+            return @"";
     }
 }
 -(NSMutableArray *)orderArray{

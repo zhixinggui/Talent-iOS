@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface ZZMyAllActivityTVC : UITableViewController
-
+//是不是达人1 是 0不是
+@property (nonatomic)NSInteger isEredar;
 @end

@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface ZZTestingVC : UIViewController
-
+@property (nonatomic)NSInteger serviceId;
 @end

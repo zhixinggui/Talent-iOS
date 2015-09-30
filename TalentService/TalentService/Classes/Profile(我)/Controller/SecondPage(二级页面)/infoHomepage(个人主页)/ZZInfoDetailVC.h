@@ -10,4 +10,5 @@
 
 @interface ZZInfoDetailVC : UIViewController
 @property(nonatomic)NSInteger userAttentionId;
+@property(nonatomic)NSInteger isEredar;
 @end

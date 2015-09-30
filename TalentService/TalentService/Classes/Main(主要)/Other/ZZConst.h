@@ -34,10 +34,12 @@ typedef enum {
 //订单类型
 typedef  enum{
     ZZOrderTypeAll = 1,//全部
-    ZZOrderTypeNoPay,//未支付
-    ZZOrderTypeDidPay,//已支付
-    ZZOrderTypeDidJoin,//已参加
-    ZZOrderTypeDidPast,//已过期
+    ZZOrderTypeNoPay,//未付款
+    ZZOrderTypeDidPay,//未消费
+    ZZOrderTypeDidJoin,//待评价
+    ZZOrderTypeDidPast,//退款
+    ZZOrderTypeDidTest,//已验证
+    ZZOrderTypeNoTest,//未验证
 }ZZOrderType;
 //订单状态
 typedef enum {

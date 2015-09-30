@@ -34,11 +34,15 @@ static id <ALBBMediaServiceProtocol> staticTaeFileEngine;
     });
     return _uploadTool;
 }
-
+//
 +(instancetype)allocWithZone:(struct _NSZone *)zone{
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
+<<<<<<< Updated upstream
         _uploadTool = [super allocWithZone:zone];
+=======
+        _uploadTool = [super  allocWithZone:zone];
+>>>>>>> Stashed changes
     });
     return _uploadTool;
 }

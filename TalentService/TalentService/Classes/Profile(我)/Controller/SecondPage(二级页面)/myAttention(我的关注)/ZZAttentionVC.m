@@ -14,6 +14,9 @@
 #import "MJRefresh.h"
 #import "ZZHudView.h"
 
+#import "ZZAttentionParam.h"
+
+
 #define numberOfpage 10
 @interface ZZAttentionVC ()<UITableViewDelegate,UITableViewDataSource,ZZSegmentedControlDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *attentionTV;
@@ -50,7 +53,11 @@
     /**
      *  获取关注列表
      */
-    [ZZMyInfoHttpTool getMyAttentionWithTypeNum:typeNum andPageNo:0 andNumberOfPerPage:numberOfpage success:^(ZZAttentionResult *attResult, ZZNetDataType dataType) {
+    ZZAttentionParam *attentionParam = [[ZZAttentionParam alloc]init];
+    attentionParam.typeNum = @(typeNum);
+    attentionParam.pageNo = @(0);
+    attentionParam.numberOfPerPage = @(numberOfpage);
+    [ZZMyInfoHttpTool getMyAttentionWithAttentionParam:attentionParam success:^(ZZAttentionResult *attResult, ZZNetDataType dataType) {
         [MBProgressHUD  hideHUDForView:self.view];
         self.attResult = attResult;
         if (self.attResult.rows.count == 0) {
@@ -85,7 +92,11 @@
 }
 
 -(void)getMoreAttentionListWithTypeNum:(NSInteger)typeNum{
-    [ZZMyInfoHttpTool getMyAttentionWithTypeNum:typeNum andPageNo:self.attResult.page andNumberOfPerPage:numberOfpage success:^(ZZAttentionResult *attResult, ZZNetDataType dataType) {
+    ZZAttentionParam *attentionParam = [[ZZAttentionParam alloc]init];
+    attentionParam.typeNum = @(typeNum);
+    attentionParam.pageNo = @(self.attResult.page);
+    attentionParam.numberOfPerPage = @(numberOfpage);
+    [ZZMyInfoHttpTool getMyAttentionWithAttentionParam:attentionParam success:^(ZZAttentionResult *attResult, ZZNetDataType dataType) {
        [self.attentionTV.footer endRefreshing];
         self.attResult = attResult;
         if (typeNum) {

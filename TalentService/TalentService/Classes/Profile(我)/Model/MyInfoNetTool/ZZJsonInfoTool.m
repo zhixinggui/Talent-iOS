@@ -9,15 +9,16 @@
 #import "ZZJsonInfoTool.h"
 #import "ZZLoginUserTool.h"
 #import "ZZOtherUser.h"
+
 @implementation ZZJsonInfoTool
 /**
  *  个人信息解析
  *
  *  @param dic <#dic description#>
  */
-+(ZZLoginUser *)parseSelfInfomation:(NSDictionary *)dic{
++(ZZOtherUser *)parseSelfInfomation:(NSDictionary *)dic{
     if ([dic safeDictionary]) {
-        ZZLoginUser *loginUser = [ZZLoginUserTool sharedZZLoginUserTool].loginUser;
+        ZZOtherUser *loginUser = [[ZZOtherUser alloc]init];
         loginUser.userId = [[[dic objectForKey:@"userId"]safeString] integerValue];
         loginUser.userNike = [[dic objectForKey:@"userNike"]safeString];
         if ([[dic objectForKey:@"userRole"]safeArray]) {
@@ -32,8 +33,11 @@
         loginUser.userAddress = [[dic objectForKey:@"userAddress"]safeString];
         
         loginUser.userSex = [[[dic objectForKey:@"userSex"]safeNumber]integerValue];
-        loginUser.userBigImg = [[dic objectForKey:@"userBigImg"]safeString];
+        loginUser.userSmallImg = [[dic objectForKey:@"userSmallImg"]safeString];
+        
         loginUser.isAttention = [[dic objectForKey:@"isAttention"]boolValue];
+        
+        loginUser.backgroundImg = [[dic objectForKey:@"backgroundImg"]safeString];
         return loginUser;
     }else{
         return nil;
@@ -61,8 +65,14 @@
         loginUser.userAddress = [[dic objectForKey:@"userAddress"]safeString];
         
         loginUser.userSex = [[[dic objectForKey:@"userSex"]safeNumber]integerValue];
+        loginUser.userSmallImg = [[dic objectForKey:@"userSmallImg"]safeString];
+        
+        loginUser.backgroundImg = [[dic objectForKey:@"backgroundImg"]safeString];
+        
+        
         NSNotification * noti = [NSNotification  notificationWithName:ZZUserNickChangeNoti object:nil];
         [[NSNotificationCenter  defaultCenter]postNotification:noti];
+        [[ZZLoginUserTool sharedZZLoginUserTool] save:loginUser];
     }
 }
 

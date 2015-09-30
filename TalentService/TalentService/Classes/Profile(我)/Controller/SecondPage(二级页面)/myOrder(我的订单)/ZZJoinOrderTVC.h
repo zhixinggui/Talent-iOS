@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ZZMyJoinOrderVC.h"
 
+@class ZZMyJoinOrderVC;
 @interface ZZJoinOrderTVC : UITableViewController
-
+@property (nonatomic) ZZOrderType orderType;
+@property (nonatomic) NSInteger serviceId;
+@property (nonatomic, weak)ZZMyJoinOrderVC *myJoinOrderVcDelegate;
 @end

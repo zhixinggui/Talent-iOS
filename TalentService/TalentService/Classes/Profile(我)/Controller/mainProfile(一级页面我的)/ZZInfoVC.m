@@ -7,7 +7,6 @@
 //
 
 #import "ZZInfoVC.h"
-#import "ZZMyEventVC.h"
 #import "ZZCommunityTVC.h"
 #import "ZZAttentionVC.h"
 #import "ZZMessageTVC.h"
@@ -30,11 +29,16 @@
  */
 #import "ZZMyInfoHttpTool.h"
 #import "ZZLoginUser.h"
+
+#import "ZZHeadImageView.h"
+
+#import "ZZUploadImageModel.h"
 @interface ZZInfoVC ()<UITableViewDataSource,UITableViewDelegate,UUPhotoActionSheetDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *roleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *fansCount;
 
+@property (weak, nonatomic) IBOutlet ZZHeadImageView *headIV;
 
 @property (weak, nonatomic) IBOutlet UIView *tableHeadView;
 @property (weak, nonatomic) IBOutlet HCSStarRatingView *starView;
@@ -84,9 +88,9 @@
     self.starView.minimumValue = 0;
     self.starView.allowsHalfStars = NO;
     self.starView.spacing = 5;
-    self.starView.tintColor = [UIColor  blueColor];
+    self.starView.tintColor = ZZNatiBarColor;
     
-    self.progressView.color = [UIColor colorWithRed:0.00f green:0.64f blue:0.00f alpha:1.00f];
+    self.progressView.color = ZZNatiBarColor;
     self.progressView.flat = @YES;
     self.progressView.animate = @YES;
     self.progressView.showText = @NO;
@@ -100,6 +104,10 @@
 - (void)selfInformation {
     ZZLoginUser *user = ZZLoginTool.loginUser;
     self.nameLabel.text = user.userNike;
+    self.infoIV.contentMode = UIViewContentModeScaleAspectFill;
+    self.infoIV.clipsToBounds = YES;
+    [self.infoIV setPictureImageWithURL:user.backgroundImg];
+    [self.headIV setHeadImageWithURL:user.userSmallImg];
     //星星
 
     self.starView.value = 4;
@@ -109,6 +117,7 @@
     self.fansCount.text = [NSString stringWithFormat:@"Fans(%ld)",user.fans];
     //经验值进度条
     self.progressView.progress = 0.40;
+    
 }
 
 //监听通知
@@ -123,6 +132,7 @@
 - (void)notice {
      ZZLoginUser *user = ZZLoginTool.loginUser;
     self.nameLabel.text = user.userNike;
+    [self.headIV setHeadImageWithURL:user.userSmallImg];
 }
 
 
@@ -175,7 +185,16 @@
 }
 
 - (void)actionSheetDidFinished:(NSArray *)obj {
-    self.infoIV.image = obj[0];
+    ZZUploadImageModel *imageModel = obj[0];
+    self.infoIV.image = imageModel.image;
+    [MBProgressHUD showMessage:@"正在保存中..."];
+    [ZZMyInfoHttpTool commitBackgroundImageWithImageArray:obj success:^(ZZLoginUser *infoUser, ZZNetDataType dataType) {
+        [MBProgressHUD  hideHUD];
+        [MBProgressHUD  showSuccess:@"保存成功"];
+    } failure:^(NSString *error, ZZNetDataType datatype) {
+        [MBProgressHUD  hideHUD];
+        [MBProgressHUD  showError:error];
+    }];
 }
 
 - (IBAction)gotoCollect:(UIButton *)sender {
@@ -210,8 +229,11 @@
         NSMutableArray *farray = [NSMutableArray  array];
         ZZMyInfoModel *order = [ZZMyInfoModel  myInfoModelWithText:@"我的订单" iconName:@"accept_40x40" classType:[ZZMyOrderVC class ]];
         [farray  addObject:order];
-        ZZMyInfoModel *serve = [ZZMyInfoModel  myInfoModelWithText:@"我的服务" iconName:@"accept_40x40" classType:[ZZMyAllActivityTVC class ]];
-        [farray  addObject:serve];
+        ZZLoginUser *user = ZZLoginTool.loginUser;
+        if (user.isEredar) {
+            ZZMyInfoModel *serve = [ZZMyInfoModel  myInfoModelWithText:@"我的服务" iconName:@"accept_40x40" classType:[ZZMyAllActivityTVC class ]];
+            [farray  addObject:serve];
+        }
          //第二个分区
         NSMutableArray *tarray = [NSMutableArray  array];
         ZZMyInfoModel *comnumity = [ZZMyInfoModel  myInfoModelWithText:@"我的社区" iconName:@"community_40x40" classType:[ZZCommunityTVC class ]];

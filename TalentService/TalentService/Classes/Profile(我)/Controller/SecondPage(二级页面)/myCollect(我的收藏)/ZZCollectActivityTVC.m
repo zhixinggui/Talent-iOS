@@ -11,6 +11,7 @@
 #import "ZZMyInfoHttpTool.h"
 #import "MJRefresh.h"
 #import "ZZHudView.h"
+#import "ZZCollectParam.h"
 #define numberOfpage 10
 @interface ZZCollectActivityTVC ()
 @property (nonatomic, strong)NSMutableArray *activityArray;
@@ -36,7 +37,10 @@
  */
 -(void)getMyCollectionList{
     [MBProgressHUD showMessage:@"正在加载中..." toView:self.view];
-    [ZZMyInfoHttpTool getMyCollectActivityWithPageNo:0 andNumberOfPerPage:numberOfpage success:^(ZZHomeServiceResult *result, ZZNetDataType dataType) {
+    ZZCollectParam *collectParam = [[ZZCollectParam alloc]init];
+    collectParam.pageNo = @(0);
+    collectParam.numberOfPerPage = @(10);
+    [ZZMyInfoHttpTool getMyCollectActivityWithCollectParam:collectParam success:^(ZZHomeServiceResult *result, ZZNetDataType dataType) {
         [MBProgressHUD  hideHUDForView:self.view];
         ZZLog(@"啥数据啊:%@",result);
         self.result = result;
@@ -63,7 +67,10 @@
  *  底部刷新更多请求
  */
 - (void)getMoreCollectionList{
-    [ZZMyInfoHttpTool getMyCollectActivityWithPageNo:self.result.page andNumberOfPerPage:numberOfpage success:^(ZZHomeServiceResult *result, ZZNetDataType dataType) {
+    ZZCollectParam *collectParam = [[ZZCollectParam alloc]init];
+    collectParam.pageNo = @(self.result.page);
+    collectParam.numberOfPerPage = @(numberOfpage);
+    [ZZMyInfoHttpTool getMyCollectActivityWithCollectParam:collectParam success:^(ZZHomeServiceResult *result, ZZNetDataType dataType) {
         //请求成功刷新停止
         [self.tableView.footer endRefreshing];
         ZZLog(@"啥数据啊:%@",result);

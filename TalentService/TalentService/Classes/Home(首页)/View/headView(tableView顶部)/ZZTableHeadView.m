@@ -78,7 +78,7 @@ static  NSString *cellIden = @"collectionCell";
     ZZInfoDetailVC *infoDvc = [[ZZInfoDetailVC alloc]init];
     ZZBaseUser *baseUser = self.talents[indexPath.item];
     infoDvc.userAttentionId = baseUser.userId;
-   
+    infoDvc.isEredar = baseUser.isEredar;
     [self.delegateVC.navigationController pushViewController:infoDvc animated:YES ];
 }
 #pragma mark - lazyOut

@@ -13,6 +13,17 @@
  *  头像图片路径
  */
 @property (nonatomic,copy)NSString *imgPath;
+
+/**
+ *  头像图片宽
+ */
+@property (nonatomic, strong)NSNumber *imgWidth;
+
+/**
+ *  头像图片高
+ */
+@property (nonatomic,strong)NSNumber *imgHeight;
+
 /**
  *  用户昵称
  */

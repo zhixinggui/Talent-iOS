@@ -10,7 +10,7 @@
 #import "ZZLoginUserTool.h"
 #import "ZZHttpTool.h"
 #import "ZZJsonInfoTool.h"
-
+#import "ZZUploadImageTool.h"
 @implementation ZZMyInfoHttpTool
 /**
  *  获取个人信息
@@ -20,7 +20,7 @@
  *  @param success         <#success description#>
  *  @param failure         <#failure description#>
  */
-+(void)getMyInfoWithUserAttentionId:(NSNumber *)userAttentionId andMyCenter:(NSNumber *)myCenter success:(void (^)(ZZLoginUser *loginUser, ZZNetDataType))success failure:(failureBlock)failure{
++(void)getMyInfoWithUserAttentionId:(NSNumber *)userAttentionId andMyCenter:(NSNumber *)myCenter success:(void (^)(ZZOtherUser *loginUser, ZZNetDataType))success failure:(failureBlock)failure{
     ZZInfoParam *infoParam = [[ZZInfoParam alloc]init];
     infoParam.cmd = @"smart/personal/getPersonal";
     infoParam.token = [ZZLoginUserTool sharedZZLoginUserTool].loginUser.token;
@@ -35,14 +35,15 @@
     [ZZHttpTool afPostByApiName:@"" Params:infoParam success:^(id json) {
         ZZLog(@"你Json:%@",json);
         //解析
-        ZZLoginUser *loginUser = [ZZJsonInfoTool parseSelfInfomation:json];
+        ZZOtherUser *otherUser = [ZZJsonInfoTool parseSelfInfomation:json];
         
-        success(loginUser,ZZNetDataTypeSuccServer);
+        success(otherUser,ZZNetDataTypeSuccServer);
     } failure:^(NSString *error, ZZNetDataType netDataType) {
         failure(error,netDataType);
         ZZLog(@"个人信息请求失败");
     }];
 }
+
 
 
 /**
@@ -74,11 +75,11 @@
 /**
  *  获取我的服务收藏
  */
-+(void)getMyCollectActivityWithPageNo:(NSInteger)pageNo andNumberOfPerPage:(NSInteger)numberOfPerPage success:(void (^)(ZZHomeServiceResult *result, ZZNetDataType))success failure:(failureBlock)failure{
++(void)getMyCollectActivityWithCollectParam:(ZZCollectParam *)collectParam success:(void (^)(ZZHomeServiceResult *result, ZZNetDataType))success failure:(failureBlock)failure{
     ZZParam *param = [[ZZParam alloc]init];
     param.cmd = @"smart/personal/getServiceCollect";
     param.token = [ZZLoginUserTool sharedZZLoginUserTool].loginUser.token;
-    param.parameters = @{@"pageNo":@(pageNo),@"numberOfPerPage":@(numberOfPerPage)};
+    param.parameters = [collectParam keyValues];
     [ZZHttpTool afPostByApiName:@"" Params:param success:^(id json) {
         ZZLog(@"我的收藏:%@",json);
         ZZHomeServiceResult *serviceResult = [ZZHomeServiceResult  objectWithKeyValues:json];
@@ -91,11 +92,11 @@
 /**
  *  关注列表
  */
-+(void)getMyAttentionWithTypeNum:(NSInteger)typeNum andPageNo:(NSInteger)pageNo andNumberOfPerPage:(NSInteger)numberOfPerPage success:(void (^)(ZZAttentionResult *attResult, ZZNetDataType))success failure:(failureBlock)failure{
++(void)getMyAttentionWithAttentionParam:(ZZAttentionParam *)attentionParam success:(void (^)(ZZAttentionResult *attResult, ZZNetDataType))success failure:(failureBlock)failure{
     ZZParam *param = [[ZZParam alloc]init];
     param.cmd = @"smart/attention/getList";
     param.token = [ZZLoginUserTool sharedZZLoginUserTool].loginUser.token;
-    param.parameters = @{@"typeNum":@(typeNum),@"pageNo":@(pageNo),@"numberOfPerPage":@(numberOfPerPage)};
+    param.parameters = [attentionParam keyValues];
     [ZZHttpTool afPostByApiName:@"" Params:param success:^(id json) {
         ZZLog(@"关注列表%@",json);
         ZZAttentionResult *attResult = [ZZAttentionResult objectWithKeyValues:json];
@@ -121,19 +122,14 @@
         ZZLog(@"请求失败");
     }];
 }
-
-+ (void)getMyOrderListWithQueryType:(NSInteger)QueryType andStatus:(NSString *)status andPageNo:(NSInteger)pageNo andNumberOfPerPage:(NSInteger)numberOfPerPage success:(void (^)(ZZOrderResult *orderResult, ZZNetDataType))success failure:(failureBlock)failure {
+/**
+ *我的订单列表
+ */
++ (void)getMyOrderListWithOrderParam:(ZZOrderParam *)orderParam success:(void (^)(ZZOrderResult *orderResult, ZZNetDataType))success failure:(failureBlock)failure {
     ZZParam *param = [[ZZParam alloc]init];
     param.cmd = @"smart/order/getMyOrder";
     param.token = [ZZLoginUserTool sharedZZLoginUserTool].loginUser.token;
-    NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithCapacity:4];
-    if (status.length) {
-        [dic setValue:status forKey:@"status"];
-    }
-    [dic setValue:@(QueryType) forKey:@"queryType"];
-    [dic setValue:@(pageNo) forKey:@"pageNo"];
-    [dic setValue:@(numberOfPerPage) forKey:@"numberOfPerPage"];
-    param.parameters = dic;
+    param.parameters = [orderParam keyValues];
     [ZZHttpTool afPostByApiName:@"" Params:param success:^(id json) {
         ZZLog(@"我的订单列表:%@",json);
         ZZOrderResult *orderResult = [ZZOrderResult objectWithKeyValues:json];
@@ -144,5 +140,96 @@
         
     }];
 }
+/**
+ *我的服务
+ */
++ (void)getmyServiceListWithMyServiceParam:(ZZMyServiceParam *)myServiceParam success:(void (^)(ZZHomeServiceResult *, ZZNetDataType))success failure:(failureBlock)failure {
+    ZZParam *param = [[ZZParam alloc]init];
+    param.cmd = @"smart/personal/getService";
+    param.token = [ZZLoginUserTool sharedZZLoginUserTool].loginUser.token;
+    param.parameters = [myServiceParam keyValues];
+    [ZZHttpTool afPostByApiName:@"" Params:param success:^(id json) {
+        ZZLog(@"我的服务:%@",json);
+        ZZHomeServiceResult *serviceResult = [ZZHomeServiceResult  objectWithKeyValues:json];
+        success (serviceResult, ZZNetDataTypeSuccLocal);
+    } failure:^(NSString *error, ZZNetDataType netDataType) {
+        ZZLog(@"请求失败");
+        failure(error,netDataType);
+    }];
+}
 
+/**
+ *验证订单
+ */
++ (void)testOrderWithTestOrderParam:(ZZTestOrderParam *)testOrderParam success:(void (^)(id, ZZNetDataType))success failure:(failureBlock)failure{
+    ZZParam *param = [[ZZParam alloc]init];
+    param.cmd = @"smart/order/validateOrder";
+    param.token = [ZZLoginUserTool sharedZZLoginUserTool].loginUser.token;
+    param.parameters = [testOrderParam keyValues];
+    [ZZHttpTool afPostByApiName:@"" Params:param success:^(id json) {
+        ZZLog(@"验证订单:%@",json);
+        success (json, ZZNetDataTypeSuccLocal);
+    } failure:^(NSString *error, ZZNetDataType netDataType) {
+        ZZLog(@"请求失败");
+        failure(error,netDataType);
+    }];
+}
+
+/**
+ *头像上传
+ */
++ (void)commitHeadImageWithImageArray:(NSArray*)imageArray ChangeInfoParam:(ZZChangeInfoParam *)changeInfoParam success:(void (^)(ZZLoginUser *, ZZNetDataType))success failure:(failureBlock)failure {
+    //上传头像
+    [[ZZUploadImageTool sharedTool] upLoadImages:imageArray success:^(NSUInteger succCount) {
+        ZZLog(@".......");
+        ZZParam *param = [[ZZParam alloc]init];
+        param.cmd = @"smart/personal/updatePersonal";
+        param.token = [ZZLoginUserTool sharedZZLoginUserTool].loginUser.token;
+        ZZUploadImageModel *imageModel = imageArray[0];
+        changeInfoParam.imgPath = imageModel.url;
+        changeInfoParam.imgWidth = imageModel.width;
+        changeInfoParam.imgHeight = imageModel.height;
+        param.parameters = [changeInfoParam keyValues];
+        [ZZHttpTool afPostByApiName:@"" Params:param success:^(id json) {
+            ZZLog(@"上传成功:%@",json);
+            //解析
+            [ZZJsonInfoTool parseChangeInformation:json];
+            success (nil, ZZNetDataTypeSuccLocal);
+        } failure:^(NSString *error, ZZNetDataType netDataType) {
+            ZZLog(@"请求失败");
+            failure(error,netDataType);
+        }];
+    } failure:^(NSUInteger failCount) {
+        
+    }];
+}
+/**
+ *背景图片
+ */
++ (void)commitBackgroundImageWithImageArray:(NSArray *)imageArray success:(void (^)(ZZLoginUser *, ZZNetDataType))success failure:(failureBlock)failure {
+    [[ZZUploadImageTool sharedTool] upLoadImages:imageArray success:^(NSUInteger succCount) {
+        ZZParam *param = [[ZZParam alloc]init];
+        param.cmd = @"smart/personal/updateBackgroundImg";
+        param.token = [ZZLoginUserTool sharedZZLoginUserTool].loginUser.token;
+        ZZUploadImageModel *imageModel = imageArray[0];
+        ZZChangeInfoParam *changeInfoParam = [[ZZChangeInfoParam alloc]init];
+        changeInfoParam.imgPath = imageModel.url;
+        changeInfoParam.imgWidth = imageModel.width;
+        changeInfoParam.imgHeight = imageModel.height;
+        param.parameters = [changeInfoParam keyValues];
+        [ZZHttpTool afPostByApiName:@"" Params:param success:^(id json) {
+            ZZLog(@"上传成功:%@",json);
+            //解析
+            [ZZJsonInfoTool parseChangeInformation:json];
+            success (nil, ZZNetDataTypeSuccLocal);
+        } failure:^(NSString *error, ZZNetDataType netDataType) {
+            ZZLog(@"请求失败");
+            failure(error,netDataType);
+        }];
+    } failure:^(NSUInteger failCount) {
+        
+    }];
+    
+    
+}
 @end

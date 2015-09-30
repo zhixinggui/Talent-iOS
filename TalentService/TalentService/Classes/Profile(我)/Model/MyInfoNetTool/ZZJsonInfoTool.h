@@ -8,13 +8,15 @@
 
 #import <Foundation/Foundation.h>
 #import "ZZLoginUser.h"
+
+#import "ZZOtherUser.h"
 @interface ZZJsonInfoTool : NSObject
 /**
  *  解析个人信息
  *
  *  @param dic <#dic description#>
  */
-+(ZZLoginUser *)parseSelfInfomation:(NSDictionary*)dic;
++(ZZOtherUser *)parseSelfInfomation:(NSDictionary*)dic;
 /**
  *  修改解析
  *

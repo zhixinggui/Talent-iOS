@@ -61,8 +61,6 @@
 		56C652001BB27114009890B4 /* ZZMyOrderTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56C651FE1BB27114009890B4 /* ZZMyOrderTVC.xib */; };
 		56C652051BB2715F009890B4 /* ZZCommunityTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 56C652031BB2715F009890B4 /* ZZCommunityTVC.m */; };
 		56C652061BB2715F009890B4 /* ZZCommunityTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56C652041BB2715F009890B4 /* ZZCommunityTVC.xib */; };
-		56C6520B1BB2719D009890B4 /* ZZMyEventVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 56C652091BB2719D009890B4 /* ZZMyEventVC.m */; };
-		56C6520C1BB2719D009890B4 /* ZZMyEventVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56C6520A1BB2719D009890B4 /* ZZMyEventVC.xib */; };
 		56C652111BB271C5009890B4 /* ZZMessageTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 56C6520F1BB271C5009890B4 /* ZZMessageTVC.m */; };
 		56C652121BB271C5009890B4 /* ZZMessageTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56C652101BB271C5009890B4 /* ZZMessageTVC.xib */; };
 		56C6521B1BB28772009890B4 /* ZZAttentionResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 56C652181BB28772009890B4 /* ZZAttentionResult.m */; };
@@ -70,6 +68,12 @@
 		56C652791BB53CA4009890B4 /* ZZMoreExplainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 56C652771BB53CA4009890B4 /* ZZMoreExplainVC.m */; };
 		56C6527A1BB53CA4009890B4 /* ZZMoreExplainVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56C652781BB53CA4009890B4 /* ZZMoreExplainVC.xib */; };
 		56D8B84E1BAFE57900E7A4E9 /* ZZBaseResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 56D8B84D1BAFE57900E7A4E9 /* ZZBaseResult.m */; };
+		56F734571BBA2B48000E69AB /* ZZMyServiceParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F734561BBA2B48000E69AB /* ZZMyServiceParam.m */; settings = {ASSET_TAGS = (); }; };
+		56F7345D1BBA5CD8000E69AB /* ZZCollectParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F7345C1BBA5CD8000E69AB /* ZZCollectParam.m */; settings = {ASSET_TAGS = (); }; };
+		56F734601BBA5F1F000E69AB /* ZZAttentionParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F7345F1BBA5F1F000E69AB /* ZZAttentionParam.m */; settings = {ASSET_TAGS = (); }; };
+		56F734631BBA6133000E69AB /* ZZOrderParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F734621BBA6133000E69AB /* ZZOrderParam.m */; settings = {ASSET_TAGS = (); }; };
+		56F734661BBA67D5000E69AB /* ZZMyJoinOrderVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F734651BBA67D5000E69AB /* ZZMyJoinOrderVC.m */; settings = {ASSET_TAGS = (); }; };
+		56F734691BBA7C5B000E69AB /* ZZTestOrderParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F734681BBA7C5B000E69AB /* ZZTestOrderParam.m */; settings = {ASSET_TAGS = (); }; };
 		6E2B7F9C1BA1A2F6004CA827 /* ZZFuncitonModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E2B7F9B1BA1A2F6004CA827 /* ZZFuncitonModel.m */; };
 		6E2B7FAD1BA1B4E6004CA827 /* ZZFeedbackVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E2B7FA11BA1B4E6004CA827 /* ZZFeedbackVC.m */; };
 		6E2B7FAE1BA1B4E6004CA827 /* ZZFeedbackVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E2B7FA21BA1B4E6004CA827 /* ZZFeedbackVC.xib */; };
@@ -319,9 +323,9 @@
 		5607DA7B1B831DB000803EE5 /* ZZFirstLoginVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZZFirstLoginVC.xib; sourceTree = "<group>"; };
 		5618A9141BA94E83003ECC2D /* ZZSexSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZZSexSelector.h; path = "../../../login(注册登录)/View/ZZSexSelector.h"; sourceTree = "<group>"; };
 		5618A9151BA94E83003ECC2D /* ZZSexSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZZSexSelector.m; path = "../../../login(注册登录)/View/ZZSexSelector.m"; sourceTree = "<group>"; };
-		56220AF91BAE9429008046DF /* ZZMyAllActivityTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZMyAllActivityTVC.h; sourceTree = "<group>"; };
-		56220AFA1BAE9429008046DF /* ZZMyAllActivityTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZMyAllActivityTVC.m; sourceTree = "<group>"; };
-		56220AFB1BAE9429008046DF /* ZZMyAllActivityTVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZZMyAllActivityTVC.xib; sourceTree = "<group>"; };
+		56220AF91BAE9429008046DF /* ZZMyAllActivityTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZZMyAllActivityTVC.h; path = "../myOrder(我的订单)/ZZMyAllActivityTVC.h"; sourceTree = "<group>"; };
+		56220AFA1BAE9429008046DF /* ZZMyAllActivityTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZZMyAllActivityTVC.m; path = "../myOrder(我的订单)/ZZMyAllActivityTVC.m"; sourceTree = "<group>"; };
+		56220AFB1BAE9429008046DF /* ZZMyAllActivityTVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ZZMyAllActivityTVC.xib; path = "../myOrder(我的订单)/ZZMyAllActivityTVC.xib"; sourceTree = "<group>"; };
 		56220AFE1BAE946E008046DF /* ZZMyAllActivityCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZMyAllActivityCell.h; sourceTree = "<group>"; };
 		56220AFF1BAE946E008046DF /* ZZMyAllActivityCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZMyAllActivityCell.m; sourceTree = "<group>"; };
 		56220B001BAE946E008046DF /* ZZMyAllActivityCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZZMyAllActivityCell.xib; sourceTree = "<group>"; };
@@ -389,9 +393,6 @@
 		56C652021BB2715F009890B4 /* ZZCommunityTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZCommunityTVC.h; sourceTree = "<group>"; };
 		56C652031BB2715F009890B4 /* ZZCommunityTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZCommunityTVC.m; sourceTree = "<group>"; };
 		56C652041BB2715F009890B4 /* ZZCommunityTVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZZCommunityTVC.xib; sourceTree = "<group>"; };
-		56C652081BB2719D009890B4 /* ZZMyEventVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZMyEventVC.h; sourceTree = "<group>"; };
-		56C652091BB2719D009890B4 /* ZZMyEventVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZMyEventVC.m; sourceTree = "<group>"; };
-		56C6520A1BB2719D009890B4 /* ZZMyEventVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZZMyEventVC.xib; sourceTree = "<group>"; };
 		56C6520E1BB271C5009890B4 /* ZZMessageTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZMessageTVC.h; sourceTree = "<group>"; };
 		56C6520F1BB271C5009890B4 /* ZZMessageTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZMessageTVC.m; sourceTree = "<group>"; };
 		56C652101BB271C5009890B4 /* ZZMessageTVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZZMessageTVC.xib; sourceTree = "<group>"; };
@@ -404,6 +405,18 @@
 		56C652781BB53CA4009890B4 /* ZZMoreExplainVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZZMoreExplainVC.xib; sourceTree = "<group>"; };
 		56D8B84C1BAFE57900E7A4E9 /* ZZBaseResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZBaseResult.h; sourceTree = "<group>"; };
 		56D8B84D1BAFE57900E7A4E9 /* ZZBaseResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZBaseResult.m; sourceTree = "<group>"; };
+		56F734551BBA2B48000E69AB /* ZZMyServiceParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZMyServiceParam.h; sourceTree = "<group>"; };
+		56F734561BBA2B48000E69AB /* ZZMyServiceParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZMyServiceParam.m; sourceTree = "<group>"; };
+		56F7345B1BBA5CD8000E69AB /* ZZCollectParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZCollectParam.h; sourceTree = "<group>"; };
+		56F7345C1BBA5CD8000E69AB /* ZZCollectParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZCollectParam.m; sourceTree = "<group>"; };
+		56F7345E1BBA5F1F000E69AB /* ZZAttentionParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZAttentionParam.h; sourceTree = "<group>"; };
+		56F7345F1BBA5F1F000E69AB /* ZZAttentionParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZAttentionParam.m; sourceTree = "<group>"; };
+		56F734611BBA6133000E69AB /* ZZOrderParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZOrderParam.h; sourceTree = "<group>"; };
+		56F734621BBA6133000E69AB /* ZZOrderParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZOrderParam.m; sourceTree = "<group>"; };
+		56F734641BBA67D5000E69AB /* ZZMyJoinOrderVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZMyJoinOrderVC.h; sourceTree = "<group>"; };
+		56F734651BBA67D5000E69AB /* ZZMyJoinOrderVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZMyJoinOrderVC.m; sourceTree = "<group>"; };
+		56F734671BBA7C5B000E69AB /* ZZTestOrderParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZTestOrderParam.h; sourceTree = "<group>"; };
+		56F734681BBA7C5B000E69AB /* ZZTestOrderParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZTestOrderParam.m; sourceTree = "<group>"; };
 		6E2B7F9A1BA1A2F6004CA827 /* ZZFuncitonModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZFuncitonModel.h; sourceTree = "<group>"; };
 		6E2B7F9B1BA1A2F6004CA827 /* ZZFuncitonModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZFuncitonModel.m; sourceTree = "<group>"; };
 		6E2B7FA01BA1B4E6004CA827 /* ZZFeedbackVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZFeedbackVC.h; sourceTree = "<group>"; };
@@ -432,10 +445,10 @@
 		6E2B7FDF1BA1B52A004CA827 /* ZZModifyVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZModifyVC.h; sourceTree = "<group>"; };
 		6E2B7FE01BA1B52A004CA827 /* ZZModifyVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZModifyVC.m; sourceTree = "<group>"; };
 		6E2B7FE11BA1B52A004CA827 /* ZZModifyVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZZModifyVC.xib; sourceTree = "<group>"; };
-		6E2B7FE61BA1B52A004CA827 /* ZZCommunityCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZCommunityCellModel.h; sourceTree = "<group>"; };
-		6E2B7FE71BA1B52A004CA827 /* ZZCommunityCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZCommunityCellModel.m; sourceTree = "<group>"; };
-		6E2B7FE81BA1B52A004CA827 /* ZZMyselfCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZMyselfCellModel.h; sourceTree = "<group>"; };
-		6E2B7FE91BA1B52A004CA827 /* ZZMyselfCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZMyselfCellModel.m; sourceTree = "<group>"; };
+		6E2B7FE61BA1B52A004CA827 /* ZZCommunityCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZZCommunityCellModel.h; path = ../ZZCommunityCellModel.h; sourceTree = "<group>"; };
+		6E2B7FE71BA1B52A004CA827 /* ZZCommunityCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZZCommunityCellModel.m; path = ../ZZCommunityCellModel.m; sourceTree = "<group>"; };
+		6E2B7FE81BA1B52A004CA827 /* ZZMyselfCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZZMyselfCellModel.h; path = ../ZZMyselfCellModel.h; sourceTree = "<group>"; };
+		6E2B7FE91BA1B52A004CA827 /* ZZMyselfCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZZMyselfCellModel.m; path = ../ZZMyselfCellModel.m; sourceTree = "<group>"; };
 		6E2B7FEC1BA1B52A004CA827 /* ZZAttentionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZAttentionCell.h; sourceTree = "<group>"; };
 		6E2B7FED1BA1B52A004CA827 /* ZZAttentionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZAttentionCell.m; sourceTree = "<group>"; };
 		6E2B7FEE1BA1B52A004CA827 /* ZZAttentionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZZAttentionCell.xib; sourceTree = "<group>"; };
@@ -979,10 +992,20 @@
 		56BFB4BD1BA7EE94002EAA1D /* infoParam */ = {
 			isa = PBXGroup;
 			children = (
+				56F734671BBA7C5B000E69AB /* ZZTestOrderParam.h */,
+				56F734681BBA7C5B000E69AB /* ZZTestOrderParam.m */,
 				56BFB4BE1BA7EEAA002EAA1D /* ZZInfoParam.h */,
 				56BFB4BF1BA7EEAA002EAA1D /* ZZInfoParam.m */,
+				56F7345B1BBA5CD8000E69AB /* ZZCollectParam.h */,
+				56F7345C1BBA5CD8000E69AB /* ZZCollectParam.m */,
+				56F7345E1BBA5F1F000E69AB /* ZZAttentionParam.h */,
+				56F7345F1BBA5F1F000E69AB /* ZZAttentionParam.m */,
+				56F734611BBA6133000E69AB /* ZZOrderParam.h */,
+				56F734621BBA6133000E69AB /* ZZOrderParam.m */,
 				56BFB4C11BA807E0002EAA1D /* ZZChangeInfoParam.h */,
 				56BFB4C21BA807E0002EAA1D /* ZZChangeInfoParam.m */,
+				56F734551BBA2B48000E69AB /* ZZMyServiceParam.h */,
+				56F734561BBA2B48000E69AB /* ZZMyServiceParam.m */,
 			);
 			path = infoParam;
 			sourceTree = "<group>";
@@ -1021,9 +1044,9 @@
 		56C652071BB2719D009890B4 /* myEventVC(我的服务) */ = {
 			isa = PBXGroup;
 			children = (
-				56C652081BB2719D009890B4 /* ZZMyEventVC.h */,
-				56C652091BB2719D009890B4 /* ZZMyEventVC.m */,
-				56C6520A1BB2719D009890B4 /* ZZMyEventVC.xib */,
+				56220AF91BAE9429008046DF /* ZZMyAllActivityTVC.h */,
+				56220AFA1BAE9429008046DF /* ZZMyAllActivityTVC.m */,
+				56220AFB1BAE9429008046DF /* ZZMyAllActivityTVC.xib */,
 			);
 			path = "myEventVC(我的服务)";
 			sourceTree = "<group>";
@@ -1239,15 +1262,14 @@
 				56227AC51BA6E70200813C09 /* ZZTestingVC.h */,
 				56227AC61BA6E70200813C09 /* ZZTestingVC.m */,
 				56227AC71BA6E70200813C09 /* ZZTestingVC.xib */,
-				56220AF91BAE9429008046DF /* ZZMyAllActivityTVC.h */,
-				56220AFA1BAE9429008046DF /* ZZMyAllActivityTVC.m */,
-				56220AFB1BAE9429008046DF /* ZZMyAllActivityTVC.xib */,
 				56220B031BAEA130008046DF /* ZZEvaluationTVC.h */,
 				56220B041BAEA130008046DF /* ZZEvaluationTVC.m */,
 				56220B051BAEA130008046DF /* ZZEvaluationTVC.xib */,
 				56B7B51C1BB8EDB9006076FC /* ZZMyOrderVC.h */,
 				56B7B51D1BB8EDB9006076FC /* ZZMyOrderVC.m */,
 				56B7B51E1BB8EDB9006076FC /* ZZMyOrderVC.xib */,
+				56F734641BBA67D5000E69AB /* ZZMyJoinOrderVC.h */,
+				56F734651BBA67D5000E69AB /* ZZMyJoinOrderVC.m */,
 			);
 			path = "myOrder(我的订单)";
 			sourceTree = "<group>";
@@ -1274,10 +1296,6 @@
 				6E7EF3B71BB3F66D00DC11FF /* MyInfoModel */,
 				56BFB4B81BA7E827002EAA1D /* MyInfoNetTool */,
 				56BFB4BD1BA7EE94002EAA1D /* infoParam */,
-				6E2B7FE61BA1B52A004CA827 /* ZZCommunityCellModel.h */,
-				6E2B7FE71BA1B52A004CA827 /* ZZCommunityCellModel.m */,
-				6E2B7FE81BA1B52A004CA827 /* ZZMyselfCellModel.h */,
-				6E2B7FE91BA1B52A004CA827 /* ZZMyselfCellModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1288,7 +1306,7 @@
 				56B7B5191BB8ED4C006076FC /* ZZSlideDemo.h */,
 				56B7B51A1BB8ED4C006076FC /* ZZSlideDemo.m */,
 				566A00AB1BA69A4D00128DFE /* infoCell(我的) */,
-				6E2B7FEB1BA1B52A004CA827 /* attentionCell */,
+				6E2B7FEB1BA1B52A004CA827 /* attentionCell(我的关注) */,
 				6E2B7FEF1BA1B52A004CA827 /* Community(社区) */,
 				6E2B7FF31BA1B52A004CA827 /* myMessageCell */,
 				6E2B7FF71BA1B52A004CA827 /* myselfInfoCell(我的个人信息) */,
@@ -1298,13 +1316,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		6E2B7FEB1BA1B52A004CA827 /* attentionCell */ = {
+		6E2B7FEB1BA1B52A004CA827 /* attentionCell(我的关注) */ = {
 			isa = PBXGroup;
 			children = (
 				6E2B7FEC1BA1B52A004CA827 /* ZZAttentionCell.h */,
 				6E2B7FED1BA1B52A004CA827 /* ZZAttentionCell.m */,
 				6E2B7FEE1BA1B52A004CA827 /* ZZAttentionCell.xib */,
 			);
+			name = "attentionCell(我的关注)";
 			path = attentionCell;
 			sourceTree = "<group>";
 		};
@@ -1565,6 +1584,10 @@
 		6E7EF3B71BB3F66D00DC11FF /* MyInfoModel */ = {
 			isa = PBXGroup;
 			children = (
+				6E2B7FE61BA1B52A004CA827 /* ZZCommunityCellModel.h */,
+				6E2B7FE71BA1B52A004CA827 /* ZZCommunityCellModel.m */,
+				6E2B7FE81BA1B52A004CA827 /* ZZMyselfCellModel.h */,
+				6E2B7FE91BA1B52A004CA827 /* ZZMyselfCellModel.m */,
 				6E7EF3B81BB3F69400DC11FF /* ZZMyInfoModel.h */,
 				6E7EF3B91BB3F69400DC11FF /* ZZMyInfoModel.m */,
 			);
@@ -2663,7 +2686,6 @@
 				565CF4771BA2A60A005CC369 /* ZZCancelOrderVC.xib in Resources */,
 				56227AC41BA6B9A800813C09 /* ZZCollectCommunityTVC.xib in Resources */,
 				5607DA7D1B831DB000803EE5 /* ZZFirstLoginVC.xib in Resources */,
-				56C6520C1BB2719D009890B4 /* ZZMyEventVC.xib in Resources */,
 				56C6527A1BB53CA4009890B4 /* ZZMoreExplainVC.xib in Resources */,
 				6E2B7FB31BA1B4E6004CA827 /* ZZMoreCell.xib in Resources */,
 				6ED6B1881BB38900002FF9C6 /* ZZAttentionVC.xib in Resources */,
@@ -2735,7 +2757,6 @@
 				6E7F59141BA1575D00191BC0 /* ZZSIzeFitButton.m in Sources */,
 				6E8D3A8A1B8C073E006798A7 /* ZZActivityCell.m in Sources */,
 				6E2B7FB21BA1B4E6004CA827 /* ZZMoreCell.m in Sources */,
-				56C6520B1BB2719D009890B4 /* ZZMyEventVC.m in Sources */,
 				6E7F590C1BA1575D00191BC0 /* ZZDetailFunctionView.m in Sources */,
 				6E7408901BA69636003241AA /* ZZSelectorView.m in Sources */,
 				6E7F59001BA1575D00191BC0 /* ZZBaseParam.m in Sources */,
@@ -2784,6 +2805,7 @@
 				6E2B800B1BA1B52A004CA827 /* ZZInfoDetailVC.m in Sources */,
 				6E7683801B8EF70200661770 /* ZZActivityDetailController.m in Sources */,
 				548837AF1BA2CBC700720150 /* ZZCacheTool.m in Sources */,
+				56F734571BBA2B48000E69AB /* ZZMyServiceParam.m in Sources */,
 				56C651FA1BB270BE009890B4 /* ZZInfoModifyVC.m in Sources */,
 				6E4C40EB1B90592700937CB1 /* ZZApplyVC.m in Sources */,
 				6EE0D0CE1B69F2F700DC80AC /* UUThumbnailView.m in Sources */,
@@ -2791,6 +2813,7 @@
 				6E7683811B8EF70200661770 /* ZZEnsureOrderController.m in Sources */,
 				6E7F586D1BA146EE00191BC0 /* ZZLoginUser.m in Sources */,
 				6E9014081B82E2F10083F2B7 /* ZZLoginVC.m in Sources */,
+				56F734631BBA6133000E69AB /* ZZOrderParam.m in Sources */,
 				566A00AF1BA69A7A00128DFE /* ZZInfoCell.m in Sources */,
 				6E7EF3BE1BB40CB600DC11FF /* ZZMyGoldVC.m in Sources */,
 				5618A9161BA94E83003ECC2D /* ZZSexSelector.m in Sources */,
@@ -2813,6 +2836,7 @@
 				6EC4C4A31B9FE47900C39F8A /* ZZResignParam.m in Sources */,
 				6E7F58F61BA1575D00191BC0 /* UIViewController+Extension.m in Sources */,
 				6E7F58EB1BA1575D00191BC0 /* NSObject+Extension.m in Sources */,
+				56F734691BBA7C5B000E69AB /* ZZTestOrderParam.m in Sources */,
 				6EE0D0C81B69F2F700DC80AC /* UUPhotoCollectionViewController.m in Sources */,
 				56C6521C1BB28772009890B4 /* ZZOrderResult.m in Sources */,
 				6E7F58EA1BA1575D00191BC0 /* NSDictionary+Extension.m in Sources */,
@@ -2863,6 +2887,7 @@
 				6E9B526C1BA7B2140078EC96 /* ZZHudView.m in Sources */,
 				6E7F59231BA15A4400191BC0 /* ZZHomeServiceParam.m in Sources */,
 				6E7F590B1BA1575D00191BC0 /* ZZUMTool.m in Sources */,
+				56F734601BBA5F1F000E69AB /* ZZAttentionParam.m in Sources */,
 				6E9E3E6B1B620C860097B194 /* main.m in Sources */,
 				56220B011BAE946E008046DF /* ZZMyAllActivityCell.m in Sources */,
 				6EE0D0CC1B69F2F700DC80AC /* UUPhotoActionSheet.m in Sources */,
@@ -2876,6 +2901,7 @@
 				6E2B802B1BA1B52A004CA827 /* ZZMessageCell.m in Sources */,
 				6E2B7FB11BA1B4E6004CA827 /* ZZMoreName.m in Sources */,
 				56C652051BB2715F009890B4 /* ZZCommunityTVC.m in Sources */,
+				56F734661BBA67D5000E69AB /* ZZMyJoinOrderVC.m in Sources */,
 				548837A91BA29AE700720150 /* ZZActivityDetailParam.m in Sources */,
 				6E2B7FAD1BA1B4E6004CA827 /* ZZFeedbackVC.m in Sources */,
 				6E7F59061BA1575D00191BC0 /* ZZConst.m in Sources */,
@@ -2889,6 +2915,7 @@
 				6E76839C1B8EF70900661770 /* ZZDetailsView.m in Sources */,
 				6E87B3111B8C6052003BB6C0 /* AdScrollView.m in Sources */,
 				6E7683971B8EF70900661770 /* ZZEnsureOrderView.m in Sources */,
+				56F7345D1BBA5CD8000E69AB /* ZZCollectParam.m in Sources */,
 				6E38A4151BA666DC008B0C8D /* ZZHeadImageView.m in Sources */,
 				6E6695AD1BAA861600EDFE94 /* ZZActivity.m in Sources */,
 				6E4C40D81B9007FF00937CB1 /* ZZPayType.m in Sources */,

@@ -12,8 +12,13 @@
 
 
 -(void)setUserSmallImg:(NSString *)userSmallImg{
+    NSString *str = ZZImageUrlAppend(120.0, NO);
+    if ([userSmallImg  containsString:str]) {
+        _userSmallImg = userSmallImg;
+    }else{
+        _userSmallImg = [userSmallImg  getUrlUseEncodAppend:str];
+    }
 
-    _userSmallImg = [[userSmallImg stringByAppendingString:ZZImageUrlAppend(120.0, NO)]stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 }
 
 -(void)setBackgroundImg:(NSString *)backgroundImg{

@@ -40,30 +40,30 @@
             self.statusLabel.text = @"未支付";
             self.nowPayButton.hidden = NO;
             break;
+            
         case ZZOrderStatusPaid:
             self.statusLabel.text = @"已支付";
-
             break;
+            
         case ZZOrderStatusComplete:
             self.statusLabel.text = @"已参加";
-
             break;
+            
         case ZZOrderStatusExpired:
             self.statusLabel.text = @"已过期";
-
             break;
+            
         case ZZOrderStatusEvaluation:
             self.statusLabel.text = @"已评价";
-
             break;
+            
         case ZZOrderStatusRefund:
             self.statusLabel.text = @"已退款";
-
             break;
+            
         case ZZOrderStatusCancel:
             self.statusLabel.text = @"已取消";
             break;
-
     }
     
     if (order.status == ZZOrderStatusNotPaid) {

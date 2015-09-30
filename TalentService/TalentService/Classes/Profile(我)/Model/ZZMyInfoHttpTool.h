@@ -8,6 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import "ZZInfoParam.h"
+#import "ZZCollectParam.h"
+#import "ZZAttentionParam.h"
+#import "ZZOrderParam.h"
+#import "ZZTestOrderParam.h"
+
 #import "ZZLoginUserTool.h"
 #import "ZZChangeInfoParam.h"
 #import "ZZActivity.h"
@@ -15,14 +20,14 @@
 #import "ZZAttentionResult.h"
 #import "ZZHomeServiceResult.h"
 #import "ZZOrderResult.h"
-
+#import "ZZMyServiceParam.h"
 typedef void (^successBlock)(id json, ZZNetDataType dataType);
 typedef void (^failureBlock)(NSString *error , ZZNetDataType datatype);
 @interface ZZMyInfoHttpTool : NSObject
 /**
  *  个人中心(我的)
  */
-+(void)getMyInfoWithUserAttentionId:(NSNumber *)userAttentionId andMyCenter:(NSNumber *)myCenter success:(void(^)(ZZLoginUser *infoUser, ZZNetDataType dataType))success failure:(failureBlock)failure;
++(void)getMyInfoWithUserAttentionId:(NSNumber *)userAttentionId andMyCenter:(NSNumber *)myCenter success:(void(^)(ZZOtherUser *infoUser, ZZNetDataType dataType))success failure:(failureBlock)failure;
 
 
 /**
@@ -33,12 +38,12 @@ typedef void (^failureBlock)(NSString *error , ZZNetDataType datatype);
 /**
  *  我的服务收藏
  */
-+(void)getMyCollectActivityWithPageNo:(NSInteger)pageNo andNumberOfPerPage:(NSInteger)numberOfPerPage success:(void(^)(ZZHomeServiceResult *result, ZZNetDataType dataType))success failure:(failureBlock)failure;
++(void)getMyCollectActivityWithCollectParam:(ZZCollectParam *)collectParam success:(void(^)(ZZHomeServiceResult *result, ZZNetDataType dataType))success failure:(failureBlock)failure;
 
 /**
  *  我的关注列表
  */
-+(void)getMyAttentionWithTypeNum:(NSInteger)typeNum andPageNo:(NSInteger)pageNo andNumberOfPerPage:(NSInteger)numberOfPerPage
++(void)getMyAttentionWithAttentionParam:(ZZAttentionParam *)attentionParam
  success:(void(^)(ZZAttentionResult *attResult, ZZNetDataType dataType))success failure:(failureBlock)failure;
 
 /**
@@ -49,12 +54,28 @@ typedef void (^failureBlock)(NSString *error , ZZNetDataType datatype);
 /**
  *  我的订单列表
  */
-+ (void)getMyOrderListWithQueryType:(NSInteger)QueryType
-                          andStatus:(NSString *)status
-                          andPageNo:(NSInteger)pageNo
-                          andNumberOfPerPage:(NSInteger)numberOfPerPage
++ (void)getMyOrderListWithOrderParam:(ZZOrderParam *)orderParam
                           success:(void(^)(ZZOrderResult *orderResult, ZZNetDataType dataType))success
                           failure:(failureBlock)failure;
+
+/**
+ *  我的服务列表/达人服务列表
+ */
++ (void)getmyServiceListWithMyServiceParam:(ZZMyServiceParam *)myServiceParam success:(void(^)(ZZHomeServiceResult *result, ZZNetDataType dataType))success failure:(failureBlock)failure;
+/**
+ *  订单验证
+ */
++ (void)testOrderWithTestOrderParam:(ZZTestOrderParam *)testOrderParam success:(void(^)(id json, ZZNetDataType dataType))success failure:(failureBlock)failure;
+
+/**
+ *  头像上传
+ */
++ (void)commitHeadImageWithImageArray:(NSArray*)imageArray  ChangeInfoParam:(ZZChangeInfoParam*)changeInfoParam success:(void(^)(ZZLoginUser *infoUser, ZZNetDataType dataType))success failure:(failureBlock)failure;
+
+/**
+ *背景图片
+ */
++ (void)commitBackgroundImageWithImageArray:(NSArray*)imageArray success:(void(^)(ZZLoginUser *infoUser, ZZNetDataType dataType))success failure:(failureBlock)failure;
 @end
 
 

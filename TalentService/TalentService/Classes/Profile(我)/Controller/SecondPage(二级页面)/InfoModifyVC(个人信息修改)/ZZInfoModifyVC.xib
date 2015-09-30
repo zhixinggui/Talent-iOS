@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7531" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ZZInfoModifyVC">
@@ -205,6 +205,9 @@
                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <connections>
+                                        <action selector="didClickOnCancel:" destination="-1" eventType="touchUpInside" id="8xJ-Zn-gha"/>
+                                    </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s8a-zF-ogR" userLabel="头像button">
                                     <rect key="frame" x="8" y="13" width="359" height="70"/>
@@ -252,7 +255,7 @@
                                     </connections>
                                 </button>
                             </subviews>
-                            <color key="backgroundColor" red="0.94509803921568625" green="0.94901960784313721" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="trailing" secondItem="u8J-yy-Ec4" secondAttribute="trailing" constant="8" id="1gN-be-aHT"/>
                                 <constraint firstItem="C32-Yl-BJw" firstAttribute="leading" secondItem="9OV-b2-GZA" secondAttribute="leading" constant="-108" id="3XJ-SM-og7"/>
@@ -307,7 +310,7 @@
                             </constraints>
                         </view>
                     </subviews>
-                    <color key="backgroundColor" red="0.94509803921568625" green="0.94901960784313721" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.92941176470588238" green="0.93333333333333335" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="top" secondItem="4bX-9m-dAJ" secondAttribute="bottom" constant="1206" id="8kV-c1-a4s"/>
                         <constraint firstItem="4bX-9m-dAJ" firstAttribute="leading" secondItem="u31-Xe-HT6" secondAttribute="leading" id="8pr-Fh-2IL"/>

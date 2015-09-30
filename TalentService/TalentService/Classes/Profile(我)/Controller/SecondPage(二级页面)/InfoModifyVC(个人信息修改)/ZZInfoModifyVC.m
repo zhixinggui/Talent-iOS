@@ -9,6 +9,9 @@
 #import "ZZInfoModifyVC.h"
 #import "UUPhotoActionSheet.h"
 #import "ZZModifyVC.h"
+#import "ZZUploadImageModel.h"
+
+#import "ZZUploadImageTool.h"
 
 #import "ZZChangeInfoParam.h"
 #import "ZZChangePhoneNumVC.h"
@@ -17,6 +20,10 @@
 #import "ZZSexSelector.h"
 #import "ZZLoginUserTool.h"
 #import "ZZMyInfoHttpTool.h"
+
+#import "ZZFirstLoginVC.h"
+
+
 @interface ZZInfoModifyVC ()<UUPhotoActionSheetDelegate,ZZCitySelectorDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *womanButton;
 @property (weak, nonatomic) IBOutlet UIButton *manButton;
@@ -64,6 +71,7 @@
     self.nameLabel.text = loginUser.userNike;
     self.phoneLabel.text = loginUser.userPhone;
     self.adressLabel.text = loginUser.userAddress;
+    [self.headIV setHeadImageWithURL:loginUser.userSmallImg];
     ZZLog(@"是男是女:%ld",loginUser.userSex);
     if (loginUser.userSex == 1) {
         self.sexLabel.text = @"男";
@@ -166,27 +174,31 @@
 
 #pragma mark -UUPhotoActionSheetDelegate
 - (void)actionSheetDidFinished:(NSArray *)obj{
+    ZZUploadImageModel *imageModel = obj[0];
     ZZLog(@"11111%@",obj);
-    self.headIV.image = obj[0];
+    self.headIV.image = imageModel.image;
+    [MBProgressHUD showMessage:@"正在保存中..."];
     //上传修改信息
-    ZZChangeInfoParam *infoParam = [[ZZChangeInfoParam alloc]init];
-    
-    [ZZMyInfoHttpTool changeInfoWithChangeInfoParam:infoParam success:^(ZZLoginUser *infoUser, ZZNetDataType dataType) {
-        
+    ZZChangeInfoParam *changeInfoParam = [[ZZChangeInfoParam alloc]init];
+    [ZZMyInfoHttpTool commitHeadImageWithImageArray:obj ChangeInfoParam:changeInfoParam success:^(ZZLoginUser *infoUser, ZZNetDataType dataType) {
+        [MBProgressHUD  hideHUD];
+        [MBProgressHUD  showSuccess:@"保存成功"];
     } failure:^(NSString *error, ZZNetDataType datatype) {
-        
+        [MBProgressHUD  hideHUD];
+        [MBProgressHUD  showError:error];
     }];
 }
 
 
 #pragma mark - 布局相关统一代码规范
 
-- (void)updateViewConstraints {
-    [super updateViewConstraints];
-    
-    self.contentViewHeightConstraint.constant = 400;
-}
 
+
+- (IBAction)didClickOnCancel:(UIButton *)sender {
+    
+    [[ZZLoginUserTool sharedZZLoginUserTool] save:nil];
+    [self swithWindowRootControllerToLogin];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
