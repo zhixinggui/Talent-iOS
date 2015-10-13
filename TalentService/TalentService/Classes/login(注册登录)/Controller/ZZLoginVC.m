@@ -13,6 +13,8 @@
 #import "ZZAppSystem.h"
 
 NSTimeInterval  const timeInterval = 3;
+#define NumberOfImageCount 3
+
 @interface ZZLoginVC ()<UIScrollViewDelegate>
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollview;
 /**
@@ -60,16 +62,20 @@ NSTimeInterval  const timeInterval = 3;
     /**图片的Y*/
     CGFloat imageY = 0;
     /**  图片数量*/
-    NSInteger totalCount = 5;
+    NSInteger totalCount = NumberOfImageCount;
     /** 添加图片*/
     for (int i = 0; i<totalCount; i++) {
         UIImageView *imageView = [[UIImageView alloc]init];
+        imageView.contentMode = UIViewContentModeScaleAspectFill;
+        imageView.clipsToBounds = YES;
+        
         /** 图片的X*/
         CGFloat imageX = i*imageW;
         /**  图片frame*/
         imageView.frame = CGRectMake(imageX, imageY, imageW, imageH);
         /**  设置图片*/
-        imageView.backgroundColor = self.colorArray[i];
+        NSString *imageStr = self.colorArray[i];
+        imageView.image = [UIImage imageNamed:imageStr];
         /** 隐藏指示条*/
         self.scrollview.showsHorizontalScrollIndicator = NO;
         /**  scrollview加载图片*/
@@ -83,6 +89,8 @@ NSTimeInterval  const timeInterval = 3;
     self.scrollview.pagingEnabled = YES;
     /** 监听scrollview的滚动*/
     self.scrollview.delegate = self;
+    
+    self.pageControl.numberOfPages = NumberOfImageCount;
   
 }
 
@@ -120,7 +128,7 @@ NSTimeInterval  const timeInterval = 3;
 
 -(void)nextImage{
     int page = (int)self.pageControl.currentPage;
-    if (page == 4) {
+    if (page == NumberOfImageCount-1) {
         page = 0;
     }else{
         page++;
@@ -137,7 +145,7 @@ NSTimeInterval  const timeInterval = 3;
  *  scrollview滚动的时候调用
  */
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    ZZLog(@"滚动中");
+   
     /**
      *  计算页码
      *  页码 = (contentoffset.x + scrollView一半宽度)/scrollView宽度
@@ -193,12 +201,8 @@ NSTimeInterval  const timeInterval = 3;
 #pragma mark lazy load
 -(NSArray *)colorArray{
     if (!_colorArray) {
-        UIColor *redColor = [UIColor whiteColor];
-        UIColor *greenColor = [UIColor greenColor];
-        UIColor *purpleColor = [UIColor purpleColor];
-        UIColor *yellowColor = [UIColor yellowColor];
-        UIColor *blueColor = [UIColor blueColor];
-        _colorArray = @[redColor,greenColor,purpleColor,yellowColor,blueColor];
+        
+        _colorArray = @[@"home1.jpg",@"home2.jpg",@"home3.jpg"];
     }
     return _colorArray;
 }

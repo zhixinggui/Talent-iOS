@@ -8,7 +8,9 @@
 
 #import "ZZFeedbackVC.h"
 #import "ZZIQKeyBoardTool.h"
-@interface ZZFeedbackVC ()
+@interface ZZFeedbackVC ()<UITextViewDelegate>
+@property (weak, nonatomic) IBOutlet UILabel *textLabel;
+@property (weak, nonatomic) IBOutlet UITextView *textViewTV;
 
 @end
 
@@ -16,9 +18,26 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    ZZKeyBoardTool(close);
+    //ZZKeyBoardTool(close);
     [self setTitle:@"意见反馈"];
+    self.modalPresentationCapturesStatusBarAppearance = NO;
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+    self.extendedLayoutIncludesOpaqueBars = NO;
+    self.textViewTV.delegate = self;
 }
+
+- (void)textViewDidBeginEditing:(UITextView *)textView {
+    self.textLabel.hidden = YES;
+}
+
+- (void)textViewDidEndEditing:(UITextView *)textView {
+    if (self.textViewTV.text.length) {
+        
+    }else {
+        self.textLabel.hidden = NO;
+    }
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -34,5 +53,7 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+
 
 @end

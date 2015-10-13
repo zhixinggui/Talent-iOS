@@ -232,4 +232,16 @@
     
     
 }
+
++ (void)signOutAppSuccess:(void(^)(ZZLoginUser *infoUser, ZZNetDataType dataType))success failure:(failureBlock)failure {
+    ZZParam *param = [[ZZParam alloc]init];
+    param.cmd = @"smart/logout";
+    param.token = [ZZLoginUserTool sharedZZLoginUserTool].loginUser.token;
+    [ZZHttpTool afPostByApiName:@"" Params:param success:^(id json) {
+        success(json,ZZNetDataTypeSuccLocal);
+    } failure:^(NSString *error, ZZNetDataType netDataType) {
+        
+    }];
+}
+
 @end

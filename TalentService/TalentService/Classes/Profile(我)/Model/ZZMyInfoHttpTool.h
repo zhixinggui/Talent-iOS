@@ -76,6 +76,11 @@ typedef void (^failureBlock)(NSString *error , ZZNetDataType datatype);
  *背景图片
  */
 + (void)commitBackgroundImageWithImageArray:(NSArray*)imageArray success:(void(^)(ZZLoginUser *infoUser, ZZNetDataType dataType))success failure:(failureBlock)failure;
+
+/**
+ *注销
+ */
++ (void)signOutAppSuccess:(void(^)(ZZLoginUser *infoUser, ZZNetDataType dataType))success failure:(failureBlock)failure;
 @end
 
 

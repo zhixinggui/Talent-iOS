@@ -15,6 +15,10 @@
 #import "ZZActivityHttpTool.h"
 #import "ZZOrderResultVC.h"
 #import "ZZHudView.h"
+
+#import "ZZLoginUserTool.h"
+#import "ZZChangePhoneNumVC.h"
+
 @interface ZZEnsureOrderController ()
 @property (nonatomic) CGFloat  toalheight;
 @property (nonatomic, strong) ZZOrderInfoShowView *phoneShowView;
@@ -33,10 +37,22 @@
     self.view.backgroundColor = ZZViewBackColor;
     [self  setUpChild];
     
+    /**
+     *10.9王雷做修改
+     */
+    
+    //获取通知中心单例对象
+    NSNotificationCenter * center = [NSNotificationCenter defaultCenter];
+    //添加当前类对象为一个观察者，name和object设置为nil，表示接收一切通知
+    [center addObserver:self selector:@selector(setUpChild) name:ZZUserNickChangeNoti object:nil];
 }
 
 
 - (void)setUpChild{
+    /**
+     *10.9王雷做修改
+     */
+    ZZLoginUser *loginUser = [ZZLoginUserTool  sharedZZLoginUserTool].loginUser;
     UIScrollView *scroView = [[UIScrollView alloc]initWithFrame:self.view.bounds];
     
     ZZOrderTopView *topView = [ZZOrderTopView  orderTopView];
@@ -52,7 +68,7 @@
 
     [self  setUpShowView:@"订单时间：" content:self.order.orderDate];
     [self  setUpShowView:@"用户名：" content:self.order.userNike];
-    self.phoneShowView =   [self  setUpShowView:@"手机号：" content:self.order.phone];
+    self.phoneShowView =   [self  setUpShowView:@"手机号：" content:loginUser.userPhone];
     [self  setUpShowView:@"活动时间：" content:activity.startTime];
     [self  setUpShowView:@"活动地点：" content:activity.address];
     [self setUpShowView:@"金额：" content:[self.order showPrice:self.order.price]];
@@ -87,7 +103,8 @@
     return showView;
 }
 - (void)changePhone{
-    
+    ZZChangePhoneNumVC *changePhoneNumVc = [[ZZChangePhoneNumVC alloc]init];
+    [self.navigationController pushViewController:changePhoneNumVc animated:YES];
     
     
 }

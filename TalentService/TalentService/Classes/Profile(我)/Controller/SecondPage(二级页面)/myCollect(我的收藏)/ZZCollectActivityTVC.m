@@ -12,13 +12,19 @@
 #import "MJRefresh.h"
 #import "ZZHudView.h"
 #import "ZZCollectParam.h"
+#import "ZZActivityDetailController.h"
+
+
 #define numberOfpage 10
 @interface ZZCollectActivityTVC ()
 @property (nonatomic, strong)NSMutableArray *activityArray;
+@property (nonatomic, strong)ZZActivity *activity;
 @property (nonatomic, strong)ZZHomeServiceResult *result;
 @end
 
 @implementation ZZCollectActivityTVC
+
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -39,7 +45,7 @@
     [MBProgressHUD showMessage:@"正在加载中..." toView:self.view];
     ZZCollectParam *collectParam = [[ZZCollectParam alloc]init];
     collectParam.pageNo = @(0);
-    collectParam.numberOfPerPage = @(10);
+    collectParam.numberOfPerPage = @(numberOfpage);
     [ZZMyInfoHttpTool getMyCollectActivityWithCollectParam:collectParam success:^(ZZHomeServiceResult *result, ZZNetDataType dataType) {
         [MBProgressHUD  hideHUDForView:self.view];
         ZZLog(@"啥数据啊:%@",result);
@@ -101,6 +107,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ZZActivityCell *cell = [tableView dequeueReusableCellWithIdentifier:[ZZActivityCell   cellXibIdentifier] forIndexPath:indexPath];
     cell.activity = self.activityArray[indexPath.row];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 
@@ -139,21 +146,16 @@
 }
 */
 
-/*
-#pragma mark - Table view delegate
 
-// In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
+#pragma mark - Table view delegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Navigation logic may go here, for example:
-    // Create the next view controller.
-    <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:<#@"Nib name"#> bundle:nil];
-    
-    // Pass the selected object to the new view controller.
-    
-    // Push the view controller.
+    self.activity = self.activityArray[indexPath.row];
+    ZZLog(@"空的吗:%@",self.activityArray[indexPath.row]);
+    ZZActivityDetailController *detailViewController = [[ZZActivityDetailController alloc] init];
+    detailViewController.activityId =  self.activity.activityId;
     [self.navigationController pushViewController:detailViewController animated:YES];
 }
-*/
+
 
 /*
 #pragma mark - Navigation
@@ -170,6 +172,13 @@
         _activityArray = [NSMutableArray  array];
     }
     return _activityArray;
+}
+
+- (ZZActivity *)activity {
+    if (_activity == nil) {
+        _activity = [[ZZActivity alloc]init];
+    }
+    return _activity;
 }
 
 -(void)setResult:(ZZHomeServiceResult *)result{

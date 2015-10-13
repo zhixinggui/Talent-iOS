@@ -14,6 +14,9 @@
 /** String type for alias
  */
 //新浪微博
+UIKIT_EXTERN NSString *const kUMessageAliasTypeMengBaoPai;
+
+//新浪微博
 UIKIT_EXTERN NSString *const kUMessageAliasTypeSina;
 //腾讯微博
 UIKIT_EXTERN NSString *const kUMessageAliasTypeTencent;

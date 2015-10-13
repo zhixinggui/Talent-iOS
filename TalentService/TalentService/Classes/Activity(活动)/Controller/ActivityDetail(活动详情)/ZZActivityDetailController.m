@@ -81,7 +81,6 @@ typedef enum {
     detailRuleV.activity = self.detailActivity;
     detailRuleV.frame = CGRectMake(0, CGRectGetMaxY(detailIV.frame), ScreenWidth, detailRuleV.totalHeight);
     detailRuleV.delegateVC = self;
-    
     [scrollView addSubview:detailRuleV];
 //    //详情
     ZZDetailsView *detailView = [[ZZDetailsView  alloc]init];

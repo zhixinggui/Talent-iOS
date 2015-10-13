@@ -16,6 +16,7 @@
 #import "ZZCityTool.h"
 #import "ZZLoadHttpTool.h"
 #import "ZZLoginUserTool.h"
+#import "UMessage.h"
 #define  ButtonHeight   360
 @interface ZZFirstLoginVC ()
 @property (strong, nonatomic) IBOutlet ZZTextField *phoneNumTF;
@@ -103,7 +104,19 @@
         [[ZZLoginUserTool  sharedZZLoginUserTool] save:loginUser];
         [MBProgressHUD hideHUD];
         [MBProgressHUD  showSuccess:@"登录成功"];
-         [self  swithWindowRootControllerToHome];
+        //用户绑定该设备
+//        [UMessage addTag:[NSString stringWithFormat:@"%ld",loginUser.userId]
+//                response:^(id responseObject, NSInteger remain, NSError *error) {
+//                    ZZLog(@"返回的是什么玩意: %ld",remain);
+//                }];
+        //用户id绑定alias
+        [UMessage addAlias:[NSString stringWithFormat:@"%ld_%@",loginUser.userId,[ZZAppSystem  appUDID]] type:@"service" response:^(id responseObject, NSError *error) {
+            NSString *str = [NSString stringWithFormat:@"%ld_%@",loginUser.userId,[ZZAppSystem  appUDID]];
+            ZZLog(@"alias: %@",str);
+        }];
+        
+        
+        [self  swithWindowRootControllerToHome];
     } failure:^(NSString *error, ZZNetDataType dataType) {
         
         [MBProgressHUD hideHUD];

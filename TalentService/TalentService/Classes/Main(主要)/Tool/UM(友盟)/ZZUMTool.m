@@ -115,6 +115,27 @@ static ZZUMTool *umTool;
     self.shareTypes = [NSMutableArray  array];
     self.shareModels = [NSMutableArray  array];
     
+    
+    // 微信分享入口
+    if ([WXApi isWXAppSupportApi]){//是否有微信客户端
+        [UMSocialWechatHandler setWXAppId:WXAppId appSecret:WXAppSecret url:WXurl];
+        
+        
+        //创建微信登陆模型
+        ZZUMLoginModel *wxLoginModel = [[ZZUMLoginModel alloc]initWithImageName:@"wechat_60x60" shareType:UMShareToWechatSession loginType:ZZUMLoginTypeWeChatFriend name:@"微信"];
+        [self.loginModels addObject:wxLoginModel];
+        //创建微信好友分享模型
+        ZZUMLoginModel *friendShareModel = [[ZZUMLoginModel alloc]initWithImageName:@"wechat_share_60x60" shareType:UMShareToWechatSession loginType:ZZUMLoginTypeWeChatFriend name:@"微信好友"];
+        [self.shareModels addObject:friendShareModel];
+        [self.shareTypes addObject:UMShareToWechatSession];
+        //创建微信朋友圈分享模型
+        ZZUMLoginModel *friendsShareModel = [[ZZUMLoginModel alloc]initWithImageName:@"wechatfriends_share_60x60" shareType:UMShareToWechatTimeline loginType:ZZUMLoginTypeWeChatFriends name:@"朋友圈"];
+        [self.shareModels addObject:friendsShareModel];
+        [self.shareTypes addObject:UMShareToWechatTimeline];
+        self.supportWX = YES;
+    }
+    
+    
      //   QQ分享入口
     if ([TencentOAuth iphoneQQSupportSSOLogin]) {//是否安装有QQ客户端
         [UMSocialQQHandler setQQWithAppId:QQAppId appKey:QQAppKey url:QQurl];
@@ -131,25 +152,6 @@ static ZZUMTool *umTool;
         [self.shareModels  addObject:zoneShareModel];
         [self.shareTypes addObject:UMShareToQzone];
         self.supportQQ = YES;
-    }
-    
-     // 微信分享入口
-    if ([WXApi isWXAppSupportApi]){//是否有微信客户端
-        [UMSocialWechatHandler setWXAppId:WXAppId appSecret:WXAppSecret url:WXurl];
-        
-       
-        //创建微信登陆模型
-        ZZUMLoginModel *wxLoginModel = [[ZZUMLoginModel alloc]initWithImageName:@"wechat_60x60" shareType:UMShareToWechatSession loginType:ZZUMLoginTypeWeChatFriend name:@"微信"];
-        [self.loginModels addObject:wxLoginModel];
-        //创建微信好友分享模型
-        ZZUMLoginModel *friendShareModel = [[ZZUMLoginModel alloc]initWithImageName:@"wechat_share_60x60" shareType:UMShareToWechatSession loginType:ZZUMLoginTypeWeChatFriend name:@"微信好友"];
-        [self.shareModels addObject:friendShareModel];
-        [self.shareTypes addObject:UMShareToWechatSession];
-        //创建微信朋友圈分享模型
-        ZZUMLoginModel *friendsShareModel = [[ZZUMLoginModel alloc]initWithImageName:@"wechatfriends_share_60x60" shareType:UMShareToWechatTimeline loginType:ZZUMLoginTypeWeChatFriends name:@"朋友圈"];
-        [self.shareModels addObject:friendsShareModel];
-         [self.shareTypes addObject:UMShareToWechatTimeline];
-        self.supportWX = YES;
     }
     
      // 新浪分享入口

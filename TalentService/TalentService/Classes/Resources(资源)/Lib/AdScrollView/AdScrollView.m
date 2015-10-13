@@ -243,27 +243,36 @@ static NSUInteger currentImage = 0;//记录中间图片的下标,开始总是为
             return;
             break;
         case 1:
-              _centerImageView.image = [UIImage imageNamed:_imageNameArray[currentImage%_imageNameArray.count]];
+            [_centerImageView setPictureImageWithURL:_imageNameArray[currentImage%_imageNameArray.count]];
+//              _centerImageView.image = [UIImage imageNamed:_imageNameArray[currentImage%_imageNameArray.count]];
             break;
         case 2:
             
             if (currentImage == 1) {
-                _centerImageView.image = [UIImage imageNamed:_imageNameArray[1]];
-                _leftImageView.image = [UIImage imageNamed:_imageNameArray[0]];
-                
-                _rightImageView.image = [UIImage imageNamed:_imageNameArray[0]];
+                [_centerImageView setPictureImageWithURL:_imageNameArray[1]];
+                [_leftImageView setPictureImageWithURL:_imageNameArray[0]];
+                [_rightImageView setPictureImageWithURL:_imageNameArray[0]];
+                //_centerImageView.image = [UIImage imageNamed:_imageNameArray[1]];
+                //_leftImageView.image = [UIImage imageNamed:_imageNameArray[0]];
+                //_rightImageView.image = [UIImage imageNamed:_imageNameArray[0]];
             }else{
-                _leftImageView.image = [UIImage imageNamed:_imageNameArray[1]];
-                _rightImageView.image = [UIImage imageNamed:_imageNameArray[1]];
-                _centerImageView.image = [UIImage imageNamed:_imageNameArray[0]];
+//                _leftImageView.image = [UIImage imageNamed:_imageNameArray[1]];
+//                _rightImageView.image = [UIImage imageNamed:_imageNameArray[1]];
+//                _centerImageView.image = [UIImage imageNamed:_imageNameArray[0]];
+                [_centerImageView setPictureImageWithURL:_imageNameArray[0]];
+                [_leftImageView setPictureImageWithURL:_imageNameArray[1]];
+                [_rightImageView setPictureImageWithURL:_imageNameArray[1]];
             }
             
          
             break;
         case 3:
-            _leftImageView.image = [UIImage imageNamed:_imageNameArray[(currentImage-1)%_imageNameArray.count]];
-            _centerImageView.image = [UIImage imageNamed:_imageNameArray[currentImage%_imageNameArray.count]];
-            _rightImageView.image = [UIImage imageNamed:_imageNameArray[(currentImage+1)%_imageNameArray.count]];
+            [_centerImageView setPictureImageWithURL:_imageNameArray[currentImage%_imageNameArray.count]];
+            [_leftImageView setPictureImageWithURL:_imageNameArray[(currentImage-1)%_imageNameArray.count]];
+            [_rightImageView setPictureImageWithURL:_imageNameArray[(currentImage+1)%_imageNameArray.count]];
+//            _leftImageView.image = [UIImage imageNamed:_imageNameArray[(currentImage-1)%_imageNameArray.count]];
+//            _centerImageView.image = [UIImage imageNamed:_imageNameArray[currentImage%_imageNameArray.count]];
+//            _rightImageView.image = [UIImage imageNamed:_imageNameArray[(currentImage+1)%_imageNameArray.count]];
         default:
             break;
     }

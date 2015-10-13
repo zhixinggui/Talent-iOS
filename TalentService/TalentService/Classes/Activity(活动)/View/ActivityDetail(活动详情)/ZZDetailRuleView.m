@@ -25,7 +25,7 @@
     [self  setUpChild];
 }
 - (void)setUpChild{
-     self.backgroundColor = ZZViewBackColor;
+     self.backgroundColor = [UIColor whiteColor];
     CGFloat  lineMargin = 10;
     CGFloat   edgeMargin = 20;
    //
@@ -34,7 +34,7 @@
     CGFloat underW = ScreenWidth;
     CGFloat underH = 44;
     ZZUnderLineLabel *underLabel = [[ZZUnderLineLabel  alloc]initWithFrame:CGRectMake(underX, underY, underW, underH)];
-    underLabel.text = @"须知";
+    underLabel.text = self.activity.title;
     underLabel.textColor = ZZNatiBarColor;
     underLabel.font = ZZContentBoldFont;
     [self addSubview:underLabel];
@@ -82,7 +82,7 @@
     telebutton.backgroundColor = [UIColor  whiteColor];
     [telebutton  setImage:[UIImage  imageNamed:@"phone_30x30"] forState:UIControlStateNormal];
     telebutton.titleEdgeInsets = UIEdgeInsetsMake(0, 3, 0, 0);
-    [telebutton  setAttributedTitle:[self  getAttributedStringWithText:@"拨打电话" textFont:ZZContentFont textColor:ZZLightGrayColor content:self.activity.servicePhone  contentFont:ZZContentFont contentColor:ZZGreenColor] forState:UIControlStateNormal];
+    [telebutton  setAttributedTitle:[self  getAttributedStringWithText:@"咨询电话" textFont:ZZContentFont textColor:ZZLightGrayColor content:self.activity.servicePhone  contentFont:ZZContentFont contentColor:ZZGreenColor] forState:UIControlStateNormal];
       [telebutton  setTitleColor:ZZGreenColor forState:UIControlStateNormal];
     telebutton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
     [telebutton  addTarget:self action:@selector(callPhone) forControlEvents:UIControlEventTouchUpInside];

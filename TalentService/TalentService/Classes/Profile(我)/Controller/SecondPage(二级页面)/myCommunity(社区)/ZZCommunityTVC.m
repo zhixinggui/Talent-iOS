@@ -42,7 +42,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
     // Return the number of rows in the section.
-    return 10;
+    return 0;
 }
 
 
@@ -122,7 +122,7 @@
 #pragma mark -Setters and Getters
 -(ZZSegmentedControl *)mySegmentControl{
     if (!_mySegmentControl) {
-        _mySegmentControl = [[ZZSegmentedControl alloc]initWithItems:@[@"我的发布",@"收藏"]];
+        _mySegmentControl = [[ZZSegmentedControl alloc]initWithItems:@[@"我的发布"]];
         _mySegmentControl.frame = CGRectMake(0, 0, ScreenWidth, 40);
     }
     return _mySegmentControl;

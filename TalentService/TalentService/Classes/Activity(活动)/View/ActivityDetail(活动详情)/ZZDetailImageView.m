@@ -48,14 +48,15 @@
     //已参加  人数label
   
     CGFloat py = CGRectGetMaxY(imageView.frame);
-    CGFloat pw = 40;
+    CGFloat pw = 200;
     CGFloat ph = 40;
       CGFloat px = w - pw -20;
     UILabel *priceLabel = [[UILabel  alloc]initWithFrame:CGRectMake(px, py, pw, ph)];
     priceLabel.textAlignment = NSTextAlignmentRight;
     priceLabel.textColor = ZZLightGrayColor;
     priceLabel.font = ZZContentFont;
-    priceLabel.text = self.activity.price;;
+    
+    priceLabel.text = [NSString stringWithFormat:@"费用: %@",self.activity.price];
     [self addSubview:priceLabel];
     self.totalHeight = CGRectGetMaxY(label.frame);
 }

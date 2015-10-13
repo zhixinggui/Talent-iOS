@@ -16,7 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    self.title = @"关于萌宝派";
 }
 
 - (void)didReceiveMemoryWarning {

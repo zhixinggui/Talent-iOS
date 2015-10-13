@@ -13,6 +13,7 @@
 #import "ZZFeedbackVC.h"
 #import "ZZMoreExplainVC.h"
 #import "ZZSdWebImageTool.h"
+#import "ZZHudView.h"
 @interface ZZMoreVC ()<UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *moreTableView;
 @property (strong, nonatomic) IBOutlet UIButton *cacheButton;
@@ -44,20 +45,35 @@
 }
 #pragma mark - UITableViewDatasourse
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 2;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 7;
+    if (section == 0) {
+        return 1;
+    }else{
+        return 3;
+    }
+    
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ZZMoreCell *cell = [tableView dequeueReusableCellWithIdentifier:moreCelldentifier forIndexPath:indexPath];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     NSArray *nameArray = [ZZMoreName getMoreNameArray];
-    cell.nameString = nameArray[indexPath.row];
+    if (indexPath.section == 0) {
+        cell.nameString = nameArray[0];
+    }else{
+        cell.nameString = nameArray[indexPath.row+1];
+    }
+    
     return cell;
 }
 
+
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    switch (indexPath.row) {
+    switch (indexPath.section) {
         case 0:
         {
             ZZFeedbackVC *feedbackVc = [[ZZFeedbackVC alloc]initWithNib];
@@ -65,10 +81,20 @@
         }
             break;
             
-        default:
+        case 1:
         {
-            ZZMoreExplainVC *moreExplainVc = [[ZZMoreExplainVC alloc]initWithNib];
-            [self.navigationController pushViewController:moreExplainVc animated:YES];
+            
+            if (indexPath.row == 0) {
+                [ZZHudView showMessage:@"敬请等待..." time:1 toView:self
+                 .view];
+            }else if(indexPath.row == 1) {
+                [ZZHudView showMessage:@"敬请等待..." time:1 toView:self
+                 .view];
+            }else {
+                ZZMoreExplainVC *feedbackVc = [[ZZMoreExplainVC alloc]initWithNib];
+                [self.navigationController pushViewController:feedbackVc animated:YES];
+            }
+            
         }
             break;
     }

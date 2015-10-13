@@ -34,7 +34,12 @@
     self.nowPayButton.hidden = YES;
     _order = order;
     self.titleLabel.text = order.title;
-    self.priceLabel.text = [order  showPrice:order.price];
+    if ([order.price  isEqual: @(0)]) {
+        self.priceLabel.text = @"免费";
+    }else {
+        self.priceLabel.text = [order  showPrice:order.price];
+    }
+    
     switch (order.status) {
         case ZZOrderStatusNotPaid:
             self.statusLabel.text = @"未支付";
@@ -42,7 +47,11 @@
             break;
             
         case ZZOrderStatusPaid:
-            self.statusLabel.text = @"已支付";
+            if ([order.price isEqual:@(0)]) {
+                self.statusLabel.text = @"已预订";
+            }else {
+                self.statusLabel.text = @"已支付";
+            }
             break;
             
         case ZZOrderStatusComplete:
@@ -69,7 +78,12 @@
     if (order.status == ZZOrderStatusNotPaid) {
         [self.cancelBT setTitle:@"取消订单"];
     }else if (order.status == ZZOrderStatusPaid || order.status == ZZOrderStatusExpired) {
-        [self.cancelBT setTitle:@"申请退款"];
+        if ([order.price isEqual:@(0)]) {
+            [self.cancelBT setTitle:@"取消订单"];
+        }else {
+            [self.cancelBT setTitle:@"申请退款"];
+        }
+        
     }else if (order.status == ZZOrderStatusComplete) {
         [self.cancelBT setTitle:@"立即评价"];
     }else {

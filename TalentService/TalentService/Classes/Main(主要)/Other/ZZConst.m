@@ -8,8 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-/**网络请求地址*/
-NSString * const baseUrl = @"http://192.168.100.174:8081/wine-rest/cgi";
+/**网络本地测试请求地址*/
+//NSString * const baseUrl = @"http://192.168.100.174:8081/wine-rest/cgi";
+/**网络阿里云请求地址*/
+NSString * const baseUrl = @"http://mengbaopai.smart-kids.com:8081/wine-rest/cgi";
 /**网络请求时长*/
 NSTimeInterval const responseTime = 60;
 
@@ -32,7 +34,7 @@ CGFloat  const  ZZEdgeMargin = 8;//边间距
 
 /**长度*/
 NSUInteger  const  ZZSecerityTime = 60 ;//验证码时常
-NSTimeInterval const animationTime = 0.25;
+NSTimeInterval const animationTime = 0;
 NSUInteger  const  ZZMiMaMinLenth = 6 ;//密码最少位数
 NSUInteger  const  ZZMiMaMaxLenth  = 16;//密码最多位数
 NSUInteger  const  ZZNickMaxLenth  = 14;//昵称最多位数

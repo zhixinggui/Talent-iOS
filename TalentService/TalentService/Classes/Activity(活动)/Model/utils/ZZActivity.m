@@ -51,9 +51,9 @@ _servicesBigImg = [[servicesImg  stringByAppendingString:ZZImageUrlOrigin(YES)]s
 -(NSString *)detailRule{
     if (_detailRule == nil) {
         NSMutableString *mdetailRule = [NSMutableString  string];
-        if (self.title.length) {
-            [mdetailRule  appendFormat:@"活动标题:%@\n",self.title];
-        }
+//        if (self.title.length) {
+//            [mdetailRule  appendFormat:@"活动标题:%@\n",self.title];
+//        }
         if (self.startTime.length && self.endTime.length) {
             [mdetailRule  appendFormat:@"活动时间:%@~%@\n",self.startTime,self.endTime];
         }

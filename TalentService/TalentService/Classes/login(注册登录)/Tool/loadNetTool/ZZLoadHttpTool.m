@@ -79,7 +79,8 @@ NSUInteger const DeviceType =1;
     
     loginParam.device = @(DeviceType);
     loginParam.deviceVersion = [ZZAppSystem  appVersion];
-    loginParam.model  = [ZZAppSystem appPlatform];
+    ZZLog(@"model: %@",[ZZAppSystem  deviceModel]);
+    loginParam.model  = [ZZAppSystem deviceModel];
     loginParam.imei = [ZZAppSystem  appUDID];
     loginParam.applicationVersion = [ZZAppSystem  appVersion];
     ZZParam *param = [[ZZParam alloc]init];

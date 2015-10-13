@@ -10,6 +10,6 @@
 
 @implementation ZZMoreName
 +(NSArray *)getMoreNameArray{
-    return @[@"意见反馈",@"等级说明",@"积分说明",@"金币说明",@"使用说明",@"达人申请说明",@"关于萌宝派"];
+    return @[@"意见反馈",@"成长值说明",@"使用说明",@"关于萌宝派"];
 }
 @end

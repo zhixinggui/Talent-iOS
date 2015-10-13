@@ -28,13 +28,13 @@ static  NSString *cellIden = @"collectionCell";
         self.adScrollView.hidden = NO;
     }
     
-    if (self.images  && images == nil) {
-        self.height -= HeadHeight/2;
-        self.adScrollView.hidden = YES;
-    }
+//    if (self.images  && images == nil) {
+//        self.height -= HeadHeight/2;
+//        self.adScrollView.hidden = YES;
+//    }
     _images = images;
     self.adScrollView.imageNameArray = images;
-    [self.adScrollView  setNeedsLayout];
+    //[self.adScrollView  setNeedsLayout];
     
 }
 
@@ -85,16 +85,14 @@ static  NSString *cellIden = @"collectionCell";
 -(AdScrollView *)adScrollView{
     if (_adScrollView == nil) {
         //广告位滚动图片
-        AdScrollView * scrollView = [[AdScrollView alloc]initWithFrame:CGRectMake(0, 0,HeadWidth, Height)];
-        scrollView.scrollsToTop = NO;
+        _adScrollView = [[AdScrollView alloc]initWithFrame:CGRectMake(0, 0,HeadWidth, Height)];
+//        _adScrollView.scrollsToTop = NO;
         // ,@"weibo_50x50"
-        scrollView.imageNameArray = @[@"QQ_50x50",@"Wechat_50x50",@"weibo_50x50"];
-        scrollView.PageControlShowStyle = UIPageControlShowStyleRight;
-        scrollView.pageControl.pageIndicatorTintColor = [UIColor whiteColor];
-        scrollView.pageControl.currentPageIndicatorTintColor = [UIColor purpleColor];
-        scrollView.hidden = YES;
-        _adScrollView = scrollView;
-        [self addSubview:scrollView];
+//        _adScrollView.imageNameArray = self.images;
+//        _adScrollView.PageControlShowStyle = UIPageControlShowStyleRight;
+//        _adScrollView.pageControl.pageIndicatorTintColor = [UIColor whiteColor];
+//        _adScrollView.pageControl.currentPageIndicatorTintColor = [UIColor purpleColor];
+        [self addSubview:_adScrollView];
     }
     return _adScrollView;
 }
@@ -102,7 +100,7 @@ static  NSString *cellIden = @"collectionCell";
 -(UICollectionView *)collectionView{
     if (_collectionView == nil) {
         CGFloat margin = 5;
-        CGFloat separ = 20;
+        CGFloat separ = 16.5;
         CGFloat itemW = 60;
         CGFloat itemH = Height - 2*margin;
         

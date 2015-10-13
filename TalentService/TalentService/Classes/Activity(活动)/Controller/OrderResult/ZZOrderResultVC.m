@@ -33,7 +33,7 @@
     CGFloat  wid = image.size.width/2;
     CGFloat  height = image.size.height /2;
     CGFloat  x = (ScreenWidth -wid)/2;
-    UIImageView *resultIV = [[UIImageView  alloc]initWithFrame:CGRectMake(x, 74, wid, height)];
+    UIImageView *resultIV = [[UIImageView  alloc]initWithFrame:CGRectMake(x, (ScreenHeight-height)/2, wid, height)];
     resultIV.image = image;
     resultIV.contentMode = UIViewContentModeScaleAspectFill;
     [self.view  addSubview:resultIV];

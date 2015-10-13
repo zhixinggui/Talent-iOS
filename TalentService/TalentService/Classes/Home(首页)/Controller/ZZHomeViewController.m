@@ -98,6 +98,8 @@ static   NSUInteger const HomeNumCount = 10;
     [ZZHomeHttpTool  homeRcommoned:1 success:^(NSArray *recoms, ZZNetDataType netDataType) {
      
         self.tableHeadView.talents = recoms;
+        self.tableHeadView.images = @[@"http://smart.image.alimmdn.com/app/banner/banner03.jpg",@"http://smart.image.alimmdn.com/app/banner/banner01.jpg",@"http://smart.image.alimmdn.com/app/banner/banner02.jpg"];
+        
         self.tableView.tableHeaderView = self.tableHeadView;
         [self.tableView reloadData];
        

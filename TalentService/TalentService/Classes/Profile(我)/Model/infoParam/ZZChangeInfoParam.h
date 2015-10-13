@@ -33,6 +33,10 @@
  */
 @property (nonatomic,copy)NSString *userPhone;
 /**
+ *  验证码
+ */
+@property (nonatomic,copy)NSString *securityCode;
+/**
  *  省
  */
 @property (nonatomic,strong)NSNumber *province;
@@ -52,5 +56,8 @@
  *  性别:1男  2女
  */
 @property (nonatomic,strong)NSNumber *userSex;
-
+/**
+ *  用户描述
+ */
+@property (nonatomic,copy)NSString *userPresentation;
 @end

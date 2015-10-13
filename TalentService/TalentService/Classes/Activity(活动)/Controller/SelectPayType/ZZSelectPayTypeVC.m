@@ -62,7 +62,7 @@
 }
 - (void)sureAction{
     ZZLog(@"确定");
-    ZZOrderResultVC *orderResult = [[ZZOrderResultVC alloc]init];
-    [self.navigationController  pushViewController:orderResult animated:YES];
+//    ZZOrderResultVC *orderResult = [[ZZOrderResultVC alloc]init];
+//    [self.navigationController  pushViewController:orderResult animated:YES];
 }
 @end

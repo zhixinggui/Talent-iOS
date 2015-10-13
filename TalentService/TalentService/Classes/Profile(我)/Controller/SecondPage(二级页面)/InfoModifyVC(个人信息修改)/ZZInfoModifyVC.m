@@ -23,8 +23,9 @@
 
 #import "ZZFirstLoginVC.h"
 
-
-@interface ZZInfoModifyVC ()<UUPhotoActionSheetDelegate,ZZCitySelectorDelegate>
+#import "ZZWriteDetailAddressVC.h"
+#import "UMessage.h"
+@interface ZZInfoModifyVC ()<UUPhotoActionSheetDelegate,ZZCitySelectorDelegate,UITextViewDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *womanButton;
 @property (weak, nonatomic) IBOutlet UIButton *manButton;
 @property (strong, nonatomic) IBOutlet UIView *changeView;
@@ -33,6 +34,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *headIV;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *phoneLabel;
+@property (weak, nonatomic) IBOutlet UILabel *cityLabel;
 
 @property (weak, nonatomic) IBOutlet UILabel *adressLabel;
 @property (weak, nonatomic) IBOutlet UILabel *sexLabel;
@@ -44,6 +46,10 @@
 @property (nonatomic, strong) ZZCounty *selectedCounty;
 
 @property (nonatomic ,strong)UIButton *selectedButton;
+@property (weak, nonatomic) IBOutlet UIImageView *starDetailView;
+@property (weak, nonatomic) IBOutlet UILabel *starDetailLabel;
+@property (weak, nonatomic) IBOutlet UITextView *starDetailTV;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *changeInfoLayoutConstraint;
 @end
 
 
@@ -53,6 +59,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.automaticallyAdjustsScrollViewInsets = NO;
+    self.starDetailTV.delegate = self;
     self.title = @"我的";
     /**
      *  个人信息
@@ -63,6 +70,8 @@
     NSNotificationCenter * center = [NSNotificationCenter defaultCenter];
     //添加当前类对象为一个观察者，name和object设置为nil，表示接收一切通知
     [center addObserver:self selector:@selector(notice) name:ZZUserNickChangeNoti object:nil];
+    
+    
 }
 //接听通知
 -(void)notice{
@@ -71,6 +80,9 @@
     self.nameLabel.text = loginUser.userNike;
     self.phoneLabel.text = loginUser.userPhone;
     self.adressLabel.text = loginUser.userAddress;
+    self.starDetailTV.text = loginUser.userPresentation;
+//    loginUser.province
+    
     [self.headIV setHeadImageWithURL:loginUser.userSmallImg];
     ZZLog(@"是男是女:%ld",loginUser.userSex);
     if (loginUser.userSex == 1) {
@@ -85,10 +97,39 @@
         self.manButton.selected = NO;
         self.selectedButton = self.womanButton;
     }
+    
+    if (loginUser.isEredar) {
+        self.starDetailView.hidden = NO;
+        self.starDetailLabel.hidden = NO;
+        self.starDetailTV.hidden = NO;
+        self.changeInfoLayoutConstraint.constant = 150;
+    }else {
+        self.starDetailView.hidden = YES;
+        self.starDetailLabel.hidden = YES;
+        self.starDetailTV.hidden = YES;
+        self.changeInfoLayoutConstraint.constant = 8;
+    }
+    
 }
 
 
 #pragma mark - button的所有响应事件
+- (void)textViewDidEndEditing:(UITextView *)textView {
+    ZZLog(@"编辑结束");
+    ZZChangeInfoParam *infoParam = [[ZZChangeInfoParam alloc]init];
+    infoParam.userPresentation = self.starDetailTV.text;
+    [MBProgressHUD showMessage:@"正在保存中..."];
+    [ZZMyInfoHttpTool changeInfoWithChangeInfoParam:infoParam success:^(ZZLoginUser *infoUser, ZZNetDataType dataType) {
+        [MBProgressHUD  hideHUD];
+        [MBProgressHUD  showSuccess:@"保存成功"];
+    } failure:^(NSString *error, ZZNetDataType datatype) {
+        [MBProgressHUD  hideHUD];
+        [MBProgressHUD  showError:error];
+    }];
+}
+
+
+
 - (IBAction)gotoModifyHeadIv:(UIButton *)sender {
     ZZLog(@"改头像");
     [self.sheet showAnimation];
@@ -111,9 +152,8 @@
 
 - (IBAction)gotoModifyAddress:(UIButton *)sender {
     ZZLog(@"改地址");
-    ZZCitySelector *citySelector = [ZZCitySelector  citySelectorWithProvinceArray:[ZZCityTool  sharedZZCityTool].provinceGroups delegate:self];
-    [citySelector  setSelectedProvince:self.selectedProvince city:self.selectedCity county:self.selectedCounty];
-    [citySelector showAnimation];
+    ZZWriteDetailAddressVC *writeAddress = [[ZZWriteDetailAddressVC alloc] initWithNib];
+    [self.navigationController pushViewController:writeAddress animated:YES];
 }
 
 #pragma mark -ZZCitySelectorDelegate
@@ -123,11 +163,13 @@
     self.selectedProvince = selectedProvince;
     self.selectedCounty = selectedCounty;
     self.selectedCity = selectedCity;
-    self.adressLabel.text = [NSString  stringWithFormat:@"%@%@%@",selectedProvince.name,selectedCity.name,selectedCounty.name];
+    self.cityLabel.text = [NSString  stringWithFormat:@"%@%@%@",selectedProvince.name,selectedCity.name,selectedCounty.name];
     
     //上传地址
     ZZChangeInfoParam *infoParam = [[ZZChangeInfoParam alloc]init];
-    infoParam.userAddress = self.adressLabel.text;
+    infoParam.city = @(self.selectedCity.cityId);
+    infoParam.province = @(self.selectedProvince.provinceId);
+    infoParam.district = @(self.selectedCounty.countyId);
     [MBProgressHUD showMessage:@"正在保存中..."];
     
     [ZZMyInfoHttpTool changeInfoWithChangeInfoParam:infoParam success:^(ZZLoginUser *infoUser, ZZNetDataType dataType) {
@@ -145,8 +187,27 @@
 - (IBAction)gotoModifySex:(UIButton *)sender {
     ZZLog(@"改性别");
     self.changeView.center = self.view.center;
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(didClickOnSex)];
+    tap.numberOfTapsRequired = 1;
+    [self.changeView addGestureRecognizer:tap];
     [self.view addSubview:self.changeView];
 }
+
+- (IBAction)didClickOnCity:(UIButton *)sender {
+    ZZLog(@"改城市");
+    ZZCitySelector *citySelector = [ZZCitySelector  citySelectorWithProvinceArray:[ZZCityTool  sharedZZCityTool].provinceGroups delegate:self];
+    [citySelector  setSelectedProvince:self.selectedProvince city:self.selectedCity county:self.selectedCounty];
+    [citySelector showAnimation];
+}
+
+
+
+//点击取消界面
+- (void)didClickOnSex {
+    [self.changeView removeFromSuperview];
+}
+
+
 
 - (IBAction)changeSexButton:(UIButton *)sender {
     self.selectedButton.selected = NO;
@@ -196,8 +257,21 @@
 
 - (IBAction)didClickOnCancel:(UIButton *)sender {
     
-    [[ZZLoginUserTool sharedZZLoginUserTool] save:nil];
-    [self swithWindowRootControllerToLogin];
+    [MBProgressHUD showMessage:@"正在注销中..."];
+    [ZZMyInfoHttpTool signOutAppSuccess:^(ZZLoginUser *infoUser, ZZNetDataType dataType) {
+        ZZLoginUser *loginUser = [ZZLoginUserTool  sharedZZLoginUserTool].loginUser;
+        [UMessage removeAlias:[NSString stringWithFormat:@"%ld_%@",loginUser.userId,[ZZAppSystem  appUDID]] type:@"service" response:^(id responseObject, NSError *error) {
+            
+        }];
+        [MBProgressHUD  hideHUD];
+        [MBProgressHUD  showSuccess:@"注销成功"];
+        [[ZZLoginUserTool sharedZZLoginUserTool] save:nil];
+        [self swithWindowRootControllerToLogin];
+    } failure:^(NSString *error, ZZNetDataType datatype) {
+        [MBProgressHUD  hideHUD];
+        [MBProgressHUD  showError:error];
+    }];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -224,5 +298,13 @@
     return _sheet;
 }
 
+- (UIView *)changeView {
+    if (_changeView == nil) {
+        _changeView.frame = CGRectMake(0, 0, ScreenWidth, ScreenHeight);
+        _changeView.userInteractionEnabled = YES;
+        
+    }
+    return _changeView;
+}
 
 @end

@@ -22,7 +22,14 @@
 }
 
 -(void)setBackgroundImg:(NSString *)backgroundImg{
-    _backgroundImg = [backgroundImg  getUrlUseEncodAppend:ZZImageUrlAppend(ScreenWidth, NO)];
+    
+    NSString *str = ZZImageUrlAppend(ScreenWidth, NO);
+    if ([backgroundImg  containsString:str]) {
+        _backgroundImg = backgroundImg;
+    }else{
+        _backgroundImg = [backgroundImg  getUrlUseEncodAppend:str];
+    }
+
 }
 @end
 

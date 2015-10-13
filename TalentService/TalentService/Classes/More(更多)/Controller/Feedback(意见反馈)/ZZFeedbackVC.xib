@@ -7,6 +7,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ZZFeedbackVC">
             <connections>
+                <outlet property="textLabel" destination="eew-cl-iBb" id="80Y-JV-Far"/>
+                <outlet property="textViewTV" destination="WNO-eb-YbL" id="1c3-ob-otw"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -15,15 +17,50 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WNO-eb-YbL">
-                    <rect key="frame" x="0.0" y="105" width="375" height="562"/>
+                <textView autoresizesSubviews="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WNO-eb-YbL">
+                    <rect key="frame" x="0.0" y="8" width="375" height="190"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="190" id="iEg-mi-XzI"/>
+                    </constraints>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" enablesReturnKeyAutomatically="YES"/>
                 </textView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xBd-TR-iIE" customClass="ZZLayerButton">
+                    <rect key="frame" x="8" y="238" width="359" height="48"/>
+                    <color key="backgroundColor" red="0.98431372549999996" green="0.2784313725" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="48" id="l5X-Hu-tyQ"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                    <state key="normal" title="提            交">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="输入限制1-500个字" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eew-cl-iBb">
+                    <rect key="frame" x="6" y="14" width="141" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="141" id="gUx-hb-2eo"/>
+                        <constraint firstAttribute="height" constant="21" id="gV0-I5-H6N"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="0.94509803920000002" green="0.94901960780000005" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="xBd-TR-iIE" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="9cz-Ap-nVg"/>
+                <constraint firstItem="WNO-eb-YbL" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="EP8-xL-so8"/>
+                <constraint firstAttribute="trailing" secondItem="xBd-TR-iIE" secondAttribute="trailing" constant="8" id="Fqr-rM-NRn"/>
+                <constraint firstItem="eew-cl-iBb" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="14" id="Jcw-O9-iNm"/>
+                <constraint firstItem="eew-cl-iBb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="6" id="KKo-OB-fRp"/>
+                <constraint firstItem="xBd-TR-iIE" firstAttribute="top" secondItem="WNO-eb-YbL" secondAttribute="bottom" constant="40" id="VcZ-yT-RZy"/>
+                <constraint firstAttribute="trailing" secondItem="WNO-eb-YbL" secondAttribute="trailing" id="aC0-rr-KVB"/>
+                <constraint firstItem="WNO-eb-YbL" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="8" id="yK5-BP-zkh"/>
+            </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
         </view>
     </objects>

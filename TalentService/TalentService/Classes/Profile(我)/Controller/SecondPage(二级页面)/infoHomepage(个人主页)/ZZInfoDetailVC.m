@@ -19,6 +19,8 @@
 #import "MJRefresh.h"
 #import "ZZHudView.h"
 #import "ZZCollectParam.h"
+#import "LDProgressView.h"
+#import "HCSStarRatingView.h"
 
 #define numberOfpage 10
 @interface ZZInfoDetailVC ()<UITableViewDataSource,UITableViewDelegate,ZZSegmentedControlDelegate>
@@ -27,11 +29,13 @@
 @property (weak, nonatomic) IBOutlet UITableView *infoDetailTableView;
 @property (weak, nonatomic) IBOutlet UIImageView *backGroungIV;
 @property (strong, nonatomic) ZZSegmentedControl *segmentControl;
+@property (weak, nonatomic) IBOutlet HCSStarRatingView *starView;
 @property (weak, nonatomic) IBOutlet UIImageView *headIV;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *identityLabel;
 @property (weak, nonatomic) IBOutlet UIButton *attentionButton;
 @property (nonatomic, strong)NSMutableArray *activityArray;
+@property (weak, nonatomic) IBOutlet LDProgressView *progressView;
 @property (nonatomic, strong)ZZHomeServiceResult *result;
 @end
 
@@ -57,6 +61,24 @@
     //请求用户信息
     [self getUserInfoNetData];
     
+    //星星
+    self.starView.maximumValue = 5;
+    self.starView.minimumValue = 0;
+    self.starView.allowsHalfStars = NO;
+    self.starView.spacing = 5;
+    self.starView.tintColor = ZZNatiBarColor;
+    self.starView.value = 4;
+    
+    self.progressView.color = ZZNatiBarColor;
+    self.progressView.flat = @YES;
+    self.progressView.animate = @YES;
+    self.progressView.showText = @NO;
+    self.progressView.showStroke = @NO;
+    self.progressView.progressInset = @5;
+    self.progressView.showBackground = @NO;
+    self.progressView.outerStrokeWidth = @3;
+    self.progressView.type = LDProgressSolid;
+    self.progressView.progress = 0.40;
 }
 
 /**
@@ -64,8 +86,9 @@
  */
 - (void)getUserInfoNetData {
     [ZZMyInfoHttpTool getMyInfoWithUserAttentionId:@(self.userAttentionId) andMyCenter:@(1) success:^(ZZOtherUser *infoUser, ZZNetDataType dataType) {
-        ZZLog(@"个人信息infoUser:%@",infoUser);
+        
         self.loginUser = infoUser;
+        ZZLog(@"你妹啊infoUser:%ld",self.loginUser.userId);
         [self.headIV  setHeadImageWithURL:infoUser.userSmallImg];
         self.backGroungIV.contentMode = UIViewContentModeScaleAspectFill;
         self.backGroungIV.clipsToBounds = YES;
@@ -73,6 +96,12 @@
         self.nameLabel.text = self.loginUser.userNike;
         ZZUserRole *userRole = self.loginUser.userRole[0];
         self.identityLabel.text = userRole.eredarName;
+        if (self.loginUser.userId == [ZZLoginUserTool sharedZZLoginUserTool].loginUser.userId) {
+            self.attentionButton.hidden = YES;
+        }else{
+            self.attentionButton.hidden = NO;
+        }
+        
         
         if (self.loginUser.isAttention) {
             self.attentionButton.selected = YES;

@@ -39,6 +39,11 @@
 @implementation ZZMyOrderTVC
 
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
  
@@ -173,7 +178,12 @@
             break;
          case ZZOrderStatusPaid:
            ZZOrderStatusExpired:
-            [self  applyRefund:order];
+            if ([order.price isEqual:@(0)]) {
+                [self  cancellOrder:order];
+            }else {
+                [self  applyRefund:order];
+            }
+            
             break;
         case ZZOrderStatusComplete:
             [self nowEvaluation:order];
@@ -189,10 +199,12 @@
 //立即支付
 - (void)nowPay:(ZZOrder *)order{
     ZZSelectPayTypeVC *selectPay = [[ZZSelectPayTypeVC  alloc]init];
-    [self.navigationController  pushViewController:selectPay animated:YES];
+    [self.myOrderVcDelegate.navigationController  pushViewController:selectPay animated:YES];
 }
 //立即评价
 - (void)nowEvaluation:(ZZOrder *)order{
+//    ZZEvaluationTVC *evaluationTvc = [[ZZEvaluationTVC alloc]init];
+//    [self.myOrderVcDelegate.navigationController pushViewController:evaluationTvc animated:YES];
     [ZZHudView  showMessage:@"正在开发中，敬请期待" time:5 toView:self.view];
 }
 //申请退款
