@@ -18,6 +18,7 @@
     return [[[NSBundle mainBundle]loadNibNamed:@"ZZEmptyView" owner:nil options:nil]lastObject];
 }
 -(void)awakeFromNib{
+    self.backgroundColor = [UIColor  lightGrayColor];
     self.imageView.contentMode = UIViewContentModeScaleAspectFill;
    
 }

@@ -2607,7 +2607,9 @@
 						DevelopmentTeam = 5X5TPULM62;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
-								enabled = 0;
+
+								enabled = 1;
+
 							};
 						};
 					};

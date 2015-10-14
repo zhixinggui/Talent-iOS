@@ -15,8 +15,9 @@
 #import "ASScroll.h"
 #import "ZZSdWebImageTool.h"
 #define HeadWidth  (ScreenWidth)
-#define HeadHeight  (ScreenWidth/2)
-#define Height  ((HeadWidth/2 - ZZEdgeMargin)*0.5)
+#define HeadHeight  (ScreenWidth/2 + 10)
+#define ADScrollHeight  HeadWidth/4
+#define TalentHeight  (HeadHeight - ADScrollHeight - ZZEdgeMargin)
 static  NSString *cellIden = @"collectionCell";
 @interface ZZTableHeadView ()<UICollectionViewDelegate,UICollectionViewDataSource>
 @property (nonatomic, strong)ASScroll *adScrollView;
@@ -28,7 +29,7 @@ static  NSString *cellIden = @"collectionCell";
 -(void)setImages:(NSArray *)images{
     _adScrollView = nil;
     if (self.images == nil && images) {
-        self.height += HeadHeight/2;
+        self.height += ADScrollHeight;
         self.adScrollView.hidden = NO;
     }
     
@@ -102,7 +103,7 @@ static  NSString *cellIden = @"collectionCell";
 -(ASScroll *)adScrollView{
     if (_adScrollView == nil) {
         //广告位滚动图片
-        _adScrollView = [[ASScroll alloc]initWithFrame:CGRectMake(0, 0,HeadWidth, Height)];
+        _adScrollView = [[ASScroll alloc]initWithFrame:CGRectMake(0, 0,HeadWidth, ADScrollHeight)];
 //        _adScrollView.scrollsToTop = NO;
         // ,@"weibo_50x50"
 //        _adScrollView.imageNameArray = self.images;
@@ -119,7 +120,7 @@ static  NSString *cellIden = @"collectionCell";
         CGFloat margin = 5;
         CGFloat separ = 16.5;
         CGFloat itemW = 60;
-        CGFloat itemH = Height - 2*margin;
+        CGFloat itemH = TalentHeight - 2*margin;
         
         //collectionView  创建
         //布局
@@ -129,7 +130,7 @@ static  NSString *cellIden = @"collectionCell";
         flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
         flowLayout.sectionInset = UIEdgeInsetsMake(margin, separ, margin, separ);
         
-        UICollectionView *collectionView = [[UICollectionView  alloc]initWithFrame:CGRectMake(0, 0, HeadWidth, Height) collectionViewLayout:flowLayout];
+        UICollectionView *collectionView = [[UICollectionView  alloc]initWithFrame:CGRectMake(0, 0, HeadWidth, TalentHeight) collectionViewLayout:flowLayout];
         collectionView.backgroundColor = [UIColor  whiteColor];
         collectionView.delegate = self;
         collectionView.dataSource = self;

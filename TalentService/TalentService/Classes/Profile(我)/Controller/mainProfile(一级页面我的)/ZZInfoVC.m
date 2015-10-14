@@ -52,12 +52,21 @@
 @property (weak, nonatomic) IBOutlet LDProgressView *progressView;
 
 @property (nonatomic, strong)NSArray *rowDatas;
+
+@property (weak, nonatomic) IBOutlet UIImageView *introIV;
+
 @end
 
 @implementation ZZInfoVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.automaticallyAdjustsScrollViewInsets = NO;
+//    if ([self respondsToSelector:@selector(edgesForExtendedLayout)]) {
+//        self.edgesForExtendedLayout = UIRectEdgeNone;
+//    }
+    
+    
     //初始化tableview
     [self initTableView];
     //右Button
@@ -71,8 +80,15 @@
     [self monitorNotification];
 }
 
+
 //tableview初始化
 - (void)initTableView {
+    if (ScreenWidth == 320) {
+        self.tableHeadView.height = 440;
+    } else if (ScreenWidth >375) {
+        self.tableHeadView.height = 520;
+    }
+    
     self.infoTableView.tableHeaderView = self.tableHeadView;
     self.infoTableView.delegate = self;
     self.infoTableView.dataSource = self;
@@ -84,6 +100,7 @@
 }
 -(void)awakeFromNib{
     //星星
+    self.tableHeadView.width = ScreenWidth;
     self.starView.maximumValue = 5;
     self.starView.minimumValue = 0;
     self.starView.allowsHalfStars = NO;
@@ -210,7 +227,7 @@
     [MBProgressHUD showMessage:@"正在保存中..."];
     [ZZMyInfoHttpTool commitBackgroundImageWithImageArray:obj success:^(ZZLoginUser *infoUser, ZZNetDataType dataType) {
         [MBProgressHUD  hideHUD];
-        [MBProgressHUD  showSuccess:@"保存成功"];
+        [MBProgressHUD  showSuccess:@"保存成功" ];
     } failure:^(NSString *error, ZZNetDataType datatype) {
         [MBProgressHUD  hideHUD];
         [MBProgressHUD  showError:error];
