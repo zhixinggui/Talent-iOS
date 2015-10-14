@@ -11,23 +11,10 @@
 #import "ZZNaviController.h"
 #import "ZZTabBarController.h"
 #import "ZZSdWebImageTool.h"
-
 #import "ZZUMTool.h"
 #import "ZZLoginUserTool.h"
-
-#import "UMessage.h"
-
-#import <TAESDK/TAESDK.h>
-
-#define UMSYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
-
-#define _IPHONE80_ 80000
-@interface AppDelegate ()
-
-@end
-
+#import "ZZUMMessageTool.h"
 @implementation AppDelegate
-
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     /**
@@ -35,53 +22,7 @@
      */
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
-   
-    /**开启taesdk的测试模式，可以获取更多的debug信息**/
-    [[TaeSDK sharedInstance] setDebugLogOpen:YES];
-    
-    [UMessage startWithAppkey:@"560131d3e0f55a5dc1001859" launchOptions:launchOptions];
-    
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= _IPHONE80_
-    if(UMSYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"8.0"))
-    {
-        //register remoteNotification types （iOS 8.0及其以上版本）
-        UIMutableUserNotificationAction *action1 = [[UIMutableUserNotificationAction alloc] init];
-        action1.identifier = @"action1_identifier";
-        action1.title=@"Accept";
-        action1.activationMode = UIUserNotificationActivationModeForeground;//当点击的时候启动程序
-        
-        UIMutableUserNotificationAction *action2 = [[UIMutableUserNotificationAction alloc] init];  //第二按钮
-        action2.identifier = @"action2_identifier";
-        action2.title=@"Reject";
-        action2.activationMode = UIUserNotificationActivationModeBackground;//当点击的时候不启动程序，在后台处理
-        action2.authenticationRequired = YES;//需要解锁才能处理，如果action.activationMode = UIUserNotificationActivationModeForeground;则这个属性被忽略；
-        action2.destructive = YES;
-        
-        UIMutableUserNotificationCategory *categorys = [[UIMutableUserNotificationCategory alloc] init];
-        categorys.identifier = @"category1";//这组动作的唯一标示
-        [categorys setActions:@[action1,action2] forContext:(UIUserNotificationActionContextDefault)];
-        
-        UIUserNotificationSettings *userSettings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeBadge|UIUserNotificationTypeSound|UIUserNotificationTypeAlert
-                                                                                     categories:[NSSet setWithObject:categorys]];
-        [UMessage registerRemoteNotificationAndUserNotificationSettings:userSettings];
-        
-    } else{
-        //register remoteNotification types (iOS 8.0以下)
-        [UMessage registerForRemoteNotificationTypes:UIRemoteNotificationTypeBadge
-         |UIRemoteNotificationTypeSound
-         |UIRemoteNotificationTypeAlert];
-    }
-#else
-    
-    //register remoteNotification types (iOS 8.0以下)
-    [UMessage registerForRemoteNotificationTypes:UIRemoteNotificationTypeBadge
-     |UIRemoteNotificationTypeSound
-     |UIRemoteNotificationTypeAlert];
-    
-#endif
-    //for log
-    [UMessage setLogEnabled:YES];
-    
+    [ZZUMMessageTool  umMessageRegisterRemoteNotificationWithOptions:launchOptions];
     if (ZZLoginTool.loginToken.length) {
         [self  swithWindowRootViewController:ZZRootViewControllerTypeHome];
     }else{
@@ -152,23 +93,24 @@
  */
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
 {
+    [ZZUMMessageTool  umMessageRegisterDeviceToken:deviceToken];
+   
+
+}
+
+-(void)application:(UIApplication *)application didReceiveRemoteNotification:(nonnull NSDictionary *)userInfo{
+    [ZZUMMessageTool  umMessageDidReceiveRemoteNotification:userInfo];
+}
+
+-(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler{
     
-    [UMessage registerDeviceToken:deviceToken];
-    NSLog(@"%@",[[[[deviceToken description] stringByReplacingOccurrencesOfString: @"<" withString: @""]
-                  stringByReplacingOccurrencesOfString: @">" withString: @""]
-                 stringByReplacingOccurrencesOfString: @" " withString: @""]);
+    [ZZUMMessageTool  umMessageDidReceiveRemoteNotification:userInfo];
 }
-
--(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
-{
-    [UMessage didReceiveRemoteNotification:userInfo];
-}
-
 -(void)didFailToRegisterForRemoteNotificationsWithError:(NSError *)err
 {
     
     NSString *error_str = [NSString stringWithFormat: @"%@", err];
-    NSLog(@"Failed to get token, error:%@", error_str);
+    ZZLog(@"Failed to get token, error:%@", error_str);
     
 }
 

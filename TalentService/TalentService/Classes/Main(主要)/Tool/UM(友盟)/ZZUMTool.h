@@ -4,7 +4,7 @@
 //
 //  Created by zhizhen on 15/9/1.
 //  Copyright (c) 2015年 zhizhen. All rights reserved.
-//
+//   友盟分享工具
 
 #import <Foundation/Foundation.h>
 #import "ZZUMLoginModel.h"

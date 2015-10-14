@@ -52,7 +52,7 @@ static id <ALBBMediaServiceProtocol> staticTaeFileEngine;
 #pragma mark -init
 /**初始化*/
 +(void)initialize{
-    [[TaeSDK sharedInstance] setDebugLogOpen:NO];
+    [[TaeSDK sharedInstance] setDebugLogOpen:YES];
     [[TaeSDK sharedInstance] asyncInit];
 }
 

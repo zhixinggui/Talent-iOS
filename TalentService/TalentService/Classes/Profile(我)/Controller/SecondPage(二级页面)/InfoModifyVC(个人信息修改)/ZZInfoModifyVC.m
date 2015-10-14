@@ -24,7 +24,7 @@
 #import "ZZFirstLoginVC.h"
 
 #import "ZZWriteDetailAddressVC.h"
-#import "UMessage.h"
+#import "ZZUMMessageTool.h"
 @interface ZZInfoModifyVC ()<UUPhotoActionSheetDelegate,ZZCitySelectorDelegate,UITextViewDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *womanButton;
 @property (weak, nonatomic) IBOutlet UIButton *manButton;
@@ -259,10 +259,8 @@
     
     [MBProgressHUD showMessage:@"正在注销中..."];
     [ZZMyInfoHttpTool signOutAppSuccess:^(ZZLoginUser *infoUser, ZZNetDataType dataType) {
-        ZZLoginUser *loginUser = [ZZLoginUserTool  sharedZZLoginUserTool].loginUser;
-        [UMessage removeAlias:[NSString stringWithFormat:@"%ld_%@",loginUser.userId,[ZZAppSystem  appUDID]] type:@"service" response:^(id responseObject, NSError *error) {
-            
-        }];
+        [ ZZUMMessageTool umMessageRemoveAlias];
+    
         [MBProgressHUD  hideHUD];
         [MBProgressHUD  showSuccess:@"注销成功"];
         [[ZZLoginUserTool sharedZZLoginUserTool] save:nil];
@@ -272,11 +270,6 @@
         [MBProgressHUD  showError:error];
     }];
     
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 /*
