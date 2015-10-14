@@ -2605,6 +2605,11 @@
 					6E9E3E641B620C860097B194 = {
 						CreatedOnToolsVersion = 6.4;
 						DevelopmentTeam = 5X5TPULM62;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
+						};
 					};
 					6E9E3E801B620C860097B194 = {
 						CreatedOnToolsVersion = 6.4;

@@ -83,6 +83,7 @@ static NSUInteger currentImage = 0;//记录中间图片的下标,开始总是为
         _pageControl.numberOfPages = _imageNameArray.count;
         _pageControl.currentPage = 0;
         _pageControl.enabled = NO;
+        _pageControl.backgroundColor = [UIColor  redColor];
         [self performSelector:@selector(addPageControl) withObject:nil afterDelay:0.1f];
     }
    [self  setImageViewImages];

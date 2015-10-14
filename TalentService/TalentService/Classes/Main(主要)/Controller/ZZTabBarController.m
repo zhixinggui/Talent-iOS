@@ -30,12 +30,13 @@
 }
 
 - (void)setUpShadow{
+    self.tabBar.backgroundColor = [UIColor  whiteColor];
     self.tabBar.layer.shadowColor = ZZSeparGrayColor.CGColor;//shadowColor阴影颜色
     self.tabBar.layer.shadowOffset = CGSizeMake(0,-2);//shadowOffset阴影偏移,x向右偏移4，y向下偏移4，默认(0, -3),这个跟shadowRadius配合使用
     self.tabBar.layer.shadowOpacity = 0.8;//阴影透明度，默认0
     self.tabBar.layer.shadowRadius = 2;//阴影半径，默认3
     
-
+    self.tabBar.translucent = NO;
 }
 - (void)setUpAllChildViewController{
 

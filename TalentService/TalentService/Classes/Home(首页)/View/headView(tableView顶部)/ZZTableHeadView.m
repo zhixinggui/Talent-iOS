@@ -12,17 +12,21 @@
 #import "ZZInfoDetailVC.h"
 #import "ZZBaseUser.h"
 #import "ZZHomeViewController.h"
+#import "ASScroll.h"
+#import "ZZSdWebImageTool.h"
 #define HeadWidth  (ScreenWidth)
 #define HeadHeight  (ScreenWidth/2)
 #define Height  ((HeadWidth/2 - ZZEdgeMargin)*0.5)
 static  NSString *cellIden = @"collectionCell";
 @interface ZZTableHeadView ()<UICollectionViewDelegate,UICollectionViewDataSource>
-@property (nonatomic, strong)AdScrollView *adScrollView;
+@property (nonatomic, strong)ASScroll *adScrollView;
+
 @property (nonatomic, strong)UICollectionView *collectionView;
 @end
 @implementation ZZTableHeadView
 
 -(void)setImages:(NSArray *)images{
+    _adScrollView = nil;
     if (self.images == nil && images) {
         self.height += HeadHeight/2;
         self.adScrollView.hidden = NO;
@@ -33,8 +37,21 @@ static  NSString *cellIden = @"collectionCell";
 //        self.adScrollView.hidden = YES;
 //    }
     _images = images;
-    self.adScrollView.imageNameArray = images;
-    //[self.adScrollView  setNeedsLayout];
+    NSUInteger count = images.count;
+    NSMutableArray*  viewsArray = [NSMutableArray  arrayWithCapacity:count];
+    for ( int i = 0; i<count; i++) {
+        UIImageView*  imageView = [[UIImageView  alloc]init];
+        imageView.userInteractionEnabled = YES;
+    
+        [imageView  setPictureImageWithURL:images[i]];
+        UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(adJump:)];
+        imageView.tag = i;
+        [imageView addGestureRecognizer:tapGesture];
+        [viewsArray  addObject:imageView];
+    }
+    self.adScrollView.userInteractionEnabled = YES;
+    [self.adScrollView  setArrOfImages:viewsArray];
+
     
 }
 
@@ -82,10 +99,10 @@ static  NSString *cellIden = @"collectionCell";
     [self.delegateVC.navigationController pushViewController:infoDvc animated:YES ];
 }
 #pragma mark - lazyOut
--(AdScrollView *)adScrollView{
+-(ASScroll *)adScrollView{
     if (_adScrollView == nil) {
         //广告位滚动图片
-        _adScrollView = [[AdScrollView alloc]initWithFrame:CGRectMake(0, 0,HeadWidth, Height)];
+        _adScrollView = [[ASScroll alloc]initWithFrame:CGRectMake(0, 0,HeadWidth, Height)];
 //        _adScrollView.scrollsToTop = NO;
         // ,@"weibo_50x50"
 //        _adScrollView.imageNameArray = self.images;
@@ -123,5 +140,10 @@ static  NSString *cellIden = @"collectionCell";
         collectionView.hidden = YES;
     }
     return _collectionView;
+}
+
+#pragma mark -response
+- (void)adJump:(UITapGestureRecognizer *)tap{
+    
 }
 @end

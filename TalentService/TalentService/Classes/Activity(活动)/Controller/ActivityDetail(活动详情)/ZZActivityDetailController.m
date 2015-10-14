@@ -86,6 +86,7 @@ typedef enum {
     ZZDetailsView *detailView = [[ZZDetailsView  alloc]init];
     detailView.activity = self.detailActivity;
     detailView.frame = CGRectMake(0, CGRectGetMaxY(detailRuleV.frame), ScreenWidth, detailView.totalHeight);
+    detailView.delegateVC = self;
     [scrollView addSubview:detailView];
     scrollView.contentSize = CGSizeMake(0, CGRectGetMaxY(detailView.frame));
     //工具栏
@@ -161,6 +162,7 @@ typedef enum {
 
 #pragma mark  子view回调方法
 - (void)showBigImage:(BOOL)isDetail  currentpage:(NSUInteger) currentpage{
+    _photoBrowser = nil;
     NSInteger page = 0;
     if (isDetail) {
         page = currentpage+1;
@@ -210,7 +212,6 @@ typedef enum {
     [ZZActivityHttpTool  activityBook:self.activityId success:^(ZZOrder *order, ZZNetDataType netSuccType) {
         [MBProgressHUD  hideHUD];
     
-        
         ZZEnsureOrderController *ensureVC = [[ZZEnsureOrderController  alloc]init];
         order.serviceInfo = self.detailActivity;
         ensureVC.order = order;
@@ -255,7 +256,7 @@ typedef enum {
     [btn setImage:[UIImage imageNamed:icon] forState:UIControlStateNormal];
    
     [btn setTitle:title forState:UIControlStateNormal];
-    [btn setTitleColor:ZZDarkGrayColor forState:UIControlStateNormal];
+    [btn setTitleColor:[UIColor  whiteColor] forState:UIControlStateNormal];
     if (barType == ZZActivityBottomToolBarTypeApply) {
         [btn  setImage:[UIImage imageNamed:selectedIcon] forState:UIControlStateDisabled];
         [btn  setTitle:selectedTitle forState:UIControlStateDisabled];
@@ -309,6 +310,7 @@ typedef enum {
         _applyBtn = [self setupBtnWithIcon:@"reserve_40x40"  selectedIcon:@"reserved_40x40" title:@"预定"  selectedTitle:@"已预定"    tag:ZZActivityBottomToolBarTypeApply];
         
         [self  updateBookingButtonProterty];
+
         _applyBtn.backgroundColor = ZZBlueColor;
         [_applyBtn  addTarget:self action:@selector(booking:) forControlEvents:UIControlEventTouchUpInside];
     }
@@ -318,6 +320,7 @@ typedef enum {
     if (_collectBtn == nil) {
         _collectBtn = [self setupBtnWithIcon:@"collect_40x40" selectedIcon:@"collected_40x40" title:@"收藏"  selectedTitle:@"已收藏"   tag:ZZActivityBottomToolBarTypeCollect];
         [_collectBtn addTarget:self action:@selector(collect:) forControlEvents:UIControlEventTouchUpInside];
+    
         _collectBtn.backgroundColor = ZZGreenColor;
         [self  updateCollectButtonProterty];
     }

@@ -36,7 +36,7 @@
 
 #define NetFailTipStr error.localizedDescription
 //水印
-#define ZZSHUIYIN  @"|watermark=2&text=6JCM5a6d5rS-&type=ZmFuZ3poZW5nc2h1c29uZw&size=20&t=79&p=5"
+#define ZZSHUIYIN  @"|watermark=1&object=YXBwL3dhdGVybWFyay9waWNfd2F0ZXJtYXJrLnBuZ0A1MHc&t=100&p=9"
 //图片带水印的拼接字符串  width 要显示的宽度  bool 是否加水印  xiaotu
 #define ZZImageUrlAppend(width,bool)  [NSString  stringWithFormat:@"@%.0fw_1pr_2o_1l%@",width,bool ? ZZSHUIYIN:@""]
 // yuantu

@@ -51,7 +51,7 @@ NSString * const ZZOrderStausChangeRefundSucc = @"ZZOrderStausChangeRefundSucc";
 }
 
 -(void)setServicesImg:(NSString *)servicesImg{
-    _servicesImg = [servicesImg  getUrlUseEncodAppend:ZZImageUrlAppend(60.0, NO)];
+    _servicesImg = [servicesImg  getUrlUseEncodAppend:ZZImageUrlAppend(200.0, NO)];
 }
 
 -(void)setServicePrice:(NSNumber *)servicePrice{
