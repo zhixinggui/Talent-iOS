@@ -43,6 +43,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.automaticallyAdjustsScrollViewInsets = NO;
     self.title = @"个人主页";
     UINib* nib = [UINib nibWithNibName:@"ZZActivityCell" bundle:nil];
     [self.infoDetailTableView registerNib:nib forCellReuseIdentifier:[ZZActivityCell   cellXibIdentifier]];
@@ -51,7 +52,11 @@
     self.infoDetailTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.infoDetailTableView.rowHeight = [ZZActivityCell  cellHeight];
     self.infoDetailTableView.tableHeaderView = self.headView;
-    
+    if (ScreenWidth == 320) {
+        self.headView.height = 440;
+    } else if (ScreenWidth >375) {
+        self.headView.height = 520;
+    }
     
     //底部刷新
     self.infoDetailTableView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreService)];
