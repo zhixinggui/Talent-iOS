@@ -29,7 +29,8 @@
 }
 
 + (void)clickClearImageCacheWithBlock:(void (^)(void))block{
-       [[SDImageCache sharedImageCache] cleanDiskWithCompletionBlock:^{
+
+       [[SDImageCache sharedImageCache] clearDiskOnCompletion:^{
            block();
        }];
 }

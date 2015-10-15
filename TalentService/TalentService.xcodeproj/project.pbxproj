@@ -216,6 +216,8 @@
 		6E7F592D1BA166B600191BC0 /* ZZActivityStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7F592C1BA166B600191BC0 /* ZZActivityStatus.m */; };
 		6E7F59311BA1688000191BC0 /* ZZActivityClassSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7F59301BA1688000191BC0 /* ZZActivityClassSelector.m */; };
 		6E7F59331BA1688F00191BC0 /* ZZActivityClassSelector.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E7F59321BA1688F00191BC0 /* ZZActivityClassSelector.xib */; };
+		6E7FA4631BCF820A0003FF06 /* ZZAboutAppVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7FA4611BCF820A0003FF06 /* ZZAboutAppVC.m */; };
+		6E7FA4641BCF820A0003FF06 /* ZZAboutAppVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E7FA4621BCF820A0003FF06 /* ZZAboutAppVC.xib */; };
 		6E87B3111B8C6052003BB6C0 /* AdScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E87B3101B8C6052003BB6C0 /* AdScrollView.m */; };
 		6E8D3A821B8C00CB006798A7 /* ZZHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8D3A811B8C00CB006798A7 /* ZZHomeViewController.m */; };
 		6E8D3A8A1B8C073E006798A7 /* ZZActivityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8D3A881B8C073E006798A7 /* ZZActivityCell.m */; };
@@ -664,6 +666,9 @@
 		6E7F592F1BA1688000191BC0 /* ZZActivityClassSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZActivityClassSelector.h; sourceTree = "<group>"; };
 		6E7F59301BA1688000191BC0 /* ZZActivityClassSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZActivityClassSelector.m; sourceTree = "<group>"; };
 		6E7F59321BA1688F00191BC0 /* ZZActivityClassSelector.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZZActivityClassSelector.xib; sourceTree = "<group>"; };
+		6E7FA4601BCF820A0003FF06 /* ZZAboutAppVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZAboutAppVC.h; sourceTree = "<group>"; };
+		6E7FA4611BCF820A0003FF06 /* ZZAboutAppVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZAboutAppVC.m; sourceTree = "<group>"; };
+		6E7FA4621BCF820A0003FF06 /* ZZAboutAppVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZZAboutAppVC.xib; sourceTree = "<group>"; };
 		6E87B30F1B8C6052003BB6C0 /* AdScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdScrollView.h; sourceTree = "<group>"; };
 		6E87B3101B8C6052003BB6C0 /* AdScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdScrollView.m; sourceTree = "<group>"; };
 		6E8D3A801B8C00CB006798A7 /* ZZHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZHomeViewController.h; sourceTree = "<group>"; };
@@ -1100,6 +1105,9 @@
 		56C6526F1BB53838009890B4 /* 关于萌宝派 */ = {
 			isa = PBXGroup;
 			children = (
+				6E7FA4601BCF820A0003FF06 /* ZZAboutAppVC.h */,
+				6E7FA4611BCF820A0003FF06 /* ZZAboutAppVC.m */,
+				6E7FA4621BCF820A0003FF06 /* ZZAboutAppVC.xib */,
 			);
 			path = "关于萌宝派";
 			sourceTree = "<group>";
@@ -2607,9 +2615,7 @@
 						DevelopmentTeam = 5X5TPULM62;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
-
 								enabled = 1;
-
 							};
 						};
 					};
@@ -2711,6 +2717,7 @@
 				56C6527A1BB53CA4009890B4 /* ZZMoreExplainVC.xib in Resources */,
 				6E2B7FB31BA1B4E6004CA827 /* ZZMoreCell.xib in Resources */,
 				6ED6B1881BB38900002FF9C6 /* ZZAttentionVC.xib in Resources */,
+				6E7FA4641BCF820A0003FF06 /* ZZAboutAppVC.xib in Resources */,
 				6EB3CDEF1BB91721008BD9C0 /* ZZEmptyView.xib in Resources */,
 				6E2B7FAE1BA1B4E6004CA827 /* ZZFeedbackVC.xib in Resources */,
 				6E2B80221BA1B52A004CA827 /* ZZModifyVC.xib in Resources */,
@@ -2837,6 +2844,7 @@
 				56F734631BBA6133000E69AB /* ZZOrderParam.m in Sources */,
 				566A00AF1BA69A7A00128DFE /* ZZInfoCell.m in Sources */,
 				6E7EF3BE1BB40CB600DC11FF /* ZZMyGoldVC.m in Sources */,
+				6E7FA4631BCF820A0003FF06 /* ZZAboutAppVC.m in Sources */,
 				5618A9161BA94E83003ECC2D /* ZZSexSelector.m in Sources */,
 				6E4C40E61B9046E600937CB1 /* ZZSeeOrderVC.m in Sources */,
 				6E8D3A981B8C3EE3006798A7 /* ASScroll.m in Sources */,

@@ -71,9 +71,7 @@
     return ([self compare:otherVersion options:NSNumericSearch] == NSOrderedDescending);
 }
 
-+(NSString*)currentVersion{
-    return   [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
-}
+
 
 -(NSUInteger) unicodeLength
 {

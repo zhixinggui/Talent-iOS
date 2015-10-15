@@ -26,15 +26,15 @@
                 break;
             case 1:
                 city.cityName = @"北京";
-                city.cityNumber = 120100;
+                city.cityNumber = 110100;
                 break;
             case 2:
                 city.cityName = @"上海";
-                city.cityNumber = 120100;
+                city.cityNumber = 310100;
                 break;
             case 3:
                 city.cityName = @"广州";
-                city.cityNumber = 120100;
+                city.cityNumber = 440100;
                 break;
                 
         }

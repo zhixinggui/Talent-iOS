@@ -14,6 +14,8 @@
 #import "ZZMoreExplainVC.h"
 #import "ZZSdWebImageTool.h"
 #import "ZZHudView.h"
+
+#import "ZZAboutAppVC.h"
 @interface ZZMoreVC ()<UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *moreTableView;
 @property (strong, nonatomic) IBOutlet UIButton *cacheButton;
@@ -24,12 +26,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+  
     self.moreTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     UINib* nib = [UINib nibWithNibName:@"ZZMoreCell" bundle:nil];
     [self.moreTableView registerNib:nib forCellReuseIdentifier:moreCelldentifier];
     self.moreTableView.tableFooterView = self.cacheButton;
     self.moreTableView.dataSource = self;
     self.moreTableView.delegate = self;
+  
   
 }
 
@@ -40,7 +44,7 @@
 }
 
 - (void)setCacheButtonTitle{
-  
+    ZZLog(@"%@",[ZZSdWebImageTool  sdImageCacheSize]);
     [self.cacheButton setTitle: [@"缓存"  stringByAppendingString:[ZZSdWebImageTool  sdImageCacheSize]]  forState:UIControlStateNormal];
 }
 #pragma mark - UITableViewDatasourse
@@ -91,8 +95,10 @@
                 [ZZHudView showMessage:@"敬请等待..." time:1 toView:self
                  .view];
             }else {
-                ZZMoreExplainVC *feedbackVc = [[ZZMoreExplainVC alloc]initWithNib];
-                [self.navigationController pushViewController:feedbackVc animated:YES];
+                ZZAboutAppVC* aboutAppVC = [[ZZAboutAppVC  alloc]init];
+                [self.navigationController pushViewController:aboutAppVC animated:YES];
+//                ZZMoreExplainVC *feedbackVc = [[ZZMoreExplainVC alloc]initWithNib];
+//                [self.navigationController pushViewController:feedbackVc animated:YES];
             }
             
         }

@@ -30,7 +30,7 @@
         pageControl.numberOfPages = arrOfImages.count;
         pageControl.currentPage = 0;
         CGPoint  center = self.center;
-       
+        center.y += 25;
         pageControl.center = center;
     }
     

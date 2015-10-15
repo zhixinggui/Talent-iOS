@@ -53,13 +53,6 @@
  */
 - (BOOL)isNewerVersionThan:(NSString*)otherVersion;
 
-/**
- *  当前应用版本号
- *
- *  @return <#return value description#>
- */
-+(NSString*)currentVersion;
-
 
 /**
  *  计算字符长度，一个汉字为两个字符，两个英文字母为一个字符

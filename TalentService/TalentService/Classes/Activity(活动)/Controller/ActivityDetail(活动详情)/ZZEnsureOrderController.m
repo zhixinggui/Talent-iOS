@@ -63,7 +63,7 @@
     [self.view addSubview:scroView];
     
     self.toalheight  = CGRectGetMaxY(topView.frame);
-    
+
     ZZActivity *activity = self.order.serviceInfo;
 
     [self  setUpShowView:@"订单时间：" content:self.order.orderDate];

@@ -9,7 +9,7 @@
 #import "ZZChangePhoneNumVC.h"
 #import "ZZLoginUserTool.h"
 #import "ZZMyInfoHttpTool.h"
-
+#import "ZZSecurityButton.h"
 #import "ZZLoadHttpTool.h"
 @interface ZZChangePhoneNumVC ()
 @property (weak, nonatomic) IBOutlet UITextField *phoneTF;
@@ -74,17 +74,19 @@
     
 }
 
-- (IBAction)didClickOnSecurty:(UIButton *)sender {
+- (IBAction)didClickOnSecurty:(ZZSecurityButton *)sender {
     if ([self.phoneTF.text  isCorrectPhoneNumber] == NO) {
         [self.phoneTF  shakeAnimation];
         return;
     }
-    sender.enabled = NO;
+    
+     [sender  startWithSecond:ZZSecerityTime];
+   
     [MBProgressHUD showMessage:@"正在发送..."];
     [ZZLoadHttpTool loadGetCode:self.phoneTF.text success:^(id json, ZZNetDataType dataType) {
         [MBProgressHUD  hideHUD];
         [MBProgressHUD  showSuccess:@"获取验证码成功"];
-            sender.enabled = YES;
+        
         [self.securtyTF setEnabled:YES];
     } failure:^(NSString *error, ZZNetDataType dataType) {
         [MBProgressHUD  hideHUD];

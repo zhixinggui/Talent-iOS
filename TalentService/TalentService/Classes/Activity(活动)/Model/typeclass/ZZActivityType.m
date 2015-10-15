@@ -25,16 +25,16 @@
             
                 break;
             case 1:
-                type.typeName = @"催乳师培训";
-                type.typeNumber = 1;
+                type.typeName = @"上门";
+                type.typeNumber = 201;
                 break;
             case 2:
-                type.typeName = @"亲子手工";
-                type.typeNumber = 2;
+                type.typeName = @"到店";
+                type.typeNumber = 202;
                 break;
             case 3:
-                type.typeName = @"营养餐制作";
-                type.typeNumber = 3;
+                type.typeName = @"培训";
+                type.typeNumber = 203;
                 break;
     
         }

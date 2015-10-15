@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9046" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9035"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ZZAboutAppVC">
+            <connections>
+                <outlet property="companyLabel" destination="YeN-61-dbD" id="eUz-tR-BOe"/>
+                <outlet property="contentLabel" destination="dGW-QK-xdN" id="xhe-63-Hyk"/>
+                <outlet property="ruleButton" destination="hBu-P6-THN" id="XqN-e8-Pd3"/>
+                <outlet property="versionLabel" destination="hUw-Ey-7yp" id="bTe-g5-PsP"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hBu-P6-THN">
+                    <rect key="frame" x="100" y="632" width="175" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="HdQ-Yi-Cna"/>
+                    </constraints>
+                    <state key="normal" title="服务条款与协议"/>
+                    <connections>
+                        <action selector="ruleButtonAction:" destination="-1" eventType="touchUpInside" id="Gmi-EO-8yX"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YeN-61-dbD">
+                    <rect key="frame" x="10" y="542" width="355" height="80"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="80" id="dwP-E9-tg2"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hUw-Ey-7yp">
+                    <rect key="frame" x="10" y="194" width="355" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="tGv-2w-Z9G"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dGW-QK-xdN">
+                    <rect key="frame" x="10" y="239" width="355" height="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="萌宝派512x512" translatesAutoresizingMaskIntoConstraints="NO" id="m30-KL-1jy">
+                    <rect key="frame" x="137" y="84" width="100" height="100"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="100" id="5Qg-WX-zGB"/>
+                        <constraint firstAttribute="height" constant="100" id="Qu4-ep-8c1"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="hUw-Ey-7yp" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="8dj-mr-awA"/>
+                <constraint firstItem="dGW-QK-xdN" firstAttribute="top" secondItem="hUw-Ey-7yp" secondAttribute="bottom" constant="25" id="D9D-9M-1oA"/>
+                <constraint firstAttribute="trailing" secondItem="dGW-QK-xdN" secondAttribute="trailing" constant="10" id="GGO-mV-Cuq"/>
+                <constraint firstItem="hBu-P6-THN" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="100" id="HwB-T1-g3P"/>
+                <constraint firstAttribute="trailing" secondItem="hBu-P6-THN" secondAttribute="trailing" constant="100" id="JTt-gT-1ci"/>
+                <constraint firstAttribute="bottom" secondItem="hBu-P6-THN" secondAttribute="bottom" constant="15" id="P1S-KT-wrI"/>
+                <constraint firstItem="YeN-61-dbD" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="PwA-MR-pqB"/>
+                <constraint firstItem="hUw-Ey-7yp" firstAttribute="top" secondItem="m30-KL-1jy" secondAttribute="bottom" constant="10" id="RpB-XX-xyb"/>
+                <constraint firstAttribute="trailing" secondItem="hUw-Ey-7yp" secondAttribute="trailing" constant="10" id="WVq-Xq-E7l"/>
+                <constraint firstAttribute="trailing" secondItem="YeN-61-dbD" secondAttribute="trailing" constant="10" id="Wsa-nf-vsp"/>
+                <constraint firstItem="hBu-P6-THN" firstAttribute="top" secondItem="YeN-61-dbD" secondAttribute="bottom" constant="10" id="cqX-XX-rQf"/>
+                <constraint firstItem="m30-KL-1jy" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="dIP-EO-usl"/>
+                <constraint firstItem="m30-KL-1jy" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="84" id="rdV-7i-ubc"/>
+                <constraint firstItem="dGW-QK-xdN" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="vJ6-nX-CWw"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="萌宝派512x512" width="512" height="512"/>
+    </resources>
+</document>
