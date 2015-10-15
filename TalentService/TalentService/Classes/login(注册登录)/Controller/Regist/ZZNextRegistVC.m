@@ -11,7 +11,7 @@
 #import "ZZLayerButton.h"
 #import "ZZCityTool.h"
 #import "ZZCitySelector.h"
-#import "ZZIQKeyBoardTool.h"
+
 #import "ZZLoadHttpTool.h"
 #import "ZZLoginUserTool.h"
 @interface ZZNextRegistVC ()<UITextFieldDelegate,ZZCitySelectorDelegate>
