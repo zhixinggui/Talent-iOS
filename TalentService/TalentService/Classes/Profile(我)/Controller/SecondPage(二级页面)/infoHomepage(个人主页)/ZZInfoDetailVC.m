@@ -22,6 +22,8 @@
 #import "LDProgressView.h"
 #import "HCSStarRatingView.h"
 
+#import "ZZActivityDetailController.h"
+
 #define numberOfpage 10
 @interface ZZInfoDetailVC ()<UITableViewDataSource,UITableViewDelegate,ZZSegmentedControlDelegate>
 @property(nonatomic,strong)ZZOtherUser *loginUser;
@@ -33,10 +35,20 @@
 @property (weak, nonatomic) IBOutlet UIImageView *headIV;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *identityLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *fansNumLabel;
+
+
 @property (weak, nonatomic) IBOutlet UIButton *attentionButton;
 @property (nonatomic, strong)NSMutableArray *activityArray;
 @property (weak, nonatomic) IBOutlet LDProgressView *progressView;
 @property (nonatomic, strong)ZZHomeServiceResult *result;
+@property (weak, nonatomic) IBOutlet UILabel *introductionLabel;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *introductionLabelHeight;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *introBackgroundHeight;
+
 @end
 
 @implementation ZZInfoDetailVC
@@ -55,38 +67,37 @@
     self.infoDetailTableView.dataSource = self;
     self.infoDetailTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.infoDetailTableView.rowHeight = [ZZActivityCell  cellHeight];
-    self.infoDetailTableView.tableHeaderView = self.headView;
     if (ScreenWidth == 320) {
-        self.headView.height = 440;
+        self.headView.height = 390;
     } else if (ScreenWidth >375) {
-        self.headView.height = 520;
+        self.headView.height = 460;
     }
-    
+    self.infoDetailTableView.tableHeaderView = self.headView;
     //底部刷新
     self.infoDetailTableView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreService)];
-    
-    //进入界面请求刷新
-    [self getMyCollectionList];
     //请求用户信息
     [self getUserInfoNetData];
-    
     //星星
+    [self getStarStar];
+}
+
+- (void)getStarStar {
     self.starView.maximumValue = 5;
     self.starView.minimumValue = 0;
     self.starView.allowsHalfStars = NO;
     self.starView.spacing = 5;
+
     self.starView.tintColor = ZZYellowColor;
-    self.starView.value = 4;
-    
+    self.starView.value = 1;
     self.progressView.color = ZZNatiBarColor;
     self.progressView.flat = @YES;
     self.progressView.animate = @YES;
     self.progressView.showText = @NO;
     self.progressView.showStroke = @NO;
-    self.progressView.progressInset = @5;
+    self.progressView.progressInset = @3;
     self.progressView.showBackground = @NO;
-    self.progressView.outerStrokeWidth = @3;
-    self.progressView.type = LDProgressSolid;
+    self.progressView.outerStrokeWidth = @1;
+    self.progressView.type = LDProgressStripes;
     self.progressView.progress = 0.40;
 }
 /**
@@ -94,14 +105,21 @@
  */
 - (void)getUserInfoNetData {
     [ZZMyInfoHttpTool getMyInfoWithUserAttentionId:@(self.userAttentionId) andMyCenter:@(1) success:^(ZZOtherUser *infoUser, ZZNetDataType dataType) {
-        
         self.loginUser = infoUser;
-        ZZLog(@"你妹啊infoUser:%ld",self.loginUser.userId);
+        ZZLog(@"你妹啊infoUser:%ld",(unsigned long)self.loginUser.userId);
         [self.headIV  setHeadImageWithURL:infoUser.userSmallImg];
         self.backGroungIV.contentMode = UIViewContentModeScaleAspectFill;
         self.backGroungIV.clipsToBounds = YES;
         [self.backGroungIV setPictureImageWithURL:infoUser.backgroundImg];
         self.nameLabel.text = self.loginUser.userNike;
+        self.fansNumLabel.text = [NSString stringWithFormat:@"Fans(%ld)",self.loginUser.fans];
+        self.introductionLabel.text = self.loginUser.userPresentation;
+        CGSize introSize = [self.introductionLabel.text sizeWithFont:[UIFont systemFontOfSize:14] maxW:ScreenWidth-20];
+        self.introductionLabelHeight.constant = introSize.height;
+        self.introBackgroundHeight.constant = introSize.height+10;
+        if (!self.loginUser.userPresentation.length) {
+            self.introBackgroundHeight.constant = 0;
+        }
         ZZUserRole *userRole = self.loginUser.userRole[0];
         self.identityLabel.text = userRole.eredarName;
         if (self.loginUser.userId == [ZZLoginUserTool sharedZZLoginUserTool].loginUser.userId) {
@@ -109,14 +127,12 @@
         }else{
             self.attentionButton.hidden = NO;
         }
-        
-        
         if (self.loginUser.isAttention) {
             self.attentionButton.selected = YES;
         }else{
             self.attentionButton.selected = NO;
         }
-        
+        [self getMyCollectionList];
     } failure:^(NSString *error, ZZNetDataType datatype) {
         ZZLog(@"请求失败");
     }];
@@ -130,6 +146,7 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     ZZActivityCell *cell = [tableView dequeueReusableCellWithIdentifier:[ZZActivityCell   cellXibIdentifier] forIndexPath:indexPath];
     cell.activity = self.activityArray[indexPath.row];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 
@@ -140,6 +157,14 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     return 40;
 }
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    ZZActivity * activity = self.activityArray[indexPath.row];
+    ZZActivityDetailController *detailViewController = [[ZZActivityDetailController alloc] init];
+    detailViewController.activityId =  activity.activityId;
+    [self.navigationController pushViewController:detailViewController animated:YES];
+}
+
 
 #pragma mark  event delegate
 -(void)segmentControl:(ZZSegmentedControl *)segment andIndex:(NSUInteger)index{
@@ -185,29 +210,24 @@
     [MBProgressHUD showMessage:@"正在加载中..." toView:self.view];
     ZZMyServiceParam *myServiceparam = [[ZZMyServiceParam alloc]init];
     myServiceparam.myCenter = @(0);
-    
-    myServiceparam.isEredar = @(self.isEredar);
-    if ([myServiceparam.myCenter isEqualToNumber:@(1)]) {
-        
-    }else{
-        myServiceparam.userId = @(self.userAttentionId);
+    if (self.loginUser.isEredar) {
+        myServiceparam.isEredar = @(1);
+    }else {
+        myServiceparam.isEredar = @(0);
     }
+    myServiceparam.userId = @(self.userAttentionId);
     myServiceparam.numberOfPerPage = @(numberOfpage);
     myServiceparam.pageNo = @(0);
     [ZZMyInfoHttpTool getmyServiceListWithMyServiceParam:myServiceparam success:^(ZZHomeServiceResult *result, ZZNetDataType dataType) {
         [MBProgressHUD  hideHUDForView:self.view];
         ZZLog(@"啥数据啊:%@",result);
         self.result = result;
-//        if (self.result.rows.count == 0) {
-//            
-//            [MBProgressHUD showMessageClearBackView:@"你还没有服务" toView:self.infoDetailTableView ];
-//        }
         [self.activityArray  removeAllObjects];
         [self.activityArray addObjectsFromArray:result.rows];
         [self.infoDetailTableView reloadData];
     } failure:^(NSString *error, ZZNetDataType datatype) {
         [MBProgressHUD  hideHUDForView:self.view];
-        [MBProgressHUD  showNetLoadFailWithText:@"加载失败，点击重新加载" view:self.view target:self action:@selector(getMyCollectionList) isBack:NO];
+        [MBProgressHUD  showNetLoadFailWithText:@"加载失败，点击重新加载" view:self.infoDetailTableView target:self action:@selector(getMyCollectionList) isBack:NO];
     }];
 }
 
@@ -222,13 +242,13 @@
  */
 - (void)getMoreCollectionList{
     ZZMyServiceParam *myServiceparam = [[ZZMyServiceParam alloc]init];
-    myServiceparam.myCenter = @(1);
-    myServiceparam.isEredar = @(1);
-    if ([myServiceparam.myCenter isEqualToNumber:@(1)]) {
-        
-    }else{
-        //myServiceparam.userId =
+    myServiceparam.myCenter = @(0);
+    if (self.loginUser.isEredar) {
+        myServiceparam.isEredar = @(1);
+    }else {
+        myServiceparam.isEredar = @(0);
     }
+    myServiceparam.userId = @(self.userAttentionId);
     myServiceparam.numberOfPerPage = @(numberOfpage);
     myServiceparam.pageNo = @(self.result.page);
     [ZZMyInfoHttpTool getmyServiceListWithMyServiceParam:myServiceparam success:^(ZZHomeServiceResult *result, ZZNetDataType dataType) {

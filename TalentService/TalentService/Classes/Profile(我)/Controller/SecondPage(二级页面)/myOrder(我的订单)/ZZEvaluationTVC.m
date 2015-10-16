@@ -16,7 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"评价";
+    self.title = @"立即评价";
     UINib* nib = [UINib nibWithNibName:@"ZZEvaluationCell" bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:evaluationCelldentifier];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;

@@ -56,6 +56,7 @@
     ZZOrderTopView *topView = [ZZOrderTopView  orderTopView];
     topView.activity = self.order.serviceInfo;
     topView.y = 64;
+    topView.x = 0;
     topView.jump = YES;
     topView.vcDelegate = self;
     [scroView  addSubview:topView];

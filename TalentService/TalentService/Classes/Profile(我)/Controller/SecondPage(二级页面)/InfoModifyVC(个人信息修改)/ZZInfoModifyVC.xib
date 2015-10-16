@@ -308,7 +308,7 @@
                                         <action selector="gotoModifyName:" destination="-1" eventType="touchUpInside" id="MuA-hO-CVN"/>
                                     </connections>
                                 </button>
-                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Les enphants，隶属于上海丽婴房婴童用品有限公司，取自法文「孩子们」的涵义。我们希望能够带给孩子快乐和美丽，给予孩子一个自由平等的空间。丽婴房设立的使命期许提供孩子舒适，合用的商品，并能陪着孩子一起快乐长大。" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="u9l-Tr-tPA">
+                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="u9l-Tr-tPA" customClass="ZZTextView">
                                     <rect key="frame" x="18" y="389" width="334" height="84"/>
                                     <color key="backgroundColor" red="0.92156862745098034" green="0.94117647058823528" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>

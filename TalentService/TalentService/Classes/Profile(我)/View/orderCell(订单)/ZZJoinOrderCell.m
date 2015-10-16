@@ -35,7 +35,7 @@
             break;
             
         case ZZOrderStatusPaid:
-            self.orderStatus.text = @"已支付";
+            self.orderStatus.text = @"已预订";
             break;
             
         case ZZOrderStatusComplete:

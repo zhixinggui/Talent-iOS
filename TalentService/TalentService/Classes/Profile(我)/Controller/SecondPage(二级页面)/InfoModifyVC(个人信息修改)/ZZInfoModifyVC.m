@@ -20,11 +20,13 @@
 #import "ZZSexSelector.h"
 #import "ZZLoginUserTool.h"
 #import "ZZMyInfoHttpTool.h"
-
 #import "ZZFirstLoginVC.h"
-
 #import "ZZWriteDetailAddressVC.h"
 #import "ZZUMMessageTool.h"
+#import "ZZTextView.h"
+
+#import "ZZHudView.h"
+
 @interface ZZInfoModifyVC ()<UUPhotoActionSheetDelegate,ZZCitySelectorDelegate,UITextViewDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *womanButton;
 @property (weak, nonatomic) IBOutlet UIButton *manButton;
@@ -48,7 +50,7 @@
 @property (nonatomic ,strong)UIButton *selectedButton;
 @property (weak, nonatomic) IBOutlet UIImageView *starDetailView;
 @property (weak, nonatomic) IBOutlet UILabel *starDetailLabel;
-@property (weak, nonatomic) IBOutlet UITextView *starDetailTV;
+@property (weak, nonatomic) IBOutlet ZZTextView *starDetailTV;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *changeInfoLayoutConstraint;
 @end
 
@@ -115,9 +117,17 @@
 
 #pragma mark - button的所有响应事件
 - (void)textViewDidEndEditing:(UITextView *)textView {
+    self.starDetailTV.placeholder = @"个人简介,50~120字";
+    self.starDetailTV.textContentLength = 240;
     ZZLog(@"编辑结束");
     ZZChangeInfoParam *infoParam = [[ZZChangeInfoParam alloc]init];
-    infoParam.userPresentation = self.starDetailTV.text;
+    if (self.starDetailTV.text.length == 0) {
+        [ZZHudView  showMessage:@"内容不能为空！" time:1 toView:self.view];
+        [self notice];
+        return;
+    }else {
+        infoParam.userPresentation = self.starDetailTV.text;
+    }
     [MBProgressHUD showMessage:@"正在保存中..."];
     [ZZMyInfoHttpTool changeInfoWithChangeInfoParam:infoParam success:^(ZZLoginUser *infoUser, ZZNetDataType dataType) {
         [MBProgressHUD  hideHUD];

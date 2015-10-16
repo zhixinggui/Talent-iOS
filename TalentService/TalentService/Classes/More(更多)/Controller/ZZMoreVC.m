@@ -26,7 +26,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-  
+    self.automaticallyAdjustsScrollViewInsets = NO;
     self.moreTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     UINib* nib = [UINib nibWithNibName:@"ZZMoreCell" bundle:nil];
     [self.moreTableView registerNib:nib forCellReuseIdentifier:moreCelldentifier];

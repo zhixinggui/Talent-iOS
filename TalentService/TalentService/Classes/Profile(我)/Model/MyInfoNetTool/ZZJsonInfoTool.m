@@ -40,6 +40,10 @@
         loginUser.backgroundImg = [[dic objectForKey:@"backgroundImg"]safeString];
         
         loginUser.userId = [[dic objectForKey:@"userId"]integerValue];
+        
+        loginUser.isEredar = [[dic objectForKey:@"isEredar"]boolValue];
+        
+        loginUser.userPresentation = [[dic objectForKey:@"userPresentation"]safeString];
         return loginUser;
     }else{
         return nil;

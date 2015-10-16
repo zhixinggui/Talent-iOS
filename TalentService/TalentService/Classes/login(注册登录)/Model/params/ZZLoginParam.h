@@ -28,7 +28,7 @@
 @property (nonatomic, copy)NSString *deviceVersion;
 /**IMEI - udid*/
 @property (nonatomic, copy)NSString *imei;
-/**设备版本*/
+/**应用版本*/
 @property (nonatomic, copy)NSString *applicationVersion;
 /**设备型号*/
 @property (nonatomic, copy)NSString *model;

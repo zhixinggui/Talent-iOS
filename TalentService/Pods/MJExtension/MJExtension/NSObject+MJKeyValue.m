@@ -93,7 +93,7 @@ static NSNumberFormatter *numberFormatter_;
                 for (MJPropertyKey *propertyKey in propertyKeys) {
                     value = [propertyKey valueInObject:value];
                 }
-                if (value) break;
+              if (value) break;
             }
             
             // 值的过滤

@@ -142,6 +142,7 @@
            [[ZZLoginUserTool  sharedZZLoginUserTool] save:loginUser];
             [MBProgressHUD hideHUD];
            [MBProgressHUD  showSuccess:@"登陆成功"];
+           [ZZUMMessageTool  umMessageAddAlias];
            [self  swithWindowRootControllerToHome];
        } failure:^(NSString *error, ZZNetDataType dataType) {
            

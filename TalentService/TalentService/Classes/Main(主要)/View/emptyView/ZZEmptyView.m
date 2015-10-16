@@ -20,7 +20,8 @@
 -(void)awakeFromNib{
     self.backgroundColor = ZZRGBCloor(220, 220, 220);
     self.imageView.contentMode = UIViewContentModeScaleAspectFill;
-   
+    self.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin
+    | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
 }
 -(void)setIcon:(NSString *)icon{
     _icon = icon;

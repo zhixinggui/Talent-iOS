@@ -47,6 +47,10 @@
 		568D748E1BAA888000E1C4B1 /* ZZJsonInfoTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 568D748D1BAA888000E1C4B1 /* ZZJsonInfoTool.m */; };
 		5699AC861BC8E4B100F67D54 /* ZZWriteDetailAddressVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5699AC841BC8E4B100F67D54 /* ZZWriteDetailAddressVC.m */; };
 		5699AC871BC8E4B100F67D54 /* ZZWriteDetailAddressVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5699AC851BC8E4B100F67D54 /* ZZWriteDetailAddressVC.xib */; };
+		56A0E5241BCF78D60040AE4F /* ZZMyEvaluationTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 56A0E5221BCF78D60040AE4F /* ZZMyEvaluationTVC.m */; settings = {ASSET_TAGS = (); }; };
+		56A0E5251BCF78D60040AE4F /* ZZMyEvaluationTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56A0E5231BCF78D60040AE4F /* ZZMyEvaluationTVC.xib */; settings = {ASSET_TAGS = (); }; };
+		56A0E5291BCF809D0040AE4F /* ZZMyEvaluationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 56A0E5271BCF809D0040AE4F /* ZZMyEvaluationCell.m */; settings = {ASSET_TAGS = (); }; };
+		56A0E52A1BCF809D0040AE4F /* ZZMyEvaluationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56A0E5281BCF809D0040AE4F /* ZZMyEvaluationCell.xib */; settings = {ASSET_TAGS = (); }; };
 		56B7B51B1BB8ED4C006076FC /* ZZSlideDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = 56B7B51A1BB8ED4C006076FC /* ZZSlideDemo.m */; };
 		56B7B51F1BB8EDB9006076FC /* ZZMyOrderVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 56B7B51D1BB8EDB9006076FC /* ZZMyOrderVC.m */; };
 		56B7B5201BB8EDB9006076FC /* ZZMyOrderVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56B7B51E1BB8EDB9006076FC /* ZZMyOrderVC.xib */; };
@@ -373,6 +377,12 @@
 		5699AC831BC8E4B100F67D54 /* ZZWriteDetailAddressVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZWriteDetailAddressVC.h; sourceTree = "<group>"; };
 		5699AC841BC8E4B100F67D54 /* ZZWriteDetailAddressVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZWriteDetailAddressVC.m; sourceTree = "<group>"; };
 		5699AC851BC8E4B100F67D54 /* ZZWriteDetailAddressVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZZWriteDetailAddressVC.xib; sourceTree = "<group>"; };
+		56A0E5211BCF78D60040AE4F /* ZZMyEvaluationTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZMyEvaluationTVC.h; sourceTree = "<group>"; };
+		56A0E5221BCF78D60040AE4F /* ZZMyEvaluationTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZMyEvaluationTVC.m; sourceTree = "<group>"; };
+		56A0E5231BCF78D60040AE4F /* ZZMyEvaluationTVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZZMyEvaluationTVC.xib; sourceTree = "<group>"; };
+		56A0E5261BCF809D0040AE4F /* ZZMyEvaluationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZMyEvaluationCell.h; sourceTree = "<group>"; };
+		56A0E5271BCF809D0040AE4F /* ZZMyEvaluationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZMyEvaluationCell.m; sourceTree = "<group>"; };
+		56A0E5281BCF809D0040AE4F /* ZZMyEvaluationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZZMyEvaluationCell.xib; sourceTree = "<group>"; };
 		56B7B5191BB8ED4C006076FC /* ZZSlideDemo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZZSlideDemo.h; path = "../Controller/SecondPage(二级页面)/myOrder(我的订单)/ZZSlideDemo.h"; sourceTree = "<group>"; };
 		56B7B51A1BB8ED4C006076FC /* ZZSlideDemo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZZSlideDemo.m; path = "../Controller/SecondPage(二级页面)/myOrder(我的订单)/ZZSlideDemo.m"; sourceTree = "<group>"; };
 		56B7B51C1BB8EDB9006076FC /* ZZMyOrderVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZMyOrderVC.h; sourceTree = "<group>"; };
@@ -990,6 +1000,16 @@
 			path = "infoCell(我的)";
 			sourceTree = "<group>";
 		};
+		56A0E51B1BCF78450040AE4F /* 我的评价 */ = {
+			isa = PBXGroup;
+			children = (
+				56A0E5211BCF78D60040AE4F /* ZZMyEvaluationTVC.h */,
+				56A0E5221BCF78D60040AE4F /* ZZMyEvaluationTVC.m */,
+				56A0E5231BCF78D60040AE4F /* ZZMyEvaluationTVC.xib */,
+			);
+			path = "我的评价";
+			sourceTree = "<group>";
+		};
 		56BFB4B81BA7E827002EAA1D /* MyInfoNetTool */ = {
 			isa = PBXGroup;
 			children = (
@@ -1240,6 +1260,7 @@
 		6E2B7FBA1BA1B52A004CA827 /* SecondPage(二级页面) */ = {
 			isa = PBXGroup;
 			children = (
+				56A0E51B1BCF78450040AE4F /* 我的评价 */,
 				6E7EF3BB1BB40C9400DC11FF /* mygold(我的金币) */,
 				6E2B7FBB1BA1B52A004CA827 /* infoHomepage(个人主页) */,
 				56C651F61BB270BE009890B4 /* InfoModifyVC(个人信息修改) */,
@@ -1391,6 +1412,9 @@
 				56220B081BAEA19C008046DF /* ZZEvaluationCell.h */,
 				56220B091BAEA19C008046DF /* ZZEvaluationCell.m */,
 				56220B0A1BAEA19C008046DF /* ZZEvaluationCell.xib */,
+				56A0E5261BCF809D0040AE4F /* ZZMyEvaluationCell.h */,
+				56A0E5271BCF809D0040AE4F /* ZZMyEvaluationCell.m */,
+				56A0E5281BCF809D0040AE4F /* ZZMyEvaluationCell.xib */,
 			);
 			path = "orderCell(订单)";
 			sourceTree = "<group>";
@@ -2675,6 +2699,7 @@
 				6E7F590F1BA1575D00191BC0 /* ZZFunctionCell.xib in Resources */,
 				6EB3CE901BB9571E008BD9C0 /* UMShareEditViewControlleriPad.xib in Resources */,
 				6E9CD1561B9401A200DA3F60 /* ZZAddImageCell.xib in Resources */,
+				56A0E52A1BCF809D0040AE4F /* ZZMyEvaluationCell.xib in Resources */,
 				6E7C6AE51B9DB5E200132D27 /* order_fail_236x275@2x.png in Resources */,
 				6EB3CE8A1BB9571E008BD9C0 /* UMSocialLocalizable.strings in Resources */,
 				6E7F59331BA1688F00191BC0 /* ZZActivityClassSelector.xib in Resources */,
@@ -2689,6 +2714,7 @@
 				56BFB4C81BA915AE002EAA1D /* ZZChangePhoneNumVC.xib in Resources */,
 				6E2B800C1BA1B52A004CA827 /* ZZInfoDetailVC.xib in Resources */,
 				6EB3CE911BB9571E008BD9C0 /* UMSLoginViewController.xib in Resources */,
+				56A0E5251BCF78D60040AE4F /* ZZMyEvaluationTVC.xib in Resources */,
 				56227ABA1BA6B85700813C09 /* ZZMyCollectVC.xib in Resources */,
 				56C652061BB2715F009890B4 /* ZZCommunityTVC.xib in Resources */,
 				6E2B80201BA1B52A004CA827 /* ZZDetailMessageVC.xib in Resources */,
@@ -2842,6 +2868,7 @@
 				6E7F586D1BA146EE00191BC0 /* ZZLoginUser.m in Sources */,
 				6E9014081B82E2F10083F2B7 /* ZZLoginVC.m in Sources */,
 				56F734631BBA6133000E69AB /* ZZOrderParam.m in Sources */,
+				56A0E5291BCF809D0040AE4F /* ZZMyEvaluationCell.m in Sources */,
 				566A00AF1BA69A7A00128DFE /* ZZInfoCell.m in Sources */,
 				6E7EF3BE1BB40CB600DC11FF /* ZZMyGoldVC.m in Sources */,
 				6E7FA4631BCF820A0003FF06 /* ZZAboutAppVC.m in Sources */,
@@ -2879,6 +2906,7 @@
 				6EA108871B8D80E100F4215A /* ZZMenuButton.m in Sources */,
 				6EFB81791BB28AC6009AFA24 /* HCSStarRatingView.m in Sources */,
 				6E7F59071BA1575D00191BC0 /* ZZCityTool.m in Sources */,
+				56A0E5241BCF78D60040AE4F /* ZZMyEvaluationTVC.m in Sources */,
 				5652D31D1B859A7600A3FB09 /* ZZForgetVC.m in Sources */,
 				56C172E81B845A9C00EF55FF /* ZZRegistVC.m in Sources */,
 				6E7F590A1BA1575D00191BC0 /* ZZAppSystem.mm in Sources */,
@@ -3011,7 +3039,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development IOS Push Services: com.bt.yehun";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -3055,7 +3083,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development IOS Push Services: com.bt.yehun";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;

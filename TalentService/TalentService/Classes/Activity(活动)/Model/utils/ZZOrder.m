@@ -83,7 +83,7 @@ NSString * const ZZOrderStausChangeRefundSucc = @"ZZOrderStausChangeRefundSucc";
         case ZZOrderStatusNotPaid:
            return @"未支付";
         case ZZOrderStatusPaid:
-            return @"已支付";
+            return @"已预定";
         case ZZOrderStatusComplete:
            return @"已参加";
         case ZZOrderStatusExpired:

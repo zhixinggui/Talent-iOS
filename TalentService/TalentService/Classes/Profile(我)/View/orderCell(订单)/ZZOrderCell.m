@@ -10,11 +10,13 @@
 
 @interface ZZOrderCell ()
 @property (weak, nonatomic) IBOutlet UIButton *cancelBT;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *viewContstraintHeigth;
 @property (weak, nonatomic) IBOutlet UIImageView *headIV;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *statusLabel;
 @property (weak, nonatomic) IBOutlet UIButton *nowPayButton;
+@property (weak, nonatomic) IBOutlet UILabel *lineLabel;
 
 
 @end
@@ -31,6 +33,8 @@
 #pragma mark - Setters andGetters
 - (void)setOrder:(ZZOrder *)order {
     self.cancelBT.hidden = NO;
+    self.lineLabel.hidden = NO;
+    self.viewContstraintHeigth.constant = 121;
     self.nowPayButton.hidden = YES;
     _order = order;
     self.titleLabel.text = order.title;
@@ -47,11 +51,7 @@
             break;
             
         case ZZOrderStatusPaid:
-            if ([order.price isEqual:@(0)]) {
                 self.statusLabel.text = @"已预订";
-            }else {
-                self.statusLabel.text = @"已支付";
-            }
             break;
             
         case ZZOrderStatusComplete:
@@ -88,6 +88,8 @@
         [self.cancelBT setTitle:@"立即评价"];
     }else {
         self.cancelBT.hidden = YES;
+        self.lineLabel.hidden = YES;
+        self.viewContstraintHeigth.constant = 81;
     }
     [self.headIV  setPictureImageWithURL:order.servicesImg];
 }

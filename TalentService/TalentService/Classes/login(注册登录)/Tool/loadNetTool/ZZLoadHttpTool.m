@@ -15,7 +15,7 @@ NSUInteger const DeviceType =1;
 + (void)loadResign:(ZZResignParam *)resignParam success:(void (^)(ZZLoginUser *loginUser ,ZZNetDataType netDataType))success  failure:(errorBlock)failure{
     
     resignParam.device = @(DeviceType);
-    resignParam.deviceVersion = [ZZAppSystem  appVersion];
+    resignParam.deviceVersion = [ZZAppSystem  OSVersion];
     resignParam.model  = [ZZAppSystem appPlatform];
     resignParam.imei = [ZZAppSystem  appUDID];
     resignParam.applicationVersion = [ZZAppSystem  appVersion];
@@ -78,8 +78,8 @@ NSUInteger const DeviceType =1;
 +(void)loadLogin:(ZZLoginParam *)loginParam success:(void (^)(ZZLoginUser *loginUser ,ZZNetDataType netDataType))success failure:(errorBlock)failure{
     
     loginParam.device = @(DeviceType);
-    loginParam.deviceVersion = [ZZAppSystem  appVersion];
-    ZZLog(@"model: %@",[ZZAppSystem  deviceModel]);
+    loginParam.deviceVersion = [ZZAppSystem  OSVersion];
+  
     loginParam.model  = [ZZAppSystem deviceModel];
     loginParam.imei = [ZZAppSystem  appUDID];
     loginParam.applicationVersion = [ZZAppSystem  appVersion];

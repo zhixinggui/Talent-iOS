@@ -150,9 +150,11 @@
     if (self.segmentIndex) {
         ZZOtherUser *otherUser = self.expertArray[indexPath.row];
         infoDetailVc.userAttentionId = otherUser.userId;
+        infoDetailVc.isEredar = otherUser.isEredar;
     }else{
         ZZOtherUser *otherUser = self.attentionArray[indexPath.row];
         infoDetailVc.userAttentionId = otherUser.userId;
+        infoDetailVc.isEredar = otherUser.isEredar;
     }
     [self.navigationController pushViewController:infoDetailVc animated:YES];
 }

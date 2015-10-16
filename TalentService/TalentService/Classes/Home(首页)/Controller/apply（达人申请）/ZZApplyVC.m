@@ -74,8 +74,8 @@ static  NSUInteger  const ImageCount = 5;
      [self.phoneTF addLeftViewImageString:@"phone_30x30"];
      [self.identifyTF addLeftViewImageString:@"message_30x30"];
      [self.talentTypeTF addLeftViewImageString:@"mengbao_40x40"];
-    self.personTF.placeholder = @"个人简介,50~150字";
-    self.personTF.textContentLength = 300;
+    self.personTF.placeholder = @"个人简介,50~120字";
+    self.personTF.textContentLength = 240;
     self.securityButton.backgroundColor = LoginButtonColor;
     [self.addImageCV  registerNib:[UINib  nibWithNibName:@"ZZAddImageCell" bundle:[NSBundle  mainBundle]] forCellWithReuseIdentifier:[ZZAddImageCell  addImageCellIdentifier]];
   

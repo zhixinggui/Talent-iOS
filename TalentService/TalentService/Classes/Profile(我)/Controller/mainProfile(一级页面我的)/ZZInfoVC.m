@@ -24,6 +24,7 @@
 #import "ZZMyGoldVC.h"
 #import "LDProgressView.h"
 #import "UIBarButtonItem+Extension.h"
+#import "ZZMyEvaluationTVC.h"
 /**
  *  我的页面请求
  */
@@ -132,23 +133,22 @@
     }
     [self.headIV setHeadImageWithURL:user.userSmallImg];
     //星星
-    //星星
     self.starView.maximumValue = 5;
     self.starView.minimumValue = 0;
     self.starView.allowsHalfStars = NO;
     self.starView.spacing = 5;
     self.starView.tintColor = ZZYellowColor;
-    
+    self.starView.value = 1;
     self.progressView.color = ZZNatiBarColor;
     self.progressView.flat = @YES;
     self.progressView.animate = @YES;
     self.progressView.showText = @NO;
     self.progressView.showStroke = @NO;
-    self.progressView.progressInset = @5;
+    self.progressView.progressInset = @3;
     self.progressView.showBackground = @NO;
-    self.progressView.outerStrokeWidth = @3;
-    self.progressView.type = LDProgressSolid;
-    self.starView.value = 4;
+    self.progressView.outerStrokeWidth = @1;
+    self.progressView.type = LDProgressStripes;
+    
   
     ZZUserRole *userRole = user.userRole[0];
     self.roleLabel.text = userRole.eredarName;
@@ -248,6 +248,12 @@
     ZZLog(@"关注关注");
     ZZAttentionVC *attentionVc = [[ZZAttentionVC alloc]initWithNib];
     [self.navigationController pushViewController:attentionVc animated:YES];
+}
+
+- (IBAction)didClickOnMyEvaluation:(UIButton *)sender {
+    ZZLog(@"评价");
+//    ZZMyEvaluationTVC *myEvaluationTvc = [[ZZMyEvaluationTVC alloc] initWithNib];
+//    [self.navigationController pushViewController:myEvaluationTvc animated:YES];
 }
 
 #pragma mark -Setters and Getters

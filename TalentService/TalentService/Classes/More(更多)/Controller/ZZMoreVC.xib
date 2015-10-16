@@ -18,16 +18,16 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="1" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="1b0-fA-qVM">
-                    <rect key="frame" x="0.0" y="-10" width="375" height="677"/>
-                    <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                 </tableView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="1b0-fA-qVM" secondAttribute="trailing" id="9Qg-kW-G5H"/>
-                <constraint firstItem="1b0-fA-qVM" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Hpm-ed-Pz7"/>
-                <constraint firstItem="1b0-fA-qVM" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="-10" id="dts-3G-2tR"/>
-                <constraint firstAttribute="bottom" secondItem="1b0-fA-qVM" secondAttribute="bottom" id="eOe-jW-vqC"/>
+                <constraint firstItem="1b0-fA-qVM" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Bd8-SH-s5W"/>
+                <constraint firstAttribute="trailing" secondItem="1b0-fA-qVM" secondAttribute="trailing" id="Va0-dY-fRU"/>
+                <constraint firstAttribute="bottom" secondItem="1b0-fA-qVM" secondAttribute="bottom" id="VxY-A5-MT0"/>
+                <constraint firstItem="1b0-fA-qVM" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="jyt-QG-TrW"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
             <point key="canvasLocation" x="339" y="353"/>

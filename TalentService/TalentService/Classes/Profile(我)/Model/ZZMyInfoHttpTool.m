@@ -200,7 +200,7 @@
             failure(error,netDataType);
         }];
     } failure:^(NSUInteger failCount) {
-        
+        failure(@"图片上传失败",ZZNetDataTypeUpLoadImageFail);
     }];
 }
 /**
@@ -242,7 +242,7 @@
     [ZZHttpTool afPostByApiName:@"" Params:param success:^(id json) {
         success(json,ZZNetDataTypeSuccLocal);
     } failure:^(NSString *error, ZZNetDataType netDataType) {
-        
+        failure (error, netDataType);
     }];
 }
 

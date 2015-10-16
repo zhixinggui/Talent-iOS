@@ -45,7 +45,7 @@ typedef  enum{
 typedef enum {
     /**未支付*/
     ZZOrderStatusNotPaid = 1,
-    /**已支付*/
+    /**已预定*/
     ZZOrderStatusPaid,
     /**已参加*/
     ZZOrderStatusComplete,
