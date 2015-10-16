@@ -165,7 +165,7 @@
 - (void)setOrderResult:(ZZOrderResult *)orderResult {
     _orderResult = orderResult;
     if (orderResult.page == orderResult.total) {
-        [self.tableView.footer noticeNoMoreData];
+        [self.tableView.footer endRefreshingWithNoMoreData];
     }else {
         [self.tableView.footer resetNoMoreData];
     }

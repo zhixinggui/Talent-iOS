@@ -75,7 +75,7 @@
 }
 
 - (IBAction)didClickOnSecurty:(ZZSecurityButton *)sender {
-    if ([self.phoneTF.text  isCorrectPhoneNumber] == NO) {
+    if ([self.phoneTF.text  isCorrectPhoneNumber] == NO || [self.phoneTF.text  isEqualToString:ZZLoginTool.loginUser.userPhone]) {
         [self.phoneTF  shakeAnimation];
         return;
     }
@@ -92,7 +92,6 @@
         [MBProgressHUD  showError:error];
     }];
 
-    
 }
 
 @end

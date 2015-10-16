@@ -302,7 +302,7 @@
 -(void)setResult:(ZZHomeServiceResult *)result{
     _result = result;
     if (result.page == result.total) {
-        [self.infoDetailTableView.footer noticeNoMoreData];
+        [self.infoDetailTableView.footer endRefreshingWithNoMoreData];
     }else{
         [self.infoDetailTableView.footer resetNoMoreData];
     }

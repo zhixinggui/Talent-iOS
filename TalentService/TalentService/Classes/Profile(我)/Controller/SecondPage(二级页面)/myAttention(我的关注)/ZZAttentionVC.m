@@ -223,7 +223,7 @@
 -(void)setAttResult:(ZZAttentionResult *)attResult{
     _attResult = attResult;
     if (attResult.page == attResult.total) {
-        [self.attentionTV.footer noticeNoMoreData];
+        [self.attentionTV.footer endRefreshingWithNoMoreData];
     }else{
         [self.attentionTV.footer resetNoMoreData];
     }
