@@ -4,7 +4,7 @@
 //  Created by mj on 13-4-18.
 //  Copyright (c) 2013年 itcast. All rights reserved.
 //
-
+#define backColor  [UIColor  colorWithRed:0 green:0 blue:0 alpha:0.1]
 #import "MBProgressHUD+MJ.h"
 
 @implementation MBProgressHUD (MJ)
@@ -14,6 +14,7 @@
     if (view == nil) view = [[UIApplication sharedApplication].windows lastObject];
     // 快速显示一个提示信息
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
+     hud.backgroundColor = backColor;
     hud.labelText = text;
     // 设置图片
     hud.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"MBProgressHUD.bundle/%@", icon]]];
@@ -42,7 +43,7 @@
     if (view == nil) view = [[UIApplication sharedApplication] keyWindow];
     // 快速显示一个提示信息
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
-   
+    hud.backgroundColor = backColor;
     hud.labelText = message;
     // YES代表需要蒙版效果
     hud.dimBackground = NO;
@@ -52,6 +53,7 @@
     if (view == nil) view = [[UIApplication sharedApplication] keyWindow];
     // 快速显示一个提示信息
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
+     hud.backgroundColor = backColor;
     hud.mode = MBProgressHUDModeText;
     hud.labelText = content;
     
@@ -93,6 +95,7 @@
     if (view == nil) view = [UIApplication sharedApplication].keyWindow;
     // 快速显示一个提示信息
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
+     hud.backgroundColor = backColor;
     hud.color = [UIColor  clearColor];
     //设置字体颜色
     hud.label.textColor = [UIColor grayColor];
@@ -120,6 +123,7 @@
 + (void)showNetLoadFailWithText:(NSString *)text view:(UIView *)view target:(id)target action:(SEL)action  isBack:(BOOL)back{
     if (view == nil) view = [[UIApplication sharedApplication].windows lastObject];
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
+  
     // 快速显示一个提示信息
     //  MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
           hud.labelColor = ZZLightGrayColor;

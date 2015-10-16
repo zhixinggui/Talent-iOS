@@ -26,7 +26,7 @@
             loginUser.userRole= userRoles;
         }
         
-        loginUser.fans = [[[dic objectForKey:@"fans"]safeString]integerValue];
+        loginUser.fans = [[dic objectForKey:@"fans"]integerValue];
         
         loginUser.userPhone = [[dic objectForKey:@"userPhone"]safeString];
         
@@ -64,7 +64,7 @@
             loginUser.userRole= userRoles;
         }
         
-        loginUser.fans = [[[dic objectForKey:@"fans"]safeString]integerValue];
+        loginUser.fans = [[dic objectForKey:@"fans"]integerValue];
         
         loginUser.userPhone = [[dic objectForKey:@"userPhone"]safeString];
         

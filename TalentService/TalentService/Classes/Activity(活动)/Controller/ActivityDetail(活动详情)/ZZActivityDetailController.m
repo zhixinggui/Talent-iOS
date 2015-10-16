@@ -238,6 +238,10 @@ typedef enum {
         [ZZHudView  showMessage:tips time:1 toView:self.view];
         btn.enabled = YES;
         [self  updateCollectButtonProterty];
+        
+        NSNotification * noti = [NSNotification  notificationWithName:ZZMyCollectionNoti object:nil];
+        [[NSNotificationCenter  defaultCenter]postNotification:noti];
+        
     } failure:^(NSString *error, ZZNetDataType netFialType) {
         btn.enabled = YES;
         [ZZHudView  showMessage:error time:2 toView:self.view];

@@ -117,12 +117,12 @@
     param.parameters = @{@"orderCode":orderCode};
     
     [ZZHttpTool  afPostByApiName:@"" Params:param success:^(id json) {
-    
+        succ(json,ZZNetDataTypeSuccServer);
         //发出通知 告知订单状态改变
     NSNotification   *noti =  [NSNotification  notificationWithName:ZZOrderStausChangeCancellOrderSucc object:nil];
         [[NSNotificationCenter  defaultCenter]postNotification:noti];
         ZZLog(@"阿斯达: %@",json);
-        succ(json,ZZNetDataTypeSuccServer);
+    
     } failure:^(NSString *error, ZZNetDataType netDataType) {
         
         fail(error,netDataType);

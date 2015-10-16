@@ -20,7 +20,7 @@
     UINib* nib = [UINib nibWithNibName:@"ZZEvaluationCell" bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:evaluationCelldentifier];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    self.tableView.rowHeight = 113;
+    self.tableView.rowHeight = 152;
 }
 
 - (void)didReceiveMemoryWarning {

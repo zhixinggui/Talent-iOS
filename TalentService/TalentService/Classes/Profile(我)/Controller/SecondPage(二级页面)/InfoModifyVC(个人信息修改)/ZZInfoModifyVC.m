@@ -112,7 +112,7 @@
         self.starDetailTV.hidden = YES;
         self.changeInfoLayoutConstraint.constant = 8;
     }
-    
+
 }
 
 
@@ -200,6 +200,7 @@
     self.changeView.center = self.view.center;
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(didClickOnSex)];
     tap.numberOfTapsRequired = 1;
+    self.changeView.frame = CGRectMake(0, 0, ScreenWidth, ScreenHeight);
     [self.changeView addGestureRecognizer:tap];
     [self.view addSubview:self.changeView];
 }
@@ -311,4 +312,7 @@
     return _changeView;
 }
 
+-(void)dealloc{
+    [[NSNotificationCenter  defaultCenter]removeObserver:self ];
+}
 @end

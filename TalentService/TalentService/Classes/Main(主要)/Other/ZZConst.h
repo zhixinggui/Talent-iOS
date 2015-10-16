@@ -69,6 +69,8 @@ extern  NSString * const ZZNetLoading ;//连接服务器中
 extern  NSString * const ZZRefreshFail; // 刷新失败提示
 /**通知*/
 extern  NSString * const ZZUserNickChangeNoti; // 登录用户头像改变通知
+extern  NSString * const ZZMyAttentionNoti;//取消关注通知
+extern  NSString * const ZZMyCollectionNoti;//取消收藏通知
 extern  NSString * const ZZTokenIsNoActive; //token失效
 extern  NSString * const ZZTokenIsNoActiveError; //token失效通知里userinfo的信息
 

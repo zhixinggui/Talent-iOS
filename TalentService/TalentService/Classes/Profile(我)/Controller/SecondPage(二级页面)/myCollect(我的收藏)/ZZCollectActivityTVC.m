@@ -35,9 +35,18 @@
     self.tableView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreService)];
     
     //进入界面请求刷新
-    [self getMyCollectionList];
+    [self notice];
+    
+    //获取通知中心单例对象
+    NSNotificationCenter * center = [NSNotificationCenter defaultCenter];
+    //添加当前类对象为一个观察者，name和object设置为nil，表示接收一切通知
+    [center addObserver:self selector:@selector(notice) name:ZZMyCollectionNoti object:nil];
 }
 
+
+- (void)notice {
+   [self getMyCollectionList];
+}
 /**
  *  进入界面请求刷新
  */
@@ -188,5 +197,9 @@
     }else{
         [self.tableView.footer resetNoMoreData];
     }
+}
+
+-(void)dealloc{
+    [[NSNotificationCenter  defaultCenter]removeObserver:self ];
 }
 @end
