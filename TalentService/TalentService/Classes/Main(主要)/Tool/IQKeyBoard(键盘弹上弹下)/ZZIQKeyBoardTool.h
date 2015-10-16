@@ -8,7 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "Singleton.h"
+
 @interface ZZIQKeyBoardTool : NSObject
+
 singleton_interface(ZZIQKeyBoardTool);
 -(void)close;
 -(void)open;

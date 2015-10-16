@@ -13,7 +13,7 @@ NSString * const ZZOrderStausChangeCancellOrderSucc = @"ZZOrderStausChangeCancel
 NSString * const ZZOrderStausChangeEvaluationSucc = @"ZZOrderStausChangeEvaluationSucc"; //订单状态改变  评价成功
 NSString * const ZZOrderStausChangeRefundSucc = @"ZZOrderStausChangeRefundSucc"; //订单状态改变  退款成功
 @implementation ZZOrder
-
+#pragma mark - get&set
 -(void)setStatus:(ZZOrderStatus)status{
   
     ZZOrderStatus orderStatus;
@@ -65,7 +65,13 @@ NSString * const ZZOrderStausChangeRefundSucc = @"ZZOrderStausChangeRefundSucc";
 -(void)setDiscountPrice:(NSNumber *)discountPrice{
     _discountPrice = [NSNumber  dealNum:discountPrice];
 }
+-(void)setOrderDate:(NSString *)orderDate{
+    _orderDate = [self dealHourDate:orderDate];
+}
 
+
+
+#pragma mark - private methods
 - (NSString *)showPrice:(NSNumber *)price{
     NSString *str = [price description];
     // 小数点的位置
@@ -76,20 +82,29 @@ NSString * const ZZOrderStausChangeRefundSucc = @"ZZOrderStausChangeRefundSucc";
     return str ? [str stringByAppendingString:@"元"] :@"免费";
 }
 
+/**日期转换*/
+- (NSString *)dealHourDate:(NSString *)originDate{
+    NSDateFormatter *fmt = [[NSDateFormatter alloc] init];
+    fmt.dateFormat = @"yyyy-MM-dd HH:mm:ss";
+    
+    NSDate *createDate = [fmt dateFromString:originDate];
+    fmt.dateFormat = @"yyyy.MM.dd HH:mm";
+    return  [fmt  stringFromDate:createDate  ];
+}
 
-
+#pragma mark -  methods
 - (NSString *)orderStatus{
     switch (self.status) {
         case ZZOrderStatusNotPaid:
-           return @"未支付";
+            return @"未支付";
         case ZZOrderStatusPaid:
             return @"已预定";
         case ZZOrderStatusComplete:
-           return @"已参加";
+            return @"已参加";
         case ZZOrderStatusExpired:
             return @"已过期";
         case ZZOrderStatusEvaluation:
-          return @"已评价";
+            return @"已评价";
         case ZZOrderStatusRefund:
             return @"已退款";
         case ZZOrderStatusCancel:

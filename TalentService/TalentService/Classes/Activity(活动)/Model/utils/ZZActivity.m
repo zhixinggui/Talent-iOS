@@ -52,10 +52,10 @@ _servicesBigImg = [[servicesImg  stringByAppendingString:ZZImageUrlOrigin(YES)]s
     if (_detailRule == nil) {
         NSMutableString *mdetailRule = [NSMutableString  string];
         if (self.applyStartTime.length && self.applyEndTime.length) {
-            [mdetailRule  appendFormat:@"预定时间:%@~%@\n",self.applyStartTime,self.applyEndTime];
+            [mdetailRule  appendFormat:@"预定时间:%@\n",self.applyStartTime];
         }
         if (self.startTime.length && self.endTime.length) {
-            [mdetailRule  appendFormat:@"服务时间:%@~%@\n",self.startTime,self.endTime];
+            [mdetailRule  appendFormat:@"服务时间:%@\n",self.startTime];
         }
        
         if (self.address.length) {
@@ -75,7 +75,7 @@ _servicesBigImg = [[servicesImg  stringByAppendingString:ZZImageUrlOrigin(YES)]s
     fmt.dateFormat = @"yyyy-MM-dd HH:mm:ss";
    
     NSDate *createDate = [fmt dateFromString:originDate];
-    fmt.dateFormat = @"MM-dd";
+    fmt.dateFormat = @"yyyy.MM.dd";
    return  [fmt  stringFromDate:createDate  ];
 }
 /**日期转换*/
@@ -84,7 +84,7 @@ _servicesBigImg = [[servicesImg  stringByAppendingString:ZZImageUrlOrigin(YES)]s
     fmt.dateFormat = @"yyyy-MM-dd HH:mm:ss";
    
     NSDate *createDate = [fmt dateFromString:originDate];
-    fmt.dateFormat = @"MM-dd HH:mm";
+    fmt.dateFormat = @"yyyy.MM.dd HH:mm";
     return  [fmt  stringFromDate:createDate  ];
 }
 @end

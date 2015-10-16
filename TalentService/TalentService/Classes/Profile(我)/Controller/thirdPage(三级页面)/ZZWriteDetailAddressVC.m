@@ -10,7 +10,7 @@
 #import "ZZLoginUserTool.h"
 #import "ZZChangeInfoParam.h"
 #import "ZZMyInfoHttpTool.h"
-
+#import "ZZIQKeyBoardTool.h"
 @interface ZZWriteDetailAddressVC ()
 @property (weak, nonatomic) IBOutlet UITextField *detailAddressTF;
 
@@ -21,6 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"详细地址";
+    
     [self setNavRightItemWithName:@"保存" target:self action:@selector(writeAddressAction:)];
     
     UIView *whiteView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 10, 10)];

@@ -16,10 +16,10 @@ singleton_implementation(ZZIQKeyBoardTool);
 -(IQKeyboardManager *)manager{
     if (!_manager) {
         _manager = [IQKeyboardManager sharedManager];
-        _manager.enable = NO;
+     
         _manager.shouldResignOnTouchOutside = YES;
         _manager.shouldToolbarUsesTextFieldTintColor = YES;
-        _manager.enableAutoToolbar = NO;
+        _manager.enableAutoToolbar = YES;
     }
     return _manager;
 }
@@ -27,7 +27,9 @@ singleton_implementation(ZZIQKeyBoardTool);
      self.manager.enable = NO;
 }
 -(void)open{
+    ZZLog(@"%d",self.manager.enable);
      self.manager.enable = YES;
+    ZZLog(@"%d",self.manager.enable);
 }
 
 
