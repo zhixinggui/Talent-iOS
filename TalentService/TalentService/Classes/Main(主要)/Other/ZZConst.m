@@ -21,6 +21,8 @@ NSString * const ZZRefreshFail  = @"刷新失败，请稍候重试";//刷新失�
 
 /**通知*/
 NSString * const ZZUserNickChangeNoti = @"ZZUserNickChangeNoti";
+NSString * const ZZMyAttentionNoti = @"ZZMyAttentionNoti";
+NSString * const ZZMyCollectionNoti = @"ZZMyCollectionNoti";
 NSString * const ZZTokenIsNoActive = @"ZZTokenIsNoActive"; //token失效
 NSString * const ZZTokenIsNoActiveError = @"ZZTokenIsNoActiveError"; //token失效通知里userinfo的信息
 

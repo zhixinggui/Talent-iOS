@@ -21,11 +21,11 @@
 #import "ZZCollectParam.h"
 #import "LDProgressView.h"
 #import "HCSStarRatingView.h"
-
 #import "ZZActivityDetailController.h"
 
 #define numberOfpage 10
 @interface ZZInfoDetailVC ()<UITableViewDataSource,UITableViewDelegate,ZZSegmentedControlDelegate>
+
 @property(nonatomic,strong)ZZOtherUser *loginUser;
 @property (weak, nonatomic) IBOutlet UIView *headView;
 @property (weak, nonatomic) IBOutlet UITableView *infoDetailTableView;
@@ -195,6 +195,10 @@
             [MBProgressHUD  showSuccess:@"关注成功"];
         }else{
             [MBProgressHUD  showSuccess:@"取消关注"];
+            //取消关注通知
+            NSNotification * noti = [NSNotification  notificationWithName:ZZMyAttentionNoti object:nil];
+            [[NSNotificationCenter  defaultCenter]postNotification:noti];
+            
         }
         
     } failure:^(NSString *error, ZZNetDataType datatype) {
@@ -281,7 +285,7 @@
 #pragma mark - Setter andGetters
 -(ZZSegmentedControl *)segmentControl{
     if (!_segmentControl) {
-        _segmentControl = [[ZZSegmentedControl alloc]initWithItems:@[@"服务"]];
+        _segmentControl = [[ZZSegmentedControl alloc]initWithItems:@[@"TA的服务"]];
         _segmentControl.delegate = self;
         _segmentControl.frame = CGRectMake(0, 0, ScreenWidth, 40);
     }

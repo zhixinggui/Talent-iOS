@@ -35,7 +35,7 @@
     [ZZHttpTool afPostByApiName:@"" Params:infoParam success:^(id json) {
         ZZLog(@"你Json:%@",json);
         //解析
-        ZZOtherUser *otherUser = [ZZJsonInfoTool parseSelfInfomation:json];
+        ZZOtherUser *otherUser = [ZZOtherUser objectWithKeyValues:json];
         
         success(otherUser,ZZNetDataTypeSuccServer);
     } failure:^(NSString *error, ZZNetDataType netDataType) {

@@ -25,6 +25,8 @@
 #import "LDProgressView.h"
 #import "UIBarButtonItem+Extension.h"
 #import "ZZMyEvaluationTVC.h"
+#import "ZZEvaluationTVC.h"
+
 /**
  *  我的页面请求
  */
@@ -252,6 +254,8 @@
 
 - (IBAction)didClickOnMyEvaluation:(UIButton *)sender {
     ZZLog(@"评价");
+    ZZEvaluationTVC *evaluationTvc = [[ZZEvaluationTVC alloc]initWithNib];
+    [self.navigationController pushViewController:evaluationTvc animated:YES];
 //    ZZMyEvaluationTVC *myEvaluationTvc = [[ZZMyEvaluationTVC alloc] initWithNib];
 //    [self.navigationController pushViewController:myEvaluationTvc animated:YES];
 }
@@ -294,5 +298,7 @@
     return _rowDatas;
 }
 
-
+-(void)dealloc{
+    [[NSNotificationCenter  defaultCenter]removeObserver:self ];
+}
 @end

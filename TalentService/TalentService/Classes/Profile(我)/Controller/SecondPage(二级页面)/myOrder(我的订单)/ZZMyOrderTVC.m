@@ -202,7 +202,7 @@
             
         } failure:^(NSString *error, ZZNetDataType netDataType) {
             [MBProgressHUD hideHUD];
-            [ZZHudView  showMessage:@"取消失败，请重试" time:5 toView:self.view];
+            [ZZHudView  showMessage:error time:5 toView:self.view];
         }];
     }else {
         
@@ -302,7 +302,7 @@
 - (void)setOrderResult:(ZZOrderResult *)orderResult {
     _orderResult = orderResult;
     if (orderResult.page == orderResult.total) {
-        [self.tableView.footer noticeNoMoreData];
+        [self.tableView.footer endRefreshingWithNoMoreData];
     }else {
         [self.tableView.footer resetNoMoreData];
     }

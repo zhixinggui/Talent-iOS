@@ -19,6 +19,7 @@
 
 #define numberOfpage 10
 @interface ZZAttentionVC ()<UITableViewDelegate,UITableViewDataSource,ZZSegmentedControlDelegate>
+@property (weak, nonatomic) IBOutlet UIView *empetyView;
 @property (weak, nonatomic) IBOutlet UITableView *attentionTV;
 @property(nonatomic,strong)ZZSegmentedControl *attentionSegmentedControl;
 @property(nonatomic,strong)ZZAttentionResult *attResult;
@@ -46,6 +47,14 @@
     
     //头部刷新
     [self getNetWithAttentionListWithTypeNum:0];
+    //获取通知中心单例对象
+    NSNotificationCenter * center = [NSNotificationCenter defaultCenter];
+    //添加当前类对象为一个观察者，name和object设置为nil，表示接收一切通知
+    [center addObserver:self selector:@selector(notice) name:ZZMyAttentionNoti object:nil];
+}
+
+- (void)notice {
+    [self getNetWithAttentionListWithTypeNum:self.segmentIndex];
 }
 
 -(void)getNetWithAttentionListWithTypeNum:(NSInteger)typeNum{
@@ -62,6 +71,9 @@
         self.attResult = attResult;
         if (self.attResult.rows.count == 0) {
             //[MBProgressHUD showMessageClearBackView:@"你还没有关注任何朋友" toView:self.view];
+            self.empetyView.hidden = NO;
+        }else {
+            self.empetyView.hidden = YES;
         }
         if (typeNum) {
             [self.expertArray removeAllObjects];
@@ -71,7 +83,7 @@
             [self.attentionArray addObjectsFromArray:self.attResult.rows];
         }
         [self.attentionTV reloadData];
-        ZZLog(@"数组长度:%ld",self.attResult.rows.count);
+        ZZLog(@"数组长度:%ld",(unsigned long)self.attResult.rows.count);
     } failure:^(NSString *error, ZZNetDataType datatype) {
         ZZLog(@"没有返回数据");
         [MBProgressHUD  hideHUDForView:self.view];
@@ -217,5 +229,7 @@
     }
 }
 
-
+-(void)dealloc{
+    [[NSNotificationCenter  defaultCenter]removeObserver:self ];
+}
 @end

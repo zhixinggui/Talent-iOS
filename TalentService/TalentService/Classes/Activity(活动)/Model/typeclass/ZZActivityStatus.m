@@ -23,15 +23,15 @@
                 status.statusNumber = ZZActivityStatusTypeAll;
                  break;
             case 1:
-             status.statusName = @"未开始";
+             status.statusName = @"预定";
                 status.statusNumber = ZZActivityStatusTypeNoStart;
                 break;
             case 2:
-                status.statusName = @"已开始";
+                status.statusName = @"开始";
                 status.statusNumber = ZZActivityStatusTypeDidStart;
                 break;
             case 3:
-                status.statusName = @"已结束";
+                status.statusName = @"结束";
                 status.statusNumber = ZZActivityStatusTypeDidEnd;
                 break;
        
