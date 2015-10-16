@@ -178,14 +178,14 @@
 //右button响应事件
 - (void)messageAction:(UIButton*)sender {
     ZZLog(@"消息消息");
-    ZZMessageTVC *messageTvc = [[ZZMessageTVC alloc]initWithNib];
+    ZZMessageTVC *messageTvc = [[ZZMessageTVC alloc]init];
     [self.navigationController pushViewController:messageTvc animated:YES];
 }
 
 //左button响应事件
 - (void)settingAction:(UIButton*)sender {
     ZZLog(@"设置设置");
-    ZZInfoModifyVC *myselfInfoTvc = [[ZZInfoModifyVC alloc]initWithNib];
+    ZZInfoModifyVC *myselfInfoTvc = [[ZZInfoModifyVC alloc]init];
     [self.navigationController pushViewController:myselfInfoTvc animated:YES];
 }
 

@@ -24,7 +24,7 @@
 #import "ZZWriteDetailAddressVC.h"
 #import "ZZUMMessageTool.h"
 #import "ZZTextView.h"
-
+#import "ZZIQKeyBoardTool.h"
 #import "ZZHudView.h"
 
 @interface ZZInfoModifyVC ()<UUPhotoActionSheetDelegate,ZZCitySelectorDelegate,UITextViewDelegate>
@@ -67,7 +67,7 @@
      *  个人信息
      */
     [self  notice];
-
+    ZZKeyBoardTool(open);
     //获取通知中心单例对象
     NSNotificationCenter * center = [NSNotificationCenter defaultCenter];
     //添加当前类对象为一个观察者，name和object设置为nil，表示接收一切通知
