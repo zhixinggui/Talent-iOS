@@ -29,7 +29,8 @@
     self.starView.allowsHalfStars = NO;
     self.starView.spacing = 5;
     self.starView.userInteractionEnabled = NO;
-    self.starView.tintColor = [UIColor blueColor];
+    
+    self.starView.tintColor = ZZYellowColor;
 
 }
 -(void)setBaseUser:(ZZBaseUser *)baseUser{

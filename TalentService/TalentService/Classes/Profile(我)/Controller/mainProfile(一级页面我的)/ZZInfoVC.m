@@ -98,6 +98,7 @@
     self.infoTableView.rowHeight = 50;
  
 }
+
 -(void)awakeFromNib{
     //星星
     self.tableHeadView.width = ScreenWidth;
@@ -105,7 +106,7 @@
     self.starView.minimumValue = 0;
     self.starView.allowsHalfStars = NO;
     self.starView.spacing = 5;
-    self.starView.tintColor = ZZNatiBarColor;
+    self.starView.tintColor = ZZYellowColor;
     
     self.progressView.color = ZZNatiBarColor;
     self.progressView.flat = @YES;
@@ -117,6 +118,7 @@
     self.progressView.outerStrokeWidth = @3;
     self.progressView.type = LDProgressSolid;
 }
+
 //请求数据赋值
 - (void)selfInformation {
     ZZLoginUser *user = ZZLoginTool.loginUser;
@@ -135,7 +137,7 @@
     self.starView.minimumValue = 0;
     self.starView.allowsHalfStars = NO;
     self.starView.spacing = 5;
-    self.starView.tintColor = ZZNatiBarColor;
+    self.starView.tintColor = ZZYellowColor;
     
     self.progressView.color = ZZNatiBarColor;
     self.progressView.flat = @YES;
@@ -227,10 +229,10 @@
     [MBProgressHUD showMessage:@"正在保存中..."];
     [ZZMyInfoHttpTool commitBackgroundImageWithImageArray:obj success:^(ZZLoginUser *infoUser, ZZNetDataType dataType) {
         [MBProgressHUD  hideHUD];
-        [MBProgressHUD  showSuccess:@"保存成功" ];
+        [MBProgressHUD  showSuccess:@"保存成功" toView:self.view];
     } failure:^(NSString *error, ZZNetDataType datatype) {
         [MBProgressHUD  hideHUD];
-        [MBProgressHUD  showError:error];
+        [MBProgressHUD  showError:error toView:self.view];
     }];
 }
 

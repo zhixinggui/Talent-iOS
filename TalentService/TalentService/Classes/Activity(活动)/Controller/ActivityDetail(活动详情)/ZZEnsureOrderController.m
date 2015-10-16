@@ -69,8 +69,8 @@
     [self  setUpShowView:@"订单时间：" content:self.order.orderDate];
     [self  setUpShowView:@"用户名：" content:self.order.userNike];
     self.phoneShowView =   [self  setUpShowView:@"手机号：" content:loginUser.userPhone];
-    [self  setUpShowView:@"活动时间：" content:activity.startTime];
-    [self  setUpShowView:@"活动地点：" content:activity.address];
+    [self  setUpShowView:@"服务时间：" content:activity.startTime];
+    [self  setUpShowView:@"服务地点：" content:activity.address];
     [self setUpShowView:@"金额：" content:[self.order showPrice:self.order.price]];
     
     UIButton *change = [[UIButton  alloc]initWithFrame:CGRectMake(ScreenWidth - space + edge, (self.phoneShowView.frame.size.height - 20)/2, space - 2*edge, 20)];

@@ -50,7 +50,7 @@ typedef enum {
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"活动详情";
+    self.title = @"服务详情";
     self.view.backgroundColor = ZZViewBackColor;
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self   getDetailActivity];

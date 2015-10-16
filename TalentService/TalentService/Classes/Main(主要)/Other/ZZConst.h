@@ -21,7 +21,7 @@ typedef enum {
     ZZNetDataTypeFailServer,//服务器返回失败
     ZZNetDataTypeFailNet,//业务逻辑失败
     ZZNetDataTypeFailLocal,//本地返回失败
-    ZZNetDataTypeUpLoadImageFail//本地返回失败
+    ZZNetDataTypeUpLoadImageFail//图片返回失败
 }ZZNetDataType;
 
 //活动状态

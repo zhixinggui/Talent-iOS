@@ -18,7 +18,7 @@
 
 #import "ZZLoginUserTool.h"
 
-@interface ZZSeeOrderVC ()<ZZBaseOrderViewDelegate>
+@interface ZZSeeOrderVC ()<ZZBaseOrderViewDelegate,UIAlertViewDelegate>
 @property (nonatomic, strong)UIScrollView *scroView;
 @property (nonatomic) CGFloat  toalheight;
 
@@ -33,6 +33,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"查看订单";
+    self.automaticallyAdjustsScrollViewInsets = NO;
     self.view.backgroundColor = ZZViewBackColor;
     [self  getOrderDetail];
     /**
@@ -56,6 +57,7 @@
     topView.activity = self.order.serviceInfo;
     topView.y = 64;
     topView.jump = YES;
+    topView.vcDelegate = self;
     [scroView  addSubview:topView];
     self.scroView =scroView;
     [self.view addSubview:scroView];
@@ -63,12 +65,12 @@
     self.toalheight  = CGRectGetMaxY(topView.frame);
     
     ZZActivity *activity = self.order.serviceInfo;
-    
+    [self  setUpShowView:@"订单号：" content:self.order.orderCode];
     [self  setUpShowView:@"订单时间：" content:self.order.orderDate];
     [self  setUpShowView:@"用户名：" content:self.order.userNike];
     [self  setUpShowView:@"手机号：" content:loginUser.userPhone];
-    [self  setUpShowView:@"活动时间：" content:activity.startTime];
-    [self  setUpShowView:@"活动地点：" content:activity.address];
+    [self  setUpShowView:@"服务时间：" content:activity.startTime];
+    [self  setUpShowView:@"服务地点：" content:activity.address];
     [self setUpShowView:@"金额：" content:[self.order showPrice:self.order.price]];
    self.orderStatusView =  [self setUpShowView:@"订单状态：" content:[self.order orderStatus]];
     NSString *buttonTitle = nil;
@@ -152,9 +154,24 @@
 - (void)applyRefund{
      [ZZHudView  showMessage:@"正在开发中，敬请期待" time:5 toView:self.view];
 }
-#pragma mark -取消订单
 //取消订单
 - (void)cancellOrder{
+    
+    UIAlertView* alertView = [[UIAlertView alloc]initWithTitle:@"温馨提示" message:@"你确定要取消这个订单吗" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定 ", nil];
+    [alertView show];
+    
+    
+}
+
+#pragma mark -UIAlertViewDelegate
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex) {
+        [self  cancellOrderNet];
+    }
+}
+#pragma mark -取消订单
+//取消订单的网络请求
+- (void)cancellOrderNet{
     [MBProgressHUD  showMessage:ZZNetLoading ];
     [  ZZActivityHttpTool  activityCancellOrder:self.order.orderCode success:^(id json, ZZNetDataType netDataType) {
         
@@ -168,6 +185,7 @@
         [ZZHudView  showMessage:@"取消失败，请重试" time:5 toView:self.view];
     }];
 }
+
 //订单详情
 - (void)getOrderDetail{
     [MBProgressHUD  showMessage:ZZNetLoading toView:self.view];

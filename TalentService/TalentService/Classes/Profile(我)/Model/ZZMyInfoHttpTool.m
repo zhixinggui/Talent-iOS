@@ -207,7 +207,9 @@
  *背景图片
  */
 + (void)commitBackgroundImageWithImageArray:(NSArray *)imageArray success:(void (^)(ZZLoginUser *, ZZNetDataType))success failure:(failureBlock)failure {
+    
     [[ZZUploadImageTool sharedTool] upLoadImages:imageArray success:^(NSUInteger succCount) {
+        
         ZZParam *param = [[ZZParam alloc]init];
         param.cmd = @"smart/personal/updateBackgroundImg";
         param.token = [ZZLoginUserTool sharedZZLoginUserTool].loginUser.token;
@@ -227,7 +229,7 @@
             failure(error,netDataType);
         }];
     } failure:^(NSUInteger failCount) {
-        
+        failure(@"图片上传失败",ZZNetDataTypeUpLoadImageFail);
     }];
     
     

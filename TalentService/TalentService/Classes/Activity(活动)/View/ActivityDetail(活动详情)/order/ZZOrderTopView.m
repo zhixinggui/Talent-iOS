@@ -23,12 +23,12 @@
     return [[[ NSBundle mainBundle]loadNibNamed:@"ZZOrderTopView" owner:nil options:nil]lastObject];
 }
 -(void)awakeFromNib{
+    self.activityImageView.contentMode = UIViewContentModeScaleAspectFill;
     self.bounds = CGRectMake(0, 0, ScreenWidth, ScreenWidth/2);
 }
 
 -(void)setActivity:(ZZActivity *)activity{
     _activity = activity;
-    
     [self.activityImageView  setPictureImageWithURL:activity.servicesImg];
     self.titleLabel.text = activity.title;
     self.citylabel.text = activity.cityText;

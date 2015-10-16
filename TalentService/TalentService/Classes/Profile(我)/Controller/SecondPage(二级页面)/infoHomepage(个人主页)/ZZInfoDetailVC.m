@@ -45,6 +45,10 @@
     [super viewDidLoad];
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.title = @"个人主页";
+    [self  setInterface];
+}
+/**设置属性*/
+- (void)setInterface{
     UINib* nib = [UINib nibWithNibName:@"ZZActivityCell" bundle:nil];
     [self.infoDetailTableView registerNib:nib forCellReuseIdentifier:[ZZActivityCell   cellXibIdentifier]];
     self.infoDetailTableView.delegate = self;
@@ -71,7 +75,7 @@
     self.starView.minimumValue = 0;
     self.starView.allowsHalfStars = NO;
     self.starView.spacing = 5;
-    self.starView.tintColor = ZZNatiBarColor;
+    self.starView.tintColor = ZZYellowColor;
     self.starView.value = 4;
     
     self.progressView.color = ZZNatiBarColor;
@@ -85,7 +89,6 @@
     self.progressView.type = LDProgressSolid;
     self.progressView.progress = 0.40;
 }
-
 /**
  *  请求用户信息
  */
