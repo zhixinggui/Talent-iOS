@@ -16,7 +16,7 @@ static   NSUInteger const HomeNumCount = 10;
 #import "ZZHomeHttpTool.h"
 #import "MJRefresh.h"
 #import "ZZHudView.h"
-
+#import "ZZRefreshHeader.h"
 @interface ZZHomeViewController ()
 @property (nonatomic, strong)ZZHeadView *headView;
 @property (nonatomic, strong)NSMutableArray *activityArray;

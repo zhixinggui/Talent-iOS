@@ -24,7 +24,7 @@
 #import "ZZWriteDetailAddressVC.h"
 #import "ZZUMMessageTool.h"
 #import "ZZTextView.h"
-#import "ZZIQKeyBoardTool.h"
+
 #import "ZZHudView.h"
 
 @interface ZZInfoModifyVC ()<UUPhotoActionSheetDelegate,ZZCitySelectorDelegate,UITextViewDelegate>
@@ -67,7 +67,7 @@
      *  个人信息
      */
     [self  notice];
-    ZZKeyBoardTool(open);
+   
 
     //获取通知中心单例对象
     NSNotificationCenter * center = [NSNotificationCenter defaultCenter];

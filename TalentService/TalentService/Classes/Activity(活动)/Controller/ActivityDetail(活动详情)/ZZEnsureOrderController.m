@@ -44,7 +44,7 @@
     //获取通知中心单例对象
     NSNotificationCenter * center = [NSNotificationCenter defaultCenter];
     //添加当前类对象为一个观察者，name和object设置为nil，表示接收一切通知
-    [center addObserver:self selector:@selector(setUpChild) name:ZZUserNickChangeNoti object:nil];
+    [center addObserver:self selector:@selector(changeShowPhone) name:ZZUserNickChangeNoti object:nil];
 }
 
 
@@ -95,6 +95,11 @@
     
     scroView.contentSize = CGSizeMake(0, self.toalheight);
 }
+
+- (void)changeShowPhone{
+   [ self.phoneShowView setTitle:@"手机号：" content:[ZZLoginUserTool  sharedZZLoginUserTool].loginUser.userPhone];
+}
+
 - (ZZOrderInfoShowView *)setUpShowView:(NSString *)title content:(NSString *)content{
     ZZOrderInfoShowView *showView = [[ZZOrderInfoShowView alloc]initWithFrame:CGRectMake(0, self.toalheight, ScreenWidth, 50)];
     [showView setTitle:title content:content];
@@ -106,11 +111,17 @@
 - (void)changePhone{
     ZZChangePhoneNumVC *changePhoneNumVc = [[ZZChangePhoneNumVC alloc]init];
     [self.navigationController pushViewController:changePhoneNumVc animated:YES];
-    
-    
 }
 
 - (void)ensurePhone{
+    
+    NSString* phonenumber =  [ZZLoginUserTool  sharedZZLoginUserTool].loginUser.userPhone;
+    if (phonenumber == nil || phonenumber.length == 0) {
+        [self.phoneShowView  shakeAnimation];
+        [ZZHudView  showMessage:@"手机号不能为空" time:3 toView:self.view];
+        return;
+    }
+    
     ZZActivityConmitParam *commitparam = [[ZZActivityConmitParam  alloc]init];
   //  commitparam.orderCode = self.order.orderCode;
     commitparam.phone = self.order.phone;
@@ -132,6 +143,5 @@
         [ZZHudView  showMessage:error time:10 toView:self.view];
         
     }];
-    
 }
 @end

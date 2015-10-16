@@ -79,15 +79,14 @@
         [self.phoneTF  shakeAnimation];
         return;
     }
-    
      [sender  startWithSecond:ZZSecerityTime];
-   
     [MBProgressHUD showMessage:@"正在发送..."];
     [ZZLoadHttpTool loadGetCode:self.phoneTF.text success:^(id json, ZZNetDataType dataType) {
         [MBProgressHUD  hideHUD];
         [MBProgressHUD  showSuccess:@"获取验证码成功"];
         
         [self.securtyTF setEnabled:YES];
+        [self.securtyTF  becomeFirstResponder];
     } failure:^(NSString *error, ZZNetDataType dataType) {
         [MBProgressHUD  hideHUD];
         [MBProgressHUD  showError:error];
@@ -95,20 +94,5 @@
 
     
 }
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

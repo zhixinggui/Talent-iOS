@@ -41,7 +41,6 @@
 - (void)setUpAllChildViewController{
 
     ZZHomeViewController *home = [[ZZHomeViewController alloc] init];
-    
     [self setUpOneChildViewController:home image:[UIImage imageNamed:@"home_close_30x30"] selectedImage:[UIImage imageWithOriginalName:@"home_open_30x30"] title:@"首页"];
     
     // 活动

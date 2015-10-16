@@ -298,7 +298,7 @@ static   NSUInteger const ActivityNumCount = 10;
 -(void)setResult:(ZZActivityListResult *)listResult{
     _listResult = listResult;
     if (listResult.page == listResult.total) {
-        [self.tableView.footer noticeNoMoreData];
+        [self.tableView.footer endRefreshingWithNoMoreData];
     }else{
         [self.tableView.footer resetNoMoreData];
     }
