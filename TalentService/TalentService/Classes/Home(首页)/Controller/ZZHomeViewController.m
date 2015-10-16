@@ -165,7 +165,7 @@ static   NSUInteger const HomeNumCount = 10;
 -(void)setResult:(ZZHomeServiceResult *)result{
     _result = result;
     if (result.page == result.total) {
-        [self.tableView.footer noticeNoMoreData];
+        [self.tableView.footer endRefreshingWithNoMoreData];
     }else{
         [self.tableView.footer resetNoMoreData];
     }

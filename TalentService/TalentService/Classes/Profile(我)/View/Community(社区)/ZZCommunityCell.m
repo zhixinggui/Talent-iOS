@@ -7,6 +7,7 @@
 //
 
 #import "ZZCommunityCell.h"
+#import "ZZHeadImageView.h"
 @interface ZZCommunityCell()
 @property (weak, nonatomic) IBOutlet UIImageView *headIV;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
@@ -42,7 +43,7 @@
 -(void)drawRect:(CGRect)rect{
     [super drawRect:rect];
     
-    [[UIImage imageNamed:@"border_34x34"]drawInRect:CGRectMake(rect.origin.x +5, rect.origin.y+5, rect.size.width - 10, rect.size.height)];
+    [[UIImage imageNamed:@"border_34x34"]drawInRect:CGRectMake(rect.origin.x +5, rect.origin.y+5, rect.size.width - 8, rect.size.height-5)];
 
 }
 

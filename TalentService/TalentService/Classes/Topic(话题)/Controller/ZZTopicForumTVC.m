@@ -19,6 +19,10 @@
     self.view.backgroundColor = ZZViewBackColor;
     [self  setTableViewProperty];
 }
+
+- (void)rigthNavigationItem{
+//    self.navigationItem.rightBarButtonItem = [UIBarButtonItem  alloc]initWithTitle:@"发布" style:<#(UIBarButtonItemStyle)#> target:<#(nullable id)#> action:<#(nullable SEL)#>
+}
 - (void)setTableViewProperty{
     UINib* nib = [UINib nibWithNibName:@"ZZCommunityCell" bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:communityCelldentifier];

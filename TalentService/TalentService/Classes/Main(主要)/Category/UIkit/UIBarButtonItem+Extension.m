@@ -7,6 +7,7 @@
 //
 
 #import "UIBarButtonItem+Extension.h"
+#define separWidth  -16.0
 
 @implementation UIBarButtonItem (Extension)
 /**
@@ -31,9 +32,7 @@
     return [[UIBarButtonItem alloc] initWithCustomView:btn];
 }
 
-+ (UIBarButtonItem *)itemWithTarget:(id)target action:(SEL)action {
-    return [self  itemWithTarget:target action:action image:@"return_30x30" highImage:nil];
-}
+
 
 + (NSArray *)backItemWithTarget:(id)target action:(SEL)action {
     UIBarButtonItem *negativeSeperator = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
@@ -41,5 +40,21 @@
     
     negativeSeperator.width = -16;//此处修改到边界的距离，请自行测试
    return  @[negativeSeperator,back];
+}
+
++ (NSArray *)leftItemWithTarget:(id)target action:(SEL)action image:(NSString *)imageName{
+    UIBarButtonItem *negativeSeperator = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+    UIBarButtonItem *left = [UIBarButtonItem  itemWithTarget:target action:action image:imageName highImage:nil];
+    
+    negativeSeperator.width = separWidth;//此处修改到边界的距离，请自行测试
+    return  @[negativeSeperator,left];
+}
+
++ (NSArray *)rightItemWithTarget:(id)target action:(SEL)action image:(NSString *)imageName{
+    UIBarButtonItem *negativeSeperator = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+    UIBarButtonItem* right = [UIBarButtonItem  itemWithTarget:target action:action image:imageName highImage:nil];
+    
+    negativeSeperator.width = separWidth;//此处修改到边界的距离，请自行测试
+    return  @[negativeSeperator,right];
 }
 @end

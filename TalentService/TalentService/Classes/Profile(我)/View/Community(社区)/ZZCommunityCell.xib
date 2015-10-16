@@ -15,7 +15,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="279"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wpZ-4X-Wm5">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wpZ-4X-Wm5" customClass="ZZHeadImageView">
                         <rect key="frame" x="15" y="15" width="55" height="55"/>
                         <color key="backgroundColor" red="1" green="0.4549019608" blue="0.12549019610000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -93,21 +93,24 @@
                         <constraints>
                             <constraint firstAttribute="height" constant="30" id="vhX-Kr-h7p"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                        <state key="normal" title="1000" image="UMS_Check.png">
-                            <color key="titleColor" red="1" green="0.4549019608" blue="0.12549019610000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <state key="normal" title="1000" image="good_close_20x20">
+                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         </state>
                     </button>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uw1-VB-kDy">
-                        <rect key="frame" x="115" y="241" width="90" height="30"/>
-                        <state key="normal" title="Button">
+                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uw1-VB-kDy">
+                        <rect key="frame" x="127" y="245" width="67" height="22"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <state key="normal" title="1000" image="mood_public_20x20">
+                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                     </button>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xkn-b9-83m">
-                        <rect key="frame" x="215" y="241" width="90" height="30"/>
-                        <state key="normal" title="Button">
+                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xkn-b9-83m">
+                        <rect key="frame" x="223" y="245" width="74" height="22"/>
+                        <state key="normal" title="1000" image="reply_20x20">
+                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                     </button>
@@ -184,6 +187,8 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="UMS_Check.png" width="13" height="13"/>
+        <image name="good_close_20x20" width="20" height="20"/>
+        <image name="mood_public_20x20" width="20" height="20"/>
+        <image name="reply_20x20" width="20" height="20"/>
     </resources>
 </document>

@@ -71,9 +71,9 @@
     //初始化tableview
     [self initTableView];
     //右Button
-    self.navigationItem.rightBarButtonItem = [UIBarButtonItem  itemWithTarget:self action:@selector(messageAction:) image:@"message2_30x30" highImage:nil];
+    self.navigationItem.rightBarButtonItems = [UIBarButtonItem rightItemWithTarget:self action:@selector(messageAction:)  image:@"message2_30x30" ];
     //左Button
-    self.navigationItem.leftBarButtonItem = [UIBarButtonItem  itemWithTarget:self action:@selector(settingAction:) image:@"set_30x30" highImage:nil];
+    self.navigationItem.leftBarButtonItems = [UIBarButtonItem leftItemWithTarget:self action:@selector(settingAction:) image:@"set_30x30" ];
  
     //赋值
     [self selfInformation];
