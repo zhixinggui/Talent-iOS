@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface ZZAttentionVC : UIViewController
-
+@property(nonatomic)NSUInteger segmentIndex;
 @end

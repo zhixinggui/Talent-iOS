@@ -8,7 +8,6 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ZZAttentionVC">
             <connections>
                 <outlet property="attentionTV" destination="B5y-Uy-cY0" id="82P-IR-YIt"/>
-                <outlet property="empetyView" destination="LuH-8N-G7A" id="eIA-c5-GhU"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -21,35 +20,11 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </tableView>
-                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LuH-8N-G7A">
-                    <rect key="frame" x="0.0" y="104" width="375" height="563"/>
-                    <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="你没有关注任何人" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e3Q-gK-ldi">
-                            <rect key="frame" x="123" y="271" width="129" height="21"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="21" id="syK-VM-eSM"/>
-                                <constraint firstAttribute="width" constant="129" id="t93-q3-Fg8"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                            <color key="textColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                    </subviews>
-                    <color key="backgroundColor" red="0.94509803921568625" green="0.94901960784313721" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
-                    <constraints>
-                        <constraint firstItem="e3Q-gK-ldi" firstAttribute="centerY" secondItem="LuH-8N-G7A" secondAttribute="centerY" id="Sap-AB-jfz"/>
-                        <constraint firstItem="e3Q-gK-ldi" firstAttribute="centerX" secondItem="LuH-8N-G7A" secondAttribute="centerX" id="X2j-jG-6gF"/>
-                    </constraints>
-                </view>
             </subviews>
             <color key="backgroundColor" red="0.94509803921568625" green="0.94901960784313721" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="B5y-Uy-cY0" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Bvn-bB-xSj"/>
-                <constraint firstAttribute="trailing" secondItem="LuH-8N-G7A" secondAttribute="trailing" id="GKf-Xj-PPM"/>
-                <constraint firstAttribute="bottom" secondItem="LuH-8N-G7A" secondAttribute="bottom" id="HMA-3i-zVT"/>
-                <constraint firstItem="LuH-8N-G7A" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Y31-2W-MdM"/>
                 <constraint firstAttribute="trailing" secondItem="B5y-Uy-cY0" secondAttribute="trailing" id="YO4-IP-cjz"/>
-                <constraint firstItem="LuH-8N-G7A" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="104" id="n1i-ln-Hdr"/>
                 <constraint firstAttribute="bottom" secondItem="B5y-Uy-cY0" secondAttribute="bottom" id="nx1-qn-j0i"/>
                 <constraint firstItem="B5y-Uy-cY0" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="s7e-u2-4Ur"/>
             </constraints>

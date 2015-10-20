@@ -8,10 +8,22 @@
 
 #import "ZZEvaluationCell.h"
 
-@implementation ZZEvaluationCell
+@interface ZZEvaluationCell ()
+@property (weak, nonatomic) IBOutlet UIButton *totallyGoodButton;
+@property (weak, nonatomic) IBOutlet UIButton *vertGoodButton;
+@property (weak, nonatomic) IBOutlet UIButton *goodButton;
+@property (weak, nonatomic) IBOutlet UIButton *sosoButton;
+@property (nonatomic, strong)UIButton *selectedButton;
+@end
 
+@implementation ZZEvaluationCell
 - (void)awakeFromNib {
     // Initialization code
+}
+- (IBAction)didClickOnEvaluation:(UIButton *)sender {
+    self.selectedButton.selected = NO;
+    sender.selected = YES;
+    self.selectedButton = sender;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

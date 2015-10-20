@@ -7,7 +7,7 @@
 //
 
 #import "UIBarButtonItem+Extension.h"
-#define separWidth  -16.0
+#define separWidth  -10.0
 
 @implementation UIBarButtonItem (Extension)
 /**

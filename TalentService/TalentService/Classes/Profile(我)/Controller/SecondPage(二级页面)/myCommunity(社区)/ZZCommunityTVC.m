@@ -11,7 +11,6 @@
 #import "ZZSegmentedControl.h"
 #import "ZZCommunityCellModel.h"
 @interface ZZCommunityTVC ()
-@property(nonatomic,strong)ZZSegmentedControl *mySegmentControl;
 @property(nonatomic,strong)ZZCommunityCellModel *model;
 @end
 
@@ -23,7 +22,7 @@
     UINib* nib = [UINib nibWithNibName:@"ZZCommunityCell" bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:communityCelldentifier];
     self.tableView.rowHeight = 280;
-     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 
 }
 
@@ -50,13 +49,6 @@
     ZZCommunityCell *cell = [tableView dequeueReusableCellWithIdentifier:communityCelldentifier forIndexPath:indexPath];
     cell.model = self.model;
     return cell;
-}
-
--(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-        return self.mySegmentControl;
-}
--(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 40;
 }
 
 
@@ -110,23 +102,6 @@
 }
 */
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-#pragma mark -Setters and Getters
--(ZZSegmentedControl *)mySegmentControl{
-    if (!_mySegmentControl) {
-        _mySegmentControl = [[ZZSegmentedControl alloc]initWithItems:@[@"我的发布"]];
-        _mySegmentControl.frame = CGRectMake(0, 0, ScreenWidth, 40);
-    }
-    return _mySegmentControl;
-}
 -(ZZCommunityCellModel *)model{
     if (!_model) {
         _model = [[ZZCommunityCellModel alloc]init];

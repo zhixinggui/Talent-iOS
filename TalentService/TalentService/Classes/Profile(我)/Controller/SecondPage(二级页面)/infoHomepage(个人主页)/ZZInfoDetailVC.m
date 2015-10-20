@@ -25,7 +25,6 @@
 
 #define numberOfpage 10
 @interface ZZInfoDetailVC ()<UITableViewDataSource,UITableViewDelegate,ZZSegmentedControlDelegate>
-
 @property(nonatomic,strong)ZZOtherUser *loginUser;
 @property (weak, nonatomic) IBOutlet UIView *headView;
 @property (weak, nonatomic) IBOutlet UITableView *infoDetailTableView;
@@ -35,18 +34,13 @@
 @property (weak, nonatomic) IBOutlet UIImageView *headIV;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *identityLabel;
-
 @property (weak, nonatomic) IBOutlet UILabel *fansNumLabel;
-
-
 @property (weak, nonatomic) IBOutlet UIButton *attentionButton;
 @property (nonatomic, strong)NSMutableArray *activityArray;
 @property (weak, nonatomic) IBOutlet LDProgressView *progressView;
 @property (nonatomic, strong)ZZHomeServiceResult *result;
 @property (weak, nonatomic) IBOutlet UILabel *introductionLabel;
-
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *introductionLabelHeight;
-
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *introBackgroundHeight;
 
 @end
@@ -114,6 +108,13 @@
         self.nameLabel.text = self.loginUser.userNike;
         self.fansNumLabel.text = [NSString stringWithFormat:@"Fans(%ld)",self.loginUser.fans];
         self.introductionLabel.text = self.loginUser.userPresentation;
+        
+        if (self.loginUser.isEredar) {
+            self.starView.hidden = NO;
+        }else {
+            self.starView.hidden = YES;
+        }
+        
         CGSize introSize = [self.introductionLabel.text sizeWithFont:[UIFont systemFontOfSize:14] maxW:ScreenWidth-20];
         self.introductionLabelHeight.constant = introSize.height;
         self.introBackgroundHeight.constant = introSize.height+10;
@@ -177,6 +178,12 @@
             break;
             
         case 1:
+        {
+            
+        }
+            break;
+            
+        case 2:
         {
             
         }
@@ -285,7 +292,7 @@
 #pragma mark - Setter andGetters
 -(ZZSegmentedControl *)segmentControl{
     if (!_segmentControl) {
-        _segmentControl = [[ZZSegmentedControl alloc]initWithItems:@[@"TA的服务"]];
+        _segmentControl = [[ZZSegmentedControl alloc]initWithItems:@[@"TA的服务",@"社区",@"评价"]];
         _segmentControl.delegate = self;
         _segmentControl.frame = CGRectMake(0, 0, ScreenWidth, 40);
     }
