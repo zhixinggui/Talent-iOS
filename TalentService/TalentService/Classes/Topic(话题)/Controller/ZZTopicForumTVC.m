@@ -8,6 +8,7 @@
 
 #import "ZZTopicForumTVC.h"
 #import "ZZCommunityCell.h"
+#import "ZZPublishTopicVC.h"
 @interface ZZTopicForumTVC ()
 
 @end
@@ -18,11 +19,19 @@
     [super viewDidLoad];
     self.view.backgroundColor = ZZViewBackColor;
     [self  setTableViewProperty];
+    [self rigthNavigationItem];
 }
 
 - (void)rigthNavigationItem{
-//    self.navigationItem.rightBarButtonItem = [UIBarButtonItem  alloc]initWithTitle:@"发布" style:<#(UIBarButtonItemStyle)#> target:<#(nullable id)#> action:<#(nullable SEL)#>
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem  alloc]initWithTitle:@"发布" style:UIBarButtonItemStyleDone target:self action:@selector(publishTopic)];
 }
+/**发布新话题*/
+- (void)publishTopic{
+    ZZPublishTopicVC *pvc = [[ZZPublishTopicVC  alloc]init];
+    [self.navigationController  pushViewController:pvc animated:YES];
+ //  pushVC(ZZPublishTopicVC);
+}
+//tableview的属性
 - (void)setTableViewProperty{
     UINib* nib = [UINib nibWithNibName:@"ZZCommunityCell" bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:communityCelldentifier];

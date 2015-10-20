@@ -7,7 +7,7 @@
 //
 
 #import "ZZDetailRuleView.h"
-#import "ZZUnderLineLabel.h"
+
 #import "ZZHeadImageView.h"
 #import "ZZStarTableViewCell.h"
 #import "ZZActivity.h"
@@ -29,18 +29,29 @@
     CGFloat  lineMargin = 10;
     CGFloat   edgeMargin = 20;
    //
-    CGFloat underX = 0;
+    CGFloat underX = 20;
     CGFloat underY = 0;
-    CGFloat underW = ScreenWidth;
-    CGFloat underH = 44;
-    ZZUnderLineLabel *underLabel = [[ZZUnderLineLabel  alloc]initWithFrame:CGRectMake(underX, underY, underW, underH)];
+    CGFloat underW = ScreenWidth-2*underX;
+
+    NSString* title = [@"     "  stringByAppendingString:self.activity.title];
+    CGSize size = [title  sizeWithFont:ZZContentBoldFont maxW:underW];
+     CGFloat underH = size.height+20;
+    UILabel *underLabel = [[UILabel  alloc]initWithFrame:CGRectMake(underX, underY, underW, underH)];
+    underLabel.numberOfLines = 0;
     underLabel.text = self.activity.title;
     underLabel.textColor = ZZNatiBarColor;
     underLabel.font = ZZContentBoldFont;
     [self addSubview:underLabel];
     
+    CGFloat separLineX = underX/2;
+    CGFloat separLineY = CGRectGetMaxY(underLabel.frame);
+    CGFloat separLineW = ScreenWidth-2*separLineX;
+    CGFloat separLineH = 1;
+    UIView* separLine = [[UIView alloc]initWithFrame:CGRectMake(separLineX, separLineY, separLineW, separLineH)];
+    separLine.backgroundColor = ZZSeparGrayColor;
+    [self  addSubview:separLine];
   
-    CGFloat headY = CGRectGetMaxY(underLabel.frame)+lineMargin;
+   CGFloat headY = CGRectGetMaxY(separLine.frame)+lineMargin;
     ZZStarTableViewCell *starView = [ZZStarTableViewCell starCellViewWithDelegate:self];
     starView.baseUser = [self.activity.userInfoList firstObject];
     starView.frame = CGRectMake(0, headY, ScreenWidth, [ZZStarTableViewCell starCellHeight]);

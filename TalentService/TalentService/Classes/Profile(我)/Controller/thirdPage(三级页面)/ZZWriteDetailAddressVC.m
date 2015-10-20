@@ -10,7 +10,7 @@
 #import "ZZLoginUserTool.h"
 #import "ZZChangeInfoParam.h"
 #import "ZZMyInfoHttpTool.h"
-#import "ZZIQKeyBoardTool.h"
+
 @interface ZZWriteDetailAddressVC ()
 @property (weak, nonatomic) IBOutlet UITextField *detailAddressTF;
 

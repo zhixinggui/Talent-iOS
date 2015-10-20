@@ -29,7 +29,7 @@ PODS:
   - IQKeyboardManager (3.3.2)
   - LDProgressView (1.2.1)
   - MBProgressHUD (0.9.1)
-  - MJExtension (2.5.12)
+  - MJExtension (2.5.14)
   - MJRefresh (2.4.12)
   - MWPhotoBrowser (2.1.1):
     - DACircularProgress (~> 2.3)
@@ -59,10 +59,10 @@ SPEC CHECKSUMS:
   IQKeyboardManager: d863eb0bca424d1f6dad6bdd1f856af52664add8
   LDProgressView: f6afc7c30d2a9edf33001515f3189338567a32d2
   MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
-  MJExtension: 5ab633484e431f777387c70b676c80f993361f1b
+  MJExtension: fb8e6e900fb44c9a7be435ba3d72b7fdf5f0994c
   MJRefresh: ca8e9589895977df32d379d46e6b8a5450b3ff44
   MWPhotoBrowser: ba0d0c09ffda3a7ea10093518738c502c1c7141c
   SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84
   UMengAnalytics-NO-IDFA: 279e28990a08efb56cff1821d2954bb00aa6975a
 
-COCOAPODS: 0.38.2
+COCOAPODS: 0.39.0

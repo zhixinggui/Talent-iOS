@@ -21,5 +21,5 @@
  */
 @property(nonatomic) NSUInteger  textContentLength;
 
-
+-(void)updatePlaceholderLabelStatus;
 @end

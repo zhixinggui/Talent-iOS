@@ -295,7 +295,7 @@ static   NSUInteger const ActivityNumCount = 10;
     }
     return _emptyView;
 }
--(void)setResult:(ZZActivityListResult *)listResult{
+-(void)setListResult:(ZZActivityListResult *)listResult{
     _listResult = listResult;
     if (listResult.page == listResult.total) {
         [self.tableView.footer endRefreshingWithNoMoreData];
@@ -303,6 +303,7 @@ static   NSUInteger const ActivityNumCount = 10;
         [self.tableView.footer resetNoMoreData];
     }
 }
+
 -(NSMutableArray *)activityArray{
     if (_activityArray == nil) {
         _activityArray = [NSMutableArray array];

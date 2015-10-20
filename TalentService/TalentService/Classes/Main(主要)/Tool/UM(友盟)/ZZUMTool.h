@@ -59,6 +59,13 @@ typedef enum {
 //分享方法
 - (void)umShareWithTitle:(NSString *)title  content:(NSString *)content url:(NSString *)url imageUrl:(NSString *)imageUrl locialImageName:(NSString *)imageName  controller:(UIViewController *)controller  loginModel:(ZZUMLoginModel *)loginModel;
 
+/**
+ *  退出友盟三方授权
+ *
+ *  @param umSdkShare 判断是哪个三方登入
+ */
+-(void)umThirdShareCancel;
+
 
 /** 友盟社会化分享三个系统回调方法 */
 + (BOOL)umSocialHandleOpenURL:(NSURL *)url;

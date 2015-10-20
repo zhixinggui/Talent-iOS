@@ -29,6 +29,7 @@
     UIImage *image = [UIImage  imageNamed:icon];
     self.imageView.bounds = (CGRect){{0,0},image.size};
     self.imageView.image  = image;
+  
     [self  setNeedsLayout];
 }
 
@@ -40,7 +41,7 @@
 -(void)willMoveToSuperview:(UIView *)newSuperview{
     if (newSuperview) {
         if (self.icon == nil) {
-            self.icon = @"talent_40x40";
+            self.icon = @"image_100x100";
         }
         if (self.tipTitle.length == 0) {
             self.tipTitle = @"没有相关数据";

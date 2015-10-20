@@ -9,28 +9,24 @@
 #import "ZZIQKeyBoardTool.h"
 #import "IQKeyboardManager.h"
 @interface ZZIQKeyBoardTool ()
-@property(nonatomic ,strong)IQKeyboardManager *manager;
+
 @end
 @implementation ZZIQKeyBoardTool
-singleton_implementation(ZZIQKeyBoardTool);
--(IQKeyboardManager *)manager{
-    if (!_manager) {
-        _manager = [IQKeyboardManager sharedManager];
-     
-        _manager.shouldResignOnTouchOutside = YES;
-        _manager.shouldToolbarUsesTextFieldTintColor = YES;
-        _manager.enableAutoToolbar = YES;
-    }
-    return _manager;
-}
--(void)close{
-     self.manager.enable = NO;
-}
--(void)open{
-    ZZLog(@"%d",self.manager.enable);
-     self.manager.enable = YES;
-    ZZLog(@"%d",self.manager.enable);
++(void)load{
+    /**shouldResignOnTouchOutside控制点击背景是否收起键盘*/
+    [IQKeyboardManager sharedManager].shouldResignOnTouchOutside = YES;
 }
 
++(void)close{
+    [IQKeyboardManager sharedManager].enable = NO;
+}
++(void)open{
+ 
+    [IQKeyboardManager sharedManager].enable = YES;
+  
+}
++(void)resignKeyBoardFirstResponder{
+    [[IQKeyboardManager  sharedManager] resignFirstResponder];
+}
 
 @end

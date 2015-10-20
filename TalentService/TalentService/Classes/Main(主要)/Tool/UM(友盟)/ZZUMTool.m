@@ -299,7 +299,24 @@ static ZZUMTool *umTool;
 }
 
 
-
+/**
+ *  退出三方登入
+ *
+ *  @param umSdkShare <#umSdkShare description#>
+ */
+-(void)umThirdShareCancel{
+    [[UMSocialDataService defaultDataService] requestUnOauthWithType:UMShareToQQ  completion:^(UMSocialResponseEntity *response){
+        
+    }];
+    
+    [[UMSocialDataService defaultDataService] requestUnOauthWithType:UMShareToSina  completion:^(UMSocialResponseEntity *response){
+        
+    }];
+    
+    [[UMSocialDataService defaultDataService] requestUnOauthWithType:UMShareToWechatSession  completion:^(UMSocialResponseEntity *response){
+        
+    }];
+}
 #pragma mark - UMSocialUIDelegate
 ///**
 // 自定义关闭授权页面事件

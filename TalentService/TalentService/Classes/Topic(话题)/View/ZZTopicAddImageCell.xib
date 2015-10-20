@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9046" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9035"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="ZZTopicAddImageCell">
+            <rect key="frame" x="0.0" y="0.0" width="64" height="112"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="64" height="112"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add_range_64x112" translatesAutoresizingMaskIntoConstraints="NO" id="LEc-gQ-PaN">
+                        <rect key="frame" x="0.0" y="0.0" width="64" height="112"/>
+                    </imageView>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </view>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="LEc-gQ-PaN" secondAttribute="bottom" id="3Kn-PZ-Oof"/>
+                <constraint firstItem="LEc-gQ-PaN" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="3Pq-og-DlE"/>
+                <constraint firstAttribute="trailing" secondItem="LEc-gQ-PaN" secondAttribute="trailing" id="GwY-me-KE7"/>
+                <constraint firstItem="LEc-gQ-PaN" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="ZkZ-xm-95a"/>
+            </constraints>
+            <connections>
+                <outlet property="addIV" destination="LEc-gQ-PaN" id="ohy-m9-5dl"/>
+            </connections>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="add_range_64x112" width="64" height="112"/>
+    </resources>
+</document>

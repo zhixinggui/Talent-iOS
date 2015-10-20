@@ -7,12 +7,12 @@
 //  键盘弹起弹下
 
 #import <Foundation/Foundation.h>
-#import "Singleton.h"
+
 
 @interface ZZIQKeyBoardTool : NSObject
 
-singleton_interface(ZZIQKeyBoardTool);
--(void)close;
--(void)open;
 
++(void)close;
++(void)open;
++(void)resignKeyBoardFirstResponder;
 @end

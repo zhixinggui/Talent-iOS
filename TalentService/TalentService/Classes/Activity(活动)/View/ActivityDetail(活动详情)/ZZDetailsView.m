@@ -7,7 +7,7 @@
 //
 
 #import "ZZDetailsView.h"
-#import "ZZUnderLineLabel.h"
+
 #import "ZZActivity.h"
 #import "ZZImageContent.h"
 #import "ZZActivityDetailController.h"
@@ -23,17 +23,26 @@
     CGFloat  lineMargin = 10;
     CGFloat   edgeMargin = 20;
     //
-    CGFloat underX = 0;
+    CGFloat underX = 20;
     CGFloat underY = 0;
-    CGFloat underW = ScreenWidth;
+    CGFloat underW = ScreenWidth - 2*underX;
     CGFloat underH = 44;
-    ZZUnderLineLabel *underLabel = [[ZZUnderLineLabel  alloc]initWithFrame:CGRectMake(underX, underY, underW, underH)];
+    UILabel *underLabel = [[UILabel  alloc]initWithFrame:CGRectMake(underX, underY, underW, underH)];
     underLabel.text = @"详情";
     underLabel.textColor = ZZNatiBarColor;
     underLabel.font = ZZContentBoldFont;
     [self addSubview:underLabel];
     
-    self.totalHeight = CGRectGetMaxY(underLabel.frame)+lineMargin;
+    
+    CGFloat separLineX = underX/2;
+    CGFloat separLineY = CGRectGetMaxY(underLabel.frame);
+    CGFloat separLineW = ScreenWidth-2*separLineX;
+    CGFloat separLineH = 1;
+    UIView* separLine = [[UIView alloc]initWithFrame:CGRectMake(separLineX, separLineY, separLineW, separLineH)];
+    separLine.backgroundColor = ZZSeparGrayColor;
+    [self  addSubview:separLine];
+    
+    self.totalHeight = CGRectGetMaxY(separLine.frame)+lineMargin;
     
   
     //内容

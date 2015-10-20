@@ -16,6 +16,8 @@
 @property (nonatomic, strong)UIImage *image;
 /**选择的图片 类型*/
 @property (nonatomic, strong)ALAsset * asset;
+/**对应的文字*/
+@property (nonatomic, copy)NSString *desc;
 
 #pragma mark -以上为图库返回的－－以下为上传所需
 /**图片上传的数据*/
