@@ -18,7 +18,8 @@
 @property (nonatomic, strong)ALAsset * asset;
 /**对应的文字*/
 @property (nonatomic, copy)NSString *desc;
-
+/**图片选中*/
+@property (nonatomic, assign)BOOL selected;
 #pragma mark -以上为图库返回的－－以下为上传所需
 /**图片上传的数据*/
 @property (nonatomic, strong) NSData *data;

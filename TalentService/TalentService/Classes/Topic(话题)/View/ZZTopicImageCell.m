@@ -14,11 +14,9 @@
 @implementation ZZTopicImageCell
 
 - (void)awakeFromNib {
-    UIImageView* iV = [[UIImageView  alloc]init];
-    iV.image = [UIImage  imageNamed:@"arrow_30X30"];
-    iV.contentMode = UIViewContentModeScaleAspectFill;
-    iV.clipsToBounds = YES;
-    self.selectedBackgroundView = iV;
+
+    self.arrowIV.hidden = YES;
+
 }
 
 - (IBAction)deleteImage:(UIButton *)sender {

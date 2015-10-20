@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9046" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9035"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ZZPublishTopicVC">
@@ -89,10 +89,10 @@
                             </variation>
                         </imageView>
                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="NWS-Lq-z9O">
-                            <rect key="frame" x="10" y="358" width="580" height="112"/>
+                            <rect key="frame" x="10" y="358" width="580" height="110"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="112" id="Hge-jf-b2f"/>
+                                <constraint firstAttribute="height" constant="110" id="Hge-jf-b2f"/>
                             </constraints>
                             <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="vsU-fz-EPC">
                                 <size key="itemSize" width="50" height="50"/>
@@ -106,7 +106,7 @@
                             </connections>
                         </collectionView>
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="rla-Zv-lts" userLabel="图片说明" customClass="ZZTextView">
-                            <rect key="frame" x="10" y="475" width="580" height="80"/>
+                            <rect key="frame" x="10" y="468" width="580" height="80"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="80" id="ZTR-t1-cPF"/>
                             </constraints>
@@ -114,7 +114,7 @@
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                         </textView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j8y-D1-7mP">
-                            <rect key="frame" x="40" y="580" width="520" height="40"/>
+                            <rect key="frame" x="40" y="573" width="520" height="40"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="54f-F0-GGX"/>
                                 <constraint firstAttribute="width" constant="200" id="O9g-gh-rR5"/>
@@ -149,7 +149,7 @@
                         <constraint firstItem="NWS-Lq-z9O" firstAttribute="leading" secondItem="TCt-dn-fc8" secondAttribute="leading" constant="10" id="ODu-T3-KMP"/>
                         <constraint firstItem="rla-Zv-lts" firstAttribute="width" secondItem="zdI-do-UkH" secondAttribute="width" id="Pmn-Uq-6HH"/>
                         <constraint firstItem="LjK-0x-SoJ" firstAttribute="top" secondItem="Rik-Xq-EmQ" secondAttribute="bottom" constant="26" id="PtD-Bu-zYl"/>
-                        <constraint firstItem="rla-Zv-lts" firstAttribute="top" secondItem="NWS-Lq-z9O" secondAttribute="bottom" constant="5" id="Rhm-2Z-gAA"/>
+                        <constraint firstItem="rla-Zv-lts" firstAttribute="top" secondItem="NWS-Lq-z9O" secondAttribute="bottom" id="Rhm-2Z-gAA"/>
                         <constraint firstAttribute="trailing" secondItem="NWS-Lq-z9O" secondAttribute="trailing" constant="10" id="RqE-rk-hG3"/>
                         <constraint firstItem="NWS-Lq-z9O" firstAttribute="top" secondItem="ebU-3H-XjD" secondAttribute="bottom" constant="10" id="UDY-gi-BTk"/>
                         <constraint firstItem="wUa-eV-9kE" firstAttribute="leading" secondItem="TCt-dn-fc8" secondAttribute="leading" id="XyG-KT-NDF"/>

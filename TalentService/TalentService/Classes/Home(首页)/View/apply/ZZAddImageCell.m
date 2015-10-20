@@ -17,6 +17,7 @@
 
 -(void)awakeFromNib{
     self.deleteButton.imageView.contentMode = UIViewContentModeScaleAspectFill;
+    self.addIV.contentMode = UIViewContentModeScaleAspectFill;
 }
 - (IBAction)deleteButtonAction:(UIButton *)sender {
     if ([self.delegate  respondsToSelector:@selector(addImageCellDelete:)]) {
@@ -29,7 +30,7 @@
         self.addIV.image = image;
         self.deleteButton.hidden = NO;
     }else{
-        self.addIV.image = [UIImage  imageNamed:@"add_range_64x112"];
+        self.addIV.image = [UIImage  imageNamed:@"addImage"];
         self.deleteButton.hidden = YES;
     }
     

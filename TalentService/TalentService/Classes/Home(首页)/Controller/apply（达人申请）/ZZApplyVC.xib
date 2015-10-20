@@ -88,15 +88,15 @@
                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="92L-e7-eHL">
-                            <rect key="frame" x="8" y="488" width="398" height="112"/>
+                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceHorizontal="YES" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="92L-e7-eHL">
+                            <rect key="frame" x="8" y="491" width="398" height="90"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="112" id="RIJ-7N-V7T"/>
+                                <constraint firstAttribute="height" constant="90" id="RIJ-7N-V7T"/>
                                 <constraint firstAttribute="height" constant="112" id="xQ5-Qe-vda"/>
                             </constraints>
-                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="5" id="if4-uX-rKH">
-                                <size key="itemSize" width="64" height="112"/>
+                            <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="5" id="if4-uX-rKH">
+                                <size key="itemSize" width="90" height="90"/>
                                 <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                 <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                 <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -150,7 +150,7 @@
                         <constraint firstItem="f0E-aw-Z38" firstAttribute="top" secondItem="XbQ-vH-Cq0" secondAttribute="bottom" constant="8" id="4WD-2e-G2r"/>
                         <constraint firstAttribute="bottom" secondItem="92L-e7-eHL" secondAttribute="bottom" constant="20" id="4ea-ly-3PJ"/>
                         <constraint firstItem="9hQ-rX-xjv" firstAttribute="top" secondItem="t2Y-84-Ks5" secondAttribute="bottom" constant="18" id="5d0-dq-ORx"/>
-                        <constraint firstItem="92L-e7-eHL" firstAttribute="top" secondItem="OzB-E6-kC8" secondAttribute="bottom" constant="5" id="8Td-UX-Z12"/>
+                        <constraint firstItem="92L-e7-eHL" firstAttribute="top" secondItem="OzB-E6-kC8" secondAttribute="bottom" constant="8" id="8Td-UX-Z12"/>
                         <constraint firstItem="r10-VF-fAE" firstAttribute="width" secondItem="f0E-aw-Z38" secondAttribute="width" id="BjC-sG-Dcv"/>
                         <constraint firstItem="r10-VF-fAE" firstAttribute="width" secondItem="92L-e7-eHL" secondAttribute="width" id="E3T-dd-LSv"/>
                         <constraint firstItem="XbQ-vH-Cq0" firstAttribute="top" secondItem="r10-VF-fAE" secondAttribute="bottom" constant="8" id="EcE-qN-3uL"/>

@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 @class ZZPublishTopicVC;
 @interface ZZTopicImageCell : UICollectionViewCell
+@property (weak, nonatomic) IBOutlet UIImageView *arrowIV;
 
 @property (weak, nonatomic) IBOutlet UIImageView *showIV;
 

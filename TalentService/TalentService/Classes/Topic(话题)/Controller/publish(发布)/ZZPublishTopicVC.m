@@ -17,8 +17,8 @@
 #import "ZZIQKeyBoardTool.h"
 //#import "IQUIView+Hierarchy.h"
 
-#define CELLWIDTH  64.0
-#define CELLSPACWIDTH  20.0
+#define CELLWIDTH  90.0
+#define CELLSPACWIDTH  10.0
 static  NSUInteger  const TopicImageCount = 10;
 @interface ZZPublishTopicVC ()<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,UUPhotoActionSheetDelegate,UUPhotoBrowserDelegate,ZZPopMenuDelegate,UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet ZZTextView *contentTV;
@@ -131,8 +131,12 @@ static NSString* addCellIden = @"ZZPublishAddTopicVC";
         return cell;
     }else{
         ZZTopicImageCell* cell = [collectionView  dequeueReusableCellWithReuseIdentifier:cellIden forIndexPath:indexPath];
-        ZZUploadImageModel *model = self.images[indexPath.row];
+        cell.delegate = self;
+        ZZUploadImageModel *model = self.images[indexPath.item];
         cell.showIV.image = model.image;
+   
+            cell.arrowIV.hidden = !model.selected;
+      
         return cell;
     }
     
@@ -143,10 +147,10 @@ static NSString* addCellIden = @"ZZPublishAddTopicVC";
         self.sheet.maxSelected = TopicImageCount - self.images.count;
         [self.sheet  showAnimation];
     }else{
-        ZZTopicImageCell* cell = (ZZTopicImageCell *) [collectionView  cellForItemAtIndexPath:indexPath];
-        cell.delegate = self;
+      
         self.selectedIndexPath = indexPath;
-        cell.selected = YES;
+        [self.imageCV  reloadData];
+        
     }
 }
 
@@ -205,8 +209,13 @@ static NSString* addCellIden = @"ZZPublishAddTopicVC";
 -(void)deleteIndex:(NSUInteger)index fromPhotoBrowser:(UUPhotoBrowserViewController *)browser{
     [self.images  removeObjectAtIndex:index];
     [self.imageCV  reloadData];
+    
     if (index == self.selectedIndexPath.item) {
         [self defaultSelectdIndexPath];
+    }else if (index > self.selectedIndexPath.item){
+        
+    }else{
+        _selectedIndexPath = [NSIndexPath indexPathForItem:self.selectedIndexPath.item-1 inSection:0];
     }
 }
 
@@ -241,14 +250,23 @@ static NSString* addCellIden = @"ZZPublishAddTopicVC";
 
 -(void)setSelectedIndexPath:(NSIndexPath *)selectedIndexPath{
     if (_selectedIndexPath) {
-       ZZUploadImageModel *model = self.images[_selectedIndexPath.row];
-        model.desc = self.descTV.text;
+        for (ZZUploadImageModel *model in self.images) {
+            if (model.selected) {
+                model.selected = NO;
+                model.desc = self.descTV.text;
+                 break;
+            }
+        }
     }
     
     _selectedIndexPath = selectedIndexPath;
-    ZZUploadImageModel *model = self.images[selectedIndexPath.row];
-    self.descTV.text = model.desc ;
-    [self.descTV  updatePlaceholderLabelStatus];
+    if (selectedIndexPath){
+        ZZUploadImageModel *model = self.images[selectedIndexPath.item];
+        self.descTV.text = model.desc ;
+        model.selected = YES;
+        [self.descTV  updatePlaceholderLabelStatus];
+    }
+    
 }
 
 -(ZZPopMenu *)popMenu{

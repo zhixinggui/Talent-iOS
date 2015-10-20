@@ -14,21 +14,21 @@
                 <rect key="frame" x="0.0" y="0.0" width="70" height="100"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6W7-kn-BKi">
-                        <rect key="frame" x="0.0" y="0.0" width="70" height="80"/>
+                        <rect key="frame" x="5" y="5" width="60" height="70"/>
                     </imageView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hhM-wK-bh1" userLabel="删除">
-                        <rect key="frame" x="40" y="-5" width="30" height="30"/>
+                        <rect key="frame" x="45" y="-5" width="30" height="30"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="30" id="5Je-t8-d2v"/>
                             <constraint firstAttribute="height" constant="30" id="ja2-Qu-05f"/>
                         </constraints>
-                        <state key="normal" image="delete_30x30"/>
+                        <state key="normal" image="delete_20x20"/>
                         <connections>
                             <action selector="deleteImage:" destination="gTV-IL-0wX" eventType="touchUpInside" id="HlG-TK-MXC"/>
                         </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oma-5b-UH4" userLabel="放大">
-                        <rect key="frame" x="40" y="50" width="30" height="30"/>
+                        <rect key="frame" x="40" y="45" width="30" height="30"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="30" id="h9a-kt-EfY"/>
                             <constraint firstAttribute="width" constant="30" id="moO-LV-x0y"/>
@@ -38,26 +38,37 @@
                             <action selector="amplificImage:" destination="gTV-IL-0wX" eventType="touchUpInside" id="Aik-nj-wMk"/>
                         </connections>
                     </button>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow_30X30" translatesAutoresizingMaskIntoConstraints="NO" id="k8i-kD-TSQ" userLabel="arrow">
+                        <rect key="frame" x="20" y="67" width="30" height="33"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="33" id="YWH-NX-pSc"/>
+                            <constraint firstAttribute="width" constant="30" id="eo2-Is-nsN"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="hhM-wK-bh1" secondAttribute="trailing" id="KOa-en-MqC"/>
-                <constraint firstAttribute="trailing" secondItem="6W7-kn-BKi" secondAttribute="trailing" id="Rm2-T2-whH"/>
-                <constraint firstAttribute="bottom" secondItem="6W7-kn-BKi" secondAttribute="bottom" constant="20" id="d25-WM-Whh"/>
+                <constraint firstAttribute="trailing" secondItem="hhM-wK-bh1" secondAttribute="trailing" constant="-5" id="KOa-en-MqC"/>
+                <constraint firstItem="k8i-kD-TSQ" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="OEn-rB-jEC"/>
+                <constraint firstAttribute="trailing" secondItem="6W7-kn-BKi" secondAttribute="trailing" constant="5" id="Rm2-T2-whH"/>
+                <constraint firstAttribute="bottom" secondItem="k8i-kD-TSQ" secondAttribute="bottom" id="Umh-wD-ibD"/>
+                <constraint firstAttribute="bottom" secondItem="6W7-kn-BKi" secondAttribute="bottom" constant="25" id="d25-WM-Whh"/>
                 <constraint firstItem="hhM-wK-bh1" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="-5" id="dog-Bb-h33"/>
-                <constraint firstItem="6W7-kn-BKi" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="e2T-0l-J0p"/>
-                <constraint firstItem="6W7-kn-BKi" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="gE6-Z3-5qE"/>
+                <constraint firstItem="6W7-kn-BKi" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="e2T-0l-J0p"/>
+                <constraint firstItem="6W7-kn-BKi" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="gE6-Z3-5qE"/>
                 <constraint firstAttribute="trailing" secondItem="Oma-5b-UH4" secondAttribute="trailing" id="lUG-wd-6Wh"/>
                 <constraint firstItem="Oma-5b-UH4" firstAttribute="bottom" secondItem="6W7-kn-BKi" secondAttribute="bottom" id="mBq-iS-LKL"/>
             </constraints>
             <connections>
+                <outlet property="arrowIV" destination="k8i-kD-TSQ" id="5Ml-yf-Qqe"/>
                 <outlet property="showIV" destination="6W7-kn-BKi" id="WoM-X1-Vml"/>
             </connections>
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="delete_30x30" width="30" height="30"/>
+        <image name="arrow_30X30" width="12" height="15"/>
+        <image name="delete_20x20" width="20" height="20"/>
         <image name="enlarge_30x30" width="30" height="30"/>
     </resources>
 </document>
