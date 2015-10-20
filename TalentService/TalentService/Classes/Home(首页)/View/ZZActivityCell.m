@@ -48,7 +48,7 @@
 }
 
 + (CGFloat)cellHeight{
-    return 60.0+ScreenWidth/2;
+    return 64.0+ScreenWidth/2;
 }
 
 

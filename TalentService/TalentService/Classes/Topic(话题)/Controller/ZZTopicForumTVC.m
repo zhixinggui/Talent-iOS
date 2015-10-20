@@ -9,8 +9,11 @@
 #import "ZZTopicForumTVC.h"
 #import "ZZCommunityCell.h"
 #import "ZZPublishTopicVC.h"
+#import "ZZSIzeFitButton.h"
+#import "ZZTopicSelectView.h"
 @interface ZZTopicForumTVC ()
 
+@property (strong, nonatomic) ZZTopicSelectView *selecteView;
 @end
 
 @implementation ZZTopicForumTVC
@@ -33,11 +36,17 @@
 }
 //tableview的属性
 - (void)setTableViewProperty{
+    
+
+   
     UINib* nib = [UINib nibWithNibName:@"ZZCommunityCell" bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:communityCelldentifier];
 
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.rowHeight = 280.0;
+}
+
+- (IBAction)selecteButtonAction:(ZZSIzeFitButton *)sender {
 }
 
 #pragma mark - Table view data source
@@ -55,4 +64,19 @@
     [tableView  deselectRowAtIndexPath:indexPath animated:YES];
 }
 
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    return self.selecteView;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 44.0;
+}
+#pragma mark - set or get
+-(ZZTopicSelectView *)selecteView{
+    if (_selecteView == nil) {
+        _selecteView = [[[NSBundle  mainBundle]loadNibNamed:@"ZZTopicSelectView" owner:self options:nil]firstObject];
+       // _selecteView.bounds = CGRectMake(0, 0, ScreenWidth, 44);
+    }
+    return _selecteView;
+}
 @end

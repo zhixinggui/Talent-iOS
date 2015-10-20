@@ -47,8 +47,8 @@
 		568D748E1BAA888000E1C4B1 /* ZZJsonInfoTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 568D748D1BAA888000E1C4B1 /* ZZJsonInfoTool.m */; };
 		5699AC861BC8E4B100F67D54 /* ZZWriteDetailAddressVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5699AC841BC8E4B100F67D54 /* ZZWriteDetailAddressVC.m */; };
 		5699AC871BC8E4B100F67D54 /* ZZWriteDetailAddressVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5699AC851BC8E4B100F67D54 /* ZZWriteDetailAddressVC.xib */; };
-		56A06D4D1BD5EDEE00F88974 /* ZZStarDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 56A06D4B1BD5EDEE00F88974 /* ZZStarDetailVC.m */; settings = {ASSET_TAGS = (); }; };
-		56A06D4E1BD5EDEE00F88974 /* ZZStarDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56A06D4C1BD5EDEE00F88974 /* ZZStarDetailVC.xib */; settings = {ASSET_TAGS = (); }; };
+		56A06D4D1BD5EDEE00F88974 /* ZZStarDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 56A06D4B1BD5EDEE00F88974 /* ZZStarDetailVC.m */; };
+		56A06D4E1BD5EDEE00F88974 /* ZZStarDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56A06D4C1BD5EDEE00F88974 /* ZZStarDetailVC.xib */; };
 		56A0E5241BCF78D60040AE4F /* ZZMyEvaluationTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 56A0E5221BCF78D60040AE4F /* ZZMyEvaluationTVC.m */; };
 		56A0E5251BCF78D60040AE4F /* ZZMyEvaluationTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56A0E5231BCF78D60040AE4F /* ZZMyEvaluationTVC.xib */; };
 		56A0E5291BCF809D0040AE4F /* ZZMyEvaluationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 56A0E5271BCF809D0040AE4F /* ZZMyEvaluationCell.m */; };
@@ -83,8 +83,8 @@
 		56F734631BBA6133000E69AB /* ZZOrderParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F734621BBA6133000E69AB /* ZZOrderParam.m */; };
 		56F734661BBA67D5000E69AB /* ZZMyJoinOrderVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F734651BBA67D5000E69AB /* ZZMyJoinOrderVC.m */; };
 		56F734691BBA7C5B000E69AB /* ZZTestOrderParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F734681BBA7C5B000E69AB /* ZZTestOrderParam.m */; };
-		56FF11AB1BD4CFEA0013DF4E /* ZZMyAttentionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 56FF11A91BD4CFEA0013DF4E /* ZZMyAttentionVC.m */; settings = {ASSET_TAGS = (); }; };
-		56FF11AC1BD4CFEA0013DF4E /* ZZMyAttentionVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56FF11AA1BD4CFEA0013DF4E /* ZZMyAttentionVC.xib */; settings = {ASSET_TAGS = (); }; };
+		56FF11AB1BD4CFEA0013DF4E /* ZZMyAttentionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 56FF11A91BD4CFEA0013DF4E /* ZZMyAttentionVC.m */; };
+		56FF11AC1BD4CFEA0013DF4E /* ZZMyAttentionVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56FF11AA1BD4CFEA0013DF4E /* ZZMyAttentionVC.xib */; };
 		6E2B7F9C1BA1A2F6004CA827 /* ZZFuncitonModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E2B7F9B1BA1A2F6004CA827 /* ZZFuncitonModel.m */; };
 		6E2B7FAD1BA1B4E6004CA827 /* ZZFeedbackVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E2B7FA11BA1B4E6004CA827 /* ZZFeedbackVC.m */; };
 		6E2B7FAE1BA1B4E6004CA827 /* ZZFeedbackVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E2B7FA21BA1B4E6004CA827 /* ZZFeedbackVC.xib */; };
@@ -238,6 +238,8 @@
 		6E8D3A981B8C3EE3006798A7 /* ASScroll.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8D3A971B8C3EE3006798A7 /* ASScroll.m */; };
 		6E9014081B82E2F10083F2B7 /* ZZLoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9014041B82E2F10083F2B7 /* ZZLoginVC.m */; };
 		6E9014091B82E2F10083F2B7 /* ZZLoginVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E9014051B82E2F10083F2B7 /* ZZLoginVC.xib */; };
+		6E9756E31BD661920002F46A /* ZZTopicSelectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9756E21BD661920002F46A /* ZZTopicSelectView.m */; };
+		6E9756E51BD661A50002F46A /* ZZTopicSelectView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E9756E41BD661A50002F46A /* ZZTopicSelectView.xib */; };
 		6E9B526C1BA7B2140078EC96 /* ZZHudView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9B526A1BA7B2140078EC96 /* ZZHudView.m */; };
 		6E9CD1551B9401A200DA3F60 /* ZZAddImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9CD1531B9401A200DA3F60 /* ZZAddImageCell.m */; };
 		6E9CD1561B9401A200DA3F60 /* ZZAddImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E9CD1541B9401A200DA3F60 /* ZZAddImageCell.xib */; };
@@ -716,6 +718,9 @@
 		6E9014041B82E2F10083F2B7 /* ZZLoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZLoginVC.m; sourceTree = "<group>"; };
 		6E9014051B82E2F10083F2B7 /* ZZLoginVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZZLoginVC.xib; sourceTree = "<group>"; };
 		6E90140A1B83052C0083F2B7 /* InfoPlist.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
+		6E9756E11BD661920002F46A /* ZZTopicSelectView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZTopicSelectView.h; sourceTree = "<group>"; };
+		6E9756E21BD661920002F46A /* ZZTopicSelectView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZTopicSelectView.m; sourceTree = "<group>"; };
+		6E9756E41BD661A50002F46A /* ZZTopicSelectView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZZTopicSelectView.xib; sourceTree = "<group>"; };
 		6E9B526A1BA7B2140078EC96 /* ZZHudView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZHudView.m; sourceTree = "<group>"; };
 		6E9B526B1BA7B2140078EC96 /* ZZHudView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZHudView.h; sourceTree = "<group>"; };
 		6E9CD1521B9401A200DA3F60 /* ZZAddImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZAddImageCell.h; sourceTree = "<group>"; };
@@ -2126,6 +2131,16 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		6E9756E01BD661570002F46A /* TopicSelect */ = {
+			isa = PBXGroup;
+			children = (
+				6E9756E11BD661920002F46A /* ZZTopicSelectView.h */,
+				6E9756E21BD661920002F46A /* ZZTopicSelectView.m */,
+				6E9756E41BD661A50002F46A /* ZZTopicSelectView.xib */,
+			);
+			path = TopicSelect;
+			sourceTree = "<group>";
+		};
 		6E9807AB1B82E05200527EB2 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -2342,6 +2357,7 @@
 		6EA37C481BD4822900A5B836 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				6E9756E01BD661570002F46A /* TopicSelect */,
 				6EA37C4C1BD482AF00A5B836 /* ZZTopicImageCell.h */,
 				6EA37C4D1BD482AF00A5B836 /* ZZTopicImageCell.m */,
 				6EA37C4E1BD482AF00A5B836 /* ZZTopicImageCell.xib */,
@@ -2735,6 +2751,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E9756E51BD661A50002F46A /* ZZTopicSelectView.xib in Resources */,
 				6EB3CE931BB9571E008BD9C0 /* UMSShareListController.xib in Resources */,
 				6E2B802E1BA1B52A004CA827 /* ZZMyselfCell.xib in Resources */,
 				56220B0C1BAEA19C008046DF /* ZZEvaluationCell.xib in Resources */,
@@ -3060,6 +3077,7 @@
 				6E64635C1BD362280087078B /* ZZPublishTopicVC.m in Sources */,
 				6E87B3111B8C6052003BB6C0 /* AdScrollView.m in Sources */,
 				6E7683971B8EF70900661770 /* ZZEnsureOrderView.m in Sources */,
+				6E9756E31BD661920002F46A /* ZZTopicSelectView.m in Sources */,
 				56F7345D1BBA5CD8000E69AB /* ZZCollectParam.m in Sources */,
 				6E38A4151BA666DC008B0C8D /* ZZHeadImageView.m in Sources */,
 				6E6695AD1BAA861600EDFE94 /* ZZActivity.m in Sources */,
