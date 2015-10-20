@@ -18,7 +18,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <textView autoresizesSubviews="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WNO-eb-YbL">
-                    <rect key="frame" x="0.0" y="8" width="375" height="190"/>
+                    <rect key="frame" x="8" y="8" width="359" height="190"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="190" id="iEg-mi-XzI"/>
@@ -40,7 +40,7 @@
                     </state>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="输入限制1-500个字" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eew-cl-iBb">
-                    <rect key="frame" x="6" y="14" width="141" height="21"/>
+                    <rect key="frame" x="14" y="14" width="141" height="21"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="141" id="gUx-hb-2eo"/>
                         <constraint firstAttribute="height" constant="21" id="gV0-I5-H6N"/>
@@ -53,15 +53,16 @@
             <color key="backgroundColor" red="0.94509803920000002" green="0.94901960780000005" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="xBd-TR-iIE" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="9cz-Ap-nVg"/>
-                <constraint firstItem="WNO-eb-YbL" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="EP8-xL-so8"/>
+                <constraint firstItem="WNO-eb-YbL" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="EP8-xL-so8"/>
                 <constraint firstAttribute="trailing" secondItem="xBd-TR-iIE" secondAttribute="trailing" constant="8" id="Fqr-rM-NRn"/>
                 <constraint firstItem="eew-cl-iBb" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="14" id="Jcw-O9-iNm"/>
-                <constraint firstItem="eew-cl-iBb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="6" id="KKo-OB-fRp"/>
+                <constraint firstItem="eew-cl-iBb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="14" id="KKo-OB-fRp"/>
                 <constraint firstItem="xBd-TR-iIE" firstAttribute="top" secondItem="WNO-eb-YbL" secondAttribute="bottom" constant="40" id="VcZ-yT-RZy"/>
-                <constraint firstAttribute="trailing" secondItem="WNO-eb-YbL" secondAttribute="trailing" id="aC0-rr-KVB"/>
+                <constraint firstAttribute="trailing" secondItem="WNO-eb-YbL" secondAttribute="trailing" constant="8" id="aC0-rr-KVB"/>
                 <constraint firstItem="WNO-eb-YbL" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="8" id="yK5-BP-zkh"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+            <point key="canvasLocation" x="-91.5" y="344.5"/>
         </view>
     </objects>
 </document>

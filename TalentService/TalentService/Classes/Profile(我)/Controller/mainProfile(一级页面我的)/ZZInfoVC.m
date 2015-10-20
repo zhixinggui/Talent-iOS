@@ -8,7 +8,7 @@
 
 #import "ZZInfoVC.h"
 #import "ZZCommunityTVC.h"
-#import "ZZAttentionVC.h"
+#import "ZZMyAttentionVC.h"
 #import "ZZMessageTVC.h"
 #import "ZZMyOrderVC.h"
 #import "ZZInfoDetailVC.h"
@@ -32,9 +32,7 @@
  */
 #import "ZZMyInfoHttpTool.h"
 #import "ZZLoginUser.h"
-
 #import "ZZHeadImageView.h"
-
 #import "ZZUploadImageModel.h"
 @interface ZZInfoVC ()<UITableViewDataSource,UITableViewDelegate,UUPhotoActionSheetDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
@@ -65,11 +63,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.automaticallyAdjustsScrollViewInsets = NO;
-//    if ([self respondsToSelector:@selector(edgesForExtendedLayout)]) {
-//        self.edgesForExtendedLayout = UIRectEdgeNone;
-//    }
-    
-    
     //初始化tableview
     [self initTableView];
     //右Button
@@ -91,7 +84,6 @@
     } else if (ScreenWidth >375) {
         self.tableHeadView.height = 520;
     }
-    
     self.infoTableView.tableHeaderView = self.tableHeadView;
     self.infoTableView.delegate = self;
     self.infoTableView.dataSource = self;
@@ -124,16 +116,27 @@
 
 //请求数据赋值
 - (void)selfInformation {
-    ZZLoginUser *user = ZZLoginTool.loginUser;
-    self.nameLabel.text = user.userNike;
-    self.infoIV.contentMode = UIViewContentModeScaleAspectFill;
-    self.infoIV.clipsToBounds = YES;
     
-    [self.infoIV setPictureImageWithURL:user.backgroundImg];
-    if (user.backImgHeight>user.backImgWidth) {
-        self.infoIV.transform = CGAffineTransformMakeRotation((M_PI*(0)/180.0));
-    }
-    [self.headIV setHeadImageWithURL:user.userSmallImg];
+    //个人请求
+    [ZZMyInfoHttpTool getMyInfoWithUserAttentionId:nil andMyCenter:@(0) success:^(ZZOtherUser *infoUser, ZZNetDataType dataType) {
+        ZZOtherUser *user = infoUser;
+        self.nameLabel.text = user.userNike;
+        self.infoIV.contentMode = UIViewContentModeScaleAspectFill;
+        self.infoIV.clipsToBounds = YES;
+        ZZUserRole *userRole = user.userRole[0];
+        self.roleLabel.text = userRole.eredarName;
+        self.fansCount.text = [NSString stringWithFormat:@"Fans(%ld)",user.fans];
+        [self.infoIV setPictureImageWithURL:user.backgroundImg];
+        [self.headIV setHeadImageWithURL:user.userSmallImg];
+        if (user.isEredar) {
+            self.starView.hidden = NO;
+        }else {
+            self.starView.hidden = YES;
+        }
+    } failure:^(NSString *error, ZZNetDataType datatype) {
+        
+    }];
+    
     //星星
     self.starView.maximumValue = 5;
     self.starView.minimumValue = 0;
@@ -150,11 +153,6 @@
     self.progressView.showBackground = @NO;
     self.progressView.outerStrokeWidth = @1;
     self.progressView.type = LDProgressStripes;
-    
-  
-    ZZUserRole *userRole = user.userRole[0];
-    self.roleLabel.text = userRole.eredarName;
-    self.fansCount.text = [NSString stringWithFormat:@"Fans(%ld)",user.fans];
     //经验值进度条
     self.progressView.progress = 0.40;
     
@@ -248,7 +246,7 @@
 
 - (IBAction)gotoAttentionView:(UIButton *)sender {
     ZZLog(@"关注关注");
-    ZZAttentionVC *attentionVc = [[ZZAttentionVC alloc]initWithNib];
+    ZZMyAttentionVC *attentionVc = [[ZZMyAttentionVC alloc]initWithNib];
     [self.navigationController pushViewController:attentionVc animated:YES];
 }
 
@@ -289,10 +287,10 @@
         [tarray  addObject:comnumity];
         ZZMyInfoModel *gold = [ZZMyInfoModel  myInfoModelWithText:@"我的金币" iconName:@"coin_40x40" classType:[ZZMyGoldVC class ]];
         [tarray  addObject:gold];
-        
-        ZZMyInfoModel *apply = [ZZMyInfoModel  myInfoModelWithText:@"申请达人" iconName:@"talent_40x40" classType:[ZZApplyVC class ]];
-        [tarray  addObject:apply];
-        
+        if (!user.isEredar) {
+            ZZMyInfoModel *apply = [ZZMyInfoModel  myInfoModelWithText:@"申请达人" iconName:@"talent_40x40" classType:[ZZApplyVC class ]];
+            [tarray  addObject:apply];
+        }
         _rowDatas = @[farray,tarray];
     }
     return _rowDatas;

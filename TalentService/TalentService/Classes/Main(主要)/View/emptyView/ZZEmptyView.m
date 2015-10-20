@@ -36,6 +36,7 @@
 -(void)setTipTitle:(NSString *)tipTitle{
     _tipTitle = tipTitle;
     self.titleLabel.text = tipTitle;
+    self.titleLabel.textColor = [UIColor lightGrayColor];
 }
 
 -(void)willMoveToSuperview:(UIView *)newSuperview{
@@ -47,6 +48,11 @@
             self.tipTitle = @"没有相关数据";
         }
     }
+    
+}
+
+-(void)layoutSubviews{
+    [super  layoutSubviews];
     
 }
 @end

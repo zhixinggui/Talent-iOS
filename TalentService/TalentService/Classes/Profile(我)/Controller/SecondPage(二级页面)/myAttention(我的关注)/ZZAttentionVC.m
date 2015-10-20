@@ -7,6 +7,7 @@
 //
 
 #import "ZZAttentionVC.h"
+#import "ZZEmptyView.h"
 #import "ZZSegmentedControl.h"
 #import "ZZAttentionCell.h"
 #import "ZZMyInfoHttpTool.h"
@@ -14,24 +15,19 @@
 #import "MJRefresh.h"
 #import "ZZHudView.h"
 
+
 #import "ZZAttentionParam.h"
 
 
 #define numberOfpage 10
-@interface ZZAttentionVC ()<UITableViewDelegate,UITableViewDataSource,ZZSegmentedControlDelegate>
-@property (weak, nonatomic) IBOutlet UIView *empetyView;
+@interface ZZAttentionVC ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *attentionTV;
-@property(nonatomic,strong)ZZSegmentedControl *attentionSegmentedControl;
-@property(nonatomic,strong)ZZAttentionResult *attResult;
-@property(nonatomic,strong)NSMutableArray *attentionArray;
-@property(nonatomic,strong)NSMutableArray *expertArray;
-@property(nonatomic)NSUInteger segmentIndex;
+@property (nonatomic, strong)ZZAttentionResult *attResult;
+@property (nonatomic, strong)NSMutableArray *expertArray;
+@property (nonatomic, strong)ZZEmptyView *emptyView;
 @end
 
 @implementation ZZAttentionVC
-
-
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"我的关注";
@@ -46,7 +42,7 @@
     self.attentionTV.footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreService)];
     
     //头部刷新
-    [self getNetWithAttentionListWithTypeNum:0];
+    [self getNetWithAttentionListWithTypeNum:self.segmentIndex];
     //获取通知中心单例对象
     NSNotificationCenter * center = [NSNotificationCenter defaultCenter];
     //添加当前类对象为一个观察者，name和object设置为nil，表示接收一切通知
@@ -70,18 +66,12 @@
         [MBProgressHUD  hideHUDForView:self.view];
         self.attResult = attResult;
         if (self.attResult.rows.count == 0) {
-            //[MBProgressHUD showMessageClearBackView:@"你还没有关注任何朋友" toView:self.view];
-            self.empetyView.hidden = NO;
+            self.emptyView.hidden = NO;
         }else {
-            self.empetyView.hidden = YES;
+            self.emptyView.hidden = YES;
         }
-        if (typeNum) {
-            [self.expertArray removeAllObjects];
-            [self.expertArray addObjectsFromArray:self.attResult.rows];
-        }else{
-            [self.attentionArray removeAllObjects];
-            [self.attentionArray addObjectsFromArray:self.attResult.rows];
-        }
+        [self.expertArray removeAllObjects];
+        [self.expertArray addObjectsFromArray:self.attResult.rows];
         [self.attentionTV reloadData];
         ZZLog(@"数组长度:%ld",(unsigned long)self.attResult.rows.count);
     } failure:^(NSString *error, ZZNetDataType datatype) {
@@ -111,13 +101,8 @@
     [ZZMyInfoHttpTool getMyAttentionWithAttentionParam:attentionParam success:^(ZZAttentionResult *attResult, ZZNetDataType dataType) {
        [self.attentionTV.footer endRefreshing];
         self.attResult = attResult;
-        if (typeNum) {
-            [self.expertArray addObjectsFromArray:self.attResult.rows];
-        }else{
-            [self.attentionArray addObjectsFromArray:self.attResult.rows];
-        }
+        [self.expertArray addObjectsFromArray:self.attResult.rows];
         [self.attentionTV reloadData];
-        ZZLog(@"数组长度:%ld",self.attentionArray.count);
     } failure:^(NSString *error, ZZNetDataType datatype) {
         ZZLog(@"没有返回数据");
         [self.attentionTV.footer endRefreshing];
@@ -125,92 +110,37 @@
     }];
 }
 
-
-
 #pragma mark - UITableViewDatasourse
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (self.segmentIndex) {
         return self.expertArray.count;
-    }else{
-        return self.attentionArray.count;
-    }
-    
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ZZAttentionCell *cell = [tableView  dequeueReusableCellWithIdentifier:attentionCelldentifier];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    if (self.segmentIndex) {
-        cell.otherUser = self.expertArray[indexPath.row];
-    }else{
-        cell.otherUser = self.attentionArray[indexPath.row];
-    }
-    
+    cell.otherUser = self.expertArray[indexPath.row];
     ZZLog(@"数据:%@",cell.otherUser);
     return cell;
 }
 
--(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    return self.attentionSegmentedControl;
-}
--(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 40;
-}
-
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     ZZInfoDetailVC *infoDetailVc = [[ZZInfoDetailVC alloc]initWithNib];
-    if (self.segmentIndex) {
-        ZZOtherUser *otherUser = self.expertArray[indexPath.row];
-        infoDetailVc.userAttentionId = otherUser.userId;
-        infoDetailVc.isEredar = otherUser.isEredar;
-    }else{
-        ZZOtherUser *otherUser = self.attentionArray[indexPath.row];
-        infoDetailVc.userAttentionId = otherUser.userId;
-        infoDetailVc.isEredar = otherUser.isEredar;
-    }
+    ZZOtherUser *otherUser = self.expertArray[indexPath.row];
+    infoDetailVc.userAttentionId = otherUser.userId;
+    infoDetailVc.isEredar = otherUser.isEredar;
     [self.navigationController pushViewController:infoDetailVc animated:YES];
 }
 
-#pragma mark ZZSegmentedControlDelegate
-
-- (void)segmentControl:(ZZSegmentedControl *)segment andIndex:(NSUInteger)index{
-    self.segmentIndex  = index;
-    switch (index) {
-        case 0:
-        {
-            [self getNetWithAttentionListWithTypeNum:self.segmentIndex];
-        }
-            break;
-            
-        case 1:
-        {
-            [self getNetWithAttentionListWithTypeNum:self.segmentIndex];
-        }
-            break;
-    }
-}
-
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    
-}
-
 #pragma mark setter andGetter
--(ZZSegmentedControl *)attentionSegmentedControl{
-    if (!_attentionSegmentedControl) {
-        _attentionSegmentedControl = [[ZZSegmentedControl alloc]initWithItems:@[@"朋友",@"达人"]];
-        _attentionSegmentedControl.frame = CGRectMake(0, 0, ScreenWidth, 40);
-        _attentionSegmentedControl.delegate = self;
-    }
-    return _attentionSegmentedControl;
-}
 
--(NSMutableArray *)attentionArray{
-    if (!_attentionArray) {
-        _attentionArray = [NSMutableArray array];
+-(ZZEmptyView *)emptyView{
+    if (_emptyView == nil) {
+        _emptyView = [ZZEmptyView  emptyView];
+        _emptyView.tipTitle = @"没有关注别人";
+       _emptyView.frame = CGRectMake(0, 0 , ScreenWidth, ScreenHeight-44 -64);
+        [self.view  addSubview:_emptyView];
     }
-    return _attentionArray;
+    return _emptyView;
 }
 
 -(NSMutableArray *)expertArray{

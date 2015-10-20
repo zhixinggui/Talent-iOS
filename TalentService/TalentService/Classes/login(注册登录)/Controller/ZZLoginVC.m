@@ -42,7 +42,9 @@ NSTimeInterval  const timeInterval = 3;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    if ([self respondsToSelector:@selector(edgesForExtendedLayout)]) {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+    }
     [self addScrollview];
  
 

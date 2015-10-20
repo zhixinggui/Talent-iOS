@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ZZLoginVC">
@@ -20,7 +20,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UO5-lt-BbU">
-                    <rect key="frame" x="0.0" y="20" width="375" height="530"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="550"/>
                     <color key="backgroundColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                 </scrollView>
                 <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="gzv-gw-8Vj">
@@ -75,7 +75,7 @@
                 <constraint firstAttribute="centerX" secondItem="UO5-lt-BbU" secondAttribute="centerX" id="bPw-ht-q7u"/>
                 <constraint firstAttribute="bottom" secondItem="BdF-PR-zlR" secondAttribute="bottom" constant="37" id="dzf-Nm-Up7"/>
                 <constraint firstAttribute="trailing" secondItem="BdF-PR-zlR" secondAttribute="trailing" constant="30" id="ek2-4W-vTp"/>
-                <constraint firstItem="UO5-lt-BbU" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="izl-t8-J80"/>
+                <constraint firstItem="UO5-lt-BbU" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="izl-t8-J80"/>
                 <constraint firstAttribute="centerY" secondItem="UO5-lt-BbU" secondAttribute="centerY" id="k5I-bW-NyH"/>
                 <constraint firstAttribute="bottom" secondItem="OQt-js-Ddd" secondAttribute="bottom" constant="37" id="t5i-Qp-DGA"/>
                 <constraint firstItem="UO5-lt-BbU" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="zic-D8-Ops"/>
