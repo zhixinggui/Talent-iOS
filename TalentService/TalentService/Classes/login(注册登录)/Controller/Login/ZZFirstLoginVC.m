@@ -63,7 +63,7 @@
             dispatch_async(dispatch_get_main_queue(), ^{
                 for (int  i = 0; i < array.count; i++) {
                     ZZUMLoginModel *loginModel = array[i];
-                    UIButton* loginButton = [[UIButton alloc]initWithFrame:CGRectMake(i*benWidth+left*i+leftMargin, ButtonHeight, 60, 60)];
+                    UIButton* loginButton = [[UIButton alloc]initWithFrame:CGRectMake(i*benWidth+left*i+left+leftMargin, ButtonHeight, 60, 60)];
                     loginButton.exclusiveTouch = YES;
                     [loginButton setBackgroundImage:[UIImage imageNamed:loginModel.imageName] forState:UIControlStateNormal];
                     [loginButton  addTarget:self action:@selector(thirdLoginButtonAction:) forControlEvents: UIControlEventTouchUpInside];

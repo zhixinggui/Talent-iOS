@@ -42,6 +42,10 @@
 		5652D32B1B86FA2B00A3FB09 /* ZZThirdVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5652D3291B86FA2B00A3FB09 /* ZZThirdVC.m */; };
 		565CF4761BA2A60A005CC369 /* ZZCancelOrderVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 565CF4741BA2A60A005CC369 /* ZZCancelOrderVC.m */; };
 		565CF4771BA2A60A005CC369 /* ZZCancelOrderVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 565CF4751BA2A60A005CC369 /* ZZCancelOrderVC.xib */; };
+		5667C4C91BD77CF9000344DB /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5667C4C81BD77CF9000344DB /* QuartzCore.framework */; };
+		5667C4CB1BD77D0B000344DB /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5667C4CA1BD77D0B000344DB /* CoreText.framework */; };
+		5667C4CF1BD7838B000344DB /* AlipaySDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5667C4CD1BD7838B000344DB /* AlipaySDK.bundle */; settings = {ASSET_TAGS = (); }; };
+		5667C4D01BD7838B000344DB /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5667C4CE1BD7838B000344DB /* AlipaySDK.framework */; settings = {ASSET_TAGS = (); }; };
 		566A00AF1BA69A7A00128DFE /* ZZInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 566A00AD1BA69A7A00128DFE /* ZZInfoCell.m */; };
 		566A00B01BA69A7A00128DFE /* ZZInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 566A00AE1BA69A7A00128DFE /* ZZInfoCell.xib */; };
 		568D748E1BAA888000E1C4B1 /* ZZJsonInfoTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 568D748D1BAA888000E1C4B1 /* ZZJsonInfoTool.m */; };
@@ -389,6 +393,10 @@
 		565CF4731BA2A60A005CC369 /* ZZCancelOrderVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZCancelOrderVC.h; sourceTree = "<group>"; };
 		565CF4741BA2A60A005CC369 /* ZZCancelOrderVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZCancelOrderVC.m; sourceTree = "<group>"; };
 		565CF4751BA2A60A005CC369 /* ZZCancelOrderVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZZCancelOrderVC.xib; sourceTree = "<group>"; };
+		5667C4C81BD77CF9000344DB /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		5667C4CA1BD77D0B000344DB /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		5667C4CD1BD7838B000344DB /* AlipaySDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AlipaySDK.bundle; sourceTree = "<group>"; };
+		5667C4CE1BD7838B000344DB /* AlipaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlipaySDK.framework; sourceTree = "<group>"; };
 		566A00AC1BA69A7A00128DFE /* ZZInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZInfoCell.h; sourceTree = "<group>"; };
 		566A00AD1BA69A7A00128DFE /* ZZInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZInfoCell.m; sourceTree = "<group>"; };
 		566A00AE1BA69A7A00128DFE /* ZZInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZZInfoCell.xib; sourceTree = "<group>"; };
@@ -886,6 +894,8 @@
 				6E85FDA81BD72C1200B6D484 /* AVFoundation.framework in Frameworks */,
 				6E85FDF61BD7807100B6D484 /* libWeiboSDK.a in Frameworks */,
 				6E85FDA61BD72BFD00B6D484 /* AudioToolbox.framework in Frameworks */,
+				5667C4CB1BD77D0B000344DB /* CoreText.framework in Frameworks */,
+				5667C4C91BD77CF9000344DB /* QuartzCore.framework in Frameworks */,
 				6EB3CE061BB95683008BD9C0 /* ALBBRpcPlugin.framework in Frameworks */,
 				6E85FDF51BD7807100B6D484 /* libSocialSinaSSO.a in Frameworks */,
 				6E4A5CCE1B956C33003751D5 /* libz.dylib in Frameworks */,
@@ -899,6 +909,7 @@
 				6E85FDA31BD72B5E00B6D484 /* PgySDk.framework in Frameworks */,
 				6E4A5CC61B956C05003751D5 /* CoreGraphics.framework in Frameworks */,
 				6E85FDFC1BD7807100B6D484 /* libWeChatSDK.a in Frameworks */,
+				5667C4D01BD7838B000344DB /* AlipaySDK.framework in Frameworks */,
 				6E4A5CC41B956BF9003751D5 /* libiconv.dylib in Frameworks */,
 				6EB3CE0A1BB95683008BD9C0 /* UTDID.framework in Frameworks */,
 				6E85FDFB1BD7807100B6D484 /* libSocialWechat.a in Frameworks */,
@@ -932,6 +943,8 @@
 				6E85FDA91BD72C1C00B6D484 /* OpenGLES.framework */,
 				6E85FDA71BD72C1200B6D484 /* AVFoundation.framework */,
 				6E85FDA51BD72BFD00B6D484 /* AudioToolbox.framework */,
+				5667C4CA1BD77D0B000344DB /* CoreText.framework */,
+				5667C4C81BD77CF9000344DB /* QuartzCore.framework */,
 				6E4A5CCD1B956C33003751D5 /* libz.dylib */,
 				6E4A5CCB1B956C2B003751D5 /* libstdc++.dylib */,
 				6E4A5CC91B956C1E003751D5 /* CoreTelephony.framework */,
@@ -1047,6 +1060,15 @@
 				5652D32A1B86FA2B00A3FB09 /* ZZThirdVC.xib */,
 			);
 			path = Third;
+			sourceTree = "<group>";
+		};
+		5667C4CC1BD7838B000344DB /* Alipay */ = {
+			isa = PBXGroup;
+			children = (
+				5667C4CD1BD7838B000344DB /* AlipaySDK.bundle */,
+				5667C4CE1BD7838B000344DB /* AlipaySDK.framework */,
+			);
+			path = Alipay;
 			sourceTree = "<group>";
 		};
 		566A00AB1BA69A4D00128DFE /* infoCell(我的) */ = {
@@ -2493,6 +2515,7 @@
 		6E9E3EAD1B62159F0097B194 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				5667C4CC1BD7838B000344DB /* Alipay */,
 				6E85FDA01BD72B5E00B6D484 /* pgy */,
 				6EFB81761BB28AC6009AFA24 /* HCSStarRatingView */,
 				6E4A5C5E1B954D05003751D5 /* UM(友盟) */,
@@ -2833,6 +2856,7 @@
 				54D379A21BA5A8C400A61C72 /* ZZApplyVC.xib in Resources */,
 				6E7C6AE81B9DB5E200132D27 /* order_success_170x273@2x.png in Resources */,
 				6E85FDF41BD7807100B6D484 /* UMSShareListController.xib in Resources */,
+				5667C4CF1BD7838B000344DB /* AlipaySDK.bundle in Resources */,
 				56227AC91BA6E70200813C09 /* ZZTestingVC.xib in Resources */,
 				6E4C40DE1B900F5D00937CB1 /* ZZPayTypeShowView.xib in Resources */,
 				6E7F590F1BA1575D00191BC0 /* ZZFunctionCell.xib in Resources */,
@@ -3287,9 +3311,10 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/TalentService/Classes/Resources(资源)/Lib/UM(友盟)/OneSDK（多媒体）",
-					"$(PROJECT_DIR)/TalentService/Classes/Resources(资源)/Lib/UM(友盟)/UMSocial_Sdk_4.2.3(社会化分享)/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
 					"$(PROJECT_DIR)/TalentService/Classes/Resources(资源)/Lib/pgy",
 					"$(PROJECT_DIR)/TalentService/Classes/Resources(资源)/Lib/UM(友盟)/UMSocial_Sdk_4.2.5/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/TalentService/Classes/Resources(资源)/Lib/Alipay",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = TalentService/Talent.pch;
@@ -3312,10 +3337,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/TalentService/Classes/Resources(资源)/Lib/UM(友盟)/UMSocial_Sdk_4.2.3(社会化分享)/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
-					"$(PROJECT_DIR)/TalentService/Classes/Resources(资源)/Lib/UM(友盟)/UMSocial_Sdk_4.2.3(社会化分享)/UMSocial_Sdk_Extra_Frameworks/Wechat",
-					"$(PROJECT_DIR)/TalentService/Classes/Resources(资源)/Lib/UM(友盟)/UMSocial_Sdk_4.2.3(社会化分享)/UMSocial_Sdk_Extra_Frameworks/SinaSSO",
-					"$(PROJECT_DIR)/TalentService/Classes/Resources(资源)/Lib/UM(友盟)/UMSocial_Sdk_4.2.3(社会化分享)",
 					"$(PROJECT_DIR)/TalentService/Classes/Resources(资源)/Lib/UM(友盟)/UMessage_Sdk_1.2.0",
 					"$(PROJECT_DIR)/TalentService/Classes/Resources(资源)/Lib/UM(友盟)/UMSocial_Sdk_4.2.5",
 					"$(PROJECT_DIR)/TalentService/Classes/Resources(资源)/Lib/UM(友盟)/UMSocial_Sdk_4.2.5/UMSocial_Sdk_Extra_Frameworks/SinaSSO",
@@ -3357,7 +3378,7 @@
 					"-weak_framework",
 					"\"Photos\"",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.bt.yehun;
+				PRODUCT_BUNDLE_IDENTIFIER = com.SmartKids.mengbaopai;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
@@ -3378,9 +3399,10 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/TalentService/Classes/Resources(资源)/Lib/UM(友盟)/OneSDK（多媒体）",
-					"$(PROJECT_DIR)/TalentService/Classes/Resources(资源)/Lib/UM(友盟)/UMSocial_Sdk_4.2.3(社会化分享)/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
 					"$(PROJECT_DIR)/TalentService/Classes/Resources(资源)/Lib/pgy",
 					"$(PROJECT_DIR)/TalentService/Classes/Resources(资源)/Lib/UM(友盟)/UMSocial_Sdk_4.2.5/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/TalentService/Classes/Resources(资源)/Lib/Alipay",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = TalentService/Talent.pch;
@@ -3447,7 +3469,7 @@
 					"-weak_framework",
 					"\"Photos\"",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.bt.yehun;
+				PRODUCT_BUNDLE_IDENTIFIER = com.SmartKids.mengbaopai;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";

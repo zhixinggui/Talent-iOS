@@ -101,6 +101,8 @@
 
 -(void)application:(UIApplication *)application didReceiveRemoteNotification:(nonnull NSDictionary *)userInfo{
     [ZZUMMessageTool  umMessageDidReceiveRemoteNotification:userInfo];
+    ZZLog(@"推送内容: %@",userInfo);
+    #warning -------------------应该是在这里缓存推送消息-------------------
 }
 
 -(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler{
