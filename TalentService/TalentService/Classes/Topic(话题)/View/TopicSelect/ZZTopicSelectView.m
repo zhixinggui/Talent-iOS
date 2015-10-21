@@ -12,6 +12,7 @@
 
 -(void)awakeFromNib{
     self.selecteButton.sizeFitButtonType = ZZSIzeFitButtonTypeTitleLeft;
+    self.searchBar.barStyle = UIBarStyleBlackTranslucent;
 }
 
 @end

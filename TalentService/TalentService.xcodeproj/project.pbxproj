@@ -228,6 +228,13 @@
 		6E7F59331BA1688F00191BC0 /* ZZActivityClassSelector.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E7F59321BA1688F00191BC0 /* ZZActivityClassSelector.xib */; };
 		6E7FA4631BCF820A0003FF06 /* ZZAboutAppVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7FA4611BCF820A0003FF06 /* ZZAboutAppVC.m */; };
 		6E7FA4641BCF820A0003FF06 /* ZZAboutAppVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E7FA4621BCF820A0003FF06 /* ZZAboutAppVC.xib */; };
+		6E85FDA31BD72B5E00B6D484 /* PgySDk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E85FDA11BD72B5E00B6D484 /* PgySDk.framework */; };
+		6E85FDA41BD72B5E00B6D484 /* PgyUpdate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E85FDA21BD72B5E00B6D484 /* PgyUpdate.framework */; };
+		6E85FDA61BD72BFD00B6D484 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E85FDA51BD72BFD00B6D484 /* AudioToolbox.framework */; };
+		6E85FDA81BD72C1200B6D484 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E85FDA71BD72C1200B6D484 /* AVFoundation.framework */; };
+		6E85FDAA1BD72C1C00B6D484 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E85FDA91BD72C1C00B6D484 /* OpenGLES.framework */; };
+		6E85FDAC1BD72C2D00B6D484 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E85FDAB1BD72C2D00B6D484 /* CoreMotion.framework */; };
+		6E85FDB01BD730C800B6D484 /* ZZPgyTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E85FDAF1BD730C800B6D484 /* ZZPgyTool.m */; };
 		6E87B3111B8C6052003BB6C0 /* AdScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E87B3101B8C6052003BB6C0 /* AdScrollView.m */; };
 		6E8D3A821B8C00CB006798A7 /* ZZHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8D3A811B8C00CB006798A7 /* ZZHomeViewController.m */; };
 		6E8D3A8A1B8C073E006798A7 /* ZZActivityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8D3A881B8C073E006798A7 /* ZZActivityCell.m */; };
@@ -700,6 +707,14 @@
 		6E7FA4601BCF820A0003FF06 /* ZZAboutAppVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZAboutAppVC.h; sourceTree = "<group>"; };
 		6E7FA4611BCF820A0003FF06 /* ZZAboutAppVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZAboutAppVC.m; sourceTree = "<group>"; };
 		6E7FA4621BCF820A0003FF06 /* ZZAboutAppVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZZAboutAppVC.xib; sourceTree = "<group>"; };
+		6E85FDA11BD72B5E00B6D484 /* PgySDk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PgySDk.framework; sourceTree = "<group>"; };
+		6E85FDA21BD72B5E00B6D484 /* PgyUpdate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PgyUpdate.framework; sourceTree = "<group>"; };
+		6E85FDA51BD72BFD00B6D484 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		6E85FDA71BD72C1200B6D484 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		6E85FDA91BD72C1C00B6D484 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		6E85FDAB1BD72C2D00B6D484 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		6E85FDAE1BD730C800B6D484 /* ZZPgyTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZPgyTool.h; sourceTree = "<group>"; };
+		6E85FDAF1BD730C800B6D484 /* ZZPgyTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZPgyTool.m; sourceTree = "<group>"; };
 		6E87B30F1B8C6052003BB6C0 /* AdScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdScrollView.h; sourceTree = "<group>"; };
 		6E87B3101B8C6052003BB6C0 /* AdScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdScrollView.m; sourceTree = "<group>"; };
 		6E8D3A801B8C00CB006798A7 /* ZZHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZHomeViewController.h; sourceTree = "<group>"; };
@@ -861,12 +876,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E85FDAC1BD72C2D00B6D484 /* CoreMotion.framework in Frameworks */,
+				6E85FDAA1BD72C1C00B6D484 /* OpenGLES.framework in Frameworks */,
+				6E85FDA81BD72C1200B6D484 /* AVFoundation.framework in Frameworks */,
+				6E85FDA61BD72BFD00B6D484 /* AudioToolbox.framework in Frameworks */,
 				6EB3CE061BB95683008BD9C0 /* ALBBRpcPlugin.framework in Frameworks */,
 				6EB3CE981BB9571E008BD9C0 /* TencentOpenAPI.framework in Frameworks */,
 				6EB3CE951BB9571E008BD9C0 /* libWeiboSDK.a in Frameworks */,
 				6E4A5CCE1B956C33003751D5 /* libz.dylib in Frameworks */,
 				6EB3CE9B1BB9571E008BD9C0 /* libWeChatSDK.a in Frameworks */,
 				6E4A5CCC1B956C2B003751D5 /* libstdc++.dylib in Frameworks */,
+				6E85FDA41BD72B5E00B6D484 /* PgyUpdate.framework in Frameworks */,
 				6EB3CE8B1BB9571E008BD9C0 /* libUMSocial_Sdk_4.2.3.a in Frameworks */,
 				6EB3CE9A1BB9571E008BD9C0 /* libSocialWechat.a in Frameworks */,
 				6EB3CE041BB95683008BD9C0 /* ALBBHotpatch.framework in Frameworks */,
@@ -874,6 +894,7 @@
 				6E4A5CCA1B956C1E003751D5 /* CoreTelephony.framework in Frameworks */,
 				6E4A5CC81B956C12003751D5 /* libsqlite3.dylib in Frameworks */,
 				6EB3CF081BB95DD3008BD9C0 /* libUMessage_Sdk_1.2.0.a in Frameworks */,
+				6E85FDA31BD72B5E00B6D484 /* PgySDk.framework in Frameworks */,
 				6E4A5CC61B956C05003751D5 /* CoreGraphics.framework in Frameworks */,
 				6E4A5CC41B956BF9003751D5 /* libiconv.dylib in Frameworks */,
 				6EB3CE0A1BB95683008BD9C0 /* UTDID.framework in Frameworks */,
@@ -903,6 +924,10 @@
 		36A76D2276EE76997BBE36C6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6E85FDAB1BD72C2D00B6D484 /* CoreMotion.framework */,
+				6E85FDA91BD72C1C00B6D484 /* OpenGLES.framework */,
+				6E85FDA71BD72C1200B6D484 /* AVFoundation.framework */,
+				6E85FDA51BD72BFD00B6D484 /* AudioToolbox.framework */,
 				6E4A5CCD1B956C33003751D5 /* libz.dylib */,
 				6E4A5CCB1B956C2B003751D5 /* libstdc++.dylib */,
 				6E4A5CC91B956C1E003751D5 /* CoreTelephony.framework */,
@@ -1897,6 +1922,7 @@
 		6E7F58C21BA1575D00191BC0 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				6E85FDAD1BD72E1900B6D484 /* pgy(蒲公英) */,
 				6E7845D01BBB86750071F4CE /* SdwebImageTool */,
 				6ED6B18E1BB39569002FF9C6 /* UploadImageTool */,
 				6E7F58C31BA1575D00191BC0 /* city(城市) */,
@@ -2060,6 +2086,24 @@
 				6E74088F1BA69636003241AA /* ZZSelectorView.m */,
 			);
 			path = classselector;
+			sourceTree = "<group>";
+		};
+		6E85FDA01BD72B5E00B6D484 /* pgy */ = {
+			isa = PBXGroup;
+			children = (
+				6E85FDA11BD72B5E00B6D484 /* PgySDk.framework */,
+				6E85FDA21BD72B5E00B6D484 /* PgyUpdate.framework */,
+			);
+			path = pgy;
+			sourceTree = "<group>";
+		};
+		6E85FDAD1BD72E1900B6D484 /* pgy(蒲公英) */ = {
+			isa = PBXGroup;
+			children = (
+				6E85FDAE1BD730C800B6D484 /* ZZPgyTool.h */,
+				6E85FDAF1BD730C800B6D484 /* ZZPgyTool.m */,
+			);
+			path = "pgy(蒲公英)";
 			sourceTree = "<group>";
 		};
 		6E87B30E1B8C6052003BB6C0 /* AdScrollView */ = {
@@ -2335,6 +2379,7 @@
 		6E9E3EAD1B62159F0097B194 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				6E85FDA01BD72B5E00B6D484 /* pgy */,
 				6EFB81761BB28AC6009AFA24 /* HCSStarRatingView */,
 				6E4A5C5E1B954D05003751D5 /* UM(友盟) */,
 				6E87B30E1B8C6052003BB6C0 /* AdScrollView */,
@@ -3069,6 +3114,7 @@
 				6E2B80261BA1B52A004CA827 /* ZZMyselfCellModel.m in Sources */,
 				6E7683981B8EF70900661770 /* ZZSeeOrderView.m in Sources */,
 				6E7F59051BA1575D00191BC0 /* AppDelegate.m in Sources */,
+				6E85FDB01BD730C800B6D484 /* ZZPgyTool.m in Sources */,
 				6E7669091BAFF87A001F8A32 /* ZZMoreTalentController.m in Sources */,
 				6E7F58F01BA1575D00191BC0 /* UIBarButtonItem+Extension.m in Sources */,
 				6EB3CDE91BB8EE39008BD9C0 /* ZZActivityListResult.m in Sources */,
@@ -3226,6 +3272,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/TalentService/Classes/Resources(资源)/Lib/UM(友盟)/OneSDK（多媒体）",
 					"$(PROJECT_DIR)/TalentService/Classes/Resources(资源)/Lib/UM(友盟)/UMSocial_Sdk_4.2.3(社会化分享)/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
+					"$(PROJECT_DIR)/TalentService/Classes/Resources(资源)/Lib/pgy",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = TalentService/Talent.pch;
@@ -3311,6 +3358,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/TalentService/Classes/Resources(资源)/Lib/UM(友盟)/OneSDK（多媒体）",
 					"$(PROJECT_DIR)/TalentService/Classes/Resources(资源)/Lib/UM(友盟)/UMSocial_Sdk_4.2.3(社会化分享)/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
+					"$(PROJECT_DIR)/TalentService/Classes/Resources(资源)/Lib/pgy",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = TalentService/Talent.pch;
