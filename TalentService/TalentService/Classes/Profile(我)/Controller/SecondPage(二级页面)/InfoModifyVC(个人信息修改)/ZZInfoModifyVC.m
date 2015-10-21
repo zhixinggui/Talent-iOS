@@ -179,7 +179,10 @@
     ZZLog(@"%ld",buttonIndex);
     //上传性别
     ZZLoginUser *loginUser = [ZZLoginUserTool  sharedZZLoginUserTool].loginUser;
-    if (buttonIndex == 0 || buttonIndex == 1) {
+    if (loginUser.userSex == buttonIndex+1) {
+        ZZLog(@"%ld",loginUser.userSex);
+    }else {
+        if (buttonIndex == 0 || buttonIndex == 1) {
             ZZChangeInfoParam *infoParam = [[ZZChangeInfoParam alloc]init];
             infoParam.userSex = @(buttonIndex+1);
             [MBProgressHUD showMessage:@"正在保存中..."];
@@ -190,10 +193,10 @@
                 [MBProgressHUD  hideHUD];
                 [MBProgressHUD  showError:error toView:self.view];
             }];
-    } else {
-        
+        } else {
+            
+        }
     }
-    
 }
 
 
