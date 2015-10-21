@@ -8,8 +8,12 @@
 
 #import "ZZNaviController.h"
 #import "UIBarButtonItem+Extension.h"
+#import "AFNetworkReachabilityManager.h"
+
+CGFloat const  duration = 0.75;
 @interface ZZNaviController ()<UINavigationControllerDelegate>
 @property (nonatomic, strong) id popDelegate;
+@property (nonatomic, strong) UILabel *netStatusLabel;
 @end
 
 @implementation ZZNaviController
@@ -63,9 +67,46 @@
 {
     [super viewDidLoad];
     _popDelegate = self.interactivePopGestureRecognizer.delegate;
+    
+    [[NSNotificationCenter  defaultCenter]addObserver:self selector:@selector(NetStatusChange:) name:AFNetworkingReachabilityDidChangeNotification object:nil];
     self.delegate = self;
 }
 
+- (void)NetStatusChange:(NSNotification *)noti{
+    NSDictionary *dic = noti.userInfo;
+    NSInteger cck = [dic[AFNetworkingReachabilityNotificationStatusItem]integerValue];
+    switch (cck) {
+        case 0:
+            [self netLabelShow];
+            break;
+        case 1:
+         case 2:
+            [self  netLabelDismiss];
+            break;
+        default:
+            break;
+    }
+    
+
+}
+
+- (void)netLabelShow{
+    self.netStatusLabel.text = @"没有网络，隔开了你我TA";
+    [self.view  insertSubview:self.netStatusLabel belowSubview:self.navigationBar];
+    [UIView  animateWithDuration:duration animations:^{
+         self.netStatusLabel.transform = CGAffineTransformMakeTranslation(0, self.netStatusLabel.height);
+    }];
+}
+
+- (void)netLabelDismiss{
+    self.netStatusLabel.text = @"网络通了，有了整个世界";
+    [UIView  animateWithDuration:duration delay:1.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        self.netStatusLabel.transform = CGAffineTransformIdentity;
+    } completion:^(BOOL finished) {
+        [self.netStatusLabel  removeFromSuperview];
+    }];
+  
+}
 /**
  *  重写这个方法目的：能够拦截所有push进来的控制器
  *
@@ -108,5 +149,19 @@
     }
 }
 
-
+#pragma mark - set or get
+- (UILabel *)netStatusLabel{
+    if (_netStatusLabel == nil) {
+        _netStatusLabel = [[UILabel  alloc]init];
+        _netStatusLabel.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"timeline_new_status_background"]];
+        _netStatusLabel.text = @"没有网络，隔开了你我TA";
+        _netStatusLabel.textAlignment = NSTextAlignmentCenter;
+        _netStatusLabel.textColor = [UIColor  whiteColor];
+        _netStatusLabel.width = self.view.width;
+        _netStatusLabel.height = 35;
+        _netStatusLabel.x = 0;
+        _netStatusLabel.y = 64 - _netStatusLabel.height;
+    }
+    return _netStatusLabel;
+}
 @end

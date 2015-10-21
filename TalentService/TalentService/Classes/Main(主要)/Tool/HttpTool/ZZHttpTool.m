@@ -9,23 +9,20 @@
 #import "ZZHttpTool.h"
 
 #import "AFNetworking.h"
+#import "AFNetworkActivityIndicatorManager.h"
 
 @implementation ZZHttpTool
 
-static AFHTTPRequestOperationManager  *_manager;
-
-+(void)initialize{//@"text/plain", @"text/html",
++ (void)initialize{
+    //状态栏网络标识
+      [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
     _manager = [[AFHTTPRequestOperationManager alloc]initWithBaseURL:[NSURL  URLWithString:[baseUrl  copy]]];
     AFJSONRequestSerializer *jsonRequest = [AFJSONRequestSerializer  serializer];
     _manager.requestSerializer = jsonRequest;
     _manager.requestSerializer.timeoutInterval = responseTime;
-    
-//    AFJSONResponseSerializer *response = [AFJSONResponseSerializer  serializer];
-//    response.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/plain", @"text/html",  nil];
-
+  
 }
-
-
+static AFHTTPRequestOperationManager  *_manager;
 #pragma mark - Http 请求网络数据方法
 /**
  *  ios自带的get请求方式

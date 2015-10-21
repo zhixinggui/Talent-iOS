@@ -57,12 +57,13 @@
  
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSArray*  array = [ZZUMTool  sharedUMTool].loginModels;
-        CGFloat   benWidth = 90;
-        CGFloat  left = (ScreenWidth - array.count*benWidth)/2+20;
+        CGFloat  leftMargin = 20;
+        CGFloat   benWidth = 60;
+        CGFloat  left = (ScreenWidth - 2*leftMargin - array.count*benWidth)/(array.count + 1) ;
             dispatch_async(dispatch_get_main_queue(), ^{
-                for (int  i = 0; i<array.count; i++) {
+                for (int  i = 0; i < array.count; i++) {
                     ZZUMLoginModel *loginModel = array[i];
-                    UIButton* loginButton = [[UIButton alloc]initWithFrame:CGRectMake(i*benWidth+left, ButtonHeight, 60, 60)];
+                    UIButton* loginButton = [[UIButton alloc]initWithFrame:CGRectMake(i*benWidth+left*i+leftMargin, ButtonHeight, 60, 60)];
                     loginButton.exclusiveTouch = YES;
                     [loginButton setBackgroundImage:[UIImage imageNamed:loginModel.imageName] forState:UIControlStateNormal];
                     [loginButton  addTarget:self action:@selector(thirdLoginButtonAction:) forControlEvents: UIControlEventTouchUpInside];
