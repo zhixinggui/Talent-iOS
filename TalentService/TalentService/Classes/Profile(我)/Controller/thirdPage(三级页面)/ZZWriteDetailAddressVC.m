@@ -50,11 +50,11 @@
     
     [ZZMyInfoHttpTool changeInfoWithChangeInfoParam:infoParam success:^(ZZLoginUser *infoUser, ZZNetDataType dataType) {
         [MBProgressHUD  hideHUD];
-        [MBProgressHUD  showSuccess:@"保存成功"];
+        [MBProgressHUD  showSuccess:@"保存成功" toView:self.view];
         [self.navigationController popViewControllerAnimated:YES];
     } failure:^(NSString *error, ZZNetDataType datatype) {
         [MBProgressHUD  hideHUD];
-        [MBProgressHUD  showError:error];
+        [MBProgressHUD  showError:error toView:self.view];
     }];
     
     

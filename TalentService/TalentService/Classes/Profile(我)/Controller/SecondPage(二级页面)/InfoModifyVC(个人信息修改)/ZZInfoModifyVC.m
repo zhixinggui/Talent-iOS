@@ -150,14 +150,14 @@
     infoParam.province = @(self.selectedProvince.provinceId);
     infoParam.district = @(self.selectedCounty.countyId);
     [MBProgressHUD showMessage:@"正在保存中..."];
-    
+
     [ZZMyInfoHttpTool changeInfoWithChangeInfoParam:infoParam success:^(ZZLoginUser *infoUser, ZZNetDataType dataType) {
         [MBProgressHUD  hideHUD];
-        [MBProgressHUD  showSuccess:@"保存成功"];
+        [MBProgressHUD  showSuccess:@"保存成功" toView:self.view];
 
     } failure:^(NSString *error, ZZNetDataType datatype) {
         [MBProgressHUD  hideHUD];
-        [MBProgressHUD  showError:error];
+        [MBProgressHUD  showError:error toView:self.view];
     }];
     
 }
@@ -178,16 +178,22 @@
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     ZZLog(@"%ld",buttonIndex);
     //上传性别
-    ZZChangeInfoParam *infoParam = [[ZZChangeInfoParam alloc]init];
-    infoParam.userSex = @(buttonIndex+1);
-    [MBProgressHUD showMessage:@"正在保存中..."];
-    [ZZMyInfoHttpTool changeInfoWithChangeInfoParam:infoParam success:^(ZZLoginUser *infoUser, ZZNetDataType dataType) {
-        [MBProgressHUD  hideHUD];
-        [MBProgressHUD  showSuccess:@"保存成功"];
-    } failure:^(NSString *error, ZZNetDataType datatype) {
-        [MBProgressHUD  hideHUD];
-        [MBProgressHUD  showError:error];
-    }];
+    ZZLoginUser *loginUser = [ZZLoginUserTool  sharedZZLoginUserTool].loginUser;
+    if (buttonIndex == 0 || buttonIndex == 1) {
+            ZZChangeInfoParam *infoParam = [[ZZChangeInfoParam alloc]init];
+            infoParam.userSex = @(buttonIndex+1);
+            [MBProgressHUD showMessage:@"正在保存中..."];
+            [ZZMyInfoHttpTool changeInfoWithChangeInfoParam:infoParam success:^(ZZLoginUser *infoUser, ZZNetDataType dataType) {
+                [MBProgressHUD  hideHUD];
+                [MBProgressHUD showSuccess:@"保存成功" toView:self.view];
+            } failure:^(NSString *error, ZZNetDataType datatype) {
+                [MBProgressHUD  hideHUD];
+                [MBProgressHUD  showError:error toView:self.view];
+            }];
+    } else {
+        
+    }
+    
 }
 
 
@@ -208,10 +214,10 @@
     ZZChangeInfoParam *changeInfoParam = [[ZZChangeInfoParam alloc]init];
     [ZZMyInfoHttpTool commitHeadImageWithImageArray:obj ChangeInfoParam:changeInfoParam success:^(ZZLoginUser *infoUser, ZZNetDataType dataType) {
         [MBProgressHUD  hideHUD];
-        [MBProgressHUD  showSuccess:@"保存成功"];
+        [MBProgressHUD  showSuccess:@"保存成功" toView:self.view];
     } failure:^(NSString *error, ZZNetDataType datatype) {
         [MBProgressHUD  hideHUD];
-        [MBProgressHUD  showError:error];
+        [MBProgressHUD  showError:error toView:self.view];
     }];
 }
 
@@ -229,12 +235,12 @@
         [ ZZUMMessageTool umMessageRemoveAlias];
     
         [MBProgressHUD  hideHUD];
-        [MBProgressHUD  showSuccess:@"注销成功"];
+        [MBProgressHUD  showSuccess:@"注销成功" toView:self.view];
         [[ZZLoginUserTool sharedZZLoginUserTool] save:nil];
         [self swithWindowRootControllerToLogin];
     } failure:^(NSString *error, ZZNetDataType datatype) {
         [MBProgressHUD  hideHUD];
-        [MBProgressHUD  showError:error];
+        [MBProgressHUD  showError:error toView:self.view];
     }];
     
 }
