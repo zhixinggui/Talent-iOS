@@ -23,6 +23,7 @@ typedef enum {
 
 @protocol ZZUMToolSocialDelgate <NSObject>
 
+@optional
 // 关闭当前页面之后
 - (void)didCloseUIViewController:(ZZSViewControllerType)fromViewControllerType;
 

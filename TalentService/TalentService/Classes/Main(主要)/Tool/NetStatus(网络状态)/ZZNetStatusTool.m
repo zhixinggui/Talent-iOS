@@ -30,4 +30,8 @@
     
     [netWorkManager  startMonitoring];
 }
+
++ (BOOL)isReachable{
+    return [AFNetworkReachabilityManager  sharedManager].isReachable;
+}
 @end

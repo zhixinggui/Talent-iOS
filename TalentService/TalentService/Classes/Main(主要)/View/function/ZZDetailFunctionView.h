@@ -10,6 +10,8 @@
 #import "ZZFunctionShowRule.h"
 @class ZZDetailFunctionView;
 @protocol ZZDetailFunctionViewDelegate <NSObject>
+
+@optional
 /** 分享数组选中了数组中的那个元素 */
 - (void)detailFunctionView:(ZZDetailFunctionView *)detaileFunctionView shares:(NSArray *)shares  selectedAtIndex:(NSUInteger )index;
 /** 功能数组选中了数组中的那个元素 */

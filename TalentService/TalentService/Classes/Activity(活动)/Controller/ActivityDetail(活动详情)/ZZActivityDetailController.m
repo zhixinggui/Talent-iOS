@@ -27,7 +27,7 @@ typedef enum {
     ZZActivityBottomToolBarTypeApply,//预定
     ZZActivityBottomToolBarTypeCollect//收藏
 }ZZActivityBottomToolBarType;
-@interface ZZActivityDetailController ()<ZZDetailFunctionViewDelegate,MWPhotoBrowserDelegate,UIAlertViewDelegate>
+@interface ZZActivityDetailController ()<ZZDetailFunctionViewDelegate,MWPhotoBrowserDelegate,UIAlertViewDelegate,ZZUMToolSocialDelgate>
 //当前功能按钮
 @property (nonatomic, strong)NSArray *functions;
 /**收藏模型*/
@@ -125,8 +125,10 @@ typedef enum {
     ZZActivity *activity = self.detailActivity;
     [[ZZUMTool  sharedUMTool]umShareWithTitle:activity.title content:activity.content url:@"http://mengbaopai.smart-kids.com/iosAndroid" imageUrl:activity.servicesImg locialImageName:nil controller:self loginModel:shares[index]];
 }
-
-
+#pragma mark - ZZUMToolSocialDelgate
+-(void)didFinishGetUMSocialDataInViewController:(ZZUMToolResponse)umToolResponse result:(NSString *)result{
+    [ZZHudView showMessage:result time:3 toView:self.view];
+}
 
 - (void)updateCollectButtonProterty{
     self.collectBtn.selected = self.detailActivity.isCollect;

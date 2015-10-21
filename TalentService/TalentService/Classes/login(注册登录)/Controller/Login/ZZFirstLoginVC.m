@@ -131,7 +131,7 @@
   
    [ [ZZUMTool  sharedUMTool]umThirdLoginWithController:self andUmloginModel:loginModel andSuccBack:^(NSString *usid, NSString *nick ,ZZLoginType loginType) {
        
-       [MBProgressHUD showSuccess:@"授权成功"];
+       [MBProgressHUD showSuccess:@"授权成功" toView:self.view];
        ZZLoginParam *param = [[ZZLoginParam  alloc]init];
        param.thirdType = @(loginType);
        param.openId = usid;
@@ -142,17 +142,17 @@
            
            [[ZZLoginUserTool  sharedZZLoginUserTool] save:loginUser];
             [MBProgressHUD hideHUD];
-           [MBProgressHUD  showSuccess:@"登陆成功"];
+           [MBProgressHUD  showSuccess:@"登陆成功" toView:self.view];
            [ZZUMMessageTool  umMessageAddAlias];
            [self  swithWindowRootControllerToHome];
        } failure:^(NSString *error, ZZNetDataType dataType) {
            
             [MBProgressHUD hideHUD];
-           [MBProgressHUD showError:error];
+           [MBProgressHUD showError:error toView:self.view];
        }];
    } andFailBack:^(NSString *reason) {
        
-        [MBProgressHUD showError:reason];
+        [MBProgressHUD showError:reason toView:self.view];
    
     }];
     

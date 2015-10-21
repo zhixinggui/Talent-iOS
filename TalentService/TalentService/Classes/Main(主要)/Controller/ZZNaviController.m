@@ -149,6 +149,10 @@ CGFloat const  duration = 0.75;
     }
 }
 
+
+-(void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 #pragma mark - set or get
 - (UILabel *)netStatusLabel{
     if (_netStatusLabel == nil) {

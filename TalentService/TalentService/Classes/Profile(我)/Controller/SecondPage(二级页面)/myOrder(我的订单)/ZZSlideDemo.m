@@ -52,6 +52,7 @@
         _bottmScroolView.showsVerticalScrollIndicator = NO;
         _bottmScroolView.delegate = self;
         _bottmScroolView.pagingEnabled = YES;
+        _bottmScroolView.bounces = NO;
         [self  addSubview:_bottmScroolView];
     }
     return _bottmScroolView;
@@ -65,7 +66,7 @@
 
 -(void)setConViews:(NSArray *)conViews{
     _conViews = conViews;
-    int count = conViews.count;
+    NSInteger count = conViews.count;
     CGFloat lblW = self.topScrollView.frame.size.width/count;
     CGFloat lblH = self.topScrollView.frame.size.height;
     CGFloat lblY = 0;

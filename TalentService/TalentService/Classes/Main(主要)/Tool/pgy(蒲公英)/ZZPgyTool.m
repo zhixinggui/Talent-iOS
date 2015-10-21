@@ -9,8 +9,10 @@
 #import "ZZPgyTool.h"
 #import <PgySDK/PgyManager.h>
 #import <PgyUpdate/PgyUpdateManager.h>
-
-NSString * const MengBaoPGYAppID = @"752add9af11b111092e66b55e16af7eb";
+/*boundle 为 mengbaopai*/
+NSString * const MengBaoPGYAppID = @"75ecf01e09a903debd4801d01867b112";
+/*boundle 为 bt.yun*/
+//NSString * const MengBaoPGYAppID = @"752add9af11b111092e66b55e16af7eb";
 @implementation ZZPgyTool
 
 + (void)load{
