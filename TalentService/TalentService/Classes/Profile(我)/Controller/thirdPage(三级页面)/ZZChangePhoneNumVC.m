@@ -65,11 +65,11 @@
         [MBProgressHUD showMessage:@"正在保存中..."];
         [ZZMyInfoHttpTool changeInfoWithChangeInfoParam:infoParam success:^(ZZLoginUser *infoUser, ZZNetDataType dataType) {
             [MBProgressHUD  hideHUD];
-            [MBProgressHUD  showSuccess:@"保存成功"];
+            [MBProgressHUD  showSuccess:@"保存成功" toView:self.view];
             [self.navigationController popViewControllerAnimated:YES];
         } failure:^(NSString *error, ZZNetDataType datatype) {
             [MBProgressHUD  hideHUD];
-            [MBProgressHUD  showError:error];
+            [MBProgressHUD  showError:error toView:self.view];
         }];
     
 }
@@ -83,13 +83,13 @@
     [MBProgressHUD showMessage:@"正在发送..."];
     [ZZLoadHttpTool loadGetCode:self.phoneTF.text success:^(id json, ZZNetDataType dataType) {
         [MBProgressHUD  hideHUD];
-        [MBProgressHUD  showSuccess:@"获取验证码成功"];
+        [MBProgressHUD  showSuccess:@"获取验证码成功" toView:self.view];
         
         [self.securtyTF setEnabled:YES];
         [self.securtyTF  becomeFirstResponder];
     } failure:^(NSString *error, ZZNetDataType dataType) {
         [MBProgressHUD  hideHUD];
-        [MBProgressHUD  showError:error];
+        [MBProgressHUD  showError:error toView:self.view];
     }];
 
 }

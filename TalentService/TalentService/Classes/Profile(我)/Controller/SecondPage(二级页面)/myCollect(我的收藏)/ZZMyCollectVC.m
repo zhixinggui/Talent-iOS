@@ -77,7 +77,7 @@
 #pragma mark setter andGetter
 -(ZZSegmentedControl *)collectSegmentControl{
     if (!_collectSegmentControl) {
-        _collectSegmentControl = [[ZZSegmentedControl alloc]initWithItems:@[@"服务",@"收藏"]];
+        _collectSegmentControl = [[ZZSegmentedControl alloc]initWithItems:@[@"服务",@"社区"]];
         _collectSegmentControl.delegate = self;
         _collectSegmentControl.frame = CGRectMake(0, 0, ScreenWidth, 40);
     }
