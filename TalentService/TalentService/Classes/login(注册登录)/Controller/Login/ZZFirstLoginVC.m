@@ -36,7 +36,7 @@
     self.title = @"登录";
     [self  setUpPropertys];
     [self  setUpThirdLogin];
-    
+ //
 }
 
 //设置输入框的左边距

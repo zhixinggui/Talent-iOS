@@ -36,8 +36,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *adressLabel;
 @property (weak, nonatomic) IBOutlet UILabel *sexLabel;
-/** 选择图片*/
-@property (nonatomic, strong) UUPhotoActionSheet *sheet;
+
 
 @property (nonatomic, strong) ZZCity *selectedCity;
 @property (nonatomic, strong) ZZProvince *selectedProvince;
@@ -111,7 +110,11 @@
 
 - (IBAction)gotoModifyHeadIv:(UIButton *)sender {
     ZZLog(@"改头像");
-    [self.sheet showAnimation];
+    
+    UUPhotoActionSheet *sheet= [[UUPhotoActionSheet alloc] initWithWeakSuper:self];
+    sheet.delegate = self;
+    sheet.head = YES;
+    [sheet showAnimation];
     
 }
 
@@ -258,14 +261,6 @@
 }
 */
 #pragma mark -Setters and Getters
--(UUPhotoActionSheet *)sheet{
-    if (_sheet == nil) {
-        _sheet = [[UUPhotoActionSheet alloc] initWithWeakSuper:self];
-        _sheet.delegate = self;
-        _sheet.head = YES;
-    }
-    return _sheet;
-}
 
 -(void)dealloc{
     [[NSNotificationCenter  defaultCenter]removeObserver:self ];

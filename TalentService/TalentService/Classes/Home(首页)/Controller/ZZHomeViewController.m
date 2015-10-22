@@ -34,7 +34,7 @@ static   NSUInteger const HomeNumCount = 10;
     [self setUpTableView];
     
    // [self  setUpRightBarItem];
-    
+
     [self  getNetData];
 
 }
@@ -160,6 +160,7 @@ static   NSUInteger const HomeNumCount = 10;
         [MBProgressHUD  showError:error toView:self.view];
     }];
 }
+
 #pragma mark -lazy load
 
 -(void)setResult:(ZZHomeServiceResult *)result{

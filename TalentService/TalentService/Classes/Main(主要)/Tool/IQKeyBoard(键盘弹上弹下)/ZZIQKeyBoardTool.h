@@ -14,5 +14,5 @@
 
 +(void)close;
 +(void)open;
-+(void)resignKeyBoardFirstResponder;
+
 @end

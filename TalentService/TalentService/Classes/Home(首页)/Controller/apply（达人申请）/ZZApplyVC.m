@@ -28,8 +28,6 @@ static  NSUInteger  const ImageCount = 5;
 /** 图片数量*/
 @property (weak, nonatomic) IBOutlet UILabel *imageCountLabel;
 
-/** 选择图片*/
-@property (nonatomic, strong) UUPhotoActionSheet *sheet;
 /** 真实姓名*/
 @property (weak, nonatomic) IBOutlet ZZTextField *nameTF;
 /** 身份证号*/
@@ -203,8 +201,13 @@ static  NSUInteger  const ImageCount = 5;
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.row == self.images.count ) {//添加图片
-        self.sheet.maxSelected = ImageCount - self.images.count;
-        [self.sheet showAnimation];
+        
+        UUPhotoActionSheet * sheet = [[UUPhotoActionSheet alloc] initWithWeakSuper:self];
+  
+        sheet.delegate = self;
+        sheet.maxSelected = ImageCount -self.images.count;
+        [sheet showAnimation];
+
     }else{//浏览已经添加的图片
         self.indexPath = indexPath;
         UUPhotoBrowserViewController *controller;
@@ -276,15 +279,6 @@ static  NSUInteger  const ImageCount = 5;
     }
     return _images;
 }
-
--(UUPhotoActionSheet *)sheet{
-    if (_sheet == nil) {
-        _sheet = [[UUPhotoActionSheet alloc] initWithWeakSuper:self];
-        _sheet.delegate = self;
-    }
-    return _sheet;
-}
-
 
 -(void)dealloc{
     [self.securityButton  clearButton];

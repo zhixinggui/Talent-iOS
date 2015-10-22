@@ -106,6 +106,7 @@
     [picker dismissViewControllerAnimated:YES completion:^{
     
         [self sendImageArray:@[uploadModel]];
+        [self  dismiss];
     }];
     
     
@@ -190,7 +191,7 @@
     }];
     NSUInteger type = ori ? ASSET_PHOTO_SCREEN_SIZE : ASSET_PHOTO_ASPECT_THUMBNAIL;
     [self sendImageArray:[[UUAssetManager sharedInstance] sendSelectedPhotos:type]];
-    [self cancelAnimation:NO];
+    [self dismiss];
     
 }
 
@@ -234,11 +235,11 @@
     @try {
       
         [[[[UIApplication sharedApplication].windows firstObject] rootViewController] presentViewController:viewController animated:YES completion:nil];
-         [self cancelAnimation:NO];
+         [self cancelNoRemoveAnimation:NO];
     }
     @catch (NSException *exception) {
         [[[[UIApplication sharedApplication].windows lastObject] rootViewController] presentViewController:viewController animated:YES completion:nil];
-        [self cancelAnimation:NO];
+        [self cancelNoRemoveAnimation:NO];
     }
 }
 
@@ -302,7 +303,7 @@
     NSString *name = [NSString stringWithFormat:@"发送 (%ld)张",count];
     [_btnCamera setTitle:name forState:UIControlStateNormal];
 }
-
+/**小时待  从俯视图移除*/
 - (void)cancelAnimation:(BOOL )animation{
 
     CGRect frame = _sheetView.frame;
@@ -315,11 +316,33 @@
         _sheetView.frame = frame;
         self.alpha = 0;
     } completion:^(BOOL finished) {
-        if (finished) {
-            [self  removeFromSuperview];
-        }
+      
+       [self  removeFromSuperview];
+       
     }];
  
+}
+- (void)cancelNoRemoveAnimation:(BOOL )animation{
+    
+    CGRect frame = _sheetView.frame;
+    frame.origin.y = ScreenHeight;
+    NSTimeInterval time = 0;
+    if (animation) {
+        time = .25f;
+    }
+    [UIView  animateWithDuration:time animations:^{
+        _sheetView.frame = frame;
+        self.alpha = 0;
+    } completion:^(BOOL finished) {
+        
+    
+        
+    }];
+    
+}
+
+- (void)dismiss{
+    [self  removeFromSuperview];
 }
 
 #pragma mark - Getters And Setters

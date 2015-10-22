@@ -44,8 +44,8 @@
 		565CF4771BA2A60A005CC369 /* ZZCancelOrderVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 565CF4751BA2A60A005CC369 /* ZZCancelOrderVC.xib */; };
 		5667C4C91BD77CF9000344DB /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5667C4C81BD77CF9000344DB /* QuartzCore.framework */; };
 		5667C4CB1BD77D0B000344DB /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5667C4CA1BD77D0B000344DB /* CoreText.framework */; };
-		5667C4CF1BD7838B000344DB /* AlipaySDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5667C4CD1BD7838B000344DB /* AlipaySDK.bundle */; settings = {ASSET_TAGS = (); }; };
-		5667C4D01BD7838B000344DB /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5667C4CE1BD7838B000344DB /* AlipaySDK.framework */; settings = {ASSET_TAGS = (); }; };
+		5667C4CF1BD7838B000344DB /* AlipaySDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5667C4CD1BD7838B000344DB /* AlipaySDK.bundle */; };
+		5667C4D01BD7838B000344DB /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5667C4CE1BD7838B000344DB /* AlipaySDK.framework */; };
 		566A00AF1BA69A7A00128DFE /* ZZInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 566A00AD1BA69A7A00128DFE /* ZZInfoCell.m */; };
 		566A00B01BA69A7A00128DFE /* ZZInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 566A00AE1BA69A7A00128DFE /* ZZInfoCell.xib */; };
 		568D748E1BAA888000E1C4B1 /* ZZJsonInfoTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 568D748D1BAA888000E1C4B1 /* ZZJsonInfoTool.m */; };

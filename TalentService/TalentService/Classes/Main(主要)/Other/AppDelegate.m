@@ -18,9 +18,8 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    /**
-     *  窗口初始化
-     */
+    /**窗口初始化*/
+    [[UIApplication  sharedApplication]setStatusBarHidden:NO];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
     [ZZUMMessageTool  umMessageRegisterRemoteNotificationWithOptions:launchOptions];

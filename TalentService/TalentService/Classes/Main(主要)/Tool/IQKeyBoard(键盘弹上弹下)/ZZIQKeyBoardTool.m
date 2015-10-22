@@ -25,8 +25,5 @@
     [IQKeyboardManager sharedManager].enable = YES;
   
 }
-+(void)resignKeyBoardFirstResponder{
-    [[IQKeyboardManager  sharedManager] resignFirstResponder];
-}
 
 @end

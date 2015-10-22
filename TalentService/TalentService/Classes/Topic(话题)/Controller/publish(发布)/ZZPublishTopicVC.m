@@ -33,8 +33,7 @@ static  NSUInteger  const TopicImageCount = 10;
 @property (nonatomic, strong)ZZPopMenu *popMenu;
 /** 图片数组*/
 @property (nonatomic, strong) NSMutableArray *images;
-/** 选择图片*/
-@property (nonatomic, strong) UUPhotoActionSheet *sheet;
+
 /** 选中的图片记录文字*/
 @property (nonatomic, strong) NSIndexPath *selectedIndexPath;
 /** 放大选中的坐标*/
@@ -144,10 +143,13 @@ static NSString* addCellIden = @"ZZPublishAddTopicVC";
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section) {
-        self.sheet.maxSelected = TopicImageCount - self.images.count;
-        [self.sheet  showAnimation];
+        
+        UUPhotoActionSheet *sheet= [[UUPhotoActionSheet alloc] initWithWeakSuper:self];
+        sheet.delegate = self;
+        sheet.maxSelected = TopicImageCount - self.images.count;
+        [sheet  showAnimation];
+        
     }else{
-      
         self.selectedIndexPath = indexPath;
         [self.imageCV  reloadData];
         
@@ -240,13 +242,7 @@ static NSString* addCellIden = @"ZZPublishAddTopicVC";
     return _images;
 }
 
--(UUPhotoActionSheet *)sheet{
-    if (_sheet == nil) {
-        _sheet = [[UUPhotoActionSheet alloc] initWithWeakSuper:self];
-        _sheet.delegate = self;
-    }
-    return _sheet;
-}
+
 
 -(void)setSelectedIndexPath:(NSIndexPath *)selectedIndexPath{
     if (_selectedIndexPath) {

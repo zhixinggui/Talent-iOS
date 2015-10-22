@@ -37,8 +37,8 @@ CGFloat  const  Minwidth = 20;
       view = [UIApplication  sharedApplication].keyWindow;
     }
    
-    CGSize  size = [self.text   sizeWithFont:self.font maxW:view.width - 40];
-    self.frame = CGRectMake(0, 0, 10+size.width, size.height+10);
+    CGSize  size = [self.text   sizeWithFont:self.font maxW:view.width -60];
+    self.frame = CGRectMake(0, 0, 40+size.width, size.height+20);
     self.center = CGPointMake(view.width/2, view.height/2);
     [view addSubview:self];
      self.transform = CGAffineTransformMakeScale(1.3, 1.3);
@@ -64,7 +64,7 @@ CGFloat  const  Minwidth = 20;
         self.textAlignment = NSTextAlignmentCenter;
         self.backgroundColor = [UIColor  blackColor];
         self.alpha= .7;
-        self.layer.cornerRadius = 1;
+        self.layer.cornerRadius = 3;
         self.layer.masksToBounds = YES;
         self.numberOfLines = 0;
     }

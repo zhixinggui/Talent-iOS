@@ -58,7 +58,7 @@ typedef enum {
 - (void)umThirdLoginWithController:(UIViewController*)controller andUmloginModel:(ZZUMLoginModel *)loginModel andSuccBack:(UMToolSuccCallBack)umToolSuccBack andFailBack:(UMToolFailCallBack)umToolFailBack;
 
 //分享方法
-- (void)umShareWithTitle:(NSString *)title  content:(NSString *)content url:(NSString *)url imageUrl:(NSString *)imageUrl locialImageName:(NSString *)imageName  controller:(UIViewController *)controller  loginModel:(ZZUMLoginModel *)loginModel;
+- (void)umShareWithTitle:(NSString *)title  content:(NSString *)content url:(NSString *)url imageUrl:(NSString *)imageUrl locialImageName:(NSString *)imageName  controller:(UIViewController <ZZUMToolSocialDelgate> *)controller  loginModel:(ZZUMLoginModel *)loginModel;
 
 /**
  *  退出友盟三方授权

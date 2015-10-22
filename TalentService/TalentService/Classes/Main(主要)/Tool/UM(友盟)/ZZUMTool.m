@@ -269,10 +269,11 @@ static ZZUMTool *umTool;
     });
 }
 
-- (void)umShareWithTitle:(NSString *)title  content:(NSString *)content url:(NSString *)url imageUrl:(NSString *)imageUrl locialImageName:(NSString *)imageName  controller:(UIViewController *)controller  loginModel:(ZZUMLoginModel *)loginModel{
+- (void)umShareWithTitle:(NSString *)title  content:(NSString *)content url:(NSString *)url imageUrl:(NSString *)imageUrl locialImageName:(NSString *)imageName  controller:(UIViewController <ZZUMToolSocialDelgate> *)controller  loginModel:(ZZUMLoginModel *)loginModel{
     
     ZZShareModel *shareModel = [[ZZShareModel  alloc]initWithTitle:title content:content url:url imageUrl:imageUrl imageName:imageName controller:controller];
     self.shareModel = shareModel;
+    self.delegate = controller;
     [self  setShareDefaultData:shareModel];
     
     if (loginModel) {//自定义的ui界面

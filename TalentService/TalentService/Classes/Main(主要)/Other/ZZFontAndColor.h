@@ -12,7 +12,7 @@
 //Color
 #define NatiTitleColor  [UIColor colorWithRed:51.0/255 green:51.0/255 blue:51.0/255 alpha:1.0]
 #define ZZNatiTitleColor  [UIColor whiteColor];
-#define ZZNatiBarColor  [UIColor colorWithRed:250.0/255 green:61.0/255 blue:68.0/255 alpha:1.0]
+#define ZZNatiBarColor  [UIColor colorWithRed:255.0/255 green:78.0/255 blue:114.0/255 alpha:1.0]
 
 //color
 //定义颜色

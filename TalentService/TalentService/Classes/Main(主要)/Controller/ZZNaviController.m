@@ -40,6 +40,8 @@ CGFloat const  duration = 0.75;
     textAttrs[NSForegroundColorAttributeName] = ZZNatiTitleColor;
     textAttrs[NSFontAttributeName] = ZZNaviTitleFont;
     [appearance setTitleTextAttributes:textAttrs];
+    
+   // [appearance  setTranslucent:NO];
 }
 
 /**
@@ -70,6 +72,8 @@ CGFloat const  duration = 0.75;
     
     [[NSNotificationCenter  defaultCenter]addObserver:self selector:@selector(NetStatusChange:) name:AFNetworkingReachabilityDidChangeNotification object:nil];
     self.delegate = self;
+    
+
 }
 
 - (void)NetStatusChange:(NSNotification *)noti{
@@ -96,6 +100,7 @@ CGFloat const  duration = 0.75;
     [UIView  animateWithDuration:duration animations:^{
          self.netStatusLabel.transform = CGAffineTransformMakeTranslation(0, self.netStatusLabel.height);
     }];
+   
 }
 
 - (void)netLabelDismiss{

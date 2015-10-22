@@ -47,9 +47,6 @@
 
 @property (strong, nonatomic) IBOutlet UIImageView *infoIV;
 
-
-/** 选择图片*/
-@property (nonatomic, strong) UUPhotoActionSheet *sheet;
 @property (weak, nonatomic) IBOutlet LDProgressView *progressView;
 
 @property (nonatomic, strong)NSArray *rowDatas;
@@ -189,6 +186,10 @@
     [self.navigationController pushViewController:myselfInfoTvc animated:YES];
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    [super  viewWillAppear:animated];
+}
+
 #pragma mark - UITableViewDatasourse
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -220,7 +221,11 @@
 
 - (IBAction)gotoChangeImage:(UIButton *)sender {
     ZZLog(@"换图换图");
-    [self.sheet showAnimation];
+    
+   UUPhotoActionSheet * sheet = [[UUPhotoActionSheet alloc] initWithWeakSuper:self];
+    sheet.head = YES;
+    sheet.delegate = self;
+    [sheet showAnimation];
 }
 
 - (void)actionSheetDidFinished:(NSArray *)obj {
@@ -261,14 +266,6 @@
 
 #pragma mark -Setters and Getters
 
-- (UUPhotoActionSheet *)sheet {
-    if (_sheet == nil) {
-        _sheet = [[UUPhotoActionSheet alloc] initWithWeakSuper:self];
-        _sheet.delegate = self;
-        _sheet.head = YES;
-    }
-    return _sheet;
-}
 
 
 -(NSArray *)rowDatas{
