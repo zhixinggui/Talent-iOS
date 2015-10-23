@@ -246,6 +246,7 @@
         [self swithWindowRootControllerToLogin];
     } failure:^(NSString *error, ZZNetDataType datatype) {
         [MBProgressHUD  hideHUD];
+         [self swithWindowRootControllerToLogin];
         [MBProgressHUD  showError:error toView:self.view];
     }];
     

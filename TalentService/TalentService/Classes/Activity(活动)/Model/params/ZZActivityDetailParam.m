@@ -11,6 +11,7 @@
 @implementation ZZActivityDetailParam
 
 +(void)initialize{
+    [super initialize];
     [self referenceReplacedKeyWhenCreatingKeyValues:YES];
 }
 

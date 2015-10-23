@@ -21,6 +21,7 @@ CGFloat const  duration = 0.75;
 
 + (void)initialize
 {
+    [super initialize];
     // 设置UINavigationBarTheme的主
     [self setupNavigationBarTheme];
     // 设置UIBarButtonItem的主题

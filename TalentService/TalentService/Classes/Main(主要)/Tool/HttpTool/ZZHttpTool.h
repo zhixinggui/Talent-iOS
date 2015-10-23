@@ -8,9 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "ZZParam.h"
-
+#import "ZZBottomNetResult.h"
 #import "ZZLoginUserTool.h"
-typedef void(^SuccessBlock)(id json);
+typedef void(^SuccessBlock)(ZZBottomNetResult *json);
 typedef void(^ErrorBlock)(NSString *error, ZZNetDataType  netDataType);
 @interface ZZHttpTool : NSObject
 

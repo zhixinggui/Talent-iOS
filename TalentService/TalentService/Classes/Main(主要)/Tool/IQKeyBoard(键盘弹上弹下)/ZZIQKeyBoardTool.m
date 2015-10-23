@@ -13,6 +13,7 @@
 @end
 @implementation ZZIQKeyBoardTool
 +(void)load{
+ 
     /**shouldResignOnTouchOutside控制点击背景是否收起键盘*/
     [IQKeyboardManager sharedManager].shouldResignOnTouchOutside = YES;
 }

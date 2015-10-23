@@ -161,9 +161,6 @@
 		6E7669091BAFF87A001F8A32 /* ZZMoreTalentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7669081BAFF87A001F8A32 /* ZZMoreTalentController.m */; };
 		6E7683801B8EF70200661770 /* ZZActivityDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E76837D1B8EF70200661770 /* ZZActivityDetailController.m */; };
 		6E7683811B8EF70200661770 /* ZZEnsureOrderController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E76837F1B8EF70200661770 /* ZZEnsureOrderController.m */; };
-		6E7683961B8EF70900661770 /* ZZBaseOrderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7683851B8EF70900661770 /* ZZBaseOrderView.m */; };
-		6E7683971B8EF70900661770 /* ZZEnsureOrderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7683871B8EF70900661770 /* ZZEnsureOrderView.m */; };
-		6E7683981B8EF70900661770 /* ZZSeeOrderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7683891B8EF70900661770 /* ZZSeeOrderView.m */; };
 		6E7683991B8EF70900661770 /* ZZActivityBottomToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E76838B1B8EF70900661770 /* ZZActivityBottomToolBar.m */; };
 		6E76839A1B8EF70900661770 /* ZZDetailImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E76838D1B8EF70900661770 /* ZZDetailImageView.m */; };
 		6E76839B1B8EF70900661770 /* ZZDetailRuleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E76838F1B8EF70900661770 /* ZZDetailRuleView.m */; };
@@ -272,6 +269,8 @@
 		6E9756E31BD661920002F46A /* ZZTopicSelectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9756E21BD661920002F46A /* ZZTopicSelectView.m */; };
 		6E9756E51BD661A50002F46A /* ZZTopicSelectView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E9756E41BD661A50002F46A /* ZZTopicSelectView.xib */; };
 		6E9B526C1BA7B2140078EC96 /* ZZHudView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9B526A1BA7B2140078EC96 /* ZZHudView.m */; };
+		6E9B7E0B1BDA020F00195B82 /* ZZBottomNetResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9B7E0A1BDA020F00195B82 /* ZZBottomNetResult.m */; };
+		6E9B7E0E1BDA07A500195B82 /* ZZBottomNetError.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9B7E0D1BDA07A500195B82 /* ZZBottomNetError.m */; };
 		6E9CD1551B9401A200DA3F60 /* ZZAddImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9CD1531B9401A200DA3F60 /* ZZAddImageCell.m */; };
 		6E9CD1561B9401A200DA3F60 /* ZZAddImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E9CD1541B9401A200DA3F60 /* ZZAddImageCell.xib */; };
 		6E9E3E6B1B620C860097B194 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9E3E6A1B620C860097B194 /* main.m */; };
@@ -581,12 +580,6 @@
 		6E76837D1B8EF70200661770 /* ZZActivityDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZActivityDetailController.m; sourceTree = "<group>"; };
 		6E76837E1B8EF70200661770 /* ZZEnsureOrderController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZEnsureOrderController.h; sourceTree = "<group>"; };
 		6E76837F1B8EF70200661770 /* ZZEnsureOrderController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZEnsureOrderController.m; sourceTree = "<group>"; };
-		6E7683841B8EF70900661770 /* ZZBaseOrderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZBaseOrderView.h; sourceTree = "<group>"; };
-		6E7683851B8EF70900661770 /* ZZBaseOrderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZBaseOrderView.m; sourceTree = "<group>"; };
-		6E7683861B8EF70900661770 /* ZZEnsureOrderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZEnsureOrderView.h; sourceTree = "<group>"; };
-		6E7683871B8EF70900661770 /* ZZEnsureOrderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZEnsureOrderView.m; sourceTree = "<group>"; };
-		6E7683881B8EF70900661770 /* ZZSeeOrderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZSeeOrderView.h; sourceTree = "<group>"; };
-		6E7683891B8EF70900661770 /* ZZSeeOrderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZSeeOrderView.m; sourceTree = "<group>"; };
 		6E76838A1B8EF70900661770 /* ZZActivityBottomToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZActivityBottomToolBar.h; sourceTree = "<group>"; };
 		6E76838B1B8EF70900661770 /* ZZActivityBottomToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZActivityBottomToolBar.m; sourceTree = "<group>"; };
 		6E76838C1B8EF70900661770 /* ZZDetailImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZDetailImageView.h; sourceTree = "<group>"; };
@@ -795,6 +788,10 @@
 		6E9756E41BD661A50002F46A /* ZZTopicSelectView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZZTopicSelectView.xib; sourceTree = "<group>"; };
 		6E9B526A1BA7B2140078EC96 /* ZZHudView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZHudView.m; sourceTree = "<group>"; };
 		6E9B526B1BA7B2140078EC96 /* ZZHudView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZHudView.h; sourceTree = "<group>"; };
+		6E9B7E091BDA020F00195B82 /* ZZBottomNetResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZBottomNetResult.h; sourceTree = "<group>"; };
+		6E9B7E0A1BDA020F00195B82 /* ZZBottomNetResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZBottomNetResult.m; sourceTree = "<group>"; };
+		6E9B7E0C1BDA07A500195B82 /* ZZBottomNetError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZBottomNetError.h; sourceTree = "<group>"; };
+		6E9B7E0D1BDA07A500195B82 /* ZZBottomNetError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZBottomNetError.m; sourceTree = "<group>"; };
 		6E9CD1521B9401A200DA3F60 /* ZZAddImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZAddImageCell.h; sourceTree = "<group>"; };
 		6E9CD1531B9401A200DA3F60 /* ZZAddImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZAddImageCell.m; sourceTree = "<group>"; };
 		6E9CD1541B9401A200DA3F60 /* ZZAddImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZZAddImageCell.xib; sourceTree = "<group>"; };
@@ -1694,12 +1691,6 @@
 		6E7683831B8EF70900661770 /* order */ = {
 			isa = PBXGroup;
 			children = (
-				6E7683841B8EF70900661770 /* ZZBaseOrderView.h */,
-				6E7683851B8EF70900661770 /* ZZBaseOrderView.m */,
-				6E7683861B8EF70900661770 /* ZZEnsureOrderView.h */,
-				6E7683871B8EF70900661770 /* ZZEnsureOrderView.m */,
-				6E7683881B8EF70900661770 /* ZZSeeOrderView.h */,
-				6E7683891B8EF70900661770 /* ZZSeeOrderView.m */,
 				6EB3CDE11BB8DCF3008BD9C0 /* ZZOrderTopView.h */,
 				6EB3CDE21BB8DCF3008BD9C0 /* ZZOrderTopView.m */,
 				6EB3CDE41BB8DD18008BD9C0 /* ZZOrderTopView.xib */,
@@ -1900,6 +1891,10 @@
 			isa = PBXGroup;
 			children = (
 				56D8B84B1BAFE55700E7A4E9 /* result */,
+				6E9B7E091BDA020F00195B82 /* ZZBottomNetResult.h */,
+				6E9B7E0A1BDA020F00195B82 /* ZZBottomNetResult.m */,
+				6E9B7E0C1BDA07A500195B82 /* ZZBottomNetError.h */,
+				6E9B7E0D1BDA07A500195B82 /* ZZBottomNetError.m */,
 			);
 			path = HttpParam;
 			sourceTree = "<group>";
@@ -3005,7 +3000,6 @@
 				6E2B80271BA1B52A004CA827 /* ZZAttentionCell.m in Sources */,
 				6EA1088A1B8D819100F4215A /* ZZTopMenuView.m in Sources */,
 				6EA108811B8D537000F4215A /* ZZSuperCell.m in Sources */,
-				6E7683961B8EF70900661770 /* ZZBaseOrderView.m in Sources */,
 				6E7EF3BA1BB3F69400DC11FF /* ZZMyInfoModel.m in Sources */,
 				6E7F59091BA1575D00191BC0 /* ZZIQKeyBoardTool.m in Sources */,
 				6E7F58ED1BA1575D00191BC0 /* MBProgressHUD+MJ.m in Sources */,
@@ -3067,6 +3061,7 @@
 				6E2B80251BA1B52A004CA827 /* ZZCommunityCellModel.m in Sources */,
 				6E7F59041BA1575D00191BC0 /* ZZUMLoginModel.m in Sources */,
 				6E6695B11BAA891000EDFE94 /* ZZHomeServiceResult.m in Sources */,
+				6E9B7E0B1BDA020F00195B82 /* ZZBottomNetResult.m in Sources */,
 				6E4C40D11B8FF96700937CB1 /* ZZSelectPayTypeVC.m in Sources */,
 				6E7F58F21BA1575D00191BC0 /* UIImage+Extension.m in Sources */,
 				6E7F59101BA1575D00191BC0 /* ZZLayerButton.m in Sources */,
@@ -3120,6 +3115,7 @@
 				56C651FF1BB27114009890B4 /* ZZMyOrderTVC.m in Sources */,
 				56227ABE1BA6B96100813C09 /* ZZCollectActivityTVC.m in Sources */,
 				6EB3CDED1BB91705008BD9C0 /* ZZEmptyView.m in Sources */,
+				6E9B7E0E1BDA07A500195B82 /* ZZBottomNetError.m in Sources */,
 				6E7F58F41BA1575D00191BC0 /* UILabel+Extension.m in Sources */,
 				6E7F59271BA1668A00191BC0 /* ZZActivityCity.m in Sources */,
 				6EE0D0C61B69F2F700DC80AC /* UUPhotoConst.m in Sources */,
@@ -3152,7 +3148,6 @@
 				6E7F59061BA1575D00191BC0 /* ZZConst.m in Sources */,
 				6E2B80311BA1B52A004CA827 /* ZZJoinOrderCell.m in Sources */,
 				6E2B80261BA1B52A004CA827 /* ZZMyselfCellModel.m in Sources */,
-				6E7683981B8EF70900661770 /* ZZSeeOrderView.m in Sources */,
 				6E7F59051BA1575D00191BC0 /* AppDelegate.m in Sources */,
 				6E85FDB01BD730C800B6D484 /* ZZPgyTool.m in Sources */,
 				6E7669091BAFF87A001F8A32 /* ZZMoreTalentController.m in Sources */,
@@ -3162,7 +3157,6 @@
 				6E3CF9401BCDE62D00764ECD /* ZZUMMessageTool.m in Sources */,
 				6E64635C1BD362280087078B /* ZZPublishTopicVC.m in Sources */,
 				6E87B3111B8C6052003BB6C0 /* AdScrollView.m in Sources */,
-				6E7683971B8EF70900661770 /* ZZEnsureOrderView.m in Sources */,
 				6E9756E31BD661920002F46A /* ZZTopicSelectView.m in Sources */,
 				56F7345D1BBA5CD8000E69AB /* ZZCollectParam.m in Sources */,
 				6E38A4151BA666DC008B0C8D /* ZZHeadImageView.m in Sources */,

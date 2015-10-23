@@ -7,7 +7,7 @@
 //
 
 #import "ZZEnsureOrderController.h"
-#import "ZZEnsureOrderView.h"
+#import "ZZOrderInfoShowView.h"
 #import "ZZSelectPayTypeVC.h"
 #import "ZZOrderTopView.h"
 #import "ZZOrderTopView.h"
@@ -18,7 +18,8 @@
 
 #import "ZZLoginUserTool.h"
 #import "ZZChangePhoneNumVC.h"
-
+#define space  100
+#define edge  30
 @interface ZZEnsureOrderController ()
 @property (nonatomic) CGFloat  toalheight;
 @property (nonatomic, strong) ZZOrderInfoShowView *phoneShowView;

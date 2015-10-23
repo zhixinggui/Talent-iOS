@@ -14,7 +14,7 @@
 #import "ZZUMTool.h"
 #import "ZZLoginUserTool.h"
 #import "ZZUMMessageTool.h"
-
+#import "ZZUploadImageTool.h"
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
@@ -28,6 +28,8 @@
     }else{
         [self  swithWindowRootViewController:ZZRootViewControllerTypeLogin];
     }
+    //初始化
+    [ZZUploadImageTool  InitSdk];
     [self.window makeKeyAndVisible];
     
     return YES;

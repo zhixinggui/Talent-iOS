@@ -7,7 +7,7 @@
 //
 
 #import "ZZSeeOrderVC.h"
-#import "ZZSeeOrderView.h"
+#import "ZZOrderInfoShowView.h"
 #import "ZZCancelOrderVC.h"
 #import "ZZActivityHttpTool.h"
 #import "ZZOrderTopView.h"
@@ -17,8 +17,9 @@
 #import "ZZSelectPayTypeVC.h"
 
 #import "ZZLoginUserTool.h"
-
-@interface ZZSeeOrderVC ()<ZZBaseOrderViewDelegate,UIAlertViewDelegate>
+#define space  100
+#define edge  30
+@interface ZZSeeOrderVC ()<UIAlertViewDelegate>
 @property (nonatomic, strong)UIScrollView *scroView;
 @property (nonatomic) CGFloat  toalheight;
 

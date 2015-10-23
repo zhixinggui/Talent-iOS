@@ -10,6 +10,7 @@
 #import "AFNetworkReachabilityManager.h"
 @implementation ZZNetStatusTool
 +(void)load{
+ 
    //一定要开始检测
     AFNetworkReachabilityManager *netWorkManager = [AFNetworkReachabilityManager sharedManager];
     [netWorkManager setReachabilityStatusChangeBlock :^ (AFNetworkReachabilityStatus status) {

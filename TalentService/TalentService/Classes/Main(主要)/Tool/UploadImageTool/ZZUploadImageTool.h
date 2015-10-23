@@ -14,6 +14,9 @@ typedef void (^ZZUploadSuccess)( NSUInteger  succCount);
 /**失败block*/
 typedef void (^ZZUploadFailure)( NSUInteger  failCount);
 @interface ZZUploadImageTool : NSObject
+
++ (void)InitSdk;
+
 +(instancetype)sharedTool;
 
 /**上传图片方法*/

@@ -14,6 +14,7 @@
 @implementation ZZHttpTool
 
 + (void)initialize{
+    [super initialize];
     //状态栏网络标识
       [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
     _manager = [[AFHTTPRequestOperationManager alloc]initWithBaseURL:[NSURL  URLWithString:[baseUrl  copy]]];
@@ -153,17 +154,31 @@ static AFHTTPRequestOperationManager  *_manager;
                failure:(ErrorBlock)Failure{
     
     [_manager POST:apiName parameters:[param  keyValues] success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        
-     
         ZZLog(@"JSON: %@", responseObject);
+        ZZBottomNetResult *result = [ZZBottomNetResult objectWithKeyValues:responseObject];
         
-        [self  managerOriginJsonData:responseObject serverSuccess:^(id json) {
+        if (result.error || result.statusCode != 200) {
+            [self  judgeTokenIsInvalid:result];
+            NSString *errorInfo = result.error.errorInfo.length ? result.error.errorInfo : @"服务器闹情绪了";
+            ZZNetDataType dataType = result.error ? ZZNetDataTypeFailNet : ZZNetDataTypeFailServer;
+             Failure(errorInfo,dataType);
+        }else{
+//            if (result.statusCode == 200) {
+                Success(result);
+//            }else{
+//                 Failure(result.error.errorInfo,ZZNetDataTypeFailServer);
+//            }
             
-            Success(json);
-        } serverFail:^(NSString *error, ZZNetDataType dataType) {
-            
-            Failure (error,dataType);
-        }];
+        }
+//        ZZLog(@"JSON: %@", responseObject);
+//        
+//        [self  managerOriginJsonData:responseObject serverSuccess:^(id json) {
+//            
+//            Success(json);
+//        } serverFail:^(NSString *error, ZZNetDataType dataType) {
+//            
+//            Failure (error,dataType);
+//        }];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
         ZZLog(@"Error: %@", error);
@@ -229,6 +244,19 @@ static AFHTTPRequestOperationManager  *_manager;
 //    }];
 }
 
++ (void)judgeTokenIsInvalid:(ZZBottomNetResult *)result{
+    if ((result.error.errorCode == ZZBottomErrorCodeTokenInvalid) || (result.error.errorCode == ZZBottomErrorCodeNoLogin)) {
+        NSString *errorStr = result.error.errorInfo;
+        if (errorStr.length) {
+            
+        }else{
+            errorStr = @"让服务器休息下";
+        }
+        //发出通知
+        NSNotification *noti = [NSNotification  notificationWithName:ZZTokenIsNoActive object:nil userInfo:@{ZZTokenIsNoActiveError:errorStr}];
+        [[NSNotificationCenter defaultCenter]postNotification:noti];
+    }
+}
 
 /**
  *  业务逻辑（数据库）状态判断

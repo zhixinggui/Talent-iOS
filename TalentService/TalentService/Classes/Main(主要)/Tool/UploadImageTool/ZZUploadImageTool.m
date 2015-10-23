@@ -51,7 +51,8 @@ static id <ALBBMediaServiceProtocol> staticTaeFileEngine;
 }
 #pragma mark -init
 /**初始化*/
-+(void)initialize{
++(void)InitSdk{
+
     [[TaeSDK sharedInstance] setDebugLogOpen:NO];
     [[TaeSDK sharedInstance] asyncInit];
 }
@@ -68,8 +69,14 @@ static id <ALBBMediaServiceProtocol> staticTaeFileEngine;
 /**上传图片*/
 - (NSString *)uploadByData:(NSData *)data notification:(TFEUploadNotification *)notification {
     
-    TFEUploadPolicy *policy = [TFEUploadPolicy policyWithANamespace:ZZ_NAMESPACE fileName:ZZ_UUID dir:ZZ_DIR];
-    TFEUploadParameters *parms = [TFEUploadParameters paramsWithData:data policy:policy];
+//    TFEUploadPolicy *policy = [TFEUploadPolicy policyWithANamespace:ZZ_NAMESPACE fileName:ZZ_UUID dir:ZZ_DIR];
+//    TFEUploadParameters *parms = [TFEUploadParameters paramsWithData:data policy:policy];
+//     [TFEUploadParameters  paramsWithData:data space:ZZ_NAMESPACE fileName:ZZ_UUID dir:<#(NSString *)#>]
+    TFEUploadParameters *parms = [TFEUploadParameters
+                                   paramsWithData:data
+                                   space:ZZ_NAMESPACE
+                                   fileName:ZZ_UUID
+                                   dir:ZZ_DIR];
     parms.customPolicies =  @{@"returnBody":@{@"w":@"${width}",@"h":@"${height}"}};
     return [ZZ_ENGINE upload:parms notification:notification];
     
@@ -117,7 +124,6 @@ static id <ALBBMediaServiceProtocol> staticTaeFileEngine;
                 self.success(self.successArray.count);
                 [self  clearRecord];
             }
-
         }
         
     }else{

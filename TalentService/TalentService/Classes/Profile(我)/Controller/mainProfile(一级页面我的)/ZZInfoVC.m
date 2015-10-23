@@ -230,14 +230,14 @@
 
 - (void)actionSheetDidFinished:(NSArray *)obj {
 
-    [MBProgressHUD showMessage:@"正在保存中..."];
+    [MBProgressHUD showMessage:@"正在保存中..."  toView:self.view];
     [ZZMyInfoHttpTool commitBackgroundImageWithImageArray:obj success:^(ZZLoginUser *infoUser, ZZNetDataType dataType) {
-        [MBProgressHUD  hideHUD];
+        [MBProgressHUD  hideHUDForView:self.view animated:YES];
         [MBProgressHUD  showSuccess:@"保存成功" toView:self.view];
         ZZUploadImageModel *imageModel = obj[0];
         self.infoIV.image = imageModel.image;
     } failure:^(NSString *error, ZZNetDataType datatype) {
-        [MBProgressHUD  hideHUD];
+        [MBProgressHUD  hideHUDForView:self.view animated:YES];
         [MBProgressHUD  showError:error toView:self.view];
     }];
 }

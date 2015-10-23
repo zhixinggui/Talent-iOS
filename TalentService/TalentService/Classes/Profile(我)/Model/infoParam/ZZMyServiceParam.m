@@ -10,6 +10,7 @@
 
 @implementation ZZMyServiceParam
 +(void)initialize{
+    [super initialize];
     [self referenceReplacedKeyWhenCreatingKeyValues:YES];
 }
 

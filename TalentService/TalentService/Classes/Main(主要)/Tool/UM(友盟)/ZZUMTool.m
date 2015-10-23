@@ -72,6 +72,7 @@ NSString * const SinaUrl = @"https://api.weibo.com/oauth2/default.html";//
 #pragma mark  -init
 /** 应用启动就设置*/
 +(void)initialize{
+    [super initialize];
     //设置友盟分享sdkappkey
     [UMSocialData setAppKey:UMSocialAppKey];
     

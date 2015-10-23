@@ -86,8 +86,8 @@ NSUInteger const DeviceType =1;
     ZZParam *param = [[ZZParam alloc]init];
     param.cmd = @"smart/login";
     param.parameters = [loginParam keyValues];
-    [ZZHttpTool  afPostByApiName:@"" Params:param success:^(id json) {
-        ZZLoginUser *user = [ZZLoginUser  objectWithKeyValues:json];
+    [ZZHttpTool  afPostByApiName:@"" Params:param success:^(ZZBottomNetResult *json) {
+        ZZLoginUser *user = [ZZLoginUser  objectWithKeyValues:json.response];
         success(user,ZZNetDataTypeSuccServer);
     } failure:^(NSString *error, ZZNetDataType  netDataType) {
         

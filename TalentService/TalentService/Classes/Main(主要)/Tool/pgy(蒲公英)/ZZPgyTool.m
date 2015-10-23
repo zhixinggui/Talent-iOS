@@ -16,7 +16,7 @@ NSString * const MengBaoPGYAppID = @"75ecf01e09a903debd4801d01867b112";
 @implementation ZZPgyTool
 
 + (void)load{
-    
+   
 #pragma mark - crash收集
     /*
      自定义用户反馈激活方式(默认为摇一摇)：
