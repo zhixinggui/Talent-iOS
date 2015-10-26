@@ -15,6 +15,7 @@
 #import "ZZLoginUserTool.h"
 #import "ZZUMMessageTool.h"
 #import "ZZUploadImageTool.h"
+#import <AlipaySDK/AlipaySDK.h>
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
@@ -83,6 +84,10 @@
   sourceApplication:(NSString *)sourceApplication
          annotation:(id)annotation
 {
+    //跳转支付宝钱包进行支付，处理支付结果
+    [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {
+        NSLog(@"支付宝result = %@",resultDic);
+    }];
      return  [ZZUMTool  umSocialHandleOpenURL:url];
 }
 
@@ -117,6 +122,7 @@
     ZZLog(@"Failed to get token, error:%@", error_str);
     
 }
+
 
 
 @end

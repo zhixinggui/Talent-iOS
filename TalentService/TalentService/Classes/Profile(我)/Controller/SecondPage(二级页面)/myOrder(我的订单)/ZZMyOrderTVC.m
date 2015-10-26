@@ -16,7 +16,7 @@
 #import "MJRefresh.h"
 #import "ZZHudView.h"
 #import "ZZEmptyView.h"
-#import "ZZSelectPayTypeVC.h"
+#import "ZZOrderPayTypeTVC.h"
 #import "ZZActivityHttpTool.h"
 
 #import "ZZOrderParam.h"
@@ -167,8 +167,8 @@
 
 //立即支付
 - (void)nowPay:(ZZOrder *)order{
-    ZZSelectPayTypeVC *selectPay = [[ZZSelectPayTypeVC  alloc]init];
-    [self.myOrderVcDelegate.navigationController  pushViewController:selectPay animated:YES];
+    ZZOrderPayTypeTVC *orderPay = [[ZZOrderPayTypeTVC  alloc]initWithNib];
+    [self.myOrderVcDelegate.navigationController  pushViewController:orderPay animated:YES];
 }
 //立即评价
 - (void)nowEvaluation:(ZZOrder *)order{
@@ -186,26 +186,22 @@
     self.cancelOrder = order;
     UIAlertView *alertView = [[UIAlertView  alloc]initWithTitle:nil message:@"你确定要取消订单吗？" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
     [alertView show];
-    
-    
 }
 
 #pragma mark - UIAlertViewDelegate
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     if (buttonIndex) {
-        [MBProgressHUD  showMessage:ZZNetLoading ];
+        [MBProgressHUD  showMessage:ZZNetLoading toView:self.view ];
         [ZZActivityHttpTool  activityCancellOrder:self.cancelOrder.orderCode success:^(id json, ZZNetDataType netDataType) {
             
-            [MBProgressHUD hideHUD];
+            [MBProgressHUD hideHUDForView:self.view];
             [ZZHudView  showMessage:@"取消成功" time:3 toView:self.view];
             self.cancelOrder.status = ZZOrderStatusCancel ;
             
         } failure:^(NSString *error, ZZNetDataType netDataType) {
-            [MBProgressHUD hideHUD];
+            [MBProgressHUD hideHUDForView:self.view];
             [ZZHudView  showMessage:error time:5 toView:self.view];
         }];
-    }else {
-        
     }
 }
 

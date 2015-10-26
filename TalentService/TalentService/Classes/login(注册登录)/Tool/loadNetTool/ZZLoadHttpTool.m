@@ -23,9 +23,9 @@ NSUInteger const DeviceType =1;
     param.cmd = @"smart/register";
     param.parameters = [resignParam keyValues];
     
-    [ZZHttpTool  afPostByApiName:@"" Params:param success:^(id json) {
+    [ZZHttpTool  afPostByApiName:@"" Params:param success:^(ZZBottomNetResult *json) {
         //判断请求是成功还是失败
-        ZZLoginUser *user = [ZZLoginUser  objectWithKeyValues:json];
+        ZZLoginUser *user = [ZZLoginUser  objectWithKeyValues:json.response.data];
             success(user,ZZNetDataTypeSuccServer);
     } failure:^(NSString *error, ZZNetDataType  netDataType) {
         
@@ -87,10 +87,10 @@ NSUInteger const DeviceType =1;
     param.cmd = @"smart/login";
     param.parameters = [loginParam keyValues];
     [ZZHttpTool  afPostByApiName:@"" Params:param success:^(ZZBottomNetResult *json) {
-        ZZLoginUser *user = [ZZLoginUser  objectWithKeyValues:json.response];
+        ZZLoginUser *user = [ZZLoginUser  objectWithKeyValues:json.response.data];
+        
         success(user,ZZNetDataTypeSuccServer);
     } failure:^(NSString *error, ZZNetDataType  netDataType) {
-        
         failure(error,netDataType);
     }];
 }
@@ -101,9 +101,9 @@ NSUInteger const DeviceType =1;
     param.cmd = @"smart/getRegisterSecurityCode";
     param.parameters = @{@"loginAccount":loginAccount};
     
-    [ZZHttpTool  afPostByApiName:@"" Params:param success:^(id json) {
+    [ZZHttpTool  afPostByApiName:@"" Params:param success:^(ZZBottomNetResult *json) {
         
-        success(json,ZZNetDataTypeSuccServer);
+        success(json.response.data,ZZNetDataTypeSuccServer);
     } failure:^(NSString *error, ZZNetDataType  netDataType) {
         
         failure(error,netDataType);
@@ -121,9 +121,9 @@ NSUInteger const DeviceType =1;
     ZZParam *param = [[ZZParam alloc]init];
     param.cmd = @"smart/registerNext";
     param.parameters = @{@"loginAccount":loginAccount,@"securityCode":securityCode};
-    [ZZHttpTool  afPostByApiName:@"" Params:param success:^(id json) {
+    [ZZHttpTool  afPostByApiName:@"" Params:param success:^(ZZBottomNetResult *json) {
         
-        success(json,ZZNetDataTypeSuccServer);
+        success(json.response.data,ZZNetDataTypeSuccServer);
     } failure:^(NSString *error, ZZNetDataType  netDataType) {
         
         failure(error,netDataType);
@@ -142,9 +142,9 @@ NSUInteger const DeviceType =1;
     param.cmd = @"smart/forgetPWD";
     param.parameters = @{@"loginAccount":loginAccount,@"loginPassword":loginPassword};
     
-    [ZZHttpTool  afPostByApiName:@"" Params:param success:^(id json) {
+    [ZZHttpTool  afPostByApiName:@"" Params:param success:^(ZZBottomNetResult *json) {
        
-        ZZLoginUser *user = [ZZLoginUser  objectWithKeyValues:json];
+        ZZLoginUser *user = [ZZLoginUser  objectWithKeyValues:json.response.data];
         success(user,ZZNetDataTypeSuccServer);
     } failure:^(NSString *error, ZZNetDataType  netDataType) {
         
@@ -158,9 +158,9 @@ NSUInteger const DeviceType =1;
     param.cmd = @"smart/getSecurityCode";
     param.parameters = @{@"loginAccount":loginAccount};
     
-    [ZZHttpTool  afPostByApiName:@"" Params:param success:^(id json) {
+    [ZZHttpTool  afPostByApiName:@"" Params:param success:^(ZZBottomNetResult *json) {
         
-        success(json,ZZNetDataTypeSuccServer);
+        success(json.response.data,ZZNetDataTypeSuccServer);
     } failure:^(NSString *error, ZZNetDataType  netDataType) {
         
         failure(error,netDataType);

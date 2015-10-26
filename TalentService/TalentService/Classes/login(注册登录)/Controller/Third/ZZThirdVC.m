@@ -39,7 +39,7 @@
     /**
      *  设置button颜色
      */
-    self.finishButton.backgroundColor = LoginButtonColor;
+    self.finishButton.backgroundColor = ZZNatiBarColor;
    [ self.securityButton  setCornerRadius:10 borderColor:ZZNatiBarColor];
     [self.securityButton  setTitleColor:[UIColor  whiteColor] forState:UIControlStateNormal];
 }

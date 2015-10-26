@@ -163,22 +163,9 @@ static AFHTTPRequestOperationManager  *_manager;
             ZZNetDataType dataType = result.error ? ZZNetDataTypeFailNet : ZZNetDataTypeFailServer;
              Failure(errorInfo,dataType);
         }else{
-//            if (result.statusCode == 200) {
-                Success(result);
-//            }else{
-//                 Failure(result.error.errorInfo,ZZNetDataTypeFailServer);
-//            }
             
+            Success(result);
         }
-//        ZZLog(@"JSON: %@", responseObject);
-//        
-//        [self  managerOriginJsonData:responseObject serverSuccess:^(id json) {
-//            
-//            Success(json);
-//        } serverFail:^(NSString *error, ZZNetDataType dataType) {
-//            
-//            Failure (error,dataType);
-//        }];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
         ZZLog(@"Error: %@", error);

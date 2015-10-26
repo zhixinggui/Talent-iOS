@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "ZZBottomNetError.h"
+#import "ZZBottomNetResponse.h"
 @interface ZZBottomNetResult : NSObject
 
 @property (nonatomic, copy)NSString *clientIp;
@@ -23,7 +24,7 @@
 /**请求的命令URL*/
 @property (nonatomic, copy)NSString *cmd;
 /**业务数据，json格式*/
-@property (nonatomic)id response;
+@property (nonatomic, strong)ZZBottomNetResponse *response;
 /**本次请求耗时（毫秒）*/
 @property (nonatomic) NSUInteger duration;
 /**服务器返回响应的时间*/

@@ -8,7 +8,8 @@
 
 #import "ZZEnsureOrderController.h"
 #import "ZZOrderInfoShowView.h"
-#import "ZZSelectPayTypeVC.h"
+//#import "ZZSelectPayTypeVC.h"
+//#import "ZZEnsureOrderView.h"
 #import "ZZOrderTopView.h"
 #import "ZZOrderTopView.h"
 #import "ZZActivityConmitParam.h"
@@ -84,6 +85,7 @@
     [self.phoneShowView  addSubview:change];
     
     UIButton *ensure = [[UIButton  alloc]initWithFrame:CGRectMake(edge,edge+self.toalheight, ScreenWidth - 2*edge, 40)];
+    ensure.uxy_acceptEventInterval = 5;
     ensure.backgroundColor = ZZNatiBarColor;
     ensure.layer.cornerRadius = 20;
     ensure.layer.masksToBounds = YES;
@@ -142,7 +144,6 @@
     } failure:^(NSString *error, ZZNetDataType netFialType) {
         [MBProgressHUD  hideHUD];
         [ZZHudView  showMessage:error time:10 toView:self.view];
-        
     }];
 }
 @end

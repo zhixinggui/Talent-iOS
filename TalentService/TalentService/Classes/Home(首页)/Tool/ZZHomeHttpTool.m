@@ -17,9 +17,9 @@
     param.cmd = @"smart/recommonedEredar";
     param.parameters = @{@"isRecommoned":@(isRecom)};
     
-    [ZZHttpTool  afPostByApiName:@"" Params:param success:^(id json) {
+    [ZZHttpTool  afPostByApiName:@"" Params:param success:^(ZZBottomNetResult *json) {
         ZZLog(@".%@",json);
-        NSArray *array = [ZZLoginUser objectArrayWithKeyValuesArray:json];
+        NSArray *array = [ZZLoginUser objectArrayWithKeyValuesArray:json.response.data];
     
         succ(array,ZZNetDataTypeSuccServer);
     } failure:^(NSString *error, ZZNetDataType netDataType) {
@@ -35,11 +35,11 @@
     param.cmd = @"smart/services/getPage";
     param.parameters = homeParam.keyValues;
     
-    [ZZHttpTool  afPostByApiName:@"" Params:param success:^(id json) {
+    [ZZHttpTool  afPostByApiName:@"" Params:param success:^(ZZBottomNetResult *json) {
           ZZLog(@",,%@",[NSThread currentThread]);
           ZZLog(@".%@",json);
           ZZLog(@",,%@",[NSThread currentThread]);
-        ZZHomeServiceResult *serviceResult = [ZZHomeServiceResult  objectWithKeyValues:json];
+        ZZHomeServiceResult *serviceResult = [ZZHomeServiceResult  objectWithKeyValues:json.response.data];
         succ (serviceResult, ZZNetDataTypeSuccLocal);
     } failure:^(NSString *error, ZZNetDataType netDataType) {
         fail (error, netDataType);
@@ -54,8 +54,8 @@
     param.parameters = applyParam.keyValues;
     param.token = [ZZLoginUserTool  sharedZZLoginUserTool].loginUser.token;
     
-    [ZZHttpTool  afPostByApiName:@"" Params:param success:^(id json) {
-        succ (json,ZZNetDataTypeSuccServer);
+    [ZZHttpTool  afPostByApiName:@"" Params:param success:^(ZZBottomNetResult *json) {
+        succ (json.response.data,ZZNetDataTypeSuccServer);
     } failure:^(NSString *error, ZZNetDataType netDataType) {
         fail(error ,netDataType);
     }];

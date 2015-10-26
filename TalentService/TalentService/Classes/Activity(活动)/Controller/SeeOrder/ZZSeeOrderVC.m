@@ -14,7 +14,7 @@
 #import "ZZOrder.h"
 #import "ZZActivity.h"
 #import "ZZHudView.h"
-#import "ZZSelectPayTypeVC.h"
+#import "ZZOrderPayTypeTVC.h"
 
 #import "ZZLoginUserTool.h"
 #define space  100
@@ -145,8 +145,8 @@
 }
 //立即支付
 - (void)nowPay{
-    ZZSelectPayTypeVC *selectPay = [[ZZSelectPayTypeVC  alloc]init];
-    [self.navigationController  pushViewController:selectPay animated:YES];
+    ZZOrderPayTypeTVC *orderPay = [[ZZOrderPayTypeTVC  alloc]initWithNib];
+    [self.navigationController  pushViewController:orderPay animated:YES];
 }
 //立即评价
 - (void)nowEvaluation{

@@ -33,7 +33,7 @@
     /**
      *  设置button颜色
      */
-    self.finishButton.backgroundColor = LoginButtonColor;
+    self.finishButton.backgroundColor = ZZNatiBarColor;
 }
 - (IBAction)doneButtonAction:(UIButton *)sender {
     if ([self.PassWordTF.text  isPassWordWithMin:ZZMiMaMinLenth max:ZZMiMaMaxLenth] == NO) {

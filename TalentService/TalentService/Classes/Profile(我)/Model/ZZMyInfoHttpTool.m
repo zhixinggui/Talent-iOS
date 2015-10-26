@@ -32,11 +32,10 @@
         [dic setValue:myCenter forKey:@"myCenter"];
     }
     infoParam.parameters = dic;
-    [ZZHttpTool afPostByApiName:@"" Params:infoParam success:^(id json) {
-        ZZLog(@"你Json:%@",json);
+    [ZZHttpTool afPostByApiName:@"" Params:infoParam success:^(ZZBottomNetResult *json) {
+        ZZLog(@"个人信息Json:%@",json.response.data);
         //解析
-        ZZOtherUser *otherUser = [ZZOtherUser objectWithKeyValues:json];
-        
+        ZZOtherUser *otherUser = [ZZOtherUser objectWithKeyValues:json.response.data];
         success(otherUser,ZZNetDataTypeSuccServer);
     } failure:^(NSString *error, ZZNetDataType netDataType) {
         failure(error,netDataType);
@@ -59,11 +58,10 @@
     
     param.parameters = [changeInfoParam keyValues];
     
-    [ZZHttpTool afPostByApiName:@"" Params:param success:^(id json) {
-        ZZLog(@"个人信息:%@",json);
+    [ZZHttpTool afPostByApiName:@"" Params:param success:^(ZZBottomNetResult *json) {
         //解析
-        [ZZJsonInfoTool parseChangeInformation:json];
-        ZZLog(@"个人信息:%@",json);
+        [ZZJsonInfoTool parseChangeInformation:json.response.data];
+        ZZLog(@"个人信息:%@",json.response.data);
         success(nil,ZZNetDataTypeSuccServer);
     } failure:^(NSString *error, ZZNetDataType netDataType) {
         failure(error,netDataType);
@@ -80,9 +78,9 @@
     param.cmd = @"smart/personal/getServiceCollect";
     param.token = [ZZLoginUserTool sharedZZLoginUserTool].loginUser.token;
     param.parameters = [collectParam keyValues];
-    [ZZHttpTool afPostByApiName:@"" Params:param success:^(id json) {
+    [ZZHttpTool afPostByApiName:@"" Params:param success:^(ZZBottomNetResult *json) {
         ZZLog(@"我的收藏:%@",json);
-        ZZHomeServiceResult *serviceResult = [ZZHomeServiceResult  objectWithKeyValues:json];
+        ZZHomeServiceResult *serviceResult = [ZZHomeServiceResult  objectWithKeyValues:json.response.data];
         success (serviceResult, ZZNetDataTypeSuccLocal);
     } failure:^(NSString *error, ZZNetDataType netDataType) {
         failure(error,netDataType);
@@ -97,9 +95,9 @@
     param.cmd = @"smart/attention/getList";
     param.token = [ZZLoginUserTool sharedZZLoginUserTool].loginUser.token;
     param.parameters = [attentionParam keyValues];
-    [ZZHttpTool afPostByApiName:@"" Params:param success:^(id json) {
+    [ZZHttpTool afPostByApiName:@"" Params:param success:^(ZZBottomNetResult *json) {
         ZZLog(@"关注列表%@",json);
-        ZZAttentionResult *attResult = [ZZAttentionResult objectWithKeyValues:json];
+        ZZAttentionResult *attResult = [ZZAttentionResult objectWithKeyValues:json.response.data];
         success(attResult,ZZNetDataTypeSuccServer);
     } failure:^(NSString *error, ZZNetDataType netDataType) {
         failure(error,netDataType);
@@ -114,9 +112,9 @@
     param.cmd = @"smart/attention/attentionUser";
     param.token = [ZZLoginUserTool sharedZZLoginUserTool].loginUser.token;
     param.parameters = @{@"userAttentionId":@(userAttentionId)};
-    [ZZHttpTool afPostByApiName:@"" Params:param success:^(id json) {
+    [ZZHttpTool afPostByApiName:@"" Params:param success:^(ZZBottomNetResult *json) {
         ZZLog(@"关注或取消:%@",json);
-        success(json,ZZNetDataTypeSuccServer);
+        success(json.response.data,ZZNetDataTypeSuccServer);
     } failure:^(NSString *error, ZZNetDataType netDataType) {
         failure(error,netDataType);
         ZZLog(@"请求失败");
@@ -130,9 +128,9 @@
     param.cmd = @"smart/order/getMyOrder";
     param.token = [ZZLoginUserTool sharedZZLoginUserTool].loginUser.token;
     param.parameters = [orderParam keyValues];
-    [ZZHttpTool afPostByApiName:@"" Params:param success:^(id json) {
+    [ZZHttpTool afPostByApiName:@"" Params:param success:^(ZZBottomNetResult *json) {
         ZZLog(@"我的订单列表:%@",json);
-        ZZOrderResult *orderResult = [ZZOrderResult objectWithKeyValues:json];
+        ZZOrderResult *orderResult = [ZZOrderResult objectWithKeyValues:json.response.data];
         success(orderResult,ZZNetDataTypeSuccServer);
     } failure:^(NSString *error, ZZNetDataType netDataType) {
         ZZLog(@"请求失败");
@@ -148,9 +146,9 @@
     param.cmd = @"smart/personal/getService";
     param.token = [ZZLoginUserTool sharedZZLoginUserTool].loginUser.token;
     param.parameters = [myServiceParam keyValues];
-    [ZZHttpTool afPostByApiName:@"" Params:param success:^(id json) {
+    [ZZHttpTool afPostByApiName:@"" Params:param success:^(ZZBottomNetResult *json) {
         ZZLog(@"我的服务:%@",json);
-        ZZHomeServiceResult *serviceResult = [ZZHomeServiceResult  objectWithKeyValues:json];
+        ZZHomeServiceResult *serviceResult = [ZZHomeServiceResult  objectWithKeyValues:json.response.data];
         success (serviceResult, ZZNetDataTypeSuccLocal);
     } failure:^(NSString *error, ZZNetDataType netDataType) {
         ZZLog(@"请求失败");
@@ -166,9 +164,9 @@
     param.cmd = @"smart/order/validateOrder";
     param.token = [ZZLoginUserTool sharedZZLoginUserTool].loginUser.token;
     param.parameters = [testOrderParam keyValues];
-    [ZZHttpTool afPostByApiName:@"" Params:param success:^(id json) {
+    [ZZHttpTool afPostByApiName:@"" Params:param success:^(ZZBottomNetResult *json) {
         ZZLog(@"验证订单:%@",json);
-        success (json, ZZNetDataTypeSuccLocal);
+        success (json.response.data, ZZNetDataTypeSuccLocal);
     } failure:^(NSString *error, ZZNetDataType netDataType) {
         ZZLog(@"请求失败");
         failure(error,netDataType);
@@ -190,10 +188,10 @@
         changeInfoParam.imgWidth = imageModel.width;
         changeInfoParam.imgHeight = imageModel.height;
         param.parameters = [changeInfoParam keyValues];
-        [ZZHttpTool afPostByApiName:@"" Params:param success:^(id json) {
+        [ZZHttpTool afPostByApiName:@"" Params:param success:^(ZZBottomNetResult *json) {
             ZZLog(@"上传成功:%@",json);
             //解析
-            [ZZJsonInfoTool parseChangeInformation:json];
+            [ZZJsonInfoTool parseChangeInformation:json.response.data];
             success (nil, ZZNetDataTypeSuccLocal);
         } failure:^(NSString *error, ZZNetDataType netDataType) {
             ZZLog(@"请求失败");
@@ -219,10 +217,10 @@
         changeInfoParam.imgWidth = imageModel.width;
         changeInfoParam.imgHeight = imageModel.height;
         param.parameters = [changeInfoParam keyValues];
-        [ZZHttpTool afPostByApiName:@"" Params:param success:^(id json) {
-            ZZLog(@"上传成功:%@",json);
+        [ZZHttpTool afPostByApiName:@"" Params:param success:^(ZZBottomNetResult *json) {
+            ZZLog(@"上传成功:%@",json.response.data);
             //解析
-            [ZZJsonInfoTool parseChangeInformation:json];
+            [ZZJsonInfoTool parseChangeInformation:json.response.data];
             success (nil, ZZNetDataTypeSuccLocal);
         } failure:^(NSString *error, ZZNetDataType netDataType) {
             ZZLog(@"请求失败");
@@ -239,8 +237,8 @@
     ZZParam *param = [[ZZParam alloc]init];
     param.cmd = @"smart/logout";
     param.token = [ZZLoginUserTool sharedZZLoginUserTool].loginUser.token;
-    [ZZHttpTool afPostByApiName:@"" Params:param success:^(id json) {
-        success(json,ZZNetDataTypeSuccLocal);
+    [ZZHttpTool afPostByApiName:@"" Params:param success:^(ZZBottomNetResult *json) {
+        success(json.response.data,ZZNetDataTypeSuccLocal);
     } failure:^(NSString *error, ZZNetDataType netDataType) {
         failure (error, netDataType);
     }];

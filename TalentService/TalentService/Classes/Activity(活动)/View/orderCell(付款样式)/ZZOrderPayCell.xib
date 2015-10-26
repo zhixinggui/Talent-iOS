@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="60" id="KGk-i7-Jjw" customClass="ZZOrderPayCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WMz-Ec-CuW">
+                        <rect key="frame" x="13" y="10" width="70" height="40"/>
+                        <color key="backgroundColor" red="0.94509803921568625" green="0.94901960784313721" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="70" id="Oy3-Ld-2Cl"/>
+                            <constraint firstAttribute="height" constant="40" id="yUB-68-9De"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="支付宝支付" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YxG-Ad-Tqp">
+                        <rect key="frame" x="91" y="10" width="85" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="85" id="YC6-EQ-M24"/>
+                            <constraint firstAttribute="height" constant="21" id="l6n-gm-yNQ"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="推荐有支付宝账号的用户使用" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7b7-eD-PJC">
+                        <rect key="frame" x="91" y="31" width="185" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="185" id="P3A-dq-tb5"/>
+                            <constraint firstAttribute="height" constant="21" id="fhJ-YP-3YW"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3SK-Db-ONn">
+                        <rect key="frame" x="284" y="20" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="20" id="BbK-yi-7cF"/>
+                            <constraint firstAttribute="height" constant="20" id="lZJ-DR-FHy"/>
+                        </constraints>
+                        <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <state key="normal" image="notselected_20x20">
+                            <color key="titleColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        </state>
+                        <state key="selected" title="其他" image="selected_20x20"/>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yaj-Qr-abM">
+                        <rect key="frame" x="0.0" y="58" width="320" height="1"/>
+                        <color key="backgroundColor" red="0.94509803921568625" green="0.94901960784313721" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="mh4-34-Lpe"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="WMz-Ec-CuW" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="5" id="3oe-lM-myV"/>
+                    <constraint firstItem="Yaj-Qr-abM" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="C0H-Kd-Q5y"/>
+                    <constraint firstItem="YxG-Ad-Tqp" firstAttribute="leading" secondItem="WMz-Ec-CuW" secondAttribute="trailing" constant="8" id="CSx-Hm-iCI"/>
+                    <constraint firstItem="3SK-Db-ONn" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="12" id="JyI-ge-Glf"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="Yaj-Qr-abM" secondAttribute="bottom" constant="-8" id="bHT-Ni-yJF"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="Yaj-Qr-abM" secondAttribute="trailing" constant="-8" id="cHP-sf-spT"/>
+                    <constraint firstItem="YxG-Ad-Tqp" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="2" id="dHF-bA-eBJ"/>
+                    <constraint firstItem="WMz-Ec-CuW" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="2" id="eDJ-Te-IFK"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="3SK-Db-ONn" secondAttribute="trailing" constant="8" id="hXf-Tj-E6U"/>
+                    <constraint firstItem="7b7-eD-PJC" firstAttribute="leading" secondItem="WMz-Ec-CuW" secondAttribute="trailing" constant="8" id="ngE-fw-M9U"/>
+                    <constraint firstItem="7b7-eD-PJC" firstAttribute="top" secondItem="YxG-Ad-Tqp" secondAttribute="bottom" id="ywc-fQ-BwX"/>
+                </constraints>
+            </tableViewCellContentView>
+            <point key="canvasLocation" x="417" y="270"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="notselected_20x20" width="20" height="20"/>
+        <image name="selected_20x20" width="20" height="20"/>
+    </resources>
+</document>

@@ -18,9 +18,9 @@
     param.cmd = @"smart/services/getPage";
     param.parameters = [listParam  keyValues];
     
-    [ZZHttpTool  afPostByApiName:@"" Params:param success:^(id json) {
+    [ZZHttpTool  afPostByApiName:@"" Params:param success:^(ZZBottomNetResult *json) {
         
-        ZZActivityListResult *listResult = [ZZActivityListResult  objectWithKeyValues:json];
+        ZZActivityListResult *listResult = [ZZActivityListResult  objectWithKeyValues:json.response.data];
         succ(listResult,ZZNetDataTypeSuccServer);
     } failure:^(NSString *error, ZZNetDataType netDataType) {
         
@@ -35,9 +35,9 @@
     param.token = ZZLoginTool.loginToken;
     param.parameters = @{@"id":@(activityID)};
     
-    [ZZHttpTool  afPostByApiName:@"" Params:param success:^(id json) {
+    [ZZHttpTool  afPostByApiName:@"" Params:param success:^(ZZBottomNetResult *json) {
         
-        ZZActivity *activity = [ZZActivity  objectWithKeyValues:json];
+        ZZActivity *activity = [ZZActivity  objectWithKeyValues:json.response.data];
         succ(activity,ZZNetDataTypeSuccServer);
     } failure:^(NSString *error, ZZNetDataType netDataType) {
         fail(error, netDataType);
@@ -51,9 +51,9 @@
     param.token = ZZLoginTool.loginToken;
     param.parameters = @{@"serviceId":@(activityID)};
     
-    [ZZHttpTool  afPostByApiName:@"" Params:param success:^(id json) {
+    [ZZHttpTool  afPostByApiName:@"" Params:param success:^(ZZBottomNetResult *json) {
         
-        ZZOrder *order = [ZZOrder objectWithKeyValues:json];
+        ZZOrder *order = [ZZOrder objectWithKeyValues:json.response.data];
         succ(order,ZZNetDataTypeSuccServer);
     } failure:^(NSString *error, ZZNetDataType netDataType) {
         fail (error,netDataType);
@@ -69,8 +69,8 @@
         NSInteger collect = isCollect ? 1:0;
         param.parameters = @{@"id":@(activityID),@"isCollect":@(collect)};
         
-        [ZZHttpTool  afPostByApiName:@"" Params:param success:^(id json) {
-            succ(json,ZZNetDataTypeSuccServer);
+        [ZZHttpTool  afPostByApiName:@"" Params:param success:^(ZZBottomNetResult *json) {
+            succ(json.response.data,ZZNetDataTypeSuccServer);
         } failure:^(NSString *error, ZZNetDataType netDataType) {
             fail(error,netDataType);
         }];
@@ -83,8 +83,8 @@
     param.token = ZZLoginTool.loginToken;
     param.parameters = [commitParam  keyValues];
     
-    [ZZHttpTool  afPostByApiName:@"" Params:param success:^(id json) {
-        ZZOrder *order = [ZZOrder  objectWithKeyValues:json];
+    [ZZHttpTool  afPostByApiName:@"" Params:param success:^(ZZBottomNetResult *json) {
+        ZZOrder *order = [ZZOrder  objectWithKeyValues:json.response.data];
         succ(order,ZZNetDataTypeSuccServer);
     } failure:^(NSString *error, ZZNetDataType netDataType) {
         fail(error,netDataType);
@@ -99,8 +99,8 @@
     param.token = ZZLoginTool.loginToken;
     param.parameters = @{@"orderCode":orderCode};
     
-    [ZZHttpTool  afPostByApiName:@"" Params:param success:^(id json) {
-        ZZOrder *order = [ZZOrder  objectWithKeyValues:json];
+    [ZZHttpTool  afPostByApiName:@"" Params:param success:^(ZZBottomNetResult *json) {
+        ZZOrder *order = [ZZOrder  objectWithKeyValues:json.response.data];
         succ(order,ZZNetDataTypeSuccServer);
     } failure:^(NSString *error, ZZNetDataType netDataType) {
         fail(error,netDataType);
@@ -116,10 +116,10 @@
     param.token = ZZLoginTool.loginToken;
     param.parameters = @{@"orderCode":orderCode};
     
-    [ZZHttpTool  afPostByApiName:@"" Params:param success:^(id json) {
-        succ(json,ZZNetDataTypeSuccServer);
+    [ZZHttpTool  afPostByApiName:@"" Params:param success:^(ZZBottomNetResult *json) {
+        succ(json.response.data,ZZNetDataTypeSuccServer);
         //发出通知 告知订单状态改变
-    NSNotification   *noti =  [NSNotification  notificationWithName:ZZOrderStausChangeCancellOrderSucc object:nil];
+     NSNotification   *noti =  [NSNotification  notificationWithName:ZZOrderStausChangeCancellOrderSucc object:nil];
         [[NSNotificationCenter  defaultCenter]postNotification:noti];
         ZZLog(@"阿斯达: %@",json);
     

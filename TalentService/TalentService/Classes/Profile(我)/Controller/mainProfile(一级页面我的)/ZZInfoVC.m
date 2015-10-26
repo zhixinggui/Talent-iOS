@@ -113,9 +113,10 @@
 
 //请求数据赋值
 - (void)selfInformation {
-    
+    [MBProgressHUD showMessage:@"正在加载中..." toView:self.view];
     //个人请求
     [ZZMyInfoHttpTool getMyInfoWithUserAttentionId:nil andMyCenter:@(0) success:^(ZZOtherUser *infoUser, ZZNetDataType dataType) {
+        [MBProgressHUD  hideHUDForView:self.view];
         ZZOtherUser *user = infoUser;
         self.nameLabel.text = user.userNike;
         self.infoIV.contentMode = UIViewContentModeScaleAspectFill;
@@ -131,7 +132,7 @@
             self.starView.hidden = YES;
         }
     } failure:^(NSString *error, ZZNetDataType datatype) {
-        
+        [MBProgressHUD  hideHUDForView:self.view];
     }];
     
     //星星

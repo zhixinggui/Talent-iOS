@@ -21,12 +21,11 @@
 #define ZZLightGrayColor [UIColor  colorWithRed:0.45 green:0.45 blue:0.45 alpha:1.0] //浅黑色
 #define ZZSeparGrayColor [UIColor  colorWithRed:0.7 green:0.7 blue:0.7 alpha:1.0] //浅黑色
 #define ZZYellowColor  [UIColor colorWithRed:1.0 green:0.7 blue:0 alpha:1] //蓝色
-//navigation的颜色
-#define LoginButtonColor [UIColor colorWithRed:251.0/255 green:90.0/255 blue:103.0/255 alpha:1]
+
 #define ZZViewBackColor    [UIColor colorWithRed:0.94 green:0.94 blue:0.94 alpha:1] //view的背景色
 #define ZZBlueColor    [UIColor  colorWithRed:0.45 green:0.8 blue:0.21 alpha:0.92]
 //navigation的颜色
-#define LoginButtonColor  [UIColor colorWithRed:251.0/255 green:90.0/255 blue:103.0/255 alpha:1]
+#define LoginButtonColor  [UIColor colorWithRed:254.0/255 green:135.0/255 blue:160.0/255 alpha:1]
 
 //界面背景的颜色
 #define backGroundColor  [UIColor colorWithRed:241.0/255 green:242.0/255 blue:246.0/255 alpha:1]

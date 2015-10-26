@@ -69,8 +69,6 @@ NSString * const ZZOrderStausChangeRefundSucc = @"ZZOrderStausChangeRefundSucc";
     _orderDate = [self dealHourDate:orderDate];
 }
 
-
-
 #pragma mark - private methods
 - (NSString *)showPrice:(NSNumber *)price{
     NSString *str = [price description];

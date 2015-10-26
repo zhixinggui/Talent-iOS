@@ -36,7 +36,7 @@
      *  设置button颜色
      */
     self.messageTF.enabled = NO;
-    [self.nextButton  setBackgroundColor:LoginButtonColor];
+    [self.nextButton  setBackgroundColor:ZZNatiBarColor];
     [ self.securityButton  setCornerRadius:10 borderColor:ZZNatiBarColor];
     [self.securityButton  setTitleColor:[UIColor  whiteColor] forState:UIControlStateNormal];
 }

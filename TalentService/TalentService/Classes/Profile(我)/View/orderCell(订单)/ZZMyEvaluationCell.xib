@@ -33,8 +33,8 @@
                             <constraint firstAttribute="height" constant="100" id="ylB-kH-Rj2"/>
                         </constraints>
                     </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="昵称昵称昵称昵称" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GNE-DI-EqS">
-                        <rect key="frame" x="87" y="14" width="96" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="昵称昵称" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GNE-DI-EqS">
+                        <rect key="frame" x="87" y="14" width="64" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="62f-ep-qUf"/>
                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="100" id="r5J-io-qfc"/>

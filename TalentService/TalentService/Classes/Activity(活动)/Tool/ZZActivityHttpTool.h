@@ -34,4 +34,6 @@
 
 /**取消订单*/
 + (void)activityCancellOrder:(NSString *)orderCode  success:(void(^)(id json ,ZZNetDataType netDataType))succ  failure:(void (^)(NSString *error , ZZNetDataType netDataType))fail;
+
+
 @end

@@ -13,9 +13,10 @@
 
 -(void)awakeFromNib{
     self.exclusiveTouch = YES;
-    self.layer.cornerRadius = 12;
+    self.layer.cornerRadius = 5;
     self.layer.masksToBounds = YES;
     self.layer.borderWidth = 1;
+    self.backgroundColor = ZZNatiBarColor;
     if (self.height == 24) {
         self.layer.borderColor = [UIColor redColor].CGColor;
     }else{

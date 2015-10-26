@@ -44,7 +44,7 @@
     /**
      *  设置button颜色
      */
-    self.finishButton.backgroundColor = LoginButtonColor;
+    self.finishButton.backgroundColor = ZZNatiBarColor;
 }
 - (IBAction)sureButtonAction:(UIButton *)sender {
      [self.view  endEditing:YES];

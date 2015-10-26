@@ -203,7 +203,6 @@ typedef enum {
 //预定
 - (void)booking:(UIButton *)btn{
     
-  
     UIAlertView *alertView = [[UIAlertView  alloc]initWithTitle:nil message:@"你确定要报名吗" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
     [alertView show];
     
@@ -316,7 +315,7 @@ typedef enum {
         _applyBtn = [self setupBtnWithIcon:@"reserve_40x40"  selectedIcon:@"reserved_40x40" title:@"预定"  selectedTitle:@"已预定"    tag:ZZActivityBottomToolBarTypeApply];
         
         [self  updateBookingButtonProterty];
-
+        _applyBtn.uxy_acceptEventInterval = 2;
         _applyBtn.backgroundColor = ZZBlueColor;
         [_applyBtn  addTarget:self action:@selector(booking:) forControlEvents:UIControlEventTouchUpInside];
     }
@@ -326,7 +325,7 @@ typedef enum {
     if (_collectBtn == nil) {
         _collectBtn = [self setupBtnWithIcon:@"collect_40x40" selectedIcon:@"collected_40x40" title:@"收藏"  selectedTitle:@"已收藏"   tag:ZZActivityBottomToolBarTypeCollect];
         [_collectBtn addTarget:self action:@selector(collect:) forControlEvents:UIControlEventTouchUpInside];
-    
+        _collectBtn.uxy_acceptEventInterval = 2;
         _collectBtn.backgroundColor = ZZGreenColor;
         [self  updateCollectButtonProterty];
     }

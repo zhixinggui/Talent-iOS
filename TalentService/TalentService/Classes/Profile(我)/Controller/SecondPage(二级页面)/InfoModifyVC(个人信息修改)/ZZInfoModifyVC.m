@@ -212,13 +212,14 @@
 
 #pragma mark -UUPhotoActionSheetDelegate
 - (void)actionSheetDidFinished:(NSArray *)obj{
-    ZZUploadImageModel *imageModel = obj[0];
+    
     ZZLog(@"11111%@",obj);
-    self.headIV.image = imageModel.image;
     [MBProgressHUD showMessage:@"正在保存中..."];
     //上传修改信息
     ZZChangeInfoParam *changeInfoParam = [[ZZChangeInfoParam alloc]init];
     [ZZMyInfoHttpTool commitHeadImageWithImageArray:obj ChangeInfoParam:changeInfoParam success:^(ZZLoginUser *infoUser, ZZNetDataType dataType) {
+        ZZUploadImageModel *imageModel = obj[0];
+        self.headIV.image = imageModel.image;
         [MBProgressHUD  hideHUD];
         [MBProgressHUD  showSuccess:@"保存成功" toView:self.view];
     } failure:^(NSString *error, ZZNetDataType datatype) {

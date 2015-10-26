@@ -50,7 +50,7 @@
     /**
      *  设置button颜色
      */
-    self.loginButton.backgroundColor = LoginButtonColor;
+    self.loginButton.backgroundColor = ZZNatiBarColor;
 }
 //创建三方登陆
 - (void)setUpThirdLogin{

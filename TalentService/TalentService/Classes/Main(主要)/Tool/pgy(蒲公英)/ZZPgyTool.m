@@ -25,6 +25,7 @@ NSString * const MengBaoPGYAppID = @"75ecf01e09a903debd4801d01867b112";
     // 设置用户反馈界面激活方式为三指拖动
   //  [[PgyManager sharedPgyManager] setFeedbackActiveType:kPGYFeedbackActiveTypeThreeFingersPan];
     // 设置用户反馈界面激活方式为摇一摇
+   
     [[PgyManager sharedPgyManager] setFeedbackActiveType:kPGYFeedbackActiveTypeShake];
     
     //启动基本SDK
@@ -46,4 +47,5 @@ NSString * const MengBaoPGYAppID = @"75ecf01e09a903debd4801d01867b112";
     [[PgyUpdateManager sharedPgyManager] startManagerWithAppId:MengBaoPGYAppID];   // 请将 PGY_APP_ID 换成应用的 App ID
     [[PgyUpdateManager sharedPgyManager] checkUpdate];
 }
+
 @end
