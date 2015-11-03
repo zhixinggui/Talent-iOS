@@ -35,7 +35,7 @@
     self.attentionTV.dataSource = self;
     UINib* nib = [UINib nibWithNibName:@"ZZAttentionCell" bundle:nil];
     [self.attentionTV registerNib:nib forCellReuseIdentifier:attentionCelldentifier];
-    self.attentionTV.rowHeight = 100;
+    self.attentionTV.rowHeight = 82;
     self.attentionTV.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     //底部刷新

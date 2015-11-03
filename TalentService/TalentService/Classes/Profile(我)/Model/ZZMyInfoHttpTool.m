@@ -11,6 +11,7 @@
 #import "ZZHttpTool.h"
 #import "ZZJsonInfoTool.h"
 #import "ZZUploadImageTool.h"
+#import "ZZOrder.h"
 @implementation ZZMyInfoHttpTool
 /**
  *  获取个人信息
@@ -62,7 +63,7 @@
         //解析
         [ZZJsonInfoTool parseChangeInformation:json.response.data];
         ZZLog(@"个人信息:%@",json.response.data);
-        success(nil,ZZNetDataTypeSuccServer);
+        success(json.response.data,ZZNetDataTypeSuccServer);
     } failure:^(NSString *error, ZZNetDataType netDataType) {
         failure(error,netDataType);
         ZZLog(@"请求失败");
@@ -129,7 +130,7 @@
     param.token = [ZZLoginUserTool sharedZZLoginUserTool].loginUser.token;
     param.parameters = [orderParam keyValues];
     [ZZHttpTool afPostByApiName:@"" Params:param success:^(ZZBottomNetResult *json) {
-        ZZLog(@"我的订单列表:%@",json);
+        ZZLog(@"我的订单列表:%@",json.response.data);
         ZZOrderResult *orderResult = [ZZOrderResult objectWithKeyValues:json.response.data];
         success(orderResult,ZZNetDataTypeSuccServer);
     } failure:^(NSString *error, ZZNetDataType netDataType) {
@@ -244,4 +245,40 @@
     }];
 }
 
++ (void)orderAlipayWithOrderId:(NSString *)orderCode success:(void (^)(NSArray *, ZZNetDataType))success failure:(failureBlock)failure {
+    ZZParam *param = [[ZZParam alloc]init];
+    param.cmd = @"smart/services/payOrder";
+    param.token = [ZZLoginUserTool sharedZZLoginUserTool].loginUser.token;
+    param.parameters = @{@"orderCode":orderCode,@"paymentTypeId":@(1)};
+    [ZZHttpTool afPostByApiName:@"" Params:param success:^(ZZBottomNetResult *json) {
+        
+        NSMutableArray *alipayArr = [NSMutableArray arrayWithCapacity:3];
+        NSArray *alipayType = json.response.payTypes;
+        for (NSDictionary *dic in alipayType) {
+            ZZAlipayOrderResult *aliResult = [ZZAlipayOrderResult objectWithKeyValues:dic];
+            [alipayArr addObject:aliResult];
+        }
+        ZZLog(@"支付方式有哪些:%@",alipayArr);
+        success(alipayArr,ZZNetDataTypeSuccLocal);
+    } failure:^(NSString *error, ZZNetDataType netDataType) {
+        failure (error, netDataType);
+    }];
+}
+
++ (void)applyCancelOrderWithOrderCode:(NSString *)orderCode success:(void (^)(id, ZZNetDataType))success failure:(failureBlock)failure {
+    ZZParam *param = [[ZZParam alloc]init];
+    param.cmd = @"smart/services/applyrefund";
+    param.token = [ZZLoginUserTool sharedZZLoginUserTool].loginUser.token;
+    param.parameters = @{@"orderCode":orderCode};
+    [ZZHttpTool afPostByApiName:@"" Params:param success:^(ZZBottomNetResult *json) {
+        ZZLog(@"退款: %@",json.response);
+        success(json.response,ZZNetDataTypeSuccServer);
+        //发出通知 告知订单状态改变
+        NSNotification   *noti =  [NSNotification  notificationWithName:ZZOrderStausChangeRefundSucc object:nil];
+        [[NSNotificationCenter  defaultCenter]postNotification:noti];
+    } failure:^(NSString *error, ZZNetDataType netDataType) {
+        
+    }];
+    
+}
 @end

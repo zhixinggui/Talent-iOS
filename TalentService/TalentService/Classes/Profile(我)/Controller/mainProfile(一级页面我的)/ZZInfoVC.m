@@ -26,7 +26,7 @@
 #import "UIBarButtonItem+Extension.h"
 #import "ZZMyEvaluationTVC.h"
 #import "ZZEvaluationTVC.h"
-
+#import "ZZHudView.h"
 /**
  *  我的页面请求
  */
@@ -34,6 +34,7 @@
 #import "ZZLoginUser.h"
 #import "ZZHeadImageView.h"
 #import "ZZUploadImageModel.h"
+#import "ZZTabBarController.h"
 @interface ZZInfoVC ()<UITableViewDataSource,UITableViewDelegate,UUPhotoActionSheetDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *roleLabel;
@@ -206,8 +207,8 @@
     ZZInfoCell *cell = [tableView  dequeueReusableCellWithIdentifier:infoCelldentifier];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     ZZMyInfoModel *model = self.rowDatas[indexPath.section][indexPath.row];
-            cell.nameLabel.text = model.text;
-            cell.imageIV.image = [UIImage imageNamed:model.iconName];
+    cell.nameLabel.text = model.text;
+    cell.imageIV.image = [UIImage imageNamed:model.iconName];
    
     return cell;
 }
@@ -216,8 +217,11 @@
       ZZMyInfoModel *model = self.rowDatas[indexPath.section][indexPath.row];
            
     UIViewController *vc = [[model.classType alloc]init];
-    [self.navigationController pushViewController:vc animated:YES];
-    
+    //if (indexPath.section == 1) {
+        //[ZZHudView showMessage:@"敬请等待..." time:1 toView:self.view];
+    //}else {
+        [self.navigationController pushViewController:vc animated:YES];
+    //}
 }
 
 - (IBAction)gotoChangeImage:(UIButton *)sender {
@@ -259,15 +263,14 @@
 
 - (IBAction)didClickOnMyEvaluation:(UIButton *)sender {
     ZZLog(@"评价");
-    ZZEvaluationTVC *evaluationTvc = [[ZZEvaluationTVC alloc]initWithNib];
-    [self.navigationController pushViewController:evaluationTvc animated:YES];
+    [ZZHudView showMessage:@"敬请等待..." time:1 toView:self.view];
+//    ZZEvaluationTVC *evaluationTvc = [[ZZEvaluationTVC alloc]initWithNib];
+//    [self.navigationController pushViewController:evaluationTvc animated:YES];
 //    ZZMyEvaluationTVC *myEvaluationTvc = [[ZZMyEvaluationTVC alloc] initWithNib];
 //    [self.navigationController pushViewController:myEvaluationTvc animated:YES];
 }
 
 #pragma mark -Setters and Getters
-
-
 
 -(NSArray *)rowDatas{
     if (_rowDatas == nil) {

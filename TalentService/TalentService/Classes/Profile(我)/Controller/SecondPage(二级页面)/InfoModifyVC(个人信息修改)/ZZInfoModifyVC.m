@@ -85,7 +85,6 @@
     }
     
     [self.headIV setHeadImageWithURL:loginUser.userSmallImg];
-    ZZLog(@"是男是女:%ld",loginUser.userSex);
     if (loginUser.userSex == 1) {
         self.sexLabel.text = @"男";
     }else{

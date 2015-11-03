@@ -10,6 +10,8 @@
 #import "ZZSegmentedControl.h"
 #import "ZZCollectActivityTVC.h"
 #import "ZZCollectCommunityTVC.h"
+#import "ZZHudView.h"
+
 @interface ZZMyCollectVC ()<ZZSegmentedControlDelegate>
 /**
  *  收藏服务页面
@@ -57,7 +59,7 @@
             
         case 1:
         {
-            
+            //[ZZHudView showMessage:@"敬请等待..." time:1 toView:self.view];
             [self.contentView removeAllSubviews];
             self.collectCommunityTvc.view.frame = self.contentView.bounds;
             [self.contentView addSubview:self.collectCommunityTvc.view];

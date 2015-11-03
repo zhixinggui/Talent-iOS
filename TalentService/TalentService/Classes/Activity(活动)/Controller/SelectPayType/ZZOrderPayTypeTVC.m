@@ -9,13 +9,16 @@
 #import "ZZOrderPayTypeTVC.h"
 #import "ZZOrderPayCell.h"
 #import "ZZLayerButton.h"
+#import "ZZMyInfoHttpTool.h"
+#import "ZZAlipayTool.h"
 @interface ZZOrderPayTypeTVC ()
 @property (strong, nonatomic) IBOutlet UIView *orderHeadView;
 @property (weak, nonatomic) IBOutlet UILabel *orderNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *orderPriceLabel;
 @property (strong, nonatomic) IBOutlet UIView *footHeadView;
+@property (weak, nonatomic) IBOutlet UILabel *orderTotallyLabel;
 @property (strong, nonatomic) IBOutlet ZZLayerButton *enterButton;
-
+@property (nonatomic ,strong)NSArray *payType;
 @end
 
 @implementation ZZOrderPayTypeTVC
@@ -29,12 +32,33 @@
     self.tableView.rowHeight = 60;
     self.tableView.tableHeaderView = self.orderHeadView;
     self.tableView.tableFooterView = self.footHeadView;
+    if (!self.order.serviceInfo.title) {
+        self.orderNameLabel.text = [NSString stringWithFormat:@"订单名称：%@",self.order.title];
+    }else {
+        self.orderNameLabel.text = [NSString stringWithFormat:@"订单名称：%@",self.order.serviceInfo.title];
+    }
+    self.orderPriceLabel.text = [NSString stringWithFormat:@"订单金额：￥%@",self.order.price];
+    self.orderTotallyLabel.text = [NSString stringWithFormat:@"还需支付：￥%@",self.order.price];
+    [self aliPayOrder];
+}
+
+- (void)aliPayOrder {
+    ZZLog(@"orderCode: %@",self.order.orderCode);
+    [MBProgressHUD  showMessage:ZZNetLoading toView:self.view];
+    [ZZMyInfoHttpTool orderAlipayWithOrderId:self.order.orderCode success:^(NSArray * orderPay, ZZNetDataType dataType) {
+        self.payType = orderPay;
+        [self.tableView reloadData];
+        [MBProgressHUD  hideAllHUDsForView:self.view animated:YES];
+    } failure:^(NSString *error, ZZNetDataType datatype) {
+        [MBProgressHUD  hideAllHUDsForView:self.view animated:YES];
+        [MBProgressHUD  showNetLoadFailWithText:@"加载失败，点击重新加载" view:self.view target:self.view action:@selector(aliPayOrder) isBack:NO];
+    }];
 }
 
 #pragma mark - Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
+    return self.payType.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -103,5 +127,12 @@
     // Pass the selected object to the new view controller.
 }
 */
+- (IBAction)didClickOnPay:(ZZLayerButton *)sender {
+    ZZLog(@"确认支付");
+#warning 现在支付方式是写死的就是支付宝 到时候要修改
+    ZZAlipayOrderResult *payResult = self.payType[0];
+    [ZZAlipayTool aliPayForOrderWithOrderDetail:self.order andPaymentData:payResult.paymentData];
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 @end

@@ -36,7 +36,7 @@
      *  横线
      */
     self.lineLabel = [[UILabel alloc]init];
-    self.lineLabel.height = 5;
+    self.lineLabel.height = 2;
     self.lineLabel.backgroundColor = ZZNatiBarColor;
     [self addSubview:self.lineLabel];
 }
@@ -44,7 +44,7 @@
     [super setFrame:frame];
     
     self.lineLabel.width = self.width/self.numberOfSegments;
-    self.lineLabel.y = self.height-5;
+    self.lineLabel.y = self.height-2;
     
 }
 

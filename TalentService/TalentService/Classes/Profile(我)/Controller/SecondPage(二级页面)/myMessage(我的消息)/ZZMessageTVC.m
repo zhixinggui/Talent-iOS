@@ -10,8 +10,11 @@
 #import "ZZMessageCell.h"
 #import "ZZSegmentedControl.h"
 #import "ZZDetailMessageVC.h"
+#import "ZZServicePushNotiFMDB.h"
+#import "ZZSeeOrderVC.h"
 @interface ZZMessageTVC ()
 @property(nonatomic,strong)ZZSegmentedControl *messageSegmentControl;
+@property(nonatomic, strong)NSArray *serviceArr;
 @end
 
 @implementation ZZMessageTVC
@@ -19,6 +22,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"我的消息";
+    self.serviceArr = [ZZServicePushNotiFMDB notificationWithType:0];
+    ZZLog(@"arr: %@",self.serviceArr);
     UINib* nib = [UINib nibWithNibName:@"ZZMessageCell" bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:messageCelldentifier];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -34,15 +39,16 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    return 3;
+    return self.serviceArr.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     ZZMessageCell *cell = [tableView dequeueReusableCellWithIdentifier:messageCelldentifier forIndexPath:indexPath];
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.serviceMessage = self.serviceArr[indexPath.row];
     return cell;
 }
 
@@ -91,11 +97,10 @@
 
 // In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    ZZDetailMessageVC *detailViewController = [[ZZDetailMessageVC alloc]initWithNib];
-    
-    // Pass the selected object to the new view controller.
-    
-    // Push the view controller.
+    ZZServiceNotiMessage *serviceMessage = self.serviceArr[indexPath.row];
+    ZZSeeOrderVC *detailViewController = [[ZZSeeOrderVC alloc]init];
+    detailViewController.isDetail = 1;
+    detailViewController.orderCode = serviceMessage.orderCode;
     [self.navigationController pushViewController:detailViewController animated:YES];
 }
 
@@ -115,5 +120,13 @@
         _messageSegmentControl.frame = CGRectMake(0, 0, ScreenWidth, 40);
     }
     return _messageSegmentControl;
+}
+
+- (NSArray *)serviceArr {
+    if (!_serviceArr) {
+        _serviceArr = [NSArray array];
+        
+    }
+    return _serviceArr;
 }
 @end

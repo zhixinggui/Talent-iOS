@@ -18,11 +18,11 @@
     //        [_searchBarView setBackgroundColor:[UIColor colorWithRed:0.28 green:0.6 blue:0.79 alpha:1]];
     
     self.searchBar.layer.masksToBounds  = YES;
-    self.searchBar.placeholder = @"话题";
+    self.searchBar.placeholder = @"搜索";
 }
 
 -(void)layoutSubviews{
     [super  layoutSubviews];
-    self.searchBar.layer.cornerRadius = self.searchBar.frame.size.height/2;
+    //self.searchBar.layer.cornerRadius = self.searchBar.frame.size.height/2;
 }
 @end

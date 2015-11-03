@@ -12,7 +12,7 @@
 #import "ZZAttentionParam.h"
 #import "ZZOrderParam.h"
 #import "ZZTestOrderParam.h"
-
+#import "ZZAlipayOrderResult.h"
 #import "ZZLoginUserTool.h"
 #import "ZZChangeInfoParam.h"
 #import "ZZActivity.h"
@@ -81,6 +81,17 @@ typedef void (^failureBlock)(NSString *error , ZZNetDataType datatype);
  *注销
  */
 + (void)signOutAppSuccess:(void(^)(ZZLoginUser *infoUser, ZZNetDataType dataType))success failure:(failureBlock)failure;
+
+/**
+ *  订单发起支付
+ */
++ (void)orderAlipayWithOrderId:(NSString *)orderCode success:(void(^)(NSArray *orderPay, ZZNetDataType dataType))success failure:(failureBlock)failure;
+
+/**
+ *申请退款
+ */
++ (void)applyCancelOrderWithOrderCode:(NSString *)orderCode success:(void(^)(id orderPay, ZZNetDataType dataType))success failure:(failureBlock)failure;
+
 @end
 
 

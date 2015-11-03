@@ -20,6 +20,7 @@
 @property (nonatomic, strong)UIAlertView *alert;
 @end
 @implementation ZZTabBarController
+
 -(void)viewDidLoad{
     [super  viewDidLoad];
     // 添加所有子控制器
@@ -48,10 +49,10 @@
     
     [self setUpOneChildViewController:activity image:[UIImage imageNamed:@"event_close_30x30"] selectedImage:[UIImage imageWithOriginalName:@"event_open_30x30"] title:@"服务"];
 
-//    // 社区
-//    ZZTopicForumTVC *topic = [[ZZTopicForumTVC alloc] init];
-//    
-//    [self setUpOneChildViewController:topic image:[UIImage imageNamed:@"city_close_30x30"] selectedImage:[UIImage imageWithOriginalName:@"city_open_30x30"] title:@"社区"];
+    //话题
+    ZZTopicForumTVC *topic = [[ZZTopicForumTVC alloc] init];
+    
+    [self setUpOneChildViewController:topic image:[UIImage imageNamed:@"city_close_30x30"] selectedImage:[UIImage imageWithOriginalName:@"city_open_30x30"] title:@"话题"];
 
     // 我的
     ZZInfoVC *me = [[ZZInfoVC alloc] init];
@@ -100,4 +101,6 @@
 -(void)dealloc{
     [[NSNotificationCenter defaultCenter]removeObserver:self];
 }
+
+
 @end

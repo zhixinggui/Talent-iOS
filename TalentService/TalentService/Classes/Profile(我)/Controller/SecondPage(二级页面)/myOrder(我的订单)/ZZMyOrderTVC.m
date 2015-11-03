@@ -118,6 +118,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     ZZSeeOrderVC *seeOrderVc = [[ZZSeeOrderVC alloc] init];
     ZZOrder *order = self.orderArray[indexPath.row];
+    seeOrderVc.isDetail = 1;
     seeOrderVc.orderCode = order.orderCode;
     [self.myOrderVcDelegate.navigationController pushViewController:seeOrderVc animated:YES];
 }
@@ -126,6 +127,12 @@
     ZZOrder *order = self.orderArray[indexPath.row];
     switch (order.status) {
         case ZZOrderStatusCancel:
+        {
+            return 90;
+        }
+            break;
+            
+        case ZZOrderStatusRefundIng:
         {
             return 90;
         }
@@ -168,6 +175,7 @@
 //立即支付
 - (void)nowPay:(ZZOrder *)order{
     ZZOrderPayTypeTVC *orderPay = [[ZZOrderPayTypeTVC  alloc]initWithNib];
+    orderPay.order = order;
     [self.myOrderVcDelegate.navigationController  pushViewController:orderPay animated:YES];
 }
 //立即评价
@@ -178,7 +186,14 @@
 }
 //申请退款
 - (void)applyRefund:(ZZOrder *)order{
-    [ZZHudView  showMessage:@"正在开发中，敬请期待" time:5 toView:self.view];
+    [MBProgressHUD  showMessage:@"退款中" toView:self.view ];
+    [ZZMyInfoHttpTool applyCancelOrderWithOrderCode:order.orderCode success:^(id orderPay, ZZNetDataType dataType) {
+        [MBProgressHUD hideHUDForView:self.view];
+        [ZZHudView  showMessage:@"申请成功" time:3 toView:self.view];
+    } failure:^(NSString *error, ZZNetDataType datatype) {
+        [MBProgressHUD hideHUDForView:self.view];
+        [ZZHudView  showMessage:error time:5 toView:self.view];
+    }];
 }
 #pragma mark -网络请求
 //取消订单

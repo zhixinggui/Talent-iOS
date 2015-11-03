@@ -7,10 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ZZMyselfCellModel.h"
 #define myselfCellCelldentifier @"myselfCellCelldentifier"
 @interface ZZMyselfCell : UITableViewCell
-@property(nonatomic ,strong)ZZMyselfCellModel *model;
 @property (weak, nonatomic) IBOutlet UIImageView *headIV;
 @property (weak, nonatomic) IBOutlet UILabel *cellNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *contentLabel;

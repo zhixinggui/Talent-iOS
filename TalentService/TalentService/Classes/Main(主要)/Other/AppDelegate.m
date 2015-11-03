@@ -16,6 +16,7 @@
 #import "ZZUMMessageTool.h"
 #import "ZZUploadImageTool.h"
 #import <AlipaySDK/AlipaySDK.h>
+#import "ZZServicePushNotiFMDB.h"
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
@@ -50,6 +51,7 @@
  */
 -(void)presentMenuViewController{
     ZZTabBarController* tabBarc = [[ZZTabBarController alloc]init];
+    tabBarc.delegate = self;
     [self.window setRootViewController:tabBarc];
 }
 
@@ -114,7 +116,18 @@
 -(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler{
     
     [ZZUMMessageTool  umMessageDidReceiveRemoteNotification:userInfo];
+    #warning -------------------应该是在这里缓存推送消息-------------------
+    NSDictionary * aps = [userInfo objectForKey:@"aps"];
+    ZZServiceNotiMessage *serviceNotiMessage = [[ZZServiceNotiMessage alloc]init];
+    serviceNotiMessage.alert = [aps objectForKey:@"alert"];
+    serviceNotiMessage.orderCode = [userInfo objectForKey:@"orderCode"];
+    serviceNotiMessage.type = [[userInfo objectForKey:@"type"]integerValue];
+    serviceNotiMessage.relationId = [[userInfo objectForKey:@"relationId"]integerValue];
+    ZZLog(@"推送内容: %@",serviceNotiMessage);
+    [ZZServicePushNotiFMDB uploadWithNotifation:serviceNotiMessage];
+    
 }
+
 -(void)didFailToRegisterForRemoteNotificationsWithError:(NSError *)err
 {
     
@@ -123,6 +136,13 @@
     
 }
 
+-(BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController {
+    if ([viewController isKindOfClass:[UINavigationController class]]) {
+        UINavigationController *nav = (UINavigationController *)viewController;
+        [nav popToRootViewControllerAnimated:NO];
+    }
+    return YES;
+}
 
 
 @end

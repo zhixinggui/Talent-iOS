@@ -73,6 +73,10 @@
         case ZZOrderStatusCancel:
             self.statusLabel.text = @"已取消";
             break;
+            
+        case ZZOrderStatusRefundIng:
+            self.statusLabel.text = @"退款中";
+            break;
     }
     
     if (order.status == ZZOrderStatusNotPaid) {

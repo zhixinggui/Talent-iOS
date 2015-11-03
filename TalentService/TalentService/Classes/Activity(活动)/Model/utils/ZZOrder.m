@@ -46,6 +46,11 @@ NSString * const ZZOrderStausChangeRefundSucc = @"ZZOrderStausChangeRefundSucc";
    
             orderStatus = ZZOrderStatusCancel;
             break;
+            
+        case 8:
+            
+            orderStatus = ZZOrderStatusRefundIng;
+            break;
     }
     _status = orderStatus;
 }
@@ -107,6 +112,8 @@ NSString * const ZZOrderStausChangeRefundSucc = @"ZZOrderStausChangeRefundSucc";
             return @"已退款";
         case ZZOrderStatusCancel:
             return @"已取消";
+        case ZZOrderStatusRefundIng:
+            return @"退款中";
     }
 }
 @end

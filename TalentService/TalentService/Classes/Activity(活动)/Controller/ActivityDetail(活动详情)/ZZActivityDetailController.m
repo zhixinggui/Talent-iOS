@@ -23,6 +23,9 @@
 #import "ZZImageContent.h"
 #import "ZZHudView.h"
 #import "ZZEnsureOrderController.h"
+
+#import "ZZTabBarController.h"
+
 typedef enum {
     ZZActivityBottomToolBarTypeApply,//预定
     ZZActivityBottomToolBarTypeCollect//收藏
@@ -122,8 +125,15 @@ typedef enum {
 #pragma mark - ZZDetailFunctionViewDelegate
 -(void)detailFunctionView:(ZZDetailFunctionView *)detaileFunctionView shares:(NSArray *)shares selectedAtIndex:(NSUInteger)index{
 #warning 待完善
-    ZZActivity *activity = self.detailActivity;
-    [[ZZUMTool  sharedUMTool]umShareWithTitle:activity.title content:activity.content url:@"http://mengbaopai.smart-kids.com/iosAndroid" imageUrl:activity.servicesImg locialImageName:nil controller:self loginModel:shares[index]];
+    if (index == shares.count-1) {
+        //返回首页
+        ZZLog(@"返回首页");
+        [self.tabBarController setSelectedIndex:0];
+    } else {
+        ZZActivity *activity = self.detailActivity;
+        [[ZZUMTool  sharedUMTool]umShareWithTitle:activity.title content:activity.content url:@"http://mengbaopai.smart-kids.com/iosAndroid" imageUrl:activity.servicesImg locialImageName:nil controller:self loginModel:shares[index]];
+    }
+    
 }
 #pragma mark - ZZUMToolSocialDelgate
 -(void)didFinishGetUMSocialDataInViewController:(ZZUMToolResponse)umToolResponse result:(NSString *)result{
@@ -343,7 +353,7 @@ typedef enum {
         [array  addObject:star];
         self.starModel = star;
         
-        ZZFuncitonModel *backHome  = [[ZZFuncitonModel  alloc]initWithImageName:@"home_60x60" name:@"返回主页" modelType:ZZFuncitonModelTypeBackHome ];
+        ZZFuncitonModel *backHome  = [[ZZFuncitonModel  alloc]initWithImageName:@"home_60x60" name:@"返回首页" modelType:ZZFuncitonModelTypeBackHome ];
         [array addObject:backHome];
         
         _functions =array;

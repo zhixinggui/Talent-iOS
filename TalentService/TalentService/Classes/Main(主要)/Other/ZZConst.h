@@ -57,6 +57,9 @@ typedef enum {
     ZZOrderStatusRefund,
     /**已取消*/
     ZZOrderStatusCancel,
+    /**退款中*/
+    ZZOrderStatusRefundIng,
+    
 }ZZOrderStatus;
 
 

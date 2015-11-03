@@ -21,7 +21,14 @@
     self.title = @"社区";
     UINib* nib = [UINib nibWithNibName:@"ZZCommunityCell" bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:communityCelldentifier];
-    self.tableView.rowHeight = 280;
+    if (ScreenWidth == 320) {
+        self.tableView.rowHeight = 280;
+        
+    } else if (ScreenWidth >375) {
+        self.tableView.rowHeight = 270;
+    }
+    
+    
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 
 }
@@ -41,7 +48,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
     // Return the number of rows in the section.
-    return 0;
+    return 5;
 }
 
 

@@ -18,7 +18,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *firstIV;
 @property (weak, nonatomic) IBOutlet UIImageView *secondIV;
 @property (weak, nonatomic) IBOutlet UIImageView *thirdIV;
-@property (weak, nonatomic) IBOutlet UIButton *firstBT;
 @property (weak, nonatomic) IBOutlet UIButton *secondBT;
 @property (weak, nonatomic) IBOutlet UIButton *thirdBT;
 
@@ -40,12 +39,12 @@
     // Configure the view for the selected state
 }
 
--(void)drawRect:(CGRect)rect{
-    [super drawRect:rect];
-    
-    [[UIImage imageNamed:@"border_34x34"]drawInRect:CGRectMake(rect.origin.x +5, rect.origin.y+5, rect.size.width - 8, rect.size.height-5)];
-
-}
+//-(void)drawRect:(CGRect)rect{
+//    [super drawRect:rect];
+//    
+//    [[UIImage imageNamed:@"border_34x34"]drawInRect:CGRectMake(rect.origin.x +5, rect.origin.y+5, rect.size.width - 8, rect.size.height-5)];
+//
+//}
 
 #pragma mark - Setters and Getters
 - (void)setModel:(ZZCommunityCellModel *)model {
@@ -55,7 +54,7 @@
     [str  addAttribute:NSBackgroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(0,1)];
     self.titleLabel.attributedText = str;
 
-//    self.titleLabel.text = model.title;
+    self.titleLabel.text = model.title;
     self.contentLabel.text = model.content;
     
 }

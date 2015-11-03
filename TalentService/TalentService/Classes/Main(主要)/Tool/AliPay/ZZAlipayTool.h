@@ -10,5 +10,5 @@
 #import "ZZOrder.h"
 @interface ZZAlipayTool : NSObject
 //支付宝
-+ (void)aliPayForOrderWithOrderDetail:(ZZOrder *)orderDetail;
++ (void)aliPayForOrderWithOrderDetail:(ZZOrder *)orderDetail andPaymentData:(NSString *)paymentData;
 @end

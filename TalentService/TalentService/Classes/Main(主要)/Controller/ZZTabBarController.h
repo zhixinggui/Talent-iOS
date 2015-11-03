@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "Singleton.h"
 @interface ZZTabBarController : UITabBarController
 
 @end

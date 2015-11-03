@@ -14,4 +14,12 @@
 
 @property (nonatomic ,strong)id data;
 
+@property (nonatomic)NSInteger orderId;
+/**
+ *支付种类
+ */
+@property (nonatomic ,strong)NSArray *payTypes;
+
+@property (nonatomic )NSInteger status;
+
 @end

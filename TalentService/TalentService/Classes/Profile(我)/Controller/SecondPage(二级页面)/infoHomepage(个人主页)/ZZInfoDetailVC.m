@@ -233,6 +233,12 @@
         [MBProgressHUD  hideHUDForView:self.view];
         ZZLog(@"啥数据啊:%@",result);
         self.result = result;
+        if (self.result.rows.count == 0) {
+            UIView *backView = [[UIView alloc]initWithFrame:CGRectMake(0, 472, ScreenWidth, ScreenHeight-472)];
+            backView.backgroundColor = [UIColor clearColor];
+            [self.infoDetailTableView addSubview:backView];
+            [MBProgressHUD showMessageClearBackView:@"他还没有服务" toView:backView];
+        }
         [self.activityArray  removeAllObjects];
         [self.activityArray addObjectsFromArray:result.rows];
         [self.infoDetailTableView reloadData];

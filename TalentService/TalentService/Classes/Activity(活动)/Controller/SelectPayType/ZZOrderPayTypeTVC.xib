@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ZZOrderPayTypeTVC">
@@ -12,6 +12,7 @@
                 <outlet property="orderHeadView" destination="LJU-Yt-zZr" id="Y1j-RE-Cys"/>
                 <outlet property="orderNameLabel" destination="cYC-Eh-O4w" id="etm-sm-swR"/>
                 <outlet property="orderPriceLabel" destination="AQ3-W7-oKD" id="RYd-CQ-TLf"/>
+                <outlet property="orderTotallyLabel" destination="pH7-JO-HoF" id="QC4-nv-iYE"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -44,7 +45,7 @@
                         <constraint firstAttribute="height" constant="21" id="gvG-EP-K3K"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                    <color key="textColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                    <color key="textColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="订单金额：￥12" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AQ3-W7-oKD">
@@ -53,7 +54,7 @@
                         <constraint firstAttribute="height" constant="22" id="Rg7-22-2t1"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                    <color key="textColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                    <color key="textColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MKf-xu-I3A">
@@ -66,7 +67,7 @@
                                 <constraint firstAttribute="height" constant="1" id="gbo-lJ-mOk"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="还需支付：￥12" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pH7-JO-HoF">
@@ -75,7 +76,7 @@
                                 <constraint firstAttribute="height" constant="22" id="qzd-os-0zT"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                            <color key="textColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                            <color key="textColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
@@ -107,7 +108,7 @@
                 <constraint firstAttribute="trailing" secondItem="YVx-lL-jaw" secondAttribute="trailing" id="uF3-Z3-xj9"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="1026.5" y="97.5"/>
+            <point key="canvasLocation" x="762.5" y="9.5"/>
         </view>
         <view contentMode="scaleToFill" id="7lW-KQ-Rao">
             <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
@@ -123,6 +124,9 @@
                     <state key="normal" title="确认支付">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="didClickOnPay:" destination="-1" eventType="touchUpInside" id="2Nt-cH-r6h"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="0.94509803921568625" green="0.94901960784313721" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
@@ -132,7 +136,7 @@
                 <constraint firstAttribute="trailing" secondItem="HdD-aF-xbJ" secondAttribute="trailing" constant="8" id="cjd-rN-tWa"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="1026.5" y="270"/>
+            <point key="canvasLocation" x="762.5" y="170"/>
         </view>
     </objects>
 </document>

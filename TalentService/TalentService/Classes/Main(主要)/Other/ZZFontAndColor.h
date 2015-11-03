@@ -17,7 +17,7 @@
 //color
 //定义颜色
 #define ZZGreenColor  [UIColor colorWithRed:0.1 green:0.63 blue:0.96 alpha:0.93] //蓝色
-#define ZZDarkGrayColor [UIColor  colorWithRed:0.2 green:0.2 blue:0.2 alpha:1.0] //深黑色
+#define ZZDarkGrayColor [UIColor  colorWithRed:0.6 green:0.6 blue:0.6 alpha:1.0] //深黑色
 #define ZZLightGrayColor [UIColor  colorWithRed:0.45 green:0.45 blue:0.45 alpha:1.0] //浅黑色
 #define ZZSeparGrayColor [UIColor  colorWithRed:0.7 green:0.7 blue:0.7 alpha:1.0] //浅黑色
 #define ZZYellowColor  [UIColor colorWithRed:1.0 green:0.7 blue:0 alpha:1] //蓝色

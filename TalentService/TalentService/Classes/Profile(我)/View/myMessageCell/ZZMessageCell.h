@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ZZServiceNotiMessage.h"
 #define messageCelldentifier @"messageCelldentifier"
 @interface ZZMessageCell : UITableViewCell
-
+@property (nonatomic ,strong)ZZServiceNotiMessage *serviceMessage;
 @end

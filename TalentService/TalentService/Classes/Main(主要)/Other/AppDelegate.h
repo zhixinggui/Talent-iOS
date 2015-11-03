@@ -12,7 +12,7 @@ typedef enum {
     ZZRootViewControllerTypeHome //首页
 }ZZRootViewControllerType;
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate,UITabBarControllerDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 

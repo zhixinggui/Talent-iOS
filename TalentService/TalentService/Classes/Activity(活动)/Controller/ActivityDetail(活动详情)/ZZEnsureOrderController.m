@@ -14,9 +14,9 @@
 #import "ZZOrderTopView.h"
 #import "ZZActivityConmitParam.h"
 #import "ZZActivityHttpTool.h"
-#import "ZZOrderResultVC.h"
+#import "ZZSeeOrderVC.h"
 #import "ZZHudView.h"
-
+#import "ZZLayerButton.h"
 #import "ZZLoginUserTool.h"
 #import "ZZChangePhoneNumVC.h"
 #define space  100
@@ -34,7 +34,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"订单确认";
+    self.title = @"确认订单";
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.view.backgroundColor = ZZViewBackColor;
     [self  setUpChild];
@@ -84,12 +84,11 @@
     self.change = change;
     [self.phoneShowView  addSubview:change];
     
-    UIButton *ensure = [[UIButton  alloc]initWithFrame:CGRectMake(edge,edge+self.toalheight, ScreenWidth - 2*edge, 40)];
+    ZZLayerButton *ensure = [[ZZLayerButton  alloc]initWithFrame:CGRectMake(edge,edge+self.toalheight, ScreenWidth - 2*edge, 40)];
     ensure.uxy_acceptEventInterval = 5;
     ensure.backgroundColor = ZZNatiBarColor;
-    ensure.layer.cornerRadius = 20;
     ensure.layer.masksToBounds = YES;
-    [ensure  setTitle:@"确认订单" forState:UIControlStateNormal];
+    [ensure  setTitle:@"提交订单" forState:UIControlStateNormal];
     [ensure  setTitleColor:[UIColor  whiteColor] forState:UIControlStateNormal];
     [ensure  addTarget:self action:@selector(ensurePhone) forControlEvents:UIControlEventTouchUpInside];
     [ self.scroView   addSubview:ensure];
@@ -126,17 +125,17 @@
     }
     
     ZZActivityConmitParam *commitparam = [[ZZActivityConmitParam  alloc]init];
-  //  commitparam.orderCode = self.order.orderCode;
+//    commitparam.orderCode = self.order.orderCode;
     commitparam.phone = self.order.phone;
     commitparam.serviceId = @(self.order.serviceInfo.activityId);
-  //  commitparam.servicePrice = self.order.servicePrice;
+    commitparam.servicePrice = self.order.servicePrice;
     
     [MBProgressHUD  showMessage:ZZNetLoading];
     [ZZActivityHttpTool  activityCommitOrder:commitparam success:^(ZZOrder * order, ZZNetDataType netSuccType) {
         [MBProgressHUD  hideHUD];
-        ZZOrderResultVC *resultVC = [[ZZOrderResultVC  alloc]init];
+        ZZSeeOrderVC *resultVC = [[ZZSeeOrderVC  alloc]init];
+        resultVC.isDetail = 0;
         resultVC.orderCode = order.orderCode;
-        resultVC.result = YES;
         [self.navigationController  pushViewController:resultVC animated:YES];
         self.order.serviceInfo.isReserve = YES;
         [self.change  removeFromSuperview];

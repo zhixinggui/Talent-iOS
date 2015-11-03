@@ -8,10 +8,21 @@
 
 #import "ZZMessageCell.h"
 
+@interface ZZMessageCell ()
+@property (weak, nonatomic) IBOutlet UILabel *messageLabel;
+
+@end
+
+
 @implementation ZZMessageCell
 
 - (void)awakeFromNib {
     // Initialization code
+}
+
+- (void)setServiceMessage:(ZZServiceNotiMessage *)serviceMessage {
+    _serviceMessage = serviceMessage;
+    self.messageLabel.text = serviceMessage.alert;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

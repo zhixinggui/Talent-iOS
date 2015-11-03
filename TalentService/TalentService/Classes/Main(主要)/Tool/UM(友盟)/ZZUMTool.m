@@ -15,7 +15,7 @@
 #import "MobClick.h"
 #import "UMSocial.h"
 #import "SDImageCache.h"
-
+#import "ZZFuncitonModel.h"
 @interface ZZShareModel : NSObject
 @property (nonatomic, copy)NSString *title;
 @property (nonatomic, copy)NSString *content;
@@ -166,6 +166,9 @@ static ZZUMTool *umTool;
     [self.shareModels addObject:sinaShareModel];
     [self.shareTypes addObject:UMShareToSina];
     self.supportSina = YES;
+    
+    ZZFuncitonModel *backHome  = [[ZZFuncitonModel  alloc]initWithImageName:@"home_60x60" name:@"返回首页" modelType:ZZFuncitonModelTypeBackHome ];
+    [self.shareModels addObject:backHome];
 }
 //设置分享链接
 - (void)setShareDefaultData:(ZZShareModel *)shareModel{

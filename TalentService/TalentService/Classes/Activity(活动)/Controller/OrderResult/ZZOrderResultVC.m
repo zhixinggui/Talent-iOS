@@ -62,6 +62,7 @@
 - (void)seeOrder{
 //    pushVC(ZZSeeOrderVC);
     ZZSeeOrderVC *seeOrderVC= [[ZZSeeOrderVC alloc]init];
+    seeOrderVC.isDetail = 0;
     seeOrderVC.orderCode = self.orderCode;
     [self.navigationController  pushViewController:seeOrderVC animated:YES];
 }
