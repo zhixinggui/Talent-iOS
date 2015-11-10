@@ -97,6 +97,7 @@
  */
 - (BOOL)isPassWordWithMin:(NSUInteger)min max:(NSUInteger)max;
 
+- (CGSize)textSizeWithFont:(UIFont *)font constrainedToSize:(CGSize)size lineBreakMode:(NSLineBreakMode)lineBreakMode;
 
 /**
  *  得到回复的自定义字符串

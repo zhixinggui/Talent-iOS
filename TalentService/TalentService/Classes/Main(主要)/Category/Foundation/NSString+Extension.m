@@ -54,7 +54,6 @@
     if(font == nil){
         font = [UIFont  systemFontOfSize:16];
     }
-    
     NSMutableDictionary *attrs = [NSMutableDictionary dictionary];
     attrs[NSFontAttributeName] = font;
     
@@ -62,6 +61,26 @@
     
     return CGSizeMake(ceil(backSize.width)+1, ceil(backSize.height));
 }
+
+- (CGSize)textSizeWithFont:(UIFont *)font constrainedToSize:(CGSize)size lineBreakMode:(NSLineBreakMode)lineBreakMode {
+    CGSize textSize;
+    if (CGSizeEqualToSize(size, CGSizeZero)) {
+        NSDictionary *attributes = [NSDictionary dictionaryWithObject:font forKey:NSFontAttributeName];
+        textSize = [self sizeWithAttributes:attributes];
+    } else {
+        NSStringDrawingOptions option = NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading;
+        //NSStringDrawingTruncatesLastVisibleLine如果文本内容超出指定的矩形限制，文本将被截去并在最后一个字符后加上省略号。 如果指定了NSStringDrawingUsesLineFragmentOrigin选项，则该选项被忽略 NSStringDrawingUsesFontLeading计算行高时使用行间距。（译者注：字体大小+行间距=行高）
+        NSDictionary *attributes = [NSDictionary dictionaryWithObject:font forKey:NSFontAttributeName];
+        CGRect rect = [self boundingRectWithSize:size
+                                         options:option
+                                      attributes:attributes
+                                         context:nil];
+        
+        textSize = rect.size;
+    }
+    return CGSizeMake(ceilf(textSize.width), ceilf(textSize.height));
+}
+
 -(BOOL) isOlderVersionThan:(NSString*)otherVersion
 {
     return ([self compare:otherVersion options:NSNumericSearch] == NSOrderedAscending);
@@ -108,23 +127,22 @@
 - (NSMutableAttributedString *)getReplyAttributedStringFont:(UIFont *)font  color:(UIColor *)color{
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString   alloc] initWithString:self];
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle  alloc] init];
-    paragraphStyle.alignment = NSTextAlignmentLeft;
-    paragraphStyle.lineBreakMode = NSLineBreakByWordWrapping;
- 
-    NSRange range = NSMakeRange(0,attributedString.length);
+    paragraphStyle.lineSpacing = ZZLineSpace;//调整行间距
+    
+    NSRange range = NSMakeRange(0,self.length);
     [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:range];
-    //字体大小
-    if (font) {
-        [attributedString  addAttributes:@{NSFontAttributeName:font} range:range];
-    }
-    if (color) {
-        [attributedString  addAttributes:@{NSForegroundColorAttributeName :color} range:range];
-    }
-    //字间距
-    long number = ZZCharSpace;
-    CFNumberRef num = CFNumberCreate(kCFAllocatorDefault,kCFNumberSInt8Type,&number);
-    [attributedString addAttribute:NSKernAttributeName value:(__bridge id)num range:range];
-    CFRelease(num);
+//    //字体大小
+//    if (font) {
+//        [attributedString  addAttributes:@{NSFontAttributeName:font} range:range];
+//    }
+//    if (color) {
+//        [attributedString  addAttributes:@{NSForegroundColorAttributeName :color} range:range];
+//    }
+//    //字间距
+//    long number = ZZCharSpace;
+//    CFNumberRef num = CFNumberCreate(kCFAllocatorDefault,kCFNumberSInt8Type,&number);
+//    [attributedString addAttribute:NSKernAttributeName value:(__bridge id)num range:range];
+//    CFRelease(num);
     
     return attributedString;
 }
@@ -132,5 +150,8 @@
 - (NSString *)getUrlUseEncodAppend:(NSString *)appstring{
     return  [[self stringByAppendingString:appstring] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 }
+
+
+
 
 @end

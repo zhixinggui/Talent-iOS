@@ -15,12 +15,28 @@
 		54D379A21BA5A8C400A61C72 /* ZZApplyVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54D379A11BA5A8C400A61C72 /* ZZApplyVC.xib */; };
 		54EEFC531BA544E400AFE7D4 /* ZZBaseUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 54EEFC521BA544E400AFE7D4 /* ZZBaseUser.m */; };
 		54EEFC561BA5468C00AFE7D4 /* ZZOtherUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 54EEFC551BA5468C00AFE7D4 /* ZZOtherUser.m */; };
-		56058F5C1BE8622F00AC2FF5 /* ZZCommunityDetailTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 56058F5A1BE8622F00AC2FF5 /* ZZCommunityDetailTVC.m */; };
-		56058F5D1BE8622F00AC2FF5 /* ZZCommunityDetailTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56058F5B1BE8622F00AC2FF5 /* ZZCommunityDetailTVC.xib */; };
 		56058F681BE8CEEE00AC2FF5 /* ZZCommunityTypeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 56058F661BE8CEEE00AC2FF5 /* ZZCommunityTypeVC.m */; };
 		56058F691BE8CEEE00AC2FF5 /* ZZCommunityTypeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56058F671BE8CEEE00AC2FF5 /* ZZCommunityTypeVC.xib */; };
+		56058F6E1BE99FCA00AC2FF5 /* ZZCommunityCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 56058F6C1BE99FCA00AC2FF5 /* ZZCommunityCollectionViewCell.m */; };
+		56058F6F1BE99FCA00AC2FF5 /* ZZCommunityCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56058F6D1BE99FCA00AC2FF5 /* ZZCommunityCollectionViewCell.xib */; };
 		5607DA7C1B831DB000803EE5 /* ZZFirstLoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5607DA7A1B831DB000803EE5 /* ZZFirstLoginVC.m */; };
 		5607DA7D1B831DB000803EE5 /* ZZFirstLoginVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5607DA7B1B831DB000803EE5 /* ZZFirstLoginVC.xib */; };
+		5611855B1BE9E7F500CBBD54 /* ZZPictureAndDetailVIew.m in Sources */ = {isa = PBXBuildFile; fileRef = 5611855A1BE9E7F500CBBD54 /* ZZPictureAndDetailVIew.m */; };
+		5611855D1BE9E81A00CBBD54 /* ZZPictureAndDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5611855C1BE9E81A00CBBD54 /* ZZPictureAndDetailView.xib */; };
+		561185611BEA1A8800CBBD54 /* ZZTopicDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5611855F1BEA1A8800CBBD54 /* ZZTopicDetailCell.m */; };
+		561185621BEA1A8800CBBD54 /* ZZTopicDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 561185601BEA1A8800CBBD54 /* ZZTopicDetailCell.xib */; };
+		5611856B1BEB34A500CBBD54 /* ZZCommunityDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 561185691BEB34A500CBBD54 /* ZZCommunityDetailVC.m */; };
+		5611856C1BEB34A500CBBD54 /* ZZCommunityDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5611856A1BEB34A500CBBD54 /* ZZCommunityDetailVC.xib */; };
+		561185701BEB46BF00CBBD54 /* ZZReplayDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5611856E1BEB46BF00CBBD54 /* ZZReplayDetailVC.m */; };
+		561185711BEB46BF00CBBD54 /* ZZReplayDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5611856F1BEB46BF00CBBD54 /* ZZReplayDetailVC.xib */; };
+		561185751BEB4A3500CBBD54 /* ZZReplayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 561185731BEB4A3500CBBD54 /* ZZReplayCell.m */; };
+		561185761BEB4A3500CBBD54 /* ZZReplayCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 561185741BEB4A3500CBBD54 /* ZZReplayCell.xib */; };
+		561185791BEC999F00CBBD54 /* MLKMenuPopover.m in Sources */ = {isa = PBXBuildFile; fileRef = 561185781BEC999F00CBBD54 /* MLKMenuPopover.m */; };
+		5611857F1BEC9B8800CBBD54 /* DefaultLine.png in Resources */ = {isa = PBXBuildFile; fileRef = 5611857A1BEC9B8800CBBD54 /* DefaultLine.png */; };
+		561185801BEC9B8800CBBD54 /* Menu_PopOver_BG.png in Resources */ = {isa = PBXBuildFile; fileRef = 5611857B1BEC9B8800CBBD54 /* Menu_PopOver_BG.png */; };
+		561185811BEC9B8800CBBD54 /* Menu_PopOver_BG@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5611857C1BEC9B8800CBBD54 /* Menu_PopOver_BG@2x.png */; };
+		561185821BEC9B8800CBBD54 /* options_pointer.png in Resources */ = {isa = PBXBuildFile; fileRef = 5611857D1BEC9B8800CBBD54 /* options_pointer.png */; };
+		561185831BEC9B8800CBBD54 /* options_pointer@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5611857E1BEC9B8800CBBD54 /* options_pointer@2x.png */; };
 		5618A9161BA94E83003ECC2D /* ZZSexSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 5618A9151BA94E83003ECC2D /* ZZSexSelector.m */; };
 		56220AFC1BAE9429008046DF /* ZZMyAllActivityTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 56220AFA1BAE9429008046DF /* ZZMyAllActivityTVC.m */; };
 		56220AFD1BAE9429008046DF /* ZZMyAllActivityTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56220AFB1BAE9429008046DF /* ZZMyAllActivityTVC.xib */; };
@@ -371,15 +387,37 @@
 		54EEFC521BA544E400AFE7D4 /* ZZBaseUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZBaseUser.m; sourceTree = "<group>"; };
 		54EEFC541BA5468C00AFE7D4 /* ZZOtherUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZOtherUser.h; sourceTree = "<group>"; };
 		54EEFC551BA5468C00AFE7D4 /* ZZOtherUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZOtherUser.m; sourceTree = "<group>"; };
-		56058F591BE8622F00AC2FF5 /* ZZCommunityDetailTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZCommunityDetailTVC.h; sourceTree = "<group>"; };
-		56058F5A1BE8622F00AC2FF5 /* ZZCommunityDetailTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZCommunityDetailTVC.m; sourceTree = "<group>"; };
-		56058F5B1BE8622F00AC2FF5 /* ZZCommunityDetailTVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZZCommunityDetailTVC.xib; sourceTree = "<group>"; };
 		56058F651BE8CEEE00AC2FF5 /* ZZCommunityTypeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZCommunityTypeVC.h; sourceTree = "<group>"; };
 		56058F661BE8CEEE00AC2FF5 /* ZZCommunityTypeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZCommunityTypeVC.m; sourceTree = "<group>"; };
 		56058F671BE8CEEE00AC2FF5 /* ZZCommunityTypeVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZZCommunityTypeVC.xib; sourceTree = "<group>"; };
+		56058F6B1BE99FCA00AC2FF5 /* ZZCommunityCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZCommunityCollectionViewCell.h; sourceTree = "<group>"; };
+		56058F6C1BE99FCA00AC2FF5 /* ZZCommunityCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZCommunityCollectionViewCell.m; sourceTree = "<group>"; };
+		56058F6D1BE99FCA00AC2FF5 /* ZZCommunityCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZZCommunityCollectionViewCell.xib; sourceTree = "<group>"; };
 		5607DA791B831DB000803EE5 /* ZZFirstLoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZFirstLoginVC.h; sourceTree = "<group>"; };
 		5607DA7A1B831DB000803EE5 /* ZZFirstLoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZFirstLoginVC.m; sourceTree = "<group>"; };
 		5607DA7B1B831DB000803EE5 /* ZZFirstLoginVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZZFirstLoginVC.xib; sourceTree = "<group>"; };
+		561185591BE9E7F500CBBD54 /* ZZPictureAndDetailVIew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZPictureAndDetailVIew.h; sourceTree = "<group>"; };
+		5611855A1BE9E7F500CBBD54 /* ZZPictureAndDetailVIew.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZPictureAndDetailVIew.m; sourceTree = "<group>"; };
+		5611855C1BE9E81A00CBBD54 /* ZZPictureAndDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZZPictureAndDetailView.xib; sourceTree = "<group>"; };
+		5611855E1BEA1A8800CBBD54 /* ZZTopicDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZTopicDetailCell.h; sourceTree = "<group>"; };
+		5611855F1BEA1A8800CBBD54 /* ZZTopicDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZTopicDetailCell.m; sourceTree = "<group>"; };
+		561185601BEA1A8800CBBD54 /* ZZTopicDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZZTopicDetailCell.xib; sourceTree = "<group>"; };
+		561185681BEB34A500CBBD54 /* ZZCommunityDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZCommunityDetailVC.h; sourceTree = "<group>"; };
+		561185691BEB34A500CBBD54 /* ZZCommunityDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZCommunityDetailVC.m; sourceTree = "<group>"; };
+		5611856A1BEB34A500CBBD54 /* ZZCommunityDetailVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZZCommunityDetailVC.xib; sourceTree = "<group>"; };
+		5611856D1BEB46BF00CBBD54 /* ZZReplayDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZReplayDetailVC.h; sourceTree = "<group>"; };
+		5611856E1BEB46BF00CBBD54 /* ZZReplayDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZReplayDetailVC.m; sourceTree = "<group>"; };
+		5611856F1BEB46BF00CBBD54 /* ZZReplayDetailVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZZReplayDetailVC.xib; sourceTree = "<group>"; };
+		561185721BEB4A3500CBBD54 /* ZZReplayCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZReplayCell.h; sourceTree = "<group>"; };
+		561185731BEB4A3500CBBD54 /* ZZReplayCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZReplayCell.m; sourceTree = "<group>"; };
+		561185741BEB4A3500CBBD54 /* ZZReplayCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZZReplayCell.xib; sourceTree = "<group>"; };
+		561185771BEC999F00CBBD54 /* MLKMenuPopover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MLKMenuPopover.h; path = function/MLKMenuPopover.h; sourceTree = "<group>"; };
+		561185781BEC999F00CBBD54 /* MLKMenuPopover.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MLKMenuPopover.m; path = function/MLKMenuPopover.m; sourceTree = "<group>"; };
+		5611857A1BEC9B8800CBBD54 /* DefaultLine.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DefaultLine.png; sourceTree = "<group>"; };
+		5611857B1BEC9B8800CBBD54 /* Menu_PopOver_BG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Menu_PopOver_BG.png; sourceTree = "<group>"; };
+		5611857C1BEC9B8800CBBD54 /* Menu_PopOver_BG@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Menu_PopOver_BG@2x.png"; sourceTree = "<group>"; };
+		5611857D1BEC9B8800CBBD54 /* options_pointer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = options_pointer.png; sourceTree = "<group>"; };
+		5611857E1BEC9B8800CBBD54 /* options_pointer@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "options_pointer@2x.png"; sourceTree = "<group>"; };
 		5618A9141BA94E83003ECC2D /* ZZSexSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZZSexSelector.h; path = "../../../login(注册登录)/View/ZZSexSelector.h"; sourceTree = "<group>"; };
 		5618A9151BA94E83003ECC2D /* ZZSexSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZZSexSelector.m; path = "../../../login(注册登录)/View/ZZSexSelector.m"; sourceTree = "<group>"; };
 		56220AF91BAE9429008046DF /* ZZMyAllActivityTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZZMyAllActivityTVC.h; path = "../myOrder(我的订单)/ZZMyAllActivityTVC.h"; sourceTree = "<group>"; };
@@ -1133,6 +1171,16 @@
 			path = OtherUser;
 			sourceTree = "<group>";
 		};
+		56058F6A1BE99FA400AC2FF5 /* CollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				56058F6B1BE99FCA00AC2FF5 /* ZZCommunityCollectionViewCell.h */,
+				56058F6C1BE99FCA00AC2FF5 /* ZZCommunityCollectionViewCell.m */,
+				56058F6D1BE99FCA00AC2FF5 /* ZZCommunityCollectionViewCell.xib */,
+			);
+			path = CollectionViewCell;
+			sourceTree = "<group>";
+		};
 		5607DA771B831D3500803EE5 /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -1419,9 +1467,12 @@
 				56C652021BB2715F009890B4 /* ZZCommunityTVC.h */,
 				56C652031BB2715F009890B4 /* ZZCommunityTVC.m */,
 				56C652041BB2715F009890B4 /* ZZCommunityTVC.xib */,
-				56058F591BE8622F00AC2FF5 /* ZZCommunityDetailTVC.h */,
-				56058F5A1BE8622F00AC2FF5 /* ZZCommunityDetailTVC.m */,
-				56058F5B1BE8622F00AC2FF5 /* ZZCommunityDetailTVC.xib */,
+				561185681BEB34A500CBBD54 /* ZZCommunityDetailVC.h */,
+				561185691BEB34A500CBBD54 /* ZZCommunityDetailVC.m */,
+				5611856A1BEB34A500CBBD54 /* ZZCommunityDetailVC.xib */,
+				5611856D1BEB46BF00CBBD54 /* ZZReplayDetailVC.h */,
+				5611856E1BEB46BF00CBBD54 /* ZZReplayDetailVC.m */,
+				5611856F1BEB46BF00CBBD54 /* ZZReplayDetailVC.xib */,
 			);
 			name = "myCommunity(我的社区)";
 			path = "myCommunity(社区)";
@@ -1703,6 +1754,9 @@
 		6E2B7FEA1BA1B52A004CA827 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				561185591BE9E7F500CBBD54 /* ZZPictureAndDetailVIew.h */,
+				5611855A1BE9E7F500CBBD54 /* ZZPictureAndDetailVIew.m */,
+				5611855C1BE9E81A00CBBD54 /* ZZPictureAndDetailView.xib */,
 				56B7B5191BB8ED4C006076FC /* ZZSlideDemo.h */,
 				56B7B51A1BB8ED4C006076FC /* ZZSlideDemo.m */,
 				566A00AB1BA69A4D00128DFE /* infoCell(我的) */,
@@ -1733,6 +1787,12 @@
 				6E2B7FF01BA1B52A004CA827 /* ZZCommunityCell.h */,
 				6E2B7FF11BA1B52A004CA827 /* ZZCommunityCell.m */,
 				6E2B7FF21BA1B52A004CA827 /* ZZCommunityCell.xib */,
+				5611855E1BEA1A8800CBBD54 /* ZZTopicDetailCell.h */,
+				5611855F1BEA1A8800CBBD54 /* ZZTopicDetailCell.m */,
+				561185601BEA1A8800CBBD54 /* ZZTopicDetailCell.xib */,
+				561185721BEB4A3500CBBD54 /* ZZReplayCell.h */,
+				561185731BEB4A3500CBBD54 /* ZZReplayCell.m */,
+				561185741BEB4A3500CBBD54 /* ZZReplayCell.xib */,
 			);
 			path = "Community(社区)";
 			sourceTree = "<group>";
@@ -2282,6 +2342,8 @@
 				6EB3CDEA1BB91698008BD9C0 /* emptyView */,
 				6E38A4121BA666BA008B0C8D /* HeadIV */,
 				6E7F58D41BA1575D00191BC0 /* function */,
+				561185771BEC999F00CBBD54 /* MLKMenuPopover.h */,
+				561185781BEC999F00CBBD54 /* MLKMenuPopover.m */,
 				6E7F58DB1BA1575D00191BC0 /* ZZLayerButton.h */,
 				6E7F58DC1BA1575D00191BC0 /* ZZLayerButton.m */,
 				6E7F58DD1BA1575D00191BC0 /* ZZPopMenu.h */,
@@ -2678,6 +2740,11 @@
 		6E9E3E5C1B620C860097B194 = {
 			isa = PBXGroup;
 			children = (
+				5611857A1BEC9B8800CBBD54 /* DefaultLine.png */,
+				5611857B1BEC9B8800CBBD54 /* Menu_PopOver_BG.png */,
+				5611857C1BEC9B8800CBBD54 /* Menu_PopOver_BG@2x.png */,
+				5611857D1BEC9B8800CBBD54 /* options_pointer.png */,
+				5611857E1BEC9B8800CBBD54 /* options_pointer@2x.png */,
 				6E9E3E671B620C860097B194 /* TalentService */,
 				6E9E3E841B620C860097B194 /* TalentServiceTests */,
 				6E9E3E661B620C860097B194 /* Products */,
@@ -2807,6 +2874,7 @@
 		6EA37C481BD4822900A5B836 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				56058F6A1BE99FA400AC2FF5 /* CollectionViewCell */,
 				6E9756E01BD661570002F46A /* TopicSelect */,
 				6EA37C4C1BD482AF00A5B836 /* ZZTopicImageCell.h */,
 				6EA37C4D1BD482AF00A5B836 /* ZZTopicImageCell.m */,
@@ -3102,10 +3170,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				561185761BEB4A3500CBBD54 /* ZZReplayCell.xib in Resources */,
 				6E9756E51BD661A50002F46A /* ZZTopicSelectView.xib in Resources */,
+				561185821BEC9B8800CBBD54 /* options_pointer.png in Resources */,
 				6E2B802E1BA1B52A004CA827 /* ZZMyselfCell.xib in Resources */,
 				6E85FDEE1BD7807100B6D484 /* UMSCommentInputController.xib in Resources */,
 				56220B0C1BAEA19C008046DF /* ZZEvaluationCell.xib in Resources */,
+				561185621BEA1A8800CBBD54 /* ZZTopicDetailCell.xib in Resources */,
 				6E45ABE71B9F04F600D09DCF /* address.json in Resources */,
 				6EB3CE081BB95683008BD9C0 /* Tae.bundle in Resources */,
 				6E7669051BAF99C8001F8A32 /* ZZStarTableViewCell.xib in Resources */,
@@ -3113,12 +3184,15 @@
 				6E2B7FB01BA1B4E6004CA827 /* ZZMoreVC.xib in Resources */,
 				562B76D91BCC997E00698975 /* yw_1222.jpg in Resources */,
 				6E85FDEF1BD7807100B6D484 /* UMSCommentInputControlleriPad.xib in Resources */,
+				561185801BEC9B8800CBBD54 /* Menu_PopOver_BG.png in Resources */,
 				6E6C19871BB146D40081E914 /* InfoPlist.strings in Resources */,
 				6E6C19861BB146D40081E914 /* ZZThirdVC.xib in Resources */,
+				561185711BEB46BF00CBBD54 /* ZZReplayDetailVC.xib in Resources */,
 				6EB3CDE51BB8DD18008BD9C0 /* ZZOrderTopView.xib in Resources */,
 				6E6C19881BB146D40081E914 /* ZZRegistVC.xib in Resources */,
 				6E7C6AE71B9DB5E200132D27 /* order_success_170x273.png in Resources */,
 				6E2B802A1BA1B52A004CA827 /* ZZCommunityCell.xib in Resources */,
+				5611857F1BEC9B8800CBBD54 /* DefaultLine.png in Resources */,
 				56A06D4E1BD5EDEE00F88974 /* ZZStarDetailVC.xib in Resources */,
 				56220AFD1BAE9429008046DF /* ZZMyAllActivityTVC.xib in Resources */,
 				54D379A21BA5A8C400A61C72 /* ZZApplyVC.xib in Resources */,
@@ -3130,12 +3204,14 @@
 				6E85FDF21BD7807100B6D484 /* UMSLoginViewController.xib in Resources */,
 				6E85FDEB1BD7807100B6D484 /* UMSocialLocalizable.strings in Resources */,
 				6E9CD1561B9401A200DA3F60 /* ZZAddImageCell.xib in Resources */,
+				5611856C1BEB34A500CBBD54 /* ZZCommunityDetailVC.xib in Resources */,
 				56A0E52A1BCF809D0040AE4F /* ZZMyEvaluationCell.xib in Resources */,
 				6E7C6AE51B9DB5E200132D27 /* order_fail_236x275@2x.png in Resources */,
 				6E7F59331BA1688F00191BC0 /* ZZActivityClassSelector.xib in Resources */,
 				6E2B80281BA1B52A004CA827 /* ZZAttentionCell.xib in Resources */,
 				6E8D3A901B8C1713006798A7 /* ZZHeadView.xib in Resources */,
 				56220B021BAE946E008046DF /* ZZMyAllActivityCell.xib in Resources */,
+				56058F6F1BE99FCA00AC2FF5 /* ZZCommunityCollectionViewCell.xib in Resources */,
 				6E2B80341BA1B52A004CA827 /* ZZOrderCell.xib in Resources */,
 				6EE0D0CB1B69F2F700DC80AC /* UUPhoto.Bundle in Resources */,
 				56BFB4C81BA915AE002EAA1D /* ZZChangePhoneNumVC.xib in Resources */,
@@ -3143,12 +3219,14 @@
 				6E64635D1BD362280087078B /* ZZPublishTopicVC.xib in Resources */,
 				562DCA931BD9CE300042B7EF /* ZZOrderPayTypeTVC.xib in Resources */,
 				56A0E5251BCF78D60040AE4F /* ZZMyEvaluationTVC.xib in Resources */,
+				561185831BEC9B8800CBBD54 /* options_pointer@2x.png in Resources */,
 				56227ABA1BA6B85700813C09 /* ZZMyCollectVC.xib in Resources */,
 				56C652061BB2715F009890B4 /* ZZCommunityTVC.xib in Resources */,
 				6E2B80201BA1B52A004CA827 /* ZZDetailMessageVC.xib in Resources */,
 				562DCA991BD9D43E0042B7EF /* ZZOrderPayCell.xib in Resources */,
 				6E7C6AE41B9DB5E200132D27 /* order_fail_236x275.png in Resources */,
 				56C652121BB271C5009890B4 /* ZZMessageTVC.xib in Resources */,
+				5611855D1BE9E81A00CBBD54 /* ZZPictureAndDetailView.xib in Resources */,
 				56227ABF1BA6B96100813C09 /* ZZCollectActivityTVC.xib in Resources */,
 				6E9014091B82E2F10083F2B7 /* ZZLoginVC.xib in Resources */,
 				566A00B01BA69A7A00128DFE /* ZZInfoCell.xib in Resources */,
@@ -3160,6 +3238,7 @@
 				6E85FDF01BD7807100B6D484 /* UMShareEditViewController.xib in Resources */,
 				6E8D3A8B1B8C073E006798A7 /* ZZActivityCell.xib in Resources */,
 				6E2B800A1BA1B52A004CA827 /* ZZInfoVC.xib in Resources */,
+				561185811BEC9B8800CBBD54 /* Menu_PopOver_BG@2x.png in Resources */,
 				56C652001BB27114009890B4 /* ZZMyOrderTVC.xib in Resources */,
 				6E85FDED1BD7807100B6D484 /* UMSCommentDetailController.xib in Resources */,
 				5699AC871BC8E4B100F67D54 /* ZZWriteDetailAddressVC.xib in Resources */,
@@ -3185,7 +3264,6 @@
 				6E2B80221BA1B52A004CA827 /* ZZModifyVC.xib in Resources */,
 				6E7C6AE91B9DB5E200132D27 /* order_success_170x273@3x.png in Resources */,
 				6E7F590D1BA1575D00191BC0 /* ZZDetailFunctionView.xib in Resources */,
-				56058F5D1BE8622F00AC2FF5 /* ZZCommunityDetailTVC.xib in Resources */,
 				6EA37C551BD4D05300A5B836 /* ZZTopicAddImageCell.xib in Resources */,
 				5652D3231B859E6B00A3FB09 /* ZZNextForgetVC.xib in Resources */,
 				56220B071BAEA130008046DF /* ZZEvaluationTVC.xib in Resources */,
@@ -3271,6 +3349,7 @@
 				6E7F59001BA1575D00191BC0 /* ZZBaseParam.m in Sources */,
 				6E76839B1B8EF70900661770 /* ZZDetailRuleView.m in Sources */,
 				6E733EB81BB24D1000700907 /* ZZActivityConmitParam.m in Sources */,
+				561185791BEC999F00CBBD54 /* MLKMenuPopover.m in Sources */,
 				569D69481BD7B8A500C244B0 /* DataSigner.m in Sources */,
 				6E3C5E081B96F2ED004BEAD3 /* ZZTopicForumTVC.m in Sources */,
 				569D69491BD7B8A500C244B0 /* DataVerifier.m in Sources */,
@@ -3281,6 +3360,7 @@
 				6EA108811B8D537000F4215A /* ZZSuperCell.m in Sources */,
 				6E7F59091BA1575D00191BC0 /* ZZIQKeyBoardTool.m in Sources */,
 				6E7F58ED1BA1575D00191BC0 /* MBProgressHUD+MJ.m in Sources */,
+				561185611BEA1A8800CBBD54 /* ZZTopicDetailCell.m in Sources */,
 				6E2B7F9C1BA1A2F6004CA827 /* ZZFuncitonModel.m in Sources */,
 				6ED6B18C1BB39350002FF9C6 /* ZZUploadImageModel.m in Sources */,
 				6E2B80351BA1B52A004CA827 /* ZZSegmentedControl.m in Sources */,
@@ -3373,6 +3453,7 @@
 				562DCA981BD9D43E0042B7EF /* ZZOrderPayCell.m in Sources */,
 				56C172E81B845A9C00EF55FF /* ZZRegistVC.m in Sources */,
 				6E7F590A1BA1575D00191BC0 /* ZZAppSystem.mm in Sources */,
+				56058F6E1BE99FCA00AC2FF5 /* ZZCommunityCollectionViewCell.m in Sources */,
 				6EC4C4921B9FD83400C39F8A /* ZZCitySelector.m in Sources */,
 				5699AC861BC8E4B100F67D54 /* ZZWriteDetailAddressVC.m in Sources */,
 				6E2B802D1BA1B52A004CA827 /* ZZMyselfCell.m in Sources */,
@@ -3405,6 +3486,8 @@
 				6E7F58F41BA1575D00191BC0 /* UILabel+Extension.m in Sources */,
 				6E7F59271BA1668A00191BC0 /* ZZActivityCity.m in Sources */,
 				6EE0D0C61B69F2F700DC80AC /* UUPhotoConst.m in Sources */,
+				561185701BEB46BF00CBBD54 /* ZZReplayDetailVC.m in Sources */,
+				5611855B1BE9E7F500CBBD54 /* ZZPictureAndDetailVIew.m in Sources */,
 				6E76839A1B8EF70900661770 /* ZZDetailImageView.m in Sources */,
 				6E7F59131BA1575D00191BC0 /* ZZShowView.m in Sources */,
 				6E5F98A51BBA8489006D4D73 /* ZZFailView.m in Sources */,
@@ -3418,6 +3501,7 @@
 				6E9E3E6B1B620C860097B194 /* main.m in Sources */,
 				56220B011BAE946E008046DF /* ZZMyAllActivityCell.m in Sources */,
 				6EE0D0CC1B69F2F700DC80AC /* UUPhotoActionSheet.m in Sources */,
+				5611856B1BEB34A500CBBD54 /* ZZCommunityDetailVC.m in Sources */,
 				565CF4761BA2A60A005CC369 /* ZZCancelOrderVC.m in Sources */,
 				6E2B80211BA1B52A004CA827 /* ZZModifyVC.m in Sources */,
 				6E7F59151BA1575D00191BC0 /* ZZTextField.m in Sources */,
@@ -3427,7 +3511,6 @@
 				6E2B802B1BA1B52A004CA827 /* ZZMessageCell.m in Sources */,
 				56FF11AB1BD4CFEA0013DF4E /* ZZMyAttentionVC.m in Sources */,
 				6E2B7FB11BA1B4E6004CA827 /* ZZMoreName.m in Sources */,
-				56058F5C1BE8622F00AC2FF5 /* ZZCommunityDetailTVC.m in Sources */,
 				56C652051BB2715F009890B4 /* ZZCommunityTVC.m in Sources */,
 				56F734661BBA67D5000E69AB /* ZZMyJoinOrderVC.m in Sources */,
 				548837A91BA29AE700720150 /* ZZActivityDetailParam.m in Sources */,
@@ -3452,6 +3535,7 @@
 				56422CC11BE1C1910004D46F /* ZZServicePushNotiFMDB.m in Sources */,
 				56058F681BE8CEEE00AC2FF5 /* ZZCommunityTypeVC.m in Sources */,
 				6E6695AD1BAA861600EDFE94 /* ZZActivity.m in Sources */,
+				561185751BEB4A3500CBBD54 /* ZZReplayCell.m in Sources */,
 				569D68DC1BD7AAA000C244B0 /* APAuthV2Info.m in Sources */,
 				6E4C40D81B9007FF00937CB1 /* ZZPayType.m in Sources */,
 				6E7F59201BA157E300191BC0 /* ZZLoadHttpTool.m in Sources */,

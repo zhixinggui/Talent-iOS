@@ -11,7 +11,7 @@
 #import "ZZPublishTopicVC.h"
 #import "ZZSIzeFitButton.h"
 #import "ZZTopicSelectView.h"
-#import "ZZCommunityDetailTVC.h"
+#import "ZZCommunityDetailVC.h"
 #import "ZZCommunityTypeVC.h"
 @interface ZZTopicForumTVC ()
 
@@ -75,7 +75,7 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView  deselectRowAtIndexPath:indexPath animated:YES];
-    ZZCommunityDetailTVC *communityTvc = [[ZZCommunityDetailTVC alloc]initWithNib];
+    ZZCommunityDetailVC *communityTvc = [[ZZCommunityDetailVC alloc]initWithNib];
     [self.navigationController pushViewController:communityTvc animated:YES];
 }
 
