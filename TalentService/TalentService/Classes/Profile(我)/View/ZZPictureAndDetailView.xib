@@ -19,11 +19,8 @@
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PXD-lU-Uor">
-                    <rect key="frame" x="10" y="205" width="355" height="18"/>
+                    <rect key="frame" x="10" y="205" width="355" height="48"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="18" id="Iyr-Pc-d0t"/>
-                    </constraints>
                     <attributedString key="attributedText">
                         <fragment content="开个会开个会聚光科技">
                             <attributes>
@@ -36,20 +33,20 @@
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="1" green="0.30588235289999999" blue="0.44705882349999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="84A-cN-F1G" secondAttribute="trailing" constant="10" id="4RI-gp-9zf"/>
+                <constraint firstAttribute="bottom" secondItem="PXD-lU-Uor" secondAttribute="bottom" constant="5" id="7aS-Po-7du"/>
                 <constraint firstItem="84A-cN-F1G" firstAttribute="top" secondItem="OXC-Oa-O57" secondAttribute="top" id="MiG-rP-Omc"/>
-                <constraint firstItem="PXD-lU-Uor" firstAttribute="leading" secondItem="OXC-Oa-O57" secondAttribute="leading" constant="10" id="VTF-ui-bch"/>
-                <constraint firstItem="PXD-lU-Uor" firstAttribute="top" secondItem="84A-cN-F1G" secondAttribute="bottom" constant="5" id="XMj-0F-91u"/>
+                <constraint firstItem="PXD-lU-Uor" firstAttribute="top" secondItem="84A-cN-F1G" secondAttribute="bottom" constant="5" id="X50-zb-g1X"/>
+                <constraint firstAttribute="trailing" secondItem="PXD-lU-Uor" secondAttribute="trailing" constant="10" id="XVt-bV-Ap0"/>
                 <constraint firstItem="84A-cN-F1G" firstAttribute="leading" secondItem="OXC-Oa-O57" secondAttribute="leading" constant="10" id="bOc-wx-A5w"/>
-                <constraint firstAttribute="trailing" secondItem="PXD-lU-Uor" secondAttribute="trailing" constant="10" id="xD7-Ju-94Y"/>
+                <constraint firstItem="PXD-lU-Uor" firstAttribute="leading" secondItem="OXC-Oa-O57" secondAttribute="leading" constant="10" id="pVH-oX-OhH"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="pictureIVHeight" destination="EWA-Gd-uX3" id="cdW-n3-eu0"/>
                 <outlet property="pictureLabel" destination="PXD-lU-Uor" id="Bkz-wW-wZF"/>
-                <outlet property="pictureLabelHeight" destination="Iyr-Pc-d0t" id="iUG-xS-1aL"/>
                 <outlet property="pictureView" destination="84A-cN-F1G" id="vVM-8b-MHw"/>
             </connections>
             <point key="canvasLocation" x="261.5" y="112"/>

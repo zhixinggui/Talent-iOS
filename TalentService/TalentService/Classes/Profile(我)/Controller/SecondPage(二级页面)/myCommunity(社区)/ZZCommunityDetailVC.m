@@ -104,24 +104,23 @@
     NSMutableAttributedString *attributedString = [self.contentLabel.text getReplyAttributedStringFont:[UIFont systemFontOfSize:15.0] color:[UIColor darkGrayColor]];
     self.contentLabel.attributedText = attributedString;
     
-    int allHeight = 0;
+    float allHeight = 0.0;
     for (int i = 0; i<4; i++) {
-        ZZPictureAndDetailVIew *pictureAndDetailView = [[ZZPictureAndDetailVIew alloc]init];
-        pictureAndDetailView = [[[NSBundle  mainBundle]loadNibNamed:@"ZZPictureAndDetailView" owner:self options:nil]firstObject];
+        ZZPictureAndDetailVIew *pictureAndDetailView = [[[NSBundle  mainBundle]loadNibNamed:@"ZZPictureAndDetailView" owner:self options:nil]firstObject];
         pictureAndDetailView.pictureIVHeight.constant = 200;
-        pictureAndDetailView.pictureLabel.text = @"阿迪达斯全新系列，采用创新锁热结构、湿度管理、隔温系统，提供超强保护，让你无惧寒冷。";
-//        NSMutableAttributedString *pictureString = [pictureAndDetailView.pictureLabel.text getReplyAttributedStringFont:[UIFont systemFontOfSize:15.0] color:[UIColor darkGrayColor]];
-//        pictureAndDetailView.pictureLabel.attributedText = pictureString;
-        
-        CGSize pictureSize = [pictureAndDetailView.pictureLabel.text textSizeWithFont:[UIFont systemFontOfSize:15.0] constrainedToSize:CGSizeMake(ScreenWidth-20, MAXFLOAT) lineBreakMode:NSLineBreakByWordWrapping];
-        pictureAndDetailView.pictureLabelHeight.constant = pictureSize.height;
-        pictureAndDetailView.frame = CGRectMake(0, allHeight, ScreenWidth, pictureAndDetailView.pictureIVHeight.constant+ 5 + pictureAndDetailView.pictureLabelHeight.constant);
-        allHeight += pictureAndDetailView.pictureIVHeight.constant  + 5 + pictureAndDetailView.pictureLabelHeight.constant + 5;
+        pictureAndDetailView.pictureLabel.text = @"阿迪达斯全新系列，采用创新锁热结构、湿度管理、隔温系统，提供超强保护，让你无惧寒冷。tyyffgdfg";
+        NSMutableAttributedString *pictureString = [pictureAndDetailView.pictureLabel.text getReplyAttributedStringFont:[UIFont systemFontOfSize:15.0] color:[UIColor darkGrayColor]];
+        pictureAndDetailView.pictureLabel.attributedText = pictureString;
+        pictureAndDetailView.x = 0;
+        pictureAndDetailView.y = allHeight;
+
+        [pictureAndDetailView setNeedsLayout];
+        allHeight += CGRectGetHeight(pictureAndDetailView.frame);
         
         [self.contentDetailView addSubview:pictureAndDetailView];
-        self.headView.height = allHeight+360;
+        
     }
-    
+    self.headView.height = allHeight+360;
     self.detailTvc.tableHeaderView = self.headView;
 }
 

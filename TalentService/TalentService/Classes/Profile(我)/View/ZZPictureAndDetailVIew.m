@@ -15,6 +15,6 @@
 @implementation ZZPictureAndDetailVIew
 
 -(void)awakeFromNib{
-    
+    self.width = ScreenWidth;
 }
 @end
