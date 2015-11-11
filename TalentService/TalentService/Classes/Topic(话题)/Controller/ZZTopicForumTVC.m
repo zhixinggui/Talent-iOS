@@ -10,12 +10,13 @@
 #import "ZZCommunityCell.h"
 #import "ZZPublishTopicVC.h"
 #import "ZZSIzeFitButton.h"
-#import "ZZTopicSelectView.h"
+#import "ZZTopicSearchVC.h"
 #import "ZZCommunityDetailVC.h"
 #import "ZZCommunityTypeVC.h"
-@interface ZZTopicForumTVC ()
 
-@property (strong, nonatomic) ZZTopicSelectView *selecteView;
+@interface ZZTopicForumTVC ()<UISearchBarDelegate>
+
+@property (strong, nonatomic) UISearchBar *searchView;
 @end
 
 @implementation ZZTopicForumTVC
@@ -39,6 +40,7 @@
 //选择话题
 - (void)didClickOnChooseType {
     ZZLog(@"选择话题");
+    
     ZZCommunityTypeVC *communityTypeVc = [[ZZCommunityTypeVC alloc]initWithNib];
     [self.navigationController pushViewController:communityTypeVc animated:YES];
 }
@@ -74,23 +76,33 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [tableView  deselectRowAtIndexPath:indexPath animated:YES];
-    ZZCommunityDetailVC *communityTvc = [[ZZCommunityDetailVC alloc]initWithNib];
-    [self.navigationController pushViewController:communityTvc animated:YES];
+   
+    
+  
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    return self.selecteView;
+    return self.searchView;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     return 44.0;
 }
+
+#pragma mark - UISearchBarDelegate
+- (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar{
+    ZZTopicSearchVC *topicSearchVC = [[ZZTopicSearchVC  alloc]init];
+    [self.navigationController  pushViewController:topicSearchVC animated:YES];
+    return NO;
+}
 #pragma mark - set or get
--(ZZTopicSelectView *)selecteView{
-    if (_selecteView == nil) {
-        _selecteView = [[[NSBundle  mainBundle]loadNibNamed:@"ZZTopicSelectView" owner:self options:nil]firstObject];
+-(UISearchBar *)searchView{
+    if (_searchView == nil) {
+        _searchView = [[UISearchBar alloc]init];
+        _searchView.placeholder = @"搜索";
+        _searchView.delegate = self;
+       // _searchView.prompt = @"搜索";
     }
-    return _selecteView;
+    return _searchView;
 }
 @end

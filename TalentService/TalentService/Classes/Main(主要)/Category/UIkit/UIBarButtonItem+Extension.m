@@ -57,4 +57,12 @@
     negativeSeperator.width = separWidth;//此处修改到边界的距离，请自行测试
     return  @[negativeSeperator,right];
 }
+
+/***/
++ (UIBarButtonItem *)seperatorItem{
+    UIBarButtonItem *negativeSeperator = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+    
+    negativeSeperator.width = separWidth;
+    return negativeSeperator;
+}
 @end

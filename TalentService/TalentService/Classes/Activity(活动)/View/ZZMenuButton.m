@@ -22,6 +22,15 @@
     return self;
 }
 
+-(void)awakeFromNib{
+    self.backgroundColor = [UIColor  whiteColor];
+    [self setTitleColor:ZZLightGrayColor forState:UIControlStateNormal];
+    [self  setTitleColor:ZZGreenColor forState:UIControlStateSelected];
+    self.titleLabel.font = ZZContentFont;
+    [self  setImage:[UIImage  imageNamed:@"down_20x20"] forState:UIControlStateNormal];
+    [self  setImage:[UIImage  imageNamed:@"down_selected_20x20"] forState:UIControlStateSelected];
+}
+
 -(void)setFrame:(CGRect)frame{
     [super  setFrame:frame];
     [self  setNeedsLayout];

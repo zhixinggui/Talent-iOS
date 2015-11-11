@@ -50,6 +50,23 @@
         [self  updatePlaceholderLabelStatus];
     }
     [self  updateTipCountLabelText];
+    UITextView *textView = noti.object;
+        CGRect line = [textView caretRectForPosition:
+                       textView.selectedTextRange.start];
+        CGFloat overflow = line.origin.y + line.size.height
+        - ( textView.contentOffset.y + textView.bounds.size.height
+           - textView.contentInset.bottom - textView.contentInset.top );
+        if ( overflow > 0 ) {
+            // We are at the bottom of the visible text and introduced a line feed, scroll down (iOS 7 does not do it)
+            // Scroll caret to visible area
+            CGPoint offset = textView.contentOffset;
+            offset.y += overflow + 7.5; // leave 7 pixels margin
+            // Cannot animate with setContentOffset:animated: or caret will not appear
+            [UIView animateWithDuration:.3 animations:^{
+                [textView setContentOffset:offset];
+            }];
+        }
+   
     /**超出长度不让输入*/
 //    UITextRange *selectedRange = [self markedTextRange];
 //    UITextPosition *position = [self positionFromPosition:selectedRange.start offset:0];

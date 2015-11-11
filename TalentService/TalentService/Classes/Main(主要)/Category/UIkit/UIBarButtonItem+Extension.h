@@ -19,4 +19,8 @@
 
 /**右侧按钮 图片 有偏移量*/
 + (NSArray *)rightItemWithTarget:(id)target action:(SEL)action image:(NSString *)imageName;
+
+
+/***/
++ (UIBarButtonItem *)seperatorItem;
 @end

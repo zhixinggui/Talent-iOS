@@ -10,6 +10,7 @@
 #import "ZZCommunityCell.h"
 #import "ZZSegmentedControl.h"
 #import "ZZCommunityCellModel.h"
+#import "ZZCommunityDetailVC.h"
 @interface ZZCommunityTVC ()
 @property(nonatomic,strong)ZZCommunityCellModel *model;
 @end
@@ -58,6 +59,10 @@
     return cell;
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    ZZCommunityDetailVC *communityTvc = [[ZZCommunityDetailVC alloc]initWithNib];
+    [self.navigationController pushViewController:communityTvc animated:YES];
+}
 
 /*
 // Override to support conditional editing of the table view.

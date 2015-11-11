@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="gUN-pM-gTz">
+            <rect key="frame" x="0.0" y="0.0" width="501" height="54"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r8V-U6-NJe" customClass="ZZMenuButton">
+                    <rect key="frame" x="0.0" y="0.0" width="60" height="38"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="60" id="bbI-0L-2l7"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <state key="normal" title="话题" image="down_20x20"/>
+                    <state key="selected" image="down_selected_20x20"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SFd-dA-f0j" customClass="ZZMenuButton">
+                    <rect key="frame" x="441" y="0.0" width="60" height="54"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <state key="normal" title="Button" image="down_20x20"/>
+                    <state key="selected" title="取消" image="down_selected_20x20"/>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="r8V-U6-NJe" secondAttribute="bottom" constant="16" id="3G8-Fn-RYd"/>
+                <constraint firstItem="SFd-dA-f0j" firstAttribute="top" secondItem="gUN-pM-gTz" secondAttribute="top" id="8aK-Xv-Ogc"/>
+                <constraint firstAttribute="bottom" secondItem="SFd-dA-f0j" secondAttribute="bottom" id="ALE-tH-Aru"/>
+                <constraint firstAttribute="trailing" secondItem="SFd-dA-f0j" secondAttribute="trailing" id="Cq1-YU-PZM"/>
+                <constraint firstItem="r8V-U6-NJe" firstAttribute="leading" secondItem="gUN-pM-gTz" secondAttribute="leading" id="EbL-IF-Xbz"/>
+                <constraint firstItem="r8V-U6-NJe" firstAttribute="top" secondItem="gUN-pM-gTz" secondAttribute="top" id="Kz4-3J-1BT"/>
+                <constraint firstItem="SFd-dA-f0j" firstAttribute="width" secondItem="r8V-U6-NJe" secondAttribute="width" id="hti-7r-6fq"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="356.5" y="63"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="down_20x20" width="20" height="20"/>
+        <image name="down_selected_20x20" width="20" height="20"/>
+    </resources>
+</document>

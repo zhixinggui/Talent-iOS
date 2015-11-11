@@ -31,8 +31,14 @@
 
 @implementation ZZCommunityDetailVC
 
+-(void)loadView{
+      ZZLog(@"dd,,%@",[NSDate  date]);
+    [super  loadView];
+     ZZLog(@",,%@",[NSDate  date]);
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
+    ZZLog(@",,%@",[NSDate  date]);
     self.title = @"话题详情";
     UINib* nib = [UINib nibWithNibName:@"ZZTopicDetailCell" bundle:nil];
     [self.detailTvc registerNib:nib forCellReuseIdentifier:topicCelldentifier];
@@ -108,9 +114,9 @@
     for (int i = 0; i<4; i++) {
         ZZPictureAndDetailVIew *pictureAndDetailView = [[[NSBundle  mainBundle]loadNibNamed:@"ZZPictureAndDetailView" owner:self options:nil]firstObject];
         pictureAndDetailView.pictureIVHeight.constant = 200;
-        pictureAndDetailView.pictureLabel.text = @"阿迪达斯全新系列，采用创新锁热结构、湿度管理、隔温系统，提供超强保护，让你无惧寒冷。tyyffgdfg";
+        pictureAndDetailView.pictureLabel.text = @"阿迪达斯全新系列";
         NSMutableAttributedString *pictureString = [pictureAndDetailView.pictureLabel.text getReplyAttributedStringFont:[UIFont systemFontOfSize:15.0] color:[UIColor darkGrayColor]];
-        pictureAndDetailView.pictureLabel.attributedText = pictureString;
+        //pictureAndDetailView.pictureLabel.attributedText = pictureString;
         pictureAndDetailView.x = 0;
         pictureAndDetailView.y = allHeight;
 

@@ -74,7 +74,6 @@ CGFloat const  duration = 0.75;
     [[NSNotificationCenter  defaultCenter]addObserver:self selector:@selector(NetStatusChange:) name:AFNetworkingReachabilityDidChangeNotification object:nil];
     self.delegate = self;
     
-
 }
 
 - (void)NetStatusChange:(NSNotification *)noti{
@@ -127,7 +126,7 @@ CGFloat const  duration = 0.75;
         /* 设置导航栏上面的内容 */
         // 设置左边的返回按钮
        
-        UIBarButtonItem *negativeSeperator = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+        UIBarButtonItem *negativeSeperator = [UIBarButtonItem seperatorItem];
         UIBarButtonItem *back = [UIBarButtonItem  itemWithTarget:self action:@selector(back) image:@"return_30x30" highImage:nil];
         
         negativeSeperator.width = -16;//此处修改到边界的距离，请自行测试
@@ -139,7 +138,6 @@ CGFloat const  duration = 0.75;
 
 - (void)back
 {
-#warning 这里要用self，不是self.navigationController
     // 因为self本来就是一个导航控制器，self.navigationController这里是nil的
     [self popViewControllerAnimated:YES];
 }
