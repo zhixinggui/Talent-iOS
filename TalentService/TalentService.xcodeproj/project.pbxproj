@@ -340,8 +340,9 @@
 		6EB3CE0A1BB95683008BD9C0 /* UTDID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EB3CE001BB95683008BD9C0 /* UTDID.framework */; };
 		6EB3CE0B1BB95683008BD9C0 /* UTMini.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EB3CE011BB95683008BD9C0 /* UTMini.framework */; };
 		6EB3CF081BB95DD3008BD9C0 /* libUMessage_Sdk_1.2.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EB3CF061BB95DD3008BD9C0 /* libUMessage_Sdk_1.2.0.a */; };
-		6EB3D94F1BF2D7E9009B00A2 /* ZZTitleSearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB3D94E1BF2D7E9009B00A2 /* ZZTitleSearchView.m */; };
 		6EB3D9511BF2D7F9009B00A2 /* ZZTitleSearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EB3D9501BF2D7F9009B00A2 /* ZZTitleSearchView.xib */; };
+		6EB3D9581BF323CA009B00A2 /* ZZSearchTopicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB3D9561BF323CA009B00A2 /* ZZSearchTopicCell.m */; };
+		6EB3D9591BF323CA009B00A2 /* ZZSearchTopicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EB3D9571BF323CA009B00A2 /* ZZSearchTopicCell.xib */; };
 		6EC3CFDD1BB0F9E1009F4C4D /* ZZImageContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC3CFDC1BB0F9E1009F4C4D /* ZZImageContent.m */; };
 		6EC4C4921B9FD83400C39F8A /* ZZCitySelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC4C4901B9FD83400C39F8A /* ZZCitySelector.m */; };
 		6EC4C4A31B9FE47900C39F8A /* ZZResignParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC4C4A21B9FE47900C39F8A /* ZZResignParam.m */; };
@@ -361,6 +362,8 @@
 		6EE0D0CE1B69F2F700DC80AC /* UUThumbnailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE0D0C11B69F2F700DC80AC /* UUThumbnailView.m */; };
 		6EE0D0CF1B69F2F700DC80AC /* UUToolBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE0D0C31B69F2F700DC80AC /* UUToolBarView.m */; };
 		6EE0D0D01B69F2F700DC80AC /* UUZoomingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE0D0C51B69F2F700DC80AC /* UUZoomingScrollView.m */; };
+		6EEA74B41BF33F59009299BF /* ZZSearchUserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EEA74B21BF33F59009299BF /* ZZSearchUserCell.m */; };
+		6EEA74B51BF33F59009299BF /* ZZSearchUserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EEA74B31BF33F59009299BF /* ZZSearchUserCell.xib */; };
 		6EFB81791BB28AC6009AFA24 /* HCSStarRatingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EFB81781BB28AC6009AFA24 /* HCSStarRatingView.m */; };
 		EFF39BDA34A1B1564EFD7A74 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A1CC5AEC528219501B30E9F1 /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -1021,9 +1024,10 @@
 		6EB3CE011BB95683008BD9C0 /* UTMini.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UTMini.framework; sourceTree = "<group>"; };
 		6EB3CF061BB95DD3008BD9C0 /* libUMessage_Sdk_1.2.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUMessage_Sdk_1.2.0.a; sourceTree = "<group>"; };
 		6EB3CF071BB95DD3008BD9C0 /* UMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMessage.h; sourceTree = "<group>"; };
-		6EB3D94D1BF2D7E9009B00A2 /* ZZTitleSearchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZTitleSearchView.h; sourceTree = "<group>"; };
-		6EB3D94E1BF2D7E9009B00A2 /* ZZTitleSearchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZTitleSearchView.m; sourceTree = "<group>"; };
 		6EB3D9501BF2D7F9009B00A2 /* ZZTitleSearchView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZZTitleSearchView.xib; sourceTree = "<group>"; };
+		6EB3D9551BF323CA009B00A2 /* ZZSearchTopicCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZSearchTopicCell.h; sourceTree = "<group>"; };
+		6EB3D9561BF323CA009B00A2 /* ZZSearchTopicCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZSearchTopicCell.m; sourceTree = "<group>"; };
+		6EB3D9571BF323CA009B00A2 /* ZZSearchTopicCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZZSearchTopicCell.xib; sourceTree = "<group>"; };
 		6EC3CFDB1BB0F9E1009F4C4D /* ZZImageContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZImageContent.h; sourceTree = "<group>"; };
 		6EC3CFDC1BB0F9E1009F4C4D /* ZZImageContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZImageContent.m; sourceTree = "<group>"; };
 		6EC4C48F1B9FD83400C39F8A /* ZZCitySelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZCitySelector.h; sourceTree = "<group>"; };
@@ -1060,6 +1064,9 @@
 		6EE0D0C31B69F2F700DC80AC /* UUToolBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UUToolBarView.m; sourceTree = "<group>"; };
 		6EE0D0C41B69F2F700DC80AC /* UUZoomingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UUZoomingScrollView.h; sourceTree = "<group>"; };
 		6EE0D0C51B69F2F700DC80AC /* UUZoomingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UUZoomingScrollView.m; sourceTree = "<group>"; };
+		6EEA74B11BF33F59009299BF /* ZZSearchUserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZSearchUserCell.h; sourceTree = "<group>"; };
+		6EEA74B21BF33F59009299BF /* ZZSearchUserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZSearchUserCell.m; sourceTree = "<group>"; };
+		6EEA74B31BF33F59009299BF /* ZZSearchUserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZZSearchUserCell.xib; sourceTree = "<group>"; };
 		6EFB81771BB28AC6009AFA24 /* HCSStarRatingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCSStarRatingView.h; sourceTree = "<group>"; };
 		6EFB81781BB28AC6009AFA24 /* HCSStarRatingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCSStarRatingView.m; sourceTree = "<group>"; };
 		A1CC5AEC528219501B30E9F1 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -2972,9 +2979,13 @@
 		6EB3D94C1BF2D773009B00A2 /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				6EB3D94D1BF2D7E9009B00A2 /* ZZTitleSearchView.h */,
-				6EB3D94E1BF2D7E9009B00A2 /* ZZTitleSearchView.m */,
 				6EB3D9501BF2D7F9009B00A2 /* ZZTitleSearchView.xib */,
+				6EB3D9551BF323CA009B00A2 /* ZZSearchTopicCell.h */,
+				6EB3D9561BF323CA009B00A2 /* ZZSearchTopicCell.m */,
+				6EB3D9571BF323CA009B00A2 /* ZZSearchTopicCell.xib */,
+				6EEA74B11BF33F59009299BF /* ZZSearchUserCell.h */,
+				6EEA74B21BF33F59009299BF /* ZZSearchUserCell.m */,
+				6EEA74B31BF33F59009299BF /* ZZSearchUserCell.xib */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -3213,6 +3224,7 @@
 				561185821BEC9B8800CBBD54 /* options_pointer.png in Resources */,
 				6E2B802E1BA1B52A004CA827 /* ZZMyselfCell.xib in Resources */,
 				6E85FDEE1BD7807100B6D484 /* UMSCommentInputController.xib in Resources */,
+				6EB3D9591BF323CA009B00A2 /* ZZSearchTopicCell.xib in Resources */,
 				56220B0C1BAEA19C008046DF /* ZZEvaluationCell.xib in Resources */,
 				561185621BEA1A8800CBBD54 /* ZZTopicDetailCell.xib in Resources */,
 				6E45ABE71B9F04F600D09DCF /* address.json in Resources */,
@@ -3296,6 +3308,7 @@
 				6E2B7FB31BA1B4E6004CA827 /* ZZMoreCell.xib in Resources */,
 				6ED6B1881BB38900002FF9C6 /* ZZAttentionVC.xib in Resources */,
 				6E7FA4641BCF820A0003FF06 /* ZZAboutAppVC.xib in Resources */,
+				6EEA74B51BF33F59009299BF /* ZZSearchUserCell.xib in Resources */,
 				6E85FDF71BD7807100B6D484 /* WeiboSDK.bundle in Resources */,
 				6E85FDF31BD7807100B6D484 /* UMSnsAccountViewController.xib in Resources */,
 				56058F691BE8CEEE00AC2FF5 /* ZZCommunityTypeVC.xib in Resources */,
@@ -3414,6 +3427,7 @@
 				569D68E01BD7ABD700C244B0 /* ZZAlipayTool.m in Sources */,
 				569D694B1BD7B8A500C244B0 /* NSDataEx.m in Sources */,
 				6E7F58EF1BA1575D00191BC0 /* UIAlertView+Extension.m in Sources */,
+				6EB3D9581BF323CA009B00A2 /* ZZSearchTopicCell.m in Sources */,
 				56C652111BB271C5009890B4 /* ZZMessageTVC.m in Sources */,
 				6E2B800D1BA1B52A004CA827 /* ZZJoinOrderTVC.m in Sources */,
 				6ED6B1871BB38900002FF9C6 /* ZZAttentionVC.m in Sources */,
@@ -3441,11 +3455,8 @@
 				569D694D1BD7B8A500C244B0 /* RSADataSigner.m in Sources */,
 				56F734571BBA2B48000E69AB /* ZZMyServiceParam.m in Sources */,
 				56C651FA1BB270BE009890B4 /* ZZInfoModifyVC.m in Sources */,
-
 				6E0755DB1BF1B806008CE6D4 /* ZZTopicHtttpTool.m in Sources */,
-
 				560662831BF1B7F900328BE3 /* ZZTopicDetailVC.m in Sources */,
-
 				6E4C40EB1B90592700937CB1 /* ZZApplyVC.m in Sources */,
 				6EE0D0CE1B69F2F700DC80AC /* UUThumbnailView.m in Sources */,
 				6E7F59011BA1575D00191BC0 /* ZZParam.m in Sources */,
@@ -3483,7 +3494,6 @@
 				6EE0D0C81B69F2F700DC80AC /* UUPhotoCollectionViewController.m in Sources */,
 				56C6521C1BB28772009890B4 /* ZZOrderResult.m in Sources */,
 				6E7F58EA1BA1575D00191BC0 /* NSDictionary+Extension.m in Sources */,
-				6EB3D94F1BF2D7E9009B00A2 /* ZZTitleSearchView.m in Sources */,
 				6EA108841B8D61FD00F4215A /* ZZActivityController.m in Sources */,
 				6E7F58EC1BA1575D00191BC0 /* NSString+Extension.m in Sources */,
 				560662871BF1C0BF00328BE3 /* ZZTopicReplayView.m in Sources */,
@@ -3540,6 +3550,7 @@
 				6E0755DF1BF1BA33008CE6D4 /* ZZTopicType.m in Sources */,
 				6E7F59131BA1575D00191BC0 /* ZZShowView.m in Sources */,
 				6E5F98A51BBA8489006D4D73 /* ZZFailView.m in Sources */,
+				6EEA74B41BF33F59009299BF /* ZZSearchUserCell.m in Sources */,
 				56220AFC1BAE9429008046DF /* ZZMyAllActivityTVC.m in Sources */,
 				6E3F4B621BB16A0C0032B9F8 /* ZZOrder.m in Sources */,
 				569D69471BD7B8A500C244B0 /* base64.m in Sources */,

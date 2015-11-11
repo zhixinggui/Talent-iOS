@@ -1,5 +1,5 @@
 //
-//  ZZTitleSearchView.h
+//  ZZSearchUserCell.h
 //  TalentService
 //
 //  Created by zhizhen on 15/11/11.
@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ZZTitleSearchView : UIView
+@interface ZZSearchTopicCell : UITableViewCell
 
++ (NSString *)searchTopicCellIdentifier;
+
++ (CGFloat)searchTopicCellheight;
 @end

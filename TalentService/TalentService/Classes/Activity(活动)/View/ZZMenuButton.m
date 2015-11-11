@@ -37,11 +37,14 @@
 }
 -(void)layoutSubviews{
     [super  layoutSubviews];
+    if (self.titleLabel.x > self.imageView.x) {
         // 1.计算titleLabel的frame
         self.titleLabel.x = self.imageView.x;
         
         // 2.计算imageView的frame
         self.imageView.x = self.width - 5 -self.imageView.width;
+    }
+    
 }
 
 @end

@@ -5,37 +5,88 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ZZTopicSearchVC">
+            <connections>
+                <outlet property="searchBar" destination="hE3-1Q-hix" id="DNY-gz-22e"/>
+                <outlet property="selectButton" destination="r8V-U6-NJe" id="xV6-OI-YUL"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="gUN-pM-gTz">
             <rect key="frame" x="0.0" y="0.0" width="501" height="54"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r8V-U6-NJe" customClass="ZZMenuButton">
-                    <rect key="frame" x="0.0" y="0.0" width="60" height="38"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4eV-hO-bND" userLabel="back">
+                    <rect key="frame" x="0.0" y="0.0" width="456" height="54"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r8V-U6-NJe" customClass="ZZMenuButton">
+                            <rect key="frame" x="0.0" y="0.0" width="60" height="54"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="60" id="SdZ-2U-qov"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <state key="normal" title="话题" image="down_20x20"/>
+                            <state key="selected" image="down_selected_20x20"/>
+                            <connections>
+                                <action selector="selectedButtonAction:" destination="-1" eventType="touchUpInside" id="WEi-ws-zc0"/>
+                            </connections>
+                        </button>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gnn-pk-2Bb" userLabel="line">
+                            <rect key="frame" x="61" y="2" width="1" height="50"/>
+                            <color key="backgroundColor" red="1" green="0.50196081399917603" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="1" id="qPg-nm-kON"/>
+                            </constraints>
+                        </view>
+                        <searchBar contentMode="redraw" placeholder="萌宝派" translatesAutoresizingMaskIntoConstraints="NO" id="hE3-1Q-hix">
+                            <rect key="frame" x="63" y="-1" width="393" height="56"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </searchBar>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="60" id="bbI-0L-2l7"/>
+                        <constraint firstItem="r8V-U6-NJe" firstAttribute="top" secondItem="4eV-hO-bND" secondAttribute="top" id="2pI-eM-7EX"/>
+                        <constraint firstItem="hE3-1Q-hix" firstAttribute="top" secondItem="4eV-hO-bND" secondAttribute="top" constant="-1" id="3NN-x3-MmB"/>
+                        <constraint firstAttribute="bottom" secondItem="r8V-U6-NJe" secondAttribute="bottom" id="F6M-EZ-62I"/>
+                        <constraint firstAttribute="bottom" secondItem="hE3-1Q-hix" secondAttribute="bottom" constant="-1" id="NQy-F8-GUx"/>
+                        <constraint firstItem="r8V-U6-NJe" firstAttribute="leading" secondItem="4eV-hO-bND" secondAttribute="leading" id="Saj-AK-vHp"/>
+                        <constraint firstItem="gnn-pk-2Bb" firstAttribute="leading" secondItem="r8V-U6-NJe" secondAttribute="trailing" constant="1" id="nUx-s6-bF5"/>
+                        <constraint firstItem="hE3-1Q-hix" firstAttribute="leading" secondItem="gnn-pk-2Bb" secondAttribute="trailing" constant="1" id="t7e-Zr-OJe"/>
+                        <constraint firstItem="gnn-pk-2Bb" firstAttribute="top" secondItem="4eV-hO-bND" secondAttribute="top" constant="2" id="tdv-kJ-ZkZ"/>
+                        <constraint firstAttribute="trailing" secondItem="hE3-1Q-hix" secondAttribute="trailing" id="twf-zA-qFQ"/>
+                        <constraint firstAttribute="bottom" secondItem="gnn-pk-2Bb" secondAttribute="bottom" constant="2" id="xUd-2B-HVL"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                    <state key="normal" title="话题" image="down_20x20"/>
-                    <state key="selected" image="down_selected_20x20"/>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SFd-dA-f0j" customClass="ZZMenuButton">
-                    <rect key="frame" x="441" y="0.0" width="60" height="54"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                    <state key="normal" title="Button" image="down_20x20"/>
-                    <state key="selected" title="取消" image="down_selected_20x20"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="5.0"/>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SFd-dA-f0j">
+                    <rect key="frame" x="461" y="0.0" width="40" height="54"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="40" id="ytO-3f-ZXc"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                    <state key="normal" title="取消">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="selected" title="取消"/>
+                    <connections>
+                        <action selector="cancellButtonAction:" destination="-1" eventType="touchUpInside" id="C0w-c2-85u"/>
+                    </connections>
                 </button>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="r8V-U6-NJe" secondAttribute="bottom" constant="16" id="3G8-Fn-RYd"/>
-                <constraint firstItem="SFd-dA-f0j" firstAttribute="top" secondItem="gUN-pM-gTz" secondAttribute="top" id="8aK-Xv-Ogc"/>
-                <constraint firstAttribute="bottom" secondItem="SFd-dA-f0j" secondAttribute="bottom" id="ALE-tH-Aru"/>
-                <constraint firstAttribute="trailing" secondItem="SFd-dA-f0j" secondAttribute="trailing" id="Cq1-YU-PZM"/>
-                <constraint firstItem="r8V-U6-NJe" firstAttribute="leading" secondItem="gUN-pM-gTz" secondAttribute="leading" id="EbL-IF-Xbz"/>
-                <constraint firstItem="r8V-U6-NJe" firstAttribute="top" secondItem="gUN-pM-gTz" secondAttribute="top" id="Kz4-3J-1BT"/>
-                <constraint firstItem="SFd-dA-f0j" firstAttribute="width" secondItem="r8V-U6-NJe" secondAttribute="width" id="hti-7r-6fq"/>
+                <constraint firstAttribute="bottom" secondItem="SFd-dA-f0j" secondAttribute="bottom" id="1t1-Mb-hJh"/>
+                <constraint firstItem="SFd-dA-f0j" firstAttribute="leading" secondItem="4eV-hO-bND" secondAttribute="trailing" constant="5" id="Bgl-lk-qWg"/>
+                <constraint firstAttribute="trailing" secondItem="SFd-dA-f0j" secondAttribute="trailing" id="FKP-wz-evo"/>
+                <constraint firstAttribute="bottom" secondItem="4eV-hO-bND" secondAttribute="bottom" id="JC9-t0-emR"/>
+                <constraint firstItem="SFd-dA-f0j" firstAttribute="top" secondItem="gUN-pM-gTz" secondAttribute="top" id="NlU-hs-XIN"/>
+                <constraint firstItem="4eV-hO-bND" firstAttribute="top" secondItem="gUN-pM-gTz" secondAttribute="top" id="wC5-aj-eYr"/>
+                <constraint firstItem="4eV-hO-bND" firstAttribute="leading" secondItem="gUN-pM-gTz" secondAttribute="leading" id="zu3-dH-OqG"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

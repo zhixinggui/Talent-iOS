@@ -18,7 +18,7 @@
 #define SEPERATOR_LINE_RECT     CGRectMake(10, MENU_ITEM_HEIGHT - 1, self.frame.size.width - 20, 1)
 #define MENU_POINTER_RECT       CGRectMake(CGRectGetMaxX(self.frame)-33, frame.origin.y, 23, 11)
 
-#define CONTAINER_BG_COLOR      RGBA(0, 0, 0, 0.1f)
+#define CONTAINER_BG_COLOR      RGBA(0, 0, 0, 0.3f)
 
 #define ZERO                    0.0f
 #define ONE                     1.0f
@@ -33,7 +33,8 @@
 
 @property(nonatomic,retain) NSArray *menuItems;
 @property(nonatomic,retain) UIButton *containerButton;
-
+@property(nonatomic, weak) UIImageView *menuPointerView;
+@property (nonatomic, getter=isShow)BOOL show;
 - (void)hide;
 - (void)addSeparatorImageToCell:(UITableViewCell *)cell;
 
@@ -52,7 +53,7 @@
     if (self)
     {
         self.menuItems = aMenuItems;
-        
+      
         // Adding Container Button which will take care of hiding menu when user taps outside of menu area
         self.containerButton = [[UIButton alloc] init];
         [self.containerButton setBackgroundColor:CONTAINER_BG_COLOR];
@@ -64,11 +65,12 @@
         
         menuPointerView.image = [UIImage imageNamed:@"options_pointer"];
         menuPointerView.tag = MENU_POINTER_TAG;
+        self.menuPointerView = menuPointerView;
         [self.containerButton addSubview:menuPointerView];
         
         // Adding menu Items table
         UITableView *menuItemsTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 11, frame.size.width, frame.size.height)];
-        
+       
         menuItemsTableView.dataSource = self;
         menuItemsTableView.delegate = self;
         menuItemsTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -87,6 +89,26 @@
     return self;
 }
 
+-(void)setArrowDirection:(MLKMenuPopoverArrowDirection)arrowDirection{
+    _arrowDirection = arrowDirection;
+    CGFloat separ = 10;
+    CGFloat  width = CGRectGetWidth(self.menuPointerView.frame);
+    switch (arrowDirection) {
+        case MLKMenuPopoverArrowDirectionLeft:
+        {
+            self.menuPointerView.x = CGRectGetMinX(self.frame)+separ;
+        }
+            break;
+        case MLKMenuPopoverArrowDirectionMiddle:
+            self.menuPointerView.x = CGRectGetMidX(self.frame)-width/2;
+            break;
+        case MLKMenuPopoverArrowDirectionRight:
+            self.menuPointerView.x = CGRectGetMaxX(self.frame)-width-separ;
+            break;
+        default:
+            break;
+    }
+}
 #pragma mark -
 #pragma mark UITableViewDatasource
 
@@ -111,7 +133,7 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
         [cell.textLabel setFont:[UIFont boldSystemFontOfSize:FONT_SIZE]];
         [cell.textLabel setTextColor:[UIColor whiteColor]];
-        [cell setSelectionStyle:UITableViewCellSelectionStyleGray];
+        [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
         [cell setBackgroundColor:[UIColor clearColor]];
     }
     
@@ -122,7 +144,10 @@
     }
     
     cell.textLabel.text = [self.menuItems objectAtIndex:indexPath.row];
-    
+    if (self.itemImageNames.count > indexPath.row) {
+         cell.imageView.image = [UIImage  imageNamed:[self.itemImageNames objectAtIndex:indexPath.row]];
+    }
+   
     return cell;
 }
 
@@ -148,7 +173,7 @@
     self.containerButton.alpha = ZERO;
     self.containerButton.frame = view.bounds;
     [view addSubview:self.containerButton];
-        
+    self.show = YES;
     [UIView animateWithDuration:ANIMATION_DURATION
                      animations:^{
                          self.containerButton.alpha = ONE;
@@ -158,6 +183,7 @@
 
 - (void)hide
 {
+    self.show = NO;
     [UIView animateWithDuration:ANIMATION_DURATION
                      animations:^{
                          self.containerButton.alpha = ZERO;

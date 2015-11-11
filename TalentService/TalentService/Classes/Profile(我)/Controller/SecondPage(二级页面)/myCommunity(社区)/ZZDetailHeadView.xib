@@ -11,10 +11,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="583"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-
-
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jHM-eg-qyf" customClass="ZZHeadImageView">
-
                     <rect key="frame" x="10" y="11" width="40" height="40"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="fQg-dr-hyN"/>
@@ -87,10 +84,7 @@
                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
-
-
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Max-iq-B2a">
-
+                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Max-iq-B2a">
                             <rect key="frame" x="310" y="290" width="55" height="22"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="22" id="SLz-1a-7LE"/>
@@ -179,7 +173,4 @@
             <point key="canvasLocation" x="571.5" y="50.5"/>
         </view>
     </objects>
-    <resources>
-        <image name="great_20x20" width="20" height="20"/>
-    </resources>
 </document>

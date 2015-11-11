@@ -12,7 +12,10 @@
 #import "ZZTopicDetailCell.h"
 #import "ZZReplayDetailVC.h"
 #import "ZZIQKeyBoardTool.h"
-@interface ZZTopicDetailVC ()<UITableViewDataSource,UITableViewDelegate,UITextViewDelegate>
+#import "MLKMenuPopover.h"
+
+#define MENU_POPOVER_FRAME  CGRectMake(ScreenWidth-8-130, 64, 130, 132)
+@interface ZZTopicDetailVC ()<UITableViewDataSource,UITableViewDelegate,UITextViewDelegate,MLKMenuPopoverDelegate>
 @property (weak, nonatomic) IBOutlet UIView *pageView;
 @property (weak, nonatomic) IBOutlet UISlider *pageSlider;
 @property (weak, nonatomic) IBOutlet UILabel *pageLabel;
@@ -21,6 +24,9 @@
 @property (strong, nonatomic) ZZDetailHeadView *detailHeadView;
 @property (strong, nonatomic) ZZTopicReplayView *topicReplayView;
 @property (nonatomic) BOOL isClicked;
+
+@property(nonatomic,strong) MLKMenuPopover *menuPopover;
+@property(nonatomic,strong) NSArray *menuItems;
 @end
 
 @implementation ZZTopicDetailVC
@@ -45,6 +51,8 @@
     
     self.pageSlider.continuous = YES;
     //默认值为YES设置为YES只要滑轮滚动就会触发change方法设置为NO只有当滑轮停止移动时才会触发change方法
+    
+    self.menuItems = [NSArray arrayWithObjects:@"分享", @"删除", @"举报", nil];
 }
 
 - (void)change {
@@ -74,7 +82,17 @@
 
 - (void)didClickOnMoreaction {
     ZZLog(@"更多");
+    if (self.menuPopover.isShow) {
+        [self.menuPopover dismissMenuPopover];
+    }else{
+         [self.menuPopover showInView:self.navigationController.view];
+    }
     
+//    
+//    self.menuPopover = [[MLKMenuPopover alloc] initWithFrame:MENU_POPOVER_FRAME menuItems:self.menuItems];
+//    
+//    self.menuPopover.menuPopoverDelegate = self;
+   
 }
 
 - (void)didClickOnCollection {
@@ -120,23 +138,43 @@
     [self.topicReplayView removeFromSuperview];
 }
 
+#pragma mark -MLKMenuPopoverDelegate
 
+- (void)menuPopover:(MLKMenuPopover *)menuPopover didSelectMenuItemAtIndex:(NSInteger)selectedIndex
+{
+    [self.menuPopover dismissMenuPopover];
+    
+    NSString *title = [NSString stringWithFormat:@"%@ selected.",[self.menuItems objectAtIndex:selectedIndex]];
+    
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title message:nil delegate:self cancelButtonTitle:nil otherButtonTitles:nil];
+    
+    [alertView show];
+    [alertView  dismissAfter:1];
+}
 #pragma mark -Getters and Setters
 - (ZZDetailHeadView *)detailHeadView {
     if (_detailHeadView == nil) {
-        _detailHeadView = [[[NSBundle  mainBundle]loadNibNamed:@"ZZDetailHeadView" owner:self options:nil]firstObject];
+        _detailHeadView = [[[NSBundle  mainBundle]loadNibNamed:@"ZZDetailHeadView" owner:nil options:nil]firstObject];
     }
     return  _detailHeadView;
 }
 
 - (ZZTopicReplayView *)topicReplayView {
     if (_topicReplayView == nil) {
-        _topicReplayView = [[[NSBundle  mainBundle]loadNibNamed:@"ZZTopicReplayView" owner:self options:nil]firstObject];
+        _topicReplayView = [[[NSBundle  mainBundle]loadNibNamed:@"ZZTopicReplayView" owner:nil options:nil]firstObject];
         _topicReplayView.replayTextView.delegate = self;
     }
     return  _topicReplayView;
 }
 
+-(MLKMenuPopover *)menuPopover{
+    if (_menuPopover == nil) {
+        _menuPopover = [[MLKMenuPopover alloc] initWithFrame:MENU_POPOVER_FRAME menuItems:self.menuItems];
+        _menuPopover.itemImageNames = @[@""];
+        _menuPopover.menuPopoverDelegate = self;
+    }
+    return _menuPopover;
+}
 - (void)dealloc {
     ZZKeyBoardTool(open);
 }
