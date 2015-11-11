@@ -10,7 +10,7 @@
 #import "ZZCommunityCell.h"
 #import "ZZSegmentedControl.h"
 #import "ZZCommunityCellModel.h"
-#import "ZZCommunityDetailVC.h"
+
 @interface ZZCommunityTVC ()
 @property(nonatomic,strong)ZZCommunityCellModel *model;
 @end
@@ -24,9 +24,10 @@
     [self.tableView registerNib:nib forCellReuseIdentifier:communityCelldentifier];
     if (ScreenWidth == 320) {
         self.tableView.rowHeight = 280;
-        
-    } else if (ScreenWidth >375) {
-        self.tableView.rowHeight = 270;
+    } else if (ScreenWidth == 375) {
+        self.tableView.rowHeight = 300;
+    } else {
+        self.tableView.rowHeight = 315;
     }
     
     
@@ -60,8 +61,7 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    ZZCommunityDetailVC *communityTvc = [[ZZCommunityDetailVC alloc]initWithNib];
-    [self.navigationController pushViewController:communityTvc animated:YES];
+
 }
 
 /*

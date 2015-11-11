@@ -14,7 +14,7 @@
     ZZParam *param = [[ZZParam alloc]init];
     param.cmd = @"smart/system/dictList";
     param.parameters = @{@"typeCode":@"topicType"};
-    
+    param.token = [ZZLoginTool loginToken];
     [ZZHttpTool  afPostByApiName:@"" Params:param success:^(ZZBottomNetResult *json) {
         
         NSArray *topicTypes = [ZZTopicType  objectArrayWithKeyValuesArray:json.response.data];
