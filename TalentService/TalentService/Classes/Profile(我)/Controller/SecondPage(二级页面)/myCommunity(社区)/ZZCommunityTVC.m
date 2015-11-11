@@ -23,9 +23,10 @@
     [self.tableView registerNib:nib forCellReuseIdentifier:communityCelldentifier];
     if (ScreenWidth == 320) {
         self.tableView.rowHeight = 280;
-        
-    } else if (ScreenWidth >375) {
-        self.tableView.rowHeight = 270;
+    } else if (ScreenWidth == 375) {
+        self.tableView.rowHeight = 300;
+    } else {
+        self.tableView.rowHeight = 315;
     }
     
     

@@ -11,11 +11,12 @@
 #import "ZZPublishTopicVC.h"
 #import "ZZSIzeFitButton.h"
 #import "ZZTopicSelectView.h"
-#import "ZZCommunityDetailVC.h"
+#import "ZZTopicDetailVC.h"
 #import "ZZCommunityTypeVC.h"
-@interface ZZTopicForumTVC ()
-
+@interface ZZTopicForumTVC ()<topicTypeDelegete>
 @property (strong, nonatomic) ZZTopicSelectView *selecteView;
+
+@property (nonatomic)NSInteger topicType;
 @end
 
 @implementation ZZTopicForumTVC
@@ -40,8 +41,15 @@
 - (void)didClickOnChooseType {
     ZZLog(@"选择话题");
     ZZCommunityTypeVC *communityTypeVc = [[ZZCommunityTypeVC alloc]initWithNib];
+    communityTypeVc.delegate = self;
     [self.navigationController pushViewController:communityTypeVc animated:YES];
 }
+
+- (void) getTopicType: (NSInteger)topicType {
+    self.topicType = topicType;
+    ZZLog(@"话题%ld",(long)self.topicType);
+}
+
 /**发布新话题*/
 - (void)publishTopic{
     ZZPublishTopicVC *pvc = [[ZZPublishTopicVC  alloc]init];
@@ -75,7 +83,9 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView  deselectRowAtIndexPath:indexPath animated:YES];
-    ZZCommunityDetailVC *communityTvc = [[ZZCommunityDetailVC alloc]initWithNib];
+    
+    ZZLog(@"时间: %@",[NSDate date]);
+    ZZTopicDetailVC *communityTvc = [[ZZTopicDetailVC alloc]initWithNib];
     [self.navigationController pushViewController:communityTvc animated:YES];
 }
 

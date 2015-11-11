@@ -20,11 +20,12 @@
 
 +(void)close{
     [IQKeyboardManager sharedManager].enable = NO;
+       [IQKeyboardManager sharedManager].enableAutoToolbar = NO;
 }
 +(void)open{
  
     [IQKeyboardManager sharedManager].enable = YES;
-  
+     [IQKeyboardManager sharedManager].enableAutoToolbar = YES;
 }
 
 @end

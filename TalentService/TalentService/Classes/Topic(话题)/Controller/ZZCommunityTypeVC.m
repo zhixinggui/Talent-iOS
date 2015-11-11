@@ -71,7 +71,9 @@
 //UICollectionView被选中时调用的方法
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    ZZLog(@"%ld",(long)indexPath.item);
+    [self.delegate getTopicType:indexPath.item];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 //返回这个UICollectionView是否可以被选择

@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ZZCommunityTypeVC : UIViewController
+@protocol topicTypeDelegete <NSObject>
 
+- (void) getTopicType: (NSInteger)topicType;
+
+@end
+
+
+@interface ZZCommunityTypeVC : UIViewController
+@property (nonatomic, weak)id<topicTypeDelegete> delegate;
 @end

@@ -132,17 +132,17 @@
     NSRange range = NSMakeRange(0,self.length);
     [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:range];
 //    //字体大小
-//    if (font) {
-//        [attributedString  addAttributes:@{NSFontAttributeName:font} range:range];
-//    }
-//    if (color) {
-//        [attributedString  addAttributes:@{NSForegroundColorAttributeName :color} range:range];
-//    }
-//    //字间距
-//    long number = ZZCharSpace;
-//    CFNumberRef num = CFNumberCreate(kCFAllocatorDefault,kCFNumberSInt8Type,&number);
-//    [attributedString addAttribute:NSKernAttributeName value:(__bridge id)num range:range];
-//    CFRelease(num);
+    if (font) {
+        [attributedString  addAttributes:@{NSFontAttributeName:font} range:range];
+    }
+    if (color) {
+        [attributedString  addAttributes:@{NSForegroundColorAttributeName :color} range:range];
+    }
+    //字间距
+    long number = ZZCharSpace;
+    CFNumberRef num = CFNumberCreate(kCFAllocatorDefault,kCFNumberSInt8Type,&number);
+    [attributedString addAttribute:NSKernAttributeName value:(__bridge id)num range:range];
+    CFRelease(num);
     
     return attributedString;
 }
