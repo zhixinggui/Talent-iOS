@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "ZZTopicType.h"
 @protocol topicTypeDelegete <NSObject>
 
-- (void) getTopicType: (NSInteger)topicType;
+- (void) getTopicType: (ZZTopicType *)topicType;
 
 @end
 

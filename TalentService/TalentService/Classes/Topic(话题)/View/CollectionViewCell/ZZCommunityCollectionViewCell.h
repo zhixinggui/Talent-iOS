@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ZZTopicType.h"
+
 #define communityCollectionViewCellCelldentifier @"communityCollectionViewCellCelldentifier"
 @interface ZZCommunityCollectionViewCell : UICollectionViewCell
 
-
+@property (nonatomic ,strong) ZZTopicType *topicType;
 @end

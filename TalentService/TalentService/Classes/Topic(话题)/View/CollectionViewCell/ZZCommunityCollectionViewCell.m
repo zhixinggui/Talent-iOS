@@ -8,10 +8,19 @@
 
 #import "ZZCommunityCollectionViewCell.h"
 
+@interface ZZCommunityCollectionViewCell ()
+
+@property (weak, nonatomic) IBOutlet UILabel *topicLabel;
+@end
+
 @implementation ZZCommunityCollectionViewCell
 
 - (void)awakeFromNib {
 
 }
 
+- (void)setTopicType:(ZZTopicType *)topicType {
+    _topicType = topicType;
+    self.topicLabel.text = topicType.name;
+}
 @end
