@@ -8,12 +8,19 @@
 
 #import "ZZCommunityTypeVC.h"
 #import "ZZCommunityCollectionViewCell.h"
+#import "ZZTopicHtttpTool.h"
 @interface ZZCommunityTypeVC ()<UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 @property (weak, nonatomic) IBOutlet UICollectionView *communityCv;
-
+@property (nonatomic, strong) NSArray *topicTypeArray;
 @end
 
 @implementation ZZCommunityTypeVC
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self getNetDataWithTopicType];
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -21,8 +28,20 @@
     self.communityCv.dataSource=self;
     self.communityCv.delegate=self;
     [self.communityCv setBackgroundColor:[UIColor clearColor]];
-    //注册Cell，必须要有
-    [self.communityCv registerClass:[ZZCommunityCollectionViewCell class] forCellWithReuseIdentifier:communityCollectionViewCellCelldentifier];
+    
+}
+
+#pragma mark ------- getNetData -------
+/**话题类型请求*/
+- (void)getNetDataWithTopicType {
+    [ZZTopicHtttpTool topicTypesSuccess:^(NSArray *topicTypes, ZZNetDataType netDataType) {
+        if (topicTypes) {
+            self.topicTypeArray = topicTypes;
+            [self.communityCv reloadData];
+        }
+    } failure:^(NSString *error, ZZNetDataType dataType) {
+        
+    }];
 }
 
 #pragma mark -- UICollectionViewDataSource
@@ -36,7 +55,7 @@
 //定义展示的UICollectionViewCell的个数
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 10;
+    return self.topicTypeArray.count;
 }
 
 //每个UICollectionView展示的内容
@@ -45,7 +64,8 @@
                                 bundle: [NSBundle mainBundle]];
     [collectionView registerNib:nib forCellWithReuseIdentifier:communityCollectionViewCellCelldentifier];
     ZZCommunityCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:communityCollectionViewCellCelldentifier forIndexPath:indexPath];
-    
+    cell.topicType = self.topicTypeArray[indexPath.item];
+    ZZLog(@"cell.topicType:%@",cell.topicType);
     return cell;
 }
 
@@ -72,7 +92,8 @@
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     ZZLog(@"%ld",(long)indexPath.item);
-    [self.delegate getTopicType:indexPath.item];
+    ZZTopicType *topicType = self.topicTypeArray[indexPath.item];
+    [self.delegate getTopicType:topicType];
     [self.navigationController popViewControllerAnimated:YES];
 }
 
@@ -87,14 +108,13 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
+#pragma mark -getters and setters
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (NSArray *)topicTypeArray {
+    if (!_topicTypeArray) {
+        _topicTypeArray = [NSArray array];
+    }
+    return _topicTypeArray;
 }
-*/
 
 @end

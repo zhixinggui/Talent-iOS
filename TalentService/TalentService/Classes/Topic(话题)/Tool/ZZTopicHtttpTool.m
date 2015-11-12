@@ -24,4 +24,18 @@
         failure(error,netDataType);
     }];
 }
+
++(void)topicListWithTopicType:(ZZTopicParam *)topicParam Success:(void (^)(ZZTopicResult *, ZZNetDataType))success failure:(void (^)(NSString *, ZZNetDataType))failure {
+    ZZParam *param = [[ZZParam alloc]init];
+    param.cmd = @"smart/topic/getPage";
+    param.parameters = [topicParam keyValues];;
+    param.token = [ZZLoginTool loginToken];
+    [ZZHttpTool afPostByApiName:@"" Params:param success:^(ZZBottomNetResult *json) {
+        ZZTopicResult *topicResult = [ZZTopicResult  objectWithKeyValues:json.response.data];
+        success(topicResult,ZZNetDataTypeSuccServer);
+    } failure:^(NSString *error, ZZNetDataType netDataType) {
+        
+        failure(error,netDataType);
+    }];
+}
 @end

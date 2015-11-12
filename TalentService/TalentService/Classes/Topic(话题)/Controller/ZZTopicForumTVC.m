@@ -12,13 +12,21 @@
 #import "ZZSIzeFitButton.h"
 #import "ZZTopicDetailVC.h"
 #import "ZZTopicSearchVC.h"
-
+#import "ZZTopicHtttpTool.h"
 #import "ZZCommunityTypeVC.h"
-
-@interface ZZTopicForumTVC ()<UISearchBarDelegate>
+#import "MJRefresh.h"
+#import "ZZHudView.h"
+#define labelHeight 43
+#define imageHeight (ScreenWidth - 50)/3
+@interface ZZTopicForumTVC ()<UISearchBarDelegate,topicTypeDelegete>
 
 @property (strong, nonatomic) UISearchBar *searchView;
-@property (nonatomic)NSInteger topicType;
+
+@property (strong, nonatomic) UIButton *communityBT;
+
+@property (strong, nonatomic) NSMutableArray *topicListArray;
+
+@property (nonatomic, strong)ZZTopicResult *topicResult;
 @end
 
 @implementation ZZTopicForumTVC
@@ -26,15 +34,33 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = ZZViewBackColor;
-    UIButton *communityBT = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 60, 22)];
-    [communityBT setTitle:@"话题⬇️" forState:UIControlStateNormal];
-    communityBT.titleLabel.font = [UIFont boldSystemFontOfSize:18];
-    [communityBT addTarget:self action:@selector(didClickOnChooseType) forControlEvents:UIControlEventTouchUpInside];
-    self.navigationItem.titleView = communityBT;
+    self.communityBT = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 60, 22)];
+    [self.communityBT setTitle:@"话题⬇️" forState:UIControlStateNormal];
+    self.communityBT.titleLabel.font = [UIFont boldSystemFontOfSize:18];
+    [self.communityBT addTarget:self action:@selector(didClickOnChooseType) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.titleView = self.communityBT;
     [self  setTableViewProperty];
     [self rigthNavigationItem];
-    
+    [self getNetDataTopicListWithTopicType:@""];
 }
+/**话题请求*/
+- (void)getNetDataTopicListWithTopicType:(NSString *)topicType {
+    [MBProgressHUD showMessage:@"正在加载中..." toView:self.view];
+    ZZTopicParam *topicParam = [[ZZTopicParam alloc]init];
+    topicParam.topicType = @"";
+    topicParam.numberOfPerPage = @(10);
+    topicParam.pageNo = @(0);
+    [ZZTopicHtttpTool topicListWithTopicType:topicParam Success:^(ZZTopicResult *topicResult, ZZNetDataType netDataType) {
+        [MBProgressHUD  hideHUDForView:self.view];
+        self.topicResult = topicResult;
+        [self.topicListArray addObjectsFromArray:topicResult.rows];
+        [self.tableView reloadData];
+    } failure:^(NSString *error, ZZNetDataType dataType) {
+        [self.tableView.footer  endRefreshing];
+        [ZZHudView  showMessage:error time:3 toView:self.view];
+    }];
+}
+
 
 - (void)rigthNavigationItem{
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem  alloc]initWithTitle:@"发布" style:UIBarButtonItemStyleDone target:self action:@selector(publishTopic)];
@@ -48,9 +74,9 @@
     [self.navigationController pushViewController:communityTypeVc animated:YES];
 }
 
-- (void) getTopicType: (NSInteger)topicType {
-    self.topicType = topicType;
-    ZZLog(@"话题%ld",(long)self.topicType);
+- (void) getTopicType: (ZZTopicType *)topicType {
+
+    [self.communityBT setTitle:topicType.name];
 }
 
 /**发布新话题*/
@@ -64,24 +90,36 @@
     UINib* nib = [UINib nibWithNibName:@"ZZCommunityCell" bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:communityCelldentifier];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    if (ScreenWidth == 320) {
-        self.tableView.rowHeight = 280;
-    } else if (ScreenWidth == 375) {
-        self.tableView.rowHeight = 300;
-    } else {
-        self.tableView.rowHeight = 315;
-    }
+
+//    //底部刷新
+//    self.tableView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(getNetDataTopicListWithTopicType:)];
+//    
+//    //头部刷新
+//    self.tableView.header =  [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(getNetDataTopicListWithTopicType:)];
 }
+
 
 #pragma mark - Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    return self.topicListArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ZZCommunityCell *cell = [tableView dequeueReusableCellWithIdentifier:communityCelldentifier forIndexPath:indexPath];
+    cell.topic = self.topicListArray[indexPath.row];
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    ZZTopic *topic = self.topicListArray[indexPath.row];
+   if (topic.contents && !topic.topicImgList.count) {
+        return 192;
+    } else if (!topic.contents && topic.topicImgList.count) {
+        return 150 + imageHeight;
+    } else {
+        return 192 + imageHeight;
+    }
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -116,5 +154,21 @@
        // _searchView.prompt = @"搜索";
     }
     return _searchView;
+}
+
+- (NSMutableArray *)topicListArray {
+    if (!_topicListArray) {
+        _topicListArray = [NSMutableArray  array];
+    }
+    return _topicListArray;
+}
+
+- (void)setTopicResult:(ZZTopicResult *)topicResult {
+    _topicResult = topicResult;
+    if (topicResult.page == topicResult.total) {
+        [self.tableView.footer endRefreshingWithNoMoreData];
+    }else{
+        [self.tableView.footer resetNoMoreData];
+    }
 }
 @end

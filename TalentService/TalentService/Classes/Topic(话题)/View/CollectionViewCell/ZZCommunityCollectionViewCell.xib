@@ -13,7 +13,7 @@
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="100" height="40"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="畅聊天地" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pbw-7f-P6y">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="畅聊天地" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="pbw-7f-P6y">
                         <rect key="frame" x="0.0" y="0.0" width="100" height="40"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                         <color key="textColor" red="0.99607843139999996" green="0.52941176469999995" blue="0.62745098040000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -29,6 +29,9 @@
                 <constraint firstAttribute="bottom" secondItem="pbw-7f-P6y" secondAttribute="bottom" id="coP-zk-JgF"/>
                 <constraint firstItem="pbw-7f-P6y" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="n82-OA-AfV"/>
             </constraints>
+            <connections>
+                <outlet property="topicLabel" destination="pbw-7f-P6y" id="IMZ-GU-D0m"/>
+            </connections>
         </collectionViewCell>
     </objects>
 </document>

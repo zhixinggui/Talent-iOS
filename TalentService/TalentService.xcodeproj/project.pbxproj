@@ -25,6 +25,9 @@
 		560662841BF1B7F900328BE3 /* ZZTopicDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 560662821BF1B7F900328BE3 /* ZZTopicDetailVC.xib */; };
 		560662871BF1C0BF00328BE3 /* ZZTopicReplayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 560662861BF1C0BF00328BE3 /* ZZTopicReplayView.m */; };
 		560662891BF1C0D300328BE3 /* ZZTopicReplayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 560662881BF1C0D300328BE3 /* ZZTopicReplayView.xib */; };
+		5606628D1BF3074900328BE3 /* ZZTopicResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 5606628C1BF3074900328BE3 /* ZZTopicResult.m */; };
+		560662901BF3094100328BE3 /* ZZTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = 5606628F1BF3094100328BE3 /* ZZTopic.m */; };
+		560662931BF30D2100328BE3 /* ZZTopicImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 560662921BF30D2100328BE3 /* ZZTopicImage.m */; };
 		5607DA7C1B831DB000803EE5 /* ZZFirstLoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5607DA7A1B831DB000803EE5 /* ZZFirstLoginVC.m */; };
 		5607DA7D1B831DB000803EE5 /* ZZFirstLoginVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5607DA7B1B831DB000803EE5 /* ZZFirstLoginVC.xib */; };
 		561185611BEA1A8800CBBD54 /* ZZTopicDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5611855F1BEA1A8800CBBD54 /* ZZTopicDetailCell.m */; };
@@ -61,6 +64,7 @@
 		562DCA931BD9CE300042B7EF /* ZZOrderPayTypeTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 562DCA911BD9CE2F0042B7EF /* ZZOrderPayTypeTVC.xib */; };
 		562DCA981BD9D43E0042B7EF /* ZZOrderPayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 562DCA961BD9D43E0042B7EF /* ZZOrderPayCell.m */; };
 		562DCA991BD9D43E0042B7EF /* ZZOrderPayCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 562DCA971BD9D43E0042B7EF /* ZZOrderPayCell.xib */; };
+		5638F4961BF367E900C96288 /* ZZTopicParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 5638F4951BF367E900C96288 /* ZZTopicParam.m */; };
 		56422CC11BE1C1910004D46F /* ZZServicePushNotiFMDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 56422CC01BE1C1910004D46F /* ZZServicePushNotiFMDB.m */; };
 		56422CC41BE1C1B90004D46F /* ZZServiceNotiMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 56422CC31BE1C1B90004D46F /* ZZServiceNotiMessage.m */; };
 		5652D31D1B859A7600A3FB09 /* ZZForgetVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5652D31B1B859A7600A3FB09 /* ZZForgetVC.m */; };
@@ -401,24 +405,30 @@
 		56058F6B1BE99FCA00AC2FF5 /* ZZCommunityCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZCommunityCollectionViewCell.h; sourceTree = "<group>"; };
 		56058F6C1BE99FCA00AC2FF5 /* ZZCommunityCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZCommunityCollectionViewCell.m; sourceTree = "<group>"; };
 		56058F6D1BE99FCA00AC2FF5 /* ZZCommunityCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZZCommunityCollectionViewCell.xib; sourceTree = "<group>"; };
-		560662741BF1A30100328BE3 /* ZZDetailHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZDetailHeadView.h; sourceTree = "<group>"; };
-		560662751BF1A30100328BE3 /* ZZDetailHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZDetailHeadView.m; sourceTree = "<group>"; };
-		560662791BF1A32600328BE3 /* ZZDetailHeadView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZZDetailHeadView.xib; sourceTree = "<group>"; };
-		560662801BF1B7F900328BE3 /* ZZTopicDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZTopicDetailVC.h; sourceTree = "<group>"; };
-		560662811BF1B7F900328BE3 /* ZZTopicDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZTopicDetailVC.m; sourceTree = "<group>"; };
-		560662821BF1B7F900328BE3 /* ZZTopicDetailVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZZTopicDetailVC.xib; sourceTree = "<group>"; };
-		560662851BF1C0BF00328BE3 /* ZZTopicReplayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZTopicReplayView.h; sourceTree = "<group>"; };
-		560662861BF1C0BF00328BE3 /* ZZTopicReplayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZTopicReplayView.m; sourceTree = "<group>"; };
-		560662881BF1C0D300328BE3 /* ZZTopicReplayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZZTopicReplayView.xib; sourceTree = "<group>"; };
+		560662741BF1A30100328BE3 /* ZZDetailHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZZDetailHeadView.h; path = "../../Profile(我)/Controller/SecondPage(二级页面)/myCommunity(社区)/ZZDetailHeadView.h"; sourceTree = "<group>"; };
+		560662751BF1A30100328BE3 /* ZZDetailHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZZDetailHeadView.m; path = "../../Profile(我)/Controller/SecondPage(二级页面)/myCommunity(社区)/ZZDetailHeadView.m"; sourceTree = "<group>"; };
+		560662791BF1A32600328BE3 /* ZZDetailHeadView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ZZDetailHeadView.xib; path = "../../Profile(我)/Controller/SecondPage(二级页面)/myCommunity(社区)/ZZDetailHeadView.xib"; sourceTree = "<group>"; };
+		560662801BF1B7F900328BE3 /* ZZTopicDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZZTopicDetailVC.h; path = "../../Profile(我)/Controller/SecondPage(二级页面)/myCommunity(社区)/ZZTopicDetailVC.h"; sourceTree = "<group>"; };
+		560662811BF1B7F900328BE3 /* ZZTopicDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZZTopicDetailVC.m; path = "../../Profile(我)/Controller/SecondPage(二级页面)/myCommunity(社区)/ZZTopicDetailVC.m"; sourceTree = "<group>"; };
+		560662821BF1B7F900328BE3 /* ZZTopicDetailVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ZZTopicDetailVC.xib; path = "../../Profile(我)/Controller/SecondPage(二级页面)/myCommunity(社区)/ZZTopicDetailVC.xib"; sourceTree = "<group>"; };
+		560662851BF1C0BF00328BE3 /* ZZTopicReplayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZZTopicReplayView.h; path = "../../Profile(我)/Controller/SecondPage(二级页面)/myCommunity(社区)/ZZTopicReplayView.h"; sourceTree = "<group>"; };
+		560662861BF1C0BF00328BE3 /* ZZTopicReplayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZZTopicReplayView.m; path = "../../Profile(我)/Controller/SecondPage(二级页面)/myCommunity(社区)/ZZTopicReplayView.m"; sourceTree = "<group>"; };
+		560662881BF1C0D300328BE3 /* ZZTopicReplayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ZZTopicReplayView.xib; path = "../../Profile(我)/Controller/SecondPage(二级页面)/myCommunity(社区)/ZZTopicReplayView.xib"; sourceTree = "<group>"; };
+		5606628B1BF3074900328BE3 /* ZZTopicResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZTopicResult.h; sourceTree = "<group>"; };
+		5606628C1BF3074900328BE3 /* ZZTopicResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZTopicResult.m; sourceTree = "<group>"; };
+		5606628E1BF3094100328BE3 /* ZZTopic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZTopic.h; sourceTree = "<group>"; };
+		5606628F1BF3094100328BE3 /* ZZTopic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZTopic.m; sourceTree = "<group>"; };
+		560662911BF30D2100328BE3 /* ZZTopicImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZTopicImage.h; sourceTree = "<group>"; };
+		560662921BF30D2100328BE3 /* ZZTopicImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZTopicImage.m; sourceTree = "<group>"; };
 		5607DA791B831DB000803EE5 /* ZZFirstLoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZFirstLoginVC.h; sourceTree = "<group>"; };
 		5607DA7A1B831DB000803EE5 /* ZZFirstLoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZFirstLoginVC.m; sourceTree = "<group>"; };
 		5607DA7B1B831DB000803EE5 /* ZZFirstLoginVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZZFirstLoginVC.xib; sourceTree = "<group>"; };
 		5611855E1BEA1A8800CBBD54 /* ZZTopicDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZTopicDetailCell.h; sourceTree = "<group>"; };
 		5611855F1BEA1A8800CBBD54 /* ZZTopicDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZTopicDetailCell.m; sourceTree = "<group>"; };
 		561185601BEA1A8800CBBD54 /* ZZTopicDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZZTopicDetailCell.xib; sourceTree = "<group>"; };
-		5611856D1BEB46BF00CBBD54 /* ZZReplayDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZReplayDetailVC.h; sourceTree = "<group>"; };
-		5611856E1BEB46BF00CBBD54 /* ZZReplayDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZReplayDetailVC.m; sourceTree = "<group>"; };
-		5611856F1BEB46BF00CBBD54 /* ZZReplayDetailVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZZReplayDetailVC.xib; sourceTree = "<group>"; };
+		5611856D1BEB46BF00CBBD54 /* ZZReplayDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZZReplayDetailVC.h; path = "../../Profile(我)/Controller/SecondPage(二级页面)/myCommunity(社区)/ZZReplayDetailVC.h"; sourceTree = "<group>"; };
+		5611856E1BEB46BF00CBBD54 /* ZZReplayDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZZReplayDetailVC.m; path = "../../Profile(我)/Controller/SecondPage(二级页面)/myCommunity(社区)/ZZReplayDetailVC.m"; sourceTree = "<group>"; };
+		5611856F1BEB46BF00CBBD54 /* ZZReplayDetailVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ZZReplayDetailVC.xib; path = "../../Profile(我)/Controller/SecondPage(二级页面)/myCommunity(社区)/ZZReplayDetailVC.xib"; sourceTree = "<group>"; };
 		561185721BEB4A3500CBBD54 /* ZZReplayCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZReplayCell.h; sourceTree = "<group>"; };
 		561185731BEB4A3500CBBD54 /* ZZReplayCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZReplayCell.m; sourceTree = "<group>"; };
 		561185741BEB4A3500CBBD54 /* ZZReplayCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZZReplayCell.xib; sourceTree = "<group>"; };
@@ -462,6 +472,8 @@
 		562DCA951BD9D43E0042B7EF /* ZZOrderPayCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZOrderPayCell.h; sourceTree = "<group>"; };
 		562DCA961BD9D43E0042B7EF /* ZZOrderPayCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZOrderPayCell.m; sourceTree = "<group>"; };
 		562DCA971BD9D43E0042B7EF /* ZZOrderPayCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZZOrderPayCell.xib; sourceTree = "<group>"; };
+		5638F4941BF367E900C96288 /* ZZTopicParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZTopicParam.h; sourceTree = "<group>"; };
+		5638F4951BF367E900C96288 /* ZZTopicParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZTopicParam.m; sourceTree = "<group>"; };
 		56422CBF1BE1C1910004D46F /* ZZServicePushNotiFMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZServicePushNotiFMDB.h; sourceTree = "<group>"; };
 		56422CC01BE1C1910004D46F /* ZZServicePushNotiFMDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZServicePushNotiFMDB.m; sourceTree = "<group>"; };
 		56422CC21BE1C1B90004D46F /* ZZServiceNotiMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZServiceNotiMessage.h; sourceTree = "<group>"; };
@@ -1488,18 +1500,6 @@
 				56C652021BB2715F009890B4 /* ZZCommunityTVC.h */,
 				56C652031BB2715F009890B4 /* ZZCommunityTVC.m */,
 				56C652041BB2715F009890B4 /* ZZCommunityTVC.xib */,
-				560662801BF1B7F900328BE3 /* ZZTopicDetailVC.h */,
-				560662811BF1B7F900328BE3 /* ZZTopicDetailVC.m */,
-				560662821BF1B7F900328BE3 /* ZZTopicDetailVC.xib */,
-				560662741BF1A30100328BE3 /* ZZDetailHeadView.h */,
-				560662751BF1A30100328BE3 /* ZZDetailHeadView.m */,
-				560662791BF1A32600328BE3 /* ZZDetailHeadView.xib */,
-				560662851BF1C0BF00328BE3 /* ZZTopicReplayView.h */,
-				560662861BF1C0BF00328BE3 /* ZZTopicReplayView.m */,
-				560662881BF1C0D300328BE3 /* ZZTopicReplayView.xib */,
-				5611856D1BEB46BF00CBBD54 /* ZZReplayDetailVC.h */,
-				5611856E1BEB46BF00CBBD54 /* ZZReplayDetailVC.m */,
-				5611856F1BEB46BF00CBBD54 /* ZZReplayDetailVC.xib */,
 			);
 			name = "myCommunity(我的社区)";
 			path = "myCommunity(社区)";
@@ -1602,6 +1602,8 @@
 			children = (
 				6E0755D91BF1B806008CE6D4 /* ZZTopicHtttpTool.h */,
 				6E0755DA1BF1B806008CE6D4 /* ZZTopicHtttpTool.m */,
+				5638F4941BF367E900C96288 /* ZZTopicParam.h */,
+				5638F4951BF367E900C96288 /* ZZTopicParam.m */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -1611,6 +1613,12 @@
 			children = (
 				6E0755DD1BF1BA33008CE6D4 /* ZZTopicType.h */,
 				6E0755DE1BF1BA33008CE6D4 /* ZZTopicType.m */,
+				5606628B1BF3074900328BE3 /* ZZTopicResult.h */,
+				5606628C1BF3074900328BE3 /* ZZTopicResult.m */,
+				5606628E1BF3094100328BE3 /* ZZTopic.h */,
+				5606628F1BF3094100328BE3 /* ZZTopic.m */,
+				560662911BF30D2100328BE3 /* ZZTopicImage.h */,
+				560662921BF30D2100328BE3 /* ZZTopicImage.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2753,6 +2761,12 @@
 			children = (
 				6E0755E41BF1DC18008CE6D4 /* Search */,
 				6E6463581BD361EF0087078B /* publish(发布) */,
+				560662801BF1B7F900328BE3 /* ZZTopicDetailVC.h */,
+				560662811BF1B7F900328BE3 /* ZZTopicDetailVC.m */,
+				560662821BF1B7F900328BE3 /* ZZTopicDetailVC.xib */,
+				5611856D1BEB46BF00CBBD54 /* ZZReplayDetailVC.h */,
+				5611856E1BEB46BF00CBBD54 /* ZZReplayDetailVC.m */,
+				5611856F1BEB46BF00CBBD54 /* ZZReplayDetailVC.xib */,
 				6E3C5E061B96F2ED004BEAD3 /* ZZTopicForumTVC.h */,
 				6E3C5E071B96F2ED004BEAD3 /* ZZTopicForumTVC.m */,
 				56058F651BE8CEEE00AC2FF5 /* ZZCommunityTypeVC.h */,
@@ -2911,6 +2925,12 @@
 			isa = PBXGroup;
 			children = (
 				6EB3D94C1BF2D773009B00A2 /* Search */,
+				560662741BF1A30100328BE3 /* ZZDetailHeadView.h */,
+				560662751BF1A30100328BE3 /* ZZDetailHeadView.m */,
+				560662791BF1A32600328BE3 /* ZZDetailHeadView.xib */,
+				560662851BF1C0BF00328BE3 /* ZZTopicReplayView.h */,
+				560662861BF1C0BF00328BE3 /* ZZTopicReplayView.m */,
+				560662881BF1C0D300328BE3 /* ZZTopicReplayView.xib */,
 				56058F6A1BE99FA400AC2FF5 /* CollectionViewCell */,
 				6EA37C4C1BD482AF00A5B836 /* ZZTopicImageCell.h */,
 				6EA37C4D1BD482AF00A5B836 /* ZZTopicImageCell.m */,
@@ -3404,6 +3424,7 @@
 				6E733EB81BB24D1000700907 /* ZZActivityConmitParam.m in Sources */,
 				561185791BEC999F00CBBD54 /* MLKMenuPopover.m in Sources */,
 				569D69481BD7B8A500C244B0 /* DataSigner.m in Sources */,
+				5606628D1BF3074900328BE3 /* ZZTopicResult.m in Sources */,
 				6E3C5E081B96F2ED004BEAD3 /* ZZTopicForumTVC.m in Sources */,
 				569D69491BD7B8A500C244B0 /* DataVerifier.m in Sources */,
 				6E7F591C1BA157C300191BC0 /* ZZHomeHttpTool.m in Sources */,
@@ -3468,6 +3489,7 @@
 				56A0E5291BCF809D0040AE4F /* ZZMyEvaluationCell.m in Sources */,
 				566A00AF1BA69A7A00128DFE /* ZZInfoCell.m in Sources */,
 				6E7EF3BE1BB40CB600DC11FF /* ZZMyGoldVC.m in Sources */,
+				560662931BF30D2100328BE3 /* ZZTopicImage.m in Sources */,
 				6E7FA4631BCF820A0003FF06 /* ZZAboutAppVC.m in Sources */,
 				5618A9161BA94E83003ECC2D /* ZZSexSelector.m in Sources */,
 				6E4C40E61B9046E600937CB1 /* ZZSeeOrderVC.m in Sources */,
@@ -3577,6 +3599,7 @@
 				569D694E1BD7B8A500C244B0 /* RSADataVerifier.m in Sources */,
 				6E7F59061BA1575D00191BC0 /* ZZConst.m in Sources */,
 				6E2B80311BA1B52A004CA827 /* ZZJoinOrderCell.m in Sources */,
+				5638F4961BF367E900C96288 /* ZZTopicParam.m in Sources */,
 				6E7F59051BA1575D00191BC0 /* AppDelegate.m in Sources */,
 				6E85FDB01BD730C800B6D484 /* ZZPgyTool.m in Sources */,
 				6E7669091BAFF87A001F8A32 /* ZZMoreTalentController.m in Sources */,
@@ -3606,6 +3629,7 @@
 				56227AC31BA6B9A800813C09 /* ZZCollectCommunityTVC.m in Sources */,
 				6E7F58F11BA1575D00191BC0 /* UIButton+Extension.m in Sources */,
 				56C6521B1BB28772009890B4 /* ZZAttentionResult.m in Sources */,
+				560662901BF3094100328BE3 /* ZZTopic.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

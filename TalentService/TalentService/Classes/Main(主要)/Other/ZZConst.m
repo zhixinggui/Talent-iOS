@@ -10,9 +10,9 @@
 
 /**网络本地测试请求地址*/
 
-//NSString * const baseUrl = @"http://192.168.100.174:8081/wine-rest/cgi";
+NSString * const baseUrl = @"http://192.168.100.120:8081/wine-rest/cgi";
 /**网络阿里云请求地址*/
-NSString * const baseUrl = @"http://mengbaopai.smart-kids.com:82/wine-rest/cgi";
+//NSString * const baseUrl = @"http://mengbaopai.smart-kids.com:82/wine-rest/cgi";
 
 /**网络请求时长*/
 NSTimeInterval const responseTime = 60;

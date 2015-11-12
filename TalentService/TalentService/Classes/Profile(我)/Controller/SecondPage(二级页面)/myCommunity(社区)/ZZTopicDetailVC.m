@@ -44,8 +44,10 @@
     [self setNaviRightButtonItems];
     self.detailTvc.tableHeaderView = self.detailHeadView;
     self.pageView.hidden = YES;
-    self.pageSlider.minimumValue = 0;  //设置滑轮所能滚动到的最小值
-    self.pageSlider.maximumValue = 10;  //设置滑轮所能滚动到的最大值
+    self.pageSlider.minimumValue = 1;  //设置滑轮所能滚动到的最小值
+    self.pageSlider.maximumValue = 2;  //设置滑轮所能滚动到的最大值
+    self.pageLabel.text = [NSString stringWithFormat:@"第%ld/%ld页",(long)self.pageSlider.minimumValue,(long)self.pageSlider.maximumValue];
+    
     [self.pageSlider addTarget:self action:@selector(change) forControlEvents:UIControlEventValueChanged];
     //为slider添加方法当slider的值改变时就会触发change方法
     

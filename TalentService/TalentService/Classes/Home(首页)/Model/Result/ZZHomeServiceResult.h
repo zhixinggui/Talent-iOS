@@ -9,13 +9,5 @@
 #import <Foundation/Foundation.h>
 #import "ZZBaseResult.h"
 @interface ZZHomeServiceResult : ZZBaseResult
-///** 页数  */
-//@property (nonatomic)NSInteger page;
-///** 记录数  */
-//@property (nonatomic)NSInteger records;
-///** 列表  */
-//@property (nonatomic, strong) NSArray *rows;
-///** 总共多少  */
-//@property (nonatomic)NSInteger total;
 
 @end
