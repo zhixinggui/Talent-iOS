@@ -25,7 +25,7 @@
 
 #define numberOfpage 10
 @interface ZZInfoDetailVC ()<UITableViewDataSource,UITableViewDelegate,ZZSegmentedControlDelegate>
-@property(nonatomic,strong)ZZOtherUser *loginUser;
+@property(nonatomic,strong)ZZLoginUser *loginUser;
 @property (weak, nonatomic) IBOutlet UIView *headView;
 @property (weak, nonatomic) IBOutlet UITableView *infoDetailTableView;
 @property (weak, nonatomic) IBOutlet UIImageView *backGroungIV;
@@ -98,7 +98,7 @@
  *  请求用户信息
  */
 - (void)getUserInfoNetData {
-    [ZZMyInfoHttpTool getMyInfoWithUserAttentionId:@(self.userAttentionId) andMyCenter:@(1) success:^(ZZOtherUser *infoUser, ZZNetDataType dataType) {
+    [ZZMyInfoHttpTool getMyInfoWithUserAttentionId:@(self.userAttentionId) andMyCenter:@(1) success:^(ZZLoginUser *infoUser, ZZNetDataType dataType) {
         self.loginUser = infoUser;
         ZZLog(@"你妹啊infoUser:%ld",(unsigned long)self.loginUser.userId);
         [self.headIV  setHeadImageWithURL:infoUser.userSmallImg];

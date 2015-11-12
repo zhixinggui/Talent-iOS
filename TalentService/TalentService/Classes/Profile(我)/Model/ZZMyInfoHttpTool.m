@@ -21,7 +21,8 @@
  *  @param success         <#success description#>
  *  @param failure         <#failure description#>
  */
-+(void)getMyInfoWithUserAttentionId:(NSNumber *)userAttentionId andMyCenter:(NSNumber *)myCenter success:(void (^)(ZZOtherUser *loginUser, ZZNetDataType))success failure:(failureBlock)failure{
++(void)getMyInfoWithUserAttentionId:(NSNumber *)userAttentionId andMyCenter:(NSNumber *)myCenter success:(void (^)(ZZLoginUser *loginUser, ZZNetDataType))success failure:(failureBlock)failure{
+    
     ZZInfoParam *infoParam = [[ZZInfoParam alloc]init];
     infoParam.cmd = @"smart/personal/getPersonal";
     infoParam.token = [ZZLoginUserTool sharedZZLoginUserTool].loginUser.token;
@@ -36,7 +37,7 @@
     [ZZHttpTool afPostByApiName:@"" Params:infoParam success:^(ZZBottomNetResult *json) {
         ZZLog(@"个人信息Json:%@",json.response.data);
         //解析
-        ZZOtherUser *otherUser = [ZZOtherUser objectWithKeyValues:json.response.data];
+        ZZLoginUser *otherUser = [ZZLoginUser objectWithKeyValues:json.response.data];
         success(otherUser,ZZNetDataTypeSuccServer);
     } failure:^(NSString *error, ZZNetDataType netDataType) {
         failure(error,netDataType);

@@ -8,6 +8,7 @@
 
 #import "ZZSearchUserCell.h"
 #import "HCSStarRatingView.h"
+#import "ZZHeadImageView.h"
 @interface ZZSearchUserCell ()
 @property (weak, nonatomic) IBOutlet ZZHeadImageView *headIV;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
@@ -19,7 +20,7 @@
 @implementation ZZSearchUserCell
 
 - (void)awakeFromNib {
-    // Initialization code
+    self.organLabel.backgroundColor = ZZNatiBarColor;
 }
 
 + (NSString *)searchUserCellIdentifier{

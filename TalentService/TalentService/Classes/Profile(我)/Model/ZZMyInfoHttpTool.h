@@ -27,7 +27,7 @@ typedef void (^failureBlock)(NSString *error , ZZNetDataType datatype);
 /**
  *  个人中心(我的)
  */
-+(void)getMyInfoWithUserAttentionId:(NSNumber *)userAttentionId andMyCenter:(NSNumber *)myCenter success:(void(^)(ZZOtherUser *infoUser, ZZNetDataType dataType))success failure:(failureBlock)failure;
++(void)getMyInfoWithUserAttentionId:(NSNumber *)userAttentionId andMyCenter:(NSNumber *)myCenter success:(void(^)(ZZLoginUser *infoUser, ZZNetDataType dataType))success failure:(failureBlock)failure;
 
 
 /**

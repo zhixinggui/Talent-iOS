@@ -54,13 +54,15 @@
 }
 //创建三方登陆
 - (void)setUpThirdLogin{
- 
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        NSArray*  array = [ZZUMTool  sharedUMTool].loginModels;
-        CGFloat  leftMargin = 20;
-        CGFloat   benWidth = 60;
-        CGFloat  left = (ScreenWidth - 2*leftMargin - array.count*benWidth)/(array.count + 1) ;
-            dispatch_async(dispatch_get_main_queue(), ^{
+    ZZLog(@"%@",[NSThread  currentThread]);
+    
+    ZZLog(@"time:%f",[self  codeBlockCostTime:^{
+//        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            NSArray*  array = [ZZUMTool  sharedUMTool].loginModels;
+            CGFloat  leftMargin = 20;
+            CGFloat   benWidth = 60;
+            CGFloat  left = (ScreenWidth - 2*leftMargin - array.count*benWidth)/(array.count + 1) ;
+//            dispatch_async(dispatch_get_main_queue(), ^{
                 for (int  i = 0; i < array.count; i++) {
                     ZZUMLoginModel *loginModel = array[i];
                     UIButton* loginButton = [[UIButton alloc]initWithFrame:CGRectMake(i*benWidth+left*i+left+leftMargin, ButtonHeight, 60, 60)];
@@ -71,8 +73,10 @@
                     
                     [self.view addSubview:loginButton];
                 }
-            });
-    });
+           // });
+       // });
+    }]);
+
 }
 /**
  *  navigation右button
